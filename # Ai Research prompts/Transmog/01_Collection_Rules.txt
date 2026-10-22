@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): exactly when a transmog appearance is added to a player collection in the 8.3.7 client and server.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Transmog_Rules.txt
+Which actions collect an appearance (loot, vendor purchase, quest reward, craft, mail, trade, equip, bind on equip, bind on pickup, soulbound by a roll), whether the level, class, armour type, weapon proficiency, faction, race or profession must allow the item at that moment, whether the quality matters, and what happens to an item that cannot be used yet when the player later qualifies.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

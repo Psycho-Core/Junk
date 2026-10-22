@@ -1,0 +1,21 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the best level 29 battleground gear for the Rogue class (items only).
+
+ALREADY ESTABLISHED - use it, do not research or repeat it:
+ - The target is the LEVEL 29 twink bracket (the 20-29 battleground bracket). Death Knights and Demon Hunters cannot be twinks at this level and are not in this set. The Allied Races start at level 20 in 8.3.7, so they CAN be level 29 twinks.
+ - A legal item has a required level of 29 or lower (or none) and can be obtained by a level 29 character without an auction house: vendor (including the battleground supply officers), quest reward, dungeon boss drop, battleground or dungeon crate, crafted, heirloom vendor, Darkmoon Faire, world rares with a real drop chance.
+ - No armour type has a level gate in 8.3.7: Warrior and Paladin wear plate, Hunter and Shaman mail, Rogue, Monk and Druid leather, Priest, Mage and Warlock cloth, all from level 1.
+ - Experience is turned off with Behsten (Alliance, entry 35365) or Slahtz (Horde, entry 35364).
+ - Bind-on-account (heirloom) shoulders can take the Mists of Pandaria shoulder enchants, and legs can take leg armor.
+ - Only the level 19 numbers are known: heirlooms were item level 23 at level 19 and scaling gear had item levels 19 to 31. Find out what they are at level 29.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Twink29_Rogue_1_Items.txt
+For each specialization (Assassination, Outlaw, Subtlety): ITEMS FOR EVERY SLOT, up to three lines per slot, best first: SLOT | item name | item id | item level at 29 | required level | source in a few words | tag. Slots: head, neck, shoulders, back, chest, wrists, hands, waist, legs, feet, ring 1, ring 2, trinket 1, trinket 2, main hand, off hand or shield if used, ranged or wand if the slot exists. Take the weapons, rings, trinkets and neck most seriously: they decide a twink. The three options run from the best item to a cheaper or easier one that a real twink would also wear (the bots will be geared from the best set for a few characters and from a mix of the three for the rest). The tag is SOLO if a level 29 can get it alone, ALT if it needs a higher-level character or a profession, RNG if it needs a random upgrade. Give a second id in brackets only where Alliance and Horde differ. Check each item on its Wowhead page (name, item level, required level). No stat weights, no talents, no explanations.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

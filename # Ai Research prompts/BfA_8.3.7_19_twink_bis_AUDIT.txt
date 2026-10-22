@@ -1,0 +1,507 @@
+====================================================================================
+ AUDIT - LEVEL 19 TWINK BEST IN SLOT, PART 1 (WARRIOR)
+ WORLD OF WARCRAFT: BATTLE FOR AZEROTH 8.3.7, BUILD 35662
+====================================================================================
+
+This is the independent check of BfA_8.3.7_19_twink_bis.txt. It is not part of
+the deliverable; it is the record of what was checked, one claim at a time, and
+what failed and had to be corrected.
+
+RESULT
+------------------------------------------------------------------------------------
+  item table rows re-derived from the client ......... 111 scanned, 111 match, 0 differ
+  individual claims checked against client / pages ... 212 checked, 212 pass, 0 fail
+  defects found and fixed .......................... see section F
+
+A. WHAT WAS CHECKED, AND HOW
+------------------------------------------------------------------------------------
+A1 Item rows. Sections 3, 4, 5 and 6 of the deliverable are tables of items.
+   Every row was re-read out of the finished document, matched to its item id,
+   and rebuilt from the 8.3.7 client tables by work/war/audit_bis.py: name,
+   item level, required level, armour, or the damage range and speed, and every
+   single stat. Heirloom rows are rebuilt at the item level a level-19
+   character actually sees (Curve 956 = 23), not at the item level stored in
+   ItemSparse. Result: 111 rows, 111 match.
+A2 Non-item claims. The 212 checks below (work/war/verify_bis.py) each read one
+   table or one page and compare it with one printed sentence or number:
+   proficiency, weapon skills, spell levels, Titan's Grip, the absent
+   Single-Minded Fury, enchant item-level gates, the enchant id behind each
+   scroll, armour kits, inscriptions, consumable levels, removed-item required
+   levels, the "N usable points" arithmetic on every ranked item, and the
+   level of every quest named in section 7.
+A3 Sources. Item sources come from the client Heirloom table (SourceText_lang)
+   or from the item's Wowpedia page at a recorded revision (section D). Quest
+   levels come from the quest page itself at a recorded revision (section D3).
+A4 Nothing in this part is carried over from an earlier task unchecked. The
+   enchant census was rebuilt in this task and every scroll named in the
+   document was re-checked against SpellItemEnchantment (C10, C10b, C10c).
+
+B. EVERY ITEM IN THE DOCUMENT, RE-DERIVED
+------------------------------------------------------------------------------------
+id      name                                 ilvl req armour / weapon                stats
+122245  Polished Helm of Valor               23   0   13 armour                      +6 Str, +6 Int, +9 Sta, +8 Crit
+122667  Eternal Emberfury Talisman           23   0   -                              +4 Str, +6 Sta, +5 Crit
+122355  Polished Spaulders of Valor          23   0   12 armour                      +5 Str, +5 Int, +7 Sta, +6 Crit
+122260  Worn Stoneskin Gargoyle Cape         23   0   2 armour                       +4 Str, +6 Sta, +2 Crit, +2 Haste
+122381  Polished Breastplate of Valor        23   1   16 armour                      +6 Str, +6 Int, +9 Sta, +8 Crit
+6460    Cobrahn's Grasp                      21   16  8 armour                       +6 Sta, +4 Str, +4 Int, +4 Crit, +2 Haste
+122251  Polished Legplates of Valor          23   0   14 armour                      +6 Str, +6 Int, +9 Sta, +8 Crit
+6459    Savage Trodders                      21   16  10 armour                      +6 Sta, +4 Str, +4 Int, +3 Vers, +3 Crit
+14743   Hulking Bands                        22   17  5 armour                       +5 Sta, +3 Vers
+62885   Unmistakable Gloves                  18   0   9 armour                       +4 Str, +4 Int, +6 Sta
+6321    Silverlaine's Family Seal            21   16  -                              +5 Sta, +7 Haste, +4 Vers
+12054   Demon Band                           24   19  -                              +6 Str, +6 Sta, +3 Crit
+126948  Defending Champion                   23   0   -                              +6 Sta, +4 Vers
+122371  Inherited Insignia of the Alliance   23   0   -                              +6 Sta
+4818    Executioner's Sword                  24   19  12-21 @3.60 (4.60 dps)         +12 Str
+122530  Inherited Mark of Tyranny            23   0   -                              +6 Sta
+122389  Bloodsoaked Skullforge Reaver        23   0   6-11 @2.60 (3.33 dps)          +5 Str, +7 Sta, +6 Haste
+122391  Flamescarred Draconian Deflector     23   1   49 armour                      +4 Str, +6 Sta, +5 Haste, +11 Int
+122263  Burnished Helm of Might              23   0   13 armour                      +6 Str, +6 Int, +9 Sta, +8 Haste
+127012  Pristine Lightforge Helm             23   0   13 armour                      +6 Str, +6 Int, +9 Sta, +8 Crit
+122246  Tarnished Raging Berserker's Helm    23   0   9 armour                       +6 Agi, +6 Int, +9 Sta, +8 Haste
+4385    Green Tinted Goggles                 30   0   5 armour                       +12 Sta, +10 Vers
+19972   Lucky Fishing Hat                    40   0   6 armour                       +16 Sta
+151427  Snake-Charmer's Casque               21   16  12 armour                      +9 Sta, +6 Str, +6 Int, +4 Haste, +3 Crit
+122662  Eternal Talisman of Evasion          23   0   -                              +4 Str, +6 Sta, +5 Vers
+21933   Thick Bronze Necklace                22   17  -                              +5 Sta
+151430  Hematite Tortoise Pendant            21   16  -                              +5 Sta, +8 Crit, +3 Haste
+122372  Strengthened Stockade Pauldrons      23   0   12 armour                      +5 Str, +5 Int, +7 Sta, +6 Haste
+122373  Pristine Lightforge Spaulders        23   0   12 armour                      +5 Str, +5 Int, +7 Sta, +3 Crit, +3 Haste
+3480    Rough Bronze Shoulders               22   17  8 armour                       +6 Sta, +5 Agi, +5 Int
+151429  Lord Pythas' Pauldrons               21   16  11 armour                      +6 Sta, +4 Str, +4 Int, +4 Crit, +2 Vers
+5444    Miner's Cape                         20   15  2 armour                       +3 Agi, +3 Str, +3 Int, +5 Sta, +3 Crit, +2 Haste
+6314    Wolfmaster Cape                      21   16  2 armour                       +3 Agi, +3 Str, +3 Int, +5 Sta, +3 Haste, +2 Crit
+5193    Cape of the Brotherhood              20   15  2 armour                       +3 Agi, +3 Str, +3 Int, +5 Sta, +2 Vers, +2 Haste
+15526   Sentry's Cape                        24   19  2 armour                       +4 Str, +6 Sta
+4706    Lambent Scale Cloak                  24   19  2 armour                       +6 Str, +3 Haste
+122387  Burnished Breastplate of Might       23   1   16 armour                      +6 Str, +6 Int, +9 Sta, +8 Haste
+6627    Mutant Breastplate                   21   16  15 armour                      +9 Sta, +6 Str, +6 Int, +6 Crit, +2 Vers
+6642    Phantom Armor                        21   16  15 armour                      +6 Str, +6 Int, +9 Sta, +5 Crit, +3 Haste
+2866    Rough Bronze Cuirass                 23   18  11 armour                      +12 Agi, +12 Int, +9 Sta
+14559   Prospector's Sash                    18   13  4 armour                       +6 Sta, +4 Vers
+6319    Girdle of the Blindwatcher           21   16  4 armour                       +4 Agi, +4 Int, +6 Sta, +4 Vers, +2 Crit
+10412   Belt of the Fang                     21   16  4 armour                       +6 Sta, +4 Agi, +4 Int, +3 Crit, +2 Vers
+6468    Deviate Scale Belt                   21   16  4 armour                       +6 Sta, +4 Agi, +4 Int, +3 Crit
+9814    Fortified Belt                       24   19  6 armour                       +5 Agi, +5 Int, +7 Sta
+122264  Burnished Legplates of Might         23   0   14 armour                      +6 Str, +6 Int, +9 Sta, +4 Haste, +4 Crit
+82886   Gorewalker Treads                    18   13  9 armour                       +6 Sta, +4 Str, +4 Int, +3 Haste, +2 Crit
+14560   Prospector's Boots                   19   14  4 armour                       +5 Vers, +6 Sta
+14742   Hulking Boots                        24   19  8 armour                       +7 Sta, +6 Agi, +6 Int
+1121    Feet of the Lynx                     24   19  5 armour                       +7 Agi, +7 Int, +7 Sta
+60925   Festering Bracers                    24   0   2 armour                       +4 Int, +6 Sta, +7 Crit
+2867    Rough Bronze Bracers                 23   18  5 armour                       +6 Sta
+9811    Fortified Bracers                    24   19  5 armour                       +4 Agi, +4 Int, +6 Sta
+12994   Thorbia's Gauntlets                  23   18  7 armour                       +8 Agi, +8 Int, +7 Sta
+6577    Defender Gauntlets                   23   18  7 armour                       +5 Agi, +5 Int, +7 Sta
+14747   Hulking Gauntlets                    23   18  7 armour                       +5 Agi, +5 Int, +7 Sta
+26035   Corin's Handguards                   20   0   9 armour                       +4 Str, +4 Int, +6 Sta
+65724   Grasps of the Unyielding             25   0   11 armour                      +5 Str, +5 Int, +8 Sta, +4 Crit
+1156    Lavishly Jeweled Ring                20   15  -                              +5 Sta, +7 Crit, +3 Haste
+6463    Deep Fathom Ring                     21   16  -                              +5 Sta, +7 Vers, +3 Crit
+12996   Band of Purification                 23   18  -                              +6 Vers, +6 Sta
+122529  Dread Pirate Ring                    23   0   -                              +3 Haste, +5 Sta, +3 Crit
+19024   Arena Grand Master                   55   0   -                              +8 Sta
+12997   Redbeard Crest                       24   19  51 armour                      +4 Str, +6 Sta, +11 Int
+15512   Grunt's Shield                       24   19  51 armour                      +4 Str, +6 Sta, +11 Int
+6383    Forest Buckler                       24   19  51 armour                      +4 Str, +6 Sta, +11 Int
+6447    Worn Turtle Shell Shield             21   16  45 armour                      +3 Str, +5 Sta, +3 Vers, +2 Crit, +10 Int
+885     Black Metal Axe                      24   19  5-12 @2.60 (3.47 dps)          +6 Sta, +6 Str
+1482    Shadowfang                           24   19  6-11 @2.60 (3.47 dps)          +9 Agi
+2848    Bronze Mace                          22   17  7-9 @2.60 (3.18 dps)           +4 Str, +8 Crit, +6 Sta
+12990   Razor's Edge                         23   18  5-12 @2.60 (3.33 dps)          +7 Str, +4 Haste
+5196    Smite's Reaver                       20   15  4-10 @2.60 (2.89 dps)          +4 Str, +6 Sta, +4 Crit, +2 Haste
+6633    Butcher's Slicer                     21   16  5-10 @2.60 (3.04 dps)          +4 Str, +6 Sta, +4 Vers, +2 Haste
+1455    Blackrock Champion's Axe             24   19  10-22 @3.60 (4.60 dps)         +12 Str
+15269   Massive Battle Axe                   24   19  10-22 @3.60 (4.60 dps)         +6 Str, +9 Sta
+122349  Bloodied Arcanite Reaper             23   0   10-21 @3.60 (4.41 dps)         +6 Str, +9 Sta, +8 Crit
+2175    Shadowhide Battle Axe                23   18  10-21 @3.60 (4.41 dps)         +9 Str, +5 Sta
+6641    Haunting Blade                       21   16  10-18 @3.60 (4.02 dps)         +6 Str, +9 Sta, +5 Haste, +3 Vers
+5187    Foe Reaper                           20   15  12-16 @3.60 (3.83 dps)         +5 Str, +8 Sta, +4 Haste, +3 Crit
+
+C. CLAIM-BY-CLAIM RESULT
+------------------------------------------------------------------------------------
+claim                                                        res  what the table or page says
+C01 plate 293 to class mask 3 (warrior+paladin)              PASS [{'ID': '21', 'RaceMask': '-1', 'SkillID': '293', 'ClassMask': '3', 'Flags': '128', 'Availability': '1',
+C02 skill 44 Axes warrior=True                               PASS masks=2671
+C02 skill 172 2H Axes warrior=True                           PASS masks=103
+C02 skill 54 Maces warrior=True                              PASS masks=1659
+C02 skill 160 2H Maces warrior=True                          PASS masks=1123
+C02 skill 43 Swords warrior=True                             PASS masks=2991
+C02 skill 55 2H Swords warrior=True                          PASS masks=39
+C02 skill 229 Polearms warrior=True                          PASS masks=1575
+C02 skill 173 Daggers warrior=True                           PASS masks=3549
+C02 skill 473 Fist Weapons warrior=True                      PASS masks=3661
+C02 skill 136 Staves warrior=True                            PASS masks=2005
+C02 skill 228 Wands warrior=False                            PASS masks=400
+C06 spell 1464 level 1                                       PASS client=1
+C06 spell 772 level 1                                        PASS client=1
+C06 spell 3127 level 1                                       PASS client=1
+C06 spell 71 level 1                                         PASS client=1
+C06 spell 100 level 3                                        PASS client=3
+C06 spell 34428 level 5                                      PASS client=5
+C06 spell 5308 level 8                                       PASS client=8
+C06 spell 12294 level 10                                     PASS client=10
+C06 spell 23881 level 10                                     PASS client=10
+C06 spell 23922 level 10                                     PASS client=10
+C06 spell 20243 level 10                                     PASS client=10
+C06 spell 46917 level 10                                     PASS client=10
+C06 spell 355 level 13                                       PASS client=13
+C06 spell 6343 level 14                                      PASS client=14
+C06 spell 57755 level 17                                     PASS client=17
+C06 spell 7384 level 20                                      PASS client=20
+C06 spell 2565 level 20                                      PASS client=20
+C06 spell 6552 level 24                                      PASS client=24
+C06 spell 6544 level 26                                      PASS client=26
+C06 spell 1715 level 32                                      PASS client=32
+C06 spell 12975 level 32                                     PASS client=32
+C06 spell 118038 level 36                                    PASS client=36
+C06 spell 184364 level 36                                    PASS client=36
+C06 spell 1680 level 40                                      PASS client=40
+C06 spell 107574 level 40                                    PASS client=40
+C06 spell 6673 level 42                                      PASS client=42
+C06 spell 18499 level 44                                     PASS client=44
+C06 spell 1160 level 48                                      PASS client=48
+C06 spell 1719 level 50                                      PASS client=50
+C06 spell 167105 level 50                                    PASS client=50
+C06 spell 871 level 55                                       PASS client=55
+C06 spell 227847 level 65                                    PASS client=65
+C06 spell 5246 level 70                                      PASS client=70
+C07 46917 effect 155 misc 0                                  PASS [{'ID': '39078', 'EffectAura': '0', 'DifficultyID': '0', 'EffectIndex': '0', 'Effect': '155', 'EffectAmp
+C08 81099 absent from SpellName and SpellEffect              PASS 
+C10 scroll 128553 item-level gate 1                          PASS gate=1
+C10 scroll 128554 item-level gate 1                          PASS gate=1
+C10 scroll 128548 item-level gate 1                          PASS gate=1
+C10 scroll 38893 item-level gate 1                           PASS gate=1
+C10 scroll 38859 item-level gate 1                           PASS gate=1
+C10 scroll 38865 item-level gate 1                           PASS gate=1
+C10 scroll 74709 item-level gate 1                           PASS gate=1
+C10 scroll 38854 item-level gate 1                           PASS gate=1
+C10 scroll 38855 item-level gate 1                           PASS gate=1
+C10 scroll 38836 item-level gate 1                           PASS gate=1
+C10 scroll 38851 item-level gate 1                           PASS gate=1
+C10 scroll 38837 item-level gate 1                           PASS gate=1
+C10 scroll 38860 item-level gate 1                           PASS gate=1
+C10 scroll 38873 item-level gate 1                           PASS gate=1
+C10 scroll 38838 item-level gate 1                           PASS gate=1
+C10 scroll 35457 item-level gate 1                           PASS gate=1
+C10 scroll 38869 item-level gate 1                           PASS gate=1
+C10b blocked scroll 38925 gate 30                            PASS gate=30
+C10b blocked scroll 38948 gate 30                            PASS gate=30
+C10b blocked scroll 44493 gate 55                            PASS gate=55
+C10b blocked scroll 38989 gate 55                            PASS gate=55
+C10b blocked scroll 46026 gate 162                           PASS gate=162
+C10b blocked scroll 52760 gate 290                           PASS gate=290
+C10c scroll 38836 = enchant 4739                             PASS client enchant id=4739
+C10c scroll 38837 = enchant 911                              PASS client enchant id=911
+C10c scroll 38838 = enchant 803                              PASS client enchant id=803
+C10c scroll 38854 = enchant 1885                             PASS client enchant id=1885
+C10c scroll 38855 = enchant 1886                             PASS client enchant id=1886
+C10c scroll 38859 = enchant 1889                             PASS client enchant id=1889
+C10c scroll 38860 = enchant 1890                             PASS client enchant id=1890
+C10c scroll 38865 = enchant 1891                             PASS client enchant id=1891
+C10c scroll 38869 = enchant 1896                             PASS client enchant id=1896
+C10c scroll 38873 = enchant 1900                             PASS client enchant id=1900
+C10c scroll 38893 = enchant 910                              PASS client enchant id=910
+C10c scroll 35457 = enchant 4746                             PASS client enchant id=4746
+C10c scroll 74709 = enchant 4420                             PASS client enchant id=4420
+C10c scroll 128548 = enchant 5434                            PASS client enchant id=5434
+C10c scroll 128553 = enchant 5439                            PASS client enchant id=5439
+C10c scroll 128554 = enchant 5440                            PASS client enchant id=5440
+C12 kit 2304 req 1                                           PASS client=1
+C12 kit 2313 req 5                                           PASS client=5
+C12 kit 4265 req 20                                          PASS client=20
+C13 inscription 44133 req 80                                 PASS client=80
+C13 inscription 44134 req 80                                 PASS client=80
+C13 inscription 44135 req 80                                 PASS client=80
+C13 inscription 44136 req 80                                 PASS client=80
+C13 inscription 50335 req 80                                 PASS client=80
+C13 inscription 50336 req 80                                 PASS client=80
+C13 inscription 50337 req 80                                 PASS client=80
+C13 inscription 50338 req 80                                 PASS client=80
+C14 consumable 118 req 1                                     PASS client=1
+C14 consumable 858 req 3                                     PASS client=3
+C14 consumable 929 req 12                                    PASS client=12
+C14 consumable 2459 req 5                                    PASS client=5
+C14 consumable 2455 req 5                                    PASS client=5
+C14 consumable 3385 req 14                                   PASS client=14
+C14 consumable 2454 req 1                                    PASS client=1
+C14 consumable 2457 req 2                                    PASS client=2
+C14 consumable 5997 req 1                                    PASS client=1
+C14 consumable 2458 req 2                                    PASS client=2
+C14 consumable 2289 req 15                                   PASS client=15
+C14 consumable 1477 req 15                                   PASS client=15
+C14 consumable 3382 req 1                                    PASS client=1
+C14 consumable 6308 req 15                                   PASS client=15
+C14 consumable 21151 req 0                                   PASS client=0
+C14 consumable 6452 req 0                                    PASS client=0
+C25 only str staff in 20-26 is 1317 with +1 Str              PASS [('1317', 'Hardened Root Staff', 25, {'Str': 1, 'Haste': 12})]
+C29 8226 req 26                                              PASS client=26
+C29 9375 req 35                                              PASS client=35
+C29 3761 req 0                                               PASS client=0
+C29 13030 req 46                                             PASS client=46
+C30 reaper useful points                                     PASS reaper=23 executioner=12
+C31 6460 Cobrahn's Grasp plate, 8 armour, 16 points          PASS armour=8 pts=16
+C32 62885 Unmistakable Gloves plate, 9 armour, 10 points     PASS armour=9 pts=10
+C33 12994/6577/14747 7 armour, 7 points each                 PASS 7/7 7/7 7/7
+C33b 62885 has 2 more armour than 12994                      PASS 
+C34 126948 Defending Champion +6 Sta +4 Vers, 10 points      PASS {'Sta': 6, 'Vers': 4}
+C35 19024 Arena Grand Master +8 Sta                          PASS {'Sta': 8}
+C35b 122530 Mark of Tyranny +6 Sta                           PASS {'Sta': 6}
+C36 6641 Haunting Blade 4.02 dps, 23 points                  PASS dps=4.02 pts=23
+C37 5187 Foe Reaper 3.83 dps, 20 points                      PASS dps=3.83 pts=20
+C38 4818 and 1455 same dps/speed/Str                         PASS 4.60/4.60
+C38b 4818 12-21 against 1455 10-22                           PASS 
+C38c 15269 same dps but 6 Str / 9 Sta = 15 points            PASS {'Str': 6, 'Sta': 9}
+C39 2175 Shadowhide Battle Axe 4.41 dps, 14 points           PASS dps=4.41 pts=14
+C40 122349 heirloom 2H 4.41 dps, 23 points                   PASS dps=4.41 pts=23
+C41 151063/151070 9 armour, 16 points                        PASS 9/16 9/16
+C42 151427 12 armour 22 points, 151430 16 points             PASS 12/22 necklace=16
+C43 122260 back 14 points                                    PASS pts=14
+C43b 5444 Miner's Cape 13 points                             PASS pts=13
+C43c 6314 Wolfmaster Cape 13 points                          PASS pts=13
+C43d 5193 Cape of the Brotherhood 12 points                  PASS pts=12
+C43e 15526 Sentry's Cape 10 points                           PASS pts=10
+C43f 4706 Lambent Scale Cloak 9 points                       PASS pts=9
+C44 82886 Gorewalker Treads 9 armour, 15 points              PASS 9/15
+C45 60937 Restored Archeus 3.62 dps, 18 points               PASS dps=3.62 pts=18
+C45b 156955 Reconditioned Archeus 4.79 dps, 25 points        PASS dps=4.79 pts=25
+C46 6468 Deviate Scale Belt 9 points                         PASS pts=9
+C46b 14559 Prospector's Sash 10 points                       PASS pts=10
+C46c 60925 Festering Bracers 2 armour, 13 points             PASS 2/13
+C46d 14743 Hulking Bands 5 armour, 8 points                  PASS 5/8
+C46e 65724 Grasps of the Unyielding 11 armour, 17 points     PASS 11/17
+C47 shield 12997 armour 51 points 10                         PASS armour=51 pts=10
+C47 shield 15512 armour 51 points 10                         PASS armour=51 pts=10
+C47 shield 6383 armour 51 points 10                          PASS armour=51 pts=10
+C47 shield 122391 armour 49 points 15                        PASS armour=49 pts=15
+C48 885 Black Metal Axe 3.47 dps, 12 points                  PASS dps=3.47 pts=12
+C48b 2848 Bronze Mace 3.18 dps, 18 points                    PASS dps=3.18 pts=18
+C48c 1482 Shadowfang 3.47 dps, Agility only                  PASS {'Agi': 9}
+C49 rings 1156/6463/12054 15 points, 6321 16                 PASS 15/15/15/16
+C50 2230 Gloves of Brawn 11 armour, +9 Str = 9 usable points PASS 11/9 {'Str': 9, 'Int': 9}
+C50b 3559 Night Watch Gauntlets 9 armour, 10 points          PASS 9/10
+C51 quest Silence of the Dwarves level 25                    PASS page=25 rev 2020-04-07
+C51 quest A Deadly Vine level 24                             PASS page=24 rev 2018-09-18
+C51 quest A Daughter's Love level 25                         PASS page=25 rev 2018-09-11
+C51 quest Cleansing the Caverns level 21                     PASS page=21 rev 2020-03-19
+C51 quest A Wolf in Bear's Clothing level 18                 PASS page=18 rev 2018-09-11
+C51 quest Vortex (Alliance) level 24                         PASS page=24 rev 2020-03-19
+C51 quest Vortex (Horde) level 24                            PASS page=24 rev 2020-03-19
+C51 quest Warsong Supplies (quest) level 27                  PASS page=27 rev 2020-04-01
+C51 quest Return Fire (quest) level 23                       PASS page=23 rev 2020-03-19
+C51 quest Heroes of the Horde! level 23                      PASS page=23 rev 2020-04-07
+C51 quest Shuttin Her Down level 28                          PASS page=28 rev 2020-03-19
+C51 quest Dangerous! (quest) level 28                        PASS page=28 rev 2020-04-01
+C51 quest The Gnoll King level 25                            PASS page=25 rev 2020-04-07
+C51 quest Grant Me Revenge level 20                          PASS page=20 rev 2020-04-07
+C52 65724 item level 25 armour 11 points 17                  PASS ilvl=25 armour=11 pts=17
+C52 60925 item level 24 armour 2 points 13                   PASS ilvl=24 armour=2 pts=13
+C52 60937 item level 25 armour None points 18                PASS ilvl=25 armour=None pts=18
+C52 156955 item level 25 armour None points 25               PASS ilvl=25 armour=None pts=25
+C52 65937 item level 21 armour 4 points 10                   PASS ilvl=21 armour=4 pts=10
+C52 56688 item level 24 armour 10 points 23                  PASS ilvl=24 armour=10 pts=23
+C52 57443 item level 28 armour 16 points 27                  PASS ilvl=28 armour=16 pts=27
+C52 57499 item level 30 armour 21 points 30                  PASS ilvl=30 armour=21 pts=30
+C52 61076 item level 29 armour 15 points 22                  PASS ilvl=29 armour=15 pts=22
+C52 61119 item level 29 armour 15 points 22                  PASS ilvl=29 armour=15 pts=22
+C52 56675 item level 23 armour 14 points 23                  PASS ilvl=23 armour=14 pts=23
+C52 65728 item level 23 armour 11 points 17                  PASS ilvl=23 armour=11 pts=17
+C52 61127 item level 29 armour 12 points 21                  PASS ilvl=29 armour=12 pts=21
+C52 59200 item level 28 armour None points 21                PASS ilvl=28 armour=None pts=21
+C52 59177 item level 28 armour None points 23                PASS ilvl=28 armour=11 pts=23
+C52b 65965 shield 62 armour                                  PASS armour=62
+C53 quest Big Game Hunter level 29                           PASS page=29 rev 2020-03-19
+C53 quest Spy Infestation level 30                           PASS page=30 rev 2020-03-19
+C53 quest Zul'Mamwe Mambo (Alliance) level 29                PASS page=29 rev 2020-03-19
+C53 quest Zul'Mamwe Mambo (Horde) level 29                   PASS page=29 rev 2020-03-19
+C53 quest Sunken Treasure (Arathi Highla level 28            PASS page=28 rev 2020-04-05
+C53 quest Guile of the Raptor level 28                       PASS page=28 rev 2020-04-05
+C53 quest Wanted! Otto and Falconcrest level 28              PASS page=28 rev 2020-04-05
+C53 quest Elixir of Agony (3) level 30                       PASS page=30 rev 2020-04-01
+C54 removed item 3743 still present in ItemSparse            PASS Sentry Buckler
+C54 removed item 3747 still present in ItemSparse            PASS Meditative Sash
+C54 removed item 3749 still present in ItemSparse            PASS High Apothecary Cloak
+C54 removed item 16978 still present in ItemSparse           PASS Warsong Gauntlets
+C54 removed item 2230 still present in ItemSparse            PASS Gloves of Brawn
+C54 removed item 3559 still present in ItemSparse            PASS Night Watch Gauntlets
+C54 removed item 3761 still present in ItemSparse            PASS Deadskull Shield
+C54 removed item 7002 still present in ItemSparse            PASS Arctic Buckler
+C54 removed item 4444 still present in ItemSparse            PASS Black Husk Shield
+C54 removed item 5943 still present in ItemSparse            PASS Rift Bracers
+C54 removed item 3074 still present in ItemSparse            PASS Smoldering Gloves
+C54 removed item 1459 still present in ItemSparse            PASS Shadowhide Scalper
+C54 removed item 2046 still present in ItemSparse            PASS Bluegill Kukri
+C54 removed item 2907 still present in ItemSparse            PASS Dwarven Tree Chopper
+C54 removed item 1547 still present in ItemSparse            PASS Shield of the Faith
+
+D. SOURCE EVIDENCE, WITH REVISION DATES
+------------------------------------------------------------------------------------
+D1 Heirloom sources. The client's own Heirloom table, field SourceText_lang,
+   says for each of the heirlooms used in sections 3-6:
+     guild vendors in the capital cities ....... 122245, 122251, 122260,
+                                                 122263, 122264, 122266,
+                                                 122389
+     Estelle Gendry (Undercity) and Krom
+     Stoutarm (Ironforge) .................... 122355, 122381, 122667,
+                                                 122391, 122392, 122530,
+                                                 122349, 122371 (Alliance),
+                                                 122370 (Horde)
+     World Event: Stranglethorn Fishing ....... 122529
+     World Event: Gurubashi Arena ............. 126948
+     World Event: Darkmoon Deathmatch ......... 126949
+D2 Item pages used for sources and removals, page revision timestamp, and the
+   page's own source sentence:
+   Deviate Scale Belt           rev 2020-02-26T17:28:47  This item is crafted by leatherworkers with a skill of 115; taught by .
+   Savage Trodders              rev 2020-03-19T14:28:21  '''Savage Trodders''' drop from Lord Serpentis in the Wailing Caverns.
+   Hulking Bands                rev 2018-01-22T00:33:28  (no source section on the page)
+   Thorbia's Gauntlets          rev 2018-01-22T00:08:26  This item is a world drop from level 17 - 26 mobs.
+   Silverlaine's Family Seal    rev 2020-03-26T12:27:12  This ring drops off Baron Silverlaine in Shadowfang Keep in Silverpine Forest.
+   Demon Band                   rev 2020-03-27T09:48:32  This item is a world drop from level 18 - 25 mobs.
+   Arena Grand Master           rev 2018-09-11T13:27:18  '''Arena Grand Master''' is the reward from the quest Arena Grandmaster that starts from the Arena Master 
+   Executioner's Sword          rev 2020-07-22T12:16:03  (no source section on the page)
+   Haunting Blade               rev 2020-03-21T15:53:09  This item drops from Lord Godfrey and Deathsworn Captain in Shadowfang Keep.
+   Foe Reaper                   rev 2020-04-05T15:03:02  This item drops from Foe Reaper 5000 in the Deadmines.
+   Massive Battle Axe           rev 2018-01-22T05:58:12  (no source section on the page)
+   Redbeard Crest               rev 2018-01-22T00:08:30  This item drops from: * Eroded Anubisath Warbringer in The Barrens * Qiraji Officer in The Barrens * Qiraj
+   Grunt's Shield               rev 2018-01-22T05:33:13  This item is a world drop in Kalimdor.
+   Worn Turtle Shell Shield     rev 2020-03-19T14:28:39  '''Worn Turtle Shell Shield''' drops from Kresh in Wailing Caverns.
+                                       REMOVAL {{Patch 4.0.3a|note=Block value removed. Armor increased.}}
+   Shadowfang                   rev 2020-03-21T15:53:45  (no source section on the page)
+                                       REMOVAL {{Patch 4.0.3a|note=Bonus Shadow damage removed. Agility added.}}
+   Bronze Mace                  rev 2020-02-14T13:57:49  This item is created with Blacksmithing (110); taught by trainers.
+   Smite's Reaver               rev 2017-10-18T15:10:58  This item drops from Admiral Ripsnarl in the Deadmines.
+   Butcher's Slicer             rev 2020-03-28T17:23:02  '''Butcher's Slicer''' is a one-handed sword that gives small additions to Strength and Stamina. It drops 
+   Green Tinted Goggles         rev 2020-02-14T14:21:48  This item is created with Engineering (150); taught by trainers.
+   Lucky Fishing Hat            rev 2020-03-19T15:45:27  Lucky Fishing Hat is a quest reward from the Stranglethorn Fishing Extravaganza quest Rare Fish - Keefer's
+   Thick Bronze Necklace        rev 2020-02-26T16:42:02  This item is created with Jewelcrafting (50); taught by trainers.
+   Rough Bronze Shoulders       rev 2020-02-14T14:10:43  This item is created with Blacksmithing (110); taught by trainers.
+   Rough Bronze Cuirass         rev 2020-02-14T14:10:41  This item is created with Blacksmithing (105); taught by trainers.
+   Fortified Belt               rev 2018-01-22T05:31:00  (no source section on the page)
+   Hulking Boots                rev 2018-01-22T00:33:26  (no source section on the page)
+   Feet of the Lynx             rev 2018-01-21T23:09:10  This item is a world drop.
+   Lambent Scale Cloak          rev 2019-10-23T14:20:12  (no source section on the page)
+   Lavishly Jeweled Ring        rev 2017-10-18T15:10:47  This item drops from Admiral Ripsnarl in The Deadmines.
+                                       REMOVAL {{Patch 2.3.0|note=The agility attribute of this item was removed and replaced with hit ra
+   Deep Fathom Ring             rev 2020-03-19T14:27:55  '''Deep Fathom Ring''' drops from Mutanus the Devourer in The Wailing Caverns.
+   Minor Recombobulator         rev 2020-02-14T14:24:29  This item is created with Engineering (140); taught by Schematic: Minor Recombobulator.
+                                       REMOVAL {{Patch 1.4.0|note=Minor Recombobulator now restores health and mana as well as removing p
+D3 Quest pages. Every quest level quoted in the deliverable was re-read from
+   the quest page for this audit; the revision is the one the level was taken
+   from (work/war/evidence2.json):
+   Silence of the Dwarves             level 25  rev 2020-04-07T12:50:05
+   A Deadly Vine                      level 24  rev 2018-09-18T17:37:16
+   A Daughter's Love                  level 25  rev 2018-09-11T13:09:01
+   Cleansing the Caverns              level 21  rev 2020-03-19T14:29:51
+   A Wolf in Bear's Clothing          level 18  rev 2018-09-11T15:21:35
+   Vortex (Alliance)                  level 24  rev 2020-03-19T14:59:45
+   Vortex (Horde)                     level 24  rev 2020-03-19T14:59:47
+   Warsong Supplies (quest)           level 27  rev 2020-04-01T09:32:53
+   Return Fire (quest)                level 23  rev 2020-03-19T14:58:04
+   Heroes of the Horde!               level 23  rev 2020-04-07T12:49:34
+   Shuttin Her Down                   level 28  rev 2020-03-19T11:17:36
+   Dangerous! (quest)                 level 28  rev 2020-04-01T08:43:25
+   The Gnoll King                     level 25  rev 2020-04-07T14:32:06
+   Grant Me Revenge                   level 20  rev 2020-04-07T14:32:03
+   Big Game Hunter                    level 29  rev 2020-03-19T15:31:46
+   Spy Infestation                    level 30  rev 2020-03-19T11:17:40
+   Zul'Mamwe Mambo (Alliance)         level 29  rev 2020-03-19T15:33:40
+   Zul'Mamwe Mambo (Horde)            level 29  rev 2020-03-19T15:33:42
+   Sunken Treasure (Arathi Highlands) level 28  rev 2020-04-05T15:43:36
+   Guile of the Raptor                level 28  rev 2020-04-05T15:42:38
+   Wanted! Otto and Falconcrest       level 28  rev 2020-04-05T15:44:12
+   Elixir of Agony (3)                level 30  rev 2020-04-01T08:46:59
+
+E. WHAT IS STILL UNVERIFIED, AND WHY IT IS NOT IN A SLOT
+------------------------------------------------------------------------------------
+E1 The level-19 magnitude of the scaling enchants. The scrolls are legal -
+   SpellItemEnchantment.ItemLevel is 1 - but the client does not publish the
+   value the enchant scales down to, so the document names the scroll and the
+   enchant id and prints no level-19 number for it.
+E2 The 151xxx-156xxx item series. 151063 Gear-Marked Gauntlets, 151070 Gloves
+   of the Greymane Wall, 151427 Snake-Charmer's Casque, 151430 Hematite
+   Tortoise Pendant, 151073 Greaves of the Misguided, 151424 Belt of Boundless
+   Fury and 156990 Crystal-Chipping Mallet carry real required levels (13-16)
+   and would win three slots on their client numbers, but their pages either
+   have no source text or name the heroic mode of a level-85 instance. No
+   source states which series a level-19 run of the dungeon produces.
+E3 The source of Prospector's Sash (14559) and Prospector's Boots (14560). Both
+   are bind on equip and both pages carry no source text.
+E4 156953 'Liberated' Greataxe: bind on pickup, item level 18, 3.45 dps, and no
+   page states its source or its quest.
+E5 The level of the quest "Clearing the Way" that awards 26035 Corin's
+   Handguards; the page has no level field, so the Alliance counterpart to the
+   gloves used in 3.1 stays out.
+E6 Whether a level 19 may enter the Darkmoon Deathmatch (heirloom 126949), and
+   the minimum level of the quest "Arena Grandmaster" itself.
+
+F. DEFECTS FOUND, AND WHAT WAS CHANGED
+------------------------------------------------------------------------------------
+F1 Waist. The first draft inherited 6468 Deviate Scale Belt (9 usable points,
+   4 armour) and offered 14559 Prospector's Sash (10 points) as an
+   alternative. A sweep of the whole ItemSparse table found 6460 Cobrahn's
+   Grasp: plate, item level 21, 8 armour, +4 Str +4 Int +6 Sta +4 Crit +2
+   Haste = 16 usable points, from Lord Cobrahn in the Wailing Caverns. It is
+   now the pick; both older items are runners-up with their numbers.
+F2 Hands. 12994 Thorbia's Gauntlets (7 armour, +8 Agi +8 Int +7 Sta = 7
+   usable points) was the pick. 62885 Unmistakable Gloves are 9 armour and 10
+   usable points and come from a level-18 Horde quest, so they are now the
+   pick. Thorbia's stays as the faction-neutral, auction-house alternative;
+   6577 Defender Gauntlets and 14747 Hulking Gauntlets are named as the same
+   stat line in other art. 26035 Corin's Handguards, the Alliance equal, is
+   named but not used because its quest page has no level (E5).
+F3 Trinket. 19024 Arena Grand Master (+8 Sta) took the first slot. 126948
+   Defending Champion (+6 Sta +4 Vers = 10 points) has the higher total and
+   moves to the first slot; the Arena Grand Master stays in the document as
+   the second-slot alternative, with the PvP Insignia for battlegrounds.
+F4 Two-hander numbers. 6641 Haunting Blade was printed at 3.89 dps and 5187
+   Foe Reaper at 3.89; the client says 4.02 and 3.83. Both corrected.
+F5 4818 Executioner's Sword was described as the only 4.60 dps two-hander.
+   False: 1455 Blackrock Champion's Axe is 4.60 dps at 3.60 s with +12 Str as
+   well, and 15269 Massive Battle Axe is 4.60 dps with 15 points. The
+   document now states the trade explicitly instead of claiming uniqueness.
+F6 The 'world drop' label was asserted for 14743 Hulking Bands and 4818
+   Executioner's Sword. Neither page states a source, so both rows now say
+   'bind on equip, auction house', which is what the client's Bonding field
+   supports and nothing more.
+F7 Exclusion claims were re-checked against the quest page rather than the
+   item page: 65724 Grasps of the Unyielding (quest 25), 60925 Festering
+   Bracers (24), 60937 Restored Archeus (25), 65937 Serpentis' Gloves (21) and
+   56688 Belt of Equilibrium (24) are confirmed out of reach; 2230 Gloves of
+   Brawn and 3559 Night Watch Gauntlets were added as removed quest rewards;
+   156953 'Liberated' Greataxe was moved from 'quest-gated' to unverified,
+   because no page states its quest (E4).
+F9 Exclusion list. Four items in 7.2 were excluded as "quest above level 19"
+   when their pages actually say the quest that awarded them was removed in
+   4.0.3a: 3743 Sentry Buckler, 3747 Meditative Sash, 3749 High Apothecary
+   Cloak and 16978 Warsong Gauntlets. They are now in 7.1, where the reason
+   they cannot be used is the one that applies.
+F10 Gloves of the Jungle King (61127) was printed as 22 usable points; the
+   client gives +6 Str +6 Int +9 Sta +6 Crit, which is 21 usable points
+   (Intellect is worth nothing to a warrior). Corrected.
+F11 The two Pauldrons of the Wayward Tribe ids were excluded without a named
+   quest. The page gives Zul'Mamwe Mambo, level 29 on both faction pages, so
+   the exclusion now names it. 57499 Infested Breastplate likewise now names
+   Spy Infestation (level 30), and the three Arathi items name Sunken
+   Treasure, Guile of the Raptor and Wanted! Otto and Falconcrest, all 28.
+F8 Earlier corrections that still stand, re-checked in this pass: the Mortal
+   Strike / Execute / Shield Slam normalisation sentences (unsupported, cut);
+   the 'Crusader is not unique' claim (unsupported, cut); the ring-enchant row
+   (ring scrolls are applied by an enchanter to their own rings, and a 19 caps
+   at enchanting 150); 6459 Savage Trodders and 6627 Mutant Breastplate stat
+   cells (+4 Int and +6 Int for the Strength/Intellect hybrid); 3761 Deadskull
+   Shield required level 0 and its removal; 13030 Basilisk Bone required level
+   46; the Reaper's 23 useful points; 'Stranglethorn' spelled correctly; and
+   126949 Returning Champion moved out of 'unreachable' into E6.
+
+G. WHAT THIS AUDIT DOES NOT COVER
+------------------------------------------------------------------------------------
+G1 Prices, realm availability and drop rates. The list records what may be
+   worn and where it comes from, not what it costs or how long it takes to
+   farm.
+G2 Enchant magnitudes (E1), which are named but not quantified.
+G3 The other eleven classes, which are not part of this part.
+
+====================================================================================
+ END OF AUDIT - PART 1 (WARRIOR)
+====================================================================================

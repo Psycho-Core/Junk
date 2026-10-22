@@ -1,0 +1,981 @@
+WORLD OF WARCRAFT 8.3.7 (BUILD 35662) - ARENAS, MYTHIC+ AND ISLAND EXPEDITIONS AT LEVEL 120
+A COMPANION-AI REFERENCE FOR A TRINITYCORE-BASED PRIVATE SERVER
+================================================================================================
+Compiled 2026-10-21. Every id, timer, coordinate and rule below carries the tag of the source
+it came from - the 8.3.7.35662 client tables, Method Dungeon Tools v5.0.2 (the Battle for
+Azeroth release of the addon), a warcraft.wiki.gg page, or one of the other sources listed
+below. Anything I could not read from a source is written "unverified" in the field;
+nothing is estimated.
+
+SOURCES
+  Client DB2, build 8.3.7.35662, wago.tools CSV export:
+    Map, MapChallengeMode, KeystoneAffix, ChrSpecialization, BattlemasterList, SpellName.
+  Method Dungeon Tools v5.0.2 (tag v5.0.2, BattleForAzeroth/*.lua): dungeonTotalCount and
+    dungeonEnemies - enemy-forces value per creature, and the clump coordinates of each pack.
+  warcraft.wiki.gg: "Mythic+" (revision of 2019-11-07, i.e. the Battle for Azeroth text, for the
+    affix tiers and the seasonal affix list), "Arena", "Island Expedition" (island list,
+    salvage prices, the sixteen enemy teams and their members), "Diminishing returns" (DR
+    ladder and categories).
+  nether.wowhead.com/tooltip/spell/<id> and /npc/<id>: names, cooldowns, and which zones an
+    NPC is flagged for (used to separate the city copy of an island NPC from the island copy).
+  TrinityCore source (3.3.5 branch): BattlegroundMgr.cpp, Arena.cpp, ArenaTeam.cpp - the server
+    path for arena start positions and the arena rating formula.
+  web.archive.org snapshot of mythicpl.us (2020-06-09): the Season 4 12-week affix cycle.
+  Blizzard news and patch notes: island azerite targets and the 8.1 reward change.
+
+COLUMN CONVENTIONS
+  map      = Map.dbc id (the id an instance/server table keys on).
+  key      = MapChallengeMode id (the row the client uses for the keystone timers).
+  seconds  = MapChallengeMode.CriteriaCount_0: the keystone timer in seconds.
+  forces   = MDT dungeonTotalCount "normal": the enemy-forces total MDT counts as 100%.
+  x,y      = MDT clump coordinates in the dungeon map space used by the in-game map, not world
+             coordinates. They are comparable with each other inside one dungeon only.
+
+VERIFICATION LEGEND
+  [C] client table   [M] MDT v5.0.2   [W] warcraft.wiki.gg   [H] Wowhead tooltip
+  [B] Blizzard (official news / patch notes)   [G] guide site, said so where used
+  "unverified" = no source I could read resolves the field. Reasons are listed in section 4.
+  Sections 1.5, 2.5 and 3.5 are procedures, not data: they are written for a state machine.
+  A percentage or stack count inside them is an operating choice, not a client value, unless
+  the line carries a citation.
+
+CONTENTS
+  1. Arenas        1.1 map pool  1.2 queue modes  1.3 spawns and pillars  1.4 specs
+                   1.5 role play  1.6 trinket and DR  1.7 dampening  1.8 rating
+  2. Mythic+       2.1 timers and forces  2.2 the 19 affix rows  2.3 affix tiers
+                   2.4 trash by dungeon  2.5 per-role affix play  2.6 skips
+  3. Islands       3.1 the maps  3.2 objectives and azerite targets  3.3 enemy team
+                   3.4 difficulties and rewards  3.5 companion procedure
+  4. Verification  4.1 what is verified  4.2 what the second pass resolved
+                   4.3 what is still open, and why
+
+1. ARENAS (RATED AND SKIRMISH)
+================================================================================================
+
+1.1  WHAT THE CLIENT DEFINES
+------------------------------------------------------------------------------------------------
+  BattlemasterList id 6 is the client row literally named "All Arenas". It holds the map pool the
+  arena queue picks from, one Map.dbc id per column. In build 35662 the row carries twelve map
+  ids [C]. That is the complete 8.3.7 arena map pool - not a guess, it is the row itself:
+
+  #  | map  | arena name                      | Map directory            | min-max level
+  ---+------+---------------------------------+--------------------------+-------------
+  1  | 1672 | Blade's Edge Arena              | bladesedgearena2b        | 10-120
+  2  | 1911 | Mugambala                       | ZandalariArena           | 110-120
+  3  | 1504 | Black Rook Hold Arena           | BlackrookHoldArena       | 90-120
+  4  | 1505 | Nagrand Arena                   | NagrandArena2            | 10-120
+  5  | 572  | Ruins of Lordaeron              | PVPLordaeron             | 10-120
+  6  | 617  | Dalaran Sewers                  | DalaranArena             | 10-120
+  7  | 980  | Tol'Viron Arena                 | TolVirArena              | 90-120
+  8  | 1134 | The Tiger's Peak                | ShadoPanArena            | 90-120
+  9  | 1552 | Ashamane's Fall                 | ValsharahArena           | 90-120
+  10 | 1170 | Shado-Pan Showdown              | SmallBattlegroundC       | unverified
+  11 | 1825 | Hook Point                      | KulTirasArena            | 90-120
+  12 | 2167 | The Robodrome                   | 2167                     | 90-120
+
+  Map.dbc holds fifteen instances of InstanceType 4 (arena) in this build. Twelve are in the
+  pooled row above; the other three are 559 Nagrand Arena (old), 562 zzOldBlade's Edge Arena and
+  618 The Ring of Valor. They still own BattlemasterList rows - 4 (level 0-0), 5 (level 0-0) and
+  11 The Ring of Valor (level 10-100) - but none of the three ids sits in pooled row 6, so no
+  8.3.7 arena queue can land on them [C]. Ring of Valor is the arena the wiki records as removed
+  for bugs, its moving pillars named in the 3.x patch notes [W]; only the client rows survive.
+  The min-max column is the MinLevel-MaxLevel of that map's own single-map InstanceType 4 row,
+  not of pooled row 6 (which reads 15-120 for all twelve). 1170 Shado-Pan Showdown has no arena
+  row of its own - the only row naming it alone is 853, GameType "Brawl", InstanceType 3, level
+  1-120 - so its arena bracket range is unverified, as the table shows.
+
+1.2  TEAM SIZES AND QUEUE MODES
+------------------------------------------------------------------------------------------------
+  Rated arena: 2v2 and 3v3 only. The 5v5 bracket was retired in patch 7.0.3 [W], so a 8.3.7
+  server has exactly two rated brackets and no third.
+  Skirmish (unrated): 2v2 and 3v3, open from level 15, brackets every 10 levels, solo or partial
+  groups are filled from the queue [W]. A level-120 skirmish therefore uses bracket 120.
+  War Games: an arena started against chosen opponents; it does not change any rating [W].
+  The client table does not carry the bracket size. BattlemasterList min/max player columns read
+  0 and 5 for arena rows and are not the team size; do not wire them as 2 or 3.
+
+1.3  SPAWN POINTS, PILLARS AND LINE OF SIGHT
+------------------------------------------------------------------------------------------------
+  Coordinates: UNVERIFIED here, but the exact lookup path is known. TrinityCore does not store
+  arena spawns in a DB2 of its own. BattlegroundMgr::LoadBattlegroundTemplates runs
+  "SELECT ID, MinPlayersPerTeam, MaxPlayersPerTeam, MinLvl, MaxLvl, AllianceStartLoc,
+  AllianceStartO, HordeStartLoc, HordeStartO, StartMaxDist, Weight, ScriptName
+  FROM battleground_template" and resolves each StartLoc id through the WorldSafeLocs store
+  (source: TrinityCore BattlegroundMgr.cpp, LoadBattlegroundTemplates). CreateNewBattleground
+  then calls SetTeamStartPosition for both teams, and GetTeamStartPosition is what a join uses,
+  so those two WorldSafeLocs rows are the literal spawn points. The wago.tools 8.3.7 export has
+  no WorldSafeLocs table, so this document cannot print the values - run this on your server:
+
+    SELECT ID, AllianceStartLoc, AllianceStartO, HordeStartLoc, HordeStartO, StartMaxDist
+    FROM battleground_template ORDER BY ID;
+
+  The ids that come back are WorldSafeLocs entries; resolve them in your own extracted
+  WorldSafeLocs (dbc/db2) or take the coordinates straight off the arena map files. Which rows
+  your core actually populated, and whether each arena has its own row or shares a generic one,
+  is core-specific: unverified from here.
+
+  Match start timing is verifiable and identical for all twelve maps: Arena.cpp sets the four
+  start events to BG_START_DELAY_1M, 30 s, 15 s and 0, so a 60-second preparation countdown
+  runs before the gates open (source: TrinityCore Arena.cpp, Arena::Arena). A companion should
+  treat those 60 seconds as the positioning window described in 1.5.
+
+  Pillars and line-of-sight objects are map geometry, not table rows: they live in the WMO/ADT
+  files of the map. No DB2 in build 35662 lists per-arena pillar positions, so any count or
+  coordinate printed here would be invented. Two practical routes, both server-side:
+    - open the arena map in a WMO/ADT viewer and record the obstacle outlines per map id;
+    - check whether your core spawns any arena obstacles as game objects:
+        SELECT guid, id, map, position_x, position_y, position_z FROM gameobject
+        WHERE map IN (1672,1911,1504,1505,572,617,980,1134,1552,1170,1825,2167);
+      Anything that returns is a real, citable position; an empty result means the obstacles
+      are pure map geometry and only the viewer route is left.
+  Pillar layout per arena: unverified in this document. Behaviour that does not need the
+  geometry is in 1.6, and the generic line-of-sight rules a companion can execute are in 1.5.
+
+  LAYOUT, AS DOCUMENTED (this is prose, not coordinates)
+
+    1672 | rectangular; the two starts sit on opposite corners; a bridge spans the
+         | middle with a ramp at each end, plus two more ramps at mid-bridge; under
+         | the bridge are the pit and 2 pillars
+    1911 | at the foot of Mount Mugamba; the page gives no layout prose
+    1504 | the page gives no layout prose
+    1505 | open field with 4 supporting columns near the middle; the two starts
+         | face each other
+    572  | an arena added to the ruins; the page gives no layout prose
+    617  | the arena hall is the Circle of Wills inside the Underbelly; no layout
+         | prose
+    980  | built on the Nagrand layout; the difference is art and pillar
+         | direction
+    1134 | tiger statues and fenced platforms (Blizzard's own arena description)
+    1552 | a small temple in Val'sharah, built around the statue of Ashamane
+    1170 | the 5v5 brawl map: one central capture point, no pillars documented
+    1825 | an outdoor market in Boralus; no layout prose
+    2167 | the arena at the entrance to Mechagon City; no layout prose
+
+  Every one of those lines is a sentence on the arena's own page [W]. Two consequences for a
+  companion: on 1505/980 the four central columns are the only cover and the page itself says
+  "using the columns for LoS and positioning is a central part of this arena"; on 1672 the
+  bridge floor blocks line of sight to anything under it, so a caster on the bridge cannot hit a
+  target below. Pillar counts for the other maps are not published anywhere I could read.
+
+  SHADOW SIGHT: after five minutes two Shadow Sight power-ups spawn on the arena (the Blade's
+  Edge and Nagrand pages both state the "like all arenas" rule), let a player see stealthed and
+  invisible units, and increase the damage that player takes by 5% [W]. A companion healer
+  should pick one up only when a stealth class is unaccounted for, not on cooldown.
+
+  START-LOCATION IDS, where a public core ships them: AzerothCore's battleground_template
+  (3.3.5 data) gives the arena rows below. Read the columns as AllianceStartLoc / HordeStartLoc;
+  the orientation column is the facing in radians, so 0 and 3.14159 mean the two teams face
+  each other [T]:
+
+    bg id | arena                      | alli startloc | horde startloc
+    -----+----------------------------+---------------+--------------------
+    4     | Nagrand Arena / Ring       | 929 (0 rad)   | 936 (3.14159)
+    5     | Blade's Edge Arena         | 939 (0 rad)   | 940 (3.14159)
+    8     | Ruins of Lordaeron         | 1258 (0 rad)  | 1259 (3.14159)
+    10    | Dalaran Sewers             | 1362 (0 rad)  | 1363 (3.14159)
+    11    | The Ring of Valor          | 1364 (0 rad)  | 1365 (0 rad)
+    6     | All Arenas (pool row)      | 0             | 0
+
+  Those ids are WorldSafeLocs entries, and the 8.3.7 export on wago.tools exposes no
+  WorldSafeLocs table at all (checked under four spellings, on 8.3.7, 9.0.2 and 11.0.2 - all
+  400), so the coordinates behind 929/936/939/940/1258/1259/1362/1363 still cannot be printed
+  from here. Note the map ids in that table are the classic arenas: in 8.3.7 the queued Blade's
+  Edge is map 1672 and the queued Nagrand is 1505, so a BfA-era core has its own rows with its
+  own StartLoc ids for those. The query in the paragraph above prints them; this table only
+  shows that the mechanism and the id shape are what the doc says they are.
+
+1.4  SPECIALISATIONS AND ROLES IN THE CLIENT
+------------------------------------------------------------------------------------------------
+  ChrSpecialization has 42 rows in build 35662. Role: 0 = tank, 1 = healer, 2 = damage [C].
+  Grouped by class:
+
+  Warrior       Arms 71[d], Fury 72[d], Protection 73[t]
+  Paladin       Holy 65[h], Protection 66[t], Retribution 70[d]
+  Hunter        Beast Mastery 253[d], Marksmanship 254[d], Survival 255[d]
+  Rogue         Assassination 259[d], Outlaw 260[d], Subtlety 261[d]
+  Priest        Discipline 256[h], Holy 257[h], Shadow 258[d]
+  Death Knight  Blood 250[t], Frost 251[d], Unholy 252[d]
+  Shaman        Elemental 262[d], Enhancement 263[d], Restoration 264[h]
+  Mage          Arcane 62[d], Fire 63[d], Frost 64[d]
+  Warlock       Affliction 265[d], Demonology 266[d], Destruction 267[d]
+  Monk          Brewmaster 268[t], Windwalker 269[d], Mistweaver 270[h]
+  Druid         Balance 102[d], Feral 103[d], Guardian 104[t], Restoration 105[h]
+  Demon Hunter  Havoc 577[d], Vengeance 581[t]
+
+  ChrSpecialization also carries six pet specialisations (class 0: Ferocity 74, Cunning 79,
+  Tenacity 81, 535, 536, 537); they are not player specs and are excluded above.
+
+  Count of player specialisations by role in the client: tank 6, healer 6, damage 24 (36 total).
+  No client table ranks them and "the usual composition" is a community statistic with no
+  client or wiki table behind it. The composition guidance this document can stand behind is
+  therefore only the role count: a rated 3v3 normally fields one healer and two damage
+  specialisations, and a 2v2 either healer+damage or damage+damage. Anything more specific -
+  which two damage specs, which class is strongest - is unverified here and would need ladder
+  data from your own server to say.
+
+1.5  FIRST 30 SECONDS AND MID-MATCH, BY ROLE
+------------------------------------------------------------------------------------------------
+  These are operating procedures derived from the mechanics in 1.6, not client facts. They are
+  written so a companion state machine can execute them without judgement calls.
+
+  TANK (any tank specialisation)
+    First 30 s: hold the enemy healer or the highest-damage caster in melee, keep the enemy team
+      between you and your healer, and do not use a gap closer in the first global - the opener is
+      a trade of crowd control, and a wasted charge is a wasted trinket later. Face the target
+      away from your own healer so a cleave cannot hit both.
+    Mid-match: stay on the target your damage dealers are on (a tank that splits damage is a tank
+      that gives the enemy healer free time), peel with a slow or a root when your healer is
+      trained, and hold your defensive cooldown for the enemy damage burst, not for the opener.
+  HEALER
+    First 30 s: open with the cheapest heal that keeps everyone above 70%, stand at maximum
+      range behind a pillar, and pre-position so that line of sight to all three team-mates is
+      possible from one spot. Do not trinket the first crowd control unless it is on the kill
+      target - the second one is the one that matters.
+    Mid-match: heal through the burst, then drink or regenerate in every gap; call the
+      dispel target before the second stack lands, and swap position after every trinket use.
+  DAMAGE
+    First 30 s: one damage dealer opens on the kill target, the other controls the enemy healer.
+      Do not break your own crowd control with a cleave - a companion must check the crowd
+      control aura on its focus target before every area attack.
+    Mid-match: swap to the target the enemy healer cannot reach, keep one interrupt reserved for
+      the enemy healer's cast, and hold the offensive cooldown for the moment the enemy trinket
+      is down (2-minute cooldown, 1.6).
+
+1.6  CROWD CONTROL AND TRINKET RULES THAT THE DATA SUPPORTS
+------------------------------------------------------------------------------------------------
+  spell id | name                   | cd    | what it does (Wowhead tooltip)
+  --------+------------------------+-------+---------------------------------------
+  208683   | Gladiator's Medallion  | 2 min | removes movement-impairing effects and
+           |                        |       | all effects causing loss of control,
+           |                        |       | in PvP combat
+  42292    | PvP Trinket            | 2 min | same effect; older id, still in SpellName
+  65547    | PvP Trinket            | 2 min | same effect; rank variant
+
+  Rules a companion has to encode [H][W]:
+    - The trinket has a 2-minute cooldown [H]. It is not usable twice inside one burst window,
+      so the AI must treat "trinket available" as a resource, not as a reflex.
+    - It removes loss-of-control and movement-impairing effects; it does not remove silences,
+      disarms or damage-over-time effects [H].
+    - Diminishing returns, from the wiki page "Diminishing returns" [W]: the first control
+      effect of a category on a target runs at full PvP duration; a second of the same category
+      inside the window is cut 50%, a third 75%, and the target is then immune to that category
+      until the window expires. The page states the window as 18 seconds, measured from the end
+      of the previous effect; its own patch history shows that number has been retuned since,
+      so 18 s is the documented figure for 8.3.7, not a client field - confirm it in your core.
+    - Categories, from the wiki page "Crowd control" [W]: since Warlords of Draenor there are six
+      diminishing-returns types - Roots, Stuns, Incapacitates (which covers Polymorph, Sap, Charm
+      and Sleep), Disorients (which covers Fear, Horror and Cyclone), Silences, and area
+      knockbacks. Effects inside one type share the counter; effects in different types do not.
+      So fear and polymorph do NOT share a counter, but fear and horror do. A companion should
+      keep one type per target in flight and must not spend its trinket on the first stun of a
+      sequence.
+    - The per-type maximum PvP duration for 8.3.7 is still unverified: neither the crowd-control
+      page nor the diminishing-returns page states a BfA-era cap, and no client table carries
+      one.
+
+1.7  DAMPENING (VERIFIED FIGURES)
+------------------------------------------------------------------------------------------------
+  From warcraft.wiki.gg "Arena" [W]:
+    - Dampening is a stacking debuff that reduces healing received and absorption by 1% per stack.
+    - It is applied after 5 minutes.
+    - In 2v2 matches in which each side has at least one healer, Dampening starts instantly.
+    - After it starts, every player gains a stack every 10 seconds.
+    - A match that runs 25 minutes ends in a draw.
+    - Necrotic Strike's healing absorption is not affected by Dampening.
+  The client does carry a Dampening spell: id 110310, name "Dampening", tooltip "Reduces healing
+  and absorption effects." [C][H]. It is a marker aura - the 1%-per-stack value, the 10-second
+  step and the 5-minute start are not in any field of that row, so the numbers above stay
+  wiki-verified and the implementation stays server-side. 74411 "Battleground - Dampening" is
+  the separate battleground marker and is not the arena aura.
+  Companion consequence: a healer AI must switch from "keep everyone topped" to "trade cooldowns"
+  at the 5-minute mark, and a 2v2 healer mirror should expect dampening from the first global.
+
+1.8  RATING GAIN AND LOSS
+------------------------------------------------------------------------------------------------
+  No client table carries this, but the core does, and the core is what you run. In
+  TrinityCore the arena rating change is not a single K-factor. From ArenaTeam.cpp [T]:
+
+    chance   = 1 / (1 + 10 ^ ((opponentRating - ownRating) / 650))       [Elo, 650 scale]
+    win, own rating < 1000   : mod = W1 * (1 - chance)
+    win, own rating 1000-1300: mod = (W1/2 + (W1/2)*((1300-own)/300)) * (1 - chance)
+    win, own rating >= 1300  : mod = W2 * (1 - chance)
+    loss                     : mod = L * (-chance)
+    every result is rounded up (ceil), not truncated
+    MMR change               : mod = ((won ? 1 : 0) - chance) * MMRmod
+
+  W1, W2, L and MMRmod are worldserver.conf floats, read through the config ids
+  CONFIG_ARENA_WIN_RATING_MODIFIER_1, _2, CONFIG_ARENA_LOSE_RATING_MODIFIER and
+  CONFIG_ARENA_MATCHMAKER_RATING_MODIFIER [T]. So the "K" a companion has to know is whatever
+  your worldserver.conf sets - print it there:
+
+    grep -i 'Arena\.\(Rating\|Matchmaker\)' worldserver.conf
+
+  Two structural points that follow from the formula and are worth encoding: the change depends
+  on the opponent's rating through the 650-scale chance, so beating a much lower-rated team
+  moves the number by very little, and losing to one costs close to the full loss modifier; and
+  below 1300 the win modifier is halved and scaled again, which is why low-rated teams climb
+  faster per win.
+  Still unverified for 8.3.7 specifically: the retail personal-rating numbers. TrinityCore's
+  model above is the 3.3.5 team-rating implementation; a BfA-era core tracks personal rating in
+  a different class, but the same three modifiers plus the MMR modifier are the knobs. Skirmish
+  and War Games change neither rating [W].
+
+2. MYTHIC+ (SEASON 4)
+================================================================================================
+
+2.1  THE SEASON 4 DUNGEON LIST, TIMERS AND FORCES
+------------------------------------------------------------------------------------------------
+  The Season 4 pool is every BfA dungeon (ten) plus both Operation: Mechagon wings. The client
+  carries exactly those twelve as MapChallengeMode rows whose Map.dbc id is a BfA dungeon [C]:
+
+  key | dungeon                          | map  | secs | min | forces | teem | MDT file
+  ---+----------------------------------+------+------+-----+--------+------+-----------------
+  244 | Atal'Dazar                       | 1763 | 1800 |  30 |    225 |  237 | AtalDazar
+  245 | Freehold                         | 1754 | 1980 |  33 |    400 |  313 | Freehold
+  247 | The MOTHERLODE!!                 | 1594 | 2340 |  39 |    384 |  460 | TheMotherlode
+  251 | The Underrot                     | 1841 | 1980 |  33 |    320 |  286 | TheUnderrot
+  246 | Tol Dagor                        | 1771 | 2160 |  36 |    400 |  479 | TolDagor
+  248 | Waycrest Manor                   | 1862 | 2340 |  39 |    305 |  363 | WaycrestManor
+  249 | Kings' Rest                      | 1762 | 2520 |  42 |    246 |  286 | KingsRest
+  250 | Temple of Sethraliss             | 1877 | 2160 |  36 |    220 |  264 | TempleofSethraliss
+  252 | Shrine of the Storm              | 1864 | 2520 |  42 |    695 |  834 | ShrineoftheStorm
+  353 | Siege of Boralus                 | 1822 | 2160 |  36 |    319 |  319 | SiegeofBoralus
+  369 | Operation: Mechagon - Junkyard   | 2097 | 2280 |  38 |    332 |  398 | MechagonIsland
+  370 | Operation: Mechagon - Workshop   | 2097 | 1920 |  32 |    160 |  192 | MechagonCity
+
+  timer  = MapChallengeMode.CriteriaCount_0, seconds [C]. CriteriaCount_1 and _2 are the two
+           faster thresholds the client stores (exactly 80% and 60% of the base time) and are
+           what the keystone upgrade tiers are compared against.
+  forces = MDT dungeonTotalCount normal [M]; teeming = the same field with Teeming on, copied
+           from MDT. For Freehold and The Underrot MDT's teeming value is lower than its normal
+           value, which cannot be right for a required total: Teeming only adds enemies. This is
+           not a transcription error - MDT's own files declare it (Freehold.lua line 31:
+           "normal = 400, teeming = 313"; TheUnderrot.lua line 31: "normal = 320, teeming = 286").
+           Either the addon's table is wrong for those two dungeons or the two fields are
+           swapped; a server should take the normal cell and treat the teeming cell as
+           unverified rather than raise the requirement with the affix.
+
+2.2  THE AFFIXES THAT EXIST IN BUILD 35662
+------------------------------------------------------------------------------------------------
+  KeystoneAffix has 19 rows [C]. The id, name and text below are the client text, verbatim.
+
+  id  | name        | client description
+  ----+-------------+---------------------------------------------------------------
+  1   | Overflowing | Healing in excess of a target's maximum health is instead
+      |             | converted to a heal absorption effect.
+  2   | Skittish    | Enemies pay far less attention to threat generated by tanks.
+  3   | Volcanic    | While in combat, enemies periodically cause gouts of flame to
+      |             | erupt beneath the feet of distant players.
+  4   | Necrotic    | All enemies' melee attacks apply a stacking blight that
+      |             | inflicts damage over time and reduces healing received.
+  5   | Teeming     | Additional non-boss enemies are present throughout the
+      |             | dungeon.
+  6   | Raging      | Non-boss enemies enrage at 30% health remaining, dealing 100%
+      |             | increased damage until defeated.
+  7   | Bolstering  | When any non-boss enemy dies, its death cry empowers nearby
+      |             | allies, increasing their maximum health and damage by 20%.
+  8   | Sanguine    | When slain, non-boss enemies leave behind a lingering pool of
+      |             | ichor that heals their allies and damages players.
+  9   | Tyrannical  | Boss enemies have 40% more health and inflict up to 15%
+      |             | increased damage.
+  10  | Fortified   | Non-boss enemies have 20% more health and inflict up to 30%
+      |             | increased damage.
+  11  | Bursting    | When slain, non-boss enemies explode, causing all players to
+      |             | suffer 14% of their max health in damage over 4 sec. This
+      |             | effect stacks.
+  12  | Grievous    | When injured below 90% health, players will suffer increasing
+      |             | damage over time until healed above 90% health.
+  13  | Explosive   | While in combat, enemies periodically summon Explosive Orbs
+      |             | that will detonate if not destroyed.
+  14  | Quaking     | Periodically, all players emit a shockwave, inflicting damage
+      |             | and interrupting nearby allies.
+  15  | Relentless  | Non-boss enemies are granted temporary immunity to Loss of
+      |             | Control effects.
+  16  | Infested    | Some non-boss enemies have been infested with a Spawn of
+      |             | G'huun.
+  117 | Reaping     | Non-boss enemies are empowered by Bwonsamdi and periodically
+      |             | seek vengeance from beyond the grave.
+  119 | Beguiling   | Azshara's Emissaries are present throughout the dungeon.
+  120 | Awakened    | Obelisks throughout the dungeon allow players to enter
+      |             | Ny'alotha and confront powerful servants of N'Zoth. If a
+      |             | servant is not dealt with, they must be faced during the final
+      |             | boss encounter.
+
+  Retired rows survive in the table: 1 Overflowing, 16 Infested, 117 Reaping, 119 Beguiling
+  and 120 Awakened are all present in build 35662, but only 120 is the live Season 4 affix
+  [C][W]. 15 Relentless is a row that appears in none of the four tier lists on the BfA page
+  [C][W]; treat it as a legacy row and do not schedule it. Storming, which the request
+  named, has no KeystoneAffix row in this build and is in none of the BfA tier lists
+  [C][W]: a Storming rule carried in from another expansion has nothing to attach to here.
+
+  One caution on quoting: the 2019 wiki revision describes Bursting as 5% of max health over
+  4 sec, while the 8.3.7 client row 11 says 14% over 4 sec. The client text is the one the
+  game displays in this build, so 2.5 is written against 14%; the wiki figure is Legion-era.
+
+2.3  WHICH AFFIX APPEARS AT WHICH KEYSTONE LEVEL
+------------------------------------------------------------------------------------------------
+  From the Battle for Azeroth revision of warcraft.wiki.gg "Mythic+" [W]:
+    level 2  : first affix, always one of two, alternating week by week:
+               Fortified 10 or Tyrannical 9.
+    level 4  : second affix, from a fixed list of five:
+               Bolstering 7, Bursting 11, Raging 6, Sanguine 8, Teeming 5.
+    level 7  : third affix, from a fixed list of six:
+               Explosive 13, Grievous 12, Necrotic 4, Quaking 14, Skittish 2, Volcanic 3.
+    level 10 : fourth affix = the season affix, fixed for the whole season. Season 4 =
+               Awakened 120. Level 10+ keys therefore carry four affixes at once.
+  The same page records that the week-to-week affixes are set game-wide and change only at the
+  weekly reset, and that the seasonal affix does not rotate [W].
+
+  The actual Season 4 cycle is a 12-week loop, and it was published weekly by mythicpl.us. The
+  archived page from 2020-06-09 carries the finished table in cycle order (the site's own
+  next-week logic walks that table row by row and wraps at 12) [A]:
+
+    week | level 2     | level 4    | level 7   | level 10
+    ----+-------------+------------+-----------+---------
+    1    | Fortified   | Bolstering | Grievous  | Awakened 120
+    2    | Tyrannical  | Raging     | Explosive | Awakened 120
+    3    | Fortified   | Sanguine   | Grievous  | Awakened 120
+    4    | Tyrannical  | Teeming    | Volcanic  | Awakened 120
+    5    | Fortified   | Bolstering | Skittish  | Awakened 120
+    6    | Tyrannical  | Bursting   | Necrotic  | Awakened 120
+    7    | Fortified   | Sanguine   | Quaking   | Awakened 120
+    8    | Tyrannical  | Bolstering | Explosive | Awakened 120
+    9    | Fortified   | Bursting   | Volcanic  | Awakened 120
+    10   | Tyrannical  | Raging     | Necrotic  | Awakened 120
+    11   | Fortified   | Teeming    | Quaking   | Awakened 120
+    12   | Tyrannical  | Bursting   | Skittish  | Awakened 120
+
+  Read it as a rotation, not a calendar: the table fixes the order of the twelve weeks, and the
+  site maps a week number onto it from the live API. Which row was "week 1" of Season 4 is
+  unverified here - the archived page no longer carries the highlighted row, because that
+  highlight was applied at run time from raider.io. What is verified is the set and the order:
+  six Fortified weeks alternating with six Tyrannical weeks, every level-4 affix paired with a
+  different level-7 affix, and no pair repeating inside one loop. The February 2020 snapshot of
+  the same page still had a broken table (two Tyrannical weeks back to back, no Teeming/Skittish
+  pair); the June table is the corrected one, which is why the June snapshot is the one copied.
+  If your server wants a calendar rather than a cycle, derive it: take the date of the first
+  Season 4 reset your realm ran and add seven days per row.
+
+2.4  TRASH THAT MATTERS, DUNGEON BY DUNGEON
+------------------------------------------------------------------------------------------------
+  Ranked by the enemy-forces value of a single kill (MDT count field), because that is what makes
+  a pack decide the timer. "clumps" is how many separate places MDT puts that creature; "first
+  clump" is the first x,y MDT lists for it, in the dungeon map space [M]. Two rows with the
+  same name are two different creature entries (136139 and 130485 are both Mechanized
+  Peacekeeper), and an entry that repeats across dungeons is the same NPC reused (161244 Blood
+  of the Corruptor, 190128 Zul'gamux).
+
+  Atal'Dazar  -  map 1763, keystone 244, timer 30 min
+  225 forces = 100%, 20 creature types, 164 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      10 | 129553         | Dinomancer Kish'o             |     1 | 461,-272
+       8 | 129552         | Monzumi                       |     1 | 454,-261
+       8 | 128455         | T'lonja                       |     1 | 454,-281
+       6 | 122984         | Dazar'ai Colossus             |     4 | 549,-394
+       4 | 122972         | Dazar'ai Augur                |     8 | 563,-362
+       4 | 122973         | Dazar'ai Confessor            |    11 | 575,-365
+       4 | 127799         | Dazar'ai Honor Guard          |     7 | 579,-340
+       4 | 122971         | Dazar'ai Juggernaut           |    14 | 571,-335
+
+  Freehold  -  map 1754, keystone 245, timer 33 min
+  400 forces = 100%, 43 creature types, 407 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      16 | 129699         | Ludwig Von Tortollan          |     1 | 246,-362
+      10 | 130400         | Irontide Crusher              |     9 | 254,-393
+       8 | 129602         | Irontide Enforcer             |    20 | 578,-224
+       8 | 127106         | Irontide Officer              |     8 | 334,-190
+       8 | 130404         | Vermin Trapper                |    16 | 402,-404
+       7 | 127111         | Irontide Oarsman              |     8 | 424,-390
+       5 | 129600         | Bilge Rat Brinescale          |    12 | 312,-397
+       5 | 129527         | Bilge Rat Buccaneer           |    12 | 353,-395
+
+  The MOTHERLODE!!  -  map 1594, keystone 247, timer 39 min
+  384 forces = 100%, 45 creature types, 512 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      12 | 136643         | Azerite Extractor             |     4 | 290,-268
+      12 | 136139         | Mechanized Peacekeeper        |     6 | 410,-288
+      12 | 130485         | Mechanized Peacekeeper        |    12 | 453,-349
+      12 | 133463         | Venture Co. War Machine       |    18 | 507,-104
+       8 | 133430         | Venture Co. Mastermind        |    29 | 426,-115
+       6 | 134012         | Taskmaster Askari             |     1 | 247,-176
+       5 | 130435         | Addled Thug                   |    15 | 455,-394
+       5 | 133593         | Expert Technician             |     6 | 503,-108
+
+  The Underrot  -  map 1841, keystone 251, timer 33 min
+  320 forces = 100%, 24 creature types, 227 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      10 | 133685         | Befouled Spirit               |     2 | 425,-354
+      10 | 131436         | Chosen Blood Matron           |    22 | 382,-441
+      10 | 138281         | Faceless Corruptor            |    18 | 475,-158
+       8 | 133912         | Bloodsworn Defiler            |    15 | 609,-178
+       7 | 138187         | Grotesque Horror              |    17 | 587,-175
+       5 | 131492         | Devout Blood Priest           |     5 | 383,-424
+       5 | 133663         | Fanatical Headhunter          |     9 | 381,-409
+       5 | 133835         | Feral Bloodswarmer            |    17 | 583,-329
+
+  Tol Dagor  -  map 1771, keystone 246, timer 36 min
+  400 forces = 100%, 32 creature types, 264 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+       9 | 127497         | Ashvane Warden                |     4 | 508,-350
+       9 | 131445         | Block Warden                  |     1 | 353,-221
+       7 | 127488         | Ashvane Flamecaster           |    11 | 485,-402
+       7 | 135699         | Ashvane Jailer                |     1 | 263,-322
+       7 | 130027         | Ashvane Marine                |    15 | 429,-360
+       7 | 127486         | Ashvane Officer               |    14 | 274,-431
+       7 | 130028         | Ashvane Priest                |     3 | 558,-260
+       7 | 136665         | Ashvane Spotter               |     1 | 466,-197
+
+  Waycrest Manor  -  map 1862, keystone 248, timer 39 min
+  305 forces = 100%, 43 creature types, 388 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      16 | 135365         | Matron Alma                   |     7 | 393,-276
+      10 | 135329         | Matron Bryndle                |     1 | 434,-123
+       6 | 131587         | Bewitched Captain             |    23 | 316,-336
+       6 | 131677         | Heartsbane Runeweaver         |     5 | 318,-361
+       6 | 131812         | Heartsbane Soulcharmer        |     3 | 619,-272
+       6 | 131670         | Heartsbane Vinetwister        |     2 | 195,-174
+       4 | 131586         | Banquet Steward               |    14 | 584,-263
+       4 | 161244         | Blood of the Corruptor        |     2 | 426,-375
+
+  Kings' Rest  -  map 1762, keystone 249, timer 42 min
+  246 forces = 100%, 38 creature types, 171 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      10 | 134739         | Purification Construct        |    14 | 455,-291
+       8 | 133935         | Animated Guardian             |     4 | 573,-254
+       8 | 138489         | Shadow of Zul                 |     1 | 248,-265
+       8 | 135231         | Spectral Brute                |    22 | 369,-197
+       6 | 137969         | Interment Construct           |     2 | 489,-154
+       6 | 137484         | King A'akul                   |     1 | 522,-458
+       6 | 134331         | King Rahu'ai                  |     1 | 548,-460
+       6 | 137474         | King Timalji                  |     1 | 545,-431
+
+  Temple of Sethraliss  -  map 1877, keystone 250, timer 36 min
+  220 forces = 100%, 33 creature types, 251 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      12 | 68819          | Eye of Sethraliss             |     2 | 453,-323
+      11 | 139110         | Spark Channeler               |     1 | 525,-450
+       6 | 136076         | Agitated Nimbus               |     4 | 412,-273
+       6 | 139946         | Heart Guardian                |     2 | 387,-231
+       6 | 134991         | Sandfury Stonefist            |    11 | 542,-491
+       6 | 134629         | Scaled Krolusk Rider          |    51 | 509,-405
+       6 | 139422         | Scaled Krolusk Tamer          |     1 | 397,-439
+       4 | 161244         | Blood of the Corruptor        |     2 | 320,-200
+
+  Shrine of the Storm  -  map 1864, keystone 252, timer 42 min
+  695 forces = 100%, 33 creature types, 412 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      36 | 136249         | Guardian Elemental            |     1 | 270,-178
+      36 | 134150         | Runecarver Sorn               |     1 | 303,-136
+      36 | 136214         | Windspeaker Heldis            |     1 | 344,-213
+      18 | 134144         | Living Current                |     2 | 420,-119
+      13 | 136295         | Sunken Denizen                |     1 | 562,-218
+      12 | 134417         | Deepsea Ritualist             |     3 | 254,-296
+      10 | 136353         | Colossal Tentacle             |     2 | 381,-406
+      10 | 134139         | Shrine Templar                |    43 | 417,-45
+
+  Siege of Boralus  -  map 1822, keystone 353, timer 36 min
+  319 forces = 100%, 35 creature types, 210 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+       8 | 128969         | Ashvane Commander             |     8 | 641,-222
+       8 | 135245         | Bilge Rat Demolisher          |    10 | 247,-186
+       8 | 129369         | Irontide Raider               |    17 | 720,-404
+       4 | 138465         | Ashvane Cannoneer             |     1 | 342,-240
+       4 | 138464         | Ashvane Deckhand              |     3 | 352,-227
+       4 | 137517         | Ashvane Destroyer             |     2 | 194,-96
+       4 | 137516         | Ashvane Invader               |     4 | 186,-102
+       4 | 128967         | Ashvane Sniper                |     6 | 179,-171
+
+  Operation: Mechagon - Junkyard  -  map 2097, keystone 369, timer 38 min
+  332 forces = 100%, 34 creature types, 444 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+      21 | 190128         | Zul'gamux                     |    10 | 527,-228
+      10 | 150253         | Weaponized Crawler            |    30 | 554,-223
+       7 | 189878         | Nathrezim Infiltrator         |    47 | 564,-202
+       5 | 150276         | Heavy Scrapbot                |     4 | 523,-204
+       5 | 152009         | Malfunctioning Scrapbot       |     9 | 526,-183
+       5 | 150292         | Mechagon Cavalry              |    32 | 545,-309
+       5 | 150168         | Toxic Monstrosity             |    15 | 589,-331
+       4 | 155090         | Anodized Coilbearer           |    19 | 569,-308
+
+  Operation: Mechagon - Workshop  -  map 2097, keystone 370, timer 32 min
+  160 forces = 100%, 28 creature types, 113 clumps
+  forces | creature entry | name                          | clumps | first clump x,y
+  -------+----------------+-------------------------------+-------+----------------
+       9 | 151476         | Blastatron X-80               |     1 | 435,-406
+       9 | 190128         | Zul'gamux                     |     1 | 520,-270
+       6 | 144298         | Defense Bot Mk III            |    21 | 421,-430
+       6 | 144293         | Waste Processing Unit         |     4 | 362,-378
+       5 | 144296         | Spider Tank                   |     3 | 502,-236
+       4 | 161244         | Blood of the Corruptor        |     1 | 592,-180
+       4 | 151773         | Junkyard D.0.G.               |     3 | 526,-342
+       4 | 161243         | Samh'rek, Beckoner of Chaos   |     1 | 415,-388
+
+  Read this table as the pull-cost list, not a route: the highest-forces creature in a dungeon is
+  the one a skip is worth the most on, and the one whose Bolstering/Sanguine behaviour hurts
+  most. A creature with one clump is a single pack; a creature with twenty clumps is the
+  dungeon's filler and is where percentage is padded from.
+
+2.5  WHAT EACH ROLE DOES AGAINST EACH AFFIX
+------------------------------------------------------------------------------------------------
+  Written against the client text in 2.2, so every stated effect is the same one the client
+  shows. Actions are procedures, not client facts.
+
+  Fortified (10) - non-boss enemies +20% health, up to +30% damage
+    tank  : pull one pack at a time and never chain-pull two; count forced percentage before the
+            last boss.
+    healer: trash damage is the whole fight: keep the tank above 70% and pre-heal the pull, not
+            the hit.
+    damage: kill the highest-forces creature first (2.4); area damage only after the pack is
+            gathered.
+
+  Tyrannical (9) - bosses +40% health, up to +15% damage
+    tank  : hold every boss cooldown for the phase the group has failed before; call the swap
+            timer aloud.
+    healer: boss damage is spiky: bank the big cooldown for the one ability that can delete a
+            tank.
+    damage: a single-target build and a single-target trinket for boss weeks; area damage is
+            wasted here.
+
+  Bolstering (7) - a dying non-boss empowers nearby allies (+health, +damage)
+    tank  : never let a low-health pack member die next to a full-health one: drag the pack apart
+            first.
+    healer: expect a damage spike each time something dies; heal after the kill, not during it.
+    damage: kill the smallest-health creature away from the pack, or kill everything at once.
+
+  Bursting (11) - dying non-boss explodes for 14% max health over 4 s, stacking
+    tank  : stagger kills; stop damage at 10% and let the stack fall off before the next kill.
+    healer: this is a healing-throughput affix: stack heals before the third kill, dispel nothing
+            here.
+    damage: never kill two things in the same global; track the stack and hold area damage.
+
+  Sanguine (8) - corpses leave ichor that heals enemies and damages players
+    tank  : move the pack off the pool after every kill; a tank standing in ichor out-heals the
+            group.
+    healer: the pool is not healable damage - the group has to move, so move with them.
+    damage: kill, then step: never area-damage a pack that is standing in its own pool.
+
+  Necrotic (4) - melee stacks a blight that reduces healing received
+    tank  : kite once the stacks outpace healing (a dozen or so is the usual call, not a client
+            value).
+    healer: the tank becomes unhealable at high stacks: call the kite before it is critical.
+    damage: slow and root the pack to let the tank kite; do not chase into the group.
+
+  Skittish (2) - enemies pay far less attention to threat from tanks
+    tank  : re-establish threat on every pull; assume the first global of area damage will rip a
+            mob.
+    healer: expect to heal damage dealers; the affix is a threat problem that shows up as healing.
+    damage: wait two globals before opening, and pull back to the tank if a mob turns.
+
+  Quaking (14) - players periodically emit a shockwave that interrupts nearby allies
+    tank  : spread before the cast; the tank is the only unit that can stay in melee during it.
+    healer: the shockwave interrupts casts: never start a long heal in the last second of the
+            cycle.
+    damage: spread and stop casting; a caster caught in it loses the cast and the school for a
+            moment.
+
+  Explosive (13) - enemies periodically summon Explosive Orbs that detonate if not killed
+    tank  : hold the pack still so the orbs spawn in reach; do not chase them yourself.
+    healer: orbs are the group's job and they explode for group damage: track how many are alive.
+    damage: assign one damage dealer to orbs for the whole dungeon; swap instantly when one
+            spawns.
+
+  Grievous (12) - below 90% health, players take increasing damage until healed above 90%
+    tank  : the tank is the worst case: never drop below 90% on purpose to save a cooldown.
+    healer: this is a top-up affix: heal everyone to 90% before starting the next cast, no
+            exceptions.
+    damage: do not stand in avoidable damage; any chip damage becomes a healing debt.
+
+  Volcanic (3) - gouts of flame erupt under distant players
+    tank  : melee is safe; the tank should not move the pack for a gout that spawned on a ranged
+            unit.
+    healer: move out of the gout and keep casting; the gout does not follow.
+    damage: ranged spread; the gout targets distance, so a clumped ranged group eats several at
+            once.
+
+  Raging (6) - non-boss enrages at 30% health for +100% damage
+    tank  : hold a defensive for the 30% moment on every pack; kill the enraged mob first.
+    healer: expect a step change in damage at 30%: pre-heal the tank before the pack crosses it.
+    damage: burst the last 30%: a slow kill on a Raging pack is the most common way to lose the
+            tank.
+
+  Teeming (5) - additional non-boss enemies are present throughout the dungeon
+    tank  : the routes change: more packs, so count percentage before pulling anything optional.
+    healer: more pulls means more total damage: mana is the resource to protect.
+    damage: kill order matters more, because there are more mobs competing for the same area
+            damage.
+
+  Awakened (120) - obelisks let players enter Ny'alotha and fight servants of N'Zoth; a servant
+  not dealt with appears during the final boss
+    tank  : decide before the run which obelisks the group clears; a servant left alive is a boss-
+            phase add.
+    healer: the obelisk phase is a burst check: cooldowns are better spent there than on trash.
+    damage: clear the servant inside the obelisk, never leave it for the last boss unless the
+            timer needs it.
+
+2.6  PULLS THAT ARE SKIPPED
+------------------------------------------------------------------------------------------------
+  UNVERIFIED as a fixed list. Which packs are skipped is a route decision made per run: it
+  depends on the keystone level, the affix set (Teeming adds packs; Bolstering and Sanguine make
+  small packs expensive), and the group's damage. MDT ships the pack coordinates (2.4) but the
+  routes themselves live in saved variables, not in the addon, so there is no shipped list of
+  skips to verify. The only arithmetic that is verifiable is the one in 2.1: a dungeon needs
+  exactly "forces" worth of kills, so any pack that is skipped has to be paid for elsewhere.
+
+3. ISLAND EXPEDITIONS
+================================================================================================
+
+3.1  THE MAPS
+------------------------------------------------------------------------------------------------
+  Eleven islands plus one tutorial map [C][W]. Map.dbc keeps the island number in the map name,
+  which is how the table below is ordered. InstanceType 5 = scenario. The denizens column is
+  the island's own salvage box "Possible Inhabitants" list [W] - the one place the wiki states a
+  per-island population as a list, and it agrees with each island's page prose.
+
+  map  | island                          | file                     | denizens
+  -----+---------------------------------+--------------------------+--------------------------
+  1813 | Un'gol Ruins (Islands 1)        | Islands801               | quilboar, pygmies, hozen
+  1814 | Havenswood (Islands 2)          | Islands802               | feral worgen, Old God
+       |                                 |                          | minions, necromancers
+  1907 | Snowblossom Village (Islands 3) | Islands_Panderan_Farm    | mantid, mogu, virmen
+  1893 | The Dread Chain (Islands 4)     | NecromancyIsland         | mogu, kvaldir, ice trolls,
+       |                                 |                          | yeti
+  1898 | Skittering Hollow (Islands 5)   | Islands22                | troggs, kobolds, nerubians
+  1897 | Molten Cay (Islands 6)          | Islands24                | ogres, yaungol, sand and
+       |                                 |                          | jungle trolls
+  1879 | Jorundall (Islands 7)           | rymoore                  | vrykul, vargul, taunka,
+       |                                 |                          | storm dragons
+  1882 | Verdant Wilds (Islands 8)       | Islands10                | furbolgs, druids, keepers
+  1892 | The Rotting Mire (Islands 9)    | Islands11                | saurok, jinyu, pirates
+  1883 | Whispering Reef (Islands 10)    | Islands01                | makrura, murlocs, naga
+  2124 | Crestfall (Islands 11)          | Crestfall                | orc souls, twilight
+       |                                 |                          | dragons, pirates
+  1955 | Uncharted Island                | ScenarioIslandsTutorial  | tutorial - kunzen hozen
+
+  Island rotation: eleven islands, three offered per week [W]. The client does not store which
+  three are up; that is a server-side weekly choice: unverified.
+
+3.2  OBJECTIVES AND AZERITE TARGETS
+------------------------------------------------------------------------------------------------
+  [W] Every island has at least four start locations, and the queue uses one of them, so the
+  opening move differs run to run. Islands carry azerite nodes and chests, capture points,
+  quest givers, consumable and shrine objects, caves and ships, and randomised denizens; the
+  same island can be populated by completely different mob factions on two visits.
+  Victory is a race: the team that reaches the required azerite total first wins [B]. What
+  happens when the match ends with neither team at the total is not stated on the revision I
+  read - most azerite wins is the obvious reading, but it is unverified, so a companion should
+  keep gathering until the result screen rather than stopping on the opponent's lead.
+
+  The totals themselves are published, though not on the wiki page:
+
+    mode   | azerite to win | item level | azerite gained | enemy health | source
+    -------+----------------+------------+----------------+--------------+--------
+    Normal |          6,000 | none       | 100%           | 100%         | [B][G]
+    Heroic |          9,000 | 295        | 150%           | 200%         | [G]
+    Mythic |         12,000 | 315        | 200%           | 300%         | [G]
+    PvP    |         12,000 | none       | 200%           | 300%         | [G]
+
+  Blizzard's own preview states the 6,000 figure for the mode it describes [B]; the 9,000 and
+  12,000 cells and the three multiplier columns come from the guide table on Icy Veins [G] and
+  are repeated identically by several other guide sites, but no client table and no wiki
+  revision I could reach carries them. Treat 9,000 and 12,000 as well-attested secondary data
+  and 6,000 as primary. The % columns are relative to Normal.
+  Companion arithmetic that follows: a Normal run needs 6,000 azerite, a Mythic run 12,000 but
+  every pickup is worth double, so the number of pickups to win is roughly the same in both -
+  what changes is the enemy health, not the route length.
+
+  Azerite node positions are not in the client tables - the scenario script places them - so
+  node coordinates are unverified. Only the start locations are documented, and only as a
+  count (at least four per island), never as coordinates [W].
+  Match length: the wiki states expeditions "take around 15-20 minutes to complete" [W]; with
+  the totals above, a group that wins on Normal has pulled 6,000 azerite in that window, i.e.
+  roughly 300-400 azerite a minute, which is the rate a companion's route has to beat.
+
+3.3  THE COMPUTER-CONTROLLED ENEMY TEAM
+------------------------------------------------------------------------------------------------
+  [W] In Normal, Heroic and Mythic the group of three faces a team of three "Advanced NPC
+  opponents" of the opposite faction, using a tailored AI; PvP mode faces three players instead.
+  The opposing team gathers azerite on the same map, is hidden by fog of war, and can fight the
+  player group when the two meet.
+  The wiki names all sixteen teams and every member, and each member has a creature entry. The
+  entries below are the ISLAND entries - creature ids a server should spawn for the scenario,
+  not the city ids. The wiki lists both for most of these NPCs, e.g. Varigg is 137314 in
+  Dazar'alor and 135247 on an island, and Wowhead's zone flags agree (130871, 130872, 133557,
+  133585 and 133627 all list Un'gol Ruins, Skittering Hollow, Molten Cay, Dread Chain, Verdant
+  Wilds, Whispering Reef and Jorundall) [H][W]:
+
+    side     | team                       | the three members and their entries
+    --------+----------------------------+--------------------------------------------
+    Alliance | Briona's Buccaneers        | Briona the Bloodthirsty 135248, Varigg
+             |                            | 135247, "Stabby" Lottie 135246
+    Alliance | Auric's Angels             | Frostfencer Seraphi 130620, Squallshaper
+             |                            | Bryson 130621, Squallshaper Auran 130622
+    Alliance | Light's Vengeance          | Vindicator Baatul 134280, Anchorite Lanna
+             |                            | 134283, Archmage Tamuura 134286
+    Alliance | Razak's Roughriders        | Razak Ironsides 133557, Dizzy Dina 133585,
+             |                            | Tally Zapnabber 133627
+    Alliance | Riftrunners                | Riftblade Kelain 134214, Shadeweaver Zarra
+             |                            | 134216, Duskrunner Lorinas 134215
+    Alliance | The Wolfpack               | Gunnolf the Ferocious 131726, Fenrae the
+             |                            | Cunning 131727, Raul the Tenacious 131728
+    Alliance | Dark Iron Demolishers      | Airyn Swiftfeet 144776, Lady Tamakeen
+             |                            | 144772, Brother Bruen 144782
+    Alliance | Thornspeakers              | Thornguard Burton 151027, Thornspeaker
+             |                            | Tavery 151029, Thornstalker Nydora 151028
+    Horde    | The Headhunters            | Berserker Zar'ri 130302, Shadow Hunter
+             |                            | Ju'loa 130301, Witch Doctor Unbugu 130303
+    Horde    | Warbraves                  | Spiritwalker Quura 134270, Mahna
+             |                            | Flamewhisper 134269, Sunwalker Ordel 134271
+    Horde    | Greenbelly's Raiders       | Captain Greenbelly 134332, Dorp 134333,
+             |                            | Sneaky Pete 129364
+    Horde    | The Blazing Sunhawks       | Phoenix Mage Rhydras 129064, Phoenix Mage
+             |                            | Ryleia 129065, Sunbringer Firasi 129062
+    Horde    | The Highborne              | Moonscythe Pelani 133733, Rune Scribe
+             |                            | Lusaris 133734, Astralite Visara 133738
+    Horde    | Gazlowe's Greasemonkeys    | Gazlowe 130870, Skaggit 130871, Lady Sena
+             |                            | 130872
+    Horde    | Draenor's Blood            | Nagtar Wolfsbane 144785, Ranah Saberclaw
+             |                            | 144789, Charg "The Boisterous" 144784
+    Horde    | Raptari                    | Guardian M'sheke 151017, Mooncaller Mozo'kas
+             |                            | 151026, Wardruid Ko'chus 151025
+
+  Every entry above was checked two ways: the name comes back from the Wowhead tooltip for that
+  id, and the wiki page for that NPC carries the same id in its Elinks template tagged "Island
+  Expedition" [H][W]. The one entry that is only probable is Gazlowe 130870: the id sits inside
+  the Greasemonkeys block (130870 Gazlowe, 130871 Skaggit, 130872 Lady Sena) and returns the
+  name "Gazlowe", but Wowhead lists no zone for 130870 while 130871/130872 both list island
+  zones. The Dazar'alor copy is 137313. If a spawn does not appear, try 130870 then 137313.
+
+  The wiki describes the two factions as mirrored - a pirate crew on each side, gnomish
+  engineers against goblin engineers, Horde pyromancers against Alliance hydromancers [W].
+  What remains unverified is behaviour, not roster: the NPC team's pull order, its reaction
+  radius and its azerite-per-minute rate are not in any table I could read. For a companion AI
+  the workable rule is therefore:
+    - treat the enemy team as a second azerite clock, not as a combat encounter;
+    - contest only when the enemy is already engaged with island mobs;
+    - never chase into fog of war without a healer in range, because the island mobs join in.
+
+3.4  DIFFICULTIES AND REWARDS
+------------------------------------------------------------------------------------------------
+  What each difficulty changes [G], on top of the win total in 3.2:
+
+    mode   | item level | azerite per pickup | enemy health | completion azerite
+    -------+------------+--------------------+--------------+-------------------
+    Normal | none       | 100%               | 100%         | ~150
+    Heroic | 295        | 150%               | 200%         | ~225
+    Mythic | 315        | 200%               | 300%         | 350 (was 300)
+    PvP    | none       | 200%               | 300%         | 350 + 50 Conquest
+
+  The Mythic/PvP 350 figure is confirmed by Blizzard's 8.1 patch notes, which also state the
+  weekly "recover azerite" quest dropped from 40,000 to 36,000 [B]; the Normal/Heroic completion
+  values are guide-site numbers [G] and the 50 Conquest is from the same patch note [B].
+  Rewards that are verified on the wiki [W]: azerite, Seafarer's Dubloons, equipment with
+  unique appearances, and a chance at cosmetic items (mounts, companions). Since patch 8.1.0 a
+  cosmetic only needs its mobs to be present on the island, not to be killed. Dubloons are
+  spent on salvage boxes from Captain Nightrunner in Boralus (Alliance) and Captain Kitt in
+  Daza'alor (Horde); only the three islands that are up that week can be bought [W].
+
+    salvage box                | dubloons | island it covers
+    --------------------------+----------+------------------------------------
+    Un'gol Ruins Salvage       |      120 | Un'gol Ruins
+    Molten Cay Salvage         |      120 | Molten Cay
+    Whispering Reef Salvage    |      120 | Whispering Reef
+    Verdant Wilds Salvage      |      120 | Verdant Wilds
+    Snowblossom Salvage        |      175 | Snowblossom Village
+    Skittering Hollow Salvage  |      175 | Skittering Hollow
+    Rotting Mire Salvage       |      175 | The Rotting Mire
+    Jorundall Salvage          |      175 | Jorundall
+    Havenswood Salvage         |      175 | Havenswood
+    Crestfall Salvage          |      175 | Crestfall
+    Dread Chain Salvage        |      175 | The Dread Chain
+    Venture Co. Salvage        |       50 | always available: venture co.,
+                               |          | tol'vir, black dragonflight
+    Elemental Salvage          |       75 | always available: elementals
+
+  Those are vendor prices, not payouts, and should not be read as a per-run reward figure.
+  Dubloon Payout per run is not published anywhere I could read: unverified.
+
+3.5  WHAT A COMPANION SHOULD DO ON AN ISLAND
+------------------------------------------------------------------------------------------------
+  Procedures, derived from 3.2-3.4:
+    1. At the start, pick the nearest azerite cluster from the start location the queue gave;
+       the start location is one of four and is not fixed, so the route must be selected at
+       runtime, not hard-coded.
+    2. Never fight a full-health island pack for a single node: island mobs are the clock.
+    3. Keep one unit on the enemy-team side of the map to report contest timing, and only
+       commit the group when the enemy team is already in combat.
+    4. Dubloons and cosmetics are per-run, not per-kill since 8.1.0; there is no reason to
+       clear a pack that does not sit on azerite.
+
+4. VERIFICATION, GAPS AND WHY EACH GAP EXISTS
+================================================================================================
+
+4.1  WHAT IS VERIFIED AND WHERE FROM
+------------------------------------------------------------------------------------------------
+  [C] Arena pool = BattlemasterList id 6, twelve Map.dbc ids. Arena names and directories =
+      Map.dbc. Specialisation ids, class and role = ChrSpecialization (42 rows, 36 player).
+  [C] M+ pool and every timer = MapChallengeMode CriteriaCount_0 for the twelve BfA rows, with
+      CriteriaCount_1/_2 exactly 80%/60% of it.
+  [C] Affix ids, names and descriptions = KeystoneAffix (19 rows, client text quoted verbatim).
+  [C] Spell ids = SpellName (208683, 42292, 65547 Gladiator's Medallion / PvP Trinket; 110310
+      Dampening; 74411 Battleground - Dampening), tooltips from Wowhead.
+  [M] Enemy forces per dungeon and per creature, pack counts and every clump coordinate = MDT
+      v5.0.2 BattleForAzeroth files.
+  [W] Affix tiers by keystone level; the DR ladder and its six categories; arena brackets,
+      dampening and Shadow Sight; island count, rotation, objectives, inhabitants and salvage
+      prices; the sixteen named enemy teams and their members; per-arena layout prose.
+  [H] NPC entry ids and their zone flags; trinket and Dampening tooltips.
+  [T] TrinityCore source: the battleground_template/WorldSafeLocs path for arena spawns
+      (BattlegroundMgr.cpp), the 60-second arena preparation countdown (Arena.cpp), the rating
+      formula and its four config modifiers (ArenaTeam.cpp).
+  [A] The Season 4 12-week affix cycle: archived mythicpl.us table of 2020-06-09.
+  [B] Island azerite target for Normal, the 8.1 weekly-quest and reward change.
+  [G] Island 9,000/12,000 targets, item levels, and the azerite-gain/enemy-health multipliers.
+
+4.2  WHAT WAS RESOLVED ON THE SECOND PASS
+------------------------------------------------------------------------------------------------
+  These were listed as unverified in the first version of this document and are now sourced:
+    - Island NPC creature entries: 47 of the 48 members have an island entry id, checked
+      against both the wiki Elinks and the Wowhead tooltip; the 48th (Gazlowe) is flagged.
+    - Island azerite targets: 6,000 / 9,000 / 12,000 / 12,000, plus the reward change at 8.1.
+    - Season 4 affix calendar: the 12-week cycle is now tabulated; only the week-1 anchor is
+      still open (the cycle order is what matters for a server anyway).
+    - Arena rating: the core formula and the four config floats are now written out.
+    - DR categories: the six-category split is now cited, replacing a wrongly flat list.
+    - Arena layout: 8 of the 12 maps now have layout prose, including pillar counts on the
+      two Nagrand-family maps and the bridge/pit geometry on Blade's Edge.
+    - Arena start locations: the id shape and the core path are documented, with the classic
+      arena start-loc ids as a worked example.
+    - Freehold/Underrot teeming: shown to be a defect in MDT's own data, with the line
+      numbers, rather than a bad transcription.
+
+4.3  STILL UNVERIFIED, WITH THE REASON
+------------------------------------------------------------------------------------------------
+  - Arena spawn COORDINATES: the StartLoc ids are known but resolve through WorldSafeLocs, and
+    that table is not in the wago.tools export under any of the four spellings I tried, on
+    8.3.7, 9.0.2 or 11.0.2. Extract it from your own client or read it from your world DB.
+  - Pillar positions as coordinates: map geometry, not DB2. Layout prose is in 1.3; positions
+    would need a WMO/ADT viewer.
+  - Retail personal-rating numbers for 8.3.7: the core formula is in 1.8, but the retail
+    per-win values are server configuration in every core I can read.
+  - Per-category maximum PvP duration for 8.3.7: neither wiki page states a BfA-era cap.
+  - Which calendar week was week 1 of the Season 4 cycle: the archived page highlighted the
+    current row at run time from raider.io, so the highlight is not in the archive.
+  - Which pulls a route skips: route data lives in per-player MDT saved variables and in
+    raider.io's weekly route strings, which are addon-encoded blobs, not tables.
+  - Freehold and The Underrot teeming totals: MDT declares them lower than normal (see 2.1).
+  - Island azerite node coordinates: placed by the scenario script, not in any table.
+  - Island dubloon payout per run and per-difficulty drop rates: not published in anything I
+    could read. The salvage PRICES in 3.4 are vendor prices and are verified.
+  - Storming: absent from KeystoneAffix and from the BfA tier lists, recorded so a companion
+    ported from a Legion build does not go looking for it.

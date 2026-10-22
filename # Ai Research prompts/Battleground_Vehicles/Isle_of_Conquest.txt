@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the gates, walls and siege vehicles of Isle of Conquest (map 628) in 8.3.7, so that a computer-controlled character can use them.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Vehicles_Isle_of_Conquest.txt
+(1) Every gate, wall, door and tower that can be damaged: gameobject entry, name, position (x, y, z), health, owner, which weapons damage it, what happens when it falls. (2) Every vehicle (demolisher, siege engine, catapult, glaive thrower, cannon, turret, airship): creature entry, name, spawn position (x, y, z), seats, how a player enters it, how it is driven, every spell on its action bar with spell id, range, cooldown and what it damages, how it is repaired or replaced, where and when it respawns. (3) The sequence a good team follows for each side with the points to drive to and fire from. (4) What one character can do alone and what needs two or more.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

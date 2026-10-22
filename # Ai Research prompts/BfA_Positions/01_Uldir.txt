@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): positions and numbers for Uldir in 8.3.7 that my tactics document could not give.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Positions_Uldir.txt
+For every boss: the boss spawn position and the tank position (map id, x, y, z); safe spots with z for each mechanic (where to drop ground effects, soak, spread or stack, ring or edge positions, platform and intermission positions); the health percentage at which each phase or intermission starts and the timers in seconds of the main abilities; which mechanics need an assigned player (soak lists, kick order, tank swap points) and the exact trigger for each. For a dungeon also every pull position with z, the route between pulls and the line of sight spots. If a value is not in a source you can read write "unverified". Do not estimate coordinates or timers.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

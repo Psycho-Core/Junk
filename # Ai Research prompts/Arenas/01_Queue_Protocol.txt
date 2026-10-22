@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): how a group joins a skirmish and a rated arena in 8.3.7.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Arena_Queue.txt
+The client packets (name and fields) and the server handler steps; the group size rules for 2v2, 3v3 and 5v5; who may queue; how a group of a real player and computer-controlled characters is queued by the leader; how the match is assembled (rating, faction, role); what happens when a member leaves; how a character is told to enter. Name the TrinityCore functions and files involved.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

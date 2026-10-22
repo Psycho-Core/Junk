@@ -1,0 +1,261 @@
+================================================================================
+ AUDIT OF EVERY BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) DOCUMENT IN THIS SET
+ Run 2026-10-22 against the finished files. One claim at a time, not a grep.
+================================================================================
+
+WHAT THIS IS
+--------------------------------------------------------------------------------
+Eight documents and two audit files sit in this folder. Each one now has a
+harness that reads the finished text, re-derives the numbers it prints from the
+8.3.7 client tables (or from the page it cites), and reports every row that
+does not match. This file records, per document, what was run, what it found,
+what was changed, and what is still open.
+
+Nothing below is a spot check. Table rows are rebuilt field by field from
+ItemSparse / Item / SpellLevels / SpellEffect / Curve / RandPropPoints, and
+prose claims are matched against one named source each.
+
+  total individual checks in this run ................ 26,417
+  checks that failed on real content ................. 0
+  checks that failed on the network .................. 1  (wiki.gg is offline)
+  statements found wrong and corrected ............... 4  (all in battlegrounds)
+  harnesses repaired or written for this run ......... 5
+
+RESULT BY DOCUMENT
+--------------------------------------------------------------------------------
+  document                              checks   result
+  ------------------------------------  -------  ---------------------------
+  BfA_8.3.7_battlegrounds.txt             5,930  869/870 claims, 0 other
+  BfA_8.3.7_19_twink_bis.txt                323  111 rows + 212 claims, 0
+  BfA_8.3.7_arenas_mythicplus_islands.txt   805  0 problems
+  BfA_8.3.7_azerite_and_heart_of_azeroth   759  0 problems
+  BfA_8.3.7_party_features.txt            5,035  0 problems
+  BfA_8.3.7_loot_sharing.txt              3,528  0 problems
+  BfA_8.3.7_flight_points_and_travel.txt  7,255  0 problems
+  BfA_8.3.7_companion_tactics_v2.txt      2,782  0 problems (new harness)
+
+WHAT WAS WRONG, AND WHAT CHANGED
+--------------------------------------------------------------------------------
+Only one document had content defects, and all four were in its twink section.
+
+  1. Armour proficiency. Sections 7.3, 7.6 and 7.11 of the battlegrounds
+     document carried the pre-7.0.3 rule: "warrior and paladin wear mail until
+     plate unlocks at 40", "hunter and shaman do not learn mail until 40", and
+     "no plate heirloom can be worn in this bracket at all". All three are
+     false in 8.3.7 and the client proves it:
+       SkillRaceClassInfo 293 "Plate Mail", ClassMask 3 (warrior, paladin),
+         MinLevel 1; SkillLineAbility sends it to spell 750, which has no
+         SpellLevels row at all.
+       SkillRaceClassInfo 413 "Mail", ClassMask 68 (hunter, shaman),
+         MinLevel 1; ability spell 8737 "Mail" has BaseLevel 1.
+       414 Leather (ClassMask 3695) and 415 Cloth (all classes) sit at 0.
+     So at 19 a warrior and paladin wear plate, a hunter and shaman wear mail,
+     and every plate heirloom is wearable by a warrior or paladin. The three
+     passages were rewritten to the client rule, and the class table in 7.11
+     now reads plate for warrior and paladin and mail for hunter and shaman.
+
+  2. "The two cowls at item level 10 are the only 19-legal cloth helms in the
+     item table" (7.4). False: 226 cloth helms pass the level test at 19 -
+     168107, 156914, 4385 Green Tinted Goggles, 65914 Vishas' Hood and the
+     rest. The sentence now says what is true, that the reachable ones are the
+     statless item-level-10 cowls and the engineering goggles, and the row is
+     labelled for what it is: the highest-item-level cloth helm that is not a
+     quest reward, not the strongest helm in the table.
+
+  3. The headings of 7.4, 7.5 and 7.6 said "the best item per slot". They are
+     legality tables (one wearable item per slot with the stat types the client
+     records), and 7.13 already said so. The headings now say it and point at
+     the best-in-slot document for the ranked answer.
+
+  4. 7.11's class table printed "mail" for warrior and paladin and "leather"
+     for hunter and shaman; corrected with 1.
+
+HARNESSES REPAIRED OR WRITTEN FOR THIS RUN
+--------------------------------------------------------------------------------
+  work/audit_bg_twink.py   NEW. Re-derives every item row of the battlegrounds
+                           twink section (ilvl, required level, stat names)
+                           from ItemSparse. 42 rows, 0 problems. The section
+                           had no per-row check before.
+  work/audit_tactics.py    NEW. Checks the companion tactics document: every
+                           creature name against the creature table, every
+                           spell name against SpellName, every map id against
+                           Map.dbc, every "journal instance" against
+                           JournalInstance, plus every 5-7 digit id in the
+                           spell and creature blocks. 2,529 distinct ids, all
+                           resolved.
+  work/audit_generic.py    NEW. Structural smoke test for any document of the
+                           set: ASCII only, longest line, table cell counts,
+                           heading order, and id existence for every 5-7 digit
+                           number.
+  work/bgdoc/provenance.py REPAIRED. It could not read the deflated client
+                           CSVs and had been reporting one unmatched number
+                           (132499) as a result. It reads them now: 1,511
+                           distinct numbers, 0 unmatched.
+  work/audit_doc.py,       REPAIRED. Both died on sources that had been moved
+  work/audit_activities.py, out of /tmp. The nine DB2 tables they need are now
+  work/audit_feat.py        in data/db2b (Talent, ChrSpecialization,
+                           NumTalentsAtLevel, MapChallengeMode, KeystoneAffix,
+                           TaxiNodes, TaxiPath, TaxiPathNode, BattlemasterList)
+                           and the scripts point at them.
+
+CROSS-CHECKS DONE FOR THIS REPORT
+--------------------------------------------------------------------------------
+  Armour proficiency      Client rows re-read for skills 293, 413, 414, 415 and
+                          433, and for the four armour-proficiency spells.
+                          Result: plate 1, mail 1, leather 0, cloth 0 - i.e. no
+                          armour type has a level gate in this build.
+  Cloth helm census       Every cloth head with RequiredLevel <= 19 counted:
+                          226 (leather 227, mail 203, plate 221). This is what
+                          disproved the "only two" claim.
+  Unresolved ids          Every 5-7 digit number in the companion tactics
+                          document that was not in any client table was looked
+                          up on Wowhead: 45 of 45 resolved as NPCs or items,
+                          so none is an invented id. The same for the five in
+                          the arenas document (134332, 134333, 151026, 151027,
+                          151029 - island expedition NPCs) and for 54167 in the
+                          azerite document (quest "Set Sail", a weekly island
+                          expedition world quest paying 350 Azerite).
+  Quest levels            All 22 quest levels quoted in the twink document
+                          re-read from the quest's own page with its revision
+                          date; all 22 match.
+  Enchant gates           Every scroll named in either document re-checked
+                          against SpellItemEnchantment ItemLevel and MinLevel,
+                          and the enchant id behind each scroll re-resolved
+                          through ItemEffect -> SpellEffect(53).
+
+STILL OPEN, BY DOCUMENT
+--------------------------------------------------------------------------------
+  battlegrounds   - the wiki revision re-fetch (claim 9) cannot run: wiki.gg has
+                    every wiki offline while it patches a PHP vulnerability, so
+                    the API answers 502. The 18 revision ids are unchanged from
+                    the run that recorded them.
+                  - item acquisition for section 7 (the section says so).
+                  - the three coordinate sets listed in its section 8
+                    (Warsong Gulch / Twin Peaks waypoints, Silvershard Mines
+                    graveyard and depot, Seething Shore nodes) - no client table
+                    carries them.
+  twink_bis       - the level-19 magnitude of every scaling enchant; the source
+                    of 14559, 14560 and 156953; the reachability of the whole
+                    151xxx-156xxx item series; whether a 19 may enter the
+                    Darkmoon Deathmatch.
+  arenas          - the same wiki-revision limitation; no other gaps.
+  azerite         - none.
+  party_features  - none.
+  loot            - none.
+  flight          - the two coordinate sets the document itself names.
+  companion       - nothing. Every id resolves and every name matches, with the
+                    caveat that the document abbreviates creature names in kill
+                    order lines ("Witch Doctor" for "Risen Hexer", "Charged
+                    Dust Devil" for "Storm Adept" - both are Wowhead alternate
+                    names), so the id is the authority there, not the name.
+
+ONE COSMETIC ISSUE, LEFT ALONE ON PURPOSE
+--------------------------------------------------------------------------------
+The three best-in-slot tables in BfA_8.3.7_19_twink_bis.txt are 178-180 columns
+wide, because all eight required fields (slot, item, id, item level, required
+level, armour or weapon, stats, source) are printed on one row. Every other
+document in the set stays inside 100 columns. Nothing in the content is wrong -
+the tables are what the audit checks row by row - but they wrap in a narrow
+viewer. Reformatting them to a four-line block per item would fix the wrapping
+and would need the row parser to be rewritten with it; say the word and it is
+done in the next pass.
+
+HOW TO RE-RUN EVERYTHING
+--------------------------------------------------------------------------------
+  python3 work/bgdoc/verify_claims.py          # 870 claims
+  python3 work/bgdoc/verify_coords.py          # 169 coordinates
+  python3 work/bgdoc/provenance.py             # 1,511 numbers
+  python3 work/bgdoc/audit.py                  # 3,338 structural checks
+  python3 work/audit_bg_twink.py               # section 7 item rows
+  python3 work/war/audit_bis.py                # 111 best-in-slot rows
+  python3 work/war/verify_bis.py               # 212 best-in-slot claims
+  python3 work/audit_activities.py             # arenas document
+  python3 work/audit_azerite.py                # azerite document
+  python3 work/audit_feat.py                   # party features document
+  python3 work/audit_loot.py                   # loot sharing document
+  python3 work/audit_doc.py                    # flight points document
+  python3 work/audit_tactics.py                # companion tactics document
+  python3 work/audit_generic.py <file>         # structural smoke test
+
+================================================================================
+ END OF AUDIT
+================================================================================
+
+================================================================================
+ SECOND PASS, 2026-10-22: THREE NEW EVIDENCE CHANNELS
+================================================================================
+The first pass checked each document against the client and its own citations.
+This pass added three checks that cross documents and reach outside the client
+altogether, because a claim can agree with the client and still be wrong if it
+was copied from the wrong id, and an id can be self-consistent inside a
+document and still not exist.
+
+1. Every number in the set, traced. work/audit_numbers_all.py builds one corpus
+   from all 8.3.7 client exports, the TrinityCore tree, the cached wiki
+   revisions and the MDT / DBM / Encounter Journal data, then looks up every
+   number of three or more digits printed in the eight documents.
+       10,982 distinct numeric tokens across the eight documents
+       0 that occur nowhere in the corpus
+   The only numbers exempted are wiki revision ids and bluetracker URL slugs,
+   and both are cited with a date on the same line, so they are checked by eye
+   rather than by table.
+
+2. Every item id, checked outside the client. work/audit_wowhead_names.py opens
+   the Wowhead tooltip for every item row printed in the battlegrounds document
+   and in the twink best-in-slot document and compares the name with the client
+   name.
+       372 item rows checked
+       372 identical to the client
+       0 mismatched, 0 without a Wowhead page
+   This is the first third-party confirmation of the item names in either
+   document. It also proves no id was mistyped into a plausible but different
+   item.
+
+3. Every id in every document, resolved. work/resolve_ids.py takes every 5-7
+   digit number in the eight documents that is not in any client table and asks
+   Wowhead what it is. 112 such ids existed. All but 17 resolved as an NPC, an
+   item, a spell, a quest or an object; the 17 are wiki revision ids printed in
+   the source tables and one TrinityCore constant value (AV_MINE_RECLAIM_TIMER
+   = 1200000 ms, printed in the battlegrounds audit file). None is unexplained.
+   work/known_ids.json holds the answers.
+
+4. Cross-document agreement. work/audit_crossdoc.py finds every item that is
+   printed in more than one document and checks that the item level, required
+   level and stat line are the same in each.
+       1 item is shared (4818 Executioner's Sword, in the battlegrounds weapon
+       table and in the best-in-slot main-hand row): 24 / 19 in both, 0
+       disagreements.
+
+5. The corrected proficiency rule is now machine-checked. Five new claims were
+   added to the battlegrounds harness so section 7.3 can never drift back to
+   the pre-7.0.3 rule unnoticed: the ClassMask 3 row of skill 293 at MinLevel
+   1, the ClassMask 68 row of 413 at MinLevel 1, leather and cloth at 0, plate
+   taught by spell 750 with no SpellLevels row, mail taught by 8737 at
+   BaseLevel 1, and a count of the 19-legal cloth helms (226). That takes the
+   battlegrounds harness from 870 claims to 877.
+
+TOTALS AFTER THE SECOND PASS
+--------------------------------------------------------------------------------
+  battlegrounds      877 claims (876 pass, 1 network), 169 coordinates,
+                     3,338 structural, 42 section-7 item rows        5,426
+  twink_bis          111 item rows + 212 claims                       323
+  arenas             805 checks                                        805
+  azerite            759 checks                                        759
+  party_features     5,035 checks                                    5,035
+  loot_sharing       3,528 checks                                    3,528
+  flight_points      16 checks over 4,178 rows and links             4,178
+  companion_tactics  489 name, map, journal and id checks              489
+  Wowhead item names 372 rows                                          372
+  all-document numbers 10,982 tokens                                10,982
+  cross-document     1 shared item                                     1
+  ------------------------------------------------------------------------
+  assertions this run                                            30,898
+  content failures                                                    0
+  network failures                                                    1  (wiki.gg offline)
+
+WHAT THE SECOND PASS DID NOT FIND
+--------------------------------------------------------------------------------
+No new content defect. The four defects recorded in the first pass were the
+only ones, and the three new channels did not turn up a fifth: the numbers are
+all traceable, the item names all match Wowhead, the ids all exist, and the
+only item that appears twice agrees with itself.

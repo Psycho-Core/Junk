@@ -1,0 +1,763 @@
+================================================================================
+ LEVEL 19 TWINK - BEST IN SLOT
+ WORLD OF WARCRAFT: BATTLE FOR AZEROTH 8.3.7, BUILD 35662
+ PART 1 OF 12: WARRIOR (ARMS / FURY / PROTECTION)
+================================================================================
+
+Status: part 1 of the class-by-class set. Warrior first, as requested. The other
+eleven classes follow in later parts, one class per part, each completed, audited
+and delivered before the next one is started.
+
+--------------------------------------------------------------------------------
+0. HOW THESE NUMBERS WERE PRODUCED, AND WHY THEY ARE NOT THE 2020 WIKI NUMBERS
+--------------------------------------------------------------------------------
+0.1  Every armour value, weapon damage, weapon speed and stat value in this
+     document was recomputed from the 8.3.7 client tables and from the exact
+     formulas TrinityCore 8.3.7/35662 uses to turn those tables into item values:
+
+     - ItemSparse (build 8.3.7.35662): ItemLevel, RequiredLevel, OverallQualityID,
+       Bonding, InventoryType, ItemDelay (stored in milliseconds), DmgVariance,
+       StatModifier_bonusStat_0..9, StatPercentEditor_0..9,
+       ScalingStatDistributionID, Flags_0/1, RequiredSkill, RequiredSkillRank.
+     - ItemArmorQuality.Qualitymod_q x ItemArmorTotal.<class> x ArmorLocation.<mod>
+       = armour, rounded to the nearest integer (ItemTemplate::GetArmor).
+     - ItemArmorShield.Quality_q = shield armour.
+     - ItemDamageOneHand / ItemDamageTwoHand (and the *Caster variants for items
+       flagged 0x200) .Quality_q = damage per second at that item level; average
+       hit = dps x ItemDelay/1000; min = average x (1 - DmgVariance/2);
+       max = floor(average x (1 + DmgVariance/2) + 0.5)
+       (ItemTemplate::GetDPS and ItemTemplate::GetDamage).
+     - stat = StatPercentEditor_i x RandPropPoints[ilvl] / 10000, rounded
+       (Item::GetItemStatValue). Hybrid stat ids 71-74 (Agi/Str/Int, Agi/Str,
+       Agi/Int, Str/Int) are applied to every component stat, which is what
+       Player.cpp 7696-7719 does; that is why heirloom plate reads
+       "+6 Strength, +6 Intellect".
+
+0.2  Level scaling. An item whose ScalingStatDistributionID is not 0 takes its
+     item level from the curve named in ScalingStatDistribution and not from
+     ItemSparse (Item::GetItemLevel). Every heirloom used here is on
+     ScalingStatDistribution 862/884/890/926/929, all of which point at
+     Curve 956, which gives item level 23 at character level 19 (64 at 60, 284
+     at 120). Heirlooms therefore appear in this document at item level 23, not
+     at the 85/463/600 figures that heirloom wiki pages print; those figures are
+     the old static upgrade tiers and are not level-19 data.
+
+0.3  Why the numbers differ from old wiki tooltips. The item tooltips cached in
+     Wowpedia's pages for old-world gear were never refreshed after the stat
+     squishes. Shadowfang's page still shows "16 - 30 @ 2.70, +5 Agility", which
+     is a pre-7.3.5 value; the 8.3.7 client says Shadowfang is item level 24,
+     6 - 11 at 2.60, +9 Agility. Every number below comes from the client, so
+     where an old guide quotes a bigger number for an old item, the guide is
+     stale and not the client. Wowpedia and Wowhead were used only for names,
+     ids, drop sources, quest levels and removal patches, never for values.
+
+0.4  Availability rule used to decide what may be listed as best in slot:
+     (A) heirlooms (account-bound, any level, item level 23 at character 19);
+     (B) bind-on-equip items, because a 19 can buy them or loot them;
+     (C) drops from the low-level dungeons a 19 can walk into: Ragefire Chasm,
+         the Deadmines, Wailing Caverns and Shadowfang Keep (all four are
+         level 15-26 instances in 8.3.7 and none has a level gate on entry);
+     (D) quest rewards, but only where the quest itself is available at 19
+         (quest level 19 or lower - each one is named with its level);
+     (E) world events and PvP that a 19 can take part in: the Stranglethorn
+         Fishing Tournament, the Gurubashi Arena, the Darkmoon Faire, and the
+         battleground vendors;
+     (F) crafted gear from a profession a 19 can reach - every craft caps at
+         skill 150 at level 19 (section 1.3).
+     Anything that fails (A)-(F) is named in section 7 with the reason it fails.
+     An item being wearable is not the same as being obtainable, and the list
+     below only contains items that are both.
+
+     One class of item is excluded as a whole, not because it is bad but
+     because its availability cannot be established: the 151xxx-156xxx item
+     series (151063, 151070, 151427, 151430, 156955, 156990 ...). Several of
+     those items would win a slot outright. Their pages either carry no source
+     text or name the heroic mode of a level-85 instance, and no source states
+     which of the two item series a level-19 run of a low-level dungeon
+     produces. They are listed with their numbers in 7.6 instead of being
+     guessed into a slot.
+
+0.5  Ranking rule used inside a slot for a warrior, stated once so every table
+     can be checked against it:
+     - a usable point is Strength, Stamina, Critical Strike, Haste,
+       Versatility or Hit; each counts 1.0;
+     - Agility, Intellect and Spirit count 0: in 8.3.7 a warrior converts none
+       of them into attack power, so a "+8 Agility or Intellect" item is worth
+       only its Stamina and secondaries to this class;
+     - Dodge and Parry count 0.4;
+     - armour is not scored but breaks ties: at equal points the mail or plate
+       item wins over leather, and leather over cloth;
+     - weapons are compared on damage per second first, because Mortal Strike,
+       Execute and Shield Slam all scale with weapon damage, and inside equal
+       dps on Strength before Stamina. Section 5.2 explains the one place where
+       a 4% dps difference is allowed to lose to six stat points.
+     The weights are a ranking device only; the item values themselves are the
+     client values.
+
+--------------------------------------------------------------------------------
+1. WHAT A LEVEL 19 WARRIOR MAY ACTUALLY USE
+--------------------------------------------------------------------------------
+1.1  Armour proficiency. The client's SkillRaceClassInfo table gives Plate Mail
+     (skill 293) to class mask 3 (warrior + paladin) at minimum level 1, so a 19
+     warrior wears plate, not mail. This is the post-7.0.3 rule (Wowpedia,
+     "Plate armor": "Paladins and warriors now begin with plate armor at level 1
+     instead of mail armor", patch 7.0.3). Mail (413), Leather (414) and Cloth
+     (415) are also open to a warrior, and Shields (433, class mask 67) are
+     warrior/paladin/shaman.
+
+1.2  Weapon skills, from SkillRaceClassInfo (class bit 1 = warrior):
+
+     | Skill                   | Id  | Class mask | Warrior may use |
+     |-------------------------|-----|------------|-----------------|
+     | Axes (1H)               |  44 |       2671 | yes             |
+     | Two-Handed Axes         | 172 |        103 | yes             |
+     | Maces (1H)              |  54 |       1659 | yes             |
+     | Two-Handed Maces        | 160 |       1123 | yes             |
+     | Swords (1H)             |  43 |       2991 | yes             |
+     | Two-Handed Swords       |  55 |         39 | yes             |
+     | Polearms                | 229 |       1575 | yes             |
+     | Daggers                 | 173 |       3549 | yes             |
+     | Fist Weapons            | 473 |       3661 | yes             |
+     | Staves                  | 136 |       2005 | yes (bit 1 is set) |
+     | Wands                   | 228 |        400 | no              |
+
+     The staff row is the one surprise: mask 2005 = 1+4+16+64+128+256+512+1024,
+     which includes the warrior bit, so the client does not lock staves away
+     from a warrior. The only staff in the level-20-26 band that carries any
+     Strength at all is Hardened Root Staff (1317, item level 25, +1 Strength),
+     and it was removed from the game in 4.0.3a, so the skill changes nothing
+     below.
+
+1.3  Professions at 19. Every profession's first two ranks are open and the
+     third is not: Apprentice at level 5 (skill 1-75), Journeyman at level 10
+     (skill 75-150), Expert at level 20 (skill 150-225) - Wowpedia,
+     "Engineering", revision of 2020-05-01, same table for the other crafts.
+     A 19 therefore caps at skill 150, which is exactly why Engineering 150
+     goggles are wearable and Engineering 175+ goggles are not, and why
+     Blacksmithing 105/110 recipes are craftable while 120+ recipes for
+     level-20 items are not.
+
+1.4  Spells a 19 warrior has, from the client SpellLevels table (spell id in
+     brackets). Base levels are 8.3.7 values:
+
+     | Level | Ability                                              |
+     |-------|------------------------------------------------------|
+     |   1   | Slam (1464), Rend (772), Parry (3127), Vanguard (71)  |
+     |   3   | Charge (100)                                         |
+     |   5   | Victory Rush (34428)                                 |
+     |   8   | Execute (5308)                                       |
+     |  10   | Mortal Strike (12294), Bloodthirst (23881),           |
+     |       | Shield Slam (23922), Devastate (20243),              |
+     |       | Titan's Grip (46917), dual wield (674, no level row)  |
+     |  13   | Taunt (355)                                          |
+     |  14   | Thunder Clap (6343)                                  |
+     |  17   | Heroic Throw (57755)                                 |
+     |  20+  | Overpower (7384, 20), Shield Block (2565, 20),        |
+     |       | Pummel (6552, 24), Heroic Leap (6544, 26),            |
+     |       | Hamstring (1715, 32), Last Stand (12975, 32),         |
+     |       | Die by the Sword (118038, 36), Enraged Regeneration   |
+     |       | (184364, 36), Whirlwind (1680/190411, 40),            |
+     |       | Avatar (107574, 40), Battle Shout (6673, 42),         |
+     |       | Berserker Rage (18499, 44), Demoralizing Shout        |
+     |       | (1160, 48), Recklessness (1719, 50), Colossus Smash  |
+     |       | (167105, 50), Shield Wall (871, 55), Bladestorm      |
+     |       | (227847, 65), Intimidating Shout (5246, 70)           |
+
+     Titan's Grip at level 10 is what makes Fury a two-two-hander spec at 19.
+     Spell 46917 carries effect 155 (SPELL_EFFECT_TITAN_GRIP) with
+     EffectMiscValue_0 = 0, so the client attaches no penalty spell to it;
+     TrinityCore 8.3.7 sets the "can use 2H in the off hand" flag from that
+     effect (Player.cpp 3376-3379, 9828, 11625-11644) and only refuses an
+     off-hand two-hander when CanTitanGrip() is false (Player.cpp 13952).
+     Single-Minded Fury does not exist in this build: spell 81099 is absent from
+     SpellName and SpellEffect.
+
+1.5  What a 19 does not have, and therefore what the gear does not need to
+     support: no Overpower, no Pummel, no Hamstring, no Whirlwind, no Battle
+     Shout (42), no Berserker Rage (44), no Recklessness (50), no Shield Wall
+     (55), no Spell Reflection (70). Arms at 19 is Mortal Strike + Slam + Execute
+     plus auto-attacks; Fury is Bloodthirst + auto-attacks with two weapons;
+     Protection is Shield Slam/Devastate + Thunder Clap with a shield.
+
+--------------------------------------------------------------------------------
+2. ENCHANTS AND CONSUMABLES A LEVEL 19 WARRIOR USES
+--------------------------------------------------------------------------------
+2.1  The gate that decides whether an enchant may be applied in 8.3.7 is
+     SpellItemEnchantment.ItemLevel, reached through ItemEffect -> SpellEffect
+     type 53 (see the battlegrounds document, section 7.9, for the full census
+     of 255 legal scrolls). Every scroll named below has ItemLevel 1 and no
+     character-level requirement, so all of them may be applied to item level
+     19-30 gear. Scrolls with a higher gate are named in section 7.6.
+
+2.2  Enchant by slot (scroll id / enchant id):
+
+     | Slot    | Scroll | Ench | Enchant                              |
+     |---------|--------|------|--------------------------------------|
+     | Head    |   --   |  --  | no head enchant exists in 8.3.7       |
+     | Neck    | 128553 | 5439 | Mark of the Hidden Satyr (190890)     |
+     | Shoulder| 128554 | 5440 | Boon of the Scavenger (190949)        |
+     | Back    | 128548 | 5434 | Binding of Strength                   |
+     | Back    |  38893 |  910 | Stealth (Agility + Dodge) - flag carrier |
+     | Back    |  38859 | 1889 | Superior Defense (armour)             |
+     | Chest   |  38865 | 1891 | Greater Stats (144768)                |
+     | Chest   |  74709 | 4420 | Superior Stamina - flag carrier       |
+     | Wrist   |  38854 | 1885 | Superior Strength                     |
+     | Wrist   |  38855 | 1886 | Superior Stamina                      |
+     | Hands   |  38836 | 4739 | Strength                              |
+     | Hands   |  38851 |  931 | Minor Haste                           |
+     | Waist   |   --   |  --  | no waist enchant exists in 8.3.7      |
+     | Legs    |  --    |  --  | armour kit only, see 2.3              |
+     | Feet    |  38837 |  911 | Minor Speed - the only speed enchant a 19 can use |
+     | Shield  |  38860 | 1890 | Vitality                             |
+     | 1H      |  38873 | 1900 | Crusader                              |
+     | 1H      |  38838 |  803 | Fiery Weapon (flat fire proc)         |
+     | 1H      |  35457 | 4746 | Major Striking (+7 weapon damage)     |
+     | 2H      |  38873 | 1900 | Crusader                              |
+     | 2H      |  38869 | 1896 | Superior Impact (+9 weapon damage)    |
+     | Fingers |   --   |  --  | ring scrolls exist (46 in the census) but are applied by an enchanter to his or her own rings; a 19 caps at 150 enchanting |
+
+     The numeric value printed on a scroll is the value for the item level band
+     the enchant was made for; the 7.x and 8.x scrolls scale down at 19 and the
+     client does not publish the level-19 figure, so the level-19 magnitude of
+     the scaling scrolls is marked unverified here. The client does carry the
+     scaling coefficient itself in SpellItemEnchantment.EffectScalingPoints: for
+     example enchant 4739 (+Strength gloves) is 0.16, 1889 (+Armour cloak) is
+     0.20, and 910 (+Agility/+Dodge cloak) is 0.25, per item level. Enchant 1900
+     Crusader (spell 20007), 803 Fiery Weapon (13897) and 911 Minor Speed
+     (13889) are proc or movement effects with no such coefficient.
+
+2.3  Leg armour kits. Light Armor Kit (2304, required level 1) and Medium Armor
+     Kit (2313, required level 5) are the only two a 19 may use. Heavy Armor Kit
+     (4265) requires level 20 and every larger kit goes up from there.
+
+2.4  Shoulder inscriptions. The four Sons of Hodir inscriptions (44133 Greater
+     Inscription of the Axe, 44134 of the Crag, 44135 of the Storm, 44136 of the
+     Pinnacle, and their 50335-50338 copies) require a level-80 character to
+     apply. They can be put on the account-bound heirloom shoulders by an 80 and
+     the 19 then wears the shoulders, which is the only way a 19 gets a combat
+     shoulder enchant.
+
+2.5  Consumables that a 19 may use (required level in brackets): Minor Healing
+     Potion (118, 1), Lesser Healing Potion (858, 3), Healing Potion (929, 12),
+     Swiftness Potion (2459, 5), Minor Mana Potion (2455, 5), Lesser Mana Potion
+     (3385, 14), Elixir of Lion's Strength (2454, 1), Elixir of Minor Agility
+     (2457, 2), Elixir of Minor Defense (5997, 1), Elixir of Minor Fortitude
+     (2458, 2), Scroll of Strength II (2289, 15), Scroll of Agility II (1477,
+     15), Weak Troll's Blood Elixir (3382, 1), Raw Bristle Whisker Catfish
+     (6308, 15), Rumsey Rum Black Label (21151, no level requirement), Anti-Venom
+     (6452, no level requirement).
+
+--------------------------------------------------------------------------------
+3. ARMS (two-handed) - BEST IN SLOT
+--------------------------------------------------------------------------------
+3.1  Gear. Item level, required level, armour or weapon line and stats are
+     client values at the item level shown. "From" is how a 19 gets it.
+
+| Slot      | Item                                | Id     | ilvl | Req | Armour / weapon            | Stats                                    | From                             |
+|-----------|-------------------------------------|--------|------|-----|----------------------------|------------------------------------------|----------------------------------|
+| Head      | Polished Helm of Valor (h)        | 122245 |   23 |   0 | 13 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | guild vendor, capital cities     |
+| Neck      | Eternal Emberfury Talisman (h)    | 122667 |   23 |   0 | -                          | +4 Str +6 Sta +5 Crit                    | Estelle Gendry / Krom Stoutarm   |
+| Shoulder  | Polished Spaulders of Valor (h)   | 122355 |   23 |   0 | 12 armour                  | +5 Str +5 Int +7 Sta +6 Crit             | Estelle Gendry / Krom Stoutarm   |
+| Back      | Worn Stoneskin Gargoyle Cape (h)  | 122260 |   23 |   0 | 2 armour                   | +4 Str +6 Sta +2 Crit +2 Haste           | guild vendor, capital cities     |
+| Chest     | Polished Breastplate of Valor (h) | 122381 |   23 |   1 | 16 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | Estelle Gendry / Krom Stoutarm   |
+| Waist     | Cobrahn's Grasp                   |   6460 |   21 |  16 | 8 armour                   | +4 Str +4 Int +6 Sta +4 Crit +2 Haste    | Lord Cobrahn, Wailing Caverns    |
+| Legs      | Polished Legplates of Valor (h)   | 122251 |   23 |   0 | 14 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | guild vendor, capital cities     |
+| Feet      | Savage Trodders                   |   6459 |   21 |  16 | 10 armour                  | +4 Str +4 Int +6 Sta +3 Crit +3 Vers     | Lord Serpentis, Wailing Caverns  |
+| Wrist     | Hulking Bands                     |  14743 |   22 |  17 | 5 armour                   | +5 Sta +3 Vers                           | bind on equip, auction house     |
+| Hands     | Unmistakable Gloves               |  62885 |   18 |   0 | 9 armour                   | +4 Str +4 Int +6 Sta                     | Horde quest, Hillsbrad (lvl 18)  |
+| Finger 1  | Silverlaine's Family Seal         |   6321 |   21 |  16 | -                          | +5 Sta +7 Haste +4 Vers                  | Baron Silverlaine, SFK           |
+| Finger 2  | Demon Band                        |  12054 |   24 |  19 | -                          | +6 Str +6 Sta +3 Crit                    | world drop, bind on equip        |
+| Trinket 1 | Defending Champion (h)            | 126948 |   23 |   0 | -                          | +6 Sta +4 Vers                           | Gurubashi Arena (heirloom)       |
+| Trinket 2 | Inherited Insignia (Alliance)     | 122371 |   23 |   0 | -                          | +6 Sta                                   | Krom Stoutarm (A) / Estelle Gend |
+| Main hand | Executioner's Sword               |   4818 |   24 |  19 | 12 - 21 @ 3.60 (4.60 dps)  | +12 Str                                  | bind on equip, auction house     |
+
+     The full client name of 122371 is Inherited Insignia of the Alliance;
+     122370 is Inherited Insignia of the Horde. The tables abbreviate both.
+
+     Trinket effects: 126948 has no on-use (it is a pure stat heirloom); 122371
+     carries 42292 (PvP trinket, removes movement impairing effects, 2 min);
+     19024 Arena Grand Master carries 23506 (Aura of Protection, 15 min) and is
+     the second trinket when there is nothing to break.
+
+     Enchants for this set: neck 128553, shoulder 128554 (or a Hodir inscription
+     by an 80), back 128548, chest 38865, wrist 38854, hands 38836, feet 38837,
+     legs 2313, weapon 38873 Crusader (38869 Superior Impact if a flat +damage is
+     preferred). No head, waist or ring enchant exists that a 19 may use.
+
+3.2  The weapon is the only interesting decision in the spec. The reachable
+     two-handers, all at 3.60 s, so that ability damage compares directly:
+
+     | Item                          | Id     | ilvl | Dps   | Damage  | Stats                        |
+     |-------------------------------|--------|------|-------|---------|------------------------------|
+     | Executioner's Sword           |   4818 |   24 |  4.60 | 12 - 21 | +12 Str                      |
+     | Blackrock Champion's Axe      |   1455 |   24 |  4.60 | 10 - 22 | +12 Str                      |
+     | Massive Battle Axe            |  15269 |   24 |  4.60 | 10 - 22 | +6 Str +9 Sta                |
+     | Bloodied Arcanite Reaper (h)  | 122349 |   23 |  4.41 | 10 - 21 | +6 Str +9 Sta +8 Crit        |
+     | Shadowhide Battle Axe         |   2175 |   23 |  4.41 | 10 - 21 | +9 Str +5 Sta                |
+     | Haunting Blade                |   6641 |   21 |  4.02 | 10 - 18 | +6 Str +9 Sta +5 Haste +3 Ve |
+     | Foe Reaper                    |   5187 |   20 |  3.83 | 12 - 16 | +5 Str +8 Sta +3 Crit +4 Has |
+     4818 Executioner's Sword is bind on equip; 1455 Blackrock Champion's Axe
+     drops from the Blackrock Champions and Gladiators in the Redridge
+     Mountains (bind on equip); 15269 Massive Battle Axe, 2175 Shadowhide Battle
+     Axe, 6641 Haunting Blade (Shadowfang Keep) and 5187 Foe Reaper (Deadmines)
+     are as listed in section 6.
+
+     Executioner's Sword and Blackrock Champion's Axe are the same item in
+     different art: 4.60 dps, 3.60 s, 12 Strength. Either is the pick. The
+     heirloom Bloodied Arcanite Reaper (122349) is 4.41 dps with 23 usable
+     stat points, the Reaper's 2H axe at 4.41 dps carries 14, and the three
+     4.60 items carry 12 to 15. The rule used here is the one the spec
+     forces: Mortal Strike and Execute scale with weapon damage, so the 4.60
+     bracket comes first, and inside the bracket Strength comes before
+     Stamina. That is why 4818 (12 Str) beats 15269 Massive Battle Axe
+     (6 Str, 9 Sta, 15 points) at the same 4.60 dps. If you value the 23
+     points and never want to buy a second sword, the heirloom is the pick;
+     it costs 6.8% of the weapon's dps.
+
+--------------------------------------------------------------------------------
+4. FURY (dual wield, Titan's Grip) - BEST IN SLOT
+--------------------------------------------------------------------------------
+4.1  Fury at 19 has Bloodthirst (10) and Titan's Grip (10), and no Whirlwind
+     (40) and no Raging Blow (20). Two two-handers is the strongest legal set-up:
+     with Titan's Grip the off hand takes a two-hander, and off-hand auto-attacks
+     are the only thing that scales with the second weapon.
+
+4.2  Gear. The armour and jewellery rows are identical to section 3.1; the two
+     weapon rows are the only difference.
+
+| Slot      | Item                                | Id     | ilvl | Req | Armour / weapon            | Stats                                    | From                             |
+|-----------|-------------------------------------|--------|------|-----|----------------------------|------------------------------------------|----------------------------------|
+| Head      | Polished Helm of Valor (h)        | 122245 |   23 |   0 | 13 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | guild vendor, capital cities     |
+| Neck      | Eternal Emberfury Talisman (h)    | 122667 |   23 |   0 | -                          | +4 Str +6 Sta +5 Crit                    | Estelle Gendry / Krom Stoutarm   |
+| Shoulder  | Polished Spaulders of Valor (h)   | 122355 |   23 |   0 | 12 armour                  | +5 Str +5 Int +7 Sta +6 Crit             | Estelle Gendry / Krom Stoutarm   |
+| Back      | Worn Stoneskin Gargoyle Cape (h)  | 122260 |   23 |   0 | 2 armour                   | +4 Str +6 Sta +2 Crit +2 Haste           | guild vendor, capital cities     |
+| Chest     | Polished Breastplate of Valor (h) | 122381 |   23 |   1 | 16 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | Estelle Gendry / Krom Stoutarm   |
+| Waist     | Cobrahn's Grasp                   |   6460 |   21 |  16 | 8 armour                   | +4 Str +4 Int +6 Sta +4 Crit +2 Haste    | Lord Cobrahn, Wailing Caverns    |
+| Legs      | Polished Legplates of Valor (h)   | 122251 |   23 |   0 | 14 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | guild vendor, capital cities     |
+| Feet      | Savage Trodders                   |   6459 |   21 |  16 | 10 armour                  | +4 Str +4 Int +6 Sta +3 Crit +3 Vers     | Lord Serpentis, Wailing Caverns  |
+| Wrist     | Hulking Bands                     |  14743 |   22 |  17 | 5 armour                   | +5 Sta +3 Vers                           | bind on equip, auction house     |
+| Hands     | Unmistakable Gloves               |  62885 |   18 |   0 | 9 armour                   | +4 Str +4 Int +6 Sta                     | Horde quest, Hillsbrad (lvl 18)  |
+| Finger 1  | Silverlaine's Family Seal         |   6321 |   21 |  16 | -                          | +5 Sta +7 Haste +4 Vers                  | Baron Silverlaine, SFK           |
+| Finger 2  | Demon Band                        |  12054 |   24 |  19 | -                          | +6 Str +6 Sta +3 Crit                    | world drop, bind on equip        |
+| Trinket 1 | Defending Champion (h)            | 126948 |   23 |   0 | -                          | +6 Sta +4 Vers                           | Gurubashi Arena (heirloom)       |
+| Trinket 2 | Inherited Insignia (Alliance)     | 122371 |   23 |   0 | -                          | +6 Sta                                   | Krom Stoutarm (A) / Estelle Gend |
+| Main hand | Executioner's Sword               |   4818 |   24 |  19 | 12 - 21 @ 3.60 (4.60 dps)  | +12 Str                                  | bind on equip, auction house     |
+| Off hand  | Executioner's Sword               |   4818 |   24 |  19 | 12 - 21 @ 3.60 (4.60 dps)  | +12 Str                                  | second copy, bind on equip       |
+
+4.3  If a second Executioner's Sword cannot be found, the two best legal
+     replacements are the heirloom Bloodied Arcanite Reaper (122349, 10 - 21 @
+     3.60, +6 Str +9 Sta +8 Crit) and Foe Reaper (5187, Deadmines, 12 - 16 @
+     3.60, +5 Str +8 Sta +4 Haste +3 Crit). A one-hander in the off hand is a
+     downgrade: the best legal one-handers are 3.47 dps (Black Metal Axe,
+     Shadowfang) or 3.33 dps (the heirloom Bloodsoaked Skullforge Reaver),
+     against 4.60 for a two-hander, and the off hand only delivers half of its
+     auto-attack damage.
+
+4.4  Enchants: both weapons take 38873 Crusader.
+
+--------------------------------------------------------------------------------
+5. PROTECTION (one-hand plus shield) - BEST IN SLOT
+--------------------------------------------------------------------------------
+5.1  Protection at 19 has Shield Slam (10) and Devastate (10), no Shield Block
+     (20), no Last Stand (32) and no Shield Wall (55). Vanguard (71) is the level
+     1 passive. Its damage is Shield Slam on a 6 s cooldown plus Thunder Clap
+     (14), which is why the shield's armour and the weapon's damage both matter.
+
+| Slot      | Item                                | Id     | ilvl | Req | Armour / weapon            | Stats                                    | From                             |
+|-----------|-------------------------------------|--------|------|-----|----------------------------|------------------------------------------|----------------------------------|
+| Head      | Polished Helm of Valor (h)        | 122245 |   23 |   0 | 13 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | guild vendor, capital cities     |
+| Neck      | Eternal Emberfury Talisman (h)    | 122667 |   23 |   0 | -                          | +4 Str +6 Sta +5 Crit                    | Estelle Gendry / Krom Stoutarm   |
+| Shoulder  | Polished Spaulders of Valor (h)   | 122355 |   23 |   0 | 12 armour                  | +5 Str +5 Int +7 Sta +6 Crit             | Estelle Gendry / Krom Stoutarm   |
+| Back      | Worn Stoneskin Gargoyle Cape (h)  | 122260 |   23 |   0 | 2 armour                   | +4 Str +6 Sta +2 Crit +2 Haste           | guild vendor, capital cities     |
+| Chest     | Polished Breastplate of Valor (h) | 122381 |   23 |   1 | 16 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | Estelle Gendry / Krom Stoutarm   |
+| Waist     | Cobrahn's Grasp                   |   6460 |   21 |  16 | 8 armour                   | +4 Str +4 Int +6 Sta +4 Crit +2 Haste    | Lord Cobrahn, Wailing Caverns    |
+| Legs      | Polished Legplates of Valor (h)   | 122251 |   23 |   0 | 14 armour                  | +6 Str +6 Int +9 Sta +8 Crit             | guild vendor, capital cities     |
+| Feet      | Savage Trodders                   |   6459 |   21 |  16 | 10 armour                  | +4 Str +4 Int +6 Sta +3 Crit +3 Vers     | Lord Serpentis, Wailing Caverns  |
+| Wrist     | Hulking Bands                     |  14743 |   22 |  17 | 5 armour                   | +5 Sta +3 Vers                           | bind on equip, auction house     |
+| Hands     | Unmistakable Gloves               |  62885 |   18 |   0 | 9 armour                   | +4 Str +4 Int +6 Sta                     | Horde quest, Hillsbrad (lvl 18)  |
+| Finger 1  | Silverlaine's Family Seal         |   6321 |   21 |  16 | -                          | +5 Sta +7 Haste +4 Vers                  | Baron Silverlaine, SFK           |
+| Finger 2  | Demon Band                        |  12054 |   24 |  19 | -                          | +6 Str +6 Sta +3 Crit                    | world drop, bind on equip        |
+| Trinket 1 | Defending Champion (h)            | 126948 |   23 |   0 | -                          | +6 Sta +4 Vers                           | Gurubashi Arena (heirloom)       |
+| Trinket 2 | Inherited Mark of Tyranny (h)     | 122530 |   23 |   0 | -                          | +6 Sta                                   | Estelle Gendry / Krom Stoutarm   |
+| Main hand | Bloodsoaked Skullforge Reaver (h) | 122389 |   23 |   0 | 6 - 11 @ 2.60 (3.33 dps)   | +5 Str +7 Sta +6 Haste                   | guild vendor, capital cities     |
+| Off hand  | Flamescarred Draconian Deflector  | 122391 |   23 |   1 | 49 armour                  | +4 Str +11 Int +6 Sta +5 Haste           | Estelle Gendry / Krom Stoutarm   |
+
+     The second trinket slot is the PvP Insignia (122371 Alliance / 122370
+     Horde) in battlegrounds and Arena Grand Master (19024) or the Mark of
+     Tyranny everywhere else; all three are in section 6.
+
+5.2  Weapon. The heirloom one-hander is the pick because of its 18 usable
+     stat points: Bloodsoaked Skullforge Reaver (122389), 6 - 11 at 2.60,
+     +5 Str +7 Sta +6 Haste. The higher-dps alternatives are Black Metal Axe
+     (885, 5 - 12 at 2.60, 3.47 dps, +6 Str +6 Sta) and Shadowfang (1482,
+     6 - 11 at 2.60, 3.47 dps, +9 Agility); Bronze Mace (2848, blacksmithing
+     110, 7 - 9 at 2.60, +4 Str +8 Crit +6 Sta) matches the heirloom's 18
+     points at 3.18 dps and is the cheap substitute. A Protection warrior's
+     weapon damage reaches Shield Slam and Devastate, but auto-attacks are a
+     minority of its damage at 19, so 0.14 dps (4%) does not buy back the six
+     stat points the heirloom has over Black Metal Axe.
+
+5.3  Shield. Flamescarred Draconian Deflector (122391) is 49 armour with
+     +4 Str +6 Sta +5 Haste +11 Int, 15 usable points. Redbeard Crest (12997),
+     Grunt's Shield (15512) and Forest Buckler (6383) are 51 armour with
+     +4 Str +6 Sta +11 Int, 10 usable points: two more armour against five
+     points of Haste and one point of Stamina. The heirloom wins. Redbeard
+     Crest is the best non-heirloom and it is bind on equip, so it can simply
+     be bought.
+
+--------------------------------------------------------------------------------
+6. THE RUNNERS-UP, AND EXACTLY WHY EACH ONE LOST
+--------------------------------------------------------------------------------
+| Slot     | Item                             | Id     | ilvl | Lost because                                                                                  |
+|----------|----------------------------------|--------|------|-----------------------------------------------------------------------------------------------|
+| Head     | Burnished Helm of Might (h)      | 122263 |   23 | identical armour and Str/Sta; Haste 8 instead of Crit 8 - a swap, not a loss                  |
+| Head     | Pristine Lightforge Helm (h)     | 127012 |   23 | identical to 122245 (Str/Sta/Crit 8); different model only                                    |
+| Head     | Tarnished Raging Berserker's     | 122246 |   23 | mail, 9 armour, and its primary is Agility, which a warrior cannot use                        |
+| Head     | Green Tinted Goggles             |   4385 |   30 | 5 armour, no Strength; +12 Sta +10 Vers is a flag-carrier head. Engineering 150               |
+| Head     | Lucky Fishing Hat                |  19972 |   40 | 6 armour, +16 Sta and nothing else; strictly a flag-carrier item                              |
+| Head     | Snake-Charmer's Casque           | 151427 |   21 | 12 armour, +6 Str +9 Sta +4 Haste +3 Crit (22 points) - the best head a 19 could wear, but it |
+| Neck     | Eternal Talisman of Evasion (h)  | 122662 |   23 | same Str/Sta, Vers 5 instead of Crit 5                                                        |
+| Neck     | Thick Bronze Necklace            |  21933 |   22 | +5 Sta only, against +4 Str +6 Sta +5 Crit. Jewelcrafting 50                                  |
+| Neck     | Hematite Tortoise Pendant        | 151430 |   21 | +5 Sta +8 Crit +3 Haste is 16 points against 15, but it is one of the 7.3.5 scaled WC items w |
+| Shoulder | Strengthened Stockade Pauld. (h) | 122372 |   23 | same stats, Haste 6 instead of Crit 6                                                         |
+| Shoulder | Pristine Lightforge Spaulders (h | 122373 |   23 | Crit 3 + Haste 3 instead of Crit 6 - same total, weaker single stat                           |
+| Shoulder | Rough Bronze Shoulders           |   3480 |   22 | 8 armour, +6 Sta +5 Agi +5 Int; no Strength. Blacksmithing 110                                |
+| Shoulder | Lord Pythas' Pauldrons           | 151429 |   21 | 11 armour, 16 points against the heirloom's 12 armour and 18; scaled series (7.6)             |
+| Back     | Miner's Cape                     |   5444 |   20 | 2 armour, +3 Str +5 Sta +3 Crit +2 Haste = 13 against the heirloom's 14; Glubtok, Deadmines   |
+| Back     | Wolfmaster Cape                  |   6314 |   21 | 2 armour, 13 points; Shadowfang Keep                                                          |
+| Back     | Cape of the Brotherhood          |   5193 |   20 | 2 armour, 12 points; "Captain" Cookie, Deadmines                                              |
+| Back     | Sentry's Cape                    |  15526 |   24 | 2 armour, +4 Str +6 Sta = 10; world drop, bind on equip                                       |
+| Back     | Lambent Scale Cloak              |   4706 |   24 | 2 armour, +6 Str +3 Haste = 9; world drop, bind on equip                                      |
+| Chest    | Burnished Breastplate (h)        | 122387 |   23 | Haste 8 instead of Crit 8                                                                     |
+| Chest    | Mutant Breastplate               |   6627 |   21 | 15 armour (one less) with the same 23 points, +6 Str +9 Sta +6 Crit +2 Vers; Mutanus, Wailing |
+| Chest    | Phantom Armor                    |   6642 |   21 | 15 armour with 23 points, +6 Str +9 Sta +5 Crit +3 Haste; Lord Walden, Shadowfang Keep        |
+| Chest    | Rough Bronze Cuirass             |   2866 |   23 | 11 armour, +12 Agi +12 Int +9 Sta: no Strength. Blacksmithing 105                             |
+| Waist    | Prospector's Sash                |  14559 |   18 | 4 armour, +6 Sta +4 Vers = 10 against 16 and 8 armour; bind on equip, no source text          |
+| Waist    | Girdle of the Blindwatcher       |   6319 |   21 | 4 armour, 12 points; Baron Silverlaine, Shadowfang Keep                                       |
+| Waist    | Belt of the Fang                 |  10412 |   21 | 4 armour, 11 points; Lady Anacondra, Wailing Caverns                                          |
+| Waist    | Deviate Scale Belt               |   6468 |   21 | 4 armour, 9 points; leatherworking 115, the cheap pick                                        |
+| Waist    | Fortified Belt                   |   9814 |   24 | 6 armour but only +7 Sta of use; mail                                                         |
+| Legs     | Burnished Legplates of Might (h) | 122264 |   23 | Haste 4 + Crit 4 instead of Crit 8                                                            |
+| Feet     | Gorewalker Treads                |  82886 |   18 | 9 armour, 15 points against 10 armour and 16; Lava Guard Gordoth, Ragefire Chasm              |
+| Feet     | Prospector's Boots               |  14560 |   19 | 4 armour, +6 Sta +5 Vers = 11; bind on equip, no source text                                  |
+| Feet     | Hulking Boots                    |  14742 |   24 | mail, 8 armour, +7 Sta only                                                                   |
+| Feet     | Feet of the Lynx                 |   1121 |   24 | 5 armour, +7 Agi +7 Int +7 Sta: every offensive point is Agility                              |
+| Wrist    | Festering Bracers                |  60925 |   24 | 2 armour, +6 Sta +7 Crit = 13, but the quest that awards them ("A Deadly Vine") is level 24 ( |
+| Wrist    | Rough Bronze Bracers             |   2867 |   23 | 5 armour, +6 Sta only. Blacksmithing craft                                                    |
+| Wrist    | Fortified Bracers                |   9811 |   24 | 5 armour, +4 Agi +4 Int +6 Sta                                                                |
+| Hands    | Thorbia's Gauntlets              |  12994 |   23 | 7 armour, +8 Agi +8 Int +7 Sta: 7 usable points against 10 and 9 armour. The faction-neutral  |
+| Hands    | Defender Gauntlets               |   6577 |   23 | 7 armour, +5 Agi +5 Int +7 Sta - the same 7 points as Thorbia's, same armour, different art   |
+| Hands    | Hulking Gauntlets                |  14747 |   23 | 7 armour, +5 Agi +5 Int +7 Sta - a third copy of the same stat line                           |
+| Hands    | Corin's Handguards               |  26035 |   20 | 9 armour, 10 points, the Alliance counterpart - but the quest page "Clearing the Way" carries |
+| Hands    | Grasps of the Unyielding         |  65724 |   25 | 11 armour and 17 points, the best warrior gloves in the database at this level, but quest "Si |
+| Finger   | Lavishly Jeweled Ring            |   1156 |   20 | +5 Sta +7 Crit +3 Haste = 15, the equal of Demon Band; Admiral Ripsnarl, Deadmines            |
+| Finger   | Deep Fathom Ring                 |   6463 |   21 | +5 Sta +7 Vers +3 Crit = 15; Mutanus, Wailing Caverns                                         |
+| Finger   | Band of Purification             |  12996 |   23 | +6 Sta +6 Vers = 12; world drop, bind on equip                                                |
+| Finger   | Dread Pirate Ring (h)            | 122529 |   23 | +5 Sta +3 Haste +3 Crit = 11; Stranglethorn Fishing Tournament                                |
+| Trinket  | Arena Grand Master               |  19024 |   55 | +8 Sta and a 15 min on-use absorb (23506); the pick when the on-use matters more than 2 point |
+| Trinket  | Inherited Insignia (h)           | 122371 |   23 | +6 Sta and the 2 min PvP trinket effect (42292); the second slot in battlegrounds             |
+| Trinket  | Inherited Mark of Tyranny (h)    | 122530 |   23 | +6 Sta and 137211 (Tremendous Fortitude) on 2 min                                             |
+| Trinket  | Defending Champion (h)           | 126948 |   23 | +6 Sta +4 Vers = 10, the highest stat total of any trinket a 19 can wear; Gurubashi Arena     |
+| Shield   | Redbeard Crest                   |  12997 |   24 | 51 armour, 10 points against 49 armour and 15; two more armour is not worth five Haste        |
+| Shield   | Grunt's Shield                   |  15512 |   24 | identical stats to Redbeard Crest, other faction's model                                      |
+| Shield   | Forest Buckler                   |   6383 |   24 | 51 armour, 10 points; world drop, bind on equip                                               |
+| Shield   | Worn Turtle Shell Shield         |   6447 |   21 | 45 armour, 13 points, six less armour; Kresh, Wailing Caverns                                 |
+| 1H       | Black Metal Axe                  |    885 |   24 | 3.47 dps with 12 points - 4% more weapon dps against six fewer points                         |
+| 1H       | Shadowfang                       |   1482 |   24 | highest one-hand dps (3.47) but +9 Agi is worth nothing to a warrior                          |
+| 1H       | Bronze Mace                      |   2848 |   22 | 3.18 dps with the same 18 points as the heirloom; blacksmithing 110, the cheap pick           |
+| 1H       | Razor's Edge                     |  12990 |   23 | 3.33 dps, +7 Str +4 Haste = 11; world drop                                                    |
+| 1H       | Smite's Reaver                   |   5196 |   20 | 2.89 dps, 16 points; Admiral Ripsnarl, Deadmines                                              |
+| 1H       | Butcher's Slicer                 |   6633 |   21 | 2.60 dps, 16 points; Razorclaw the Butcher, Shadowfang Keep                                   |
+| 2H       | Blackrock Champion's Axe         |   1455 |   24 | the same 4.60 dps and +12 Str as Executioner's Sword - an exact substitute, not a downgrade   |
+| 2H       | Massive Battle Axe               |  15269 |   24 | same 4.60 dps and 15 points, but 6 Strength against 12                                        |
+| 2H       | Bloodied Arcanite Reaper (h)     | 122349 |   23 | 4.41 dps against 4.60, but 23 usable points against 12                                        |
+| 2H       | Shadowhide Battle Axe            |   2175 |   23 | 4.41 dps, +9 Str +5 Sta = 14; world drop                                                      |
+| 2H       | Haunting Blade                   |   6641 |   21 | 4.02 dps with 23 points; Shadowfang Keep                                                      |
+| 2H       | Foe Reaper                       |   5187 |   20 | 3.83 dps with 20 points, the best stamina of the two-handers; Deadmines                       |
+
+--------------------------------------------------------------------------------
+7. NAMED EXCLUSIONS - ITEMS THAT LOOK RIGHT AND CANNOT BE USED
+--------------------------------------------------------------------------------
+7.1  Removed from the game before 8.3.7 (the id still exists in ItemSparse, which
+     is why these keep appearing in item databases, but nothing drops or sells
+     them):
+     7002 Arctic Buckler - quest reward from Blackfathom Villainy, removed in
+          4.0.3a. It is the best-looking shield in the database for a 19
+          (item level 29, 60 armour, 17 points) and it cannot be obtained.
+     4444 Black Husk Shield - 51 armour, +4 Str +6 Sta +5 Vers +11 Int = 15
+          points, strictly better than the heirloom shield at 49 armour and 15
+          points; drop removed in 4.0.3a, and the later Salvage crate source
+          is gone as well.
+     5943 Rift Bracers - Shadowfang Keep drop, removed in 5.0.4. This was the
+          best plate wrist for a 19 (item level 21, 7 armour, 13 points).
+     3074 Smoldering Gloves - removed in 4.0.3a; +7 Sta +7 Vers in cloth, 14
+          points, the best glove stats in the database for a warrior.
+     1459 Shadowhide Scalper - drop removed in 4.0.3a; +9 Str, 5 - 12 at 2.60.
+     2046 Bluegill Kukri - drop removed in 4.0.3a; +9 Str, 6 - 11 at 2.60.
+     2907 Dwarven Tree Chopper - quest reward, removed in 4.0.3a.
+     1547 Shield of the Faith - quest reward, removed in 4.0.3a.
+     3761 Deadskull Shield - quest reward from Battle of Hillsbrad (7), removed
+          in 4.0.3a; 66 armour at item level 32, the best non-heirloom shield in
+          the database, and unobtainable.
+     2230 Gloves of Brawn - 11 armour, +9 Str, quest reward removed in 4.0.3a.
+     3559 Night Watch Gauntlets - 9 armour, 10 points, removed in 4.0.3a.
+     3743 Sentry Buckler - "Dangerous!" quest reward in Tarren Mill, removed
+          in 4.0.3a.
+     3747 Meditative Sash - "Elixir of Agony" chain reward, removed in 4.0.3a.
+     3749 High Apothecary Cloak - the same chain, removed in 4.0.3a.
+     16978 Warsong Gauntlets - "Warsong Supplies" reward, removed in 4.0.3a.
+     1299 Lesser Belt of the Spire - crate source removed in 7.0.3.
+     5750 Warchief's Girdle - crate source removed in 7.0.3; the item also had
+          Strength replaced by Agility in that patch.
+     3429 Guardsman Belt - crate source removed in 7.0.3.
+
+7.2  Quest rewards whose quest is above level 19. The item's own RequiredLevel is
+     0, which is why databases show them as usable by anyone, but the quest that
+     hands them out is not available to a 19. The level is the |level= field of
+     the quest's own page, read for this audit; the page is named in brackets:
+     65724 Grasps of the Unyielding (item 25, 11 armour, 17 points):
+          "Silence of the Dwarves", level 25.
+     60925 Festering Bracers (item 24, 2 armour, 13 points): "A Deadly
+          Vine", level 24.
+     60937 Restored Archeus (item 25, 3.62 dps, 18 points): "A Daughter's
+          Love", level 25.
+     156955 Reconditioned Archeus (item 25, 4.79 dps, 25 points): the same
+          quest, level 25 - the best two-hander in the database at 19 that a
+          19 cannot reach.
+     65937 Serpentis' Gloves (item 21, 4 armour, 10 points): "Cleansing the
+          Caverns", level 21.
+     56688 Belt of Equilibrium (item 24, 10 armour, 23 points): "Vortex",
+          level 24 on both the Alliance and the Horde page.
+     65965 Shield of the Stockades (item 30, 62 armour): "The Gnoll King",
+          level 25, and "Grant Me Revenge", level 20.
+     57443 Deep Reach Helm (item 28, 16 armour, 27 points): "Shuttin Her
+          Down", level 28.
+     57499 Infested Breastplate (item 30, 21 armour, 30 points): "Spy
+          Infestation", level 30.
+     61076 and 61119 Pauldrons of the Wayward Tribe (item 29, 15 armour, 22
+          points): "Zul'Mamwe Mambo", level 29 on both faction pages.
+     56675 Astranaar Legguards (item 23, 14 armour, 23 points): "Return
+          Fire", level 23.
+     65728 Boots of the Hero (item 23, 11 armour, 17 points): "Heroes of
+          the Horde!", level 23.
+     61127 Gloves of the Jungle King (item 29, 12 armour, 21 points): "Big
+          Game Hunter", level 29.
+     59200 Decalcified Elven Spear (item 28, 21 points): "Sunken Treasure
+          (Arathi Highlands)", level 28.
+     59204 Hammerfall Mace (item 28): "Guile of the Raptor", level 28.
+     59177 Captain Nials' Belt (item 28, 23 points): "Wanted! Otto and
+          Falconcrest", level 28.
+
+7.3  Above the level requirement of 19:
+     8226 The Butcher (req 26), 9375 Expert Goldminer's Helmet (req 35),
+     13030 Basilisk Bone (req 46).
+
+7.4  Wrong proficiency or wrong stat type:
+     122246 Tarnished Raging Berserker's Helm, 122247 Mystical Coif of Elements,
+     122356 Champion Herod's Shoulder, 122374/122375 mail shoulders: all
+     Agility/Intellect heirlooms. A warrior may wear mail, but gains nothing from
+     the primary stat, so they are worse than the plate heirlooms despite being
+     wearable.
+     131733 Spear of Rethu, 140773 Eagletalon Spear: Agility polearms.
+     4381 Minor Recombobulator: Engineering 140 and no combat stats; it is a
+     utility trinket, not a best-in-slot one.
+
+7.5  Sources a 19 cannot reach:
+     153130 Man'ari Training Amulet (heirloom, +6 Sta +5 Crit +5 Haste, the best
+          raw-stat neck in the database at 23): source is the Legion class hall
+          mission "Assault on Felfire Armory". A 19 has no class hall.
+     18854/18834 Insignia of the Alliance/Horde: quest "Hellfire Fortifications",
+          a level 60 zone. The level-19 equivalent is the heirloom Inherited
+          Insignia (122371/122370).
+     63459 Worgen Hunter's Helm, 63434 Gloves of the Greymane Wall, 63464
+          Greaves of the Misguided, 63450 Phantom Armor, 63470 Missing
+          Diplomat's Pauldrons: the heroic-difficulty versions of Deadmines and
+          Shadowfang Keep loot. Those instances are level 85 in 8.3.7, so their
+          heroic loot is out of reach whatever its id says.
+
+7.6  Availability unverified, therefore not used:
+     The client carries a second series of items for the same low-level dungeon
+     bosses, with 151xxx-156xxx ids (for example 151427 Snake-Charmer's Casque,
+     151430 Hematite Tortoise Pendant, 151063 Gear-Marked Gauntlets, 151070
+     Gloves of the Greymane Wall, 151073 Greaves of the Misguided, 151424 Belt of
+     Boundless Fury, 156990 Crystal-Chipping Mallet). They carry a real required
+     level (13 to 16) and item levels 18 to 28, and several of them would win a
+     slot outright: 151063 and 151070 are 9 armour with 16 points against 9
+     armour and 10 for the gloves listed above. But their pages either have no
+     source text at all or name the heroic mode of the instance, and no page
+     states which of the two series a level-19 run of the instance produces.
+     Rather than guess, none of the 151xxx/156xxx items is used in sections 3-6,
+     and each is named here with its numbers so the gap is visible.
+     156953 'Liberated' Greataxe: item level 18, 3.45 dps, +5 Str +7 Sta +5
+     Haste. It is bind on pickup and no page states its source or its quest, so
+     it is not used even though it would be a reasonable off-hand.
+     Also unverified: 126949 Returning Champion (the Darkmoon Deathmatch
+     heirloom - the event page states no level requirement) and the level
+     requirement of the quest "Arena Grandmaster" itself, which the trinket
+     page does not print.
+
+7.7  Enchants that are blocked by their item-level gate (all from the 7.9 census):
+     Mongoose 38925/35458 (gate 30), Executioner 38948 (30), Major Agility 2H
+     35396/38922 (30), Major Strength gloves 35442 (30), Berserking 44493 (55),
+     Black Magic 43987 (55), Super Stats 38989 (55), Powerful Stats 44465 (55),
+     Blade Ward 46026 (162), Blood Draining 46098 (162), Hurricane 52760 (290),
+     Power Torrent 52774 (290), Landslide 52776 (290), Heartsong 52761 (290),
+     Peerless Stats 52779 (290).
+
+7.8  Values left unverified in this part:
+     - the level-19 magnitude of every scaling enchant (the scrolls are legal,
+       the client does not print the scaled value);
+     - the source of Prospector's Sash (14559) and Prospector's Boots (14560);
+       both are bind on equip and appear on the auction house, but the 8.3.7
+       page carries no source text;
+     - whether a second copy of a given two-hander is available on a given realm
+       (this is an economy question, not a data question);
+     - the availability at 19 of the whole 151xxx/156xxx series listed in 7.6;
+     - whether a level 19 may enter the Darkmoon Deathmatch to earn 126949.
+
+--------------------------------------------------------------------------------
+8. WHERE EACH FACT CAME FROM
+--------------------------------------------------------------------------------
+8.1  Client data, build 8.3.7.35662 (wago.tools DB2 exports): ItemSparse, Item,
+     ItemArmorQuality, ItemArmorTotal, ItemArmorShield, ArmorLocation,
+     ItemDamageOneHand, ItemDamageOneHandCaster, ItemDamageTwoHand,
+     ItemDamageTwoHandCaster, RandPropPoints, ScalingStatDistribution, Curve,
+     CurvePoint, SpellLevels, SpellEffect, SpellItemEnchantment, ItemEffect,
+     Heirloom, SkillLineAbility, and the SkillLine/SkillRaceClassInfo pair.
+     Every number in sections 3-6 is produced from those tables by the scripts
+     named in 9.1; none is copied from a website.
+8.2  TrinityCore, branch 8.3.7/35662: ItemTemplate.cpp (GetArmor, GetDPS,
+     GetDamage), Item.cpp (GetItemLevel, GetItemStatValue), Player.cpp
+     (CanUseItem, SetCanTitanGrip, IsTwoHandUsed, the dual-wield and off-hand
+     checks), SharedDefines.h (SPELL_EFFECT_TITAN_GRIP = 155).
+8.3  Item pages, read at the revision shown (Wowpedia / Warcraft Wiki). The
+     page is the source only for "where it comes from" and "is it still in the
+     game"; the numbers beside each item come from 8.1:
+     Cobrahn's Grasp (Lord Cobrahn, Wailing Caverns), Savage Trodders (Lord
+     Serpentis, Wailing Caverns), Mutant Breastplate (Mutanus), Phantom Armor
+     (Lord Walden / Deathsworn Captain, Shadowfang Keep), Haunting Blade (Lord
+     Godfrey / Deathsworn Captain), Foe Reaper (Foe Reaper 5000, Deadmines),
+     Silverlaine's Family Seal (Baron Silverlaine), Deep Fathom Ring (Mutanus),
+     Lavishly Jeweled Ring (Admiral Ripsnarl), Miner's Cape (Glubtok),
+     Wolfmaster Cape (Shadowfang Keep), Cape of the Brotherhood ("Captain"
+     Cookie), Worn Turtle Shell Shield and Kresh's Back (Kresh), Redbeard Crest,
+     Grunt's Shield, Forest Buckler (world drops, bind on equip), Black Metal Axe
+     (Flesh Eaters, Duskwood), Bronze Mace (Blacksmithing 110, trainer-taught),
+     Shadowfang, Executioner's Sword, Blackrock Champion's Axe (Blackrock
+     Champions and Gladiators, Redridge Mountains), Battering Hammer, Shadowhide
+     Battle Axe, Thorbia's Gauntlets, Defender Gauntlets, Hulking Gauntlets,
+     Corin's Handguards, Grasps of the Unyielding, Festering Bracers, Restored
+     Archeus, Reconditioned Archeus, Serpentis' Gloves, Unmistakable Gloves,
+     Gorewalker Treads, Prospector's Sash, Prospector's Boots, Deviate Scale
+     Belt, Fortified Belt, Girdle of the Blindwatcher, Belt of the Fang, Lesser
+     Belt of the Spire, Smoldering Gloves, Gloves of Brawn, Night Watch Gauntlets,
+     Shield of the Faith, Interrogator's Shackles, Arctic Buckler, Black Husk
+     Shield, Rift Bracers, Deadskull Shield, Arena Grand Master, Green Tinted
+     Goggles, Lucky Fishing Hat, Thick Bronze Necklace, Rough Bronze Shoulders,
+     Rough Bronze Cuirass, Minor Recombobulator, Man'ari Training Amulet.
+8.4  Quest pages, level field as printed on the page. Every quest level quoted in
+     this document was read from the quest's own page at the revision shown, and
+     the pair was re-read for this audit:
+       "A Wolf in Bear's Clothing"     18   rev 2018-09-11  (awards 62885, used in 3.1)
+       "Silence of the Dwarves"        25   rev 2020-04-07
+       "A Deadly Vine"                 24   rev 2018-09-18
+       "A Daughter's Love"             25   rev 2018-09-11
+       "Cleansing the Caverns"         21   rev 2020-03-19
+       "Vortex (Alliance)"             24   rev 2020-03-19
+       "Vortex (Horde)"                24   rev 2020-03-19
+       "Return Fire (quest)"           23   rev 2020-03-19
+       "Heroes of the Horde!"          23   rev 2020-04-07
+       "Shuttin Her Down"              28   rev 2020-03-19
+       "Dangerous! (quest)"            28   rev 2020-04-01
+       "Warsong Supplies (quest)"      27   rev 2020-04-01
+       "The Gnoll King"                25   rev 2020-04-07
+       "Grant Me Revenge"              20   rev 2020-04-07
+       "Big Game Hunter"               29   rev 2020-04-07
+       "Sunken Treasure (Arathi Highlands)" 28
+       "Guile of the Raptor"           28
+       "Wanted! Otto and Falconcrest"  28
+     The one quest reward used in a best-in-slot row, "A Wolf in Bear's Clothing",
+     is level 18, which is why 62885 Unmistakable Gloves is allowed in 3.1 and
+     its Alliance counterpart 26035 Corin's Handguards is not (7.6).
+8.5  Heirloom sources are the client's own Heirloom table (SourceText_lang):
+     guild vendors in the capital cities (122245, 122251, 122260, 122389, and the
+     122263/122264/122266 alternatives), Estelle Gendry in the Undercity and
+     Krom Stoutarm in Ironforge (122355, 122381, 122667, 122391, 122392, 122530,
+     122349, 122371/122370), "World Event: Gurubashi Arena" (126948, 126949),
+     "World Event: Stranglethorn Fishing Tournament" (122529) and "World Event:
+     Darkmoon Deathmatch" (126949).
+8.6  The enchant table is the census built for part 7.9 of the battlegrounds
+     document: every scroll whose SpellItemEnchantment.ItemLevel is at or below
+     the item level a 19 can build, checked slot by slot.
+
+--------------------------------------------------------------------------------
+9. AUDIT TRAIL FOR THIS PART
+--------------------------------------------------------------------------------
+9.1  Every item row in sections 3-6 is generated by one script from ItemSparse,
+     Item and the five formula tables (work/war/build_bis.py), and the same
+     script prints the ilvl, the required level, the armour or damage line and
+     every stat, so a row cannot drift from the client without the generator
+     drifting with it. Every printed row was then re-derived independently by
+     work/war/audit_bis.py, which re-reads the finished document, matches each
+     row to its item id and compares name, ilvl, required level, armour or
+     damage range and speed, and every stat against the client tables:
+     111 rows scanned, 111 matched, 0 mismatched.
+9.2  The non-item claims - profession and proficiency gates, spell levels,
+     weapon skill masks, Titan's Grip, enchant item-level gates and enchant ids,
+     armour kits, inscriptions, consumable levels, quest levels, removed-item
+     levels and every "N usable points" count in the document - are checked one
+     at a time by work/war/verify_bis.py: 212 checks, 212 pass, 0 fail.
+9.3  This part was built in two passes, and the second pass changed the answer.
+     The first pass ranked a hand-built candidate list of the classic level-19
+     twink items. The audit then re-ran the ranking over the whole ItemSparse
+     table - every wearable item with RequiredLevel <= 19 and item level <= 32,
+     scored by the rule in 0.5 - and found better items in three slots:
+     - waist: 6460 Cobrahn's Grasp (16 points, 8 armour, plate) replaces 6468
+       Deviate Scale Belt (9 points) and 14559 Prospector's Sash (10 points);
+     - hands: 62885 Unmistakable Gloves (10 points, 9 armour, quest level 18)
+       replaces 12994 Thorbia's Gauntlets (7 points, 7 armour); Thorbia's
+       remains the faction-neutral and auction-house pick;
+     - trinket: 126948 Defending Champion (10 points) takes the first slot from
+       19024 Arena Grand Master (8 points plus a 15 min on-use), which moves to
+       the second slot opposite the PvP Insignia.
+     The same sweep corrected two numbers in the two-hander table (6641 Haunting
+     Blade is 4.02 dps, not 3.89; 5187 Foe Reaper is 3.83, not 3.89), added 1455
+     Blackrock Champion's Axe as a same-dps substitute for 4818, and added the
+     runners-up the first pass had missed (5444 Miner's Cape, 6314 Wolfmaster
+     Cape, 5193 Cape of the Brotherhood, 6642 Phantom Armor, 82886 Gorewalker
+     Treads, 885 Black Metal Axe, 2175 Shadowhide Battle Axe, 6460 itself now
+     being the pick). The picks that survive unchanged are the six heirloom
+     armour slots, the two rings, the boots, the wrist, the one-hander and the
+     shield.
+9.4  The second pass also resolved four exclusions the first pass had left open,
+     by reading the quest page rather than the item page: 65724 Grasps of the
+     Unyielding (quest level 25), 60925 Festering Bracers (24), 60937 Restored
+     Archeus (25) and 65937 Serpentis' Gloves (21) are all out of reach even
+     though their items carry RequiredLevel 0. It further established that
+     65937 Serpentis' Gloves and 131615 Cobrahn's Scale Gloves are quest rewards
+     rather than Wailing Caverns loot, which is why neither appears as a drop.
+9.5  Every "From" in sections 3-6 is one of: the client Heirloom table
+     (heirlooms), a named boss on the item's Wowpedia page (dungeon drops), the
+     "created with <profession>" line on the page (crafted), the quest page
+     (quest rewards) or "bind on equip" where the client's Bonding field says so
+     (auction house). No source is asserted that a page or the client does not
+     state; where both are silent the item is graded in 7.6 instead of a slot.
+9.6  Checks that failed and are therefore reported as unverified rather than
+     filled in: the level-19 value of scaling enchants (7.8); the source of 14559
+     and 14560; the availability at 19 of the whole 151xxx/156xxx item series
+     (7.6) and of 156953 'Liberated' Greataxe; the level of the quest "Clearing
+     the Way" that awards 26035 Corin's Handguards, the Alliance counterpart to
+     the gloves used in 3.1; the level requirement of the "Arena Grandmaster"
+     quest; and whether a 19 may enter the Darkmoon Deathmatch for 126949.
+9.7  Claims checked against the client and rejected during this work, recorded so
+     they are not repeated: Wowpedia's Shadowfang tooltip (16 - 30 @ 2.70, +5
+     Agility) and its Feet of the Lynx tooltip (3 armour, +2 Agi +2 Sta) are
+     pre-7.3.5 values and do not describe 8.3.7; the heirloom tier figures
+     85/463/600 are not level-19 figures; and the "mail only below 40" armour rule
+     that TrinityCore's LFG loot helper still encodes (Player.cpp 12080-12110) is
+     not the 8.3.7 rule, because 7.0.3 gave warriors plate at level 1
+     (SkillRaceClassInfo 293, class mask 3, minimum level 1).
+
+================================================================================
+ END OF PART 1 (WARRIOR). Next part: the next class, on request.
+================================================================================

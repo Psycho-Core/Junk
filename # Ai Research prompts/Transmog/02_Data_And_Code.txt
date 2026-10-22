@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the data and the server code behind transmog collection in 8.3.7.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Transmog_Code.txt
+Which tables decide it (ItemModifiedAppearance, ItemAppearance, ItemSearchName, Item, ItemSparse, TransmogSet) and which fields make an item uncollectible; the TrinityCore functions that add an appearance (CollectionMgr, Player, Item, quest reward, vendor) with the conditions of each and where the 8.3.7 branch differs from retail.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

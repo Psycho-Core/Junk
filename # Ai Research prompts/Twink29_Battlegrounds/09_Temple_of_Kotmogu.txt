@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): how a level 29 twink plays Temple of Kotmogu (map 998) in 8.3.7. The computer-controlled characters must behave like human players.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Twink29_BG_Temple_of_Kotmogu.txt
+First line: is Temple of Kotmogu open to the 20-29 bracket in 8.3.7 (team size, level range, rated or event only)? If it is not, write only that line and stop. Otherwise: (1) the objective and the win condition with the numbers; (2) the map: both start positions, every objective with its position (map id, x, y, z), the main routes and chokepoints, ramps, tunnels and doors, the graveyards and their objectives; (3) the roles a team splits into and how many players take each, and the usual twink opening in the first 30 seconds, how the middle is held, when a team pushes; (4) what decides a twink fight (burst, crowd control, interrupts, healing, flag carrier handoffs, kiting, stealth); (5) how a human behaves instead of a script: how long players stop to fight near an objective, how often they chase an enemy off the route, go the wrong way, leave an objective undefended, arrive late or run into a group, with rough frequencies or time ranges (write "estimate" for opinion); (6) the common mistakes of average players here.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

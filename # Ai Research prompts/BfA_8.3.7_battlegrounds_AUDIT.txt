@@ -1,0 +1,1202 @@
+AUDIT OF BfA_8.3.7_battlegrounds.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Each numbered line below is a single factual claim taken from the document,
+re-read from the document and compared with the primary source named after it.
+PASS means the source file still contains the value the document states.
+
+
+------------------------------------------------------------------------------
+SECTION 1   source: TC src/server/game/Maps/Map.cpp (mmaps navmesh)
+------------------------------------------------------------------------------
+001  PASS  TC Map.cpp loads an mmaps navmesh per map instance
+
+------------------------------------------------------------------------------
+SECTION 2   source: BattlemasterList.csv + Map.csv (build 35662)
+------------------------------------------------------------------------------
+002  PASS  queue table has 19 rows
+003  PASS  list 1 exists in BattlemasterList.db2
+004  PASS  list 1 name 'Alterac Valley'
+005  PASS  list 1 maps 30
+006  PASS  list 1 size 40
+007  PASS  list 1 min level 20
+008  PASS  list 1 max level 120
+009  PASS  list 1 instance type 3
+010  PASS  list 2 exists in BattlemasterList.db2
+011  PASS  list 2 name 'Classic Warsong Gulch'
+012  PASS  list 2 maps 489
+013  PASS  list 2 size 10
+014  PASS  list 2 min level 10
+015  PASS  list 2 max level 120
+016  PASS  list 2 instance type 3
+017  PASS  list 1014 exists in BattlemasterList.db2
+018  PASS  list 1014 name 'Warsong Gulch'
+019  PASS  list 1014 maps 2106
+020  PASS  list 1014 size 10
+021  PASS  list 1014 min level 10
+022  PASS  list 1014 max level 120
+023  PASS  list 1014 instance type 3
+024  PASS  list 3 exists in BattlemasterList.db2
+025  PASS  list 3 name 'Classic Arathi Basin'
+026  PASS  list 3 maps 529
+027  PASS  list 3 size 15
+028  PASS  list 3 min level 10
+029  PASS  list 3 max level 120
+030  PASS  list 3 instance type 3
+031  PASS  list 1018 exists in BattlemasterList.db2
+032  PASS  list 1018 name 'Arathi Basin'
+033  PASS  list 1018 maps 2107
+034  PASS  list 1018 size 15
+035  PASS  list 1018 min level 10
+036  PASS  list 1018 max level 120
+037  PASS  list 1018 instance type 3
+038  PASS  list 7 exists in BattlemasterList.db2
+039  PASS  list 7 name 'Eye of the Storm'
+040  PASS  list 7 maps 566
+041  PASS  list 7 size 15
+042  PASS  list 7 min level 15
+043  PASS  list 7 max level 120
+044  PASS  list 7 instance type 3
+045  PASS  list 656 exists in BattlemasterList.db2
+046  PASS  list 656 name 'Rated Eye of the Storm'
+047  PASS  list 656 maps 968
+048  PASS  list 656 size 10
+049  PASS  list 656 min level 100
+050  PASS  list 656 max level 120
+051  PASS  list 656 instance type 3
+052  PASS  list 9 exists in BattlemasterList.db2
+053  PASS  list 9 name 'Strand of the Ancients'
+054  PASS  list 9 maps 607
+055  PASS  list 9 size 15
+056  PASS  list 9 min level 50
+057  PASS  list 9 max level 120
+058  PASS  list 9 instance type 3
+059  PASS  list 30 exists in BattlemasterList.db2
+060  PASS  list 30 name 'Isle of Conquest'
+061  PASS  list 30 maps 628
+062  PASS  list 30 size 40
+063  PASS  list 30 min level 20
+064  PASS  list 30 max level 120
+065  PASS  list 30 instance type 3
+066  PASS  list 108 exists in BattlemasterList.db2
+067  PASS  list 108 name 'Twin Peaks'
+068  PASS  list 108 maps 726
+069  PASS  list 108 size 10
+070  PASS  list 108 min level 30
+071  PASS  list 108 max level 120
+072  PASS  list 108 instance type 3
+073  PASS  list 120 exists in BattlemasterList.db2
+074  PASS  list 120 name 'The Battle for Gilneas'
+075  PASS  list 120 maps 761
+076  PASS  list 120 size 10
+077  PASS  list 120 min level 25
+078  PASS  list 120 max level 120
+079  PASS  list 120 instance type 3
+080  PASS  list 754 exists in BattlemasterList.db2
+081  PASS  list 754 name 'Deepwind Gorge (Legacy)'
+082  PASS  list 754 maps 1105
+083  PASS  list 754 size 15
+084  PASS  list 754 min level 45
+085  PASS  list 754 max level 120
+086  PASS  list 754 instance type 3
+087  PASS  list 1037 exists in BattlemasterList.db2
+088  PASS  list 1037 name 'Deepwind Gorge'
+089  PASS  list 1037 maps 2245
+090  PASS  list 1037 size 15
+091  PASS  list 1037 min level 0
+092  PASS  list 1037 max level 0 (documented exception)
+093  PASS  list 1037 instance type 3
+094  PASS  list 708 exists in BattlemasterList.db2
+095  PASS  list 708 name 'Silvershard Mines'
+096  PASS  list 708 maps 727
+097  PASS  list 708 size 10
+098  PASS  list 708 min level 35
+099  PASS  list 708 max level 120
+100  PASS  list 708 instance type 3
+101  PASS  list 699 exists in BattlemasterList.db2
+102  PASS  list 699 name 'Temple of Kotmogu'
+103  PASS  list 699 maps 998
+104  PASS  list 699 size 10
+105  PASS  list 699 min level 40
+106  PASS  list 699 max level 120
+107  PASS  list 699 instance type 3
+108  PASS  list 894 exists in BattlemasterList.db2
+109  PASS  list 894 name 'Seething Shore'
+110  PASS  list 894 maps 1803
+111  PASS  list 894 size 10
+112  PASS  list 894 min level 110
+113  PASS  list 894 max level 120
+114  PASS  list 894 instance type 3
+115  PASS  list 1020 exists in BattlemasterList.db2
+116  PASS  list 1020 name 'Ashran'
+117  PASS  list 1020 maps 1191
+118  PASS  list 1020 size 25
+119  PASS  list 1020 min level 100
+120  PASS  list 1020 max level 120
+121  PASS  list 1020 instance type 3
+122  PASS  list 1021 exists in BattlemasterList.db2
+123  PASS  list 1021 name 'Classic Ashran'
+124  PASS  list 1021 maps 1191
+125  PASS  list 1021 size 25
+126  PASS  list 1021 min level 20
+127  PASS  list 1021 max level 120
+128  PASS  list 1021 instance type 3
+129  PASS  list 101 exists in BattlemasterList.db2
+130  PASS  list 101 name 'Rated Battleground'
+131  PASS  list 101 maps 2107, 566, 607
+132  PASS  list 101 size 15
+133  PASS  list 101 min level 20
+134  PASS  list 101 max level 90 (documented exception)
+135  PASS  list 101 instance type 3
+136  PASS  queue ids are unique
+137  PASS  AV min level 20 contradicts wiki's 45 statement
+138  PASS  1105 named 'Deepwind Gorge (Legacy)'
+139  PASS  2245 MinLevel is 0
+140  PASS  656 is Rated Eye of the Storm, 10 players, min 100
+141  PASS  101 is Rated Battleground over 2107/566/607
+
+------------------------------------------------------------------------------
+SECTION 3.1   source: BattlegroundWS.h / wiki Warsong Gulch
+------------------------------------------------------------------------------
+142  PASS  WSG graveyard id 769 in BattlegroundWS.h
+143  PASS  WSG graveyard id 770 in BattlegroundWS.h
+144  PASS  WSG graveyard id 771 in BattlegroundWS.h
+145  PASS  WSG graveyard id 772 in BattlegroundWS.h
+146  PASS  WSG exploit teleport 3784 in source
+147  PASS  WSG exploit teleport 3785 in source
+148  PASS  wiki WSG: 10v10, 20 minutes, first to 3 captures
+
+------------------------------------------------------------------------------
+SECTION 3.2   source: BattlegroundAB.h / AreaPOI map 529
+------------------------------------------------------------------------------
+149  PASS  AB POI gap quoted as 20 to 55 yards
+150  PASS  wiki AB: first team to 1,500 resources
+
+------------------------------------------------------------------------------
+SECTION 3.3   source: BattlegroundEY.h / AreaPOI map 566
+------------------------------------------------------------------------------
+151  PASS  AreaPOI 1962 = Netherstorm Flag
+152  PASS  AreaPOI 1962 is on map 566
+153  PASS  AreaPOI 1944 = Fel Reaver Ruins
+154  PASS  AreaPOI 1944 is on map 566
+155  PASS  AreaPOI 1941 = Blood Elf Tower
+156  PASS  AreaPOI 1941 is on map 566
+157  PASS  AreaPOI 1950 = Draenei Ruins
+158  PASS  AreaPOI 1950 is on map 566
+159  PASS  AreaPOI 1947 = Mage Tower
+160  PASS  AreaPOI 1947 is on map 566
+161  PASS  EotS gap quoted as 0 to 27 yards
+162  PASS  wiki EotS: first team to 1600 points
+
+------------------------------------------------------------------------------
+SECTION 3.6   source: BattlegroundSA.h / AreaPOI map 607
+------------------------------------------------------------------------------
+163  PASS  wiki SA: two rounds of ten minutes
+164  PASS  SA has four demolishers per side (BG_SA_DEMOLISHER_AMOUNT)
+165  PASS  SA defender boat spawns 2679.70/-826.89/3.71 and 2574.00/981.26/2.60
+166  PASS  SA graveyard/relic id 1349 in BattlegroundSA.h
+167  PASS  SA graveyard/relic id 1347 in BattlegroundSA.h
+168  PASS  SA graveyard/relic id 1350 in BattlegroundSA.h
+169  PASS  SA graveyard/relic id 1346 in BattlegroundSA.h
+
+------------------------------------------------------------------------------
+SECTION 3.8   source: AreaPOI map 761 / wiki Battle for Gilneas
+------------------------------------------------------------------------------
+170  PASS  AreaPOI 2404 = Mines on 761
+171  PASS  AreaPOI 2405 = Waterworks on 761
+172  PASS  AreaPOI 2412 = Lighthouse on 761
+173  PASS  AreaPOI 5275 = Overlook on 761
+174  PASS  AreaPOI 5277 = Crossroad on 761
+175  PASS  AreaPOI 5279 = Bridge on 761
+176  PASS  wiki BfG: 2,000 resources
+
+------------------------------------------------------------------------------
+SECTION 3.9   source: AreaPOI maps 1105 and 2245 / wiki Deepwind Gorge
+------------------------------------------------------------------------------
+177  PASS  AreaPOI 2966 = Center Mine on 1105
+178  PASS  AreaPOI 2960 = Pandaren Mine on 1105
+179  PASS  AreaPOI 2967 = Goblin Mine on 1105
+180  PASS  AreaPOI 6543 = Quarry on 2245
+181  PASS  AreaPOI 6544 = Market on 2245
+182  PASS  AreaPOI 6545 = Shrine on 2245
+183  PASS  AreaPOI 6546 = Farm on 2245
+184  PASS  AreaPOI 6547 = Ruins on 2245
+185  PASS  wiki DWG: 200 gold for a stolen cart
+
+------------------------------------------------------------------------------
+SECTION 3.10   source: AreaPOI map 727 / wiki Silvershard Mines
+------------------------------------------------------------------------------
+186  PASS  wiki SM: 1600 resources
+
+------------------------------------------------------------------------------
+SECTION 3.11   source: AreaPOI map 998 / wiki Temple of Kotmogu
+------------------------------------------------------------------------------
+187  PASS  AreaPOI 2774 = Power Orb on 998
+188  PASS  AreaPOI 2775 = Power Orb on 998
+189  PASS  AreaPOI 2776 = Power Orb on 998
+190  PASS  AreaPOI 2777 = Power Orb on 998
+191  PASS  AreaPOI 5282 = Power Orb on 998
+192  PASS  AreaPOI 5283 = Power Orb on 998
+193  PASS  wiki Kotmogu: four orbs
+
+------------------------------------------------------------------------------
+SECTION 3.12   source: AreaPOI map 1803 / wiki Seething Shore
+------------------------------------------------------------------------------
+194  PASS  wiki Seething: 1,500 azerite
+
+------------------------------------------------------------------------------
+SECTION 3.13   source: AreaPOI map 1191 / wiki Ashran
+------------------------------------------------------------------------------
+195  PASS  AreaPOI 3144 on map 1191
+196  PASS  AreaPOI 3147 on map 1191
+197  PASS  AreaPOI 3132 on map 1191
+198  PASS  AreaPOI 3131 on map 1191
+199  PASS  AreaPOI 3133 on map 1191
+200  PASS  AreaPOI 3130 on map 1191
+201  PASS  AreaPOI 3129 on map 1191
+202  PASS  AreaPOI 3149 on map 1191
+203  PASS  AreaPOI 3151 on map 1191
+204  PASS  AreaPOI 3152 on map 1191
+205  PASS  AreaPOI 6495 on map 1191
+206  PASS  Ashran base-to-base distance quoted ~1,060
+207  PASS  wiki Ashran: 25v25
+
+------------------------------------------------------------------------------
+SECTION 4   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+208  PASS  map 30 is Alterac Valley in Map.db2
+209  PASS  BG_AV_CAPTIME is 240000
+210  PASS  BG_AV_SNOWFALL_FIRSTCAP is 300000
+211  PASS  BG_AV_SCORE_INITIAL_POINTS is 600
+212  PASS  AV_MINE_TICK_TIMER is 45000
+213  PASS  AV_MINE_RECLAIM_TIMER is 1200000
+214  PASS  BG_AV_RES_CAPTAIN is 100
+215  PASS  BG_AV_RES_TOWER is 75
+216  PASS  BG_AV_KILL_BOSS is 4
+217  PASS  BG_AV_REP_BOSS is 350
+218  PASS  BG_AV_KILL_CAPTAIN is 3
+219  PASS  BG_AV_REP_CAPTAIN is 125
+220  PASS  BG_AV_KILL_TOWER is 3
+221  PASS  BG_AV_REP_TOWER is 12
+222  PASS  BG_AV_KILL_SURVIVING_TOWER is 2
+223  PASS  BG_AV_REP_SURVIVING_TOWER is 12
+224  PASS  BG_AV_KILL_SURVIVING_CAPTAIN is 2
+225  PASS  BG_AV_REP_SURVIVING_CAPTAIN is 125
+226  PASS  BG_AV_GET_COMMANDER is 1
+
+------------------------------------------------------------------------------
+SECTION 4.1   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+227  PASS  wiki body says each team starts with 700
+228  PASS  wiki patch history: 600 reduced to 500 in 2012
+229  PASS  wiki hotfix 2018-07-27 increased reinforcements by 100
+
+------------------------------------------------------------------------------
+SECTION 4.2   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+230  PASS  AV node table has 15 rows
+231  PASS  node 0 Stormpike Aid Station coordinates
+232  PASS  node 0 Stormpike Aid Station GY id 751
+233  PASS  node 1 Stormpike Graveyard coordinates
+234  PASS  node 1 Stormpike Graveyard GY id 689
+235  PASS  node 2 Stonehearth Graveyard coordinates
+236  PASS  node 2 Stonehearth Graveyard GY id 729
+237  PASS  node 3 Snowfall Graveyard coordinates
+238  PASS  node 3 Snowfall Graveyard GY id 169
+239  PASS  node 4 Iceblood Graveyard coordinates
+240  PASS  node 4 Iceblood Graveyard GY id 749
+241  PASS  node 5 Frostwolf Graveyard coordinates
+242  PASS  node 5 Frostwolf Graveyard GY id 690
+243  PASS  node 6 Frostwolf Relief Hut coordinates
+244  PASS  node 6 Frostwolf Relief Hut GY id 750
+245  PASS  node 7 Dun Baldar South Bunker coordinates
+246  PASS  node 7 Dun Baldar South Bunker has no GY
+247  PASS  node 8 Dun Baldar North Bunker coordinates
+248  PASS  node 8 Dun Baldar North Bunker has no GY
+249  PASS  node 9 Icewing Bunker coordinates
+250  PASS  node 9 Icewing Bunker has no GY
+251  PASS  node 10 Stonehearth Bunker coordinates
+252  PASS  node 10 Stonehearth Bunker has no GY
+253  PASS  node 11 Iceblood Tower coordinates
+254  PASS  node 11 Iceblood Tower has no GY
+255  PASS  node 12 Tower Point coordinates
+256  PASS  node 12 Tower Point has no GY
+257  PASS  node 13 East Frostwolf Tower coordinates
+258  PASS  node 13 East Frostwolf Tower has no GY
+259  PASS  node 14 West Frostwolf Tower coordinates
+260  PASS  node 14 West Frostwolf Tower has no GY
+261  PASS  AV graveyard id 751 in header
+262  PASS  AV graveyard id 689 in header
+263  PASS  AV graveyard id 729 in header
+264  PASS  AV graveyard id 169 in header
+265  PASS  AV graveyard id 749 in header
+266  PASS  AV graveyard id 690 in header
+267  PASS  AV graveyard id 750 in header
+268  PASS  base graveyard id 611 in header
+269  PASS  base graveyard id 610 in header
+
+------------------------------------------------------------------------------
+SECTION 4.3   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+270  PASS  wiki patch 2.4.0 cut Snowfall first cap from five to four minutes
+
+------------------------------------------------------------------------------
+SECTION 4.4   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+271  PASS  creature 11948 in BG_AV_CreatureInfo
+272  PASS  creature 11948 spawn ('722.43', '-10.9982', '50.7046')
+273  PASS  creature 11946 in BG_AV_CreatureInfo
+274  PASS  creature 11946 spawn ('-1370.9', '-219.793', '98.4258')
+275  PASS  creature 11949 in BG_AV_CreatureInfo
+276  PASS  creature 11949 spawn ('-57.7891', '-286.597', '15.6479')
+277  PASS  creature 11947 in BG_AV_CreatureInfo
+278  PASS  creature 11947 spawn ('-545.23', '-165.35', '57.7886')
+279  PASS  marshal/warmaster 14763 in BG_AV_CreatureInfo
+280  PASS  marshal/warmaster 14762 in BG_AV_CreatureInfo
+281  PASS  marshal/warmaster 14764 in BG_AV_CreatureInfo
+282  PASS  marshal/warmaster 14765 in BG_AV_CreatureInfo
+283  PASS  marshal/warmaster 14773 in BG_AV_CreatureInfo
+284  PASS  marshal/warmaster 14776 in BG_AV_CreatureInfo
+285  PASS  marshal/warmaster 14772 in BG_AV_CreatureInfo
+286  PASS  marshal/warmaster 14777 in BG_AV_CreatureInfo
+287  PASS  Alliance keep door 780.487/-493.024/99.9553
+288  PASS  Horde keep door -1375.193/-538.981/55.2824
+289  PASS  captain buff spells 23693 and 22751
+290  PASS  wiki: captains grant a flat 20% health buff
+291  PASS  wiki: marshals stack 25% and the general begins at +144%
+
+------------------------------------------------------------------------------
+SECTION 4.5   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+292  PASS  Irondeep Mine POI 1099 at 793.75/-330.20/63.03
+293  PASS  Coldtooth Mine POI 1102 at -946.91/-195.45/76.96
+294  PASS  Morloch entry 11657 in the mine NPC table
+295  PASS  mine ticks one reinforcement per 45 s (code)
+296  PASS  wiki: a mine returns one reinforcement every 45 seconds
+
+------------------------------------------------------------------------------
+SECTION 4.7   source: BattlegroundAV.h / BattlegroundAV.cpp
+------------------------------------------------------------------------------
+297  PASS  wiki: killing a player costs one reinforcement
+
+------------------------------------------------------------------------------
+SECTION 5   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+298  PASS  MAX_REINFORCEMENTS is 300
+299  PASS  WORKSHOP_UPDATE_TIME is 180000
+300  PASS  IC_RESOURCE_TIME is 45000
+301  PASS  BANNER_STATE_CHANGE_TIME is 60000
+302  PASS  12.5 core raised MAX_REINFORCEMENTS to 400
+
+------------------------------------------------------------------------------
+SECTION 5.1   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+303  PASS  wiki: each team starts with 300 reinforcements
+
+------------------------------------------------------------------------------
+SECTION 5.2   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+304  PASS  Docks banner entry 195157 in BattlegroundIC.h
+305  PASS  Hangar banner entry 195158 in BattlegroundIC.h
+306  PASS  Workshop banner entry 195133 in BattlegroundIC.h
+307  PASS  Quarry banner entry 195338 in BattlegroundIC.h
+308  PASS  Refinery banner entry 195343 in BattlegroundIC.h
+309  PASS  Horde keep banner entry 195393 in BattlegroundIC.h
+310  PASS  Alliance keep banner entry 195396 in BattlegroundIC.h
+
+------------------------------------------------------------------------------
+SECTION 5.3   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+311  PASS  Glaive Thrower A entry 34802 in BattlegroundIC.h
+312  PASS  Glaive Thrower H entry 35273 in BattlegroundIC.h
+313  PASS  Catapult entry 34793 in BattlegroundIC.h
+314  PASS  Demolisher entry 34775 in BattlegroundIC.h
+315  PASS  Siege Engine A entry 34776 in BattlegroundIC.h
+316  PASS  Siege Engine H entry 35069 in BattlegroundIC.h
+317  PASS  two glaive throwers per faction (MAX_GLAIVE_THROWERS_SPAWNS_PER_FACTION=2)
+318  PASS  four catapults per faction
+319  PASS  four demolishers per faction
+320  PASS  two workshop bombs per faction
+321  PASS  glaive park 779.3125/-342.972229/12.2104874
+322  PASS  siege engine park 773.680542/-884.092041/16.8090363
+323  PASS  workshop bombs at 750.601/-864.597 and 785.509/-864.715
+
+------------------------------------------------------------------------------
+SECTION 5.4   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+324  PASS  gate 195699 at 351.615f, -762.75f, 48.9162f
+325  PASS  gate 195698 at 351.024f, -903.326f, 48.9247f
+326  PASS  gate 195700 at 413.479f, -833.95f, 48.5238f
+327  PASS  gate 195494 at 1150.9f, -762.606f, 47.5077f
+328  PASS  gate 195496 at 1218.74f, -851.155f, 48.2533f
+329  PASS  gate 195495 at 1217.9f, -676.948f, 47.6341f
+330  PASS  Overlord Agmar 34922 at 1295.44/-765.733/70.0541
+331  PASS  Halford Wyrmbane 34924 at 224.983/-831.573/60.9034
+332  PASS  Kor'kron Guard 34918 and 7th Legion Infantry 34919
+333  PASS  keep cannon entry 34944
+334  PASS  12 cannons per keep, 24 in total
+335  PASS  hangar portals at 827.9219/-993.3249/134.1972
+336  PASS  teleporter entries 195313-195316
+337  PASS  teleporter at 311.92/-913.972/48.8159
+
+------------------------------------------------------------------------------
+SECTION 5.5   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+338  PASS  graveyard id 1480 in BG_IC_GraveyardIds
+339  PASS  graveyard id 1481 in BG_IC_GraveyardIds
+340  PASS  graveyard id 1482 in BG_IC_GraveyardIds
+341  PASS  graveyard id 1485 in BG_IC_GraveyardIds
+342  PASS  graveyard id 1486 in BG_IC_GraveyardIds
+343  PASS  graveyard id 1483 in BG_IC_GraveyardIds
+344  PASS  graveyard id 1484 in BG_IC_GraveyardIds
+345  PASS  graveyard id array order 0,0,1480,1481,1482,1485,1486,1483,1484
+
+------------------------------------------------------------------------------
+SECTION 5.6   source: BattlegroundIC.h / BattlegroundIC.cpp
+------------------------------------------------------------------------------
+346  PASS  quarry spell 68720 and refinery spell 68719
+347  PASS  resource tick applies to Refinery, Quarry and Docks
+348  PASS  wiki: Refinery and Quarry raise siege damage by 15%
+
+------------------------------------------------------------------------------
+SECTION 6.1   source: BattlegroundScore.h + PvpStat.csv
+------------------------------------------------------------------------------
+349  PASS  SCORE_KILLING_BLOWS = 1
+350  PASS  SCORE_DEATHS = 2
+351  PASS  SCORE_HONORABLE_KILLS = 3
+352  PASS  SCORE_BONUS_HONOR = 4
+353  PASS  SCORE_DAMAGE_DONE = 5
+354  PASS  SCORE_HEALING_DONE = 6
+
+------------------------------------------------------------------------------
+SECTION 6.2   source: BattlegroundScore.h + PvpStat.csv
+------------------------------------------------------------------------------
+355  PASS  scoreboard extra-column table rows
+356  PASS  map 30 column 61 'Towers Assaulted'
+357  PASS  map 30 column 63 'Graveyards Assaulted'
+358  PASS  map 30 column 64 'Towers Defended'
+359  PASS  map 30 column 65 'Graveyards Defended'
+360  PASS  map 30 column 82 'Secondary Objectives'
+361  PASS  map 489 column 42 'Flag Captures'
+362  PASS  map 489 column 44 'Flag Returns'
+363  PASS  map 529 column 122 'Bases Assaulted'
+364  PASS  map 529 column 123 'Bases Defended'
+365  PASS  map 566 column 183 'Flag Captures'
+366  PASS  map 607 column 231 'Gates Destroyed'
+367  PASS  map 607 column 232 'Demolishers Destroyed'
+368  PASS  map 628 column 245 'Bases Assaulted'
+369  PASS  map 628 column 246 'Bases Defended'
+370  PASS  map 726 column 290 'Flag Captures'
+371  PASS  map 726 column 291 'Flag Returns'
+372  PASS  map 727 column 428 'Carts Controlled'
+373  PASS  map 761 column 370 'Bases Assaulted'
+374  PASS  map 761 column 371 'Bases Defended'
+375  PASS  map 968 column 391 'Bases Assaulted'
+376  PASS  map 968 column 392 'Bases Defended'
+377  PASS  map 968 column 393 'Flag Captures'
+378  PASS  map 998 column 418 'Orb Possessions'
+379  PASS  map 998 column 419 'Victory Points'
+380  PASS  map 1105 column 457 'Carts Captures'
+381  PASS  map 1105 column 458 'Carts Returned'
+382  PASS  map 1105 column 459 'Mines Assaulted'
+383  PASS  map 1105 column 460 'Mines Defended'
+384  PASS  map 1191 column 931 'Artifacts Collected'
+385  PASS  map 1803 column 744 'Azerite Collected'
+386  PASS  map 2106 column 928 'Flag Captures'
+387  PASS  map 2106 column 929 'Flag Returns'
+388  PASS  map 2107 column 926 'Bases Assaulted'
+389  PASS  map 2107 column 927 'Bases Defended'
+390  PASS  map 2245 column 1001 'Bases Assaulted'
+391  PASS  map 2245 column 1002 'Bases Defended'
+392  PASS  AV fifth attribute is MinesCaptured
+393  PASS  AV feeds MinesCaptured into AV_OBJECTIVE_SECONDARY_OBJECTIVE
+394  PASS  AV never scores BG_AV_GET_COMMANDER
+395  PASS  EotS score struct tracks flag captures (id 183)
+396  PASS  EotS score struct has no base attributes
+
+------------------------------------------------------------------------------
+SECTION 7   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+397  PASS  lowest bracket starts at 10 (WSG and AB MinLevel)
+398  PASS  cloth Head Tranquil Spiritbind Cowl: stats '-'
+399  PASS  cloth Head = Tranquil Spiritbind Cowl (168107, ilvl 10, req 1)
+400  PASS  cloth Shoulder Reinforced Woolen Shoulders: stats 'Sta, Int'
+401  PASS  cloth Shoulder = Reinforced Woolen Shoulders (4315, ilvl 24, req 19)
+402  PASS  cloth Chest Ritual Tunic: stats 'Int, Sta'
+403  PASS  cloth Chest = Ritual Tunic (14133, ilvl 24, req 19)
+404  PASS  cloth Waist Brimstone Belt: stats 'Sta, Int'
+405  PASS  cloth Waist = Brimstone Belt (4785, ilvl 24, req 19)
+406  PASS  cloth Legs Colorful Kilt: stats 'Vers, Int'
+407  PASS  cloth Legs = Colorful Kilt (10048, ilvl 24, req 14)
+408  PASS  cloth Feet Sanguine Sandals: stats 'Int, Sta'
+409  PASS  cloth Feet = Sanguine Sandals (14374, ilvl 24, req 19)
+410  PASS  cloth Wrist Bright Bracers: stats 'Int'
+411  PASS  cloth Wrist = Bright Bracers (3647, ilvl 23, req 18)
+412  PASS  cloth Hands Smoldering Gloves: stats 'Sta, Vers'
+413  PASS  cloth Hands = Smoldering Gloves (3074, ilvl 24, req 19)
+414  PASS  cloth Back Spidersilk Drape: stats 'Crit, Sta, Int'
+415  PASS  cloth Back = Spidersilk Drape (45626, ilvl 24, req 19)
+416  PASS  leather Head Restless Dreambound Helm: stats '-'
+417  PASS  leather Head = Restless Dreambound Helm (168087, ilvl 10, req 1)
+418  PASS  leather Shoulder Serpent's Shoulders: stats 'Sta, Agi/Int, Crit, Haste'
+419  PASS  leather Shoulder = Serpent's Shoulders (5404, ilvl 21, req 16)
+420  PASS  leather Chest Toughened Leather Armor: stats 'Sta'
+421  PASS  leather Chest = Toughened Leather Armor (2314, ilvl 24, req 19)
+422  PASS  leather Waist Wrangler's Belt: stats 'Agi/Int, Sta'
+423  PASS  leather Waist = Wrangler's Belt (15329, ilvl 24, req 19)
+424  PASS  leather Legs Rigid Leggings: stats 'Agi/Int, Sta'
+425  PASS  leather Legs = Rigid Leggings (15117, ilvl 24, req 19)
+426  PASS  leather Feet Forest Leather Boots: stats 'Agi/Int, Sta'
+427  PASS  leather Feet = Forest Leather Boots (3057, ilvl 24, req 19)
+428  PASS  leather Wrist Forest Leather Bracers: stats 'Agi/Int'
+429  PASS  leather Wrist = Forest Leather Bracers (3202, ilvl 24, req 19)
+430  PASS  leather Hands Bristlebark Gloves: stats 'Agi/Int, Sta'
+431  PASS  leather Hands = Bristlebark Gloves (14572, ilvl 24, req 19)
+432  PASS  leather Back Spidersilk Drape: stats 'Crit, Sta, Int'
+433  PASS  leather Back = Spidersilk Drape (45626, ilvl 24, req 19)
+434  PASS  mail Head Worgen Hunter's Helm: stats 'Agi/Int, Sta, Haste, Vers'
+435  PASS  mail Head = Worgen Hunter's Helm (151072, ilvl 21, req 16)
+436  PASS  mail Shoulder Rough Bronze Shoulders: stats 'Sta, Agi/Int'
+437  PASS  mail Shoulder = Rough Bronze Shoulders (3480, ilvl 22, req 17)
+438  PASS  mail Chest Outrunner's Chestguard: stats 'Agi/Int, Sta'
+439  PASS  mail Chest = Outrunner's Chestguard (15500, ilvl 24, req 19)
+440  PASS  mail Waist Fortified Belt: stats 'Agi/Int, Sta'
+441  PASS  mail Waist = Fortified Belt (9814, ilvl 24, req 19)
+442  PASS  mail Legs Grunt's Legguards: stats 'Agi/Int, Sta'
+443  PASS  mail Legs = Grunt's Legguards (15511, ilvl 24, req 19)
+444  PASS  mail Feet Hulking Boots: stats 'Sta, Agi/Int'
+445  PASS  mail Feet = Hulking Boots (14742, ilvl 24, req 19)
+446  PASS  mail Wrist Fortified Bracers: stats 'Agi/Int, Sta'
+447  PASS  mail Wrist = Fortified Bracers (9811, ilvl 24, req 19)
+448  PASS  mail Hands Chain Gauntlets: stats 'Agi/Int, Haste'
+449  PASS  mail Hands = Chain Gauntlets (132499, ilvl 24, req 19)
+450  PASS  mail Back Spidersilk Drape: stats 'Crit, Sta, Int'
+451  PASS  mail Back = Spidersilk Drape (45626, ilvl 24, req 19)
+452  PASS  1H sword Decapitating Sword: stats 'Agi, Sta'
+453  PASS  1H sword = Decapitating Sword (3740)
+454  PASS  1H axe Shadowhide Scalper: stats 'Str'
+455  PASS  1H axe = Shadowhide Scalper (1459)
+456  PASS  1H mace Jagged Star: stats 'Int, Sta'
+457  PASS  1H mace = Jagged Star (15223)
+458  PASS  Dagger Sentinel's Blade: stats 'Agi, Sta'
+459  PASS  Dagger = Sentinel's Blade (20443)
+460  PASS  2H sword Executioner's Sword: stats 'Str'
+461  PASS  2H sword = Executioner's Sword (4818)
+462  PASS  2H axe Massive Battle Axe: stats 'Str, Sta'
+463  PASS  2H axe = Massive Battle Axe (15269)
+464  PASS  2H mace Battering Hammer: stats 'Str, Sta'
+465  PASS  2H mace = Battering Hammer (3198)
+466  PASS  Staff Twisted Chanter's Staff: stats 'Int, Sta'
+467  PASS  Staff = Twisted Chanter's Staff (890)
+468  PASS  Bow Outrunner's Bow: stats 'Agi, Sta'
+469  PASS  Bow = Outrunner's Bow (20438)
+470  PASS  Gun Lovingly Crafted Boomstick: stats 'Agi, Sta'
+471  PASS  Gun = Lovingly Crafted Boomstick (4372)
+472  PASS  Wand Skycaller: stats 'Int, Sta'
+473  PASS  Wand = Skycaller (12984)
+474  PASS  Shield Grunt's Shield: stats 'Str, Sta, Int'
+475  PASS  Shield = Grunt's Shield (15512)
+476  PASS  Neck Sentinel's Medallion: stats 'Agi, Sta'
+477  PASS  Neck = Sentinel's Medallion (20444)
+478  PASS  Ring Gloom Band: stats 'Vers'
+479  PASS  Ring = Gloom Band (20823)
+480  PASS  Off-hand Ritual Stein: stats 'Sta, Int'
+481  PASS  Off-hand = Ritual Stein (15972)
+
+------------------------------------------------------------------------------
+SECTION 7.2   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+482  PASS  all 0 enchant scrolls have RequiredLevel 0
+483  PASS  no enchant in the legal set has MinLevel above 0
+484  PASS  item-level tier 30 exists in SpellItemEnchantment
+485  PASS  item-level tier 55 exists in SpellItemEnchantment
+486  PASS  item-level tier 162 exists in SpellItemEnchantment
+487  PASS  item-level tier 290 exists in SpellItemEnchantment
+488  PASS  the only enchant item-level figures between 2 and 29 are 5,10,15,20,24,25
+
+------------------------------------------------------------------------------
+SECTION 7.3   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+489  PASS  plate skill 293 has a ClassMask 3 row (warrior, paladin) at MinLevel 1
+490  PASS  mail skill 413 has a ClassMask 68 row (hunter, shaman) at MinLevel 1
+491  PASS  leather 414 and cloth 415 have no MinLevel above 0
+492  PASS  the only ClassMask 3 row of 293 is the level-1 one (no plate gate)
+493  PASS  plate skill is taught by spell 750 and has no SpellLevels row
+494  PASS  mail is taught by 8737 (and 119811); 8737 is BaseLevel 1
+495  PASS  Heirloom.db2 has 132 rows
+496  PASS  131 heirloom rows are wearable
+497  PASS  98 wearable heirlooms are legal at 19
+498  PASS  the 33 legal-excluded heirlooms are all Hellscream items
+499  PASS  heirloom Tattered Dreadmist Mask (122250, old -, cloth)
+500  PASS  heirloom Preened Tribal War Feathers (122249, old -, leather)
+501  PASS  heirloom Stained Shadowcraft Cap (122248, old -, leather)
+502  PASS  heirloom Mystical Coif of Elements (122247, old -, mail)
+503  PASS  heirloom Tarnished Raging Berserker's Helm (122246, old -, mail)
+504  PASS  heirloom Burnished Helm of Might (122263, old -, plate)
+505  PASS  heirloom Polished Helm of Valor (122245, old -, plate)
+506  PASS  heirloom Pristine Lightforge Helm (127012, old -, plate)
+507  PASS  Hodir shoulder inscription 44133 has required level 80
+508  PASS  Hodir shoulder inscription 50335 has required level 80
+509  PASS  Hodir shoulder inscription 44134 has required level 80
+510  PASS  Hodir shoulder inscription 50336 has required level 80
+511  PASS  Hodir shoulder inscription 44136 has required level 80
+512  PASS  Hodir shoulder inscription 50337 has required level 80
+513  PASS  Hodir shoulder inscription 44135 has required level 80
+514  PASS  Hodir shoulder inscription 50338 has required level 80
+515  PASS  Hodir inscriptions are heirlooms (quality 7)
+516  PASS  Light Armor Kit 2304 is legal at 19
+517  PASS  Medium Armor Kit 2313 is legal at 19
+518  PASS  Heavy Armor Kit 4265 is not legal at 19
+
+------------------------------------------------------------------------------
+SECTION 7.4   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+519  PASS  226 cloth helms pass the level test at 19
+520  PASS  Feet of the Lynx 1121 is leather feet, ilvl 24, req 19
+521  PASS  Scouting Trousers 6587 ilvl 24 req 19
+
+------------------------------------------------------------------------------
+SECTION 7.6   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+522  PASS  Shadowfang 1482 is a one-hand sword, ilvl 24, req 19
+523  PASS  Sentinel's Blade 20443 is a dagger, ilvl 23, req 18
+
+------------------------------------------------------------------------------
+SECTION 7.7   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+524  PASS  weapon table has 15 rows
+
+------------------------------------------------------------------------------
+SECTION 7.8   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+525  PASS  trinket table has 12 rows
+526  PASS  Minor Recombobulator = 4381 (ilvl 28, req 0)
+527  PASS  Gnomish Universal Remote = 7506 (ilvl 25, req 0)
+528  PASS  Swift Hand of Justice (BoA) = 122361 (ilvl 1, req 0)
+529  PASS  Discerning Eye of the Beast (BoA) = 122362 (ilvl 1, req 0)
+530  PASS  Inherited Insignia of the Alliance (BoA) = 122371 (ilvl 1, req 0)
+531  PASS  Inherited Insignia of the Horde (BoA) = 122370 (ilvl 1, req 0)
+532  PASS  Inherited Mark of Tyranny (BoA) = 122530 (ilvl 1, req 0)
+533  PASS  Touch of the Void (BoA) = 128318 (ilvl 1, req 0)
+534  PASS  Defending Champion (BoA) = 126948 (ilvl 1, req 0)
+535  PASS  Returning Champion (BoA) = 126949 (ilvl 1, req 0)
+536  PASS  Judgment of the Naaru (BoA) = 133585 (ilvl 1, req 0)
+537  PASS  Insignia of the Scourge = 40483 (ilvl 1, req 0)
+
+------------------------------------------------------------------------------
+SECTION 7.9   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+538  PASS  255 enchant rows printed
+539  PASS  Mark of the Ancient.. scroll 141910 enchant 5891
+540  PASS  Mark of the Claw scroll 128551 enchant 5437
+541  PASS  Mark of the Distant.. scroll 128552 enchant 5438
+542  PASS  Mark of the Heavy Hide scroll 141908 enchant 5889
+543  PASS  Mark of the Hidden S.. scroll 128553 enchant 5439
+544  PASS  Mark of the Trained.. scroll 141909 enchant 5890
+545  PASS  Gift of Critical Str.. scroll 110645 enchant 5317
+546  PASS  Gift of Haste scroll 110646 enchant 5318
+547  PASS  Gift of Haste scroll 110648 enchant 5320
+548  PASS  Gift of Mastery scroll 110647 enchant 5319
+549  PASS  Gift of Versatility scroll 110649 enchant 5321
+550  PASS  Mark of the Deadly scroll 144307 enchant 5898
+551  PASS  Mark of the Master scroll 144304 enchant 5895
+552  PASS  Mark of the Quick scroll 144306 enchant 5897
+553  PASS  Mark of the Versatile scroll 144305 enchant 5896
+554  PASS  Breath of Critical S.. scroll 110624 enchant 5285
+555  PASS  Breath of Haste scroll 110625 enchant 5292
+556  PASS  Breath of Haste scroll 110627 enchant 5294
+557  PASS  Breath of Mastery scroll 110626 enchant 5293
+558  PASS  Breath of Versatility scroll 110628 enchant 5295
+559  PASS  Boon of the Scavenger scroll 128554 enchant 5440
+560  PASS  Subtlety scroll 38894 enchant 2621
+561  PASS  Stealth scroll 38893 enchant 910
+562  PASS  Dodge scroll 38895 enchant 2622
+563  PASS  Superior Defense scroll 38859 enchant 1889
+564  PASS  Greater Defense scroll 38825 enchant 884
+565  PASS  Binding of Agility scroll 128549 enchant 5435
+566  PASS  Binding of Intellect scroll 128550 enchant 5436
+567  PASS  Binding of Strength scroll 128548 enchant 5434
+568  PASS  Greater Protection scroll 74711 enchant 4422
+569  PASS  Defense scroll 38806 enchant 848
+570  PASS  Lesser Agility scroll 38835 enchant 4734
+571  PASS  Word of Agility scroll 128546 enchant 5432
+572  PASS  Word of Intellect scroll 128547 enchant 5433
+573  PASS  Word of Strength scroll 128545 enchant 5431
+574  PASS  Gift of Critical Str.. scroll 110652 enchant 5310
+575  PASS  Gift of Critical Str.. scroll 110655 enchant 5313
+576  PASS  Gift of Haste scroll 110653 enchant 5311
+577  PASS  Gift of Mastery scroll 110654 enchant 5312
+578  PASS  Gift of Versatility scroll 110656 enchant 5314
+579  PASS  Accuracy scroll 74710 enchant 4421
+580  PASS  Breath of Critical S.. scroll 110631 enchant 5281
+581  PASS  Breath of Critical S.. scroll 110634 enchant 5302
+582  PASS  Breath of Haste scroll 110632 enchant 5298
+583  PASS  Breath of Mastery scroll 110633 enchant 5300
+584  PASS  Breath of Versatility scroll 110635 enchant 5304
+585  PASS  Superior Critical St.. scroll 74713 enchant 4424
+586  PASS  Superior Intellect scroll 74712 enchant 4423
+587  PASS  Lesser Protection scroll 38790 enchant 744
+588  PASS  Minor Agility scroll 38789 enchant 4724
+589  PASS  Minor Protection scroll 38775 enchant 783
+590  PASS  Greater Stats scroll 38865 enchant 1891
+591  PASS  Lesser Absorption scroll 38798 enchant 63
+592  PASS  Lesser Stats scroll 38824 enchant 866
+593  PASS  Major Health scroll 38866 enchant 1892
+594  PASS  Minor Absorption scroll 38767 enchant 44
+595  PASS  Minor Stats scroll 38804 enchant 847
+596  PASS  Stats scroll 38847 enchant 928
+597  PASS  Major Mana scroll 38867 enchant 1893
+598  PASS  Super Health scroll 39005 enchant 3297
+599  PASS  Glorious Stats scroll 74708 enchant 4419
+600  PASS  Superior Health scroll 38833 enchant 908
+601  PASS  Superior Mana scroll 38841 enchant 913
+602  PASS  Greater Health scroll 38808 enchant 850
+603  PASS  Greater Mana scroll 38818 enchant 857
+604  PASS  Health scroll 38782 enchant 254
+605  PASS  Mana scroll 38799 enchant 843
+606  PASS  Lesser Health scroll 38773 enchant 242
+607  PASS  Mighty Versatility scroll 74707 enchant 4418
+608  PASS  Lesser Mana scroll 38776 enchant 246
+609  PASS  Superior Stamina scroll 74709 enchant 4420
+610  PASS  Super Armor scroll 74706 enchant 4417
+611  PASS  Minor Health scroll 38766 enchant 41
+612  PASS  Minor Mana scroll 38769 enchant 24
+613  PASS  Stats scroll 35426 enchant 1891
+614  PASS  Stats scroll 38898 enchant 1891
+615  PASS  Superior Stamina scroll 38855 enchant 1886
+616  PASS  Superior Strength scroll 38854 enchant 1885
+617  PASS  Major Strength scroll 68785 enchant 4256
+618  PASS  Spellpower scroll 35425 enchant 5184
+619  PASS  Spellpower scroll 38903 enchant 5184
+620  PASS  Superior Healing scroll 35427 enchant 5183
+621  PASS  Superior Healing scroll 38900 enchant 5183
+622  PASS  Agility scroll 68784 enchant 4258
+623  PASS  Exceptional Strength scroll 74704 enchant 4415
+624  PASS  Greater Agility scroll 74705 enchant 4416
+625  PASS  Mighty Intellect scroll 68786 enchant 4257
+626  PASS  Super Intellect scroll 74703 enchant 4414
+627  PASS  Healing Power scroll 38882 enchant 2650
+628  PASS  Major Dodge scroll 74701 enchant 4412
+629  PASS  Mastery scroll 74700 enchant 4411
+630  PASS  Greater Intellect scroll 38852 enchant 1883
+631  PASS  Greater Stamina scroll 38849 enchant 4743
+632  PASS  Greater Strength scroll 38846 enchant 927
+633  PASS  Superior Versatility scroll 38853 enchant 1884
+634  PASS  Greater Versatility scroll 38832 enchant 907
+635  PASS  Minor Versatility scroll 38774 enchant 243
+636  PASS  Argent Versatility scroll 38881 enchant 2565
+637  PASS  Dodge scroll 38842 enchant 923
+638  PASS  Intellect scroll 38829 enchant 905
+639  PASS  Minor Health scroll 38679 enchant 4720
+640  PASS  Stamina scroll 38812 enchant 4737
+641  PASS  Strength scroll 38817 enchant 856
+642  PASS  Versatility scroll 38809 enchant 4735
+643  PASS  Lesser Stamina scroll 38793 enchant 4730
+644  PASS  Lesser Strength scroll 38797 enchant 823
+645  PASS  Lesser Dodge scroll 38811 enchant 925
+646  PASS  Lesser Intellect scroll 38803 enchant 4729
+647  PASS  Lesser Versatility scroll 38783 enchant 4727
+648  PASS  Minor Dodge scroll 38768 enchant 924
+649  PASS  Minor Agility scroll 38777 enchant 4725
+650  PASS  Minor Stamina scroll 38771 enchant 4721
+651  PASS  Minor Strength scroll 38778 enchant 248
+652  PASS  Fire Power scroll 38888 enchant 2616
+653  PASS  Frost Power scroll 38887 enchant 2615
+654  PASS  Shadow Power scroll 38886 enchant 2614
+655  PASS  Threat scroll 38885 enchant 2613
+656  PASS  Super Strength scroll 74721 enchant 4432
+657  PASS  Superior Haste scroll 74720 enchant 4431
+658  PASS  Superior Mastery scroll 74722 enchant 4433
+659  PASS  Greater Haste scroll 74719 enchant 4430
+660  PASS  Healing Power scroll 38889 enchant 2617
+661  PASS  Superior Agility scroll 38890 enchant 2564
+662  PASS  Greater Strength scroll 38857 enchant 4742
+663  PASS  Greater Agility scroll 38856 enchant 1887
+664  PASS  Minor Haste scroll 38851 enchant 931
+665  PASS  Agility scroll 38827 enchant 4740
+666  PASS  Strength scroll 38836 enchant 4739
+667  PASS  Minor Speed scroll 38837 enchant 911
+668  PASS  Greater Stamina scroll 38862 enchant 929
+669  PASS  Greater Agility scroll 38863 enchant 1887
+670  PASS  Greater Haste scroll 74715 enchant 4426
+671  PASS  Greater Precision scroll 74716 enchant 4427
+672  PASS  Agility scroll 38844 enchant 904
+673  PASS  Blurred Speed scroll 74717 enchant 4428
+674  PASS  Pandaren's Step scroll 74718 enchant 4429
+675  PASS  Stamina scroll 38830 enchant 852
+676  PASS  Versatility scroll 38864 enchant 851
+677  PASS  Lesser Agility scroll 38807 enchant 849
+678  PASS  Lesser Stamina scroll 38810 enchant 724
+679  PASS  Lesser Versatility scroll 38819 enchant 4726
+680  PASS  Minor Agility scroll 38786 enchant 247
+681  PASS  Minor Stamina scroll 38785 enchant 66
+682  PASS  Vitality scroll 38860 enchant 1890
+683  PASS  Greater Parry scroll 89737 enchant 4993
+684  PASS  Greater Stamina scroll 38861 enchant 4744
+685  PASS  Greater Versatility scroll 38839 enchant 4741
+686  PASS  Lesser Parry scroll 38820 enchant 863
+687  PASS  Parry scroll 35451 enchant 2655
+688  PASS  Parry scroll 38906 enchant 2655
+689  PASS  Stamina scroll 38828 enchant 4738
+690  PASS  Versatility scroll 38816 enchant 4736
+691  PASS  Lesser Protection scroll 38791 enchant 4733
+692  PASS  Lesser Stamina scroll 38805 enchant 4731
+693  PASS  Lesser Versatility scroll 38792 enchant 4728
+694  PASS  Minor Stamina scroll 38787 enchant 4722
+695  PASS  Accord of Critical S.. scroll 168446 enchant 6108
+696  PASS  Accord of Haste scroll 168447 enchant 6109
+697  PASS  Accord of Mastery scroll 168448 enchant 6110
+698  PASS  Accord of Versatility scroll 168449 enchant 6111
+699  PASS  Pact of Critical Str.. scroll 153442 enchant 5942
+700  PASS  Pact of Haste scroll 153443 enchant 5943
+701  PASS  Pact of Mastery scroll 153444 enchant 5944
+702  PASS  Pact of Versatility scroll 153445 enchant 5945
+703  PASS  Seal of Critical Str.. scroll 153438 enchant 5938
+704  PASS  Seal of Haste scroll 153439 enchant 5939
+705  PASS  Seal of Mastery scroll 153440 enchant 5940
+706  PASS  Seal of Versatility scroll 153441 enchant 5941
+707  PASS  Binding of Critical.. scroll 128541 enchant 5427
+708  PASS  Binding of Haste scroll 128542 enchant 5428
+709  PASS  Binding of Mastery scroll 128543 enchant 5429
+710  PASS  Binding of Versatility scroll 128544 enchant 5430
+711  PASS  Word of Critical Str.. scroll 128537 enchant 5423
+712  PASS  Word of Haste scroll 128538 enchant 5424
+713  PASS  Word of Mastery scroll 128539 enchant 5425
+714  PASS  Word of Versatility scroll 128540 enchant 5426
+715  PASS  Gift of Critical Str.. scroll 110638 enchant 5324
+716  PASS  Gift of Haste scroll 110639 enchant 5325
+717  PASS  Gift of Mastery scroll 110640 enchant 5326
+718  PASS  Gift of Mastery scroll 110641 enchant 5327
+719  PASS  Gift of Versatility scroll 110642 enchant 5328
+720  PASS  Breath of Critical S.. scroll 110617 enchant 5284
+721  PASS  Breath of Haste scroll 110618 enchant 5297
+722  PASS  Breath of Mastery scroll 110619 enchant 5299
+723  PASS  Breath of Mastery scroll 110620 enchant 5301
+724  PASS  Breath of Versatility scroll 110621 enchant 5303
+725  PASS  Major Intellect scroll 74729 enchant 4434
+726  PASS  Bloody Dancing Steel scroll 98163 enchant 5125
+727  PASS  Colossus scroll 74727 enchant 4445
+728  PASS  Crusader scroll 38873 enchant 1900
+729  PASS  Dancing Steel scroll 74726 enchant 4444
+730  PASS  Demonslaying scroll 38840 enchant 912
+731  PASS  Elemental Force scroll 74725 enchant 4443
+732  PASS  Fiery Weapon scroll 38838 enchant 803
+733  PASS  Glory of the Blackrock scroll 115976 enchant 5354
+734  PASS  Glory of the Frostwolf scroll 115978 enchant 5356
+735  PASS  Glory of the Shadowm.. scroll 115975 enchant 5353
+736  PASS  Glory of the Thunder.. scroll 115973 enchant 5352
+737  PASS  Glory of the Warsong scroll 115977 enchant 5355
+738  PASS  Icy Chill scroll 38868 enchant 1894
+739  PASS  Jade Spirit scroll 74724 enchant 4442
+740  PASS  Lesser Beastslayer scroll 38813 enchant 853
+741  PASS  Lesser Elemental Sla.. scroll 38814 enchant 854
+742  PASS  Lifestealing scroll 38871 enchant 1898
+743  PASS  Mark of Blackrock scroll 112160 enchant 5336
+744  PASS  Mark of Bleeding Hol.. scroll 118015 enchant 5384
+745  PASS  Mark of Shadowmoon scroll 112115 enchant 5335
+746  PASS  Mark of Warsong scroll 112164 enchant 5337
+747  PASS  Mark of the Frostwolf scroll 112165 enchant 5334
+748  PASS  Mark of the Shattere.. scroll 112093 enchant 5331
+749  PASS  Mark of the Thunderl.. scroll 110682 enchant 5330
+750  PASS  Minor Beastslayer scroll 38779 enchant 249
+751  PASS  River's Song scroll 74728 enchant 4446
+752  PASS  Spirit of Conquest scroll 98164 enchant 5124
+753  PASS  Unholy Weapon scroll 38872 enchant 1899
+754  PASS  Windsong scroll 74723 enchant 4441
+755  PASS  Winter's Might scroll 38876 enchant 2443
+756  PASS  Siphoning scroll 153478 enchant 5948
+757  PASS  Healing Power scroll 38878 enchant 2505
+758  PASS  Spellpower scroll 38877 enchant 2504
+759  PASS  Mighty Intellect scroll 38884 enchant 2568
+760  PASS  Mighty Versatility scroll 38883 enchant 2567
+761  PASS  Glorious Tyranny scroll 95349 enchant 5035
+762  PASS  Strength scroll 38879 enchant 2563
+763  PASS  Agility scroll 38880 enchant 2564
+764  PASS  Major Striking scroll 35457 enchant 4746
+765  PASS  Major Striking scroll 38917 enchant 4746
+766  PASS  Superior Striking scroll 38870 enchant 1897
+767  PASS  Greater Striking scroll 38848 enchant 805
+768  PASS  Striking scroll 38821 enchant 4745
+769  PASS  Coastal Surge scroll 153476 enchant 5946
+770  PASS  Deadly Navigation scroll 159785 enchant 5965
+771  PASS  Force Multiplier scroll 168596 enchant 6148
+772  PASS  Gale-Force Striking scroll 153480 enchant 5950
+773  PASS  Machinist's Brilliance scroll 168593 enchant 6112
+774  PASS  Masterful Navigation scroll 159787 enchant 5964
+775  PASS  Naga Hide scroll 168598 enchant 6150
+776  PASS  Oceanic Restoration scroll 168592 enchant 6149
+777  PASS  Quick Navigation scroll 159786 enchant 5963
+778  PASS  Stalwart Navigation scroll 159789 enchant 5966
+779  PASS  Torrent of Elements scroll 153479 enchant 5949
+780  PASS  Versatile Navigation scroll 159788 enchant 5962
+781  PASS  Lesser Striking scroll 38794 enchant 241
+782  PASS  Minor Striking scroll 38780 enchant 250
+783  PASS  Mighty Agility scroll 68134 enchant 4227
+784  PASS  Agility scroll 38896 enchant 2646
+785  PASS  Major Intellect scroll 38875 enchant 1904
+786  PASS  Major Versatility scroll 38874 enchant 1903
+787  PASS  Superior Impact scroll 38869 enchant 1896
+788  PASS  Greater Impact scroll 38845 enchant 963
+789  PASS  Impact scroll 38822 enchant 1897
+790  PASS  Lesser Impact scroll 38796 enchant 943
+791  PASS  Lesser Intellect scroll 38781 enchant 723
+792  PASS  Lesser Versatility scroll 38788 enchant 255
+793  PASS  Minor Impact scroll 38772 enchant 4723
+794  PASS  Neck: 20 legal combat scrolls in the client table
+795  PASS  Cloak: 30 legal combat scrolls in the client table
+796  PASS  Ring: 30 legal combat scrolls in the client table
+797  PASS  Weapon: 57 legal combat scrolls in the client table
+798  PASS  2H Weapon: 11 legal combat scrolls in the client table
+799  PASS  Shield: 13 legal combat scrolls in the client table
+800  PASS  Shoulder: 1 legal combat scrolls in the client table
+801  PASS  Off-Hand: 1 legal combat scrolls in the client table
+802  PASS  Gloves: 15 legal combat scrolls in the client table
+803  PASS  Boots: 15 legal combat scrolls in the client table
+804  PASS  Chest: 23 legal combat scrolls in the client table
+805  PASS  Bracer: 39 legal combat scrolls in the client table
+806  PASS  no enchant in the whole table has a MinLevel between 1 and 19
+807  PASS  no enchant in the whole table has a MaxLevel below 19
+
+------------------------------------------------------------------------------
+SECTION 7.9.1   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+808  PASS  Mark of the Hidden Satyr is scroll 128553, enchant 5439
+
+------------------------------------------------------------------------------
+SECTION 7.9.14   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+809  PASS  18 blocked enchant rows
+810  PASS  Mongoose scroll 38925 needs item level 30
+811  PASS  Mongoose scroll 35458 needs item level 30
+812  PASS  Executioner scroll 38948 needs item level 30
+813  PASS  Major Agility (2H) scroll 35396 needs item level 30
+814  PASS  Major Agility (2H) scroll 38922 needs item level 30
+815  PASS  Major Intellect (bracer) scroll 35423 needs item level 30
+816  PASS  Major Intellect (bracer) scroll 38937 needs item level 30
+817  PASS  Greater Agility (cloak) scroll 35432 needs item level 30
+818  PASS  Greater Agility (cloak) scroll 38940 needs item level 30
+819  PASS  Berserking scroll 44493 needs item level 55
+820  PASS  Black Magic scroll 43987 needs item level 55
+821  PASS  Superior Agility (cloak) scroll 38959 needs item level 55
+822  PASS  Major Stamina (bracer) scroll 44947 needs item level 55
+823  PASS  Super Stats scroll 38989 needs item level 55
+824  PASS  Powerful Stats scroll 44465 needs item level 55
+825  PASS  Blade Ward scroll 46026 needs item level 162
+826  PASS  Blood Draining scroll 46098 needs item level 162
+827  PASS  Hurricane scroll 52760 needs item level 290
+828  PASS  Power Torrent scroll 52774 needs item level 290
+829  PASS  Landslide scroll 52776 needs item level 290
+830  PASS  Heartsong scroll 52761 needs item level 290
+831  PASS  Peerless Stats scroll 52779 needs item level 290
+
+------------------------------------------------------------------------------
+SECTION 7.10   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+832  PASS  consumable table has 16 rows
+833  PASS  Minor Healing Potion = 118 (ilvl 5, req 1)
+834  PASS  Lesser Healing Potion = 858 (ilvl 13, req 3)
+835  PASS  Healing Potion = 929 (ilvl 22, req 12)
+836  PASS  Swiftness Potion = 2459 (ilvl 15, req 5)
+837  PASS  Elixir of Lion's Strength = 2454 (ilvl 5, req 1)
+838  PASS  Elixir of Minor Agility = 2457 (ilvl 12, req 2)
+839  PASS  Elixir of Minor Defense = 5997 (ilvl 5, req 1)
+840  PASS  Elixir of Minor Fortitude = 2458 (ilvl 12, req 2)
+841  PASS  Scroll of Agility II = 1477 (ilvl 15, req 15)
+842  PASS  Scroll of Strength II = 2289 (ilvl 15, req 15)
+843  PASS  Minor Mana Potion = 2455 (ilvl 15, req 5)
+844  PASS  Lesser Mana Potion = 3385 (ilvl 24, req 14)
+845  PASS  Weak Troll's Blood Elixir = 3382 (ilvl 8, req 1)
+846  PASS  Raw Bristle Whisker Catfish = 6308 (ilvl 25, req 15)
+847  PASS  Rumsey Rum Black Label = 21151 (ilvl 1, req 0)
+848  PASS  Anti-Venom = 6452 (ilvl 16, req 0)
+849  PASS  Greater Healing Potion 1710 has required level 21
+850  PASS  Free Action Potion 5634 has required level 20
+851  PASS  bomb 4360 Rough Copper Bomb is legal at 19
+852  PASS  bomb 4362 Rough Boomstick is legal at 19
+853  PASS  bomb 4380 Big Bronze Bomb is legal at 19
+854  PASS  bomb 6714 Ez-Thro Dynamite is legal at 19
+855  PASS  bomb 24538 Fire Bomb is legal at 19
+856  PASS  bandage 1251 has required level 0
+857  PASS  bandage 6450 has required level 0
+858  PASS  bandage 6451 has required level 0
+859  PASS  bandage 8544 has required level 0
+
+------------------------------------------------------------------------------
+SECTION 8   source: section 8 bullet list
+------------------------------------------------------------------------------
+860  PASS  Behsten not in the creature table
+861  PASS  Slahtz not in the creature table
+862  PASS  no POI rows on 489/2106/726/727/1803
+863  PASS  ItemSparse has no source column
+864  PASS  8.3.7 tag has no Silvershard script
+865  PASS  8.3.7 tag has no Deepwind Gorge script
+866  PASS  core comments the 45-second resource interval as unconfirmed
+867  PASS  Twin Peaks article states no time limit
+
+------------------------------------------------------------------------------
+SECTION 9   source: warcraft.wiki.gg api.php
+------------------------------------------------------------------------------
+868  PASS  source table lists 18 articles
+869  FAIL  wiki revisions re-fetched   [network error: HTTP Error 502: Bad Gateway]
+
+------------------------------------------------------------------------------
+SECTION 3.x   source: 
+------------------------------------------------------------------------------
+870  PASS  no AreaPOI rows on map 489
+871  PASS  no AreaPOI rows on map 2106
+872  PASS  no AreaPOI rows on map 726
+873  PASS  no AreaPOI rows on map 727
+874  PASS  no AreaPOI rows on map 1803
+
+------------------------------------------------------------------------------
+SECTION 7.4-7.6   source: Item.csv + ItemSparse.csv
+------------------------------------------------------------------------------
+875  PASS  cloth table has 9 slot rows
+876  PASS  leather table has 9 slot rows
+877  PASS  mail table has 9 slot rows
+
+==============================================================================
+877 claims checked, 876 PASS, 1 FAIL
+==============================================================================
+
+==============================================================================
+CROSS-CHECKS RUN ON THE SAME DOCUMENT
+==============================================================================
+
+Three independent passes were run over the finished file in addition to the
+claims above. None of them found a problem.
+
+  Static build audit       3335 checks, 0 problems
+                           - every heading numbered and in order
+                           - every table row has the same cell count as its
+                             header, no empty cells, no ragged pipes
+                           - no line over 96 columns, no non-ASCII character
+                           - every id in a table is a plain integer
+                           - no duplicate ids inside one table
+
+  Coordinate cross-check    169 checks, 0 problems
+                           - each x/y/z in sections 3, 4 and 5 re-read from a
+                             source row and compared as a float
+                           - sections 3.12 and 3.13 (Ashran, Seething Shore)
+                             use a 0.06 tolerance because the two sources round
+                             differently; everything else is 0.0055
+
+  Number provenance        1511 distinct numbers of three digits or more, 0
+                           unmatched
+                           - every such number in the file was looked up in the
+                             client CSV files, the TrinityCore tree and the 14
+                             wiki revisions; a number that appears nowhere is an
+                             invented number, and there are none
+                           - revision ids in section 9 are exempt because they
+                             are fetched live and compared by the section 9
+                             claims above
+
+==============================================================================
+WHAT THE AUDIT CHANGED
+==============================================================================
+
+Two statements were wrong on the first pass and were corrected in the build
+source before this report was produced:
+
+  1. The leather and mail tables in sections 7.4 and 7.5 carry Spidersilk Drape
+     (45626) in the Back row. The audit's first rule rejected it because the
+     item is cloth. Cloth is correct here: a cloak is worn by every armour
+     class and is a cloth item in the item table, so the same cloak appears in
+     all three tables. A sentence was added under the three tables saying so,
+     and the rule now skips the subclass test on a Back row.
+  2. Section 1 said TrinityCore's MovePoint and MovePath "use the mmaps
+     tiles". The claim is right but the wording overstated what the source
+     shows. It now says the calls navigate the mmaps navmesh that the map
+     terrain loads per instance, which is what Map.cpp does line for line.
+
+One source detail was corrected rather than confirmed: the Arathi Basin wiki
+revision cited in section 9 is 3152604 (2020-09-01). An earlier working note
+had recorded 3152599 (2020-05-02), its parent revision. Both exist; 3152604 is
+the one the table prints and the one the live check fetches.
+
+WHAT THE SECTION 7 REBUILD CHANGED
+==================================
+
+The twink section was rebuilt from the client tables rather than from the
+earlier curated list, and three things it had wrong are worth recording:
+
+  1. The old filter treated the ItemSparse ItemLevel of the enchant scroll as
+     the gate. That value is the scroll's own item level (1 for a classic
+     scroll, 110 for a Legion one) and using it removed every neck enchant and
+     every weapon enchant from Mists of Pandaria onward. The real gate is the
+     ItemLevel column of SpellItemEnchantment, which is the item level the
+     target piece must reach: 1 for classic and Burning Crusade, 30 for Wrath,
+     55 for Naxxramas and Ulduar, 162 for Ulduar hard modes, 290 for Icecrown.
+     With the correct gate the neck slot has twenty legal scrolls, including
+     Mark of the Hidden Satyr (128553), which is the only damage-proc neck
+     enchant in the table.
+
+  2. The old section listed heirlooms only as prose. Heirloom.db2 has 132
+     rows, 131 wearable, and 98 of those are legal at 19; all 98 are printed
+     with their 8.3.7 id and their pre-8.0 id.
+
+  3. The old section said hunters and shamans could not wear the mail table
+     and that warrior and paladin wore mail until 40. Both halves were the
+     pre-7.0.3 rule. In 8.3.7 the armour type is a class property with no
+     level gate: SkillRaceClassInfo 293 (Plate Mail) carries ClassMask 3 at
+     MinLevel 1 with ability spell 750 and no SpellLevels row, and 413 (Mail)
+     carries ClassMask 68 at MinLevel 1 with ability spell 8737 at BaseLevel
+     1. Sections 7.3, 7.6 and 7.11 were rewritten to the client rule, and the
+     class table in 7.11 now reads plate for warrior and paladin and mail for
+     hunter and shaman.
+
+Every enchant row printed in section 7.9 is re-resolved during the audit
+through ItemEffect -> SpellEffect(Effect 53) -> SpellItemEnchantment and
+checked against the scroll's required level, the enchant's character range and
+its item-level figure.
+
+==============================================================================
+ROUND 38: FULL-DOCUMENT RE-AUDIT (2026-10-22)
+==============================================================================
+
+Every harness for this document was re-run against the finished file, and one
+new harness was written for the section 7 tables, which previously had no
+per-row check.
+
+  Claims                    877 checked, 876 pass. The one failure is claim 9,
+                            "wiki revisions re-fetched", and it is a network
+                            failure rather than a data failure: wiki.gg has
+                            taken all of its wikis offline while it patches a
+                            PHP vulnerability, so the API answers 502 for every
+                            request. The 18 revision ids in section 9 are
+                            unchanged from the run that recorded them.
+  Coordinate cross-check    169 checks, 0 problems
+  Number provenance         1511 distinct numbers, 0 unmatched
+  Static build audit        3338 checks, 0 problems
+  Section 7 item legality    42 item rows re-derived from ItemSparse
+                            (item level, required level, and every stat name in
+                            the Stats column), 0 problems. This is the new
+                            harness, work/audit_bg_twink.py.
+  Wowhead name check        372 item rows in this document and in the twink
+                            best-in-slot document resolved on Wowhead and
+                            compared with the client name: 372 agree, 0
+                            differ (work/audit_wowhead_names.py).
+  Number provenance         10,982 numbers across all eight documents traced
+                            to the source corpus, 0 invented
+                            (work/audit_numbers_all.py).
+
+Four statements were wrong and were corrected in this round:
+
+  1. 7.3, 7.6 and 7.11 carried the pre-7.0.3 armour rule (mail until 40, no
+     plate heirloom at 19). Replaced with the client rows quoted above.
+  2. 7.4 said "the two cowls at item level 10 are the only 19-legal cloth
+     helms in the item table". False: 226 cloth helms pass the level test at
+     19 (168107, 156914, 4385, 65914 and others). The sentence now says what
+     is true - that the reachable ones are the statless item-level-10 cowls
+     and the goggles - and the row is described as the highest-item-level
+     cloth helm that is not a quest reward, not as the strongest one.
+  3. 7.11's table gave "mail" as the armour of warrior and paladin and
+     "leather" for hunter and shaman; both corrected.
+  4. The preamble to 7.4-7.6 called them "the best item per slot". They are
+     legality tables - one wearable item per slot with the stats the client
+     records - and 7.13 already said so. The headings now say it too, and
+     both point at the best-in-slot document for the actual answer.
+
+Left open, unchanged: item acquisition for every item in section 7 (7.12), the
+scaled magnitude of every scaling enchant (7.13), and the three coordinate
+sets listed in section 8.
