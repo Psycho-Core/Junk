@@ -1,0 +1,191 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) LEVEL 111 DEMON HUNTER DUNGEON BOOSTER
+STEP 1: LEVEL, LOCKING AT 111, SPECIALIZATION, TALENTS, AND SPELLS
+=============================================================================
+
+1. CAN A DEMON HUNTER BE LEVEL 111 IN 8.3.7 AND HOW IT GETS THERE
+-----------------------------------------------------------------
+Eligibility and Allowed Races:
+- Yes. In Battle for Azeroth 8.3.7 (build 35662), the level cap is 120. Demon Hunter (Class ID 12, ClassMask 2048 / 0x0800) starts at level 98, finishes its intro around level 100, and can level to and lock XP at exactly level 111.
+- Playable Races in 8.3.7 (2 races only):
+  * Alliance: Night Elf (Race ID 4).
+  * Horde: Blood Elf (Race ID 10).
+- Account Creation Prerequisites (Retail 8.3.7 & TrinityCore 35662 worldserver.conf defaults):
+  * Expansion Requirement: Legion (expansion = 6 in class_expansion_requirement).
+  * Existing Character Requirement: Requires at least one level 70 character on the realm (CharacterCreating.MinLevelForDemonHunter = 70; removable in worldserver.conf by setting 0).
+  * Per-Realm Cap: Maximum 1 Demon Hunter per realm by default (DemonHuntersPerRealm = 1; CharDelete.DemonHunter.MinLevel = 0).
+  * Start Level Config: StartDemonHunterPlayerLevel = 98.
+
+Starting Level, Spawn Coordinates, and Required Intro Quest Chain (Levels 98 to ~100):
+- Start Level: 98 (with Artisan Riding Spell ID 34091 learned - 100% ground / 280% flight speed; starts with Fel Rush Spell ID 195072, Demon's Bite Spell ID 162243, Chaos Strike Spell ID 162794, Glide Spell ID 131347, Spectral Sight Spell ID 188501, and racial Shadowmeld Spell ID 58984 or Arcane Torrent Spell ID 202719).
+- Initial Spawn Coordinates (TrinityCore playercreateinfo for Race IDs 4 and 10, Class ID 12):
+  * Mardum, the Shattered Abyss: Map ID 1481 (Zone 6383 / Area 7705), Coordinates (1481, 1180.64, 3284.96, 70.34837), Orientation 4.761345.
+- Phase 1 - Mardum, the Shattered Abyss (Map ID 1481, Level 98 -> ~99):
+  * Hidden Intro Scene: Quest ID 40076 (Spell ID 191667).
+  * The Invasion Begins (Quest ID 40077; Kayn Sunfury Creature Entry: unverified; Illidari Banner GameObject Entry 244898 near (1481, 1002.885, 2956.695, -10.55672); rewards Treads of Illidari Supremacy Item ID 128953 and 14g 60s).
+  * Enter the Illidari: Ashtongue (Quest ID 40378; Gateway GameObject Entry 244439; Sevis Brightflame Creature Entry 99916): Permanently awards class mount Felsaber (Spell ID 200175) and lifts Mardum mount restriction (Spell ID 179665). Parallel bonus objective: Assault on Mardum (Quest ID 39279).
+  * Set Them Free (Quest ID 38759) + Eye On the Prize (Quest ID 39049; Inquisitor Baleful Creature Entry: unverified; teaches Eye Beam via learn Spell ID 195447 -> Eye Beam Spell ID 198013) + Enter the Illidari: Coilskar (Quest ID 40379; Jace Darkweaver Creature Entry 99914 / 93759).
+  * Meeting With the Queen (Quest ID 39050) -> Enter the Illidari: Shivarra (Quest ID 38765) -> Before We're Overrun (Quest ID 38766; Doom Commander Beliash Creature Entry 93221; teaches Consume Magic / Disrupt).
+  * Orders for Your Captains (Quest ID 38813) -> Give Me Sight Beyond Sight (Quest ID 39262; GameObject Entry 245045) -> Hidden No More (Quest ID 39495; Fel Lord Caza Creature Entry: unverified).
+  * Stop the Bombardment (Quest ID 38727) + Their Numbers Are Legion (Quest ID 38819) + The Imp Mother's Tome (Quest ID 40222) -> Fel Secrets (Quest ID 40051): Player reads Tome of Fel Secrets (PlayerChoice ID 231: Response 478 Havoc casts Spell ID 194939 -> tracking Quest ID 39517 -> Cry Havoc and Let Slip the Illidari! Quest ID 39516; Response 479 Vengeance casts Spell ID 194940 -> tracking Quest ID 39518 -> Vengeance Will Be Mine! Quest ID 39515). Note: On retail-accurate cores, the Talent UI cannot switch specs between Havoc (577) and Vengeance (581) until Quest ID 40051 is completed.
+  * On Felbat Wings (Quest ID 39663) -> The Keystone (Quest ID 38728; Brood Queen Tyranna, homebind near (1481, 1467.47, 1412.78, 243.96)) -> Return to the Black Temple (Quest ID 38729; GameObject Entry 245728, Credit 100651).
+- Phase 2 - Vault of the Wardens Starting Instance (Map ID 1468, Level 99 -> ~100):
+  * Teleport arrival from Mardum scene: (1468, 4084.27, -298.11, -282.07), Orientation 3.118031.
+  * Breaking Out (Quest ID 38672; Maiev Shadowsong Creature Entry: unverified) -> Rise of the Illidari (Quest ID 38690; Warden Cell GameObject Entry 245728) + Fel Infusion (Quest ID 38689) + optional bonus Vault of the Wardens (Quest ID 39742) -> Stop Gul'dan! (Quest ID 38723; Ash'golm; teaches Demon Spikes Spell ID 203720 / Blur Spell ID 198589).
+  * Grand Theft Felbat -> Forged in Fire / Beam Me Up / Frozen in Time (Quests 39682, 39683, 39684, 39685; Glazer / Cordana / Immolanth; learn Spell IDs 210486 & 195440; upper homebind (1468, 4450.89, -431.51, 119.26)) -> All The Way Up (Quest ID 39686; elevator homebind (1468, 4317.87, -451.61, 259.36)) -> Harbingers of the Past (Quest ID 39687) -> A New Direction (Quest ID 40373) -> Between Us and Freedom (Quest IDs 39694 / 39688 / 40255 / 40256; Bastillax; learn Spell IDs 210500 & 195450; teaches Metamorphosis).
+  * Illidari, We Are Leaving (Quest ID 39689 Alliance / Quest ID 39690 Horde; Archmage Khadgar Creature Entry: unverified): Permanently exits Map ID 1468 and teleports the player to Stormwind City (Map ID 0, exact arrival coords: unverified) or Orgrimmar (Map ID 1, exact arrival coords: unverified).
+- Phase 3 - Faction Capital Join (~Level 100):
+  * Alliance: The Call of War (Quest ID 39691) -> A Weapon of the Alliance -> Calling of the Council (Stormwind Map ID 0 -> Broken Isles Dalaran Map ID 1220).
+  * Horde: Audience with the Warchief (Quest ID 40976) -> A Weapon of the Horde -> Calling of the Council (Orgrimmar Map ID 1 -> Broken Isles Dalaran Map ID 1220).
+
+Leveling Path from 100 to 111:
+- Levels 100 to 110: Broken Isles (Map ID 1220) Legion Assaults, Val'sharah / Azsuna / Highmountain / Stormheim story quests, or Legion Normal dungeons (cumulative XP 100->110: 5,129,280 XP). Note: Demon Hunter is the fastest class in the game to reach 110 naturally because it skips levels 1-98 entirely.
+- Level 110 Unlock: Complete the Battle for Azeroth intro questline to obtain Heart of Azeroth (Item ID 158075, base ilvl 280+) in Silithus (Map ID 1) from Magni Bronzebeard (Creature Entry 130216, coords: unverified).
+- Levels 110 to 111: Gain 537,730 XP (the 110->111 XP bar) in Kul Tiras (Map ID 1643), Zandalar (Map ID 1642), or a Legion Assault, then stop immediately at 111 and lock XP (111->112 bar is 831,000 XP).
+
+Character Boost Options in 8.3.7:
+- Battle for Azeroth Level 110 Character Boost: Allowed on Demon Hunters starting in Patch 8.0.1 (previously blocked in Legion). Sets character to level 110 in Dalaran (Map ID 1220); earn 537,730 XP to hit 111 and lock XP. Wasteful on a Demon Hunter because a fresh DH already starts at 98 and exits Vault of the Wardens at 100.
+- Shadowlands Pre-Purchase Level 120 Character Boost (active in 8.3.0-8.3.7): Sets character directly to level 120. CANNOT be used to make a level 111 booster because it overshoots 111.
+
+
+2. CHEAPEST WAY TO GET TO EXACTLY 111 AND KEEP IT THERE
+-------------------------------------------------------
+Cheapest Normal In-Game Method (Total Cost: 10 Gold = 100,000 Copper):
+1) Create a Night Elf (Race ID 4) or Blood Elf (Race ID 10) Demon Hunter at level 98 for free (completing Mardum Map ID 1481 and Vault of the Wardens Map ID 1468 to ~level 100 earns ~14-15g per quest — far exceeding the 10g XP-lock fee — plus free starter gear including Treads of Illidari Supremacy Item ID 128953 and Lekos' Leash Item ID 128958, and class mount Felsaber Spell ID 200175).
+2) Level 100 -> 110 for free via Broken Isles quests / Legion Assaults (Map ID 1220), pick up Heart of Azeroth (Item ID 158075) at 110 for free, earn 537,730 XP to reach level 111, and stop near 0% into level 111.
+3) Pay 10 gold (100,000 copper) to lock XP:
+   - Alliance: Behsten <Experience Eliminator>, Creature Entry 35365, Stormwind Keep, Stormwind City, Map ID 0, 2D Zone Coords (87.6, 36.0), World Coords (0, x, y, z): unverified.
+   - Horde: Slahtz <Experience Eliminator>, Creature Entry 35364, Hall of the Brave (third floor), Valley of Honor, Orgrimmar, Map ID 1, 2D Zone Coords: unverified, World Coords (1, x, y, z): unverified.
+
+TrinityCore 35662 Companion Bot Setup & Critical Core Warnings (0 Gold):
+1) Stock TrinityCore 35662 Mardum/Vault Script & Quest-Spell Warning:
+   - Upstream TrinityCore 35662 (src/server/scripts/BrokenIsles) contains NO C++ zone scripts for Mardum (Map ID 1481) or Vault of the Wardens DH intro (Map ID 1468). Unless your TrinityCore fork adds custom mardum.cpp / warden_prison.cpp scripts, a newly spawned level 98 character on Map ID 1481 cannot complete the intro normally.
+   - Furthermore, several core Demon Hunter abilities are quest-rewarded during Mardum/Vault rather than auto-learned purely by level. When spawning/leveling a companion bot directly to level 111 and teleporting it to Stormwind (Map ID 0) or Orgrimmar (Map ID 1), explicitly ensure the bot knows:
+     * Specialization choice switched to Vengeance (ChrSpecialization ID 581) and Fel Secrets (Quest ID 40051) flagged complete so specs are unlocked.
+     * Quest-learned / spec-core spells: Torment (Spell ID 185245), Immolation Aura (Spell ID 178740), Infernal Strike (Spell ID 189110), Shear (Spell ID 203782), Soul Cleave (Spell ID 228477), Demon Spikes (Spell ID 203720), Fiery Brand (Spell ID 204021), Metamorphosis (Spell ID 187827), Throw Glaive (Spell ID 204157), Sigil of Flame (Spell ID 204596), Sigil of Silence (Spell ID 202137), Sigil of Misery (Spell ID 207684), Disrupt (Spell ID 183752), Consume Magic (Spell ID 278326), Imprison (Spell ID 217832), Chaos Brand (Spell ID 255260), Glide (Spell ID 131347), Spectral Sight (Spell ID 188501), and Felsaber (Spell ID 200175).
+2) XP-Lock Flag & Party XP Behavior on TrinityCore 35662:
+   - Set PLAYER_FLAGS_NO_XP_GAIN (0x02000000) on the companion (or use Behsten 35365 / Slahtz 35364).
+   - Retail 8.2.0-8.3.7 applies self-buff Experience Eliminated (Spell ID 306715) and projects party debuff Experience Eliminated (Spell ID 206662, 300 yd -95% XP penalty) to manually grouped party members.
+   - Stock TrinityCore 35662 only sets PLAYER_FLAGS_NO_XP_GAIN (0x02000000), making Player::GiveXP return early with 0 XP for the 111 Demon Hunter while NOT applying Spell ID 206662 to the low-level boostee (full 100% XP preserved). Do NOT custom-script Spell ID 206662 onto companion bots.
+3) Why Lock at 111 Specifically:
+   - Enters BfA 110-120 Normal personal-scaling dungeons (Freehold Map ID 1754) at peak secondary-stat rating conversion before 112-120 combat-rating decay.
+   - Simultaneously equips cheap BfA Req-111 crafted Leather/rings/weapons, Heart of Azeroth (Item ID 158075) + 3 ilvl 300 BfA Quest Azerite pieces, AND 2 ilvl 265 Legion Legendaries (which deactivate at level 116).
+   - Keeps gray-mob cutoff at level 101 (111 - 10), keeping Legion Normal dungeon mobs (level 110) green/XP-yielding.
+
+
+3. BEST SPECIALIZATION FOR DUNGEON BOOSTING AND WHY
+---------------------------------------------------
+Best Specialization:
+- Vengeance (ChrSpecialization ID 581, Role: Tank, Resource: Pain [PowerType 18, max 100], Spec Passive: Vengeance Demon Hunter Spell ID 212613).
+- Other Demon Hunter Spec (Not Selected): Havoc (ChrSpecialization ID 577, Role: Melee DPS, Resource: Fury [PowerType 17, max 100/120], Spec Passive: Havoc Demon Hunter Spell ID 212612).
+
+Why Vengeance (Spec ID 581) Beats Havoc (Spec ID 577) for a Companion Dungeon Booster:
+1) Survives Stuns and Whole-Room Pulls Without Gear Dependency:
+   - Vengeance has passive Demonic Wards (Spell ID 203513: -15% all damage taken, +65% Stamina, +100% bonus Armor from gear [buffed in Patch 8.2.0], and melee crit immunity against dungeon mobs/bosses), Leather Specialization (Spell ID 226359: +5% Stamina) + tank Stamina multiplier (Spell ID 212613), 2 off-GCD charges of Demon Spikes (Spell ID 203720, Buff 203819: 0 Pain cost, +60% of Agility as Armor scaled by Mastery: Fel Blood Spell ID 203747, plus +15% Parry in 8.0.1-8.3.7), Fiery Brand (Spell ID 204021, Debuff 207744: -40% enemy damage dealt), Metamorphosis (Spell ID 187827: +50% max & current HP, +200% bonus Armor, and +20 Pain / +1 Lesser Soul Fragment on Shear/Fracture [buffed in 8.2.0]), and automatic cheat-death Last Resort (Talent ID 22543, Spell ID 209258).
+   - By contrast, Havoc's sustain relies on Demonic (Talent ID 21900, Spell ID 213410) + Soul Rending (Talent ID 21863, Spell ID 204909: +5% passive Leech and +25% additional Leech while in Metamorphosis in 8.0.1-8.3.7) + 1-sec Blade Dance dodge windows, which only achieves high uptime after farming Legion Legendary helm Raddon's Cascading Eyes (Item ID 137061). Even geared, Havoc lacks crit immunity, lacks bonus Armor (Havoc Demonic Wards Spell ID 278386 is 10% magic DR only), and dies immediately if chain-stunned or interrupted during Eye Beam (Spell ID 198013) in multi-pack Freehold/Motherlode pulls.
+2) Multi-Pack AoE Damage That Fuels Its Own Healing:
+   - Immolation Aura (Spell ID 178740) + Fallout (Talent ID 22766, Spell ID 227174) shatters up to 5 Lesser Soul Fragments instantly on pull; Infernal Strike (Spell ID 189110) + Abyssal Strike (Talent ID 22502, Spell ID 207550) + Flame Crash (Talent ID 22324, Spell ID 227322) leaps 40 yds every 12s while dropping a free Sigil of Flame (Spell ID 204596, Damage 204598); Spirit Bomb (Talent ID 22513, Spell ID 247454) explodes on nearby enemies (soft-capped at 20 targets in 8.3.7) and applies Frailty (Spell ID 247456), healing the DH for 10% of ALL damage dealt to every afflicted enemy for 20s; Soul Cleave (Spell ID 228477, 30 Pain) cleaves up to 5 front targets while healing and consuming up to 2 Soul Fragments; Chaos Brand (Spell ID 255260) increases all Fire/magic damage taken by 5% on every hit mob.
+3) Tank Threat Lock & Pack-Stacking Tools to Protect the Low-Level Player:
+   - Increased Threat (Spell ID 189926, +350% threat / 4.5x total threat) plus 3-sec cooldown high-threat Throw Glaive (Spell ID 204157, 3-target ricochet) locks entire rooms onto the bot while running, whereas Havoc generates 1.0x DPS threat with a 9-sec Throw Glaive (Spell ID 185123).
+   - Sigil of Chains (Talent ID 22511, Spell ID 202138) grips and slows whole packs onto one spot; Sigil of Silence (Spell ID 202137) silences ranged caster packs for 6s so they run into melee; Sigil of Misery (Spell ID 207684) AoE-disorients dangerous casts; Vengeance also queues as Tank for instant Random Dungeon Finder pops across all leveling brackets.
+
+
+4. TALENTS AT LEVEL 111 (NORMAL AND PVP) WITH TALENT IDS AND SPELL IDS
+----------------------------------------------------------------------
+Normal Talent Unlock Schedule (NumTalentsAtLevel.db2 -> NumTalentsDemonHunter):
+- Rows unlock at levels 99, 100, 102, 104, 106, 108, and 110. All 7/7 rows are unlocked at level 111.
+
+Vengeance (Spec ID 581) Complete Normal Talent Table & Recommended Dungeon-Boost Build:
+- Row 1 (Level 99):
+  * [SELECTED] Abyssal Strike - Talent ID 22502, Spell ID 207550: Infernal Strike (Spell ID 189110) range increased by 10 yds (to 40 yds) and cooldown reduced by 8 sec (to 12 sec per charge, 2 charges). Top speed-clearing mobility talent in the game (note: the Sigil of Flame landing effect was only merged into Abyssal Strike in Patch 9.0.1; in 8.3.7 it comes from Row 3 Flame Crash 22324 / 227322 below).
+  * Alternative Col 2: Agonizing Flames - Talent ID 22503, Spell ID 207548 (+20% movement speed during Immolation Aura and +20% Immolation Aura damage in Patch 8.3.7; use on unscripted-Sigil cores).
+  * Alternative Col 3: Razor Spikes - Talent ID 22504, Spell ID 209400 (+10% Physical damage and 20% melee slow for 6s while Demon Spikes is active in Patch 8.0.1-8.3.7).
+- Row 2 (Level 100):
+  * Alternative Col 1: Feast of Souls - Talent ID 22505, Spell ID 207697 (HoT Spell ID 207693: Soul Cleave heals an extra amount over 6s).
+  * [SELECTED] Fallout - Talent ID 22766, Spell ID 227174: Immolation Aura's initial burst has a chance per enemy hit to shatter a Lesser Soul Fragment (up to 5 per cast), instantly fueling Spirit Bomb on multi-pack pulls.
+  * Alternative Col 3: Burning Alive - Talent ID 22507, Spell ID 207739 (Spread Radius Spell ID 207760, DoT Spell ID 207771: every 2s, Fiery Brand deals Fire damage and spreads to 1 nearby enemy; use on unscripted-Soul-Fragment cores for pack-wide -40% damage reduction).
+- Row 3 (Level 102):
+  * [SELECTED] Flame Crash - Talent ID 22324, Spell ID 227322: Infernal Strike (Spell ID 189110) creates a Sigil of Flame (Spell ID 204596) when you land. Combines with Row 1 Abyssal Strike (22502) so every 12s, 40-yd leap drops a free AoE Fire sigil without spending a GCD.
+  * Alternative Col 2: Charred Flesh - Talent ID 22541, Spell ID 264002 (in Patch 8.0.1-8.3.7: Fiery Brand increases the Fire damage your abilities deal to the target by 20%; use on unscripted-Sigil cores where Sigil of Flame AreaTriggers do not detonate).
+  * Alternative Col 3: Felblade - Talent ID 22540, Spell ID 232893 (Damage Spell ID 213243, RPPM Reset 203557: 15s Haste-reduced CD, 15 yd charge + Fire damage + 30 Pain for Vengeance in Patch 8.0.1-8.3.7).
+- Row 4 (Level 104):
+  * Alternative Col 1: Soul Rending - Talent ID 22508, Spell ID 217996 (+5% passive Leech at all times, +25% additional Leech while Metamorphosis 187827 is active in Patch 8.0.1-8.3.7; best fallback on unscripted-Soul-Fragment cores).
+  * Alternative Col 2: Feed the Demon - Talent ID 22509, Spell ID 218612 (each Soul Fragment consumed reduces Demon Spikes remaining CD by 0.5s in Patch 8.0.1-8.3.7).
+  * [SELECTED] Fracture - Talent ID 22770, Spell ID 263642 (overrides Shear Spell ID 203782): 2 charges, 4.5s Haste-reduced recharge; slashes twice (MH Spell ID 225919 + OH Spell ID 225921) for heavy Physical damage, generates 25 Pain and shatters 2 Lesser Soul Fragments on demand for Spirit Bomb.
+- Row 5 (Level 106):
+  * Alternative Col 1: Concentrated Sigils - Talent ID 22546, Spell ID 207666 (Sigils auto-place centered on the Demon Hunter and last +2s longer; great simplified option for AI bots that do not aim ground reticles).
+  * Alternative Col 2: Quickened Sigils - Talent ID 22510, Spell ID 209281 (Sigils activate 1s faster and have 20% shorter CDs).
+  * [SELECTED] Sigil of Chains - Talent ID 22511, Spell ID 202138 (Pull/Slow Debuff Spell ID 204843): 90s CD, 30 yd ground sigil; after 2s pulls all affected enemies to its center and slows movement by 70% for 6s (Gorefiend's Grasp equivalent for stacking scattered archers/casters).
+- Row 6 (Level 108):
+  * Alternative Col 1: Gluttony - Talent ID 22512, Spell ID 264004 (consuming a Soul Fragment has a chance to trigger 5s of Metamorphosis).
+  * [SELECTED] Spirit Bomb - Talent ID 22513, Spell ID 247454 (Damage Spell ID 247455, Frailty Debuff Spell ID 247456, Heal Spell ID 227255): 30 Pain, 40 yd range; consumes up to 5 Soul Fragments within 25 yds to explode for heavy Fire AoE per fragment (soft-capped at 20 targets in 8.3.7) and afflict all hit enemies with Frailty for 20s, healing you for 10% of all damage you deal to Frailty targets.
+  * Core-Fallback Alternative Col 3: Fel Devastation - Talent ID 22768, Spell ID 212084 (Heal Tick Spell ID 212106): 60s CD, 0 Pain cost in Patch 8.0.1-8.3.7, 2s channeled 20 yd frontal Fire beam that deals heavy AoE Fire damage and heals you simultaneously. Pick this on stock TrinityCore 35662 if Soul Fragment AreaTriggers are unscripted.
+- Row 7 (Level 110):
+  * [SELECTED] Last Resort - Talent ID 22543, Spell ID 209258: Sustaining fatal damage instead transforms you into Metamorphosis (Spell ID 187827) and sets you to 30% max HP (8m cooldown, applies Uncontained Fel Spell ID 209261; does not reset on death since Patch 8.1.0). Mandatory fail-safe for automated multi-pack boosting.
+  * Alternative Col 2: Void Reaver - Talent ID 22548, Spell ID 268175 (Debuff Spell ID 268178: enemies struck by Soul Cleave deal 6% less all-type damage to you for 12s).
+  * Alternative Col 3: Soul Barrier - Talent ID 21902, Spell ID 263648 (Internal Absorb Ref 227225: 30s CD, 0 Pain cost in Patch 8.0.1-8.3.7; 12s absorb shield of 500% AP * % HP plus 100% AP * % HP per Soul Fragment consumed within 25 yds).
+
+TrinityCore 35662 Stock-Core Normal Talent Swap Note:
+- Upstream TrinityCore 35662 has minimal C++ scripts in spell_dh.cpp (only Chaos Strike 197125 -> 193840). If your private server uses stock TC without custom Soul Fragment / Sigil AreaTrigger scripts, run the pure DB2-native loadout: Agonizing Flames (22503 / 207548), Feast of Souls (22505 / 207697), Felblade (22540 / 232893), Soul Rending (22508 / 217996), Quickened Sigils (22510 / 209281), Fel Devastation (22768 / 212084), Last Resort (22543 / 209258).
+
+PvP Talents at Level 111 (Patch 8.3.7):
+- Instance Deactivation Rule: PvP talents are ALWAYS INACTIVE inside PvE dungeon and raid instances in Patch 8.3.7 (Conflict and Strife Azerite Essence Item ID 168861 requires level 120 and is unavailable at 111). They only function outdoors with War Mode (Enlist Spell ID 269083) during dungeon-entrance travel/summoning or on custom PvE-enabled cores.
+- Slot Unlocks: 4 PvP talent slots total (unlocked at levels 20, 40, 70, and 110); all 4/4 slots are unlocked at level 111.
+- Slot 1 (Level 20 CC-Break Trinket Slot; per-spec PvpTalent.db2 IDs: unverified; generic lookup IDs 3587/3588/3589):
+  * [SELECTED FOR AI BOT] Adaptation - Spell ID 214027 (auto-removes >=5s loss-of-control CC, 60s ICD) OR Relentless - Spell ID 196029 (-20% incoming CC duration passive).
+  * Alternative: Gladiator's Medallion - Spell ID 208683 (2m CD manual CC break).
+- Slots 2, 3, and 4 (Vengeance Spec ID 581 Pool - All 11 Talents in Patch 8.3.7):
+  1) [SELECTED] Everlasting Hunt - PvpTalent ID 815, Spell ID 205626: Dealing damage increases movement speed by 15% for 3 sec (permanent +15% outdoor run speed while chain-pulling).
+  2) [SELECTED] Jagged Spikes - PvpTalent ID 816, Spell ID 205627: While Demon Spikes is active, melee attackers take Physical thorns damage equal to 30% of the damage taken.
+  3) [SELECTED] Cleansed by Flame - PvpTalent ID 814, Spell ID 205625: Casting Immolation Aura dispels all harmful Magic effects on you.
+  4) Sigil Mastery - PvpTalent ID 1948, Spell ID 211489: Reduces Sigil cooldowns by an additional 25%.
+  5) Demonic Trample - PvpTalent ID 3423, Spell ID 205629: Enter Metamorphosis at +175% speed for 3s, knocking down enemies (shares charges/CD with Infernal Strike from Patch 8.1.0 onward).
+  6) Illidan's Grasp - PvpTalent ID 819, Spell ID 205630: 60s CD, 10 yd 6s strangle channel; recast throws target up to 40 yds for a 3s AoE stun.
+  7) Reverse Magic - PvpTalent ID 3429, Spell ID 205604: 60s CD; removes harmful Magic debuffs from self and allies within 10 yds and reflects them back to caster if possible.
+  8) Tormentor - PvpTalent ID 1220, Spell ID 207029: 20s CD, 10 yd; intimidates target (+3% damage taken per unique player attacker; replaces Torment 185245 while active - avoid if PvE taunt is needed).
+  9) Detainment - PvpTalent ID 3430, Spell ID 205596: Imprison PvP duration +2s, target immune to damage/healing, CD increased to 90s.
+  10) Unending Hatred - PvpTalent ID 3727, Spell ID 213480: Taking magical damage generates Pain based on damage dealt.
+  11) Solitude - PvpTalent ID: unverified, Spell ID 211509: +10% Pain generation and +10% attack speed when no allies are within 15 yds.
+
+
+5. SPELLS THAT MATTER FOR DUNGEON BOOSTING (WITH SPELL IDS)
+-----------------------------------------------------------
+Core AoE Rotation, Pain Generation, & Self-Healing:
+- Immolation Aura (Vengeance Baseline): Spell ID 178740 (0 cost, 15s Haste-reduced CD, 6s duration; instant 8 yd Fire burst Spell ID 187727 + periodic Fire AoE every 1s + generates 20 Pain over 6s; triggers Fallout Spell ID 227174 Soul Fragments).
+- Infernal Strike: Spell ID 189110 (Impact AoE Spell ID 189112; 0 cost, off-GCD, 2 charges, 20s base recharge / 12s with Abyssal Strike Spell ID 207550, 30 yd base / 40 yd range with Abyssal Strike; leaps to location dealing 6 yd Fire AoE and placing Sigil of Flame Spell ID 204596 via Flame Crash Spell ID 227322).
+- Fracture (Row 4 Talent, overrides Shear): Spell ID 263642 (0 cost, 2 charges, 4.5s Haste-reduced recharge; double Physical slash MH Spell ID 225919 + OH Spell ID 225921 generating 25 Pain + 2 Lesser Soul Fragments). Baseline replaced ability: Shear Spell ID 203782 (Heal Param Ref 203783; 0 cost, no CD, generates 10 Pain + 1 Lesser Soul Fragment).
+- Spirit Bomb (Row 6 Talent): Spell ID 247454 (Explosion Spell ID 247455, Frailty Debuff Spell ID 247456, Heal Spell ID 227255; 30 Pain, 40 yd range, 1.5s GCD; consumes up to 5 Soul Fragments within 25 yds for heavy Fire AoE [soft-capped at 20 targets in 8.3.7] and 20s of 10% Frailty leech on all hit mobs; cast at 4-5 Soul Fragments).
+- Soul Cleave: Spell ID 228477 (flat 30 Pain in Patch 8.0.1-8.3.7; Physical cleave hitting up to 5 enemies in front of you, healing you directly and consuming up to 2 Soul Fragments within 25 yds; spend excess Pain here after Frailty is up).
+- Sigil of Flame: Spell ID 204596 (Damage/DoT Spell ID 204598, Concentrated Sigils Override Spell ID 204513; 30s CD, 30 yd ground placement; activates after 2s for 8 yd Fire AoE + 6s Fire DoT).
+- Fel Devastation (Row 6 Core-Fallback Talent): Spell ID 212084 (Heal Tick Spell ID 212106; 0 Pain cost in Patch 8.0.1-8.3.7, 60s CD, 2s channel, 20 yd frontal cone Fire AoE + self-heal).
+- Throw Glaive (Vengeance Version): Spell ID 204157 (0 cost, 3s Haste-reduced CD, 30 yd range; ricochets to 2 additional enemies within 10 yds [3 targets total] with high built-in threat modifier for non-stop ranged chain-pulling).
+
+Active Mitigation & Major Survival Cooldowns:
+- Demon Spikes: Spell ID 203720 (Active Buff Spell ID 203819; 0 Pain in Patch 8.0.1-8.3.7, off-GCD, 2 charges [3 charges with Oblivion's Embrace Item ID 151799 Spell ID 248074], 20s Haste-reduced recharge, 6s duration; +60% of Agility as Armor in Patch 8.2.0-8.3.7 [plus doubled Mastery: Fel Blood Spell ID 203747 Armor] and +15% Parry; keep 1 charge rolling during physical trash packs without overlapping both charges immediately).
+- Fiery Brand: Spell ID 204021 (DR Debuff Spell ID 207744; 0 cost, 60s CD, 30 yd range, 8s duration; Fire nuke + branded enemy deals 40% less all-type damage to you).
+- Metamorphosis (Vengeance Version): Spell ID 187827 (0 cost, off-GCD, 3m CD, 15s duration; in Patch 8.2.0-8.3.7 grants +50% current and maximum Health, +200% bonus Armor, and causes Shear/Fracture to generate +20 additional Pain and +1 additional Lesser Soul Fragment; also auto-triggered at fatal HP by Last Resort Spell ID 209258, applying Uncontained Fel Spell ID 209261).
+
+Pack Grouping, Threat, Interrupts, Dispels, & Crowd Control:
+- Torment (Vengeance Taunt): Spell ID 185245 (8s CD, 30 yd single-target taunt + bonus threat against target).
+- Sigil of Chains (Row 5 Talent): Spell ID 202138 (Pull/Slow Debuff Spell ID 204843; 90s CD, 30 yd; AoE pull-in + 70% 6s slow after 2s).
+- Sigil of Silence: Spell ID 202137 (Silence Debuff Spell ID 204490; 60s CD, 30 yd; 6s AoE silence after 2s - forces ranged casters into melee stack).
+- Sigil of Misery: Spell ID 207684 (Disorient Debuff Spell ID 207685; 90s CD, 30 yd; 20s AoE disorient/cast-stop after 2s).
+- Disrupt: Spell ID 183752 (0 cost, off-GCD, 15s CD, 10 yd range in Patch 8.0.1-8.3.7; interrupts spellcasting for 3s and generates 30 Pain on a successful interrupt).
+- Consume Magic: Spell ID 278326 (learned at level 103 in 8.0.1-8.3.7; 0 cost, 10s CD, 20 yd range; purges 1 beneficial Magic buff from an enemy and generates 20 Pain - strips Freehold/Atal'Dazar/Motherlode trash shields and buffs).
+- Imprison: Spell ID 217832 (0 cost, 45s CD, 20 yd range; incapacitates Demon, Beast, or Humanoid for 60s without triggering combat aggro, enabling clean patrol skips).
+
+Mobility, Racials, & Essential Passives:
+- Glide: Spell ID 131347 (activates on mid-air jump / after Double Jump; slows falling speed and grants forward air burst, negating fall damage on dungeon drops and shortcuts).
+- Spectral Sight: Spell ID 188501 (30s CD; sees stealthed/invisible enemies and treasures through walls).
+- Felsaber (Class Mount): Spell ID 200175 (100% ground mount for outdoor/Freehold/Atal'Dazar mounted pulls).
+- Racial Abilities (Class ID 12):
+  * Night Elf (Race ID 4): Shadowmeld (Spell ID 58984: 2m CD instant stealth/combat-drop to reset unwanted pulls), Quickness (Spell ID 20582: +2% Dodge and +2% passive movement speed), Touch of Elune (Spell ID 154748: +1% Haste at night / +1% Crit by day), Nature Resistance (Spell ID 20583).
+  * Blood Elf (Race ID 10): Arcane Torrent (Spell ID 202719: 2m CD, 8 yd PBAoE dispel removing 1 beneficial Magic effect from all nearby enemies AND restoring 15 Pain), Arcane Acuity (Spell ID 154742: +1% Crit), Arcane Resistance (Spell ID 822).
+- Core Passives:
+  * Vengeance Demon Hunter: Spell ID 212613 (tank Stamina/spec aura).
+  * Increased Threat: Spell ID 189926 (+350% threat modifier).
+  * Demonic Wards: Spell ID 203513 (-15% all damage taken, +65% Stamina, +100% bonus Armor from items in Patch 8.2.0-8.3.7, melee crit immunity).
+  * Mastery: Fel Blood: Spell ID 203747 (in Patch 8.0.1-8.3.7 passively increases Armor by 12% of Agility at base 8 Mastery [1.5% per Mastery point], doubled while Demon Spikes 203720 is active [24% at base 8 Mastery, 3.0% per Mastery point], and increases Attack Power by 8% at base 8 Mastery [1.0% per Mastery point]).
+  * Shattered Souls (Vengeance): Spell ID 204254 (Soul Fragment Visual 204255, Lesser Soul Heal Spell ID 203794 [heals % of damage taken in preceding 5s, min 1% max HP], Greater Soul Heal Spell ID 210042, Demon Soul +20% damage buff Spell ID 163073).
+  * Chaos Brand: Spell ID 255260 (Spec Aura Ref 281242: all damage brands targets to take +5% magic damage from party).
+  * Riposte: Spell ID 207197 (grants Parry rating equal to 100% of Critical Strike rating from gear).
+  * Leather Specialization (Vengeance): Spell ID 226359 (+5% Stamina while wearing Leather in all armor slots).

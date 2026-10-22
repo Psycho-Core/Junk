@@ -1,0 +1,401 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) LEVEL 10 TO 120 DUNGEON BOOST ROUTE (LEVEL 111 BOOSTER)
+===============================================================================================
+
+1. GROUP FORMATION, XP LOCK, QUEUEING, AND INSTANCE ENTRY RULES
+---------------------------------------------------------------
+Booster Character Setup:
+- Booster Level: 111 (lock XP as early into level 111 as possible, under 10% of level 111 XP bar, so personal-scaled Battle for Azeroth Normal mobs scale to 110-111).
+- Alliance XP Lock NPC: Behsten <Experience Eliminator>, Creature Entry 35365, Stormwind Keep (Stormwind City), Map ID 0, 2D Zone Coords (87.6, 36.0), World Coords (0, x, y, z): unverified. Cost: 10 gold (100000 copper).
+- Horde XP Lock NPC: Slahtz <Experience Eliminator>, Creature Entry 35364, Hall of the Brave (third floor), Valley of Honor, Orgrimmar, Map ID 1, 2D Zone Coords: unverified, World Coords (1, x, y, z): unverified. Cost: 10 gold (100000 copper).
+- XP Lock Debuff / Flag Behavior:
+  * Retail 8.2.0-8.3.7: Applies self-buff Experience Eliminated (Spell ID 306715) to the XP-locked player and applies Experience Eliminated (Spell ID 206662, 300-yard aura reducing XP gained from kills and quests by 95%) to all members of a manually formed party (does not affect matchmade LFG strangers).
+  * Stock TrinityCore 8.3.7 (build 35662): Sets PLAYER_FLAGS_NO_XP_GAIN (0x02000000) on the booster without applying Spell ID 306715 or Spell ID 206662, so manually invited party members receive no -95% XP penalty unless custom-scripted.
+
+Party Formation and Difficulty:
+- Invite the level 111 booster and the low-level player into a 2-player party (do not convert to Raid; raid groups disable dungeon quests and penalize XP).
+- Set Dungeon Difficulty to Normal 5-Player (DifficultyID 1). Heroic is DifficultyID 2; Mythic is DifficultyID 23; Timewalking is DifficultyID 24.
+- Group Kill XP Distance: Keep the low-level player alive and within 74 yards of dying enemies on TrinityCore (MaxGroupXPDistance = 74) and within 100 yards on Retail 8.3.7.
+- Summoning to Portals: Use the exterior Meeting Stone (requires 2 party members clicking; ignores dungeon max-level range) or Warlock Ritual of Summoning (Spell ID 698, Portal GameObject ID 194108).
+
+Queueing and Entry by Level Range:
+- Levels 10 to 14 (Walk-In Portal Only):
+  * Dungeon Finder is locked below level 15.
+  * Both players walk through the physical portal on Normal (DifficultyID 1). Only dungeons with Portal Minimum Level 10 (or 11 at level 11+) allow entry.
+- Levels 15 to 109 (Two Entry Modes):
+  * Standard Dungeon Finder Queue Check: Without Party Sync, a level 111 booster and a level 15-109 player have zero overlapping LFD dungeons because Classic (max 60), TBC/WotLK (max 80), Cata/MoP (max 90), WoD (max 100), and Legion (max 110) lock out level 111 as too high level.
+  * Mode A - Party Sync Dungeon Finder (Patch 8.2.5+): Open Map & Quest Log and start Party Sync; both players accept. Booster effective level scales down to the low-level player's expansion cap:
+    - Low-level player 15-60 (Classic): Booster scaled to 60. Queue Random Classic Dungeon (LfgDungeonID 258) or specific unlocked dungeons.
+    - Low-level player 60-80 (TBC / WotLK): Booster scaled to 80. Queue Random Burning Crusade Dungeon (LfgDungeonID 259) or Random Lich King Dungeon (LfgDungeonID 261) (available from 58 if queuing TBC/WotLK).
+    - Low-level player 80-90 (Cata / MoP): Booster scaled to 90. Queue Random Mists of Pandaria Dungeon (LfgDungeonID 463) or Random Cataclysm Dungeon (LfgDungeonID 300).
+    - Low-level player 90-100 (WoD): Booster scaled to 100. Queue Random Warlords of Draenor Dungeon (LfgDungeonID 788).
+    - Low-level player 100-110 (Legion): Booster scaled to 110. Queue Random Legion Dungeon (LfgDungeonID 1045) or specific Legion Normal at 98+.
+    - Party Sync restrictions: Temporarily disables booster Azerite traits, Heart of Azeroth Essences, Legion Legendaries, socketed gems, enchants, trinket procs, and above-bracket talents/abilities while synced.
+    - LFD Timers and Debuffs: Role Check 45 sec; Queue Proposal 45 sec; Random Dungeon Cooldown (Spell ID 71328, 15 min from queue start); Dungeon Deserter (Spell ID 71041, 30 min on early leave); Luck of the Draw (Spell ID 72221, +5% damage/healing/health per random player). LFD teleports directly inside and bypasses the hourly walk-in instance cap.
+    - TrinityCore 35662 Note: Stock LFGMgr checks raw player level rather than Party Sync effective level; if Party Sync LFD is not implemented on the server, use Mode B (Walk-In Portal) until level 110.
+  * Mode B - Walk-In Physical Portal (Levels 10-109, Unsynced):
+    - Both players walk into the physical portal on Normal (DifficultyID 1). After clearing, both zone out and Party Leader uses Reset All Instances.
+    - Instance Lockout Limit: 10 instances per hour per account/character on Retail 8.3.7 (stock TrinityCore config AccountInstancesPerHour = 5 unless raised to 10).
+    - Gray-Mob XP Penalty Warning (Levels 10-97): Level 111 gray threshold is level 101 (111 - 10). In dungeons capped at 60, 80, 90, or 100, mobs are gray to an unsynced 111 booster. Retail 8.3.7 applies ~90% mob-XP carry reduction; TrinityCore 35662 sets _isFullXP = false, multiplying solo mob XP by (playerLevel / (playerLevel + 111)) / 2. In Legion Normal dungeons (98-110), mobs scale to 110 for the 111 booster (110 > 101, green/non-gray).
+- Levels 110 to 120 (Battle for Azeroth Bracket - Peak 111 Booster Efficiency):
+  * Disable Party Sync. Keep the group at exactly 2 players (111 booster + 110-119 player) on Normal (DifficultyID 1) and walk through the physical Freehold portal (Map ID 1754).
+  * Horde Access to Freehold at 110-119: Horde characters below 120 cannot select Kul Tiras dungeons in Dungeon Finder, but CAN enter the physical Freehold portal starting at level 110 (reach Tiragarde Sound via the Horde War Campaign foothold at 110+ or summon to Castaway Point Meeting Stone).
+  * Optional LFD Queue at 110-120: Both 111 and 110-119 share the 110-120 BfA Normal LFD bracket natively (Random Dungeon Battle for Azeroth Normal, LfgDungeonID 1670), but 5-player LFD splits trash XP 5 ways instead of 2 ways.
+
+
+2. BOOSTER GEAR, CONSUMABLES, AND COOLDOWN SPELL REFERENCE
+----------------------------------------------------------
+Recommended Level 111 Booster Spec: Havoc Demon Hunter (self-leech in Metamorphosis/Demonic, unmatched mobility, AoE burst) or Vengeance Demon Hunter (tank mitigation for Party Sync or undergeared pulls).
+
+Booster Gear and Consumables (Verified Item IDs & Spell IDs):
+- Heart of Azeroth (Neck): Item ID 158075 (unlocks 3x BfA Azerite Armor slots in Head/Shoulder/Chest; keep 2 slots for Legion Legendaries up to level 115).
+- Legion Legendaries (active up to level 115; disabled at 116):
+  * Raddon's Cascading Eyes (Head, DH): Item ID 137061 (Equip Spell ID 215149 - Eye Beam hits/crits reduce Eye Beam cooldown up to 20 sec).
+  * Sephuz's Secret (Ring, All Classes): Item ID 132452 (Equip Spell ID 226262 - +10% passive speed/+2% Haste; CC/interrupt/dispel grants +70% speed and +25% Haste for 10 sec, 30 sec ICD).
+  * Kil'jaeden's Burning Wish (Trinket, All Classes): Item ID 144259 (high burst AoE active trinket).
+  * Aggramar's Stride (Feet, Plate): Item ID 132443 (movement speed from highest secondary stat).
+- Level 111 Crafted Gear (base ilvl 225 Uncommon, procs ilvl 233 Rare, Requires Level 111):
+  * Leather: Coarse Leather set (e.g., Coarse Leather Armguards Item ID 154145 / 161945).
+  * Plate: Monel-Hardened set / weapons (e.g., Monel-Hardened Cutlass Item ID 161913).
+- Key Havoc DH Azerite Traits (on ilvl 280+ BfA Quest/Island Azerite pieces):
+  * Eyes of Rage: Spell ID 278500 (bonus Eye Beam damage; Soul Fragments reduce Eye Beam CD by 0.7 sec).
+  * Furious Gaze: Spell ID 273232 (Haste buff after full Eye Beam channel).
+  * Revolving Blades: Spell ID 279581 (Blade Dance/Death Sweep damage + Fury cost reduction).
+- Gems & Consumables (Booster & Low-Level Player):
+  * Deadly Solstone (+Crit gem): Item ID 153710.
+  * Quick Owlseye (+Haste gem): Item ID 154127.
+  * Bear Tartare (speed food): Item ID 133576.
+  * Skystep Potion: Item ID 127841; Draenic Swiftness Potion: Item ID 116266; Goblin Glider Kit: Item ID 109076.
+  * Potion of Prolonged Power: Item ID 142117; Lightforged Augment Rune: Item ID 153023; Defiled Augment Rune: Item ID 140587.
+  * Drums of Fury: Item ID 120257; Drums of the Mountain: Item ID 142406.
+- Low-Level Player Bonus XP Items (Patch 8.3.7):
+  * Heirlooms upgraded to 120 via Battle-Hardened Heirloom Armor Casing (Item ID 167731) and Battle-Hardened Heirloom Scabbard (Item ID 167732) (+10% XP each on Head, Shoulders, Chest, Legs; +5% XP on Cloak and up to two Rings; Heirloom +10% Aura Spell ID 57353, +5% Aura Spell ID 71354).
+  * Draught of Ten Lands (+10% XP for 1 hour, works 10-119 in 8.3.7): Item ID 166750 (Alliance) / Item ID 166751 (Horde), Buff Spell ID 289982.
+  * Insightful Rubellite (+5% XP gem, socketable at 111+ or in eligible sockets): Item ID 153714.
+  * Guild Standards (+15% / +10% / +5% kill XP within 100 yds): Battle Standard of Coordination (Item ID 64399), Standard of Unity (Item ID 64398), Banner of Cooperation (Item ID 63359).
+
+Demon Hunter Cooldown & Control Spell IDs (Build 35662):
+- Offensive / AoE / Sustain:
+  * Eye Beam: Spell ID 198013 (triggers 8 sec Metamorphosis + Soul Rending leech with Demonic Talent Spell ID 213410; Blind Fury Talent Spell ID 203550).
+  * Blade Dance: Spell ID 188499 / Death Sweep (Metamorphosis): Spell ID 210152 (grants 100% Dodge for 1 sec; Trail of Ruin Talent Spell ID 258881; First Blood Talent Spell ID 206416).
+  * Immolation Aura: Spell ID 258920.
+  * Metamorphosis (Havoc): Spell ID 162264 (Jump: Spell ID 191428, Stun: Spell ID 200166, 4 min CD).
+  * Fel Barrage (Talent): Spell ID 211053; Throw Glaive: Spell ID 185123; Fel Rush: Spell ID 195072; Vengeful Retreat: Spell ID 198793.
+- Defensive / Utility / Crowd Control:
+  * Blur: Spell ID 198589 (Buff Spell ID 212800 - +50% Dodge and 20% damage reduction for 10 sec, 1 min CD).
+  * Netherwalk (Talent): Spell ID 196555 (100% damage immunity and +100% speed for 5 sec, 2 min CD; does not replace Blur 198589 in 8.3.7).
+  * Darkness: Spell ID 196718 (Absorb Trigger Spell ID 209426 - 20% chance to avoid all damage in 8 yd zone for 8 sec, 3 min CD).
+  * Soul Rending (Havoc Talent): Spell ID 204909 (+10% passive Leech, +10% additional Leech in Metamorphosis).
+  * Chaos Nova: Spell ID 179057 (AoE 2 sec stun, 1 min CD; procs Sephuz's Secret).
+  * Disrupt (Interrupt, 15 sec CD): Spell ID 183752.
+  * Consume Magic (Offensive Magic Purge, 10 sec CD): Spell ID 278326.
+  * Imprison (Incapacitate Beast/Demon/Humanoid, 45 sec CD): Spell ID 217832.
+  * Spectral Sight: Spell ID 188501; Shadowmeld (Night Elf threat drop): Spell ID 58984.
+- Vengeance DH Tank Cooldowns (if running Tank spec):
+  * Demon Spikes: Spell ID 203720 (Buff Spell ID 203819); Fiery Brand: Spell ID 207744 (DoT Spell ID 207771); Metamorphosis (Vengeance): Spell ID 187827; Fel Devastation: Spell ID 212105 (Heal Spell ID 212106); Spirit Bomb: Spell ID 218677; Infernal Strike: Spell ID 189110; Sigil of Flame: Spell ID 204598; Sigil of Silence: Spell ID 204490; Sigil of Misery: Spell ID 207685; Sigil of Chains: Spell ID 208674.
+
+
+3. ALL BATTLE FOR AZEROTH DUNGEONS: ELIGIBILITY & RANKING (PATCH 8.3.7)
+-----------------------------------------------------------------------
+Continent Map IDs: Kul Tiras = 1643, Zandalar = 1642.
+
+1) Freehold (Tiragarde Sound, Kul Tiras) - RANK #1 FASTEST BFA LEVELING DUNGEON
+   - Map ID: 1754 | Normal LfgDungeonID: 1672 | Heroic LfgDungeonID: 1704
+   - Portal Min Level: 110 (both Alliance and Horde)
+   - Dungeon Finder Min Level: 110 Normal (Alliance), 120 Normal (Horde), 120 Heroic (both)
+   - Bosses: Skycap'n Kragg (126832), Council o' Captains (Captain Raoul 126847, Captain Eudora 126848, Captain Jolly 126845), Ring of Booty (Trothak 126969, Ludwig Von Tortollan 129699), Harlan Sweete (126983)
+   - Verdict: Fastest 110-120 dungeon; fully mountable, first 3 bosses optional, Harlan Sweete directly accessible for final-boss bonus XP.
+
+2) Atal'Dazar (Zuldazar, Zandalar) - RANK #2 BFA LEVELING DUNGEON / HORDE LFD / LOCKOUT FILLER
+   - Map ID: 1763 | Normal LfgDungeonID: 1668 | Heroic LfgDungeonID: 1669
+   - Portal Min Level: 110 (both Alliance and Horde)
+   - Dungeon Finder Min Level: 110 Normal (Horde), 120 Normal (Alliance), 120 Heroic (both)
+   - Bosses: Priestess Alun'za (122967), Vol'kaal (122965), Rezan (122963), Yazma (122968)
+   - Verdict: Mountable hub and dense central pit; Yazma requires killing the first 3 bosses, so slower for full completion than Freehold, but strong for 3-minute trash/Rezan resets or Horde LFD.
+
+3) The Underrot (Nazmir, Zandalar) - VIABLE ALTERNATIVE (SLOWER)
+   - Map ID: 1841 | Normal LfgDungeonID: 1711 | Heroic LfgDungeonID: 1712
+   - Portal Min Level: 110 | Dungeon Finder Min Level: 110 Normal (Horde), 120 Normal (Alliance), 120 Heroic
+   - Bosses: Elder Leaxa (131318), Cragmaw the Infested (131817, room center coords: (1841, 862.50, 982.32, 39.23)), Sporecaller Zancha (131383), Unbound Abomination (133007)
+   - Verdict: Slower than Freehold/Atal'Dazar due to Fetid Maggot (130909) Rotten Bile (265540), Devout Blood Priest (131492) Dark Reconstitution (265089), and Fallen Deathspeaker (134284) Wicked Frenzy (266209).
+
+4) Waycrest Manor (Drustvar, Kul Tiras) - AVOID FOR SPEED BOOSTING
+   - Map ID: 1862 | Normal LfgDungeonID: 1705 | Heroic LfgDungeonID: 1706
+   - Portal Min Level: 110 | Dungeon Finder Min Level: 110 Normal (Alliance), 120 Normal (Horde), 120 Heroic
+   - Bosses: Heartsbane Triad (131823, 131824, 131825), Soulbound Goliath (131667), Raal the Gluttonous (131863), Lord and Lady Waycrest (131545, 131527), Gorak Tul (131864)
+   - Verdict: Unmountable indoors, randomized locked doors, 5 bosses, hex/thorn/mind-control mechanics.
+
+5) Shrine of the Storm (Stormsong Valley, Kul Tiras) - AVOID FOR SPEED BOOSTING
+   - Map ID: 1864 | Normal LfgDungeonID: 1774 | Heroic LfgDungeonID: 1710
+   - Portal Min Level: 110 | Dungeon Finder Min Level: 110 Normal (Alliance), 120 Normal (Horde), 120 Heroic
+   - Bosses: Aqu'sirr (134056), Tidesage Council (134058, 134063), Lord Stormsong (134060), Vol'zith the Whisperer (134069)
+   - Verdict: Long corridor, healing casters, mind-control mechanics on Lord Stormsong when solo/2-player.
+
+6) Temple of Sethraliss (Vol'dun, Zandalar) - AVOID FOR SPEED BOOSTING
+   - Map ID: 1877 | Normal LfgDungeonID: 1694 | Heroic LfgDungeonID: 1695
+   - Portal Min Level: 110 | Dungeon Finder Min Level: 110 Normal (Horde), 120 Normal (Alliance), 120 Heroic
+   - Bosses: Adderis and Aspix (133379, 133944), Merektha (133384), Galvazzt (133389), Avatar of Sethraliss (133392)
+   - Verdict: Lightning orb gauntlet and healing-gated final boss make runs slow.
+
+7) The MOTHERLODE!! (Zuldazar, Zandalar) - UNLOCKS AT 115 (TRASH RESET OPTION ONLY)
+   - Map ID: 1594 | Normal LfgDungeonID: 1707 | Heroic LfgDungeonID: 1708
+   - Portal Min Level: 115 | Dungeon Finder Min Level: 115 Normal (Horde), 120 Normal (Alliance), 120 Heroic
+   - Bosses: Coin-Operated Crowd Pummeler (129214), Azerokk / Tik'ali (129227), Rixxa Fluxflame (129231), Mogul Razdunk (129232)
+   - Verdict: Locked until 115; dense opening trash, but Venture Co. Alchemist (133432) Transfiguration Serum (263066) and bombs slow solo carries compared to Freehold.
+
+8) Tol Dagor (Tol Dagor, Kul Tiras) - UNLOCKS AT 115 (AVOID FOR SPEED BOOSTING)
+   - Map ID: 1771 | Normal LfgDungeonID: 1713 | Heroic LfgDungeonID: 1714
+   - Portal Min Level: 115 | Dungeon Finder Min Level: 115 Normal (Alliance), 120 Normal (Horde), 120 Heroic
+   - Bosses: The Sand Queen (127479), Jes Howlis (127484), Knight Captain Valyri (127490), Overseer Korgus (127503)
+   - Verdict: Locked until 115; tight multi-floor prison with Ashvane Officer (127486) Handcuffs stun/lockdowns.
+
+9) Siege of Boralus (Tiragarde Sound, Kul Tiras) - INELIGIBLE BELOW LEVEL 120
+   - Map ID: 1822 | Heroic LfgDungeonID: 1700 (Heroic/Mythic only; no Normal difficulty)
+   - Portal Min Level: 120 | Dungeon Finder Min Level: 120 (requires faction War Campaign / Pride of Kul Tiras unlock)
+   - Bosses: Sergeant Bainbridge (128649, Horde) / Chopper Redhook (128650, Alliance), Dread Captain Lockwood (129208), Hadal Darkfathom (128651), Viq'Goth (128652)
+
+10) Kings' Rest (Zuldazar, Zandalar) - INELIGIBLE BELOW LEVEL 120
+    - Map ID: 1762 | Heroic LfgDungeonID: 1785 (Heroic/Mythic only; no Normal difficulty)
+    - Portal Min Level: 120 | Dungeon Finder Min Level: 120 (requires Zandalar Forever / War Campaign unlock)
+    - Bosses: The Golden Serpent (135322), Mchimba the Embalmer (134993), The Council of Tribes (135475, 135470, 135472), Dazar, The First King (136160)
+
+11) Operation: Mechagon (Mechagon Island, Kul Tiras) - INELIGIBLE BELOW LEVEL 120
+    - Map ID: 2097 | Mythic LfgDungeonID: 2006 | Heroic Junkyard LfgDungeonID: 2027 | Heroic Workshop LfgDungeonID: 2028 (no Normal difficulty)
+    - Portal Min Level: 120 | Dungeon Finder Min Level: 120
+    - Bosses: King Gobbamak (150159), Gunker (150222), Trixie & Naeno (150712, 153755), HK-8 Aerial Oppression Unit (150190), Tussle Tonks (144244, 145185), K.U.-J.0. (144246), Machinist's Garden (144248), King Mechagon (144249)
+
+
+4. ORDERED FASTEST DUNGEON ROUTE FROM LEVEL 10 TO 120
+-----------------------------------------------------
+
+STAGE 1A: LEVELS 10 TO 15 (HORDE) - RAGEFIRE CHASM
+- Instance Map ID: 389 | Normal LfgDungeonID: 4 | Scaling Range: 10-60 (LFD 15-60)
+- Portal Minimum Level: 10 | Dungeon Finder Minimum Level: 15
+- Portal Location: Cleft of Shadow, Orgrimmar (Continent Map ID 1), World Coords (1, x, y, z): unverified.
+- Internal Landmark Coords: Lava Guard Gordoth / Xorenth platform (389, -347.99, 210.17, -21.79).
+- Bosses & Spells:
+  * Adarogg (Creature Entry 61408): Inferno Charge (Spell ID 119405 / 119299), Flame Breath (Spell ID 119420).
+  * Dark Shaman Koranthal (Creature Entry 61412): Twisted Elements (Spell ID 119300, interrupt), Shadow Storm (Spell ID 119971, ground swirls).
+  * Slagmaw (Creature Entry 61463): Lava Spit (Spell ID 119434), Submerge (Spell ID 120384).
+  * Lava Guard Gordoth (Creature Entry 61528): Seismic Slam (Spell ID 120024, 25 yd knockback), Ground Rupture (Spell ID 119999), Enrage (Spell ID 50420).
+- Pulls, Cooldowns, and Skips:
+  * Packs per pull: Unsynced 111 booster pulls entire corridor between bosses (4-6 packs); Party Sync (at 15+) pulls 2-3 packs.
+  * Cooldowns: Immolation Aura (258920) + Fel Rush (195072) to gather; Eye Beam (198013) + Blade Dance (188499) on boss room; Disrupt (183752) on Koranthal's Twisted Elements (119300).
+  * What to skip & safety: Keep low-level player 30-60 yards behind on Adarogg (avoid Inferno Charge 119405) and >25 yards from Gordoth (avoid Seismic Slam 120024 knockback into lava). Kill all 4 linear bosses; zone out or jump out to reset.
+
+STAGE 1B: LEVELS 10 TO 15 (ALLIANCE) - THE DEADMINES
+(Note: Stormwind Stockade portal requires level 15; Alliance 10-14 cannot enter Stockade and uses Deadmines or Shadowfang Keep [Map ID 33, LfgDungeonID 8, Portal Min 11, LFD Min 17] until 15.)
+- Instance Map ID: 36 | Normal LfgDungeonID: 6 | Heroic LfgDungeonID: 326 | Scaling Range: 10-60 (LFD 15-60, Heroic 85)
+- Portal Minimum Level: 10 | Dungeon Finder Minimum Level: 15
+- Portal Location: Moonbrook, Westfall (Continent Map ID 0), World Coords (0, x, y, z): unverified.
+- Internal Landmark Coords: Ironclad Cove ramp (36, -102.70, -655.90, z: unverified).
+- Bosses & Spells:
+  * Glubtok (Creature Entry 47162)
+  * Helix Gearbreaker (Creature Entry 47296) & Lumbering Oaf (Creature Entry 47297): Chest Bomb (Spell ID 88352)
+  * Foe Reaper 5000 (Creature Entry 43778): Overdrive (Spell ID 88481), Harvest (Spell ID 88495), Safety Restrictions Off-line (Spell ID 88522)
+  * Admiral Ripsnarl (Creature Entry 47626) & "Captain" Cookie (Creature Entry 47739): Cauldron Fire (Spell ID 89252) (Vanessa VanCleef 49541 is Heroic-only).
+- Pulls, Cooldowns, and Skips:
+  * Packs per pull: Unsynced 111 pulls all trash from door to door (4-6 packs).
+  * Cooldowns: Throw Glaive (185123) + Immolation Aura (258920) through mines; Defias Cannon (GameObject ID 16398) blasts Ironclad Door (GameObject ID 16397).
+  * What to skip & safety: Stop at level 15 immediately and move to Stormwind Stockade. Keep low-level player out of Foe Reaper 5000's Harvest (88495) and Cookie's Cauldron Fire (89252).
+
+STAGE 2A: LEVELS 15 TO 58 (ALLIANCE WALK-IN / PARTY SYNC) - STORMWIND STOCKADE
+- Instance Map ID: 34 | Normal LfgDungeonID: 12 | Scaling Range: 15-60 (LFD 20-60)
+- Portal Minimum Level: 15 | Dungeon Finder Minimum Level: 20
+- Portal Location: Mage Quarter / Canal District, Stormwind City (Continent Map ID 0), World Coords (0, x, y, z): unverified.
+- Internal Landmark Coords: Randolph Moloch room (34, 145.58, 0.71, -25.61); Hogger room (34, 138.37, 78.29, -33.86) to (34, 152.02, 106.20, -35.19).
+- Bosses, Trash & Spells:
+  * Randolph Moloch (Creature Entry 46383, Mortimer Moloch 46482): Wildly Stabbing (Spell ID 86726), Sweep (Spell ID 86729), Vanish (Spell ID 55964), Shadowstep (Spell ID 55966).
+  * Lord Overheat (Creature Entry 46264): Fireball (Spell ID 12466), Overheat (Spell ID 86633), Rain of Fire (Spell ID 86636).
+  * Hogger (Creature Entry 46254, Warden Thelwater 46409): Vicious Slice (Spell ID 86604), Maddening Call (Spell ID 86620, interrupt), Enrage (Spell ID 86736).
+  * Key Trash: Rowdy Troublemaker (46375), Riverpaw Basher (46248), Riverpaw Poacher (46250), Riverpaw Looter (46251).
+- Pulls, Cooldowns, and Skips:
+  * Packs per pull: Unsynced 111 pulls 1 entire wing at a time (center hall + right human wing = 5-7 packs; then left gnoll wing to Hogger = 4-6 packs). Under Party Sync (level 60 cap), pull 2-3 rooms per pull.
+  * Cooldowns: Disrupt (183752) on Hogger's Maddening Call (86620); Eye Beam (198013) + Blade Dance (188499) on stacked room corners; Blur (198589) if synced.
+  * What to skip & safety: SKIP Lord Overheat (46264) and his elemental wing (or leave the low-level player >40 yards outside the elemental wing), because Lord Overheat casts Rain of Fire (86636) onto random party members and kills low-level characters through walls/LOS. Also keep low-level player back from Randolph Moloch until after Shadowstep (55966). Kill Hogger (46254) last for dungeon completion credit, run straight back out portal (2-3 min loop).
+
+STAGE 2B: LEVELS 15 TO 58 (HORDE WALK-IN / BOTH FACTIONS LOCKOUT ALTERNATIVES)
+- Levels 15 to 23: Ragefire Chasm (Map ID 389, LfgDungeonID 4, Portal Min 10, LFD Min 15) or Shadowfang Keep (Map ID 33, LfgDungeonID 8, Portal Min 11, LFD Min 17; Bosses: Baron Ashbury 46962 [Asphyxiate 93423], Baron Silverlaine 3887, Commander Springvale 4278 [skip optional courtyard adds], Lord Walden 46963 [keep moving during Conjure Frost Mixture 93505 / Toxic Coagulant 93617], Lord Godfrey 46964 [dodge Pistol Barrage 93520, dispel Cursed Bullets 93629]).
+- Levels 23 to 39 (or 23 to 58): Scarlet Monastery (Map ID 1004, Normal LfgDungeonID 164, Heroic LfgDungeonID 474, Portal Min 23, LFD Min 28, Scaling 23-60, Tirisfal Glades Map ID 0, World Coords: unverified) & Scarlet Halls (Map ID 1001, Normal LfgDungeonID 163, Heroic LfgDungeonID 473, Portal Min 21, LFD Min 26, Scaling 21-60).
+  * Scarlet Monastery Bosses: Thalnos the Soulrender (59789 - Evict Soul 115297), Brother Korloff (59223 - Scorched Earth 114460), Commander Durand (60040) & High Inquisitor Whitemane (3977 - interrupt Mass Resurrection 113134 with Disrupt 183752).
+  * Pulls & Skips: Pull graveyard to Thalnos (1 pull), chapel courtyard to Korloff (1-2 pulls), cathedral hall to Durand/Whitemane (1 pull; LOS-stack Scarlet Judicators/Fanatics behind pillars).
+- Levels 39 to 58 (High-Mob-Count Anti-Lockout Option):
+  * Zul'Farrak (Map ID 209, Normal LfgDungeonID 24, Portal Min 39, LFD Min 44, Scaling 39-60, Tanaris Map ID 1, World Coords: unverified; Bosses include Witch Doctor Zum'rah 7271, Chief Ukorz Sandscalp; fully mountable loop so 1 run takes 6+ min and avoids hitting the 10/hr cap), OR
+  * Stratholme - Main Gate (Map ID 329, Normal LfgDungeonID 40, Portal Min 37, LFD Min 42, Scaling 37-60; Service Entrance LfgDungeonID 274 has Portal Min 42, LFD Min 46; Eastern Plaguelands Map ID 0, World Coords: unverified; Bosses include Ramstein the Gorger 10439, Lord Aurius Rivendare 10440).
+- Levels 15 to 58 Party Sync LFD Option: Queue Random Classic Dungeon (LfgDungeonID 258, LFD Min 15, Max 60) with Party Sync active for Random Completion Bonus XP and dungeon quests.
+
+STAGE 3: LEVELS 58 TO 80 - HELLFIRE RAMPARTS (PRIMARY) & THE BLOOD FURNACE / UTGARDE KEEP (FILLERS)
+- Primary Dungeon: Hellfire Ramparts
+  * Instance Map ID: 543 | Normal LfgDungeonID: 136 | Heroic LfgDungeonID: 188 | Scaling Range: 58-80 (Heroic 70)
+  * Portal Minimum Level: 58 | Dungeon Finder Minimum Level: 58
+  * Portal Location: Hellfire Citadel, Hellfire Peninsula (Outland Map ID 530), 2D Zone Coords: unverified, World Coords (530, x, y, z): unverified.
+  * Bosses & Trash:
+    - Watchkeeper Gargolmar (Creature Entry 17306) + 2x Hellfire Watcher (Creature Entry 17309): Mortal Wound (Spell ID 36814), Heal (Spell ID 12039, interrupt), Renew (Spell ID 8362, purge with Consume Magic 278326), Shadow Word: Pain (Spell ID 14032).
+    - Omor the Unscarred (Creature Entry 17308): Treacherous Aura (Spell ID 30695).
+    - Vazruden the Herald (Creature Entry 17307 -> dismounts as Vazruden 17537) & Nazan (Creature Entry 17536, Liquid Fire NPC 22515; Fel Iron Chest GameObject ID 185168).
+    - Dangerous Trash: Bonechewer Destroyer (Creature Entry 17271 - Mortal Strike -50% healing & Knock Away), Bonechewer Hungerer (Creature Entry 17259 - Disarm), Bleeding Hollow Scryer (Creature Entry 17478 - Fear), Hellfire Sentry (Creature Entry 17517 - must kill the 2 sentries to make Vazruden descend).
+  * Pulls, Cooldowns, and Skips:
+    - Packs per pull: Unsynced 111 pulls 4-6 packs per pull (3 total trash pulls across the ramparts); Party Sync (scaled to 80) pulls 2 packs at a time.
+    - Cooldowns: Tank Bonechewer Destroyers (17271) with back against a wall so Knock Away cannot knock booster off the ramparts; Chaos Nova (179057) / Sigil of Misery (207685) on Bleeding Hollow Scryers (17478) before Fear lands; Blur (198589) during Mortal Strike healing reduction.
+    - What to skip & reset shortcut: Skip Omor the Unscarred's (17308) upper right branch if doing pure trash + Vazruden speed runs (or kill Omor in 15 sec if clearing all bosses). After killing Vazruden (17537) and Nazan (17536), jump straight off the left side of Vazruden's bridge onto the entrance ramp below and zone out (~3-4 min/run).
+- Lockout Filler / Alternative (58-80):
+  * The Blood Furnace (Map ID 542, Normal LfgDungeonID 137, Portal Min 58, LFD Min 59, Outland Map ID 530; Bosses: The Maker 17381 [avoid Domination 30923 mind control on solo/duo by bursting or keeping lowbie out of LOS], Broggok 17380 [Poison Cloud 30916], Keli'dan the Breaker 17377 [Burning Nova 5388]), OR
+  * Utgarde Keep (Map ID 574, Normal LfgDungeonID 202, Portal Min 58, LFD Min 58, Howling Fjord, Northrend Map ID 571, World Coords: unverified; Bosses: Prince Keleseth 23953 [break Frost Tomb 48400 immediately], Skarvald 24200 & Dalronn 24201, Ingvar the Plunderer 23954 [dodge Smash 42669 & Staggering Roar 42708]).
+- Party Sync LFD Option (58-80): Queue Random Burning Crusade Dungeon (LfgDungeonID 259) or Random Lich King Dungeon (LfgDungeonID 261), booster scaled to 80.
+
+STAGE 4: LEVELS 80 TO 90 - STORMSTOUT BREWERY & TEMPLE OF THE JADE SERPENT
+- Option 4A (Fastest Trash + Bosses): Stormstout Brewery
+  * Instance Map ID: 961 | Normal LfgDungeonID: 465 | Heroic LfgDungeonID: 469 | Scaling Range: 80-90 (Heroic 90)
+  * Portal Minimum Level: 80 | Dungeon Finder Minimum Level: 80
+  * Portal Location: Valley of the Four Winds (Pandaria Map ID 870), World Coords (870, x, y, z): unverified.
+  * Bosses & Spells:
+    - Ook-Ook (Creature Entry 56637): Ground Pound (Spell ID 106807, frontal cone), Going Bananas (Spell ID 106651), Brew Explosion (Spell ID 106648 - roll barrels into Ook-Ook).
+    - Hoptallus (Creature Entry 56717): Furlwind (Spell ID 112992, run out), Carrot Breath (Spell ID 112944, dodge sweep), Explosive Brew (Spell ID 114291).
+    - Yan-Zhu the Uncasked (Creature Entry 59479): Brew Bolt (Spell ID 114548, stand in melee so he does not spam ranged bolts), Bloat (Spell ID 106546), Blackout Brew (Spell ID 106851, jump/move to clear stacks), Bubble Shield (Spell ID 106563), Ferment (Spell ID 114451, intercept beams), Carbonation (Spell ID 115003).
+  * Pulls, Cooldowns, and Skips:
+    - Packs per pull: Pull all Sodden/Rowdy Hozen in the opening hall (40 kills trigger Ook-Ook 56637; ride rolling barrels into packs); pull entire Virmen tunnel to Hoptallus (56717); pull 2-3 Alemental rooms at a time to Yan-Zhu (59479) (interrupt Sudsy/Yeasty heals with Disrupt 183752).
+    - What to skip: None (linear 3-boss dungeon); keep low-level player back from Hoptallus's Furlwind (112992) and Carrot Breath (112944).
+- Option 4B (Fastest Clean 4-Boss Loop / Alternate): Temple of the Jade Serpent
+  * Instance Map ID: 960 | Normal LfgDungeonID: 464 | Heroic LfgDungeonID: 468 | Scaling Range: 80-90 (Heroic 90)
+  * Portal Minimum Level: 80 | Dungeon Finder Minimum Level: 80
+  * Portal Location: The Jade Forest (Pandaria Map ID 870), World Coords (870, x, y, z): unverified.
+  * Internal Landmark Coords: Lorewalker Stonestep Suns (960, 839.66, -2469.16, 182.50); Liu Flameheart courtyard (960, 929.79, -2561.02, 180.07).
+  * Bosses & Spells:
+    - Wise Mari (Creature Entry 56448): Sha Residue (Spell ID 106653), Corrupted Waters (Spell ID 115167), Wash Away (rotate behind beam).
+    - Lorewalker Stonestep (Corrupted Scroll 57080 -> Strife 59051 & Peril 59726 [alternate targets to drop Intensity], OR Zao Sunseeker 58826 & Sun 56915).
+    - Liu Flameheart (Creature Entry 56732): Serpent Strike (Spell ID 106823), Jade Serpent Strike (Spell ID 106841), Jade Serpent Wave (Spell ID 118540), Jade Fire (Spell ID 107110).
+    - Sha of Doubt (Creature Entry 56439): Touch of Nothingness (Spell ID 106113), Bounds of Reality (Spell ID 117665 - kill Figments of Doubt quickly).
+- Party Sync LFD Option (80-90): Queue Random Mists of Pandaria Dungeon (LfgDungeonID 463), booster scaled to 90 (faster and safer than Random Cataclysm LfgDungeonID 300).
+
+STAGE 5A: LEVELS 90 TO 92 - BLOODMAUL SLAG MINES
+(Only Warlords of Draenor dungeon unlocked at levels 90-91.)
+- Instance Map ID: 1175 | Normal LfgDungeonID: 787 | Heroic LfgDungeonID: 859 | Mythic LfgDungeonID: 1005 | Scaling Range: 90-100 (Heroic 100)
+- Portal Minimum Level: 90 | Dungeon Finder Minimum Level: 90
+- Portal Location: Frostfire Ridge (Draenor Map ID 1116), World Coords (1116, x, y, z): unverified.
+- Bosses & Spells:
+  * Slave Watcher Crushto (Creature Entry 74787): Ferocious Yell (Spell ID 150759, interrupt), Wild Slam (Spell ID 150753), Crushing Leap (Spell ID 150751).
+  * Forgemaster Gog'duh (Creature Entry 74366) -> Magmolatus (Creature Entry 74475, Ruination 74570, Calamity 74571): Throw Earth (Spell ID 150076), Throw Fire (Spell ID 150078), Molten Impact (Spell ID 150038).
+  * Roltall (Creature Entry 75786): Fiery Boulder (Spell ID 153247, dodge 3 boulders on bridge), Heat Wave (Spell ID 152940), Scorching Aura (Spell ID 167739).
+  * Gug'rokk (Creature Entry 74790): Molten Blast (Spell ID 150677, interrupt to prevent Molten Core 150678 stacks), Summon Unstable Slag (Spell ID 150755 - kill add before reaching furnace), Magma Eruption (Spell ID 150776).
+- Pulls, Cooldowns, and Skips:
+  * Pull 2-3 ogre/elemental packs per pull; interrupt Bloodmaul Slaver Subjugate and Crushto's Ferocious Yell (150759) with Disrupt (183752).
+  * What to skip: Do NOT skip the first 3 bosses; Gug'rokk (74790) remains unattackable until Crushto, Magmolatus, and Roltall are all dead. Move to Iron Docks immediately at level 92.
+
+STAGE 5B: LEVELS 92 TO 98 (OR 100) - IRON DOCKS
+- Instance Map ID: 1195 | Normal LfgDungeonID: 821 | Heroic LfgDungeonID: 857 | Mythic LfgDungeonID: 1007 | Scaling Range: 92-100 (Heroic 100)
+- Portal Minimum Level: 92 | Dungeon Finder Minimum Level: 92
+- Portal Location: Northern Gorgrond (Draenor Map ID 1116), 2D Zone Coords: unverified, World Coords (1116, x, y, z): unverified.
+- Bosses & Spells:
+  * Fleshrender Nok'gar (Creature Entry 81305) & Dreadfang (Creature Entry 81297): Reckless Provocation (Spell ID 164426 - STOP attacking during shield or purge/wait 5 sec to avoid AoE fear), Burning Arrows (Spell ID 164632), Savage Mauling (Spell ID 164837), Bloodletting Howl (Spell ID 164835).
+  * Grimrail Enforcers (Makogg Emberblade 80805, Ahri'ok Dugru 80808, Neesa Nox 80816): Do NOT break Sanguine Sphere shield with damage or Abrupt Restoration heals 60% HP; switch targets instead.
+  * Oshir (Creature Entry 79852): Time to Feed (Spell ID 162415 - burst down to break pin).
+  * Skulloc (Creature Entry 83612, Koramar 83613, Zoggosh 83616): Gronn Smash (Spell ID 168227), Cannon Barrage (Spell ID 168929 - take cover behind deck crates while advancing, then kill Koramar first).
+- Pulls, Cooldowns, and Skips:
+  * Fully mountable outdoors. Mount and pull 3-5 orc packs in the opening courtyard; launch the Iron Stars down the central lane to bowl through the massive Grunters/Ogron packs before Enforcers.
+  * If doing trash + Nok'gar resets, skip Enforcers/Oshir/Skulloc and zone out; if doing full completion (or Party Sync LFD Random WoD LfgDungeonID 788), clear all 4 bosses.
+
+STAGE 6: LEVELS 98 (OR 100) TO 110 - DARKHEART THICKET (PRIMARY) & NELTHARION'S LAIR (FILLER)
+- Primary Dungeon: Darkheart Thicket
+  * Instance Map ID: 1466 | Normal LfgDungeonID: 1201 | Heroic LfgDungeonID: 1202 | Scaling Range: 98-110 (Random Legion LFD 1045 requires 100; Specific LFD 1201 and Portal allow entry at 98; Heroic 110)
+  * Portal Minimum Level: 98 | Dungeon Finder Minimum Level: 98 (Specific) / 100 (Random Legion Dungeon, LfgDungeonID 1045)
+  * Portal Location: Shaladrassil base, Val'sharah (Broken Isles Map ID 1220), 2D Zone Coords: unverified, World Coords (1220, x, y, z): unverified.
+  * Bosses & Trash:
+    - Archdruid Glaidalis (Creature Entry 96512): Primal Rampage (Spell ID 198379, dodge charge), Nightfall (Spell ID 198408), Grievous Tear (Spell ID 196376 - heal booster above 90% HP to clear bleed, trivial with Eye Beam Soul Rending leech).
+    - Oakheart (Creature Entry 103344): Crushing Grip (Spell ID 204646 - use Blur 198589 / Netherwalk 196555), Shattered Earth (Spell ID 204666), Strangling Roots (Spell ID 204574), Nightmare Breath (Spell ID 204667, face away from low-level player).
+    - Dresaron (Creature Entry 99200): Breath of Corruption (Spell ID 191325), Down Draft (Spell ID 199345 - Fel Rush 195072 / Glide 131347 forward so you are not pushed into whelp eggs), Falling Rocks (Spell ID 199460).
+    - Shade of Xavius (Creature Entry 99192): Feed on the Weak (Spell ID 200238), Nightmare Bolt (Spell ID 200185), Growing Paranoia (Spell ID 200289), Apocalyptic Nightmare (Spell ID 200050 at 50% HP).
+    - Dangerous Trash: Festerhide Grizzly (Creature Entry 95779 - Maddening Roar Spell ID 200580, Corruption Pool Spell ID 218759), Crazed Razorbeak (Creature Entry 95766 - Propelling Charge Spell ID 200768 frontal stun/knockback), Dreadsoul Ruiner (Creature Entry 95771 - Star Shower Spell ID 200658, interrupt), Dreadsoul Poisoner (Creature Entry 101679 - Nightmare Toxin Spell ID 200684), Bloodtainted Fury (Creature Entry 100531 / 113398 - Blood Bomb Spell ID 201272), Dreadfire Imp (Creature Entry 100527 - Dread Inferno Spell ID 201399, interrupt).
+  * Pulls, Cooldowns, and Skips:
+    - Unsynced 111 booster (mobs scale to 110, green/non-gray to 111): Pull 3-4 packs from entrance to Glaidalis (sidestep Crazed Razorbeak 95766 Propelling Charge 200768!), 3-4 dryad/keeper/mushroom packs to Oakheart, water elemental/dragon corridor (hug cave wall to avoid extra whelp eggs) to Dresaron, then satyr/imp/blood elemental tunnel to Shade of Xavius.
+    - Cooldowns: Disrupt (183752) on Star Shower (200658) / Maddening Roar; Chaos Nova (179057) + Eye Beam (198013) on stacked dryads/imps; Blur (198589) on Oakheart Crushing Grip (204646).
+    - Skip Option: In the Tainted Burrow / Heart of Dread split before Dresaron, hug the clean inner path and skip optional Nightmare whelp egg clusters.
+- Lockout Filler / Alternative (98-110):
+  * Neltharion's Lair (Map ID 1458, Normal LfgDungeonID 1206, Portal Min 98, Specific LFD Min 98 / Random 100, Highmountain Map ID 1220, 2D Zone Coords: unverified, World Coords (1220, x, y, z): unverified; Bosses: Rokmora 91003, Ularogg Cragshaper 91004, Naraxas 91005, Dargrul 91007 [stand behind Crystal Spikes 200551 during Magma Wave 200404]; beware Rockbound Trapper 102232 Bound 193585 stun and Vileshard Hulk 91000 Piercing Shards 226296 frontal), OR
+  * Eye of Azshara (Map ID 1456, Normal LfgDungeonID 1174, Portal Min 98, Specific LFD Min 98 / Random 100, Azsuna Map ID 1220, 2D Zone Coords: unverified, World Coords (1220, x, y, z): unverified; Bosses: Warlord Parjesh 91784, Lady Hatecoil 91789 [stand ON sand dunes for Static Nova 193597, OFF dunes for Monsoon/Focused Lightning 193611], King Deepbeard 91797, Serpentrix 91808, Wrath of Azshara 96028; fully mountable).
+
+STAGE 7: LEVELS 110 TO 120 - FREEHOLD (PRIMARY) & ATAL'DAZAR (LOCKOUT FILLER)
+- Primary Dungeon: Freehold (2-Player Unsynced Walk-In Normal, DifficultyID 1)
+  * Instance Map ID: 1754 | Normal LfgDungeonID: 1672 | Heroic LfgDungeonID: 1704 | Scaling Range: 110-120 (Heroic 120)
+  * Portal Minimum Level: 110 (both Alliance and Horde)
+  * Dungeon Finder Minimum Level: 110 Normal (Alliance), 120 Normal (Horde), 120 Heroic (both)
+  * Verified Exact 3D Coordinates (map id, x, y, z):
+    - Outside Portal (Castaway Point, Tiragarde Sound, Kul Tiras): (1643, -1576.46, -1298.70, 31.31) (2D Zone Coords: unverified)
+    - Inside Entrance Spawn: (1754, -1591.51, -995.62, 73.86)
+    - Skycap'n Kragg Overlook (SKIPPED): (1754, -1768.29, -1009.25, 110.00)
+    - Council o' Captains Courtyard (SKIPPED): (1754, -1784.44, -684.40, 38.52)
+    - Ring of Booty Arena (SKIPPED): (1754, -1813.17, -491.82, 34.96)
+    - Harlan Sweete Platform / Admiral's Den (FINAL BOSS - KILLED): (1754, -1583.55, -558.43, 74.00)
+  * Dangerous Trash Creature Entries & Spells to Counter:
+    - Irontide Enforcer (129602): Brutal Backhand (Spell ID 257426 - frontal knockback cone; dodge behind or tank against wall).
+    - Irontide Bonesaw (129788): Healing Balm (Spell ID 257397 - MUST interrupt with Disrupt 183752 or Chaos Nova 179057, or purge HoT with Consume Magic 278326), Infected Wound (Spell ID 258323 - stacking healing-reduction disease).
+    - Irontide Crackshot (126918): Azerite Grenade (Spell ID 258672 - ground AoE).
+    - Irontide Corsair (126928): Poisoning Strike (Spell ID 257436 / 257437 - stacking poison).
+    - Irontide Oarsman (127111): Sea Spout (Spell ID 258777 - ground knockup swirls; keep moving).
+    - Cutwater Duelist (129559): Duelist Dash (Spell ID 274400).
+    - Cutwater Knife Juggler (129599): Ricocheting Throw (Spell ID 272402).
+    - Cutwater Harpooner (129601): Dragging Harpoon (pulls target in; avoid pulling extra Harpooners when mounted unless killing them).
+    - Blacktooth Scrapper (129529): Blind Rage (Spell ID 257739 - fixates random player; keep low-level player out of threat/aggro table).
+    - Blacktooth Knuckleduster (129547): Shattering Bellow (Spell ID 257732 - PBAoE physical burst + spell interrupt).
+    - Bilge Rat Brinescale (129600): Frost Blast (Spell ID 257784 - frontal root/cone).
+    - Bilge Rat Padfoot (129550): Plague Step (Spell ID 257775).
+    - Vermin Trapper (130404): Rat Traps (Spell ID 274383 / 274389 - ground root/damage traps; jump/Fel Rush clear).
+    - Soggy Shiprat (130024): Scabrous Bite (Spell ID 274555 - stacking debuff).
+    - Irontide Crusher (130400): Boulder Throw (Spell ID 258181), Ground Shatter (Spell ID 258199 - PBAoE stun; step out or stun first).
+    - Irontide Buccaneer (130011): Blade Barrage (Spell ID 257870 - frontal channel; move out).
+    - Irontide Ravager (130012): Painful Motivation (Spell ID 257899 - enrages nearby allies; interrupt or kite briefly).
+    - Irontide Officer (127106): Oiled Blade (Spell ID 257908 - heavy tank hit + -75% healing magic debuff; Blade Dance 188499 dodge / Blur 198589).
+    - Irontide Stormcaller (126919): Thundering Squall (Spell ID 257736 - interrupt).
+  * Final Boss - Harlan Sweete (Creature Entry 126983, Encounter ID 2096; Summons Irontide Grenadier 129758):
+    - Swiftwind Saber (Spell ID 257278; All Hands Spell ID 257454 - dodge directional wind blades).
+    - Cannon Barrage (Spell ID 257305 - kite orange puddles along platform edge away from low-level player).
+    - Avast, ye! (Spell ID 257316) -> Irontide Grenadier (129758) casts Black Powder Bomb (Spell ID 257314 fixate; stun/cleave Grenadier immediately before contact).
+    - Loaded Dice: All Hands! (Spell ID 257402 at 60% HP) & Loaded Dice: Man-O'-War! (Spell ID 257458 at 30% HP).
+  * Exact Freehold Pull-by-Pull Safe Execution (4-6 Minutes per Run):
+    - What to Skip: Skip Skycap'n Kragg (126832), skip Council o' Captains (126845/126847/126848), and skip Ring of Booty (126969). Do NOT clear the side tavern or arena.
+    - Pull 1 (First Island / Entrance Deck, 4-6 packs): Low-level player stays near entrance railing within 70 yards of kill spot (never attacks/heals so stays off threat table). Booster mounts, gathers deck + lower stairs Irontide Enforcers (129602), Crackshots (126918), Corsairs (126928), Mastiffs (128551), and Bonesaws (129788) (skip Skycap'n Kragg's upper terrace). Pop Immolation Aura (258920) -> Chaos Nova (179057, procs Sephuz 132452) -> Eye Beam (198013, triggers Demonic Metamorphosis + Soul Rending leech + Raddon's 137061 + Eyes of Rage 278500 reset) -> Death Sweep (210152) -> Eye Beam (198013) again. Interrupt/purge Healing Balm (257397).
+    - Pull 2 (Cross-Bridge & Middle Causeway Trash, 4-5 packs): Both players mount across the first rope bridge (avoiding Council courtyard on the right and Ring of Booty on the left) toward the long wooden bridge before Admiral's Den. Low-level player parks on a safe side barrel/post ~50-70 yards behind the booster's kill spot. Booster gathers Oarsmen (127111), Cutwater/Bilge Rat/Shiprat packs along the causeway and burns with Eye Beam (198013) + Death Sweep (210152) + Blur (198589) while sidestepping Sea Spout (258777) and Rat Traps (274383).
+    - Pull 3 (Admiral's Den Ramp & Upper Courtyard Trash, 4-5 packs): Low-level player advances to the bridge end within 70 yards of the upper courtyard. Booster pulls Irontide Crusher (130400), Officers (127106), Ravagers (130012), Stormcallers (126919), and Buccaneers (130011) before Harlan Sweete. Use Metamorphosis (162264) + Darkness (196718) + Blur (198589), stun Ground Shatter (258199) with Chaos Nova (179057), interrupt Thundering Squall (257736) with Disrupt (183752), and dodge Oiled Blade (257908) with Death Sweep (210152).
+    - Pull 4 (Harlan Sweete 126983 at (1754, -1583.55, -558.43, 74.00)): Low-level player stands at the edge of Harlan's arena within 70 yards. Booster burns Harlan Sweete (~25-40 sec on Normal), kiting Cannon Barrage (257305) along the opposite side and cleaving any Irontide Grenadier (129758). Killing Harlan Sweete awards the end-of-dungeon boss bonus XP without needing the first 3 bosses.
+    - Reset: Both mount back out (or leave/re-queue/teleport out via macro) and Party Leader selects Reset All Instances. Repeat up to 10 runs/hour.
+
+- Lockout Filler / Horde Alternative (110-120): Atal'Dazar
+  * Instance Map ID: 1763 | Normal LfgDungeonID: 1668 | Portal Min: 110 | Horde LFD Min: 110 (Alliance LFD 120)
+  * Portal Location: Zuldazar (Zandalar Map ID 1642), World Coords (1642, x, y, z): unverified.
+  * Internal Landmark Coords: Vol'kaal platform (1763, -636.18, 2316.12, 709.96); Rezan pit (1763, -846.66, 2247.46, 641.77).
+  * Trash & Boss Safety: Interrupt Feasting Skyscreamer (128434) Terrifying Screech (Spell ID 255041, AoE fear) and Dinomancer Kish'o (129553) Dino Might (Spell ID 256849 heal); drag mobs out of Shieldbearer of Zul (127879) Bulwark of Juju (Spell ID 253721); LOS Rezan's (122963) Terrifying Visage (Spell ID 255371, 5 sec fear) behind bone pillars and kite Pursuit (Spell ID 257407). On fast 3-minute trash resets, clear the central Saurid/Skyscreamer packs + Rezan (122963), then run back up stairs and reset.
+
+
+5. EXPERIENCE REQUIRED PER LEVEL (10-120) AND EXPERIENCE PER DUNGEON
+--------------------------------------------------------------------
+Verified Patch 8.1.0 - 8.3.7 Experience Required to Reach Next Level (Source: warcraft.wiki.gg Experience_to_level):
+- Level 10->11: 9,240    | Level 11->12: 10,780   | Level 12->13: 13,230   | Level 13->14: 16,800   | Level 14->15: 20,380
+- Level 15->16: 24,440   | Level 16->17: 28,080   | Level 17->18: 31,500   | Level 18->19: 34,800   | Level 19->20: 38,550
+- Level 20->21: 41,260   | Level 21->22: 44,230   | Level 22->23: 45,730   | Level 23->24: 46,800   | Level 24->25: 49,540
+- Level 25->26: 51,830   | Level 26->27: 53,480   | Level 27->28: 55,340   | Level 28->29: 56,850   | Level 29->30: 60,030
+- Level 30->31: 62,830   | Level 31->32: 66,170   | Level 32->33: 68,480   | Level 33->34: 71,060   | Level 34->35: 73,280
+- Level 35->36: 75,640   | Level 36->37: 78,120   | Level 37->38: 80,000   | Level 38->39: 82,130   | Level 39->40: 84,020
+- Level 40->41: 86,300   | Level 41->42: 88,840   | Level 42->43: 91,900   | Level 43->44: 95,110   | Level 44->45: 98,210
+- Level 45->46: 101,460  | Level 46->47: 104,740  | Level 47->48: 107,890  | Level 48->49: 111,190  | Level 49->50: 114,520
+- Level 50->51: 117,700  | Level 51->52: 121,040  | Level 52->53: 124,400  | Level 53->54: 127,600  | Level 54->55: 130,960
+- Level 55->56: 134,330  | Level 56->57: 137,540  | Level 57->58: 140,900  | Level 58->59: 144,270  | Level 59->60: 147,470
+- Level 60->61: 152,580  | Level 61->62: 157,120  | Level 62->63: 161,890  | Level 63->64: 166,730  | Level 64->65: 171,470
+- Level 65->66: 176,450  | Level 66->67: 184,520  | Level 67->68: 192,840  | Level 68->69: 201,220  | Level 69->70: 210,030
+- Level 70->71: 219,090  | Level 71->72: 228,200  | Level 72->73: 237,770  | Level 73->74: 247,600  | Level 74->75: 257,470
+- Level 75->76: 267,840  | Level 76->77: 278,480  | Level 77->78: 289,150  | Level 78->79: 300,340  | Level 79->80: 311,810
+- Level 80->81: 323,580  | Level 81->82: 330,950  | Level 82->83: 338,670  | Level 83->84: 346,490  | Level 84->85: 354,110
+- Level 85->86: 362,100  | Level 86->87: 370,180  | Level 87->88: 378,050  | Level 88->89: 386,310  | Level 89->90: 394,650
+- Level 90->91: 406,940  | Level 91->92: 415,510  | Level 92->93: 424,160  | Level 93->94: 432,590  | Level 94->95: 441,410
+- Level 95->96: 450,330  | Level 96->97: 459,330  | Level 97->98: 468,420  | Level 98->99: 477,610  | Level 99->100: 486,550
+- Level 100->101: 492,540| Level 101->102: 497,060| Level 102->103: 501,580| Level 103->104: 506,100| Level 104->105: 510,620
+- Level 105->106: 515,140| Level 106->107: 519,660| Level 107->108: 524,180| Level 108->109: 528,690| Level 109->110: 533,210
+- Level 110->111: 537,730| Level 111->112: 831,000| Level 112->113: 837,930| Level 113->114: 844,850| Level 114->115: 851,780
+- Level 115->116: 858,700| Level 116->117: 865,630| Level 117->118: 872,550| Level 118->119: 879,480| Level 119->120: 886,400
+(Cumulative XP 110->120: 8,266,050 XP; Cumulative XP 111->120: 7,728,320 XP.)
+
+Experience Gained Per Dungeon at Each Level:
+- Levels 10 to 109 (exact integer XP per dungeon at each individual level): unverified (no authoritative source publishes exact per-level total XP per run across levels 10-109, as total XP varies dynamically with trash count pulled, heirlooms, rested state, LFD random bonus vs walk-in gray-carry penalty, and server GameTable "xp.txt" [sXpGameTable] / Rate.XP.Kill).
+- TrinityCore 35662 Per-Kill Formula Reference (verified in Formulas.h, GameTables.cpp, & KillRewarder.cpp):
+  * Base mob kill XP = sXpGameTable ("xp.txt")[playerLevel].PerKill * (0.1 if creature HealthScalingExpansion < player expansion else 1.0) * (2.75 for dungeon elites) * creature ModExperience * Rate.XP.Kill.
+  * 2-player group share = 1.0 * playerLevel / (playerLevel + 111); if 111 booster sees the mob as gray (mob level <= 101), result is additionally divided by 2.
+- Levels 110 to 120 - Freehold Normal 2-Player Route (111 Booster + 110-119 Player, 3 trash pulls + Harlan Sweete):
+  * Exact integer XP gained per run at each individual level 110-119: unverified.
+  * Community-reported 8.x Retail benchmark (un-rested, 2-player group, with heirlooms): roughly ~3 to 4 Freehold Normal runs per level across 110-120 (~25-35 runs total, paced by the 10 instances/hour lockout on Retail or AccountInstancesPerHour = 5 default on stock TrinityCore).
