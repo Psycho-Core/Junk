@@ -66,9 +66,9 @@ Bracket: level 29 (20-29).
                          chill is automatic, so the bonus is automatic.
      Lonely Winter     - no Water Elemental, but Frostbolt, Ice Lance and
                          Flurry deal 25% more. Id unverified.
-                         If a level 29 cannot summon the elemental yet -
-                         unverified - this is the strongest column in the
-                         row, because the cost never applies.
+                         The cost is the elemental, so if a level 29 cannot
+                         summon one yet - unverified - the talent is simply
+                         free, and it is then the strongest column here.
      Ice Nova          - an area root. Id unverified.
                          The PvP pick. A mage that is being run down by
                          melee wants the root more than the damage, and
@@ -77,8 +77,10 @@ Bracket: level 29 (20-29).
 
 4. ROWS THAT ARE NOT OPEN AT 29 - ALL ALT
    Arcane  rows 2 to 7: level 30, 45, 60, 75, 90, 100. Includes Shimmer -
-           the double Blink every mage wants, which is a level 30 talent
-           and therefore out of reach by one level.
+           the double Blink every mage wants. It sits in the second row in
+           every list that can be reached, and by the same row-shift
+           argument the first row uses, that makes it level 30 in BfA and
+           out of reach by one level. Inference, not a reading.
    Fire    rows 2 to 7: the same levels. Includes Blazing Soul, Blast Wave
            and Shimmer.
    Frost   rows 2 to 7: the same levels. Includes Glacial Insulation, Ice
