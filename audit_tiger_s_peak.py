@@ -402,6 +402,17 @@ def derived_stage(text):
         lines.append("    %-20s doc %9.4f      recomputed %9.4f  %s"
                      % (label, want, got, mark))
 
+    m = re.search(r"Arena centre: about (-?\d+\.\d+), (-?\d+\.\d+)", text)
+    if not m:
+        raise RuntimeError("centre claim missing")
+    want_x, want_y = float(m.group(1)), float(m.group(2))
+    for label, want, got in (("centre X", want_x, cx), ("centre Y", want_y, cy)):
+        mark = "ok " if abs(got - want) <= 0.01 else "BAD"
+        if mark == "BAD":
+            ok = False
+        lines.append("    %-20s doc %9.3f      recomputed %9.3f  %s"
+                     % (label, want, got, mark))
+
     m = re.search(r"Only (\d+\.\d+) units apart on X", text)
     if m:
         want = float(m.group(1))
@@ -509,6 +520,8 @@ def main():
         "radians changed": original.replace("3.14653 rad", "1.14653 rad"),
         "orb step changed": original.replace("2.9733 above gate 1",
                                              "3.9733 above gate 1"),
+        "centre changed": original.replace("about 566.921, 633.369",
+                                           "about 566.961, 633.369"),
     }
     survived = []
     for name, probe in probes.items():

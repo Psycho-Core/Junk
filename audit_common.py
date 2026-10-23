@@ -59,11 +59,20 @@ def mutation_probe(corpora, token_map, mutate):
 
 
 def _triples(corpus):
-    """All (x, y, z) triples in a corpus, rounded for comparison."""
+    """All (x, y, z) triples in a corpus, rounded for comparison.
+
+    Works on maximal comma-separated runs of decimal numbers and emits
+    every consecutive window of three, so a triple taken from the middle
+    of a longer run (a position followed by a quaternion, say) is traced
+    too instead of being invisible to the check.
+    """
     found = set()
-    for m in re.finditer(
-            r"(-?\d+\.\d+)f?,\s*(-?\d+\.\d+)f?,\s*(-?\d+\.\d+)", corpus):
-        found.add(tuple(round(float(m.group(i)), 3) for i in (1, 2, 3)))
+    run = re.compile(r"-?\d+\.\d+(?:f?,\s*f?-?\d+\.\d+)+")
+    for m in run.finditer(corpus):
+        nums = [float(x.replace("f", "").strip())
+                for x in re.findall(r"-?\d+\.\d+f?", m.group(0))]
+        for i in range(len(nums) - 2):
+            found.add(tuple(round(n, 3) for n in nums[i:i + 3]))
     return found
 
 

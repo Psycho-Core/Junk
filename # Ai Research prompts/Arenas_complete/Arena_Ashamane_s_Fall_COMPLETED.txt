@@ -1,0 +1,277 @@
+=== ASHAMANE'S FALL - MAP 1552 - COMPLETED ===
+
+8.3.7 build 35662.
+
+Arena map ID: 1552
+  Map.dbc directory: ValsharahArena
+  InstanceType: 4 (arena)
+  Client instance list: 1552 "Ashamane's Fall"
+  AreaTable zone: 8008 (the outer Val'sharah zone is 8164)
+  ExpansionID field in the map row: 6
+  WDT FileDataID: 1309335
+  No legacy duplicate: the 8.3.7 map dump has a single
+  ValsharahArena entry
+
+Battleground entry: 816 "Arena Ashamanes Fall"
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 90, MaxLvl 120
+  AllianceStartLoc 5307, HordeStartLoc 5308, StartMaxDist 0
+  Weight 1
+
+Location: Val'sharah, the shrine where Ashamane fell
+Added: patch 7.0.3 (2016-07-19), Legion. Eighth arena map, counting
+  from Ring of Trials as the first; the wiki calls Tiger's Peak the
+  seventh and this map came next
+
+=== 1. START POSITIONS (world_safe_locs, map 1552) ===
+
+Team 1 / Alliance (WorldSafeLoc 5307 = AllianceStartLoc):
+  X: 3539.43
+  Y: 5472.07
+  Z: 325.436
+  Facing: 88.5499 deg = 1.5455 rad
+  Comment: "Arena - Val'sharah - Teleport Target - Team 1"
+
+Team 2 / Horde (WorldSafeLoc 5308 = HordeStartLoc):
+  X: 3548.62
+  Y: 5601.11
+  Z: 325.227
+  Facing: 268.325 deg = 4.6832 rad
+  Comment: "Arena - Val'sharah - Teleport Target - Team 2"
+
+Game On target (WorldSafeLoc 5306):
+  X: 3542.7
+  Y: 5538.14
+  Z: 324.235
+  Facing: 0.00848389 deg = 0.000148 rad
+  Comment: "Arena - Val'sharah - Teleport Target - Game On"
+
+No arena graveyard row exists on map 1552 in this dump. The map
+has exactly three targets: the two starts and Game On. Where the
+dead respawn is unverified; the core resolves graveyards from
+game_graveyard_zone, which is not part of this dump.
+
+Derived from those points (arithmetic on verified values):
+  Distance start to start: 129.37 units
+  Arena centre: about 3544.02, 5536.59
+  Each start is 64.68 units from that centre, dead even
+  Start axis is close to Y: 129.04 apart on Y, 9.19 apart on X,
+  so the axis is 4.07 degrees off a clean Y line
+  The two facings are 180 degrees apart to within 0.22
+  Game On target is 2.04 units from the centre
+
+=== 2. GATES ===
+
+Team 1 gate (GO 250430):
+  X: 3540.02
+  Y: 5487.5
+  Z: 323.943
+  Orientation: 1.59691 rad
+  Rotation passed to the core: 0.0, 0.0, 0.0
+  Team 1 start stands 15.44 units behind it
+
+Team 2 gate (GO 250431):
+  X: 3548.0
+  Y: 5585.18
+  Z: 323.617
+  Orientation: 4.78249 rad
+  Rotation passed to the core: 0.0, 0.0, 0.0
+  Team 2 start stands 15.94 units behind it
+
+Distance between the two gates: 98.01 units
+The gate line is narrower than the spawn line: 98.01 against
+129.37. Each gate is 15.4 to 15.9 units in front of its own
+start and 113.4 to 113.9 units from the enemy start.
+Both gate objects sit below the spawn floor, 1.493 and 1.610
+units. Whether that is a step down or just where the door model's
+pivot sits is unverified.
+Both gates open at match start. Area triggers 4536 and 4537 are
+handled as no-ops on this map, the same two ids Tiger's Peak
+uses; they belong to a different map's numbering and do nothing.
+
+=== 3. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+Three pillars in a triangular layout, on a circular floor.
+
+  "Ashamane's Fall is a circular map that features two square
+   pillars and a rectangular pillar set out in a triangular
+   formation."   (Liquipedia)
+
+  "Three Large Pillars located around the outside of the room,
+   circular arena, Pillars are closer than the Tol'viron Pillars"
+   (Ministry of Defense arena guide, 2020-01-10)
+
+  "a relatively small map with 3 small pillars ... It is
+   circular and has thick bushes on the outside"
+   (NamuWiki arena page)
+
+The sources agree on three pillars and a circular arena. They do
+not fully agree on placement: Liquipedia says a triangular
+formation, the other two describe the pillars as around the
+outside of the room. Both can be true at once - a triangle set
+toward the rim - and that is the reading used here. The map is
+smaller than Tol'viron, so the three pillars sit closer together
+than Tol'viron's four.
+
+Pillar count: 3. Verified by three independent sources
+Pillar positions, size and shape: unverified. Nothing in server
+  data places them, and no readable source gives x, y, z
+Only one of the three is rectangular; two are square
+No other LoS object is spawned: the map spawns exactly four
+  objects, two gates and two orbs
+
+=== 4. HEIGHT LEVELS AND RAMPS ===
+
+One main level. Every Z value the server gives us for this map:
+
+  Team 2 gate:        323.617
+  Game On target:     324.235
+  Team 1 gate:        323.943
+  Team 2 start:       325.227
+  Team 1 start:       325.436
+  Shadow Sight A:     325.824
+  Shadow Sight B:     326.795
+
+Full spread across all seven points: 3.178 units.
+The two spawn floors differ by 0.209 units, which is terrain
+unevenness, not a level change.
+
+No ramp is described in any readable source for this map. The
+one player account that mentions a ramp does not say where it
+is, and no server data supports one. Ramps: unverified.
+
+The two orbs are the only points that sit meaningfully above the
+spawn floor, Shadow Sight B by 1.359 and Shadow Sight A by 0.388
+units over the Team 1 start. That is consistent with the orbs
+resting on a raised base, a plinth or a step, but which one is
+unverified.
+
+=== 5. USUAL FIRST POSITIONS BY ROLE ===
+
+Three pillars and a small circular floor. The walk from each
+spawn to the centre is 64.68 units, and the gate line is
+narrower than the spawn line, so both teams funnel inward.
+
+Melee DPS:
+  Take the nearest pillar and use its face, not the centre. With
+  only three pillars the cover is scarce, so the fight is decided
+  by who owns the pillar nearest their own spawn
+  The map is small; there is no long rotation to reset, so do not
+  chase across the open middle
+
+Ranged DPS:
+  Three pillars on a small circle means constant repositioning
+  rather than one safe spot. Hug the pillar that keeps the other
+  two between you and the enemy melee
+  Because the pillars sit close to the rim, the centre is open -
+  avoid holding it against a melee cleave
+
+Healers:
+  Circle the pillars rather than standing still. The map is
+  small enough that a healer can keep the whole arena in range
+  from just outside the centre
+  Do not park on the side of a pillar that faces the enemy spawn
+
+General opener notes:
+  Both teams are 64.68 from the centre, so first contact is
+  simultaneous
+  The gate line is 31.36 units narrower than the spawn line, so
+  the two teams are pushed toward each other on the way in
+  Both Shadow Sight orbs sit off the start axis, so taking one
+  costs a detour
+
+=== 6. BUFF PICKUPS ===
+
+Only Shadow Sight exists on this map.
+
+Shadow Sight A (GO 184663):
+  X: 3504.79
+  Y: 5499.64
+  Z: 325.824
+  Orientation: 0.822952 rad
+  About 53.90 units from the arena centre
+
+Shadow Sight B (GO 184664):
+  X: 3574.51
+  Y: 5576.24
+  Z: 326.795
+  Orientation: 4.08236 rad
+  About 50.01 units from the arena centre
+
+The two orbs are 103.58 units apart, on opposite sides of the
+centre, and they are not symmetric about the start axis: 53.90
+against 50.01 units from the centre, a difference of 3.88 units.
+
+Spawn: 60 s after the gates open (core spawn call)
+Spell: 34709 Shadow Sight - 15 s, stealth and invisibility
+  detection, +5% damage taken while active
+The wiki quotes 90 s as the arena appearance time, the BfA core
+spawns them at 60 s; the exact retail 8.3.7 delay is unverified
+Respawn after pickup: unverified on this map. The zone file puts
+  120 in the object call, but see section 7 - that value never
+  reaches a spawn time on this core.
+
+No health, mana, haste or berserking pickups are spawned here.
+The core spawns exactly four objects on this map - two gates and
+two orbs - so any other pickup would have to be placed by the
+map itself, and none is.
+
+=== 7. MATCH FLOW NOTES ===
+
+Gates close before the start and open together.
+Worldstate 0xE1A is set to 1 on this map.
+Dampening applies like every other arena.
+Arena Preparation is applied on zone-in.
+No out-of-bounds or under-map return points are wired in the BfA
+core for this map.
+
+Zone-file defect worth knowing, because it changes orb behaviour:
+BattlegroundAF.cpp passes only three rotation floats to AddObject
+and then the respawn value, so the arguments are misaligned by
+one. The core signature wants four rotation floats followed by a
+respawn time. In this core the respawn time parameter is unused
+and the four floats become the game object's quaternion, so:
+  - the two gates pass 0, 0, 0 then RESPAWN_IMMEDIATELY (0),
+    giving four zeros, which trips the core's zeroed-rotation
+    fallback and builds the quaternion from the orientation
+    field, so the gates end up correct
+  - the two orbs pass 0, 0, 0 then 120, giving the quaternion
+    0, 0, 0, 120, which is not a unit quaternion, so the fallback
+    does not trigger and the orbs keep a bad rotation
+The practical effect is cosmetic on the orbs and harmless on the
+gates, and the 120 was never a respawn time here anyway.
+
+=== 8. SOURCES AND CONFIDENCE ===
+
+Sources:
+- world_safe_locs (TrinityCore 8.x dump): ids 5306, 5307, 5308
+  on map 1552
+- battleground_template: id 816 "Arena Ashamanes Fall",
+  AllianceStartLoc 5307, HordeStartLoc 5308, StartMaxDist 0,
+  max 5 per team, level 90-120
+- HavenWoW/BFA-HavenCore BattlegroundAF.cpp and .h: gates
+  250430/250431, buffs 184663/184664, coordinates, worldstate,
+  triggers; Battleground.cpp and .h for the AddObject signature
+  and the zeroed-rotation fallback
+- Ghostopheles/Datamine Map_ValsharahArena.lua: map 1552,
+  directory ValsharahArena, InstanceType 4, ExpansionID 6,
+  WDT 1309335
+- Warcraft Wiki "Ashamane's Fall": Val'sharah shrine, patch
+  7.0.3, arena zone 8008
+- Liquipedia "Ashamane's Fall": circular map, two square pillars
+  and a rectangular pillar in a triangular formation
+- Ministry of Defense arena guide (2020-01-10): three large
+  pillars around the outside, circular, closer than Tol'viron
+- NamuWiki arena page: small map, three small pillars, circular,
+  thick bushes outside
+- Wowhead zone 8008; Warcraft Wiki "Shadow Sight"
+
+Unverified:
+- Pillar positions, exact footprint and height
+- Whether the pillars stand in a triangle or around the rim, as
+  the sources disagree
+- Boundary wall and bush shape
+- Any ramp or second level
+- Graveyard location (no row on map 1552 in the 8.x dump)
+- Orb respawn after pickup (see section 7)
+- What area triggers 4536 and 4537 do
+- Exact retail 8.3.7 Shadow Sight spawn delay

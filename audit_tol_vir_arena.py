@@ -353,6 +353,17 @@ def derived_stage(text):
         lines.append("    %-20s doc %9.6f rad  recomputed %9.6f  %s"
                      % (deg_s + " deg", want, got, mark))
 
+    m = re.search(r"Arena centre: about (-?\d+\.\d+), (-?\d+\.\d+)", text)
+    if not m:
+        raise RuntimeError("centre claim missing")
+    for label, want, got in (("centre X", float(m.group(1)), cx),
+                             ("centre Y", float(m.group(2)), cy)):
+        mark = "ok " if abs(got - want) <= 0.01 else "BAD"
+        if mark == "BAD":
+            ok = False
+        lines.append("    %-20s doc %9.2f      recomputed %9.2f  %s"
+                     % (label, want, got, mark))
+
     # gate sill drop and floor flatness, both parsed from the document
     m = re.search(r"gates sit ([\d.]+) units below", text)
     if not m:
@@ -494,6 +505,8 @@ def main():
         "radians changed": original.replace("3.1832 rad", "1.1832 rad"),
         "sill changed": original.replace("0.876 units below",
                                          "1.876 units below"),
+        "centre changed": original.replace("-10714.05, 429.52",
+                                           "-10714.15, 429.52"),
     }
     survived = []
     for name, probe in probes.items():
