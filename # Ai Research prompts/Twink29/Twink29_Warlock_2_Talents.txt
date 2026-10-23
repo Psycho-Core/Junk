@@ -1,0 +1,109 @@
+TWINK29 - WARLOCK - STEP 2 OF 3 - TALENTS, NORMAL AND PVP
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+
+0. WHAT A LEVEL 29 HAS
+   Normal talents: seven rows, unlocked at 15, 30, 45, 60, 75, 90 and 100.
+   A level 29 character owns the first row only, one point.
+   PvP talents: three slots at 20, 40 and 70. A 29 owns the first slot
+   only, and even then a PvP talent is legal only if its own level is 20
+   or lower.
+   So the answer for each spec is small: one level 15 talent, and one PvP
+   talent if a legal one exists.
+   V = read off the talent's wiki page including the patch line that states
+   its BfA level. A current tooltip is not evidence: several of these
+   talents moved rows after 8.3.7, and three of the six named below changed
+   level between Battle for Azeroth and 9.0.1, which is the whole trap.
+
+1. AFFLICTION
+   LEVEL 15 ROW
+     Nightfall, spell id unverified. Passive. Corruption's damage has a
+     chance to make your next Shadow Bolt instant and hit harder. 8.0.1
+     re-added it as a level 15 Affliction talent, and 8.3.0 raised the
+     damage bonus from 25% to 50% and the chance to trigger by 33% (V), so
+     50% is the 8.3.7 number. The current tooltip also says Drain Soul
+     channels 50% faster while affected; whether 8.3.7 had that half is
+     unverified.
+   TRAP  Writhe in Agony is not available to a 29. 8.0.1 moved it to a
+     level 30 talent, and it only came back down to 15 in 9.0.1 (V). This
+     is the Affliction talent every current guide lists first, and it is
+     one level out of reach here.
+   THE THIRD TALENT of the row was not read for this file, so it is not
+     named. One legal option of the row is what the sources support.
+   PICK  Nightfall. It is passive, it fires off Corruption, and a bot needs
+     no instruction to get value from it.
+   PVP  see section 4.
+
+2. DEMONOLOGY
+   LEVEL 15 ROW
+     Dreadlash, spell 264078. Passive. When your Dreadstalkers charge in,
+     their Dreadbite hits all targets within 8 yards. It was added in 8.0.1
+     as a level 15 Demonology talent (V); the 10% damage bonus on the same
+     page is a 9.0.5 change and was not in 8.3.7.
+   THE OTHER TALENTS of the row were not read, and the file does not name
+     them. Demonology's row is the one most likely to have moved level
+     between 8.0 and 8.3, which is why the patch line matters more here
+     than anywhere else in the file.
+   PICK  Dreadlash. It upgrades a spell a Demonology bot is casting anyway,
+     and the cleave is worth more in a battleground than a single target
+     line.
+   PVP  see section 4.
+
+3. DESTRUCTION
+   LEVEL 15 ROW
+     Flashover, spell 267115. Passive. Conflagrate deals 25% more damage
+     and grants an additional charge of Backdraft (V). Added in 8.0.1 as a
+     level 15 Destruction talent and removed in 10.0.0; no patch in between
+     changed the 25%, so 25% is the 8.3.7 number.
+   TRAP  Eradication is not available to a 29. 9.0.1 says "Now available at
+     level 15 (was 30)" (V), so in 8.3.7 it was a level 30 talent. Its BfA
+     damage bonus was 10%, cut from 15% in 8.0.1, which is the number a
+     current page will not show.
+   THE THIRD TALENT of the row was not read.
+   PICK  Flashover. An extra Backdraft charge is extra free cast speed, and
+     a Destruction bot spends Conflagrate on cooldown.
+   PVP  see section 4.
+
+4. THE PVP SLOT AT LEVEL 20
+   LEGAL AND VERIFIED
+     Nether Ward, spell 212295, level 20, 45 sec cooldown. Surrounds the
+     caster with a shield lasting 3 sec that reflects all harmful spells
+     cast on you. 8.0.1 converted it from a rank 40 honor talent and no
+     later patch changed its level (V), so 20 is right for 8.3.7 too.
+     Note the page contradicts itself on the duration: the ability line says
+     3 sec and the buff it applies says 5 sec. Both are printed here
+     because neither was resolved.
+   WHY IT IS THE PICK  A 29 warlock's problem is the same as a 29 priest's:
+     a fear or a stun lands and the character stops playing. Nether Ward is
+     not a break, it is a reflect, so it has to be up before the cast
+     rather than after - which for a computer-controlled companion means a
+     scripted pre-cast, not a reaction.
+   NOT VERIFIED
+     Rapid Contagion, Call Fel Lord, Bane of Havoc, Jinx, Impish Instincts,
+     Gateway Mastery, Soul Swap and Shadow Rift are all warlock PvP talents
+     that existed in some part of BfA, but none of their BfA levels was read
+     for this file. Any of them may be legal at 20; the file does not claim
+     it either way, and Nether Ward is the only one it can stand behind.
+   THE PATTERN TO REMEMBER  Psyfiend for priests was level 40 in BfA and
+     became 20 only in 9.0.1. Warlock PvP talents went through the same
+     renumbering, so a current list of "level 20 options" is a 9.0 or later
+     list, not a BfA one.
+
+5. THE THREE LOADOUTS
+   AFFLICTION  Nightfall. PvP Nether Ward.
+   DEMONOLOGY  Dreadlash. PvP Nether Ward.
+   DESTRUCTION  Flashover. PvP Nether Ward.
+   The three damage specs have one verified level 15 talent each and they
+   share the one verified PvP talent, so in practice the choice at 29 is
+   made by the spec, not by the player.
+
+6. WHAT IS SOLID AND WHAT IS NOT
+   Solid: the row and slot gating, one level 15 talent per spec with its
+   8.3.7 numbers (Nightfall 50%, Dreadlash cleave with no damage bonus,
+   Flashover 25%), Nether Ward at 20, and the two traps (Writhe in Agony
+   level 30, Eradication level 30).
+   Not solid: the third talent of every row, the eight other PvP talents'
+   BfA levels, the Nightfall Drain Soul half, and every spell id in the
+   file except 264078 (Dreadlash), 267115 (Flashover) and 212295 (Nether
+   Ward), which are the three links a 8.x-era id was printed for. Nightfall
+   and all eight unread PvP talents carry no id, which is deliberate.

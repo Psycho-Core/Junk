@@ -154,9 +154,9 @@ OFF|no off-hand beats a staff on raw numbers: the staff is one item and
      and nothing in the item pool changes with the pet, so the two
      damage specs wear one set.
    DESTRUCTION  Identical. Destruction wants crit, so 7712 Mantle of Doan
-     and 7713 Illusionary Rod are the two pieces that carry it, and 55929
-     Skull-Scorched Cloak is the crit cloak if the Warsong cape is not
-     yet bought.
+     and 7713 Illusionary Rod are the two pieces that carry it. 55929
+     Skull-Scorched Cloak has 5 crit on it but it is +6 Strength +4
+     Stamina, so it is not a warlock cloak - the Warsong cape stays.
 
 5. WHAT TO WEAR, SLOT BY SLOT
    HEAD      2721 Holy Shroud, then 65914, then 61958 or 20832.
