@@ -1,0 +1,363 @@
+=== EYE OF THE STORM COORDINATES - BFA 8.3.7 (TRINITYCORE) - COMPLETED ===
+Battleground_Coordinates - prompt 3 of 8 (Eye of the Storm, map 566).
+Every coordinate is written as: map id, x, y, z. Values are reproduced
+exactly from the named source; nothing is estimated. Where no readable
+source exists the entry says "unverified".
+
+=== 0. HOW TO READ / ORIENTATION ===
+Facing values are reproduced exactly as stored (world_safe_locs rows: same
+degrees-like convention as the other files; AzerothCore StartO: radians;
+script floats: as written). None of them was converted.
+No readable source assigns north/south/east/west to map 566's axes: the
+dump carries no direction labels and the wiki map images could not be read
+at available resolution. This file therefore
+makes NO compass claims about Eye of the Storm - layout is given by
+tower names, coordinates, bands and straight-line distances only.
+Vertical relief (recomputed from sourced z values): the two start plateaus
+(z 1247.7 / 1249.19) sit about 51-59 yd above the tower platforms
+(z 1189.96 - 1197.11), and the central flag plaza (z 1160.361938) sits
+about 30-37 yd below the towers.
+Route legs are straight-line distances between sourced landmarks. They are
+NOT walkable-path measurements: no pathing/navmesh source for map 566 could
+be read (unverified).
+Layout bands (sourced coordinates): Blood Elf and Draenei tower spots sit
+at y 1393.65 / 1402.36; Fel Reaver and Mage tower spots at y 1729.68 /
+1731.23; Fel Reaver and Blood Elf at x 2044.28 / 2048.83; Draenei and
+Mage at x 2286.56 / 2284.48. By straight-line distance the Alliance
+start's two nearest towers are Mage Tower (275 yd) and Draenei Ruins
+(306 yd); the Horde start's two nearest are Blood Elf Tower (286 yd) and
+Fel Reaver Ruins (307 yd).
+
+=== 1. MAP ID ===
+566 = Eye of the Storm. warcraft.wiki InstanceID row: "566 ... NetherstormBG
+... [[:Eye of the Storm]] ... Battleground ... 2.0.0". All dump rows below
+are map 566 with comments starting "Netherstorm BG" (TrinityCore 8.x world
+dump), and AzerothCore's battleground_template has an Eye of The Storm row.
+Rated counterpart (warcraft.wiki InstanceID row): "968 ... cata-inline
+  ... Eye of the Storm|Rated Eye of the Storm" - map 968 is the Rated Eye
+  of the Storm (added in the Cataclysm era, like the other battlegrounds'
+  rated twins). The prompt for this step names only map 566; both ids are
+  documented here because the same TrinityCore dump carries a complete
+  parallel world_safe_locs set on map 968 (section 5).
+  The script (BattlegroundEY) and AzerothCore's template row bind only to
+  the map-566 set; whether your server queues map 968 (and with which
+  battleground_template row) is unverified.
+Which map id and template row your server's battleground_template queues is
+unverified - the server database is not in the repository.
+
+=== 2. TEAM STARTS AND BASE POSITIONS ===
+Starts (TrinityCore 8.x dump, world_safe_locs; the same rows double as each
+team's main graveyard - see section 5):
+  Alliance, map 566: id 1103 "Netherstorm BG - Graveyard (Alliance Start)"
+    (566, 2523.76, 1596.13, 1247.7)   o 180
+  Horde, map 566: id 1104 "Netherstorm BG - Graveyard (Horde Start)"
+    (566, 1803.02, 1539.97, 1249.19)  o 0
+Retail-lineage linkage (AzerothCore battleground_template row, verbatim):
+  (7,8,15,61,80,1103,3.03123,1104,0.055761,10,1,'','Eye of The Storm
+  (battleground)') - i.e.:
+  AllianceStartLoc = 1103 (AllianceStartO 3.03123 rad),
+  HordeStartLoc = 1104 (HordeStartO 0.055761 rad).
+  The AC base row's ScriptName is empty. Which ids your own database
+  uses is unverified.
+Start gate doors (HavenWoW BattlegroundEY.cpp SetupBattleground,
+  RESPAWN_IMMEDIATELY at setup):
+  gameobject 184719 (Alliance door) (566, 2527.6, 1596.91, 1246.0)
+    o -3.12414
+  gameobject 184720 (Horde door) (566, 1803.21, 1539.49, 1246.0)
+    o 3.14159
+  Straight-line distances (recomputed): Alliance start to 184719 = 4 yd,
+  Horde start to 184720 = 1 yd - the doors sit right at the spawn points.
+Start bubble / exploit rows (dump + script enum EY_EXPLOIT_TELEPORT_...):
+  id 3772 "Forcefield Target 000" (566, 1808.21, 1539.49, 1267.41) o 360
+    = EY_EXPLOIT_TELEPORT_LOCATION_HORDE (Horde start, +18.2 yd in z)
+  id 3773 "Forcefield Target 001" (566, 2523.51, 1596.58, 1269.27) o 180
+    = EY_EXPLOIT_TELEPORT_LOCATION_ALLIANCE (Alliance start, +21.6 yd in z)
+  The dump contains a second, coordinate-identical pair on map 566 -
+  id 3951 "Forcefield Target 000" (566, 1808.21, 1539.49, 1267.41) o 360
+  and id 3952 "Forcefield Target 001" (566, 2523.51, 1596.58, 1269.27)
+  o 180 - not referenced by the readable script (purpose unverified).
+  Players start inside a bubble for the first minute (warcraft.wiki basic
+  rules); the script teleports exploiters to the Forcefield Target rows.
+
+=== 3. OBJECTIVES (FLAGS, TOWERS, NO ORBS/MINES/CARTS) ===
+No orbs, no mines and no mine cart depots exist in Eye of the Storm (both
+readable rulesets use four towers plus one central flag only).
+Four towers (warcraft.wiki: Blood Elf Tower, Draenei Ruins, Fel Reaver
+Ruins, Mage Tower). For each tower the script keeps the same three
+positions (reproduced from BattlegroundEY.cpp/.h):
+  Fel Reaver Ruins: tower flag / capture spot
+    (566, 2044.28, 1729.68, 1189.96) o -0.017453 - gameobject 184493,
+    WORLD_TRIGGER 12999 also maintained here (BG_EY_TriggerPositions[0]
+    o 0.017453)
+    capture-point marker gameobject 184081
+      (566, 2024.600708, 1742.819580, 1195.157715)  o 2.443461
+    visual banners (center / left / right, all three colors share the
+    positions):
+      (566, 2057.46, 1735.07, 1187.91), (566, 2032.25, 1729.53, 1190.33),
+      (566, 2092.35, 1775.46, 1187.08)
+    banner gameobjects: 184381 Alliance, 184380 Horde, 184382 Neutral
+    capture area trigger id 4514 (TR_FEL_REAVER_POINT)
+    graveyard id 1105
+  Blood Elf Tower: tower flag / capture spot
+    (566, 2048.83, 1393.65, 1194.49) o 0.20944 - gameobject 184493 +
+    WORLD_TRIGGER 12999 (BG_EY_TriggerPositions[1])
+    capture-point marker gameobject 184080
+      (566, 2050.493164, 1372.235962, 1194.563477)  o 1.710423
+    visual banners:
+      (566, 2047.19, 1349.19, 1189.0), (566, 2074.32, 1385.78, 1194.72),
+      (566, 2025.13, 1386.12, 1192.74)
+    capture area trigger id 4476 (TR_BLOOD_ELF_POINT)
+    graveyard id 1106
+  Draenei Ruins: tower flag / capture spot
+    (566, 2286.56, 1402.36, 1197.11) o 3.72381 - gameobject 184493 +
+    WORLD_TRIGGER 12999 (BG_EY_TriggerPositions[2])
+    capture-point marker gameobject 184083
+      (566, 2301.010498, 1386.931641, 1197.183472)  o 1.570796
+    visual banners:
+      (566, 2276.8, 1400.41, 1196.33), (566, 2305.78, 1404.56, 1199.38),
+      (566, 2245.4, 1366.41, 1195.28)
+    capture area trigger id 4518 (TR_DRAENEI_RUINS_POINT)
+    graveyard id 1107
+  Mage Tower (Human Tower): tower flag / capture spot
+    (566, 2284.48, 1731.23, 1189.99) o 2.89725 - gameobject 184493 +
+    WORLD_TRIGGER 12999 (BG_EY_TriggerPositions[3])
+    capture-point marker gameobject 184082
+      (566, 2282.121582, 1760.006958, 1189.707153)  o 1.919862
+    visual banners:
+      (566, 2270.84, 1784.08, 1186.76), (566, 2269.13, 1737.7, 1186.66),
+      (566, 2300.86, 1741.25, 1187.7)
+    capture area trigger id 4516 (TR_MAGE_TOWER_POINT)
+    graveyard id 1108
+  Capture mechanic: players stand inside the tower's area trigger to
+  capture; more own players than enemy players inside speeds it up, and
+  the script counts at most 5 players per side per tower
+  (BG_EY_POINT_MAX_CAPTURERS_COUNT = 5; warcraft.wiki: "the more people
+  standing in them the faster the capture goes").
+Central flag (the flag room / flag stand):
+  gameobject 184141 (flagstand, shown at start)
+    (566, 2174.782227, 1569.054688, 1160.361938)  o -1.448624
+  gameobject 184493 is also used for the four tower flags (above);
+  gameobject 184142 (flagdrop) is defined in the script but never spawned
+  by it - the dropped-flag object's position mechanics are unverified.
+  Pickup: click within 10 yd (EventPlayerClickedOnFlag); carry aura
+  spell 34976, dropped state spell 34991. If the carrier dies the flag
+  drops; if it is not picked up it returns to its spawn after 8 seconds
+  (BG_EY_FLAG_RESPAWN_TIME = 8 * IN_MILLISECONDS). Deliver it to any tower
+  your team controls (warcraft.wiki + script).
+Scoring (script and warcraft.wiki agree on the tables):
+  win at 1600 points (BG_EY_MAX_TEAM_SCORE = 1600; wiki: first to 1600).
+  passive per tower held: BG_EY_TickPoints = {1, 2, 5, 10} per tick,
+  script tick every 2 s (BG_EY_FPOINTS_TICK_TIME = 2*IN_MILLISECONDS);
+  wiki states these values are earned every second - the cadence
+  difference (script 2 s vs wiki 1 s) is unverified for retail.
+  flag capture: BG_EY_FlagPoints = {75, 85, 100, 500} for 1/2/3/4 towers
+  held at the moment of capture (index = towers owned - 1), matching the
+  wiki table.
+
+=== 4. WALKING ROUTES ===
+Reading rule as in the other files: "legs" = straight-line start -> own
+gate door -> objective; "direct" = straight-line start -> objective.
+NOT walkable-path measurements; actual walkability is unverified. Source-
+backed terrain features only: start plateaus are ~51-59 yd above the tower
+platforms, the center plaza is the lowest point (~30-37 yd below the
+towers), towers sit on hills used for defense (warcraft.wiki: "Fights
+should take place near a tower, on the hill"), and falling into the void
+between the land masses kills (warcraft.wiki).
+From Alliance start (1103), via gate door 184719:
+  -> Mage Tower:     legs: 4 yd, 278 yd   direct 275 yd
+  -> Draenei Ruins:  legs: 4 yd, 310 yd   direct 306 yd
+  -> Fel Reaver:     legs: 4 yd, 501 yd   direct 498 yd
+  -> Blood Elf Tower: legs: 4 yd, 520 yd  direct 516 yd
+  -> central flag:   legs: 4 yd, 354 yd   direct 350 yd
+From Horde start (1104), via gate door 184720:
+  -> Blood Elf Tower: legs: 1 yd, 286 yd  direct 286 yd
+  -> Fel Reaver:      legs: 1 yd, 307 yd  direct 307 yd
+  -> Draenei Ruins:   legs: 1 yd, 502 yd  direct 503 yd
+  -> Mage Tower:      legs: 1 yd, 518 yd  direct 518 yd
+  -> central flag:    legs: 1 yd, 373 yd  direct 373 yd
+Flag runs from the central flag stand to each deliverable tower:
+  -> Mage Tower 196 yd, Draenei Ruins 201 yd, Fel Reaver Ruins 207 yd,
+     Blood Elf Tower 216 yd.
+Tower-to-tower distances: Blood Elf-Draenei 238 yd, Fel Reaver-Mage
+240 yd, Draenei-Mage 329 yd, Fel Reaver-Blood Elf 336 yd,
+Fel Reaver-Draenei 407 yd, Blood Elf-Mage 412 yd.
+
+=== 5. GRAVEYARDS AND WHICH ONE SERVES WHICH POINT ===
+Main graveyards (= the start rows, section 2): Alliance id 1103, Horde
+id 1104. Tower graveyards (TrinityCore 8.x dump, map 566):
+  id 1105 "Netherstorm BG - Graveyard (Felreaver)"
+    (566, 2013.06, 1677.24, 1182.13)  o 340
+  id 1106 "Netherstorm BG - Graveyard (BE Tower)"
+    (566, 2012.4, 1455.41, 1172.2)  o 65
+  id 1107 "Netherstorm BG - Graveyard (Draenei Tower)"
+    (566, 2351.22, 1455.63, 1185.33)  o 270
+  id 1108 "Netherstorm BG - Graveyard (Human Tower)"
+    (566, 2355.3, 1683.71, 1173.15)  o 225
+Point-to-graveyard mapping (script m_CapturingPointTypes):
+  Fel Reaver Ruins -> 1105, Blood Elf Tower -> 1106,
+  Draenei Ruins -> 1107, Mage Tower -> 1108.
+The graveyard rule (BattlegroundEY::GetClosestGraveYard, exact logic):
+  eligible graveyards are YOUR team's main graveyard (always) plus each
+  tower graveyard only while your team OWNS that tower and it is
+  UNDER_CONTROL; respawn goes to the nearest eligible graveyard in 3D.
+  So a point's graveyard serves your corpse at that point only while your
+  team holds it - otherwise your main graveyard is used, whichever of the
+  eligible ones is closest.
+Distance table (recomputed, 2D straight-line; corpse at ... -> tower GY /
+Alliance main / Horde main):
+  Fel Reaver Ruins: 1105 = 61 yd / 1103 = 498 yd / 1104 = 307 yd
+  Blood Elf Tower:  1106 = 72 yd / 1103 = 516 yd / 1104 = 286 yd
+  Draenei Ruins:    1107 = 84 yd / 1103 = 306 yd / 1104 = 503 yd
+  Mage Tower:       1108 = 85 yd / 1103 = 275 yd / 1104 = 518 yd
+  central flag: 1103 = 350 yd, 1104 = 373 yd, tower GYs 195-214 yd
+    (1105 = 195, 1106 = 198, 1107 = 210, 1108 = 214 yd; eligible only
+    while your team holds that tower)
+  Each team's start IS its main graveyard row (0 yd).
+Spirit guides: spawned at both main rows at setup (script, facing
+  3.124139 Alliance / 3.193953 Horde) using the Battleground base-class
+  spirit guide creatures 13116 (Alliance) / 13117 (Horde); when a tower is
+  captured a spirit guide spawns for the capturing team at that tower's
+  graveyard row (same facing 3.124139, script PointCaptured).
+Corpse Catcher rows (dump, map 566) - all 25, purpose unverified (no
+  reference anywhere in the readable script):
+  id 1109 (566, 2626.9, 1457.85, 1225.54)  o 180
+  id 1110 (566, 2603.99, 1695.96, 1229.46)  o 180
+  id 1111 (566, 2495.96, 1402.39, 1204.59)  o 180
+  id 1112 (566, 2541.25, 1787.24, 1187.98)  o 180
+  id 1113 (566, 2353.73, 1336.66, 1192.14)  o 180
+  id 1114 (566, 2368.35, 1800.79, 1166.33)  o 180
+  id 1115 (566, 2253.47, 1298.66, 1188.84)  o 180
+  id 1116 (566, 2227.6, 1819.58, 1151.61)  o 180
+  id 1117 (566, 2047.89, 1324.84, 1170.77)  o 180
+  id 1118 (566, 2057.31, 1848.26, 1192.27)  o 180
+  id 1119 (566, 1914.77, 1381.5, 1175.39)  o 180
+  id 1120 (566, 1918.94, 1766.3, 1194.12)  o 180
+  id 1121 (566, 1796.21, 1341.52, 1188.57)  o 180
+  id 1122 (566, 1808.19, 1726.82, 1206.02)  o 180
+  id 1123 (566, 1724.51, 1405.74, 1208.55)  o 180
+  id 1124 (566, 1692.78, 1672.56, 1225.53)  o 180
+  id 1125 (566, 2121.79, 1670.5, 1169.27)  o 180
+  id 1126 (566, 2111.42, 1441.82, 1163.87)  o 180
+  id 1127 (566, 2213.19, 1469.54, 1175.01)  o 180
+  id 1128 (566, 2226.6, 1692.81, 1161.84)  o 180
+  id 1129 (566, 2174.9, 1594.51, 1126.51)  o 180
+  id 1130 (566, 2173.64, 1534.45, 1129.24)  o 180
+  id 1131 (566, 2213.83, 1328.19, 1178.46)  o 180
+  id 1132 (566, 2113.42, 1326.88, 1153.99)  o 180
+  id 1133 (566, 2117.21, 1807.68, 1171.56)  o 180
+Rated variant (dump, map 968, comments "Netherstorm BG 2.0" / "Netherstorm
+  2.0" - 33 rows: 6 graveyards, 25 Corpse Catchers, 2 Forcefield Targets;
+  warcraft.wiki InstanceID names map 968 "Rated Eye of the Storm", see
+  section 1). Graveyard and forcefield rows, verbatim:
+  id 2841 (968, 1807.06, 1539.16, 1247.85)  o 0
+    "Netherstorm BG 2.0 - Graveyard (Horde Start)"
+  id 2843 (968, 2523.35, 1596.49, 1247.52)  o 180
+    "Netherstorm BG 2.0 - Graveyard (Alliance Start)"
+  id 2847 (968, 2012.4, 1455.41, 1172.2)  o 65
+    "Netherstorm BG 2.0 - Graveyard (BE Tower)"
+  id 2849 (968, 2351.22, 1455.63, 1185.33)  o 270
+    "Netherstorm BG 2.0 - Graveyard (Draenei Tower)"
+  id 2851 (968, 2013.06, 1677.24, 1182.13)  o 340
+    "Netherstorm BG 2.0 - Graveyard (Felreaver)"
+  id 2853 (968, 2355.3, 1683.71, 1173.15)  o 225
+    "Netherstorm BG 2.0 - Graveyard (Human Tower)"
+  id 4001 (968, 1808.21, 1539.49, 1267.41)  o 360
+    "Netherstorm 2.0 - Forcefield Target 000"
+  id 4000 (968, 2523.51, 1596.58, 1269.27)  o 180
+    "Netherstorm 2.0 - Forcefield Target 001"
+  Corpse Catchers on 968: ids 2855-2903 stepping by 2 (25 rows, 23 of them
+  labelled "(copy)"), e.g. id 2855 (968, 2626.9, 1457.85, 1225.54) o 180
+  and id 2903 (968, 2117.21, 1807.68, 1171.55) o 180.
+  Comparison against the map-566 set (recomputed): 26 of the 33 rows are
+  coordinate-identical to their map-566 counterpart; the rest are the two
+  team-start rows (differing from the section-2 rows by up to 4.04 yd) and
+  five catcher rows differing by exactly 0.01 in a single coordinate:
+  id 2879 (968, 1796.22, 1341.52, 1188.57)  o 180 - 566 row 1121 x is 1796.21
+  id 2885 (968, 1692.78, 1672.57, 1225.53)  o 180 - 566 row 1124 y is 1672.56
+  id 2891 (968, 2213.18, 1469.54, 1175.01)  o 180 - 566 row 1127 x is 2213.19
+  id 2893 (968, 2226.6, 1692.81, 1161.85)  o 180 - 566 row 1128 z is 1161.84
+  id 2903 (968, 2117.21, 1807.68, 1171.55)  o 180 - 566 row 1133 z is 1171.56
+  Usage of the map-968 set by your server: unverified.
+
+=== 6. BUFF / POWER-UP SPAWNS ===
+Scripted buff objects (HavenWoW BattlegroundEY.cpp + shared
+  Battleground.h Buff_Entries): three gameobjects per tower -
+  speed 179871, regeneration 179904, berserking 179905 - all three
+  placed at that tower's buff area trigger position:
+  Fel Reaver buff trigger 4569, Blood Elf 4568, Draenei 4571,
+  Mage 4570 (TR_..._BUFF enum; spawn orientation o 0.907571 each).
+  The trigger positions come from the client DB2 AreaTrigger table, which
+  is not readable within the working limits: exact buff coordinates are
+  unverified (one shared position per tower, identified only by its
+  trigger id).
+  Spawn behaviour: at door open ONE RANDOM type per tower is shown
+  (urand(0,2)); the other two stay hidden (RESPAWN_ONE_DAY). After a buff
+  is picked up it respawns via the shared base-class constant
+  BUFF_RESPAWN_TIME = 180 s (same object, same type).
+Retail parity: warcraft.wiki has no buff section for Eye of the Storm,
+  but the wiki achievement list includes "Take a Chill Pill" - "kill a
+  player who is under the effects of the Berserker power-up" - which
+  confirms at least the Berserking power-up exists in retail. Speed and
+  regeneration retail parity: unverified. Which spell each gameobject
+  casts in your own gameobject_template: unverified.
+No other buff or power-up spawns are defined in the readable script or
+  described in the wiki page.
+
+=== 7. SOURCES ===
+1. TrinityCore 8.x world dump: sql/old/8.x/world/19071_2020_06_17/
+   2019_10_26_01_world.sql - world_safe_locs rows 1101-1102 are NOT EY
+   (Blade's Edge); map-566 rows: 1103-1133 ("Netherstorm BG") and
+   3772/3773 + 3951/3952 ("Forcefield Target"); map-968 rows: 2841-2903
+   ("Netherstorm BG 2.0") and 4000/4001 ("Netherstorm 2.0"). The dump
+   contains no rows commented "Eye of the Storm" (checked, none).
+2. HavenWoW/BFA-HavenCore: src/server/game/Battlegrounds/Zones/
+   BattlegroundEY.h/.cpp - doors, banners, flags, tower cap points, area
+   trigger ids, graveyard rule, scoring tables, buff spawn logic, exploit
+   rows; src/server/game/Battlegrounds/Battleground.h - Buff_Entries
+   179871/179904/179905 and BUFF_RESPAWN_TIME.
+3. AzerothCore azerothcore-wotlk, data/sql/base/db_world/
+   battleground_template.sql - Eye of The Storm row quoted in section 2.
+4. warcraft.wiki.gg: Eye of the Storm (overview, basic rules, scoring
+   tables, strategies, achievements incl. "Take a Chill Pill") and
+   InstanceID (row 566 NetherstormBG; row 968 Rated Eye of the Storm).
+5. Negative results recorded: wiki page has no buff/power-up section; no
+   second map id for EoTS in any readable source; dump has no
+   "Eye of the Storm"-commented rows; dropped-flag object 184142 never
+   spawned by the script; no pathing/navmesh source; AreaTrigger DB2
+   positions not readable within limits.
+
+=== 8. EXPLICIT UNVERIFIED LIST ===
+1. Which map id and battleground_template row your server queues for Eye
+   of the Storm (server DB not in the repository); whether your DB's
+   start/gy ids match 1103/1104; whether map 968 is queued at all.
+2. The compass direction of every axis of map 566 (deliberately not
+   used).
+3. Walkability of every route in section 4 (straight-line distances
+   only).
+4. Exact coordinates of the twelve buff spawns (client DB2 AreaTrigger
+   rows 4568-4571 not readable within limits) and which spell each buff
+   gameobject casts in your database.
+5. Retail parity of the speed and regeneration buff objects (only the
+   Berserking power-up is confirmed by a readable retail source).
+6. Dropped-flag gameobject 184142 spawn/position mechanics (defined but
+   never spawned by the readable script).
+7. Purpose of the Corpse Catcher rows on both maps (1109-1133 and the
+   map-968 twins 2855-2903, including the "(copy)" labels) - none of
+   them is referenced in the readable script.
+8. The passive-point cadence actually used by retail (script ticks every
+   2 s, wiki states every second).
+9. The exact capture-meter fill formula beyond the readable script
+   (own-minus-enemy count capped at 5); retail values unverified.
+10. The start-bubble end condition in script terms (wiki states the
+    first minute; script call path not traced to a constant).
+11. Face/orientation units for the script floats (reproduced as stored,
+    not converted).
+12. Whether the Forcefield Target rows are the retail bubble positions
+    or only the exploit-teleport targets (script links them to exploit
+    teleport; comments say "Forcefield Target" - exact use unverified),
+    and what the duplicate rows 3951/3952 are for (not referenced by the
+    readable script).
+13. The role of the map-968 Rated Eye of the Storm rows on an 8.3.7
+    server: the dump rows exist and warcraft.wiki lists map 968, but no
+    readable 8.3.7 source shows it being queued or scripted (unverified).
+DONE - step 3 of 8 complete
