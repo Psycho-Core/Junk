@@ -283,7 +283,7 @@ TAXI NODE 44  BILGEWATER HARBOR, AZSHARA
                     614 Northern Rocketway 1550 yd = 0.81 min; 683 Valormok 2465 yd = 1.28 min
 
 TAXI NODE 48  BLOODVENOM POST, FELWOOD (DISABLED)
-  flight master   : none - no flight master exists for this closed node
+  flight master   : none - no flight master is listed for this closed node (the wiki tables have no row for it)
   creature entry  : n/a
   faction         : neither faction - TaxiNodes.Flags has neither the Alliance bit 1 nor the Horde bit 2 set;
                     CharacterBitNumber 48
@@ -379,7 +379,7 @@ TAXI NODE 61  SPLINTERTREE POST, ASHENVALE
                     356 Silverwind Refuge 1822 yd = 0.95 min; 683 Valormok 2116 yd = 1.10 min
 
 TAXI NODE 64  TALRENDIS POINT, AZSHARA (DISABLED)
-  flight master   : none - no flight master exists for this closed node
+  flight master   : none - no flight master is listed for this closed node (the wiki tables have no row for it)
   creature entry  : n/a
   faction         : neither faction - TaxiNodes.Flags has neither the Alliance bit 1 nor the Horde bit 2 set;
                     CharacterBitNumber 64
