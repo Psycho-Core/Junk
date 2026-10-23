@@ -1,0 +1,231 @@
+TWINK29 - HUNTER - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
+
+1. WHAT A HUNTER RUNS ON AT 29 - THREE THINGS TO KNOW FIRST
+   No mana. Hunters spend focus in BfA, so every mana potion, mana oil
+   and Spirit stat on this page is dead weight. That removes half the
+   caster consumable list at a stroke.
+   No ammo. Hunters do not carry arrows or bullets in BfA, and a quiver or
+   ammo pouch is cosmetic. Nothing in the gear list needs a supply line.
+   Mail, not leather. The items file follows that rule; the enchant list
+   below does not care, because an enchant goes on whatever item is worn.
+
+2. ENCHANTS - THE CLASSIC SLOTS, ONE PER PIECE
+   Skill numbers are the enchanter's, all 225 or below, so no higher-level
+   crafter is needed. The wearer needs no profession.
+   CLOAK    Enchant Cloak - Lesser Agility, 13882, +3 Agility. Skill 225.
+            Formula 11206, drops. 2x Lesser Nether Essence 11174, Runed
+            Truesilver Rod 11145. The best single enchant for a hunter.
+   CLOAK    Enchant Cloak - Greater Defense, 13746, +50 armor. Skill 205.
+            3x Vision Dust 11137. The alternative if the bot is being
+            trained by melee; +3 Agility is better in most fights.
+   CHEST    Enchant Chest - Greater Health, 13640, +35 health. Skill 160.
+            3x Soul Dust 11083, Runed Golden Rod 11130. The only chest
+            enchant inside the cap.
+   BRACERS  Nothing worth taking. The one verified in-cap bracer enchant
+            is 13661 Enchant Bracer - Strength, +5 Strength, skill 180,
+            and Strength gives a hunter nothing - it does not convert to
+            attack power. A minor agility bracer enchant exists in the
+            classic line, but its id and skill were not verified, so the
+            slot is either that or empty. Do not buy 13661.
+   GLOVES   Enchant Gloves - Agility, 13815, +5 Agility. Skill 210.
+            1x Lesser Nether Essence 11174 + 1x Vision Dust 11137.
+   BOOTS    Enchant Boots - Minor Speed, 13890, "a slight movement speed
+            increase" - the tooltip's own words, the percentage is
+            unverified. Skill 225. 1x Small Radiant Shard 11177,
+            1x Aquamarine 7909, 1x Lesser Nether Essence 11174. For a
+            ranged class, kiting speed beats any stat here.
+   WEAPON   Enchant Weapon - Striking, 13693, +3 weapon damage. Skill 195.
+            2x Greater Mystic Essence 11135 + 1x Large Glowing Shard
+            11139. Survival only. A bow or gun cannot take a classic
+            weapon enchant - unverified, but no classic enchant is written
+            for ranged weapons.
+   HEAD     Nothing inside the 225 cap. Treat the slot as empty.
+   SHOULDERS  Nothing wearable. The Mists inscriptions 83006, 87580,
+            44133 and 50335 need level 80 or 85 on the character who
+            applies them, so an heirloom shoulder carries no inscription.
+
+3. NECK AND RING - BOTH ALT, BOTH HIGHER-LEVEL LEGION RECIPES
+   Each carries an item level cap and a level 29 item at item level 33 or
+   less passes it.
+   NECK   190894 Mark of the Hidden Satyr, enchant id 5439. Sometimes
+          summons a satyr that fires a nightmare bolt. Cap: "cannot be
+          applied to items above level 120". 15x Chaos Crystal 124442,
+          12x Leylight Shard 124441, Runed Enchanting Rod. The damage
+          pick for Beast Mastery and Marksmanship.
+         190892 Mark of the Claw. Sometimes +critical strike and +haste
+          for 6 sec. The pick for a Survival hunter standing in melee, and
+          the safer pick in general because it cannot be wasted on an
+          overkill.
+         228405 Mark of the Trained Soldier. Mastery, a stat a level 29
+          does not have. Do not buy it.
+   RING   190871 Binding of Haste rank 1, 191014 rank 3, item form
+          128542. Flat Haste on a ring, capped at "items above level 60".
+          Two rings, two enchants - the largest stat gain on this page.
+          The Critical Strike and Agility variants of the same family are
+          unverified by id; the Agility one is the right choice if it can
+          be found.
+
+4. ARMOR KITS - AND THE SLOT THEY COMPETE WITH
+   4265 Heavy Armor Kit, +24 armor, item level 15 and up, no character
+   level gate. Crafted at Leatherworking 150, spell 3780, 5x Heavy
+   Leather 4234. Skill 8173 Thick (+32, level 30 required) and 15564
+   Rugged (+40, level 40) are ALT.
+   Caveat that matters: a kit and an enchant occupy the same enhancement
+   slot on the same item, so one piece takes one or the other. The clean
+   split for a hunter is kits on the LEGS, where there is no enchant at
+   all, and enchants everywhere else. Whether this server really enforces
+   the conflict is unverified; test it on one piece before buying four.
+
+5. CONSUMABLES A 29 HUNTER CAN USE
+   POTIONS - one shared cooldown, so one per fight.
+     2459  Swiftness Potion        req 5   +50% speed 15 sec, 2 min cd
+     5634  Free Action Potion      req 20  stun and root immunity 30 sec
+     1710  Greater Healing Potion  req 21  455-585 health
+     Nothing else in the potion list: a hunter does not drink mana.
+   ELIXIRS - one hour, lost on death, one battle and one guardian elixir.
+     8949  Elixir of Agility          req 27  +15 Agility
+     8951  Elixir of Greater Defense  req 29  +250 armor
+     3825  Elixir of Fortitude        req 25  +120 health
+     3389  Elixir of Defense          req 16
+   PROTECTION POTIONS - one hour, one school each.
+     6051 Holy req 10, 6048 Shadow req 17, 6049 Fire req 23,
+     6050 Frost req 28, 6052 Nature req 28.
+   SCROLLS - 30 minutes, usable on another character.
+     1477 Scroll of Agility II, req 15, +5 Agility. The hunter scroll.
+     2289 Scroll of Strength II is the other one sold at that tier and a
+     hunter has no use for it.
+   WEAPON ENHANCEMENTS
+     20744 Minor Wizard Oil is spell power - irrelevant here.
+     Survival's two-hander takes a stone instead: 7964 Solid Sharpening
+     Stone, req 25, on the axe, or 7965 Solid Weightstone, req 25, on the
+     mace. 2862, 2863 and 2871 are the cheaper tiers. A stone is consumed
+     and lasts 30 minutes; the +6 damage figure is the one to check in
+     game.
+     Whether a scope can still be fitted to a bow or gun at 29 is
+     unverified.
+   FOOD - well fed, 15 minutes, ten seconds seated.
+     12210 Roast Raptor, req 25, +8 Stamina and +8 Spirit. The Spirit half
+     is wasted on a hunter, so this is +8 Stamina and nothing else.
+     12209 Lean Wolf Steak req 15 and 5479 Crispy Lizard Tail req 12 are
+     the same shape, smaller.
+     No agility food exists at 29 - every primary-stat food starts at 35.
+   BANDAGES - no profession and no level to use, 60 second cooldown,
+   usable in arenas. 8544 Mageweave Bandage heals 1600 over 8 sec and is
+   the best a 29 can buy; 6451 Heavy Silk Bandage heals 1280.
+   PETS need no food in BfA - pet happiness was removed years before this
+   build - so a Beast Mastery bot carries no pet consumable at all.
+
+6. THE TWO PROFESSIONS
+   Engineering first, for the one item that does what a hunter cannot.
+     10720 Gnomish Net-o-Matic Projector, trinket, skill 210. Nets the
+           target - a root on a class whose whole job is keeping distance.
+           The single most useful crafted item in the bracket for a
+           hunter. It needs 5x Mithril Bar 3860, 1x Jade 1529, 1x
+           Gyrochronatom 4389.
+     4390  Iron Grenade, skill 175, 3 sec stun in 3 yards.
+     4394  Big Iron Bomb, skill 190, 3 sec stun in 5 yards.
+     10716 Gnomish Shrink Ray, trinket, skill 205 - reduces a target's
+           damage and health for a window.
+     4388  Discombobulator Ray, 5 charges - disorients and slows in melee.
+     10518 Parachute Cloak, back, +8 Agility, binds on equip. Takes a
+           cloak enchant as well, so it is a genuine upgrade to the slot.
+     109076 Goblin Glider Kit, bought from an engineer, a slow fall.
+     4381  Minor Recombobulator, trinket, 10 charges - heals and removes
+           a polymorph.
+     4385 Green Tinted Goggles are cloth head, +8 Stamina/+7 Spirit. On a
+          mail-only build that trades a slot of armor for Spirit it cannot
+          use, so goggles are the one engineering item to skip.
+     Gnomish or Goblin specialisation needs level 30 and 200 skill, so
+     every specialised recipe is ALT.
+   Second slot:
+     Leatherworking - the Heavy Armor Kits 4265 above and mail pieces to
+       fill the shoulder, wrist and leg slots the item pool leaves empty.
+       The best pairing for a hunter, because the armor is the weak half
+       of the gear.
+     Alchemy - self-supply of 2459 and 5634 for a whole bot roster.
+     Skinning - feeds the Leatherworking; supplier characters only.
+     Not worth it: Enchanting has no self-only perk at classic tier,
+     Jewelcrafting has nothing to socket at 29, Inscription has nothing
+     wearable inside the cap, Blacksmithing is stones only, and Herbalism
+     and Mining are gathering.
+
+7. RACES THAT CAN BE A HUNTER
+   The wiki's hunter-race page lists, for the two factions: human, dwarf,
+   gnome, night elf, draenei, worgen, void elf and lightforged draenei on
+   the Alliance; orc, jungle troll, blood elf, tauren, goblin, forsaken,
+   zandalari troll and nightborne on the Horde; pandaren in a separate
+   "other races" section.
+   Its lore text also records hunters among the dark iron dwarves, the
+   kul tirans and the mechagnomes, and gnome hunters were opened up in
+   Legion.
+   Highmountain tauren, mag'har orc and vulpera can be hunters in game but
+   are not on that page, so treat their hunter status here as unverified.
+   Every allied race starts at level 20, which makes all of them legal 29
+   twinks.
+   ORC - the Beast Mastery pick, and the best Horde hunter race.
+     21563 Command, passive: pet damage increased. With Animal Companion
+           from the level 15 row, that is the largest free damage a 29 can
+           buy.
+     20572 Blood Fury, the attack power version; 33697 and 33702 are the
+           spell power and other variants. Ids verified, the 8.3.7 one to
+           read in the spellbook.
+     20573 Hardiness, passive: stun duration reduced. The anti-rogue and
+           anti-warrior racial, and at 29 that is most of what kills you.
+   UNDEAD - the pick for a bot that has to keep shooting through fear.
+     7744 Will of the Forsaken, breaks charm, fear and sleep.
+     5227 Touch of the Grave, passive shadow damage on hit.
+     20577 Cannibalize, 20579 Shadow Resistance.
+   DWARF - the Alliance pick against melee.
+     20594 Stoneform, removes bleed, poison and disease and reduces
+           damage taken for its duration.
+     59224 Might of the Mountain, 20596 Frost Resistance, 92682 Explorer.
+     There is no gun specialization any more: the dwarf rifleman fantasy
+     does not come with a weapon bonus in this build.
+   BLOOD ELF - Arcane Torrent is an area interrupt, which a hunter
+     otherwise lacks.
+     50613, 25046, 28730, 69179, 80483, 129597, 155145, 202719 and 232633
+           are all Arcane Torrent ids, one per class version. Which one the
+           8.3.7 hunter gets is unverified.
+     154742 Arcane Acuity, 822 Arcane Resistance, 28877 Arcane Affinity.
+   NIGHT ELF - 58984 Shadowmeld drops you out of combat standing still,
+     20582 Quickness, 21009 Elusiveness, 20583 Nature Resistance,
+     154748 Touch of Elune. A hunter already has Feign Death, so
+     Shadowmeld is the weaker of the two escapes.
+   WORGEN - 68992 Darkflight (+40% movement 10 sec), 68975 Viciousness
+     (+1% crit), 68976 Aberration. Good for a flag runner.
+   TAUREN - has the best racial in the bracket and cannot use it. 20549
+     War Stomp stuns within 8 yards, which is melee range for a ranged
+     class. 20550 Endurance, 154743 Brawn, 20552 Cultivation, 20551
+     Nature Resistance are a fine stat package, but the stun is the reason
+     anyone picks tauren and a hunter will rarely be standing in it.
+   Everything else - human, gnome, draenei, troll, goblin, pandaren, void
+   elf, lightforged draenei, dark iron dwarf, kul tiran, mechagnome,
+   nightborne, zandalari troll - is a stat package whose racial ids were
+   not opened for this file. Unverified, and none of them is likely to
+   beat Command, Will of the Forsaken or Stoneform at 29.
+
+8. SPECS AT LEVEL 29
+   All three are open and one is picked at level 10:
+     Beast Mastery  ranged. The pet is most of the spec, and the level 15
+                    row's Animal Companion doubles it. The default for a
+                    bot that has to work unattended.
+     Marksmanship   ranged. Strongest raw shot damage; whether it wants a
+                    pet depends on Lone Wolf, which is unverified.
+     Survival       melee, two-hand weapon, no ranged slot, so the whole
+                    bow list in the items file does not apply.
+   Pets: a 29 can tame any beast at or below its own level. Exotic
+   families are a Beast Mastery perk gated above this bracket, so a 29 BM
+   bot tames ordinary families - unverified, check the spellbook.
+   There are no forms, stances or shapeshifts for a hunter; the only
+   comparable choice is the pet family, which decides the pet's own
+   ability, and that is a taming decision rather than a talent one.
+
+9. THE SHORT VERSION
+   Orc for Beast Mastery, undead if the bracket is full of priests and
+   warlocks, dwarf on the Alliance side. Enchant cloak, gloves and boots
+   with agility and speed, put armor kits on the legs, take the satyr on
+   the neck and haste on both rings. Carry Swiftness and Free Action
+   potions, an Elixir of Agility and Mageweave Bandages, eat Roast Raptor,
+   and take Engineering for the net.
