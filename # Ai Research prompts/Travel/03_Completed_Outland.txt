@@ -305,7 +305,7 @@ TAXI NODE 149  SHATTER POINT, HELLFIRE PENINSULA
   unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
                     class, race or quest)
   master note     : the export gives this node no faction, although the wiki lists Runetog Wildhammer among the
-                    Alliance masters
+                    Alliance masters and Wowhead files him under Honor Hold
   links           : 100 Honor Hold 1699 yd = 0.88 min; 129 The Dark Portal 961 yd = 0.50 min
 
 TAXI NODE 150  COSMOWRENCH, NETHERSTORM
