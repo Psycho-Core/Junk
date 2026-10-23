@@ -1,0 +1,619 @@
+TAXI NODE 1953  ZUL'JAN, NAZMIR
+  flight master   : Zabar
+  creature entry  : 121828
+  entry note      : the wiki page for Zul'jan Ruins lists Zabar as the camp's flight master; Wowhead has two Zabar ids
+                    and 121828 is the one titled "<Flight Master>", level 90 elite in Nazmir, while 122677 carries no
+                    title
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 487
+  position        : map 1642 (Zandalar), 793.2, 1400.7, 19.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1954 Zo'bal Ruins 1345 yd = 0.70 min; 1955 Gloom Hollow 2508 yd = 1.31 min;
+                    1965 Nesingwary's Gameland 1724 yd = 0.90 min;
+                    2045 Garden of the Loa 1142 yd = 0.59 min;
+                    2061 The Sliver 2207 yd = 1.15 min; 2117 Vulpera Hideaway 2086 yd = 1.09 min
+
+TAXI NODE 1954  ZO'BAL RUINS, NAZMIR
+  flight master   : Du'ba
+  creature entry  : 122191
+  entry note      : section 3.2 of the research document names Du'ba for this node without an entry; 122191 is Du'ba
+                    as "<Flight Master>", level 90 elite in Nazmir, added in 8.0.1
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 486
+  position        : map 1642 (Zandalar), 2025.9, 1336.5, 16.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1953 Zul'jan 1350 yd = 0.70 min; 1955 Gloom Hollow 1567 yd = 0.82 min;
+                    2117 Vulpera Hideaway 1860 yd = 0.97 min;
+                    2120 Tortaka Refuge 1960 yd = 1.02 min
+
+TAXI NODE 1955  GLOOM HOLLOW, NAZMIR
+  flight master   : Cuja
+  creature entry  : 121207
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 488
+  position        : map 1642 (Zandalar), 2007.5, -79.6, 2.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1953 Zul'jan 2310 yd = 1.20 min; 1954 Zo'bal Ruins 1659 yd = 0.86 min;
+                    1956 Forlorn Ruins 1099 yd = 0.57 min;
+                    1965 Nesingwary's Gameland 2259 yd = 1.18 min;
+                    1975 Zeb'ahari 2124 yd = 1.11 min
+
+TAXI NODE 1956  FORLORN RUINS, NAZMIR
+  flight master   : Zibir the Wingmaster
+  creature entry  : 122198
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 485
+  position        : map 1642 (Zandalar), 2596.9, -848.7, 2.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 64582 - the PlayerCondition row exists but sets no level, class, race or quest field,
+                    so no character-facing requirement is recorded
+  master note     : this is the only node in the map with a real ConditionID, and the row behind it carries no level,
+                    class, race or quest field
+  links           : 1955 Gloom Hollow 1035 yd = 0.54 min
+
+TAXI NODE 1957  PORT OF ZANDALAR, ZULDAZAR
+  flight master   : Ripa the Wind Ripper
+  creature entry  : 146507
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 489
+  position        : map 1642 (Zandalar), -1950.8, 744.3, 53.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1959 The Great Seal 1608 yd = 0.84 min; 1966 Warbeast Kraal 1776 yd = 0.93 min;
+                    2009 Warport Rastari 1150 yd = 0.60 min;
+                    2027 Temple of the Prophet 1451 yd = 0.76 min;
+                    2075 Seeker's Outpost 1563 yd = 0.81 min;
+                    2126 Scaletrader Post 2501 yd = 1.30 min; 2165 Tusk Isle 1142 yd = 0.59 min;
+                    2381 The Mugambala 755 yd = 0.39 min
+
+TAXI NODE 1959  THE GREAT SEAL
+  flight master   : Paku'ai Rokota
+  creature entry  : 122689
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 490
+  position        : map 1642 (Zandalar), -1036.0, 756.6, 437.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 1303 yd = 0.68 min; 1966 Warbeast Kraal 837 yd = 0.44 min;
+                    2009 Warport Rastari 1940 yd = 1.01 min;
+                    2027 Temple of the Prophet 1389 yd = 0.72 min;
+                    2045 Garden of the Loa 1290 yd = 0.67 min;
+                    2046 Atal'Dazar 1505 yd = 0.78 min; 2061 The Sliver 502 yd = 0.26 min;
+                    2381 The Mugambala 1305 yd = 0.68 min
+
+TAXI NODE 1965  NESINGWARY'S GAMELAND, ZULDAZAR
+  flight master   : Lasa the Galerider
+  creature entry  : 123006
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 491
+  position        : map 1642 (Zandalar), 382.0, 104.0, 240.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : this name carries two creatures: 123006, the level 90 elite one section 3.1 prints, and 140279,
+                    another Zuldazar <Flight Master> under the same name; both are flight masters and neither page
+                    pins the node, so the document's choice is printed
+  links           : 1953 Zul'jan 1409 yd = 0.73 min; 1955 Gloom Hollow 2262 yd = 1.18 min;
+                    1975 Zeb'ahari 1563 yd = 0.81 min; 2045 Garden of the Loa 1788 yd = 0.93 min;
+                    2061 The Sliver 1653 yd = 0.86 min; 2078 Fort Victory 2368 yd = 1.23 min;
+                    2126 Scaletrader Post 1038 yd = 0.54 min;
+                    2145 Verdant Hollow 1067 yd = 0.56 min
+
+TAXI NODE 1966  WARBEAST KRAAL, ZULDAZAR
+  flight master   : Paku'ai Verraki
+  creature entry  : 123060
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 492
+  position        : map 1642 (Zandalar), -1046.3, 19.2, 281.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 1451 yd = 0.76 min; 1959 The Great Seal 1344 yd = 0.70 min;
+                    2061 The Sliver 1213 yd = 0.63 min; 2076 Atal'Gral 1280 yd = 0.67 min;
+                    2126 Scaletrader Post 908 yd = 0.47 min
+
+TAXI NODE 1974  XIBALA, ZULDAZAR
+  flight master   : Paula Waverunner
+  creature entry  : 128041
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 495
+  position        : map 1642 (Zandalar), -2692.8, 1915.1, 39.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Paula Waverunner serves both Xibala nodes: she is the only <Flight Master> under that name on
+                    Wowhead and her page puts her in Zuldazar, while 2012, the Alliance copy of the same place, prints
+                    the same entry
+  links           : 2009 Warport Rastari 808 yd = 0.42 min; 2164 Isle of Fangs 1317 yd = 0.69 min
+
+TAXI NODE 1975  ZEB'AHARI, ZULDAZAR
+  flight master   : Paku'ai Jasi
+  creature entry  : 124456
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 496
+  position        : map 1642 (Zandalar), 512.5, -835.2, 26.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1955 Gloom Hollow 2075 yd = 1.08 min; 1965 Nesingwary's Gameland 1454 yd = 0.76 min;
+                    2076 Atal'Gral 1842 yd = 0.96 min; 2126 Scaletrader Post 1421 yd = 0.74 min
+
+TAXI NODE 2009  WARPORT RASTARI, ZULDAZAR
+  flight master   : Paku'ai Ja'nessa
+  creature entry  : 127818
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 506
+  position        : map 1642 (Zandalar), -2022.6, 1629.2, 52.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 996 yd = 0.52 min; 1959 The Great Seal 1759 yd = 0.92 min;
+                    1974 Xibala 1015 yd = 0.53 min;
+                    2027 Temple of the Prophet 1595 yd = 0.83 min;
+                    2381 The Mugambala 579 yd = 0.30 min
+
+TAXI NODE 2012  XIBALA, ZULDAZAR
+  flight master   : Paula Waverunner
+  creature entry  : 128041
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 507
+  position        : map 1642 (Zandalar), -2652.8, 2272.0, 13.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the Alliance copy of the Xibala landing; Wowhead lists only one Paula Waverunner, 128041, in
+                    Zuldazar, so both Xibala nodes print her
+  links           : 2075 Seeker's Outpost 2846 yd = 1.48 min; 2153 Mistvine Ledge 2692 yd = 1.40 min;
+                    2157 Veiled Grotto 2964 yd = 1.54 min
+
+TAXI NODE 2027  TEMPLE OF THE PROPHET, ZULDAZAR
+  flight master   : Kaza the Skyblade
+  creature entry  : 129483
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 509
+  position        : map 1642 (Zandalar), -1132.6, 1499.7, 420.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 1398 yd = 0.73 min; 1959 The Great Seal 788 yd = 0.41 min;
+                    2009 Warport Rastari 1952 yd = 1.02 min;
+                    2045 Garden of the Loa 1213 yd = 0.63 min; 2046 Atal'Dazar 843 yd = 0.44 min;
+                    2061 The Sliver 994 yd = 0.52 min; 2381 The Mugambala 1226 yd = 0.64 min
+
+TAXI NODE 2045  GARDEN OF THE LOA, ZULDAZAR
+  flight master   : Paku'ai Rip'nata
+  creature entry  : 130787
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 519
+  position        : map 1642 (Zandalar), -104.0, 1502.5, 398.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1953 Zul'jan 1161 yd = 0.60 min; 1959 The Great Seal 1439 yd = 0.75 min;
+                    1965 Nesingwary's Gameland 1586 yd = 0.83 min;
+                    2027 Temple of the Prophet 1736 yd = 0.90 min;
+                    2046 Atal'Dazar 1134 yd = 0.59 min; 2061 The Sliver 1342 yd = 0.70 min;
+                    2118 Temple of Akunda 2403 yd = 1.25 min
+
+TAXI NODE 2046  ATAL'DAZAR, ZULDAZAR
+  flight master   : Loz the Paku'ai
+  creature entry  : 130790
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 520
+  position        : map 1642 (Zandalar), -639.6, 1806.1, 664.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1959 The Great Seal 1298 yd = 0.68 min; 2027 Temple of the Prophet 1327 yd = 0.69 min;
+                    2045 Garden of the Loa 761 yd = 0.40 min
+
+TAXI NODE 2061  THE SLIVER, ZULDAZAR
+  flight master   : Zena the Feeder
+  creature entry  : 133242
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 530
+  position        : map 1642 (Zandalar), -624.6, 715.3, 234.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1953 Zul'jan 1902 yd = 0.99 min; 1959 The Great Seal 714 yd = 0.37 min;
+                    1965 Nesingwary's Gameland 1217 yd = 0.63 min;
+                    1966 Warbeast Kraal 1077 yd = 0.56 min;
+                    2027 Temple of the Prophet 1236 yd = 0.64 min;
+                    2045 Garden of the Loa 1340 yd = 0.70 min;
+                    2126 Scaletrader Post 1187 yd = 0.62 min
+
+TAXI NODE 2066  ATAL'GRAL, ZULDAZAR
+  flight master   : Scroll of Flight
+  creature entry  : unverified
+  entry note      : section 3.1 prints 137318 for this node, but 137318 is a Scroll of Flight in Stormsong Valley, on
+                    the other continent; Wowhead lists three titled Scroll of Flight ids in Zuldazar - 134008, 134011
+                    and 136331 - and no page ties one of them to this node, so the entry is left open rather than
+                    guessed
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 532
+  position        : map 1642 (Zandalar), -961.8, -1064.7, 25.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : this node and 2076 Atal'Gral are 7.5 yards apart and both carry the Scroll of Flight name, so one
+                    scroll may cover both; no page says which
+  links           : none (no TaxiPath row touches this node, in either direction)
+
+TAXI NODE 2071  DREADPEARL, ZULDAZAR
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this node sits at exactly the same coordinates as 2066 Atal'Gral and appears in no TaxiPath row in
+                    either direction, so no source names a master of its own; unlike the Draenor twin-node case this
+                    one has a separate name, so no master is assumed
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 537
+  position        : map 1642 (Zandalar), -961.8, -1064.7, 25.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Dreadpearl is listed by Wowhead only as a quest name ("Dreadpearl Collusion") and as spells, never
+                    as an NPC, which fits a roost with no keeper of its own
+  links           : none (no TaxiPath row touches this node, in either direction)
+
+TAXI NODE 2073  THRONE ROOM, ZULDAZAR
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this node appears in no TaxiPath row in either direction and is the only node in this map with
+                    neither faction bit set, so no source read here names its master
+  faction         : neither faction - TaxiNodes.Flags has neither the Alliance bit 1 nor the Horde bit 2 set;
+                    CharacterBitNumber 538
+  position        : map 1642 (Zandalar), -1078.1, 846.0, 482.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the Throne Room node is inside Dazar'alor; a node with neither faction bit set is normally a
+                    scripted destination rather than a town roost
+  links           : none (no TaxiPath row touches this node, in either direction)
+
+TAXI NODE 2075  SEEKER'S OUTPOST, ZULDAZAR
+  flight master   : Scroll of Flight
+  creature entry  : unverified
+  entry note      : section 3.1 prints 137318 for this node, but that id is a Scroll of Flight in Stormsong Valley;
+                    the three titled Scroll of Flight ids Wowhead places in Zuldazar cannot be told apart by node
+                    here, so the entry is left open
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 540
+  position        : map 1642 (Zandalar), -2303.2, -252.9, 1.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 1973 yd = 1.03 min; 2012 Xibala 2929 yd = 1.53 min;
+                    2076 Atal'Gral 1929 yd = 1.00 min;
+                    2147 Castaway Encampment 1331 yd = 0.69 min;
+                    2153 Mistvine Ledge 2494 yd = 1.30 min;
+                    2157 Veiled Grotto 3523 yd = 1.83 min; 2165 Tusk Isle 1672 yd = 0.87 min
+
+TAXI NODE 2076  ATAL'GRAL, ZULDAZAR
+  flight master   : Scroll of Flight
+  creature entry  : unverified
+  entry note      : section 3.1 prints 137318 for this node, but that id is a Scroll of Flight in Stormsong Valley;
+                    the three titled Scroll of Flight ids Wowhead places in Zuldazar cannot be told apart by node
+                    here, so the entry is left open
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 541
+  position        : map 1642 (Zandalar), -959.6, -1058.7, 25.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : this node and 2066 Atal'Gral are 7.5 yards apart and both carry the Scroll of Flight name, so one
+                    scroll may cover both; no page says which
+  links           : 1966 Warbeast Kraal 1432 yd = 0.75 min; 1975 Zeb'ahari 1826 yd = 0.95 min;
+                    2075 Seeker's Outpost 2374 yd = 1.24 min;
+                    2126 Scaletrader Post 1441 yd = 0.75 min;
+                    2147 Castaway Encampment 1030 yd = 0.54 min;
+                    2153 Mistvine Ledge 1943 yd = 1.01 min
+
+TAXI NODE 2078  FORT VICTORY, NAZMIR
+  flight master   : Selina Duskraven
+  creature entry  : 134451
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 543
+  position        : map 1642 (Zandalar), 2079.3, 176.2, 4.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1965 Nesingwary's Gameland 2434 yd = 1.27 min; 2080 Grimwatt's Crash 2018 yd = 1.05 min;
+                    2145 Verdant Hollow 2629 yd = 1.37 min;
+                    2161 Redfield's Watch 1085 yd = 0.57 min
+
+TAXI NODE 2080  GRIMWATT'S CRASH, NAZMIR
+  flight master   : Noella Davenport
+  creature entry  : 142478
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 597
+  position        : map 1642 (Zandalar), 1310.3, 1647.5, 40.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2078 Fort Victory 1960 yd = 1.02 min; 2112 Vulture's Nest 2093 yd = 1.09 min;
+                    2114 Deadwood Cove 2955 yd = 1.54 min;
+                    2145 Verdant Hollow 1586 yd = 0.83 min;
+                    2148 Mugamba Overlook 1733 yd = 0.90 min;
+                    2161 Redfield's Watch 1862 yd = 0.97 min
+
+TAXI NODE 2110  SHATTERSTONE HARBOR, VOL'DUN
+  flight master   : Barnard "The Smasher" Bayswo
+  creature entry  : 135383
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 568
+  position        : map 1642 (Zandalar), 2778.3, 4187.0, 9.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2112 Vulture's Nest 1368 yd = 0.71 min; 2114 Deadwood Cove 2575 yd = 1.34 min;
+                    2119 Sanctuary of the Devoted 1512 yd = 0.79 min
+
+TAXI NODE 2111  VORRIK'S SANCTUM, VOL'DUN
+  flight master   : Lugo the Windrider
+  creature entry  : 135385
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 569
+  position        : map 1642 (Zandalar), 2740.2, 3469.9, 66.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2117 Vulpera Hideaway 1107 yd = 0.58 min; 2119 Sanctuary of the Devoted 1686 yd = 0.88 min;
+                    2120 Tortaka Refuge 1417 yd = 0.74 min; 2144 Goldtusk Inn 1693 yd = 0.88 min
+
+TAXI NODE 2112  VULTURE'S NEST, VOL'DUN
+  flight master   : Buzz Crankchug
+  creature entry  : 138256
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 570
+  position        : map 1642 (Zandalar), 2623.4, 3038.2, 82.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2080 Grimwatt's Crash 2278 yd = 1.19 min; 2110 Shatterstone Harbor 1270 yd = 0.66 min;
+                    2114 Deadwood Cove 2493 yd = 1.30 min;
+                    2120 Tortaka Refuge 1089 yd = 0.57 min
+
+TAXI NODE 2114  DEADWOOD COVE, VOL'DUN
+  flight master   : Explosioneer Zoidfuse
+  creature entry  : 139722
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 572
+  position        : map 1642 (Zandalar), 528.7, 3983.1, 2.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2080 Grimwatt's Crash 2770 yd = 1.44 min; 2110 Shatterstone Harbor 2698 yd = 1.41 min;
+                    2112 Vulture's Nest 2527 yd = 1.32 min;
+                    2119 Sanctuary of the Devoted 2074 yd = 1.08 min;
+                    2148 Mugamba Overlook 2782 yd = 1.45 min
+
+TAXI NODE 2117  VULPERA HIDEAWAY, VOL'DUN
+  flight master   : Narishi
+  creature entry  : 124107
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 574
+  position        : map 1642 (Zandalar), 2095.1, 2808.8, 56.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1953 Zul'jan 2232 yd = 1.16 min; 1954 Zo'bal Ruins 1659 yd = 0.86 min;
+                    2111 Vorrik's Sanctum 1134 yd = 0.59 min;
+                    2118 Temple of Akunda 2027 yd = 1.06 min;
+                    2120 Tortaka Refuge 1388 yd = 0.72 min; 2144 Goldtusk Inn 1365 yd = 0.71 min
+
+TAXI NODE 2118  TEMPLE OF AKUNDA, VOL'DUN
+  flight master   : Akunda the Tamer
+  creature entry  : 127427
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 573
+  position        : map 1642 (Zandalar), 284.3, 3029.7, 189.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2045 Garden of the Loa 2289 yd = 1.19 min; 2117 Vulpera Hideaway 2073 yd = 1.08 min;
+                    2143 Scorched Sands Outpost 955 yd = 0.50 min
+
+TAXI NODE 2119  SANCTUARY OF THE DEVOTED, VOL'DUN
+  flight master   : Vethiss
+  creature entry  : 128695
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 575
+  position        : map 1642 (Zandalar), 2048.0, 4806.9, 73.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2110 Shatterstone Harbor 1450 yd = 0.76 min; 2111 Vorrik's Sanctum 1582 yd = 0.82 min;
+                    2114 Deadwood Cove 1947 yd = 1.01 min; 2144 Goldtusk Inn 1256 yd = 0.65 min
+
+TAXI NODE 2120  TORTAKA REFUGE, VOL'DUN
+  flight master   : Scroll of Flight
+  creature entry  : 135387
+  entry note      : the wiki page for Tortaka Refuge lists a Scroll of Flight as the camp's flight master, and 135387
+                    is the only Scroll of Flight flight master Wowhead places in Vol'dun
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 576
+  position        : map 1642 (Zandalar), 3353.1, 2476.1, 43.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the node carries both faction bits while the wiki shows only Horde flight connections from Tortaka
+                    Refuge
+  links           : 1954 Zo'bal Ruins 1843 yd = 0.96 min; 2111 Vorrik's Sanctum 1400 yd = 0.73 min;
+                    2112 Vulture's Nest 1045 yd = 0.54 min;
+                    2117 Vulpera Hideaway 1426 yd = 0.74 min;
+                    2161 Redfield's Watch 1955 yd = 1.02 min
+
+TAXI NODE 2126  SCALETRADER POST, ZULDAZAR
+  flight master   : Scroll of Flight
+  creature entry  : unverified
+  entry note      : section 3.1 prints 137318 for this node, but that id is a Scroll of Flight in Stormsong Valley;
+                    the three titled Scroll of Flight ids Wowhead places in Zuldazar cannot be told apart by node
+                    here, so the entry is left open
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 571
+  position        : map 1642 (Zandalar), -290.8, -281.0, 259.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 2212 yd = 1.15 min; 1965 Nesingwary's Gameland 871 yd = 0.45 min;
+                    1966 Warbeast Kraal 951 yd = 0.50 min; 1975 Zeb'ahari 1315 yd = 0.68 min;
+                    2061 The Sliver 1269 yd = 0.66 min; 2076 Atal'Gral 1638 yd = 0.85 min;
+                    2145 Verdant Hollow 1494 yd = 0.78 min;
+                    2153 Mistvine Ledge 1449 yd = 0.75 min
+
+TAXI NODE 2143  SCORCHED SANDS OUTPOST, VOL'DUN
+  flight master   : Makaanji
+  creature entry  : 135654
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 585
+  position        : map 1642 (Zandalar), 885.0, 3698.9, 64.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2118 Temple of Akunda 995 yd = 0.52 min; 2144 Goldtusk Inn 829 yd = 0.43 min
+
+TAXI NODE 2144  GOLDTUSK INN, VOL'DUN
+  flight master   : Volni
+  creature entry  : 129365
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 584
+  position        : map 1642 (Zandalar), 1559.9, 3777.5, 37.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2111 Vorrik's Sanctum 1588 yd = 0.83 min; 2117 Vulpera Hideaway 1278 yd = 0.67 min;
+                    2119 Sanctuary of the Devoted 1248 yd = 0.65 min;
+                    2143 Scorched Sands Outpost 846 yd = 0.44 min
+
+TAXI NODE 2145  VERDANT HOLLOW, ZULDAZAR
+  flight master   : Kina Cobbleflame
+  creature entry  : 136074
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 586
+  position        : map 1642 (Zandalar), -19.9, 999.9, 200.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1965 Nesingwary's Gameland 1084 yd = 0.56 min; 2078 Fort Victory 2547 yd = 1.33 min;
+                    2080 Grimwatt's Crash 1806 yd = 0.94 min;
+                    2126 Scaletrader Post 1470 yd = 0.77 min;
+                    2148 Mugamba Overlook 1149 yd = 0.60 min;
+                    2153 Mistvine Ledge 1858 yd = 0.97 min;
+                    2157 Veiled Grotto 1637 yd = 0.85 min
+
+TAXI NODE 2147  CASTAWAY ENCAMPMENT, ZULDAZAR
+  flight master   : Kaolin
+  creature entry  : 138128
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 587
+  position        : map 1642 (Zandalar), -1697.4, -862.8, 23.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2075 Seeker's Outpost 1649 yd = 0.86 min; 2076 Atal'Gral 809 yd = 0.42 min
+
+TAXI NODE 2148  MUGAMBA OVERLOOK, ZULDAZAR
+  flight master   : Drager Smokewing
+  creature entry  : 139179
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 588
+  position        : map 1642 (Zandalar), -150.2, 1911.9, 452.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2080 Grimwatt's Crash 1632 yd = 0.85 min; 2114 Deadwood Cove 2889 yd = 1.50 min;
+                    2145 Verdant Hollow 1107 yd = 0.58 min;
+                    2157 Veiled Grotto 1222 yd = 0.64 min
+
+TAXI NODE 2153  MISTVINE LEDGE, ZULDAZAR
+  flight master   : Sornoth Slagmane
+  creature entry  : 139180
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 589
+  position        : map 1642 (Zandalar), -1293.6, 259.4, 280.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2012 Xibala 2608 yd = 1.36 min; 2075 Seeker's Outpost 2392 yd = 1.25 min;
+                    2076 Atal'Gral 1788 yd = 0.93 min; 2126 Scaletrader Post 1362 yd = 0.71 min;
+                    2145 Verdant Hollow 1895 yd = 0.99 min;
+                    2157 Veiled Grotto 2190 yd = 1.14 min
+
+TAXI NODE 2157  VEILED GROTTO, ZULDAZAR
+  flight master   : Isaac "Lefteye" Bentham
+  creature entry  : 139181
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 534
+  position        : map 1642 (Zandalar), -696.9, 1942.7, 714.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2012 Xibala 2912 yd = 1.52 min; 2075 Seeker's Outpost 3423 yd = 1.78 min;
+                    2145 Verdant Hollow 1485 yd = 0.77 min;
+                    2148 Mugamba Overlook 1076 yd = 0.56 min;
+                    2153 Mistvine Ledge 2182 yd = 1.14 min
+
+TAXI NODE 2161  REDFIELD'S WATCH, NAZMIR
+  flight master   : Joseph Redfield
+  creature entry  : 139995
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 598
+  position        : map 1642 (Zandalar), 2799.2, 774.2, 6.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2078 Fort Victory 1156 yd = 0.60 min; 2080 Grimwatt's Crash 1894 yd = 0.99 min;
+                    2120 Tortaka Refuge 1927 yd = 1.00 min
+
+TAXI NODE 2162  DEVOTED SANCTUARY, VOL'DUN
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this node sits at exactly the same coordinates as 2119 Sanctuary of the Devoted and appears in no
+                    TaxiPath row in either direction, so no source names a master of its own; the master is not copied
+                    over from 2119
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 535
+  position        : map 1642 (Zandalar), 2048.0, 4806.9, 73.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : none (no TaxiPath row touches this node, in either direction)
+
+TAXI NODE 2164  ISLE OF FANGS, ZULDAZAR
+  flight master   : Paku'ai Leti
+  creature entry  : 140650
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 536
+  position        : map 1642 (Zandalar), -3529.9, 1103.3, 8.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1974 Xibala 1302 yd = 0.68 min; 2165 Tusk Isle 792 yd = 0.41 min
+
+TAXI NODE 2165  TUSK ISLE, ZULDAZAR
+  flight master   : Paku'ai Jetar
+  creature entry  : 149207
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 590
+  position        : map 1642 (Zandalar), -3018.7, 686.4, 14.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 1372 yd = 0.71 min; 2075 Seeker's Outpost 1784 yd = 0.93 min;
+                    2164 Isle of Fangs 686 yd = 0.36 min
+
+TAXI NODE 2381  THE MUGAMBALA, ZULDAZAR
+  flight master   : Paku'ai Chal
+  creature entry  : 148157
+  entry note      : the wiki page for the Mugambala lists Paku'ai Chal as its flight master; Wowhead has 148157 as
+                    "<Flight Master>" in Zuldazar, and the wiki dates the flight point to 8.1.0
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 600
+  position        : map 1642 (Zandalar), -1849.7, 1195.7, 53.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1957 Port of Zandalar 534 yd = 0.28 min; 1959 The Great Seal 1186 yd = 0.62 min;
+                    2009 Warport Rastari 856 yd = 0.45 min;
+                    2027 Temple of the Prophet 1055 yd = 0.55 min
+
+WHAT IS VERIFIED AND WHAT IS NOT
+  Positions are TaxiNodes.Pos from Map 1642 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
+  flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
+  so every "walk-to position" line says unverified rather than a guessed offset.
+  Creature entries: 37 of the 44 nodes print one and 7 print "unverified". 33 entries come from section 3.1 of the research
+  document unchanged, and 4 were read this run - Zabar 121828, Du'ba 122191, Scroll of Flight 135387 and Paku'ai Chal 148157. The
+  four Scroll of Flight nodes of Zuldazar are the ones section 3.1 gets wrong: it prints 137318 for all four, but 137318 is a
+  Scroll of Flight standing in Stormsong Valley on Kul Tiras, and Wowhead lists three separate titled Scroll of Flight ids in
+  Zuldazar (134008, 134011, 136331) with no page tying any of them to a single node, so 2066 Atal'Gral, 2075 Seeker's Outpost,
+  2076 Atal'Gral and 2126 Scaletrader Post print "unverified" instead of a near match. The Vol'dun scroll at 2120 Tortaka Refuge
+  does print an entry, because 135387 is the only Scroll of Flight flight master Wowhead places in Vol'dun.
+  Three nodes print no master at all: 2071 Dreadpearl, 2073 Throne Room and 2162 Devoted Sanctuary. All three start no TaxiPath
+  row. 2071 sits on exactly the same coordinates as 2066 Atal'Gral and 2162 on exactly the same coordinates as 2119 Sanctuary of
+  the Devoted, and 2073 is the one node in this map with neither faction bit set; none of the three has a master named in any
+  source read here, so none was copied over from the twin roost.
+  Gate evidence: one node of the 44 is gated and 43 are not. 1956 Forlorn Ruins carries ConditionID 64582, and the PlayerCondition
+  row behind it sets no level, class, race or quest field, so there is no character-facing requirement to print beside it. No
+  Zandalar taxi node is gated on level, class, race, reputation or an achievement.
+  Faction: TaxiNodes.Flags gives 12 Alliance-only roosts, 22 Horde-only roosts, 9 with both bits set and 1 with neither, which
+  sums to 44; each block prints the bits it found rather than inferring a side from the name. The single node with neither bit is
+  the 2073 Throne Room.
+  Four nodes hold a taxi bit but appear in no TaxiPath row at all, in either direction: 2066 Atal'Gral, 2071 Dreadpearl, 2073
+  Throne Room and 2162 Devoted Sanctuary. Their blocks print "none" for links, and they are the only nodes in this map that can
+  be neither flown to nor flown from.
+  Travel time is derived, not read: TaxiPath.Cost is copper and TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, so neither is a
+  clock. Minutes here are yards / 1920, i.e. 32 yards per second. Distances are per direction: 1953 -> 1954 reads 1345 yd while
+  1954 -> 1953 reads 1350 yd, and the same holds for the other pairs. Section 1642 holds 190 directed rows over 40 nodes.
+  Unlock: a node's bit is set by visiting its flight master, so the practical requirement is reaching the zone. Flying over
+  Zandalar additionally needs Battle for Azeroth Pathfinder, Part One (achievement 12989) and Part Two (13250); a taxi flight
+  needs neither, only the node's bit.
+  Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of ConditionID 64582, the Warcraft
+  Wiki pages for Zul'jan Ruins, Tortaka Refuge, the Mugambala and Scroll of Flight, and Wowhead pages for Du'ba, Zabar, Paula
+  Waverunner, Paku'ai Chal and the Scroll of Flight ids of Zuldazar. Everything read from a source is printed; nothing was
+  estimated.
