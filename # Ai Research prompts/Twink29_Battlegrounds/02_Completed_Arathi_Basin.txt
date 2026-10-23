@@ -18,7 +18,7 @@ EXTRA BRACKET FACT: characters with experience turned off (Behsten 35365 / Slaht
 - Capture does not need the clicker alive: the timer lives on the node (m_NodeTimers), not on the player, and PostUpdateImpl counts it down with no player check. Killing the player who clicked does not stop the flip.
 - Defending: if your team owned the node and an enemy has just contested it, clicking your own contested banner restores it to occupied instantly, awards the defend score (objective 123) and cancels the enemy's 60 s timer. If the node was still neutral (nobody had owned it since the last flip), an enemy clicking it only restarts a 60 s timer for themselves and awards them the assault score (objective 122).
 - Assaulting an occupied enemy node also removes that node's spirit guide at once, so the defenders lose their graveyard while the timer runs.
-- Captured banner replacement is delayed 2000 ms (m_BannerTimers default 2000 in _CreateBanner); a contested banner is not clickable again during that gap.
+- Captured banner replacement is delayed 2000 ms (m_BannerTimers default 2000 in _CreateBanner); a contested banner is removed for that gap, so a click in the first 2 s after a flip is lost (inference from _DelBanner + the 2000 ms timer, not a separate rule in the code).
 - Honour and reputation per tick: honour accumulates with the same tick points and pays GetBonusHonorFromKill(1) every 260 points (m_HonorTics, normal) or every 160 points (holiday weekend); reputation is 10 points of League of Arathor (faction 509, Alliance) or Defilers (faction 510, Horde) every 160 points (normal) or every 120 points (holiday). With three nodes that is about one bonus honour kill every 156 s and 10 reputation every 96 s. End of match: the winner and both teams each receive GetBonusHonorFromKill(1).
 - Node ownership bonus: on every occupied node the core spawns a world trigger that casts spell 68652 (SPELL_HONORABLE_DEFENDER_25Y, +50% honour within 25 yards) for the owning team, and flashes quest-credit spells 24061 (4 bases) and 24064 (5 bases) when a team holds four or five points. Note 68652 is an honour bonus, not a combat buff.
 - Objective ids for the scoreboard: 122 assault base, 123 defend base.
@@ -34,7 +34,7 @@ THE FIVE OBJECTIVES (banner gameobject entries, all neutral banners are 180087 t
 - Lumber Mill: entry 180090, 856.1419, 1148.902, 11.18469, orientation -2.303835. North-west, on the highest ground (z 11.2).
 - Gold Mine: entry 180091, 1146.923, 848.1782, -110.917, orientation -0.7330382. North-east, lowest ground (z -110.9), the furthest from everything.
 
-BASE GATES (the only two doors in the battleground)
+BASE GATES (the only two door gameobjects the core creates for Arathi Basin)
 - Alliance gate, entry 180255, 1284.597, 1281.167, -15.97792, orientation 0.7068594.
 - Horde gate, entry 180256, 708.0903, 708.4479, -17.8342, orientation -2.391099.
 - Both are closed during the preparation phase and opened by StartingEventOpenDoors. There are no inner doors; the bases are open after the gate.
@@ -59,7 +59,7 @@ SPIRIT GUIDES AND RESURRECTION
 
 DOORS, RAMPS AND TUNNELS
 - The only real doors are the two base gates above. Everything else is terrain.
-- Ramps and high ground, from the coordinates: Lumber Mill sits at z 11.2 on a hill reached by a ramp from the north-west; Blacksmith at z -44.8 is a walled compound with a bridge over a ravine on its south side; Stables at z -56.7 is on a slope; Farm at z -56.0 sits behind a bridge over the river; Gold Mine at z -110.9 is inside a cave/tunnel on the lowest ground.
+- Ramps and high ground: the only heights the coordinates prove are Lumber Mill at z 11.2 (high ground), Blacksmith at z -44.8, Stables at z -56.7, Farm at z -56.0 and Gold Mine at z -110.9 (lowest, in a cave). The shape of the terrain between them (Lumber Mill ramp, Blacksmith bridge, Farm bridge, Gold Mine tunnel mouth) is the known map layout, not something read from the 8.3.7 data in this pass.
 - Precise ramp, bridge and tunnel mouth waypoints are unverified (no coordinate source read); use the map's pathfinding data.
 - Area triggers in the code: 6634 Alliance start, 6635 Horde start (leaving either during preparation teleports you to 3705 / 3706), 3948 Alliance exit portal, 3949 Horde exit portal, and 3866 Stables, 3867 Farm, 3868 Lumber Mill, 3869 Gold Mine, 3870 Blacksmith node triggers; 4020, 4021 and 4674 are unnamed and ignored.
 - Any player can click a banner within 10 yards of it (IsWithinDistInMap 10 in EventPlayerClickedOnFlag); the node lookup walks the five contested auras in order Stables, Blacksmith, Farm, Lumber Mill, Gold Mine.
@@ -115,7 +115,7 @@ When a team pushes:
 - Chasing off the route: about 1 in 3 players chases a runner 30-60 yd off the lane; 1 in 5 follows into the enemy's next node and dies there. On the Blacksmith bridge this happens more often because the bridge funnels everyone.
 - Going the wrong way: 1-2 players per team per match take a 20-40 s detour, most often after a respawn at a node graveyard they do not recognise, or by running to the node they died at instead of the node being attacked.
 - Leaving a point undefended: in random play a node is left with nobody on it within 1-3 minutes of being captured in most matches - estimate: 50-70% of captured nodes have no defender for 15 s or more at some point. Twink groups defend 1-2 nodes properly and let the third go.
-- Arriving late: the first wave reaches Stables/Farm 15-25 s after the gates open and Blacksmith 20-35 s; stragglers arrive 10-30 s behind. A death costs the 30 s maximum resurrection wait plus a 20-45 s run (143-441 yd), so 50-75 s of absence.
+- Arriving late: the first wave reaches Stables/Farm 15-25 s after the gates open and Blacksmith 20-35 s; stragglers arrive 10-30 s behind. A death costs the 30 s maximum resurrection wait plus a 20-63 s run on foot (143-441 yd, 13-39 s mounted), so 50-95 s of absence.
 - Running into a group: solo players run into 3 or more enemies about 1-3 times per match; it happens most at Blacksmith (everyone's shortest path) and at a node just after it flipped.
 - Reaction to a node being assaulted: 3-8 s to notice the chat line and the map icon, then 10-20 s to decide to rotate; only 1-2 players per team actually rotate, the rest keep fighting where they are.
 - Reaction to a node capture in progress: a defender who is alive and within 30 yd almost always clicks within 2-5 s; a defender who is dead does not come back in time (respawn plus 40-70 s run against a 60 s timer).
