@@ -205,9 +205,9 @@ wiki: two orbs "appear on opposite sides of the Arena", which
   matches the Y-axis placement measured above
 
 No health, mana, haste or berserking pickups are spawned here.
-The generic battleground pickup objects 179871 (speed),
-179904 (regeneration) and 179905 (berserking) are not used on
-arena maps.
+The core spawns exactly four objects on this map - two gates and
+two orbs - so any other pickup object would have to come from the
+map itself, and none is placed there.
 
 === 7. MATCH FLOW NOTES ===
 

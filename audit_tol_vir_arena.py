@@ -21,6 +21,8 @@ TVA_PATH = ("src/server/game/Battlegrounds/Zones/BattlegroundTVA.cpp")
 TVA_H_PATH = ("src/server/game/Battlegrounds/Zones/BattlegroundTVA.h")
 DM_REPO = "Ghostopheles/Datamine"
 DM_PATH = "Datamine_Maps/Generated/Map_TolVirArena.lua"
+TPL_REPO = "zTerragor/vSLDB"
+TPL_PATH = "sql/updates/world/2021_11_03_world_Battleground_Template.sql"
 
 SOURCE_TOKENS = {
     "world_safe_locs (8.x)": [
@@ -43,6 +45,16 @@ SOURCE_TOKENS = {
         ("worldstate", "0xE1A, 1"),
         ("triggers", "case 8451"),
         ("spawn", "SpawnBGObject(i, 60)"),
+    ],
+    "battleground_template": [
+        ("bg 719 row", "(719, 0, 5, 90, 120, 4136, 4137, 10, 1, '', "
+                       "'Tol\\'viron Arena')"),
+        ("AV 150", "(1, 10, 40, 45, 120, 611, 610, 150"),
+        ("WSG 75", "(2, 2, 10, 10, 120, 769, 770, 75"),
+        ("AB 75", "(3, 2, 15, 10, 120, 890, 889, 75"),
+        ("EotS 75", "(7, 2, 15, 35, 120, 1103, 1104, 75"),
+        ("IoC 200", "(30, 10, 40, 71, 120, 1299, 1245, 200"),
+        ("Kotmogu 50", "(699, 2, 10, 40, 120, 4534, 4535, 50"),
     ],
     "Map_TolVirArena.lua": [
         ("map name", 'MapName = "Tol\'Viron Arena"'),
@@ -135,6 +147,9 @@ STATIC_CHECKS = [
     ("buff_b_pos", lambda t: "-10716.6" in t and "475.364" in t),
     ("buff_b_z", lambda t: "24.4131" in t),
     ("buff_dists", lambda t: "45.8 units" in t and "45.9 units" in t),
+    ("buff_a_orient", lambda t: "Orientation: 1.555 rad" in t),
+    ("orb_z_level", lambda t: "to within 0.0003 units" in t),
+    ("nagrand_orb_gap", lambda t: "orbs sit 108.9 apart" in t),
     ("buff_gap", lambda t: "91.5 units apart" in t),
     ("no_battlemaster_claim", lambda t: "BattlemasterList id" not in t),
     ("spawn_60", lambda t: "Spawn: 60 s after the gates open" in t),
@@ -145,6 +160,9 @@ STATIC_CHECKS = [
     ("spell_15s", lambda t: "15 s" in t),
     ("dmg_5", lambda t: "+5% damage taken" in t),
     ("no_health", lambda t: "No health, mana, haste" in t),
+    ("four_objects", lambda t: "exactly four objects on this map" in t),
+    ("no_fake_object_ids", lambda t: "179871" not in t and "179904" not in t),
+    ("kotmogu_50", lambda t: "Kotmogu 50" in t),
 
     ("worldstate", lambda t: "Worldstate 0xE1A" in t),
     ("dampening_hotfix", lambda t: "2014-10-30" in t),
@@ -232,6 +250,12 @@ MUTATIONS = [
     ("buff_b_y", lambda t: t.replace("475.364", "476.364")),
     ("buff_b_z", lambda t: t.replace("24.4131", "25.4131")),
     ("buff_dist", lambda t: t.replace("45.8 units", "55.8 units")),
+    ("buff_a_orient", lambda t: t.replace("Orientation: 1.555 rad",
+                                          "Orientation: 2.555 rad")),
+    ("orb_z_level", lambda t: t.replace("to within 0.0003 units",
+                                        "to within 0.0030 units")),
+    ("nagrand_orb_gap", lambda t: t.replace("orbs sit 108.9 apart",
+                                            "orbs sit 109.9 apart")),
     ("buff_gap", lambda t: t.replace("91.5 units apart", "101.5 units apart")),
     ("spawn", lambda t: t.replace("Spawn: 60 s after the gates open",
                                   "Spawn: 90 s after the gates open")),
@@ -247,6 +271,9 @@ MUTATIONS = [
                                       "+10% damage taken")),
     ("pickup_claim", lambda t: t.replace("No health, mana, haste",
                                          "Health, mana, haste")),
+    ("object_count", lambda t: t.replace(
+        "The core spawns exactly four objects",
+        "The core spawns exactly five objects")),
     ("worldstate", lambda t: t.replace("Worldstate 0xE1A",
                                        "Worldstate 0xE1B")),
     ("dampening_date", lambda t: t.replace("2014-10-30", "2014-10-31")),
@@ -349,6 +376,17 @@ def derived_stage(text):
     lines.append("    %-20s doc %9.4f      recomputed %9.4f  %s"
                  % ("floor flatness", want, got, mark))
 
+    m = re.search(r"the arena floor to within (\d+\.\d+) units", text)
+    if not m:
+        raise RuntimeError("orb Z level claim missing")
+    want = float(m.group(1))
+    got = round(24.4131 - 24.412825, 4)
+    mark = "ok " if abs(got - want) <= 0.00005 else "BAD"
+    if mark == "BAD":
+        ok = False
+    lines.append("    %-20s doc %9.4f      recomputed %9.4f  %s"
+                 % ("orb Z level", want, got, mark))
+
     m = re.search(r"Floor Z spans (\d+\.\d+) to (\d+\.\d+)", text)
     if not m:
         raise RuntimeError("floor span claim missing")
@@ -420,6 +458,7 @@ def main():
         "BattlegroundTVA.h": gh_content(TVA_REPO, TVA_H_PATH),
         "BattlegroundTVA.cpp": gh_content(TVA_REPO, TVA_PATH),
         "Map_TolVirArena.lua": gh_content(DM_REPO, DM_PATH),
+        "battleground_template": gh_content(TPL_REPO, TPL_PATH),
     }
     ok, lines = source_stage(corpora, SOURCE_TOKENS)
     for line in lines:
