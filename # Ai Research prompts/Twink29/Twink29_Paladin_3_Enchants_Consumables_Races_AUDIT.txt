@@ -1,0 +1,125 @@
+AUDIT - Twink29_Paladin_3_Enchants_Consumables_Races.txt
+File under audit: 222 lines, step 3 of 3. 23 claims checked: 16 pass,
+3 corrected, 4 unverified.
+Sources used: the audited profession files already in this repository
+(Enchanting, Blacksmithing, Alchemy, Cooking and First Aid, Inscription,
+Engineering, Leatherworking), and the two earlier paladin files for
+internal consistency. Nothing new was fetched for this audit - every number
+this file quotes comes from a source the set has already audited once, which
+is the cheapest kind of audit and also the most likely to inherit an error.
+
+1. THE OPENING FRAME
+   1  PASS  "A paladin is the second class in this set that can use nearly
+      all of the classic enchant list." Counted: it keeps the armour cloak,
+      the chest, the Strength bracers, the boots and the weapon enchant, and
+      wastes only the gloves. That is six of seven, one more than the monk
+      and four more than the mage. The claim is right and the file could
+      have said so more strongly.
+   2  CORRECTED, AND IT IS THE FILE'S HEADLINE CLAIM  "There is no Strength
+      elixir at 29." What the audited Alchemy survey actually supports is
+      narrower: the only Strength elixir that survey found is Elixir of
+      Giants 9206, and it requires level 38. The file now says "no Strength
+      elixir was found" and invites a correction if a low-level one exists.
+      Claiming an absence is exactly what this set's rule against invention
+      is for, and a survey is evidence, not proof.
+   3  UNVERIFIED  "A paladin has mana in all three specs and spends it on
+      Flash of Light." True as I know the class, not read on a page, and it
+      decides whether 3385 Lesser Mana Potion belongs in a Protection
+      paladin's bag.
+
+2. ENCHANTS
+   4  PASS  Every in-cap enchant matches the audited Enchanting file on
+      spell id, skill, reagents and rod tier: 13746 at 205, 13882 at 225
+      with formula 11206, 13640 at 160, 13661 at 180, 13815 at 210 with
+      1x Lesser Nether Essence and 1x Vision Dust, 13890 at 225 with its
+      three reagents, 13693 at 195 with 2x Greater Mystic Essence and 1x
+      Large Glowing Shard.
+   5  PASS  The cloak advice is the right way round for this class: 13746
+      armour over 13882 agility. The Enchanting file itself says +50 armour
+      is worth more to a melee class that expects to be hit, and a paladin
+      is that class.
+   6  PASS  13661 as "the single best enchant in this file" is the correct
+      read for a paladin, +5 Strength on a bracer, and it is the mirror
+      image of the mage and monk files where the same enchant is worthless.
+   7  PASS  The gloves row is honest: 13815 agility is the only gloves
+      enchant inside the cap and it is the wrong stat, with 20012 at skill
+      270 marked ALT.
+   8  PASS  4265 Heavy Armor Kit with its item level 15 floor, and 8173 and
+      15564 marked ALT with the right reasons - the Thick kit fits items of
+      level 25 and up and requires level 30, the Rugged one requires 40.
+   9  PASS  The neck and ring block is unchanged from the mage file after
+      its own correction: 190894 with enchant id 5439 and the 120 cap,
+      190871 rank 1 and 191014 rank 3 with the 60 cap, 228405 useless
+      because a 29 has no mastery.
+   10 PASS  The shield gap is stated rather than filled. No shield enchant
+      id exists anywhere in the audited Enchanting file, and the file says
+      exactly that instead of quoting a classic shield enchant from memory.
+      This is the right call and it is the only slot in the set where a
+      class gets a naked slot and an explanation.
+
+3. BLACKSMITHING - THE SECTION THIS FILE EXISTS FOR
+   11 PASS  6043 Iron Counterweight: item level 33, skill 165, spell 7222,
+      4x Iron Bar, 2x Coarse Grinding Stone, 1x Lesser Moonstone, anvil,
+      plans 6045 from a world drop, 3% haste on a two-hander and permanent.
+      Row for row from the audited Blacksmithing file.
+   12 PASS  6042 Iron Shield Spike: item level 30, skill 150, spell 7221,
+      6x Iron Bar and 4x Coarse Grinding Stone, plans 6044, damages anyone
+      who blocks, permanent. Same source.
+   13 PASS  7965 and 7964 at skill 200 for +6 for 30 minutes, with the
+      blunt and bladed split and the 12643/12404 Dense stones at level 35
+      marked ALT.
+   14 PASS  The Green Iron set is quoted correctly and, more importantly,
+      correctly ruled out: 3836 helm at 34/29 with 171 armour and +5 Str
+      +11 Stam, 3842 leggings, 3484 boots, 3835 bracers, all uncommon, all
+      out under the blue-only rule, and all named because a paladin has no
+      plate in the bracket. That paragraph is the clearest statement in the
+      set of what the blue-only rule costs a class.
+
+4. CONSUMABLES
+   15 PASS  Everything in section 3 matches an audited file: 3825 at 35/25
+      for +120 health, 8951 at 39/29 for +250 armour, 2459, 1710, 5634,
+      3385, the five school potions, 12210 at +8 and +8, 8544 and 6451.
+   16 PASS  20452 Smoked Desert Dumplings at +20 Strength and level 45,
+      used to explain why no legal Strength food exists. The Cooking file
+      has it at 45 with spell 24801 and skill 285.
+   17 PASS  2289 Scroll of Strength II at +5, level 15, inscription 58485,
+      skill 80; 954 as the +3 rank at skill 35; 4426 needing level 30; 955
+      Intellect and 1477 Agility called wrong for the class. All from the
+      audited Inscription file.
+   18 PASS  The one-scroll-at-a-time rule is repeated from the mage audit,
+      where it was read off an item page.
+   19 UNVERIFIED  The battle and guardian elixir categories, and that one of
+      each can be active. Standard behaviour, not read.
+
+5. PROFESSIONS AND RACES
+   20 PASS  Blacksmithing plus Leatherworking with the Engineering and
+      Alchemy swaps, and every item named carries an id from an audited
+      file: 4265, 18948, 4390, 4388, 4397, 4381. The Enchanting paragraph is
+      right for the same reason it was right in the mage and monk files - a
+      29 cannot train past classic 225, so the neck and ring enchants are
+      ALT by definition.
+   21  CORRECTED  "Three breaks is the best defensive racial in the
+      bracket." A human paladin has two - the racial and the PvP trinket -
+      and only a Retribution one that also spends its single PvP slot on
+      Blessing of Sanctuary gets a third. Reworded to say two, or three for
+      that build. The file was counting a talent it had itself established
+      costs the only PvP slot the character has.
+   22  CORRECTED  "A paladin has no ranged interrupt." It has one interrupt,
+      Rebuke, and it is melee range. Reworded so the grenade argument rests
+      on the range rather than on a missing ability.
+   23  UNVERIFIED, AND LABELLED IN THE FILE  The allied-race half of the
+      paladin roster; the Dark Iron Fireblood, Lightforged Light's Reckoning
+      and Zandalari Regeneratin' effects and ids; and the claim that thirteen
+      other races cannot be paladins at all. The classic five races and their
+      racial ids are the part of this section the set can stand behind.
+
+6. WHAT TO CHANGE
+   Done: the Strength elixir claim is now an absence in the sources rather
+   than an absence in the game, the human break count no longer double-counts
+   a PvP talent, and Rebuke is acknowledged. The rest of the file is a
+   straight carry-forward of audited numbers and reads cleanly.
+   The set's shape for paladins is now complete and consistent: an item file
+   that has to explain why there is no plate, a talent file with one pick and
+   a Holy PvP shrug, and this file, whose best paragraph is the one telling a
+   paladin that its four crafted Strength pieces are the only plate-shaped
+   things it can make and that they are all out of the rule.

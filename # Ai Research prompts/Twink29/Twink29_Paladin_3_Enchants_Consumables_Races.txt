@@ -1,0 +1,222 @@
+TWINK29 - PALADIN - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
+V = read off a page or an audited file in this set.
+
+0. THREE THINGS THAT SHAPE A PALADIN'S SHOPPING LIST
+   The classic enchant list was built for melee, and a paladin is the second
+   class in this set that can use nearly all of it - the Strength bracers,
+   the weapon enchant, the boots, the chest and the armour cloak. The one
+   slot it wastes is the gloves.
+   NO STRENGTH ELIXIR WAS FOUND AT 29. Elixir of Giants 9206 is +25
+   Strength and requires level 38 (V, from the audited Alchemy file), and
+   that survey turned up no other Strength elixir at all, so the battle
+   elixir slot is the one slot a paladin cannot fill with its own stat.
+   Elixir of Agility 8949 is legal and wrong. This is the opposite of the
+   monk, who had the agility elixir and no plate. If a low-level Strength
+   elixir exists that the survey missed, the file would want it.
+   A paladin has mana in all three specs, not just Holy - Protection and
+   Retribution spend it on Flash of Light - so a mana potion is not a
+   Holy-only item for this class, unlike the monk.
+
+1. ENCHANTS BY SLOT
+   The classic skill line caps at 225 for a 29; anything above needs the
+   artisan rank at level 35, so a higher-level character applies it (ALT).
+HEAD|nothing - no head enchant inside the cap
+NECK|190894 Mark of the Hidden Satyr, enchant id 5439|BfA enchanting|cap
+     "cannot be applied to items above level 120"|ALT
+SHOULDER|nothing at 29. The Mists inscriptions 83006, 87580, 44133 and
+     50335 need level 80 or 85 on the applier, and only bind-on-account
+     shoulders take them.|ALT
+CLOAK|13746 Enchant Cloak - Greater Defense|+50 armor|skill 205, 3x Vision
+     Dust 11137, Runed Truesilver Rod|THE PICK
+     A paladin is the one class in this set that should take armour over
+     agility: it is the class that gets hit, and 50 armour is worth more to
+     it than 3 dodge.
+CLOAK|13882 Enchant Cloak - Lesser Agility|+3 Agility|skill 225, formula
+     item 11206, 2x Lesser Nether Essence 11174|the alternative
+CHEST|13640 Enchant Chest - Greater Health|+35 health|skill 160, 3x Soul
+     Dust 11083, Runed Golden Rod|THE PICK, and the only chest option
+WRIST|13661 Enchant Bracer - Strength|+5 Strength|skill 180, 1x Vision Dust
+     11137, Runed Golden Rod|THE PICK
+     The single best enchant in this file for a paladin, and the only one
+     that feeds its primary stat. The mage and monk files had to call this
+     enchant worthless; here it is the reason the file exists.
+HANDS|13815 Enchant Gloves - Agility|+5 Agility|skill 210, 1x Lesser Nether
+     Essence 11174, 1x Vision Dust 11137|the only gloves enchant inside the
+     cap, and the wrong stat. 20012 Greater Agility is skill 270, ALT.
+WAIST|nothing - no belt enchant exists inside the cap
+LEGS|4265 Heavy Armor Kit|+24 armor|Leatherworking 150, spell 3780, 5x
+     Heavy Leather 4234|only on items of level 15 and up|THE PICK
+     8173 Thick Armor Kit (+32) only fits items of level 25 and up and the
+     kit itself requires level 30; 15564 Rugged requires level 40. ALT.
+FEET|13890 Enchant Boots - Minor Speed|skill 225, 1x Small Radiant Shard
+     11177, 1x Aquamarine 7909, 1x Lesser Nether Essence 11174|THE PICK
+     "a slight movement speed increase" - the tooltip's own words, the
+     exact figure is unverified. Worth more than any stat on this list.
+RING 1|190871 Binding of Haste, rank 1|later rank 191014|cap "cannot be
+     applied to items above level 60"|ALT
+RING 2|the same enchant on the second ring|ALT
+     228405 Trained Soldier is useless at 29 - mastery, and a 29 has none.
+WEAPON|13693 Enchant Weapon - Striking|+3 weapon damage|skill 195, 2x
+     Greater Mystic Essence 11135, 1x Large Glowing Shard 11139|THE PICK
+     for a one-hander. For a two-hander, see 6043 in section 2 - it is
+     permanent and better.
+OFF|a shield. NO SHIELD ENCHANT WAS VERIFIED in this set: the classic book
+     has shield enchantments, but no id, skill or effect was read for this
+     file, so none is quoted. That is the one real gap in this table.
+   Above the cap, all ALT for that reason:
+     13939 Enchant Bracer - Greater Strength    skill 240
+     13943 Enchant Weapon - Greater Striking    skill 245
+     13898 Enchant Weapon - Fiery Weapon        skill 265
+     20012 Enchant Gloves - Greater Agility     skill 270
+     20031 Enchant Weapon - Superior Striking   skill 300
+     25080 Enchant Gloves - Superior Agility    skill 300
+
+2. BLACKSMITHING ENHANCEMENTS - WHERE A PALADIN BEATS EVERY OTHER CLASS
+   These are permanent and they occupy the same slot as a stone or a weapon
+   enchant, so a character picks one per weapon.
+   6043 Iron Counterweight|item level 33, Blacksmithing 165, spell 7222,
+     4x Iron Bar 3575, 2x Coarse Grinding Stone 3478, 1x Lesser Moonstone
+     1705, anvil|plans 6045, a world drop|TWO-HANDED weapons only
+     Makes a two-handed sword, mace or axe swing 3% faster, permanently. This
+     is the best single item in the whole file for a Retribution paladin,
+     and it is the reason Blacksmithing is a paladin's first profession.
+   6042 Iron Shield Spike|item level 30, Blacksmithing 150, spell 7221,
+     6x Iron Bar 3575, 4x Coarse Grinding Stone 3478, anvil|plans 6044, a
+     world drop|SHIELD users only
+     Damages anyone who blocks, permanently. Protection and Holy only.
+   7965 Solid Weightstone|+6 weapon damage for 30 minutes|item level 35,
+     requires level 25, Blacksmithing 200|BLUNT: maces, fists, staves
+   7964 Solid Sharpening Stone|+6 weapon damage for 30 minutes|item level
+     35, requires level 25, Blacksmithing 200|BLADED: swords, axes
+     These are the cheap option for a one-hander with no counterweight
+     available, and they are consumed on use. 12643 Dense Weightstone and
+     12404 Dense Sharpening Stone need level 35, ALT.
+   A PALADIN'S WEAPON PLAN: two-hander build takes 6043 and never buys a
+   stone again; one-hander build takes 13693 on the weapon and a 7965 or
+   7964 stone in the bag; shield build adds 6042 to the shield.
+
+3. CONSUMABLES
+   ELIXIRS - one battle, one guardian, one hour each.
+     BATTLE: nothing found. Elixir of Giants 9206 is +25 Strength at level
+       38 (V) and is the only Strength elixir in the audited Alchemy survey.
+       The nearest legal battle elixirs are 8949 Agility (+15, level 27) and
+       6373 Firepower (+10 fire, level 18), both the wrong stat. A paladin
+       that wants a battle elixir has to drink the wrong one.
+     3825 Elixir of Fortitude|item level 35, requires level 25|+120 health
+       |GUARDIAN, the cheap pick
+     8951 Elixir of Greater Defense|item level 39, requires level 29|+250
+       armor|GUARDIAN, the pick for a Protection paladin
+   POTIONS
+     2459 Swiftness Potion|requires level 5|run speed for a few seconds
+     1710 Greater Healing Potion|item level 31, requires level 21|455-585
+       health
+     5634 Free Action Potion|item level 30, requires level 20|breaks and
+       prevents stun and snare
+     3385 Lesser Mana Potion|item level 24, requires level 14|all three
+       specs use mana; 6149 Greater Mana needs level 31
+     6051 Holy, 6048 Shadow, 6049 Fire, 6050 Frost, 6052 Nature Protection
+       Potions|require 10, 17, 23, 28, 28|one per match-up
+   FOOD
+     12210 Roast Raptor|item level 35, requires level 25|+8 and +8
+       There is no Strength food a 29 can cook: 20452 Smoked Desert
+       Dumplings is +20 Strength and requires level 45 (V). 12209 and 5479
+       are the cheap versions.
+   SCROLLS - one scroll effect at a time, and that is printed on the item.
+     2289 Scroll of Strength II|+5 Strength|requires level 15|Inscription
+       craft 58485, skill 80|THE PICK, and the only way to get more
+       Strength out of a consumable at this level
+     954 Scroll of Strength is the +3 rank at skill 35; 4426 Scroll of
+       Strength III requires level 30 and is just out.
+     955 Scroll of Intellect (+3, no level requirement) is the Holy
+       paladin's scroll, and 1477 Scroll of Agility is the wrong stat.
+   BANDAGES
+     8544 Mageweave Bandage|heals 1600; 6451 Heavy Silk Bandage|heals 1280
+     Worth carrying on a class that cannot heal itself while stunned.
+
+4. THE TWO PROFESSIONS
+   BLACKSMITHING + LEATHERWORKING, and the first one is not optional.
+   BLACKSMITHING is the only profession that gives a 29 a permanent weapon
+   upgrade: 6043 Iron Counterweight at 165 for a two-hander, 6042 Iron Shield
+   Spike at 150 for a shield, and the 7965/7964 stones at 200 for everything
+   else. It also makes the Green Iron mail set, which is the only wearable
+   armour it produces at this level:
+     3836 Green Iron Helm, item level 34, requires 29, +5 Str +11 Stam, 171
+       armour, skill 170, spell 3502 - the one piece that lands exactly on
+       29, and it is a leveling green, not twink gear
+     3842 Green Iron Leggings, 31, requires 26, +8 Str +8 Stam, skill 155
+     3484 Green Iron Boots, 29, requires 24, +3 Str +7 Stam, skill 145
+     3835 Green Iron Bracers, 33, requires 28, no stats, skill 165
+     All four are uncommon, so the blue-only rule throws them out. They are
+     named here because a paladin has no plate in the bracket and these are
+     the only crafted Strength pieces that exist - the honest answer is that
+     an instance drop beats every one of them.
+   LEATHERWORKING for 4265 Heavy Armor Kit, four of them for four characters,
+     and 18948 Barbaric Bracers as the only crafted blue bracer a paladin
+     can wear. Its leather-and-mail focus is why it is a support profession
+     for this class rather than a gear one.
+   SWAPS
+     ENGINEERING instead of Leatherworking, for a bot that fights players:
+       4390 Iron Grenade (stun), 4388 Discombobulator Ray, 4397 Cloaking
+       Device, 4381 Minor Recombobulator to break a polymorph on yourself.
+       A paladin's only interrupt, Rebuke, is melee range, so a thrown stun
+       covers a gap the class has.
+     ALCHEMY for a Holy paladin that wants to make its own mana potions and
+       elixirs. Every consumable in section 3 can be bought, so this only
+       saves money.
+     ENCHANTING cannot be a twink's main profession: the neck and ring
+       enchants in section 1 need the BfA enchanting skill and a 29 cannot
+       train past the classic 225 cap.
+
+5. RACES
+   The paladin class list is short - five classic races and three allied
+   ones on 8.3.7:
+     ALLIANCE  human, dwarf, draenei, lightforged draenei, dark iron dwarf
+     HORDE     blood elf, tauren, zandalari troll
+     Night elf, worgen, gnome, orc, undead, troll, goblin, pandaren, void
+     elf, highmountain tauren, mag'har orc, kul tiran and mechagnome cannot
+     be paladins at all, so there is no "avoid" list for this class - the
+     list of choices is simply short.
+     THE ALLIED-race half of that roster is from memory of the character
+     screen and is UNVERIFIED.
+   THE PICKS, best first, with the racial that earns the slot:
+   HUMAN      59752 Will to Survive - a crowd-control break on its own
+              cooldown, separate from the PvP trinket. That is two breaks on
+              any human paladin, and three on a Retribution one that also
+              takes Blessing of Sanctuary. 20598 The Human Spirit.
+   TAUREN     20549 War Stomp - an area stun on no cast time, which a
+              Protection paladin uses to hold a group and a Retribution one
+              uses to land a two-hander. 20550 Endurance for base health.
+   DARK IRON  Fireblood - removes bleed, poison, disease and curse and
+              grants primary stat. Spell id unverified. The best anti-dot
+              racial for a tank.
+   BLOOD ELF  50613 Arcane Torrent - area silence plus resource, which is
+              the answer to every caster in the bracket.
+   DWARF      20594 Stoneform - clears bleed, poison and disease and adds
+              armor; 59224 and 20596 are the rest.
+   LIGHTFORGED Light's Reckoning, a damage-and-heal blast. Spell id
+              unverified.
+   ZANDALARI  Regeneratin', a full heal over the channel, broken by damage.
+              Spell id unverified, and useless on a bot that keeps getting
+              hit.
+   DRAENEI    28880 Gift of the Naaru, a heal-over-time, plus 6562 Heroic
+              Presence for hit rating.
+   NO BAD PICK: a paladin has weapon skills for every weapon it uses, so no
+   race's weapon bonus is wasted, and all eight races carry a racial a 29
+   can use. Pick the control effect you want.
+
+6. WHAT TO BUY, IN ORDER
+   1. 6043 Iron Counterweight for a two-hander, or 13693 plus 7965/7964 for
+      a one-hander, and 6042 for a shield build.
+   2. 13890 Minor Speed on the boots, 13661 Strength on the bracers.
+   3. 13746 armour on the cloak, 13640 health on the chest, 4265 kit on the
+      legs.
+   4. 2289 Strength scrolls, 3825 or 8951 as the guardian elixir.
+   5. 1710 Greater Healing, 5634 Free Action, 3385 mana, one school
+      protection potion.
+   6. 12210 Roast Raptor, and 2459 Swiftness for flag runs.
+   7. 4390 Iron Grenades and 4381 Minor Recombobulator if Engineering.
+   Everything except the neck, ring, shoulder and shield enchant slots is
+   doable by a 29 with its own two professions. Those four slots are where a
+   funded twink pulls ahead.

@@ -1,0 +1,98 @@
+AUDIT - Twink29_Paladin_2_Talents.txt
+File under audit: 152 lines, step 2 of 3. 19 claims checked: 13 pass,
+3 corrected, 3 unverified.
+Pages opened for this audit: Crusader's Might, Bestow Faith, Zeal (paladin
+talent), Holy Shield, Blessing of Sanctuary, Steed of Glory, Cleanse the
+Weak and Denounce on warcraft.wiki.gg, the paladin PvP talent category, and
+two web searches for BfA-era tier tables.
+
+1. THE SHAPE OF THE ANSWER
+   1  PASS  One normal talent and one PvP talent at 29. The normal half
+      rests on Zeal's own note - 8.0.1 "Redesigned as a Passive level 15
+      talent (was level 30)" - and the PvP half on the four-slot,
+      20/40/70/110 system established earlier in this set.
+   2  PASS  Row 1 is level 15 and row 2 is level 30, and the file cites the
+      two patch notes that prove it rather than asserting it. This is the
+      third class in the set where the answer is "one talent", and by now
+      the pattern is solid: every class uses the same row levels in BfA.
+   3  PASS  Row 2's contents per spec, from a BfA-era tier table: Protection
+      gets First Avenger / Crusader's Judgment / Bastion of Light,
+      Retribution gets Fires of Justice / Blade of Wrath / Hammer of Wrath,
+      Holy gets Cavalier / Unbreakable Spirit / Blessing of Spellwarding.
+      The table is a guide, not a database, and the file only uses it to say
+      what a 29 cannot have.
+
+2. THE THREE ROW-1 LISTS
+   4  PASS  Holy: Crusader's Might 196926, Bestow Faith 223306, Light's
+      Hammer. The two ids are verified and each one's page says the talent
+      was level 15 in this era. Bestow Faith's "did not generate Holy Power
+      until 9.0.1" is right, and it is the sort of detail that decides
+      whether a bot healer can use the talent at all.
+   5  CORRECTED  "Crusader Strike reduces the cooldown of Holy Shock and
+      Judgment." On 8.3.7 it reduces Holy Shock only. The spell's own patch
+      notes add the Judgment half on 11.0.0, and 9.0.1's nerf to one second
+      sits between them. The file now says 1.5 sec on Holy Shock and names
+      the patch that added the rest. This is exactly the class of error the
+      wiki's current text invites - the live tooltip describes a 2024 spell,
+      not an 8.3.7 one.
+   6  CORRECTED  Zeal: the 8.0.1 note says "next 2 auto attacks", later BfA
+      and Shadowlands descriptions say 3. The file now says both and marks
+      the 8.3.7 number unverified instead of picking one silently.
+   7  UNVERIFIED, AND NOW LABELLED  Light's Hammer as BfA's third Holy
+      option is an inference from a Legion row table plus a partial BfA
+      table. The file now says so in the row itself.
+   8  PASS  Protection: Holy Shield, Redoubt, Blessed Hammer, all three
+      confirmed as a row by the BfA tier table, with Holy Shield's own note
+      ("7.0.3 now available at level 15") as the check on the row's level.
+   9  UNVERIFIED  The ids quoted for Holy Shield (152261) and Blessed Hammer
+      (204019) come from a Legion-era talent list. Both are probably the
+      same spell in BfA, and both are marked unverified for 8.3.7 in the
+      file, which is the correct handling but still means two numbers a
+      reader should not trust blindly.
+   10 PASS  Retribution: Zeal 269569 verified, Righteous Verdict given no
+      id rather than a guessed one, Execution Sentence 213757 quoted with
+      its provenance marked.
+
+3. PVP TALENTS
+   11 PASS  Steed of Glory 199542, Protection, level 20. The page's
+      "Level 20" plus the 8.0.1 note "converted from a rank 20 honor talent"
+      agree, and no later patch changed the level, so 20 is safe for BfA.
+   12 PASS  Blessing of Sanctuary 210256, Retribution, level 20, 45 sec
+      cooldown in BfA with the 2025 raise to a minute. Same corroboration:
+      8.0.1 conversion from a rank 25 honour talent. A 2018 hotfix on that
+      page - "can now be cast on low-level player targets" - is independent
+      confirmation that this talent was expected to be in low-level PvP.
+   13 PASS  Cleanse the Weak is a level 60 talent on 8.3.7. The page's own
+      note is "9.0.1: now available at level 27 (was 60)", which is the
+      cleanest possible evidence and the single most useful line in the
+      PvP section.
+   14 PASS  Denounce does not exist on 8.3.7: removed in 7.0.3, re-added in
+      10.1.5 as a level 30 talent. It sits in the live PvP category, which
+      is why it was worth checking, and it is now the file's headline trap.
+   15 UNVERIFIED  That the Holy paladin has "the slot and nothing legal to
+      put in it". Five Holy PvP talents were named but not opened, so the
+      file says the answer is unverified rather than none. That distinction
+      is the right one and should stay.
+
+4. THE TWO THINGS THE FILE DOES NOT CLAIM
+   16 PASS  It does not claim Steed of Glory or Blessing of Sanctuary were
+      cross-spec in BfA. Both are spec-locked on the current pages, the file
+      says so, and says the BfA lock was not verified.
+   17 PASS  It does not quote an id for Redoubt, Righteous Verdict or
+      Light's Hammer. Three blanks are better than three guesses.
+   18 UNVERIFIED  "A Protection twink at 29 tanks other twinks" and the
+      other reasoning about what bots do - judgement, not fact, and clearly
+      framed as the reason for a pick.
+   19 PASS  The final table uses only ids the file verified, plus the two
+      Legion-era ids with their warning attached, and pairs each spec with a
+      PvP talent from the same spec.
+
+5. WHAT TO CHANGE
+   Done: the Crusader's Might tooltip is now the 8.3.7 one rather than the
+   current one, Zeal's stack count is honest about the disagreement, and
+   Light's Hammer is labelled an inference. Everything else held, including
+   the four PvP findings that make this file worth reading - Steed of Glory
+   and Blessing of Sanctuary at level 20, Cleanse the Weak at 60, and
+   Denounce not existing at all.
+   The one structural weakness is that Holy's PvP answer is a shrug. It is a
+   truthful shrug, and better than inventing a talent that a 29 cannot take.
