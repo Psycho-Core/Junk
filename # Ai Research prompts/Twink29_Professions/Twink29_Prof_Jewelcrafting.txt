@@ -1,0 +1,196 @@
+TWINK29 - PROFESSIONS - STEP 07 - JEWELCRAFTING
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Scope: what Jewelcrafting gives a level 29 battleground twink, skill line
+755, capped at 225 for a character of that level.
+
+1. THE FIRST THING THAT HAS TO BE SAID
+   Jewelcrafting did not exist in vanilla. It was added in patch 2.0, so
+   there is no Classic-tier jewelcrafting at all - the skill line every
+   other file in this set uses (164, 165, 197, 333...) has no jewelcrafting
+   equivalent. In 8.3.7 the profession is skill line 755, and what this file
+   calls the low band is the Outland line's own 1-300 stretch, which still
+   crafts from old-world ore and gems.
+   The rank shape is different from the other professions. From the rank
+   spells themselves: apprentice 25229 (cap 75), journeyman 25230 at skill
+   50, expert 28894 at skill 125, artisan 28895 at skill 200, master 28897
+   at skill 275. Journeyman arrives at 50 here, not 75.
+   For a 29 that means: artisan is reachable, master is not, so 225 is the
+   ceiling exactly as with the other professions - by a different gate.
+   The level requirement to learn apprentice jewelcrafting is not on the
+   spell page, so whether a level 5 can train it is unverified; the level 29
+   in question can.
+   Tools: a Jeweler's Kit 20815 is required by every recipe in this file.
+
+2. WHAT A 29 CAN ACTUALLY WEAR
+   Jewelcrafting is the only profession in the set that makes wearable
+   stat gear in the 1-225 band, and the gear is good for its level. Five
+   pieces fit a 29; one of them is the best item any profession in this set
+   produces for a twink.
+
+   20950 Pendant of the Agate Shield - neck, item level 31, requires level
+        26, binds when equipped.
+        +4 Strength, +4 Stamina, Equip: +6 defense rating.
+        Use: gives 10 additional Stamina to nearby party members for 30
+        minutes. 10 charges.
+        Spell 25610, Jewelcrafting 120, difficulty 120/150/165/180.
+        Reagents per craft: 1x Moss Agate 1206 + 1x Bronze Setting.
+        Design 20970 is NOT trainer-taught: Horde buy it from Jandia 4877 in
+        Thousand Needles (zone 400) at about 46.0, 51.6; Alliance from Neal
+        Allen 1448 in the Wetlands (zone 11) at about 10.5, 56.8. Both are
+        limited supply, so it may need several visits or the auction house.
+        This is the one jewelcrafting item worth levelling the profession
+        for: an equippable neck with strength, stamina and defense, plus a
+        ten-charge group stamina buff that works on companion characters.
+
+   20828 Ring of Twilight Shadows - finger, item level 28, requires level
+        23, binds when equipped, unique-equipped.
+        +4 Stamina, +4 Intellect.
+        Spell 25318, Jewelcrafting 100, difficulty 100/130/145/160.
+        2x Shadowgem 1210 + 2x Bronze Bar 2841.
+        The cheapest +8 stat points a 29 will ever slot, and it needs only
+        skill 100.
+
+   20820 Simple Pearl Ring - finger, item level 22, requires level 17,
+        binds when equipped.
+        Spell 25284, Jewelcrafting 80. One Small Lustrous Pearl 5498,
+        one Bronze Setting, two Copper Bar 2840.
+
+   21931 Woven Copper Ring - finger, item level 15, requires level 10,
+        binds when equipped, unique-equipped. +1 Intellect.
+        Spell 26925, Jewelcrafting 30.
+
+   21932 Heavy Copper Ring - finger, item level 17, requires level 12,
+        binds when equipped, unique-equipped. +2 Stamina.
+        Spell 26926, Jewelcrafting 5.
+        Reagent names were not read for these last two - the pages give the
+        counts only - so their material lists are unverified.
+
+   Out of reach, all of them ALT:
+   20960 Engraved Truesilver Ring - item level 37, requires level 32.
+        Spell 25620, skill 185.
+   20961 Citrine Ring of Rapid Healing - item level 38, requires level 33.
+        Spell 25621, skill 200.
+   21756 Figurine - Golden Hare - trinket, item level 40, requires level 35.
+        Spell 26873. The first wearable figurine is already past 29.
+   Anything else the profession makes at this tier is a setting, a wire or
+   a statue - trade goods, not gear.
+
+3. GEMS - THE THING THE PROMPT ASKS ABOUT, AND THE ANSWER IS NOT YET
+   A 29 in this set does not gem anything, for two independent reasons.
+   The cuts are too high. The first Outland cuts start above the cap:
+   Bold Blood Garnet 23095, +6 Strength, red socket, is spell 28905 at
+   Jewelcrafting 305, difficulty 305/305/325/345, one Blood Garnet 23077,
+   and its design 23131 is vendor stock in Hellfire Peninsula - a level 60
+   zone. Everything below 300 in this profession is settings, wire, rings
+   and statues; the gem-cutting half of jewelcrafting begins at 300.
+   And there is nothing to put a gem in. No item at or below level 29 was
+   found with a socket. Socketed gear in the game begins with Outland items
+   for level 60 and above; that statement is from general knowledge, not
+   from a page opened for this file, so the "no 29 item has a socket" line
+   is unverified for this build.
+   So the answer to "jewelcrafting gems" at 29 is: none, and it will stay
+   none until the character is 60.
+
+4. PROSPECTING - THE ONLY ECONOMY ANGLE
+   Spell 31252, Jewelcrafting 20, trainer-taught for 1 copper. Destroys five
+   ore of a base metal for a chance at precious gems.
+   A 29 can prospect copper, tin, iron, mithril and thorium at 20 skill.
+   That is a way to turn cheap ore into Tigerseye 818, Shadowgem 1210,
+   Moss Agate 1206 and the rest of the low gems, which is exactly what the
+   route below consumes. The per-ore gem tables were not opened, so the
+   yields are unverified.
+
+5. TRAINERS
+   Jewelcrafting trainers exist in the capital cities and in Outland. The
+   creature entries, the cities they stand in and their coordinates were not
+   checked for this file, so all three are unverified.
+   What is verified is that the profession is taught by trainer spells, not
+   by patterns: 25229 apprentice, 25230 journeyman at skill 50, 28894 expert
+   at 125, 28895 artisan at 200, 28897 master at 275. A 29 buys the first
+   four and never the fifth.
+   The single non-trainer recipe the route touches is Design: Pendant of the
+   Agate Shield 20970, and its two vendors are in section 2.
+
+6. THE CHEAPEST ROUTE TO WHAT A 29 NEEDS
+   Two stop points worth naming: 100 for Ring of Twilight Shadows, 120 for
+   the Pendant of the Agate Shield. Nothing above 120 gives a 29 anything he
+   can wear, so 120 is the honest target and 225 is only for a supplier.
+
+   Skill   Recipe                        Spell  Crafts  Materials each
+   ---------------------------------------------------------------------
+   1-30    Delicate Copper Wire          25255     40   2 Copper Bar 2840
+                                                         (keep 20 wire)
+   30-50   Tigerseye Band (32179) or    32179     20   1 Tigerseye 818 or
+           Malachite Pendant (32178)    32178           Malachite 774, plus
+                                                         1 Delicate Copper
+                                                         Wire. The item ids
+                                                         of both pieces and
+                                                         of Delicate Copper
+                                                         Wire are unverified.
+   50-80   Bronze Setting                25278     40   2 Bronze Bar 2841
+                                                         (keep 40 settings)
+   80-100  Simple Pearl Ring 20820       25284     20   1 Small Lustrous
+                                                         Pearl 5498, 1 Bronze
+                                                         Setting, 2 Copper Bar
+   100-110 Ring of Twilight Shadows      25318     10   2 Shadowgem 1210 and
+                                                         2 Bronze Bar
+   110-130 Heavy Stone Statue            32807     25   8 Heavy Stone 2838
+           or Pendant of the Agate Shield 25610  from 120: 1 Moss Agate 1206
+                                                         and 1 Bronze Setting
+
+   Shopping list to 120, on the statue branch:
+     160x Copper Bar 2840   (120 for the wire, 40 for the pearl rings)
+     100x Bronze Bar 2841   (80 for settings, 20 for the rings)
+     20x Tigerseye 818 or Malachite 774
+     20x Small Lustrous Pearl 5498
+     20x Shadowgem 1210
+     200x Heavy Stone 2838
+   On the pendant branch the last line becomes 20x Moss Agate 1206 plus the
+   settings already counted, which is far cheaper in ore and far more
+   expensive in gems - Moss Agate is an iron and mithril mining gem.
+   Where the materials come from: everything here is Mining. Copper and Tin
+   for the copper and bronze bars, Iron for Moss Agate and Heavy Stone,
+   Mithril for the later gems. Pearls come from shellfish and from fishing
+   - the drop source was not checked. Gem-cutting designs beyond the vendor
+   one are trainer-taught or sold in Outland, which is why this route needs
+   no reputation and no drop hunting.
+   Tools and one more cost: the Jeweler's Kit 20815 is vendor stock and is
+   required for every craft in the table.
+
+7. ALT - WHAT A 29 CANNOT DO
+   23095 and every other cut gem - skill 300 and up, needs the master rank
+     at 275 first, which needs level 40 or better; ALT on every count.
+   20960 Engraved Truesilver Ring - wearable only at level 32.
+   20961 Citrine Ring of Rapid Healing - wearable only at level 33.
+   21756 Figurine - Golden Hare - wearable only at level 35.
+   28897 Master Jewelcrafting at skill 275 - past the 225 ceiling.
+   Outland, Northrend and later jewelcrafting - prospecting tables for
+     Outland ore, the epic gem cuts, the BoP jewelcrafter-only gems and the
+     Panther statuettes - all of it needs a level 60+ character. ALT.
+   A higher-level crafter is also the answer for the Pendant if the 29 does
+     not want to level the profession at all: it binds when equipped, so
+     anyone can make it and hand it over.
+
+8. WHICH CLASSES SHOULD TAKE IT
+   Jewelcrafting's 1-120 band produces one neck and four rings, so the
+   question is who wants +4 Strength, +4 Stamina and +6 defense on a neck at
+   26, and +4/+4 on a ring at 23.
+
+   1. Warrior and paladin. The Pendant of the Agate Shield is the only
+      strength-and-defense neck a 29 can craft, and the ten-charge group
+      stamina buff is worth more in a battleground than any single stat on
+      it - especially for a companion character meant to buff a group.
+   2. Druid and shaman. Bear and enhancement builds take the same neck; the
+      rings fit anything.
+   3. Rogue and hunter. Ring of Twilight Shadows is a fine stamina and
+      intellect ring, but neither class wants intellect, and neither gets a
+      strength neck. Blacksmithing or engineering serves them better.
+   4. Priest, mage, warlock. Four intellect on a ring is real at 23, but
+      tailoring's Spidersilk Boots and enchanting's enchants are better uses
+      of a profession slot, and the neck is a strength item.
+   5. The roster's miner. Prospecting at skill 20 is the cheapest way to
+      feed this profession and the auction house, and it pairs with Mining
+      the way skinning pairs with leatherworking.
+   Last line: jewelcrafting is worth one item at 29 - the Pendant of the
+   Agate Shield 20950 - and that item can be bought. Level to 120 only if
+   the twink is the one supplying the account.

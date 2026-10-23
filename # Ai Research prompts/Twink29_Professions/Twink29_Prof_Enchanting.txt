@@ -59,6 +59,14 @@ line 333, capped at 225 for a character of that level.
         bracket: movement speed is worth more in a battleground than any
         stat on the list.
 
+   Cloak, the other option - Enchant Cloak - Greater Defense, spell 13746
+        +50 armour. Enchanting 205, difficulty 205/225/245/265.
+        3x Vision Dust (11137). Tool: Runed Truesilver Rod. Trainer-taught.
+        A 29 chooses between this and the +3 Agility cloak; +50 armour is
+        worth more to a melee class that expects to be hit, +3 Agility to
+        anything that does not. Both are inside the cap, so the character
+        can carry one of each on two cloaks and swap.
+
    Weapon - Enchant Weapon - Striking, spell 13693
         +3 weapon damage. Enchanting 195, difficulty 195/215/235/255.
         2x Greater Mystic Essence (11135) + 1x Large Glowing Shard (11139).
@@ -67,8 +75,9 @@ line 333, capped at 225 for a character of that level.
         enchants for a fast-hitting melee class at this level.
 
    The full set - cloak, chest, bracers, gloves, boots, weapon - is what a
-   29 should be aiming at. Six enchants, all applicable at 225 or below,
-   and none of them needs a higher-level crafter.
+   29 should be aiming at. Seven entries, one of them a cloak alternative,
+   all applicable at 225 or below, and none of them needs a higher-level
+   crafter.
 
 3. WHAT IS OUT OF REACH - ALT
    Every enchant with a proc or a big number sits above the cap. Skill
@@ -166,7 +175,10 @@ line 333, capped at 225 for a character of that level.
    1-2     Runed Copper Rod (6218)         -          1   1 Copper Rod 6217,
                                                           1 Strange Dust, 1
                                                           Lesser Magic Essence
-   2-90    Enchant Bracer - Minor Health   7418      88   1 Strange Dust 10940
+   1-90    Enchant Bracer - Minor Health   7418      89   1 Strange Dust 10940
+                                                        (no minimum skill
+                                                        line; difficulty
+                                                        70/90/110)
    90-100  Enchant Bracer - Minor Stamina  7457      10   3 Strange Dust
    100-101 Runed Silver Rod (6339)         -          1   1 Silver Rod 6338,
                                                           6 Strange Dust, 3
@@ -176,20 +188,28 @@ line 333, capped at 225 for a character of that level.
                                                           Greater Magic
                                                           Essence 10939
    110-135 Enchant Cloak - Minor Agility   13419     25   1 Lesser Astral
-                                                          Essence 10998
-   135-155 Enchant Bracer - Lesser Stamina 13501     20   2 Soul Dust 11083
+                                                          Essence 10998,
+                                                          skill 110, Runed
+                                                          Silver Rod
+   135-155 Enchant Bracer - Lesser Stamina 13501     20   2 Soul Dust 11083,
+                                                          skill 130, Runed
+                                                          Silver Rod
    155-156 Runed Golden Rod (11130)         -         1   1 Golden Rod 11128,
                                                           1 Iridescent Pearl,
                                                           2 Greater Astral
                                                           Essence, 2 Soul Dust
-   156-185 Enchant Bracer - Lesser Strength 13536    40   2 Soul Dust
+   156-185 Enchant Bracer - Lesser Strength 13536    40   2 Soul Dust,
+                                                          skill 140, Runed
+                                                          Silver Rod
    185-220 Enchant Bracer - Strength       13661     50   1 Vision Dust 11137
    200-201 Runed Truesilver Rod (11145)     -         1   1 Truesilver Rod,
                                                           1 Black Pearl, 2
                                                           Greater Mystic
                                                           Essence, 2 Vision
                                                           Dust
-   220-225 Enchant Cloak - Greater Defense  13746      5   3 Vision Dust
+   220-225 Enchant Cloak - Greater Defense  13746      5   3 Vision Dust,
+                                                          skill 205, Runed
+                                                          Truesilver Rod
 
    Materials to 225, approximately, and they reconcile with the guide's
    own shopping list once the 226-300 stretch is removed:

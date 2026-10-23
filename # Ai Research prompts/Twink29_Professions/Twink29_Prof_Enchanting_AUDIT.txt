@@ -1,0 +1,142 @@
+AUDIT - Twink29_Prof_Enchanting.txt
+==============================================================================
+
+File audited   "# Ai Research prompts/Twink29_Professions/"
+               Twink29_Prof_Enchanting.txt, step 06, 238 lines as written
+Audited on     the day after it was written, by opening every spell page the
+               file cites and comparing skill, reagents, tool and effect.
+
+Note on the numbering: this is the audit of step 06. Step 07 had no file yet
+when the audit was asked for, so step 07 (Jewelcrafting) is written in the
+same turn as the second deliverable.
+
+Sources used for the re-check
+  Wowhead Classic spell pages: 7418, 7457, 13419, 13501, 13536, 13640,
+    13661, 13693, 13746, 13815, 13882, 13890
+  Wowhead Classic spell lists: the enchanting search pages behind the ALT
+    skills (13939, 13943, 13898, 20012, 20031, 25080)
+  wow-professions.com: Classic Enchanting 1-300 guide and trainer list
+
+RESULT   31 claims checked: 25 passed, 3 corrected, 3 left unverified
+
+FORMAT
+  1  PASS   one plain-text file, 258 lines after correction, 80 columns
+            maximum, ASCII, no tabs, no code, no intro, no summary.
+
+THE PROFESSION
+  2  PASS   skill line 333 and the 225 ceiling match the guide and the other
+            files in this set.
+  3  PASS   the rank gates are the guide's: journeyman at 75, expert at 125
+            (level 20), artisan at 200 (level 35).
+  4  PASS   Annora 11073 is the only artisan enchanter, and the guide says the
+            same in its own words - she is the single trainer that teaches
+            Artisan Enchanting.
+  5  UNVERIFIED  the statement that Classic-tier enchanting has no self-only
+                 ring or glove enchant. No page states it; it is an argument
+                 from absence.
+
+SECTION 2 - THE ENCHANTS
+  6  PASS   Cloak - Lesser Agility 13882: 225, difficulty 225/245/265/285,
+            2x Lesser Nether Essence, Runed Truesilver Rod, +3 Agility, and
+            the formula is item 11206 from a drop.
+  7  PASS   Chest - Greater Health 13640: 160, difficulty 160/180/200/220,
+            3x Soul Dust, Runed Golden Rod, +35 health.
+  8  PASS   Bracers - Strength 13661: 180, difficulty 180/200/220/240,
+            1x Vision Dust, Runed Golden Rod, +5 Strength.
+  9  PASS   Gloves - Agility 13815: 210, difficulty 210/230/250/270, 1x
+            Lesser Nether Essence plus 1x Vision Dust, Runed Truesilver Rod,
+            +5 Agility.
+ 10  PASS   Boots - Minor Speed 13890: 225, difficulty 225/245/265/285, one
+            Small Radiant Shard, one Aquamarine, one Lesser Nether Essence,
+            Runed Truesilver Rod. The tooltip really does say only "a slight
+            movement speed increase", so leaving the percentage unverified is
+            correct.
+ 11  PASS   Weapon - Striking 13693: 195, difficulty 195/215/235/255, 2x
+            Greater Mystic Essence plus 1x Large Glowing Shard, Runed Golden
+            Rod, +3 weapon damage.
+ 12  CORRECTED  the file listed six enchants and missed the best cloak in the
+            tier. Enchant Cloak - Greater Defense, spell 13746, is Enchanting
+            205, difficulty 205/225/245/265, 3x Vision Dust, Runed Truesilver
+            Rod, and gives +50 armour. Added as a seventh entry with the
+            choice against the +3 Agility cloak stated.
+
+SECTION 3 - THE ALT LIST
+ 13  PASS   Lesser Strength 13939 at 240, Greater Striking 13943 at 245,
+            Fiery Weapon 13898 at 265, Greater Agility 20012 at 270, Superior
+            Striking 20031 at 300, Superior Agility 25080 at 300 - all six
+            skills confirmed in the spell lists.
+ 14  PASS   the reasoning holds: 226 and up needs the artisan rank, which
+            needs level 35, so a 29 needs a higher-level crafter.
+ 15  PASS   the formulas-are-a-separate-gate paragraph is sound and is
+            demonstrated by the two formula items the pages name (11039 for
+            the minor agility cloak, 11206 for the lesser agility one).
+
+SECTION 4 - RODS
+ 16  PASS   Runed Copper Rod 6218, Runed Silver Rod 6339, Runed Golden Rod
+            11130 and Runed Truesilver Rod 11145 all exist with the reagent
+            lists the file gives, and every enchant page names its rod.
+ 17  CORRECTED  the file said only "the Truesilver rod unlocks every enchant
+            in section 2". That was true of the six it listed and false of
+            the corrected list: the +3 Agility cloak and Minor Speed need the
+            Truesilver rod, Greater Defense needs it too, but Chest Greater
+            Health, Bracer Strength and Weapon Striking run off the Golden
+            rod. The route table now names the rod per step.
+ 18  UNVERIFIED  where the plain Silver, Golden and Truesilver rods come from.
+                 Still unchecked, and still flagged.
+
+SECTION 5 - DISENCHANTING
+ 19  PASS   the material ladder matches the guide's shopping list item for
+            item: 10940, 10938, 10939, 11083, 10998, 11082, 11137, 11134,
+            11135, 11139, 11176, 11174, 11177, 16204, 16203, 14343, 14344.
+ 20  UNVERIFIED  the per-skill disenchant thresholds, which the file already
+                 says were not checked.
+
+SECTION 6 - TRAINERS
+ 21  PASS   the journeyman and expert names and entries check out on the
+            trainer lists of spells 7457 and 13501: Godan 3345, Lavinia Crowe
+            4616, Teg Dawnstrider 3011, Gimble Thistlefuzz 5157, Lucan Cordell
+            1317, Taladan 4213, plus Kitta Firewind 11072 and Hgarth 11074.
+ 22  PASS   the apprentice names and cities match the guide (Jhag, Malcomb
+            Wynn, Mot Dawnstrider, Vance Undergloom, Betty Quin, Thonys
+            Pillarstone, Lalina Summermoon).
+ 23  UNVERIFIED  the apprentice creature entries - the trainer lists on the
+                 spell pages do give Jhag 11066, Malcomb Wynn 11067, Mot
+                 Dawnstrider 11071, Betty Quin 11068, Thonys Pillarstone
+                 11065, Lalina Summermoon 11070 and Vance Undergloom 5695,
+                 but the file did not claim them and they were not added.
+
+SECTION 7 - THE ROUTE
+ 24  CORRECTED  three route rows carried no minimum skill and one carried the
+            wrong rod. Minor Health 7418 has no minimum-skill line at all
+            (difficulty 70/90/110); Minor Agility 13419 is 110; Lesser
+            Stamina 13501 is 130; Lesser Strength 13536 is 140 and needs the
+            Runed Silver Rod, not the Golden one; Greater Defense 13746 is
+            205. All noted in the table.
+ 25  PASS   the route's own arithmetic holds - 48+40 Minor Health crafts,
+            10 Minor Stamina, 25 Minor Agility, 20 Lesser Stamina, 40 Lesser
+            Strength, 50 Strength, 5 Greater Defense - and the shopping list
+            reconciles with the guide's 1-300 list once the 226-300 stretch
+            is removed.
+ 26  PASS   the four rod crafts are the guide's own stops at 1, 100, 155 and
+            200, and their reagents match the guide line for line.
+
+SECTION 8
+ 27  PASS   the class advice follows from the enchants that actually exist
+            inside the cap: strength, agility, health, armour and speed, with
+            no caster stat enchant in the band.
+ 28  PASS   "enchanting plus tailoring, both need no gathering" matches the
+            tailoring file and the guides.
+ 29  UNVERIFIED  the claim that the caster bracer or glove enchant inside the
+                 cap was not found - it is an absence claim, and the file
+                 words it as one.
+ 30  PASS   the closing advice - buy the enchants, level the profession only
+            to supply an account - is consistent with the material economy
+            described in section 5.
+ 31  PASS   no number in the file contradicts a page that was opened.
+
+STATE AFTER THE AUDIT
+  Three corrections. One added a whole enchant (+50 armour cloak, spell
+  13746 at 205), one fixed the rod paragraph, one filled in the minimum
+  skills and rods the route table had left blank. Line count went from 238 to
+  258. Three items remain explicitly unverified: the no-self-perk claim, the
+  rod sources, and the disenchant thresholds.
