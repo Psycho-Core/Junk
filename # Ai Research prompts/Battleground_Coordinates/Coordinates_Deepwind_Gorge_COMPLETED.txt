@@ -1,0 +1,283 @@
+=== DEEPWIND GORGE COORDINATES - BFA 8.3.7 (TRINITYCORE) - COMPLETED ===
+Battleground_Coordinates - prompt 2 of 8 (Deepwind Gorge, maps 1105 + 2245).
+Every coordinate is written as: map id, x, y, z. Values are reproduced exactly
+from the named source; nothing is estimated. Where no readable source exists
+the entry says "unverified".
+
+=== 0. HOW TO READ / ORIENTATION ===
+Facing/orientation values are reproduced exactly as stored in their source
+(dump o column or script float); their unit is degrees where the source is a
+world_safe_locs row (same convention as the Arathi Basin file) and radians for
+script orientation floats.
+North/south on map 1105 is PROVEN by the dump's own comments: for both teams
+the cemetery labeled "(North)" has a smaller y than the one labeled "(South)"
+(Alliance: 4546 y=195.135 vs 4488 y=242.712; Horde: 4489 y=758.708 vs 4545
+y=802.188), and the wowhead MoP Classic guide's mine order "from north to
+south: Pandaren, Central, and Goblin" matches y=431.1771 / 499.059 / 574.368.
+So on map 1105: smaller y = north, larger y = south. Which way the x axis
+points (east or west) could not be verified from any readable source; this
+file therefore makes NO east/west claims about map 1105 - only north/south,
+mine names and coordinates. For map 2245 the east/west words below are the
+wowhead RBG guide's own map reading, quoted as such.
+Route legs are straight-line distances between sourced landmarks. They are
+NOT walkable-path measurements: no pathing/navmesh source for these maps could
+be read (unverified).
+
+=== 1. MAP IDS ===
+1105 = Deepwind Gorge, original ("Gold Rush") battleground, added 5.3.0,
+  removed from retail in patch 8.3.0. All world_safe_locs rows below are map
+  1105 with comments starting "Gold Rush BG" (TrinityCore 8.x world dump),
+  and the warcraft.wiki original-page gallery shows WorldMap-GoldRush.jpg as
+  the zone map.
+2245 = Deepwind Gorge, redesigned battleground, added patch 8.3.0
+  (warcraft.wiki InstanceID row: 2245 ... [[Deepwind Gorge]] ... Battleground
+  ... 8.3.x). The 8.3.0 redesign is "inspired by Arathi Basin" with five
+  capture points: Market, Farm, Ruins, Shrine, Quarry; first to 1,500 points
+  wins (warcraft.wiki, patch 8.3.0 note).
+Supporting zones: wowhead zone 6665 (original, added 5.5.0 label on MoP
+  Classic) and zone 10886 (added patch 8.3.0) both name "Deepwind Gorge".
+Which map id your server's battleground_template queues is unverified - the
+  server database is not in the repository, AzerothCore's base
+  battleground_template has no Deepwind row (checked, none), and the
+  TrinityCore 8.x sql updates covering post-8.3.0 contain no map-2245 rows at
+  all. Note also that neither HavenWoW/BFA-HavenCore nor
+  Titans-Project/BfaCore-Reforged contains a Deepwind Gorge battleground
+  script (Zones directory listing checked); whether and how your server runs
+  Deepwind Gorge is unverified.
+
+=== 2. TEAM STARTS AND BASE POSITIONS ===
+Map 1105 starts (TrinityCore 8.x world dump, world_safe_locs):
+  Horde,     map 1105: id 4486 "Gold Rush BG - Horde Start Location"
+    (1105, -60.1632, 830.599, 135.379)   o 230.07
+  Alliance,  map 1105: id 4487 "Gold Rush BG - Alliance Start Location"
+    (1105, -275.198, 174.618, 136.185)   o 37.8039
+  Alliance starts on the north edge of the map, Horde on the south edge
+  (orientation proven in section 0).
+Map 1105 base contents (LegionCore-Reforged BattlegroundDeepwindGorge.cpp
+  SetupBattleground, added with RESPAWN_IMMEDIATELY at match setup):
+  Alliance base gate doors:
+    gameobject 220159 (1105, -263.455, 218.163, 132.43)  o 4.72984
+    gameobject 220160 (1105, -213.712, 201.043, 132.488) o 3.9619
+  Alliance mine cart depot:
+    gameobject 220164 (1105, -241.741, 208.611, 133.747) o 0.84278
+  Horde base gate doors:
+    gameobject 220161 (1105, -69.8785, 781.837, 132.43)  o 1.58825
+    gameobject 220366 (1105, -119.621, 798.957, 132.488) o 0.820303
+  Horde mine cart depot:
+    gameobject 220166 (1105, -91.6163, 791.361, 133.747) o 4.02356
+  Straight-line distances (recomputed): Alliance start to 220159 = 45 yd,
+    to 220160 = 67 yd, to own cart = 48 yd; Horde start to 220161 = 50 yd,
+    to 220366 = 67 yd, to own cart = 50 yd.
+Cart puller NPCs (wowhead MoP Classic npc pages): creature 71071 "Alliance
+  Mine Cart", creature 71073 "Horde Mine Cart". The script finds the cart
+  NPC standing near the depot that was clicked; the spawn positions of these
+  two creatures are unverified (script-spawned; no readable spawn row).
+Map 2245 starts/base positions: unverified - no post-8.3 world_safe_locs or
+  spawn rows could be read for map 2245. Layout only (wowhead retail RBG
+  guide, guide's own cardinal reading): Alliance sits on the east side (bases
+  Farm northeast, Shrine southeast), Horde on the west side (Quarry
+  northwest, Ruins southwest), Market is the middle base; opening strategy
+  sends Alliance sitters to Farm and Shrine, Horde sitters to Quarry and
+  Ruins, everyone else to Market.
+Which world_safe ids your server's battleground_template uses for starts is
+  unverified; the retail-derived dump labels 4486/4487 as the start
+  locations for map 1105.
+
+=== 3. OBJECTIVES (FLAGS, CARTS, MINES, GRAVEYARD MARKERS) ===
+No orbs exist in Deepwind Gorge (both rulesets readable - resource race and
+  five-point domination - use flags/carts/mines only).
+Map 1105 - three mines, each captured by clicking a flag (creature entry
+  53194, BG_DG_ENTRY_FLAG, spawned by the script, neutral, interact spell
+  97388):
+  Pandaren Mine (north mine, "TopPoint"):
+    (1105, 68.39236, 431.1771, 111.4928)  o 1.229
+  Central Mine (middle mine, "MiddlePoint"):
+    (1105, -167.5035, 499.059, 92.62903)  o 1.249549
+  Goblin Mine (south mine, "BotPoint"):
+    (1105, -397.7726, 574.368, 111.0529)  o 1.437866
+  Mine capture auras (LegionCore script enums): neutral 98554, contested
+  Alliance 98543 / Horde 98545, captured Alliance 98519 / Horde 98527.
+  Capture is a 7-second uninterrupted channel on the flag (wowhead MoP
+  Classic guide). After capture a mine grants gold over time; the retail
+  tick rate is unverified (the emulator uses a short internal timer whose
+  own comment calls its value wrong).
+Map 1105 - mine cart depots: gameobject 220164 (Alliance base) and 220166
+  (Horde base), positions in section 2. Stealing the enemy cart removes 200
+  gold from the loser and delivering it to your own base scores 200 (wiki,
+  wowhead guide, emulator code all agree). Cart-related spells from the
+  script: cart auras Alliance 141551 / Horde 141555, chains aura 141553,
+  cart spawn spells 141554 (Alliance) / 141550 (Horde; defined but never
+  referenced by the readable script - who spawns the cart NPC is
+  unverified); carrier auras cast by the script: 141210 on Alliance
+  carriers, 140876 on Horde carriers. Cart delivery area triggers: 9013
+  (Alliance cart point), 9012 (Horde cart point) - trigger positions
+  unverified (rows not present in the readable dump).
+Map 1105 - mine "catch" safe locations (dump, purpose unverified - the row
+  id is not referenced anywhere in the readable script):
+  id 4613 "Gold Rush BG - Pandaren Mine Catch"
+    (1105, 104.08, 423.483, 112.371)  o 161.378   (37 yd from Pandaren flag)
+  id 4614 "Gold Rush BG - Goblin Mine Catch"
+    (1105, -438.592, 582.325, 111.57) o 0         (42 yd from Goblin flag)
+Map 2245 - five capture points named Market (middle), Farm (northeast),
+  Ruins (southwest), Quarry (northwest), Shrine (southeast) (wiki patch note
+  + wowhead RBG guide). Capture: right-click the white flag, 6-second
+  assault channel, cannot assault while taking damage, captured bases tick
+  resources, first to 1,500 wins (wowhead RBG guide). White flag
+  gameobject/creature entries and coordinates: unverified.
+
+=== 4. WALKING ROUTES (MAP 1105; MAP 2245 UNVERIFIED) ===
+Reading rule as in the Arathi Basin file: "legs" = straight-line start ->
+own gate door -> objective; "direct" = straight-line start -> objective.
+These are NOT walkable-path measurements; actual walkability is unverified.
+Source-backed terrain features to aim through (official battleground
+  overview on warcraft.wiki): the quarry/gorge "filled with dislodged rock
+  and connected by makeshift wooden bridges" runs through the middle of the
+  map between the two bases; the mines have interiors (wiki mine images);
+  the start gate doors are the four gameobjects listed in section 2.
+From Alliance start (4487), via gate door 220159:
+  -> Pandaren Mine:  legs: 45 yd, 394 yd   direct 429 yd
+  -> Central Mine:   legs: 45 yd, 297 yd   direct 342 yd
+  -> Goblin Mine:    legs: 45 yd, 381 yd   direct 418 yd
+  -> Horde cart depot (steal run): legs: 45 yd, 598 yd   direct 643 yd
+From Horde start (4486), via gate door 220161:
+  -> Pandaren Mine:  legs: 50 yd, 377 yd   direct 420 yd
+  -> Central Mine:   legs: 50 yd, 299 yd   direct 348 yd
+  -> Goblin Mine:    legs: 50 yd, 388 yd   direct 424 yd
+  -> Alliance cart depot (steal run): legs: 50 yd, 598 yd   direct 648 yd
+Mine-to-mine distances: Pandaren-Central 245 yd, Central-Goblin 242 yd,
+  Pandaren-Goblin 488 yd.
+Defending your own depot/doors needs no route - they sit inside your start
+  compound (45-67 yd from your own start, section 2).
+Map 2245 route lists: unverified - no coordinates for the five points,
+  gates or graveyards of the redesign could be read, and no estimation is
+  allowed.
+
+=== 5. GRAVEYARDS AND WHICH ONE SERVES WHICH POINT ===
+Map 1105 graveyards (TrinityCore 8.x dump, world_safe_locs, map 1105):
+  Alliance Cemetery (North), id 4546:
+    (1105, -113.682, 195.135, 137.454)  o 134.932
+  Alliance Cemetery (South), id 4488:
+    (1105, -331.54, 242.712, 132.569)   o 0
+  Horde Cemetery (North), id 4489:
+    (1105, -0.00868056, 758.708, 132.569) o 189.014
+  Horde Cemetery (South), id 4545:
+    (1105, -222.743, 802.188, 137.451)  o 313.287
+  Spirit guides are spawned at all four rows at setup; creature entries
+  13116 (Alliance) and 13117 (Horde) (LegionCore Battleground.h
+  BG_CREATURE_ENTRY_A/H_SPIRITGUIDE; wowhead MoP Classic also lists Horde
+  Spirit Guide 13117 in Deepwind Gorge).
+Deepwind graveyards do NOT belong to individual points in either readable
+  rule - each team owns a north/south pair at its own base. Two conflicting
+  rules were read; which one your server uses is unverified:
+  a) Emulator rule (LegionCore GetClosestGraveYard): respawn at whichever
+     of YOUR OWN two cemeteries is closer to the corpse. Applying it with
+     the dump coordinates: deaths at Pandaren Mine -> Alliance 4546 /
+     Horde 4489; at Central Mine -> Alliance 4488 (304 vs 309 yd) /
+     Horde 4545 (308 vs 309 yd - the choice is marginal, 1-5 yd);
+     at Goblin Mine -> Alliance 4488 / Horde 4545.
+  b) Wiki rule (warcraft.wiki original page): "Dying on the northern half
+     of the map results in re-spawning at your faction's southern graveyard
+     (and vice versa)" - this gives the OPPOSITE answer for deaths at the
+     northern (Pandaren) mine compared with rule (a).
+  For reference: Alliance start to own cemeteries = 163 yd (North) / 88 yd
+    (South); Horde start = 94 yd (North) / 165 yd (South); the North-South
+    cemetery pair separation is 223 yd (Alliance) / 227 yd (Horde).
+Map 2245 graveyards: unverified coordinates/entries. The wowhead RBG guide
+  legend marks graveyards (black dots) and its strategy text says players
+  resurrect at bases (example: Alliance losing Shrine and "resurrecting at
+  Farm") - i.e. base-linked graveyards - but no rows could be read.
+
+=== 6. BUFF / POWER-UP SPAWNS ===
+Map 1105 (original, wowhead MoP Classic Deepwind Gorge guide):
+  2x Berserking buff spawns - guide links spell 24378: one just north-east
+    of the Central Mine, one just south-west of the Central Mine. Exact
+    coordinates: unverified. GameObject entry: unverified. Respawn time:
+    unverified.
+  2x Restoration buff spawns - guide links spell 132958: one at the
+    Pandaren Mine, one at the Goblin Mine. Exact coordinates: unverified.
+    GameObject entry: unverified. Respawn time: unverified.
+  Effects (warcraft.wiki): Berserking = +30% damage done, +10% damage
+    taken, 1 minute, skull visual; Restoration = heals over 10 seconds,
+    cancelled by damage, leaf visual.
+Map 2245 (8.3 redesign, wowhead retail RBG guide - sub-locations are the
+  guide's words, all ids/coordinates/respawns unverified):
+  2x Haste + cooldown-reset spots: inside the Market building; on top of
+    the Shrine structure. Resets all cooldowns and trinkets, +30% Haste.
+  2x Restoration leaf spots: at Farm, east of the flag under the shrine;
+    at Ruins, south of the flag on the wall.
+  3x Berserker spots: near Farm on the ledge overlooking Market; near
+    Ruins on the ledge overlooking Market; at Quarry underneath the wooden
+    ledge.
+  Stormstout Brew: achievement 14187 (wiki, wowhead) says players
+    drink "the Stormstout Brew found in Deepwind Gorge"; wowhead lists
+    object 343707 "Stormstout Brew" (added patch 9.0.1, "location of this
+    object is unknown") and spell 318352 "Stormstout Brew". That either of
+    those is the Deepwind buff, its position, entry and respawn: unverified.
+
+=== 7. SCORE / RULES NOTES (VERIFIED) ===
+Original ruleset: capture mines for gold + steal carts, cap 1600 in the
+  MoP era (wowhead MoP Classic guide; MoP achievement 8333 "1600 to 0").
+  The Legion-era emulator uses a 1500 cap, and the current wiki/8.3 text
+  says 1,500 - the cap is 1500 for map 2245 (wiki patch 8.3.0 note and RBG
+  guide agree).
+Match sizes: 15v15 (original wiki page); RBG converts to 10v10 (guide).
+No orbs, no bullet-carts or other objectives beyond the above (both
+  readable rulesets).
+
+=== 8. SOURCES ===
+1. TrinityCore 8.x world dump: sql/old/8.x/world/19071_2020_06_17/
+   2019_10_26_01_world.sql - world_safe_locs rows 4486, 4487, 4488, 4489,
+   4545, 4546, 4613, 4614 (map 1105, "Gold Rush BG" comments). Also checked
+   the later 2020_02..2020_06 update files and both full creature spawn
+   reimports: no Deepwind/Gold Rush/2245 rows exist there.
+2. Titans-Project/LegionCore-Reforged:
+   src/server/game/Battlegrounds/Zones/BattlegroundDeepwindGorge.h/.cpp -
+   all door, cart, mine-flag, aura, spell and graveyard-rule logic;
+   src/server/game/Battlegrounds/Battleground.h - spirit entries 13116/13117.
+3. warcraft.wiki.gg: Deepwind Gorge (8.3 redesign: five points, 1500 cap,
+   patch note), Deepwind Gorge (original) (mines/graveyards/buffs sections,
+   cemetery hemisphere rule, GoldRush map gallery), InstanceID (row
+   2245 = Deepwind Gorge, Battleground, patch 8.3.x).
+4. wowhead MoP Classic: guide/deepwind-gorge-battleground-strategy (mine
+   order north-south, buff locations and spells 24378/132958, 7-second
+   capture, 1600 cap), npc=71071 Alliance Mine Cart, npc=71073 Horde Mine
+   Cart, zone=6665.
+5. wowhead retail: guide/deepwind-gorge-rated-battlegrounds-rbg-guide
+   (five bases with cardinals, capture rules, all 7 buff sub-locations,
+   graveyard legend, east/west side layout), zone=10886,
+   search results for Stormstout Brew (object 343707, spell 318352).
+6. Negative results recorded: HavenWoW/BFA-HavenCore and
+   Titans-Project/BfaCore-Reforged contain no Deepwind script; AzerothCore
+   battleground_template has no Deepwind row; no readable post-8.3
+   world_safe_locs or spawn rows for map 2245; wowhead object 343707 has no
+   location data; no navmesh/pathing source for either map.
+
+=== 9. EXPLICIT UNVERIFIED LIST ===
+1. Which map id (1105 or 2245) your server's battleground_template queues
+   for Deepwind Gorge - server DB not in the repository.
+2. Which world_safe_locs ids your own database uses for the team starts
+   (the dump labels 4486/4487 but is a retail-derived snapshot, not your DB),
+   and whether your DB contains any map-2245 safe locs at all.
+3. Which of the two graveyard rules (closest-own-cemetery vs wiki
+   north/south halves) retail actually used, and which your server uses -
+   neither readable source is your server, and your core ships no DG script.
+4. The east/west orientation of map 1105's x axis (deliberately not used).
+5. Walkability of every route in section 4 (straight-line distances only).
+6. Exact coordinates, GameObject entries and respawn times of the four
+   map-1105 buff spawns; which gameobject carries spells 24378/132958.
+7. Spawn positions of cart NPCs 71071/71073, and who/what spawns them
+   (spells 141554/141550 are defined but unreferenced in the readable
+   script; no spawn rows readable).
+8. Positions of cart-delivery area triggers 9012/9013 (rows not in the
+   readable dump).
+9. Purpose of world_safe_locs 4613/4614 ("Pandaren/Goblin Mine Catch") -
+   not referenced in the readable script.
+10. All map-2245 coordinates: team starts, gate/base positions, the five
+    capture points, graveyards and buff positions - only names, cardinals
+    and sub-location descriptions from the guides are readable; entries and
+    coordinates are unverified.
+11. Stormstout Brew: whether object 343707 or spell 318352 is the
+    Deepwind Gorge buff, its spawn position and respawn time.
+12. Whether your server can queue Deepwind Gorge at all (no DG script
+    exists in either readable BfA core).
+DONE - step 2 of 8 complete
