@@ -213,7 +213,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `12_Seething_Shore.txt`: how a level 29 twink plays Seething Shore (map 1803) in 8.3.7. The computer-controlled characters must behave 
 - `13_Ashran.txt`: how a level 29 twink plays Ashran (map 1191) in 8.3.7. The computer-controlled characters must behave like hum
 
-## Twink29_Professions (10 prompts)
+## Twink29_Professions-completed (10 prompts, all completed)
 
 - `01_Engineering.txt`: what Engineering gives a level 29 battleground twink in 8.3.7.
 - `02_Alchemy.txt`: what Alchemy gives a level 29 battleground twink in 8.3.7.
