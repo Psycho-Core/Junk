@@ -1,0 +1,98 @@
+AUDIT - Twink29_Priest_2_Talents.txt
+File under audit: step 2 of 3, 121 lines. 18 claims checked: 13 pass,
+1 corrected, 4 unverified.
+Pages used: the priest talent pages for Schism, Castigation, Twist of Fate,
+Trail of Light, Enlightenment, Fortress of the Mind and Shadowy Insight, and
+the PvP talent pages for Trinity, Psyfiend, Dome of Light, Driven to Madness
+and Spirit of the Redeemer. Every one of them was read for its patch-change
+line, not for its current tooltip - the wiki serves 12.x pages and three of
+these talents were renumbered or redesigned after 8.3.7.
+
+1. THE GATING CLAIMS
+   1  PASS  Seven normal talent rows at 15/30/45/60/75/90/100, so a level 29
+      has one row, and three PvP slots at 20/40/70, so a level 29 has one
+      slot. This is the BfA shape and it is what the file opens with.
+   2  PASS  "Some PvP talents carry their own level above 20." Proven by the
+      two traps below, which is why this is a pass and not a general claim:
+      the file does not say every talent is gated, only that some are.
+
+2. DISCIPLINE
+   3  PASS  Schism was a level 15 Discipline talent in BfA: the 10.0.0 line
+      reads "Now a row 3 Discipline talent (was a level 15 Discipline
+      talent)". The 40% figure is right for 8.3.7 - 9.0.1 cut it to 25% and
+      8.3.0 is the patch that limited it to Priest spells and abilities.
+   4  PASS  Castigation, spell 193134, "was a level 15 Discipline talent"
+      per its own 10.0.0 line, and its effect is Penance firing one extra
+      bolt. Both the level and the effect are read.
+   5  PASS  Twist of Fate, spell 109142, level 15 for Discipline from 7.2.5,
+      and 45 for Shadow from 8.0.1. The 20% damage and healing is the 7.0.3
+      value. This one talent is the source of two lines in the file, the
+      Discipline pick and the Shadow trap, and both are right.
+   6  CORRECTED  The Discipline Schism row prints "214621?" with the id
+      marked unverified. That is the right instinct and the wrong place: a
+      guess with a question mark next to it still reads as a number to
+      anybody skimming. The row now reads "id unverified" with no digits,
+      and section 6 keeps the statement that six ids in the file are 7.x-era
+      ids and the rest are not proof.
+
+3. HOLY
+   7  PASS  Trail of Light, spell 200128, was a level 15 Holy talent per its
+      10.0.0 line, and 8.1.0 set the replicated share to 35% and added Heal
+      to the effect. The file's "35%" and "Flash Heal and Heal" both follow.
+   8  PASS  Enlightenment, spell 193155, level 15 Holy, "regenerate mana
+      10% faster" from the 7.0.3 redesign. The file is explicit that the
+      25% and the 10%-in-PvP figures on the page are 2026 hotfixes, which is
+      the distinction that keeps this honest.
+   9  UNVERIFIED  The third Holy level-15 talent. It is named nowhere in the
+      file and that is deliberate: the wiki lists current rows, and the
+      priest abilities page cannot enumerate a BfA row. Two of three is what
+      the sources support.
+
+4. SHADOW
+   10 PASS  Fortress of the Mind, spell 193195, level 15 Shadow, removed in
+      10.0.0, +10% Mind Flay and Mind Blast damage and +20% Insanity. Every
+      number in the row matches the page.
+   11 PASS  Shadowy Insight: 8.0.1 "Moved to the level 15 talent row (was
+      level 75)", removed in 9.0.1. The file's claim that it is a BfA talent
+      and legal at 29 is right, and so is the note that its BfA spell id is
+      unverified - the page's current id is a post-10.0.0 spell.
+   12 PASS  Death and Madness is the 9.0.1 replacement and is absent from
+      8.3.7. The page says so in the same line that removed Shadowy Insight.
+   13 UNVERIFIED  The third Shadow level-15 talent, same reasoning as claim 9.
+
+5. THE PVP SLOT
+   14 PASS  Trinity, spell 214205, level 20. There is no 9.0.1 line on the
+      page, and 9.0.1 is the patch that renumbered Psyfiend (40 to 20) and
+      Dome of Light (70 to 44), so a talent with no such line stayed where
+      it was. The effect lines are right for 8.3.7 as well: +20% Atonement
+      transfer from 8.2.0 and +25% crit from 8.1.0, with the 9.1.0 removal
+      of the transfer not yet in force.
+   15 PASS  Psyfiend was a level 40 PvP talent in BfA - "8.0.1: Now a level
+      40 PvP talent (was a rank 10 honor talent)" - and 9.0.1 lowered it to
+      20. The trap is stated correctly, including the warning that current
+      guides list it at 20.
+   16 PASS  Dome of Light was a level 70 PvP talent in BfA per its 8.0.1
+      line, lowered to 44 in 9.0.1 and removed in 10.1.0. Nothing a 29 can
+      use, exactly as the file says.
+   17 UNVERIFIED  The BfA levels of Ultimate Radiance, Spirit of the Redeemer
+      and Driven to Madness. None of the three pages prints a level in its
+      8.0.1 line - all three were "converted from a rank N honor talent" -
+      and the levels shown now (23, 29, 23) are post-squish numbers that
+      cannot be mapped back without a table this file does not have. Holy
+      and Shadow are therefore left with an empty PvP slot rather than a
+      guessed one.
+   18 UNVERIFIED  Whether any priest PvP talent outside the three checked is
+      legal at 20 in 8.3.7. The file claims only what it checked, and an
+      empty slot on two specs is the cost of that honesty.
+
+6. WHAT TO CHANGE
+   Done: the Schism id is no longer a guessed number in a row, and the rest
+   of the file stands as written. The three loadouts match the verified
+   rows, the two traps are the ones that matter (Psyfiend and Dome of Light
+   are both cheap to verify and both wrong on a current guide), and the
+   file's own section 6 already states which six ids are trustworthy and
+   which are not.
+   Unfinished by design: two thirds of the level-15 rows in Holy and Shadow,
+   and the three BfA-era PvP levels. Anyone continuing this set should open
+   the remaining Holy and Shadow level-15 pages and the three PvP pages on
+   an archived BfA tooltip, not on the live wiki.

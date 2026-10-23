@@ -20,7 +20,7 @@ Bracket: level 29 (20-29).
 
 1. DISCIPLINE
    Level 15 row, all three at 15 in BfA by their own patch lines:
-   1  214621? Schism (id unverified, see section 4). Active, 9 sec effect.
+   1  Schism, id unverified (see section 6). Active, 9 sec effect.
       Your next damage spell against the target does 40% more damage from
       your spells - 8.3.0 limited it to Priest spells and abilities, and
       9.0.1 cut the figure to 25%, so 40% is the 8.3.7 number (V).
