@@ -5,10 +5,10 @@ V = read off a page in this set. Unverified means unverified.
 
 0. THREE THINGS THAT SHAPE A MONK'S SHOPPING LIST
    The classic enchant list was built for melee, which means it fits a monk
-   better than any other class in this set. The mage file had to throw six
-   of the seven enchants away; a monk keeps the agility cloak, the agility
-   gloves, the boots, the chest and the weapon enchant, and only the bracer
-   is the wrong stat.
+   better than any other class in this set. The mage file could use two of
+   the seven enchants; a monk keeps the agility cloak, the agility gloves,
+   the boots, the chest and the weapon enchant, and only the bracer is the
+   wrong stat.
    A monk's best weapon is a fist weapon, and fist weapons are blunt, so the
    weapon consumable is a weightstone, not a sharpening stone.
    Legs take an armour kit, not an enchant, and there is no belt enchant at
@@ -61,14 +61,16 @@ LEGS|4265 Heavy Armor Kit|+24 armor|Leatherworking 150, spell 3780, 5x
      above, so every leg item in the bracket takes it
      THE PICK, and it is a kit rather than an enchant - the leg slot takes
      one or the other, and at 29 the kit is the only one there is.
-     8173 Thick Armor Kit (+32) needs a level 25 item and a level 30
-     character, 15564 Rugged (+40) needs level 40: both ALT.
+     8173 Thick Armor Kit (+32) only fits items of level 25 and up and the
+     kit itself requires level 30; 15564 Rugged (+40) requires level 40.
+     Both ALT.
 FEET|13890 Enchant Boots - Minor Speed|skill 225, 1x Small Radiant Shard
      11177, 1x Aquamarine 7909, 1x Lesser Nether Essence 11174, Runed
      Truesilver Rod|"a slight movement speed increase" - the tooltip's own
      words, the exact figure is unverified
      THE PICK. The single most valuable enchant in the bracket, and it
-     stacks with the monk's own Roll and Tiger's Lust.
+     stacks with the monk's own Roll. Note that Tiger's Lust is a level 30
+     talent - see step 2 - so a 29 does not have it.
 RING 1|190871 Binding of Haste, rank 1|later rank 191014, item form
      128542|cap "cannot be applied to items above level 60"|ALT
 RING 2|the same enchant on the second ring|ALT
@@ -137,7 +139,8 @@ OFF|the second one-hand weapon takes the same 13693.
         smaller versions at levels 15 and 12.
         A PANDAREN DOUBLES THIS: Epicurean 107072 doubles the well-fed
         bonus, which turns +8/+8 into +16/+16 - the largest single stat gain
-        any consumable gives a 29 monk.
+        any consumable gives a 29 monk. The id is verified; the doubling
+        itself was not read on a page.
    SCROLLS - 30 minutes, one scroll effect at a time, and that limit is
    printed on the scroll's own tooltip.
      1477 Scroll of Agility II|+5 Agility|requires level 15|Inscription
@@ -204,11 +207,12 @@ OFF|the second one-hand weapon takes the same 13693.
    TAUREN     20549 War Stomp - an area stun on no cast time, which is the
               single best racial a melee 29 can have. Also 20550 Endurance
               for base health.
-   PANDAREN   107079 Quaking Palm - an incapacitate that ignores a lot of
-              what breaks stuns, and 107072 Epicurean doubling the food
-              buff. 107073 Gourmand, 107074 Inner Peace and 107076 Bouncy
-              are the rest. The only race that adds both a control and a
-              permanent stat gain.
+   PANDAREN   107079 Quaking Palm - a control effect that is not a stun, so
+              it lands through anti-stun tools, and 107072 Epicurean
+              doubling the food buff. 107073 Gourmand, 107074 Inner Peace
+              and 107076 Bouncy are the rest. The only race that adds both a
+              control and a food gain. The five ids are verified; every one
+              of their effects is from memory.
    HUMAN      59752 Will to Survive - a crowd-control break on its own
               cooldown, separate from the PvP trinket, so a human monk
               effectively carries two. 20598 The Human Spirit.
@@ -216,7 +220,7 @@ OFF|the second one-hand weapon takes the same 13693.
               answer to a caster in the bracket.
    NIGHT ELF  58984 Shadowmeld - a free stealth for a class that has none,
               and the escape that pairs with Roll.
-   WORGEN     68992 Darkflight - a sprint on top of Roll and Tiger's Lust.
+   WORGEN     68992 Darkflight - a sprint on top of Roll.
    TROLL      26297 Berserking - haste, which for a Windwalker is more
               presses of everything.
    DRAENEI    28880 Gift of the Naaru, a heal-over-time, plus 6562 Heroic
