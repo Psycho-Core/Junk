@@ -227,10 +227,11 @@ Stray object: entry 249825, the ANVIL, sits at
   Y: 1404.49
   Z: 65.18
 That is 277.22 units from the arena midpoint and 31.98 units
-above the door band, so it is outside the playable floor. It is
-spawned by the zone, never interactable in an arena match, and
-the zone file itself marks the entry with a comment questioning
-it. Treat it as a misplaced spawn.
+above the door band, so it is outside the playable floor. The
+zone spawns it and then never mentions it again: nothing opens,
+uses or respawns it during a match. The zone file itself marks
+the entry with a comment questioning it. Treat it as a misplaced
+spawn.
 
 === 7. MATCH FLOW NOTES ===
 

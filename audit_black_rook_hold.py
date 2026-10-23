@@ -47,7 +47,7 @@ SOURCE_TOKENS = {
         ("door 245762", "BG_BRH_OBJECT_TYPE_DOOR_7 = 245762"),
         ("door 245765", "BG_BRH_OBJECT_TYPE_DOOR_8 = 245765"),
         ("door 245769", "BG_BRH_OBJECT_TYPE_DOOR_9 = 245769"),
-        ("anvil 249825", "BG_BRH_OBJECT_TYPE_ANVIL = 249825"),
+        ("anvil 249825", "BG_BRH_OBJECT_TYPE_ANVIL = 249825, //Wtf?"),
         ("open loop", "i < BG_BRH_OBJECT_DOOR_7"),
         ("close loop", "i < BG_BRH_OBJECT_MAX"),
         ("buff spawn", "SpawnBGObject(i, ARENA_COUNTDOWN_MAX)"),
@@ -172,6 +172,8 @@ STATIC_CHECKS = [
     ("buff_b_x", lambda t: "X: 1461.35" in t),
     ("buff_b_y", lambda t: "Y: 1225.18" in t),
     ("buff_b_z", lambda t: "Z: 33.0" in t),
+    ("buff_a_orient", lambda t: "Orientation: 4.75 rad" in t),
+    ("buff_b_orient", lambda t: "Orientation: 2.59 rad" in t),
     ("buff_dists", lambda t: "25.92 units" in t and "53.02 units" in t),
     ("buff_gap", lambda t: "72.69 units" in t),
     ("buff_asym", lambda t: "a measured\ndifference of 27.11 units" in t
@@ -193,6 +195,8 @@ STATIC_CHECKS = [
     ("no_0xe1a", lambda t: "does not send\nworldstate 0xE1A" in t
                            or "does not send worldstate 0xE1A" in t),
     ("no_oob", lambda t: "No out-of-bounds or under-map return points" in t),
+    ("no_trigger_override", lambda t: "no area-trigger overrides" in t),
+    ("anvil_comment", lambda t: "comment questioning" in t),
     ("door_warning", lambda t: "three door\nobjects stay shut" in t
                                or "three door objects stay shut" in t),
 
@@ -295,6 +299,10 @@ MUTATIONS = [
     ("buff_b_x", lambda t: t.replace("X: 1461.35", "X: 1462.35")),
     ("buff_b_y", lambda t: t.replace("Y: 1225.18", "Y: 1226.18")),
     ("buff_b_z", lambda t: t.replace("Z: 33.0", "Z: 34.0")),
+    ("buff_a_orient", lambda t: t.replace("Orientation: 4.75 rad",
+                                          "Orientation: 5.75 rad")),
+    ("buff_b_orient", lambda t: t.replace("Orientation: 2.59 rad",
+                                          "Orientation: 3.59 rad")),
     ("buff_dist", lambda t: t.replace("25.92 units", "26.92 units")),
     ("buff_gap", lambda t: t.replace("72.69 units", "73.69 units")),
     ("buff_asym", lambda t: t.replace("27.11 units", "28.11 units")),
@@ -367,6 +375,15 @@ def absence_stage(text, corpora):
         ok = False
     lines.append("    %-32s claim %d  found %d  %s"
                  % ("AddObject calls in zone", want_objs, objs, mark))
+
+    has_trig = "HandleAreaTrigger" in brh
+    wants_trig_none = "there are no area-trigger overrides" in flat
+    mark = "ok " if has_trig != wants_trig_none else "BAD"
+    if mark == "BAD":
+        ok = False
+    lines.append("    %-32s %-22s %s"
+                 % ("zone overrides area triggers",
+                    "no expected" if wants_trig_none else "yes expected", mark))
 
     has_ws = "BRH::FillInitialWorldStates" in brh
     wants_none = "does not send worldstate 0xE1A" in flat
