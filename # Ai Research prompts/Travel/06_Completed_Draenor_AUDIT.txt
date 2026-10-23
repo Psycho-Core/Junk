@@ -65,9 +65,11 @@ CLAIMS
            block also records that it sits 1.2 yards from 1556 Tranquil Court and
            reads its master from that shared roost [TAXI + FILE]
 013  PASS  1574 Joz's Rylaks -> 1502 The Ring of Trials exists in one direction
-           only (1738 yd = 0.91 min) and is printed once, inside the 1502 block,
-           marked "(reverse row only)"; 1574's own block carries no 1502 row
-           [TAXI + FILE]
+           only (1738 yd = 0.91 min): there is no row from 1502 back to 1574.
+           The file prints that single row in both blocks - as an outbound link
+           in the 1574 block and marked "(reverse row only)" in the 1502 block,
+           which is how every block lists both the links it starts and the
+           links that only arrive [TAXI + FILE]
 014  PASS  gate 1520 Breaker's Crown sits behind ConditionID 29229, a
            PlayerCondition PrevQuest satisfied by quest 35730, 35049 or 34992,
            and the block names all three [PC]
