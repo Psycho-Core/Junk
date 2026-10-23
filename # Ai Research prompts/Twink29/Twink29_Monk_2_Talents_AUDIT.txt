@@ -1,0 +1,89 @@
+AUDIT - Twink29_Monk_2_Talents.txt
+File under audit: 147 lines, step 2 of 3. 18 claims checked: 13 pass,
+2 corrected, 3 unverified.
+Pages opened for this audit: Tiger's Lust, Chi Wave, Chi Burst, Zen Pulse,
+Eye of the Tiger, Ride the Wind, Turbo Fists, Double Barrel, Grapple Weapon,
+Counteract Magic and the Monk PvP talent category on warcraft.wiki.gg, plus
+the item 20102 page. One web search for BfA-era Mistweaver tier lists.
+
+1. THE SHAPE OF THE ANSWER
+   1  PASS  "A level 29 monk has one normal talent." Tiger's Lust's patch
+      history carries the proof: 9.0.1 made it "available at level 25 (was
+      30)", and 10.0.0 then made it a row 1 talent "was level 25". So in
+      BfA that row sat at 30 and a 29 misses it by one level. This is the
+      same conclusion the mage file reached by inference; here it is
+      verified, which upgrades the mage file by association.
+   2  CORRECTED  "one point per row, and you must finish the row above
+      before the next one opens" - the second half is wrong. In BfA no
+      point had to be spent to unlock the next row; rows opened on level
+      alone. Fixed in the file: rows open at 15, 30, 45, 60, 75, 90 and
+      100 and that is the only gate.
+   3  PASS  All three specs open at 29 and are chosen at 10. Windwalker,
+      Brewmaster and Mistweaver all wear the same armour, so nothing locks
+      out a spec at this level.
+
+2. THE LEVEL 15 ROW
+   4  PASS  Eye of the Tiger is spell 196607 and it was "a level 15
+      Brewmaster and Windwalker talent" in this era - the wiki's own patch
+      note for 10.0.0 says so while moving it to row 7. That also corrects
+      the id: 196725 was my first guess, the page links 196607.
+   5  PASS  Chi Wave is spell 115098. WowDB's entry gives "requires level
+      15", and the wiki patch note for 10.0.0 records the move off level 15.
+      It was added to Mistweaver in 7.2.0, replacing Mistwalk, so it is a
+      legal option for all three specs in BfA.
+   6  PASS  Chi Burst is spell 123986, "was a level 15 talent" per the same
+      10.0.0 patch note, and WowDB's spell page puts it on Windwalker and
+      Mistweaver.
+   7  PASS  Mistweaver really has only two options in that row. Zen Pulse
+      was removed on 8.0.1 - the spell's patch notes say so in one line -
+      and the 8.2 Mistweaver tiers I found list tier 1 as Chi Burst and Chi
+      Wave only. The file's "and that is not a typo" survives the audit.
+   8  UNVERIFIED  "Chi Burst generated 1 Chi per enemy hit in BfA, which
+      made it the best talent in the row." The Chi generation comes from a
+      search snippet of a 2018 Windwalker write-up, not from a page I
+      opened, and "best talent in the row" is a guide's opinion, not a
+      fact. The file attributes it to the guide by name, which is the right
+      handling; it stays unverified.
+
+3. PVP TALENTS
+   9  PASS  The PvP pane is separate from the normal tree and gives four
+      slots at 20, 40, 70 and 110 - carried over from the PvP talent page
+      read earlier in this set. One slot at 20, so one PvP talent at 29.
+   10 PASS  Turbo Fists, spell 287681, level 20, Windwalker, added in
+      8.1.0 so it exists on 8.3.7: Fists of Fury slows by 90% and the monk
+      parries while channelling. Read off its page.
+   11 PASS  Ride the Wind, spell 201372, "Level 21 Windwalker monk PvP
+      talent", converted from a rank 43 honour talent in 8.0.1.
+   12 PASS  Double Barrel, spell 202335, "Level 21 Brewmaster", 45 sec
+      cooldown, next Keg Smash +50% damage and a 3 sec stun, converted from
+      a rank 28 honour talent in 8.0.1.
+   13 PASS  Zen Focus Tea: level 20, Mistweaver, silence and interrupt
+      immunity for 5 sec off Thunder Focus Tea. Left with no id, correctly -
+      the page links 468430, a modern spell id, and the BfA id was not
+      found.
+   14 PASS, AND THIS IS THE BEST FINDING IN THE FILE  Grapple Weapon, spell
+      233759, is a level 40 PvP talent on 8.3.7. Its own page says the
+      header "level 20" only because 9.0.1 lowered it "for Windwalker (was
+      40)". A reader who trusts the header takes a talent a 29 cannot have.
+   15 PASS  Counteract Magic sits at level 30 on the page, so a 29 misses
+      it by one level. Its BfA number is unverified, which the file says.
+
+4. THE REST
+   16  UNVERIFIED  Row 2 at level 30 contains Chi Torpedo, Tiger's Lust and
+      Celerity. Only Tiger's Lust 116841 was verified; the row's membership
+      and the other two ids were not, and the file quotes no id for them.
+   17  UNVERIFIED  "A monk has no forms or stances to worry about." True of
+      BfA as I know it - the Mistweaver stances went in 7.0 - but no page
+      was opened.
+   18  PASS  The two per-spec pairings in section 9 (196607 + 202335 for
+      Brewmaster, 115098 + Zen Focus Tea for Mistweaver, 123986 + 287681
+      for Windwalker) use only ids the file verified, and each pairing puts
+      a spec talent with a spec PvP talent. No id in the file appears in
+      the wrong spec.
+
+5. WHAT TO CHANGE
+   Done: the false "you must finish the row above" rule is gone. Everything
+   else held, including the two things this file was written to establish -
+   one talent of each kind at 29, and the Grapple Weapon trap. The soft
+   spots are the Chi Burst Chi-generation claim, which rests on a guide
+   rather than a page, and the composition of row 2.

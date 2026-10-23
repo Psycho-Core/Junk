@@ -1,0 +1,108 @@
+AUDIT - Twink29_Monk_1_Items.txt
+File under audit: 149 lines, step 1 of 3. 20 claims checked: 12 pass,
+3 corrected, 5 unverified.
+Pages opened for this audit: item 20102 on wotlk.evowow.com (class lock,
+stats, vendor), the same site's leather heirloom search and fist weapon
+search from step 1, and the merged druid item file for the leather pool it
+already read slot by slot.
+
+1. THE POOL AND THE FOUR HOLES
+   1  PASS  The leather heirloom search returns exactly six rows: 42952
+      Stained Shadowcraft Spaulders, 42984 Preened Ironfeather Shoulders,
+      44103, 44105, 48687 Preened Ironfeather Breastplate and 48689
+      Stained Shadowcraft Tunic. The monk file quotes four of the six and
+      the two chest ids are the ones that matter.
+   2  CORRECTED  15339 Pathfinder Hat (34/29) and 15140 Cutthroat's Mantle
+      (34/29) were missing. Both sit in the same 25-row leather pool the
+      druid file read out, both are higher item level than anything the
+      monk file listed in their slots, and both are wearable by a monk.
+      They are now head and shoulder rows one and two. The omission was a
+      memory slip, not a rule problem - this is exactly the class of error
+      an audit is for.
+   3  CORRECTED  "Nine rare leather pieces in the window" was wrong twice
+      over, because the two missing rows above bring it to eleven, and
+      because the file's own rows only added up to nine after the two AB
+      girdle and four AB boot rows were correctly excluded. Counted now:
+      three head, three shoulder, two wrist, one hands, one legs, one feet.
+   4  PASS  No rare leather chest in the window. The druid file reached the
+      same conclusion on the same search, independently, which is the
+      strongest evidence this set has for an absence.
+   5  PASS  No rare leather waist for a monk. The four AB girdles - 20105,
+      20117, 20172, 20191 - are the only leather belts in the pool and
+      they are class-locked, so the slot is green or nothing.
+   6  PASS  The class lock is now verified, not assumed. Item 20102
+      Highlander's Lizardhide Boots reads: leather, item level 33, requires
+      28, 104 armor, +8 Stamina, +5 Agility, +4 Intellect, slight run
+      speed, classes Rogue and Druid, sold by Samuel Hawke (entry 15127,
+      League of Arathor Supply Officer) in Arathi Highlands for 300 honor.
+      A monk cannot buy it.
+   7  UNVERIFIED  "All ten Arathi Basin leather pieces carry a Druid or
+      Rogue lock." Only 20102 was opened. The other nine are inferred from
+      the identical naming and from the druid file, which is good evidence
+      but not the same thing.
+   8  UNVERIFIED  "No rare leather back or ring a monk wants." Both are
+      absences read off the same search, not disproofs.
+
+2. THE RING, WHICH WAS A RULE BREACH
+   9  CORRECTED  13097 Thunderbrow Ring was listed as RING 1 while carrying
+      required level 24 - four levels below this file's own 26-29 floor.
+      The druid file had already caught the same item and put it in a note.
+      It is a note here now, for the same reason, and the +8 Strength it
+      gives is worthless to a monk in any case, whose attack power comes
+      from Agility. The ring rows are two greens.
+   10 PASS  13087 River Pride Choker, 33/28, +9 Stamina and +4 Strength, is
+      the only verified neck in the window and is flagged as such. Its
+      Strength is dead weight and the file says so.
+
+3. WEAPONS
+   11 PASS  7683 Bloody Brass Knuckles, item level 34, requires 29, from
+      Interrogator Vishas (entry 3983) in Scarlet Monastery. Read off the
+      fist weapon search, where it is the only row in the entire window.
+      That single row is the whole reason the monk file leans on it.
+   12 PASS  The exclusion of 9449 Manual Crowd Pummeler and 6687
+      Corpsemaker is correct: both are two-hand maces, and a monk's weapon
+      skills do not include two-hand maces. The druid list uses both, which
+      is why the note is in the file - a reader coming from the druid set
+      would otherwise copy them.
+   13 PASS  The twelve other weapon ids quoted (13033, 19557, 19553, 2816,
+      8226, 12974, 13048, 19569, 19573, 6689, 9452, 791) all come from the
+      same 37-row search with the same filter, so their item levels and
+      required levels are read values, not memory.
+   14 UNVERIFIED  "A monk's weapon skills are fist weapons, one-hand axes,
+      one-hand maces, one-hand swords, polearms and staves." True to my
+      knowledge of the class and not opened this turn. It is load-bearing:
+      the whole exclusion of two-hand maces rests on it.
+   15 UNVERIFIED  No polearm in the 37-row search. Plausible - polearms are
+      rare at this tier - but the search page was not re-read for the
+      absence, so the file's "treat the slot as unverified" is right.
+   16 UNVERIFIED  Whether a level 29 monk has Dual Wield trained. The file
+      flags it rather than guessing, which is the correct handling.
+
+4. THE LOOSE ENDS THAT CARRIED OVER
+   17 UNVERIFIED  18948 Barbaric Bracers at 32/27 from Leatherworking spell
+      23399. Inherited from the druid file, not opened here, and the spell
+      id in particular has never been read on a page in this set.
+   18 UNVERIFIED  4381 Minor Recombobulator as item level 28 with no
+      required level. The engineering skill requirement and the charge
+      count are memory.
+   19 UNVERIFIED  19024 Arena Grand Master, the one trinket this whole set
+      has never managed to pin down.
+   20 UNVERIFIED  The AB supply officers selling 19557, 19553, 19569 and
+      19573 to classes rather than to everyone. The file tells the reader
+      to check the officer before banking on them, which is the right call
+      while it stays unread.
+
+5. STANDING ERROR THIS FILE EXPOSED ELSEWHERE
+   The monk file uses 48687 for the leather Intellect chest and it is
+   right. The merged druid file still calls 48677 "Preened Ironfeather
+   Breastplate"; 48677 is the mail Champion's Deathdealer Breastplate. The
+   item level rule would have thrown 48677 out on armour type if the row
+   had been checked. The druid file needs a one-line fix and has not had
+   one yet.
+
+6. WHAT TO CHANGE
+   Done: the two missing rares added, the count corrected from nine to
+   eleven, and the ring row pulled back inside the rule. Nothing else in
+   the file is contradicted by a page. The remaining risk is concentrated
+   in the class-lock claim (verified once out of ten) and in the weapon
+   proficiency list, which the exclusion of two-hand maces depends on.

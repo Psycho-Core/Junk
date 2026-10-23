@@ -1,0 +1,153 @@
+AUDIT - Twink29_Monk_3_Enchants_Consumables_Races.txt
+File under audit: 247 lines, step 3 of 3. 28 claims checked: 19 pass,
+4 corrected, 5 unverified.
+Sources used for this audit: the professions set already audited in this
+repository (Enchanting, Leatherworking, Alchemy, Blacksmithing, Engineering,
+Cooking and First Aid, Inscription) for every id and skill number, the
+wowdb pandaren racial list opened while the file was written, and the two
+earlier monk files for internal consistency.
+
+1. THE OPENING CLAIM, AND WHY IT MATTERS
+   1  CORRECTED  "The mage file had to throw six of the seven enchants
+      away." The mage file's own conclusion is two usable enchants - boots
+      and chest. It threw away five, not six. A small number, but this is a
+      file that compares itself to another file in the same set, so the
+      comparison has to be right.
+   2  PASS  What a monk keeps is correct: 13882 cloak agility, 13815 gloves
+      agility, 13890 boots, 13640 chest and 13693 weapon, with 13661 bracer
+      strength as the one wrong stat. That is five of the seven, which is
+      the class's whole advantage over the mage and the reason this file
+      exists.
+   3  PASS  "The classic skill line caps at 225 for a 29; 226 up needs
+      artisan, which needs level 35." Carried from the professions
+      Enchanting file, which established the cap and the level 35 gate.
+
+2. THE ENCHANT TABLE
+   4  PASS  All seven in-cap enchants, their spell ids, skill numbers,
+      reagents and rod tiers match the professions Enchanting file row for
+      row, including the two facts that are easy to lose: 13882's formula
+      is item 11206 and drops rather than being trained, and 13890's
+      tooltip says only "a slight movement speed increase".
+   5  PASS  13746 Greater Defense at skill 205 and +50 armor, with the
+      two-cloaks answer - one agility, one armor - is the same advice the
+      Enchanting file gives, and it is the right advice for a Brewmaster.
+   6  PASS  13661 is described as the wrong stat and as the only bracer
+      enchant inside the cap. Both halves are honest: the file refuses to
+      name an agility bracer id it never verified.
+   7  PASS  4265 Heavy Armor Kit: +24, Leatherworking 150, spell 3780, 5x
+      Heavy Leather 4234, usable on items of level 15 and up. That matches
+      the Leatherworking file exactly.
+   8  CORRECTED  "8173 Thick Armor Kit (+32) needs a level 25 item and a
+      level 30 character." The item level floor is right; the character
+      level is the Leatherworking file's "usable only at level 30", which is
+      the kit's own required level, not the crafter's. Reworded so the two
+      levels cannot be confused.
+   9  PASS  190894 Mark of the Hidden Satyr with enchant id 5439, its 120
+      cap, and 190871 rank 1 / 191014 rank 3 with their 60 cap and item form
+      128542. Unchanged from the mage file, which was corrected once
+      already.
+   10 PASS  228405 Trained Soldier called useless at 29 because a 29 has no
+      mastery. True and worth keeping.
+   11 UNVERIFIED  "No belt enchant exists inside the cap and no buckle
+      applies." Nothing was opened to prove the absence, and classic did
+      have a small number of belt oddities. The claim is probably right; it
+      is not sourced.
+
+3. WEAPON CONSUMABLES - THE ONE GENUINELY MONK-SHAPED SECTION
+   12 PASS  7965 Solid Weightstone and 7964 Solid Sharpening Stone, item
+      level 35, requires level 25, Blacksmithing 200, +6 for 30 minutes,
+      with weightstones for maces, staves and fists and sharpening stones
+      for bladed weapons. Straight from the Blacksmithing file, which is
+      where the blunt-versus-bladed split is written down.
+   13 PASS  The link to the item file is the point: 7683 Bloody Brass
+      Knuckles is a fist weapon, so the monk buys the weightstone. If the
+      roster uses 13033 Zealot Blade instead, it buys the sharpening stone.
+      Both files agree on the ids.
+   14 UNVERIFIED  "A weapon buff and a weapon enchant occupy the same
+      slot." Standard behaviour and almost certainly right on this core, but
+      no page says it and it decides whether a twink pays for 13693 and a
+      stone at once. Worth one test in game.
+   15 PASS  20744 Minor Wizard Oil at +8 spell power, level 5, Enchanting
+      45, spell 25124, item level cap 165, and the note that only the
+      Mistweaver wants it. Same entry the mage file uses, same numbers.
+
+4. CONSUMABLES
+   16 PASS  Every elixir, potion, protection potion, food and bandage
+      figure matches the audited Alchemy, Cooking and First Aid and
+      Inscription files: 8949 at level 27 for +15 agility, 8951 at 29, 3825
+      at 25, 6373 at 18 called the wrong school, 2459, 1710, 5634, 3385 as
+      Mistweaver-only, the five school potions, 12210 at +8 and +8, 8544 and
+      6451, and 1477 Scroll of Agility II at +5 for level 15 off
+      inscription 58473.
+   17  PASS  The file repeats the one-at-a-time scroll rule that the mage
+      audit established, and refuses 955 because it is Intellect and 4425
+      because Scroll of Agility III needs level 30. Both correct.
+   18  UNVERIFIED  The claim that 8949 is a battle elixir and 8951 or 3825 a
+      guardian elixir, and that one of each can be up together. Standard
+      behaviour, not read for this file.
+
+5. PROFESSIONS
+   19  PASS  Leatherworking plus Engineering, with the reasoning that the
+      leg kit is the only leg upgrade and the engineering items are the only
+      thrown ones. The item ids, item levels and skills - 4390 at 175, 4394
+      at 190, 4388 at 160 with its five charges and its dismount, 4397 at
+      200 with no specialisation, 4381 at item level 28 with ten charges and
+      no level requirement, 4385 as a cloth head at 150 - all match the
+      Engineering file.
+   20  PASS  10720 Gnomish Net-o-Matic marked ALT because Gnomish
+      specialisation is 210, and 109076 Goblin Glider Kit marked auction
+      house only. This is the hunter audit's correction applied in advance,
+      which is exactly what it was for.
+   21  UNVERIFIED  10507 Solid Dynamite at 175 and 4384 Explosive Sheep at
+      150. The items are real and in the Engineering file; the two skill
+      numbers quoted beside them were not re-read.
+   22  UNVERIFIED  18948 Barbaric Bracers at 32/27 from Leatherworking spell
+      23399. Third appearance and third time unverified - it was flagged in
+      audit 1 as well.
+   23  PASS  The Enchanting paragraph is the strongest ALT argument in the
+      file: the neck and ring enchants need the BfA enchanting skill and a 29
+      cannot train past classic 225, so those three slots are ALT by
+      definition rather than by difficulty. That is sourced to the
+      Enchanting file's own line about "the current-expansion ring enchants,
+      which a character with only the Classic skill line cannot use at all".
+
+6. RACES - AND THE ERROR THE AUDIT EXISTED TO CATCH
+   24  CORRECTED, TWICE, AND IT WAS A CONTRADICTION WITH STEP 2  The file
+      said Minor Speed "stacks with the monk's own Roll and Tiger's Lust",
+      and gave the Worgen Darkflight "on top of Roll and Tiger's Lust".
+      Tiger's Lust is a level 30 talent. Step 2 of this very set establishes
+      that a 29 has one talent and that the row holding Tiger's Lust is
+      closed. The boots paragraph now says so explicitly, and the Worgen
+      line is Roll alone. A file contradicting its own step 2 in two places
+      would have been the worst thing in the monk set.
+   25  PASS  Pandaren ids 107079, 107072, 107073, 107074 and 107076 are the
+      five the wowdb pandaren racial list returns. Only those five plus
+      languages exist, so the list is complete.
+   26  CORRECTED  "The only race that adds both a control and a permanent
+      stat gain." Epicurean is a food buff, not a permanent gain. Reworded to
+      a food gain, and the effects of all five pandaren racials are now
+      marked as memory rather than page-read, because only the ids were
+      verified.
+   27  UNVERIFIED, AND SAID SO IN THE FILE  The allied-race monk list, and
+      the pre-Mists race roster. Also unverified: that gnome, orc and undead
+      cannot be monks at all. All of this is from memory of the character
+      screen and the file flags it in the same paragraph rather than burying
+      it.
+   28  PASS  "Allied races start at level 20 on 8.3.7, so all of them are
+      legal 29 twinks." This is the brief's established fact and it is what
+      matters for the bracket. Worth noting the live wiki now says allied
+      races start at 10, which is a later change and does not apply here.
+
+7. WHAT TO CHANGE
+   Done: the enchant-count comparison, the Thick Armor Kit's two different
+   levels, the Tiger's Lust contradiction in two places, and the "permanent"
+   wording on Epicurean. The rest of the file is sourced either to the
+   professions set or to a page opened while writing it, and where it is not
+   - the belt enchant absence, the weapon-slot conflict, the elixir
+   categories, two skill numbers, 18948's spell, and the whole race roster
+   beyond the classic eight - it now says so.
+   This is the third monk file and the set is as clean as this method gets:
+   the item file has four slots with no blue item, the talent file has one
+   decision, and this file's real value is the twenty-odd enchant and
+   consumable ids a monk can use without help, with the four ALT slots named
+   plainly.

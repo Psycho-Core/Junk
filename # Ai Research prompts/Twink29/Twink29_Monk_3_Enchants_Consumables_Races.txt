@@ -1,0 +1,247 @@
+TWINK29 - MONK - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
+V = read off a page in this set. Unverified means unverified.
+
+0. THREE THINGS THAT SHAPE A MONK'S SHOPPING LIST
+   The classic enchant list was built for melee, which means it fits a monk
+   better than any other class in this set. The mage file could use two of
+   the seven enchants; a monk keeps the agility cloak, the agility gloves,
+   the boots, the chest and the weapon enchant, and only the bracer is the
+   wrong stat.
+   A monk's best weapon is a fist weapon, and fist weapons are blunt, so the
+   weapon consumable is a weightstone, not a sharpening stone.
+   Legs take an armour kit, not an enchant, and there is no belt enchant at
+   this tier - a monk's belt is a green with nothing on it.
+   Mistweaver is the only one of the three specs with a mana bar. For
+   Brewmaster and Windwalker every mana potion and mana scroll in this file
+   is dead weight.
+
+1. ENCHANTS BY SLOT - WHAT A 29 CAN ACTUALLY GET
+   The classic skill line caps at 225 for a 29; anything from 226 up is the
+   artisan rank, which needs level 35, so a higher-level character applies
+   it (ALT). All the ids and skills below were verified in the professions
+   set.
+HEAD|nothing - no head enchant inside the 225 cap. 4385 Green Tinted
+     Goggles (Engineering, item level 30, cloth) is legal but 15339
+     Pathfinder Hat is a better leather head and the goggles cost a slot.
+NECK|190894 Mark of the Hidden Satyr, enchant id 5439|BfA enchanting|
+     cap "cannot be applied to items above level 120"|ALT
+     Sometimes summons a satyr that fires a nightmare bolt. A 29 item at
+     item level 33 passes the cap, but a 29 cannot train BfA enchanting,
+     so this needs a higher-level character.
+SHOULDER|nothing at 29. The Mists inscriptions 83006, 87580, 44133 and
+     50335 need level 80 or 85 on the character who applies them, and the
+     bind-on-account shoulders are the only items that take them.|ALT
+CLOAK|13882 Enchant Cloak - Lesser Agility|+3 Agility|skill 225, formula
+     item 11206, 2x Lesser Nether Essence 11174, Runed Truesilver Rod
+     THE PICK. Agility is attack power, dodge and armour for every monk
+     spec, and the formula drops rather than being trained, so check the
+     enchanter owns it.
+CLOAK|13746 Enchant Cloak - Greater Defense|+50 armor|skill 205, 3x Vision
+     Dust 11137, Runed Truesilver Rod
+     The alternative. A Brewmaster takes this and a Windwalker takes the
+     agility; a character can carry one of each on two cloaks.
+CHEST|13640 Enchant Chest - Greater Health|+35 health|skill 160, 3x Soul
+     Dust 11083, Runed Golden Rod
+     No stat version exists inside the cap, so this is it for everyone.
+WRIST|13661 Enchant Bracer - Strength|+5 Strength|skill 180, 1x Vision Dust
+     11137, Runed Golden Rod
+     WRONG STAT, and it is the only bracer enchant inside the cap, so a
+     monk's bracer is either this or bare. The agility bracer enchant was
+     never verified in this set, so no id is quoted; check the trainer's
+     window in game.
+HANDS|13815 Enchant Gloves - Agility|+5 Agility|skill 210, 1x Lesser Nether
+     Essence 11174, 1x Vision Dust 11137, Runed Truesilver Rod
+     THE PICK. The best enchant in the file for a monk after boots.
+WAIST|nothing. No belt enchant exists inside the cap and no belt buckle
+     applies at this tier.
+LEGS|4265 Heavy Armor Kit|+24 armor|Leatherworking 150, spell 3780, 5x
+     Heavy Leather 4234 plus a fine thread|only on items of level 15 or
+     above, so every leg item in the bracket takes it
+     THE PICK, and it is a kit rather than an enchant - the leg slot takes
+     one or the other, and at 29 the kit is the only one there is.
+     8173 Thick Armor Kit (+32) only fits items of level 25 and up and the
+     kit itself requires level 30; 15564 Rugged (+40) requires level 40.
+     Both ALT.
+FEET|13890 Enchant Boots - Minor Speed|skill 225, 1x Small Radiant Shard
+     11177, 1x Aquamarine 7909, 1x Lesser Nether Essence 11174, Runed
+     Truesilver Rod|"a slight movement speed increase" - the tooltip's own
+     words, the exact figure is unverified
+     THE PICK. The single most valuable enchant in the bracket, and it
+     stacks with the monk's own Roll. Note that Tiger's Lust is a level 30
+     talent - see step 2 - so a 29 does not have it.
+RING 1|190871 Binding of Haste, rank 1|later rank 191014, item form
+     128542|cap "cannot be applied to items above level 60"|ALT
+RING 2|the same enchant on the second ring|ALT
+     228405 Trained Soldier is useless at 29 - it grants mastery and a 29
+     has none.
+WEAPON|13693 Enchant Weapon - Striking|+3 weapon damage|skill 195, 2x
+     Greater Mystic Essence 11135, 1x Large Glowing Shard 11139, Runed
+     Golden Rod
+     THE PICK for a fist weapon or a staff. Flat damage on every swing beats
+     every stat enchant for a class that hits fast, and it costs 195 skill.
+OFF|the second one-hand weapon takes the same 13693.
+   Above the cap, and ALT for that reason, all from the classic list:
+     13939 Enchant Bracer - Greater Strength    skill 240
+     13943 Enchant Weapon - Greater Striking    skill 245
+     13898 Enchant Weapon - Fiery Weapon        skill 265
+     20012 Enchant Gloves - Greater Agility     skill 270
+     20031 Enchant Weapon - Superior Striking   skill 300
+     25080 Enchant Gloves - Superior Agility    skill 300
+
+2. WEAPON CONSUMABLES - THE ONE MONK-SPECIFIC DETAIL
+   A weapon buff and a weapon enchant occupy the same slot, so a monk picks
+   one. Both stones below are consumables, one use per 30 minutes, and
+   neither needs a profession on the character using it.
+   7965 Solid Weightstone|+6 weapon damage|item level 35, requires level 25,
+     Blacksmithing 200|BLUNT - fist weapons, one-hand maces, staves
+     This is the monk's stone, because 7683 Bloody Brass Knuckles is a fist
+     weapon.
+   7964 Solid Sharpening Stone|+6 weapon damage|item level 35, requires
+     level 25, Blacksmithing 200|BLADED - swords, axes
+     The one to buy if the monk is using 13033 Zealot Blade instead.
+   3239 Rough, 3240 Coarse, 3241 Heavy are the cheaper weightstones;
+   12643 Dense Weightstone and 12404 Dense Sharpening Stone need level 35.
+   ALT.
+   Oil is for the Mistweaver only: 20744 Minor Wizard Oil, requires level 5,
+   +8 spell power for 1 hour, 5 charges, Enchanting 45, spell 25124, cannot
+   be applied to an item above item level 165. A mistweaver heals off spell
+   power, so the oil is worth more than +6 weapon damage to that one spec.
+
+3. CONSUMABLES
+   ELIXIRS - one battle and one guardian elixir, both one hour.
+     8949 Elixir of Agility|item level 37, requires level 27|+15 Agility,
+        spell 11328, Alchemy 185, craft 11449|BATTLE, THE PICK
+        Agility is the monk's primary stat for Brewmaster and Windwalker.
+     8951 Elixir of Greater Defense|item level 39, requires level 29|+250
+        armor|GUARDIAN, the pick for a Brewmaster that expects to be focused
+     3825 Elixir of Fortitude|item level 35, requires level 25|+120 health
+        |GUARDIAN, the cheaper alternative and the one a Windwalker takes
+     6373 Elixir of Firepower|requires level 18|+10 fire spell damage|wrong
+        school for all three specs - listed only so nobody buys it for a
+        Mistweaver. Mistweaver damage is not fire.
+   POTIONS - one each per fight.
+     2459 Swiftness Potion|requires level 5|run speed for a few seconds
+     1710 Greater Healing Potion|item level 31, requires level 21|455-585
+        health
+     5634 Free Action Potion|item level 30, requires level 20|breaks and
+        prevents stun and snare for a few seconds
+     3385 Lesser Mana Potion|item level 24, requires level 14|MISTWEAVER
+        ONLY. 6149 Greater Mana Potion needs level 31, so a 29 mistweaver
+        drinks the small one.
+     6051 Holy, 6048 Shadow, 6049 Fire, 6050 Frost, 6052 Nature Protection
+        Potions|require level 10, 17, 23, 28 and 28|the school-specific
+        absorb, worth carrying against a known mage, warlock or druid
+   FOOD
+     12210 Roast Raptor|item level 35, requires level 25|+8 and +8
+        The best food a 29 can cook for itself. 12209 and 5479 are the
+        smaller versions at levels 15 and 12.
+        A PANDAREN DOUBLES THIS: Epicurean 107072 doubles the well-fed
+        bonus, which turns +8/+8 into +16/+16 - the largest single stat gain
+        any consumable gives a 29 monk. The id is verified; the doubling
+        itself was not read on a page.
+   SCROLLS - 30 minutes, one scroll effect at a time, and that limit is
+   printed on the scroll's own tooltip.
+     1477 Scroll of Agility II|+5 Agility|requires level 15|Inscription
+        craft 58473, skill 85, Light Parchment|THE PICK
+     955 Scroll of Intellect is +3 Intellect - wrong stat, do not buy it.
+     4425 Scroll of Agility III needs level 30. Just out of reach.
+   BANDAGES - First Aid, and a monk cannot heal itself while stunned, which
+   is what bandages are for.
+     8544 Mageweave Bandage|heals 1600 over the channel
+     6451 Heavy Silk Bandage|heals 1280
+
+4. THE TWO PROFESSIONS
+   LEATHERWORKING + ENGINEERING. Leatherworking because the leg kit is the
+   only leg upgrade a 29 can have, and Engineering because its items are
+   the only ones a melee twink can throw at someone.
+   LEATHERWORKING
+     4265 Heavy Armor Kit, skill 150, spell 3780 - the point of the
+        profession at this level. Four of them cover legs on four characters.
+     2304 Light Armor Kit, skill 1, +8 armor, no item level restriction.
+     2313 Medium Armor Kit, skill 100, +16 armor.
+     18948 Barbaric Bracers, item level 32, requires 27, Leatherworking
+        spell 23399 - a blue bracer a monk can wear, and the only crafted
+        one in the bracket. The spell id is unverified.
+     Nothing else in Leatherworking matters at 29: every leg armour kit
+     with a real number needs level 30 or 40.
+   ENGINEERING
+     4390 Iron Grenade|item level 35, skill 175, no level requirement|the
+        stun, and the one Engineering item a 29 throws every fight
+     4394 Big Iron Bomb|item level 43, skill 190|more damage, same idea
+     4388 Discombobulator Ray|item level 32, 5 charges, skill 160|-40 melee
+        and spell damage, -20% movement speed, and it dismounts
+     4397 Gnomish Cloaking Device|item level 40, skill 200, no
+        specialisation needed|a second vanish for a Windwalker
+     4381 Minor Recombobulator|item level 28, trinket, 10 charges, no level
+        requirement|breaks a polymorph on yourself - the only trinket in
+        this file that does something every game
+     10507 Solid Dynamite and 4384 Explosive Sheep, skill 175 and 150
+     4385 Green Tinted Goggles|item level 30, cloth head, skill 150|legal,
+        but a monk has 15339 Pathfinder Hat and does not need it
+     10720 Gnomish Net-o-Matic is Gnomish Engineering 210, so a 29 cannot
+        make one. ALT.
+     109076 Goblin Glider Kit is auction house only. ALT.
+   THE MISTWEAVER SWAP: Alchemy instead of Engineering, for 3385 Lesser Mana
+   Potion and its own elixirs. It is a weaker argument than it looks, because
+   every elixir and potion in section 3 can be bought - Alchemy only saves
+   the markup. Engineering gives a mistweaver the recombobulator and a
+   grenade, which is more than Alchemy gives back.
+   ENCHANTING is the one profession a twink might want and cannot use: the
+   neck and ring enchants in section 1 need the BfA enchanting skill, and a
+   29 cannot train past the classic 225 cap. ALT by definition.
+
+5. RACES
+   Which races can be monks at all, before any ranking: the eight that have
+   been monks since Mists of Pandaria - human, dwarf, night elf, draenei and
+   worgen for the Alliance, blood elf, tauren and troll for the Horde - plus
+   pandaren on both factions, plus the allied races.
+   Gnome, orc and undead cannot be monks, so "races to avoid" is not
+   advice for them; you cannot roll one.
+   THE ALLIED-race line is from memory of the 8.3.7 character screen, not a
+   page, and is UNVERIFIED: void elf, dark iron dwarf, kul tiran, mechagnome,
+   nightborne, highmountain tauren, mag'har orc, vulpera. Allied races start
+   at level 20 on 8.3.7, so all of them are legal 29 twinks.
+   THE PICKS, best first, with the racial that earns the slot:
+   TAUREN     20549 War Stomp - an area stun on no cast time, which is the
+              single best racial a melee 29 can have. Also 20550 Endurance
+              for base health.
+   PANDAREN   107079 Quaking Palm - a control effect that is not a stun, so
+              it lands through anti-stun tools, and 107072 Epicurean
+              doubling the food buff. 107073 Gourmand, 107074 Inner Peace
+              and 107076 Bouncy are the rest. The only race that adds both a
+              control and a food gain. The five ids are verified; every one
+              of their effects is from memory.
+   HUMAN      59752 Will to Survive - a crowd-control break on its own
+              cooldown, separate from the PvP trinket, so a human monk
+              effectively carries two. 20598 The Human Spirit.
+   BLOOD ELF  50613 Arcane Torrent - area silence plus resource, the best
+              answer to a caster in the bracket.
+   NIGHT ELF  58984 Shadowmeld - a free stealth for a class that has none,
+              and the escape that pairs with Roll.
+   WORGEN     68992 Darkflight - a sprint on top of Roll.
+   TROLL      26297 Berserking - haste, which for a Windwalker is more
+              presses of everything.
+   DRAENEI    28880 Gift of the Naaru, a heal-over-time, plus 6562 Heroic
+              Presence for hit rating.
+   DWARF      20594 Stoneform - clears bleed, poison and disease and adds
+              armor; the anti-rogue and anti-hunter pick.
+   NO BAD PICK: a monk has no weapon skill, so no race's weapon bonus is
+   wasted, and every monk-legal race has a racial a 29 can use. Pick by the
+   control effect you want.
+
+6. WHAT TO BUY, IN ORDER
+   1. 13890 Minor Speed on the boots, then 13815 Agility on the gloves.
+   2. 13882 Lesser Agility on the cloak, or 13746 on a second cloak.
+   3. 13640 Greater Health on the chest, 4265 Heavy Armor Kit on the legs.
+   4. 7965 Solid Weightstone for a fist weapon, plus 1477 Agility scrolls.
+   5. 8949 Elixir of Agility and 3825 or 8951 as the guardian elixir.
+   6. 1710 Greater Healing, 5634 Free Action, 2459 Swiftness, one school
+      protection potion.
+   7. 12210 Roast Raptor, doubled if the monk is a pandaren.
+   8. 4390 Iron Grenades and 4381 Minor Recombobulator from Engineering.
+   Everything in sections 1 to 3 except the neck, ring, shoulder and Outland
+   entries is doable by a 29 with its own professions. The four ALT slots -
+   neck, rings, shoulders and the bracer stat - are where a funded twink
+   pulls ahead of a self-made one.

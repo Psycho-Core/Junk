@@ -258,3 +258,18 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `3_Enchants_Consumables_Races.txt`: enchants including neck and ring,
   consumables, professions and races. Deliverable:
   `Twink29_Mage_3_Enchants_Consumables_Races.txt`.
+
+## Twink29/Monk-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 monk in 8.3.7, rare or
+  bind-on-account, item level 35 or less, required level 26-29. The leather
+  pool has no monk-wearable battleground set at all, and no rare chest, back,
+  waist or ring.
+  Deliverable: `Twink29_Monk_1_Items.txt`.
+- `2_Talents.txt`: one normal talent and one PvP talent at 29 - the level 15
+  row per spec and the single level 20 PvP slot. Includes the Grapple Weapon
+  trap, a level 40 PvP talent whose page still says 20.
+  Deliverable: `Twink29_Monk_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: enchants including neck and ring, and
+  the version of the classic enchant list that mostly fits a monk.
+  Deliverable: `Twink29_Monk_3_Enchants_Consumables_Races.txt`.
