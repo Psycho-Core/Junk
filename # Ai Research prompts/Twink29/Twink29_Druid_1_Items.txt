@@ -1,0 +1,155 @@
+TWINK29 - DRUID - STEP 1 OF 3 - ITEMS FOR EVERY SLOT
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+SLOT|item|id|ilvl|req|source|tag   tag: SOLO ALT RNG, V = verified
+
+HOW TO READ THIS
+   A row is SLOT | item | id | item level | required level | source | tag.
+   V marks a row whose numbers were read on the item page. Rows without V
+   come from a level 29 guide and were not opened, so ilvl and req are
+   unverified there.
+   One caveat covers every V row: the only pages with full classic stat
+   blocks are WotLK-era (3.3.5). Where 8.3.7 re-itemised an item its item
+   level can differ. No required level moved on any item that was checked.
+
+1. TRUE FOR ALL FOUR SPECIFICATIONS
+   Leather, so every slot is open from level 1.
+   Random-enchant greens of the right suffix ("of the Bear", "of the
+   Eagle", "of the Owl", "of the Monkey", "of Intellect", "of Stamina")
+   are the cheap filler in almost every slot, and the suffix decides the
+   spec. Re-read the level 29 row in the client; the pattern is stable
+   even where the numbers are not.
+   Heirlooms scale with the character, so they never go stale. At level 29
+   Stained Shadowcraft Spaulders 42952 read: 82 armour, +7 Stamina, +6 hit
+   rating, +20 attack power, item level shown as 1 (V).
+
+2. BALANCE - Intellect, spell power, haste
+HEAD|Pathfinder Hat (of the Owl)|15339|34|29|world drop|RNG V
+HEAD|leather green, of Intellect|-|unv.|29|drop|SOLO
+HEAD|Spellpower Goggles Xtreme|10502|unv.|unv.|Engineering|ALT
+NECK|River Pride Choker|13087|33|28|world drop|RNG V
+         +9 Stamina, +4 Strength. Wetlands, Duskwood, STV drops.
+NECK|green necklace, of Intellect|-|unv.|29|drop|SOLO
+SHOULDER|Cutthroat's Mantle (of the Owl)|15140|34|29|world drop|RNG V
+SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom|ALT V
+BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
+BACK|cloak, of Intellect|-|unv.|29|drop|SOLO
+CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+CHEST|Preened Ironfeather Breastplate|48677|scales|1|heirloom|ALT
+CHEST|leather green, of the Owl|-|unv.|29|drop|SOLO
+WRIST|Emissary Cuffs (of the Owl)|9455|unv.|unv.|Gnomeregan|RNG
+WRIST|leather green, of Intellect|-|unv.|29|drop|SOLO
+HANDS|Chimeric Gloves|15074|unv.|unv.|Leatherworking|ALT
+HANDS|leather green, of the Owl|-|unv.|29|drop|SOLO
+WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
+WAIST|leather green, of Intellect|-|unv.|29|drop|SOLO
+LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
+LEGS|leather green, of the Owl|-|unv.|29|drop|SOLO
+FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
+FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+FEET|leather green, of Intellect|-|unv.|29|drop|SOLO
+RING 1|ring, of Intellect/Stamina|-|unv.|29|drop|SOLO
+RING 2|ring, of Intellect/Spirit|-|unv.|29|drop|SOLO
+         Do not take Thunderbrow Ring 13097 here: +8 Strength, +3 Agility
+         is a melee ring.
+TRINKET|Arena Grand Master|19024|unv.|none|STV Arena, q7838|SOLO
+TRINKET|Insignia of the Alliance/Horde|unv.|unv.|unv.|honour vendor|SOLO
+MAIN|Twisted Chanter's Staff|890|24|19|world drop|RNG V
+         Two-hand staff, 55-84 damage, 3.40 speed, +10 Int, +6 Stam.
+MAIN|staff or one-hand mace, of Intellect|-|unv.|29|drop|SOLO
+OFF|Furbolg Medicine Pouch|16768|unv.|unv.|Timbermaw honoured|ALT
+RANGED|none - a Druid has no wand, relic or thrown slot|-|-|-|-|-
+
+3. FERAL - Agility, Strength, hit
+HEAD|Pathfinder Hat (of the Monkey)|15339|34|29|world drop|RNG V
+HEAD|leather green, of Agility|-|unv.|29|drop|SOLO
+NECK|River Pride Choker|13087|33|28|world drop|RNG V
+NECK|green necklace, of Agility/Stamina|-|unv.|29|drop|SOLO
+SHOULDER|Cutthroat's Mantle (of the Tiger)|15140|34|29|world drop|RNG V
+SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom|ALT V
+BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
+CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+CHEST|leather green, of the Tiger|-|unv.|29|drop|SOLO
+WRIST|Emissary Cuffs (of the Monkey)|9455|unv.|unv.|Gnomeregan|RNG
+HANDS|Razzeric's Racing Grips|6727|unv.|unv.|quest (guide's step)|SOLO
+HANDS|leather green, of the Monkey|-|unv.|29|drop|SOLO
+WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
+LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
+LEGS|leather green, of Agility|-|unv.|29|drop|SOLO
+FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
+FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+RING 1|Thunderbrow Ring|13097|29|24|world drop|RNG V
+         Unique. +8 Strength, +3 Agility - the best stat ring for feral.
+RING 2|ring, of Agility/Stamina|-|unv.|29|drop|SOLO
+TRINKET|Arena Grand Master|19024|unv.|none|STV Arena, q7838|SOLO
+TRINKET|Insignia of the Alliance/Horde|unv.|unv.|unv.|honour vendor|SOLO
+MAIN|Manual Crowd Pummeler|9449|34|28|Gnomeregan 40%|SOLO V
+         Two-hand mace, 46-70 damage, 2.00 speed, 29.0 dps, +16 Str,
+         +5 Agi, use: +500 haste 30 sec, 1 hour cooldown. From Crowd
+         Pummeler 9-60, npc 6229.
+MAIN|Looming Gavel|13048|31|26|world drop|RNG V
+         One-hand mace, 33-62 damage, 2.40 speed, 19.8 dps, +6 Stam,
+         +3 Agi. Wetlands 28-29 mobs, under one percent.
+MAIN|weapon, of Agility|-|unv.|29|drop|SOLO
+OFF|Furbolg Medicine Pouch|16768|unv.|unv.|Timbermaw honoured|ALT
+RANGED|none|-|-|-|-|-
+
+4. GUARDIAN - Stamina, armour, Agility
+HEAD|Pathfinder Hat (of Stamina)|15339|34|29|world drop|RNG V
+HEAD|leather green, of the Bear|-|unv.|29|drop|SOLO
+NECK|River Pride Choker|13087|33|28|world drop|RNG V
+SHOULDER|Cutthroat's Mantle (of the Bear)|15140|34|29|world drop|RNG V
+SHOULDER|Bloodsoaked Pauldrons|19878|unv.|unv.|world drop|RNG
+BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
+CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+CHEST|leather green, of the Bear|-|unv.|29|drop|SOLO
+WRIST|Emissary Cuffs (of Stamina)|9455|unv.|unv.|Gnomeregan|RNG
+HANDS|Stonebark Gauntlets|18344|unv.|unv.|world drop|RNG
+WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
+LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
+FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
+FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+RING 1|Thunderbrow Ring|13097|29|24|world drop|RNG V
+RING 2|ring, of Stamina|-|unv.|29|drop|SOLO
+TRINKET|Arena Grand Master|19024|unv.|none|STV Arena, q7838|SOLO
+TRINKET|Insignia of the Alliance/Horde|unv.|unv.|unv.|honour vendor|SOLO
+MAIN|Manual Crowd Pummeler|9449|34|28|Gnomeregan 40%|SOLO V
+MAIN|Looming Gavel|13048|31|26|world drop|RNG V
+OFF|Furbolg Medicine Pouch|16768|unv.|unv.|Timbermaw honoured|ALT
+RANGED|none|-|-|-|-|-
+
+5. RESTORATION - Intellect, Spirit, haste
+HEAD|Pathfinder Hat (of the Owl)|15339|34|29|world drop|RNG V
+HEAD|leather green, of Intellect|-|unv.|29|drop|SOLO
+NECK|green necklace, of Intellect/Spirit|-|unv.|29|drop|SOLO
+SHOULDER|Cutthroat's Mantle (of the Owl)|15140|34|29|world drop|RNG V
+SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom|ALT V
+BACK|cloak, of Intellect/Spirit|-|unv.|29|drop|SOLO
+CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+WRIST|Emissary Cuffs (of the Owl)|9455|unv.|unv.|Gnomeregan|RNG
+HANDS|Chimeric Gloves|15074|unv.|unv.|Leatherworking|ALT
+WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
+LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
+FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
+FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+RING 1|ring, of Intellect/Spirit|-|unv.|29|drop|SOLO
+TRINKET|Arena Grand Master|19024|unv.|none|STV Arena, q7838|SOLO
+TRINKET|Insignia of the Alliance/Horde|unv.|unv.|unv.|honour vendor|SOLO
+MAIN|Twisted Chanter's Staff|890|24|19|world drop|RNG V
+MAIN|Dignified Headmaster's Charge|unv.|scales|1|heirloom|ALT
+         Heirloom staff, Intellect and crit - the name and id are the
+         guide's, the item was not opened.
+OFF|Furbolg Medicine Pouch|16768|unv.|unv.|Timbermaw honoured|ALT
+RANGED|none|-|-|-|-|-
+
+6. THE THREE THINGS THAT DECIDE A 29 DRUID SET
+   1. The weapon is a stat stick. Cat and bear damage does not scale with
+      weapon damage, so Crowd Pummeler 9449 is worn for +16 Strength and
+      its 30 second haste button, not for the 29.0 dps. Caster specs take
+      a staff for Intellect instead.
+   2. Three world drops carry every list: Pathfinder Hat 15339, Cutthroat's
+      Mantle 15140 and River Pride Choker 13087, all with a required level
+      of 29 or lower (V). All three drop at under one percent, which is
+      why the second option in each slot is a random-enchant green.
+   3. Heirlooms fill shoulders and chest without a farm, and the shoulder
+      alone is 82 armour, +7 Stamina, +6 hit, +20 attack power at 29 (V).
