@@ -13,9 +13,10 @@ file therefore makes NO compass claims - layout is given by coordinates,
 node numbers and straight-line distances only.
 Node cluster band (recomputed from the twelve sourced node positions):
 x 1113.924 - 1461.358, y 2570.769 - 2920.885, z 2.665191 - 38.53647.
-The two team airship graveyard rows sit near the map origin, about 3029
-yd horizontally from the nearest island landmark (recomputed), i.e. they
-are not on the island at all.
+The two team airship graveyard rows sit near the map origin, 2660-3106
+yd horizontally from the four island graveyard rows (recomputed; nearest
+is the Horde airship row to Graveyard 6198 at 2660 yd) - i.e. they are
+not on the island at all.
 Route legs are straight-line distances between sourced landmarks. They
 are NOT walkable-path measurements: no pathing/navmesh source for map
 1803 could be read (unverified).
@@ -62,8 +63,9 @@ No flags, no orbs and no mine cart depots exist in Seething Shore; the
   objectives are azerite nodes (warcraft.wiki: "Three nodes are active at
   any given time, and the first team to collect 1,500 Azerite claims
   victory").
-Controller (script): creature 125269 at (1803, 1399.684, 2766.317,
-  3.485144) - same coordinates as the transport constants.
+Controller (script): creature 125269 at
+  (1803, 1399.684, 2766.317, 3.485144) - same coordinates as the
+  transport constants.
 Twelve azerite fissures (script Creatures::AzeriteFissurePositions,
   creature entry 125253, spawned by SetupBattleground at setup; node
   numbers below = array order as listed in the script):
@@ -83,7 +85,9 @@ Node activation (script): a 30-second timer activates a random non-active
   fissure, and activation stops at three concurrently active nodes
   (_activeAzerriteFissureCounter >= 3), matching the wiki's "three nodes
   active at any given time"; at match start three activations are queued
-  500 ms apart.
+  500 ms apart. While the active count is below three the script lowers
+  the refill timer to 10 seconds after each activation
+  (_spawnTimerDelay = 10 * IN_MILLISECONDS).
 Capture node objects (summoned at the fissure's position by the fissure
   creature casting the summon spell - two variants):
   gameobject 281307 via spell 262749, gameobject 272471 via spell 248674.
@@ -151,9 +155,9 @@ On resurrection the script casts UnchartedTerritory 262086,
   RocketParachute 262359 and RocketParachite2 250917 - players parachute
   back down to the island.
 None of the six dump rows is referenced by the readable script: the
-  helper GetTeamWorldSafeLocks (returning 6337/6380) is defined but never
-  called, and rows 6167-6198 appear nowhere in the script - their retail
-  use is unverified.
+  helper GetTeamWorldSafeLocks (returning 6337/6380) is
+  defined but never called, and rows 6167-6198 appear nowhere in the
+  script - their retail use is unverified.
 
 === 6. BUFF / POWER-UP SPAWNS ===
 BuffBox (script): creature entry 133532. One box per team, each on its
