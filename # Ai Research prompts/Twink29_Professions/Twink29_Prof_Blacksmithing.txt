@@ -90,21 +90,27 @@ minutes, at skill 200, which is inside the cap.
 Iron Counterweight 6043. Item level 33. Requires Blacksmithing 165 to APPLY.
   Use: makes a two-handed sword, mace, axe or polearm 3% faster, spell 7218.
   Recipe: spell 7222, skill 165 (trivial 190-215).
-  Materials: 4x Iron Bar 3575 plus one further reagent, 2x, item id and name
-  unverified.
+  Materials: 4x Iron Bar 3575, 2x Coarse Grinding Stone 3478,
+  1x Lesser Moonstone 1705. Requires an anvil.
+  Learned from Plans: Iron Counterweight 6045, a world drop, not a trainer.
   This is the one blacksmithing item a 29 should not skip. 3% haste on a
   two-hander is a permanent weapon enhancement, not a 30-minute buff, and 165
-  is well inside the cap. It is also the only "weapon chain" style item that
-  exists in Classic - there is no Steel Weapon Chain in the Classic list; item
-  6040 is Golden Scale Bracers.
+  is well inside the cap. Note there is no weapon chain in the Classic recipe
+  list that could be found: the "chain" of later expansions has no Classic
+  equivalent, and item 6040 is Golden Scale Bracers, not a chain.
 
 Shield spikes - shield users only
   Iron Shield Spike 6042. Item level 30. Requires Blacksmithing 150 to APPLY.
     Use: damages anyone who blocks, spell 7216. Stack 5.
-    Recipe: spell 7221, skill 150 (trivial 180-210).
+    Recipe: spell 7221, skill 150 (trivial 180-210), anvil.
+    Materials: 6x Iron Bar 3575, 4x Coarse Grinding Stone 3478.
+    Learned from Plans: Iron Shield Spike 6044, a world drop.
   Mithril Shield Spike 7967. Item level 43. Requires Blacksmithing 215.
     Use: same, bigger, spell 9781.
-    Recipe: spell 9939, skill 215 (trivial 235-255).
+    Recipe: spell 9939, skill 215 (trivial 235-255), anvil.
+    Materials: 4x Mithril Bar 3860, 2x Truesilver Bar 6037,
+    4x Solid Grinding Stone 7966.
+    Learned from Plans: Mithril Shield Spike 7976, a world drop.
   Both are inside the 225 cap and both are permanent until overwritten. The
   Iron spike needs only 150, so a 29 can make and fit it from the start.
 
@@ -120,9 +126,10 @@ asks, not because they are worth wearing.
 
 Green Iron Boots 3484. Item level 29, feet, mail, binds when equipped.
   134 armour, +3 Strength, +7 Stamina, requires level 24.
-  Recipe: spell 3334, skill 145 (trivial 175-205).
-  Materials: 4x Iron Bar 3575 plus two further reagents, 2x each, item ids and
-  names unverified.
+  Recipe: spell 3334, skill 145 (trivial 175-205), anvil.
+  Materials: 4x Iron Bar 3575, 2x Lesser Moonstone 1705,
+  2x Coarse Grinding Stone 3478, 1x Green Dye 2605.
+  NOT a trainer spell: learned from Plans: Green Iron Boots 3611, a world drop.
 
 Green Iron Leggings 3842. Item level 31, legs, mail, binds when equipped.
   176 armour, +8 Strength, +8 Stamina, requires level 26.
@@ -161,7 +168,9 @@ By item level requirement
                                  wearable)
 
 By skill above 225
-  Steel Plate Helm (spell 9935)  skill 225-235 band, plate: two reasons
+  Steel Plate Helm 7922 (spell 9935)  skill 215, so it is craftable at 29,
+                                 but it is plate and needs character level 40:
+                                 blocked twice over
   Mithril Spurs (plans 7989)     mount speed item, no use without a mount
   Everything thorium: skill 250-300
 
@@ -191,21 +200,21 @@ If the goal is the stones, stop at 200 and do not pay for the last 25 points.
 
 Route, cheapest classic path (step, recipe, craft spell, skill band):
    1-30    40x Rough Sharpening Stone     2660   skill 1
-   30-65   55x Rough Grinding Stone       3320   skill 25 (guide band)
-   65-75   25x Coarse Sharpening Stone    2665   skill 65
-   75-90   35x Coarse Grinding Stone      3323   skill 75
-   90-100  10x Runed Copper Belt          2668   skill 90 (unverified id)
-   100-105 5x  Silver Rod                 2963   skill 100 (unverified id)
-   105-110 5x  Runed Copper Belt          2668
-   110-125 15x Rough Bronze Leggings      2661   skill 105 (unverified id)
-   125-140 35x Heavy Grinding Stone       3337   skill 125
-   140-150 10x Patterned Bronze Bracers   2672   skill 140
-   150-155 5x  Golden Rod                 14379  skill 150 (unverified id)
-   155-165 10x Green Iron Leggings        3506   skill 155
-   165-190 25x Green Iron Bracers         3501   skill 165
-   190-200 10x Golden Scale Bracers       7223   skill 185 (travel step)
-   200-210 30x Solid Grinding Stone       9920   skill 200
-   210-225 15x Heavy Mithril Gauntlet     9928   skill 210
+   30-65   55x Rough Grinding Stone       3320   min skill 25
+   65-75   25x Coarse Sharpening Stone    2665   min skill 65
+   75-90   35x Coarse Grinding Stone      3326   min skill 75
+   90-100  10x Runed Copper Belt          2666   min skill 70
+   100-105 5x  Silver Rod                 7818   min skill 100
+   105-110 5x  Runed Copper Belt          2666
+   110-125 15x Rough Bronze Leggings      2668   min skill 105
+   125-140 35x Heavy Grinding Stone       3337   min skill 125
+   140-150 10x Patterned Bronze Bracers   2672   min skill 120
+   150-155 5x  Golden Rod                 14379  min skill 150
+   155-165 10x Green Iron Leggings        3506   min skill 155
+   165-190 25x Green Iron Bracers         3501   min skill 165
+   190-200 10x Golden Scale Bracers       7223   min skill 185
+   200-210 30x Solid Grinding Stone       9920   min skill 200
+   210-225 15x Heavy Mithril Gauntlet     9928   min skill 205
 
 Materials for 1-225, tallied from the steps above (the guides add 10-20% on
 the yellow steps; this is the raw count):
@@ -280,9 +289,13 @@ Expert (level 20, skill 125)
 Artisan (level 35, skill 200) - ALT, out of reach at 29
   Brikk Keencraft, Booty Bay, Stranglethorn Vale, creature 2836
 
-The three Expert and Artisan trainers above are the ones that appear on the
-"taught by" list for the Green Iron recipes, so those recipes are trainer
-spells, not drops. Golden Scale Bracers 6040 is trainer-taught as well.
+Recipe sources are mixed and this matters before spending gold:
+  trainer spells   Green Iron Helm 3502, Green Iron Leggings 3506,
+                   Green Iron Bracers 3501, Golden Scale Bracers 7223
+  drop plans       Green Iron Boots 3611, Iron Counterweight 6045,
+                   Iron Shield Spike 6044, Mithril Shield Spike 7976
+All three Expert and Artisan trainers above (Bengus 4258, Brikk 2836,
+Saru 3355) appear on the "taught by" list for the four trainer spells.
 
 
 ================================================================================
