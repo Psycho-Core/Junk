@@ -1,155 +1,95 @@
-TWINK29 - HUNTER - STEP 1 OF 3 - ITEMS FOR EVERY SLOT
+TWINK29 - HUNTER - ITEMS (REBUILT) - MAIL AND BIND-ON-ACCOUNT ONLY
 Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
 Bracket: level 29 (20-29).
+RULE FOR THIS FILE: mail armour, rare (blue) or bind-on-account, item
+level 35 or less, required level 26 to 29. A hunter wears mail in 8.3.7,
+so leather, cloth and the leather-typed battleground pieces are not
+recommended. Weapons and jewellery follow the same quality and level
+window; weapon type is not armour.
 SLOT|item|id|ilvl|req|source|tag    tag: SOLO ALT RNG
-V = name, item level, required level and source all read on a page today.
-Rows without V are carried from a guide or a profession file and are
-marked unverified where the number is not confirmed.
-How the pool was built: an item search filtered on rare quality, required
-level 26 to 29 and item level 35 or less, run per armour and weapon type,
-then each row read off the search page. Where a slot has no rare item in
-that window the row says so; nothing was invented to fill a slot.
+V = name, item level, required level and source read on a search or item
+page. Rows marked unverified carry a number that was not opened.
 
-THREE THINGS THAT APPLY TO EVERY SPEC
- 1. A hunter wears mail from level 1 in 8.3.7 (established), but leather
-    is legal too and several of the best 29 pieces are leather. Mixing
-    costs the all-one-armour-type bonus (unverified at this level).
- 2. The 20-29 Arathi Basin reward set is two pieces, a belt and boots,
-    class-locked: 20090 and 20093 on Alliance, 20152 and 20157 on Horde,
-    all item level 33, required 28, tagged Hunter and Shaman.
- 3. Only two jewellery pieces in the whole 26-29 rare pool came back
-    verified: 13087 and 13097. The ring and neck rows are therefore thin,
-    and that is a gap in the data, not a claim that nothing else exists.
+0. THE POOL IS SEVEN PIECES, AND THREE SLOTS ARE EMPTY
+   The filtered mail search at rare quality, required level 26-29 and item
+   level 35 or less returns 15 rows. Five of them are class-locked to
+   Paladin or Warrior (20108, 20111, 20126, 20129, 20178, 20182, 20207,
+   20210), three more are the druid and rogue battleground pieces already
+   filtered out, and what is left for a hunter is seven items.
+   There is no rare mail shoulder, wrist or leg in that window at all.
+   Those three slots take an heirloom, a green, or nothing. That is the
+   single most important fact about gearing a 29 hunter in this rule set.
+   The Arathi Basin belt and boots are the one exception, and they are
+   flagged as such below.
 
-1. BEAST MASTERY
+1. ARMOUR
 HEAD|Tusken Helm|6686|33|27|Overlord Ramtusk 4420, RFK|SOLO V
 HEAD|Sunblaze Coif|5819|33|28|world drop|RNG V
-HEAD|Enduring Cap (leather)|3020|33|28|world drop|RNG V
+HEAD|Frostreaver Crown|13127|32|27|world drop|RNG V
 NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
-NECK|necklace, of the Monkey|-|unv.|29|green drop|SOLO
-SHOULDER|Cutthroat's Mantle (leather)|15140|34|29|world drop|RNG V
-SHOULDER|Watchman Pauldrons (leather)|7727|32|27|world drop|RNG V
-SHOULDER|Forest Tracker Epaulets (leather)|2278|31|26|world drop|RNG V
-BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
-BACK|cloak, of the Monkey|-|unv.|29|green drop|SOLO
+SHOULDER|Prized Beastmaster's Mantle|44101|scales|1|heirloom, Wintergrasp|ALT V
+SHOULDER|no rare mail shoulder in the window - heirloom or a green
+BACK|no rare mail back in the window - a green cloak, of the Monkey
 CHEST|Avenger's Armor|1488|31|26|RFK zone drop|RNG V
-CHEST|Stained Shadowcraft Tunic (BoA)|unv.|scales|1|heirloom vendor|ALT
-WRIST|Emissary Cuffs|9455|33|28|Dark Iron Ambassador 6228, Gnomer|RNG V
-WRIST|Barbaric Bracers (leather)|18948|32|27|Leatherworking, spell 23399|ALT V
+CHEST|Champion's Deathdealer Breastplate|48677|scales|1|heirloom vendor|ALT V
+WRIST|no rare mail wrist in the window - a green, or drop to leather
 HANDS|Grubbis Paws|9445|34|29|Grubbis 7361, Gnomeregan|SOLO V
-HANDS|Dog Training Gloves (leather)|7756|34|29|Houndmaster Loksey 3974|SOLO V
-HANDS|Naga Battle Gloves (leather)|888|27|22|Lady Sarevess 4831, BFD|SOLO V
+WAIST|Girdle of Golem Strength|9405|33|28|world drop|RNG V
 WAIST|Highlander's Padded Girdle|20090|33|28|AB, Alliance, Hun/Sham|SOLO V
 WAIST|Defiler's Chain Girdle|20152|33|28|AB, Horde, Hun/Sham|SOLO V
-WAIST|Girdle of Golem Strength|9405|33|28|world drop|RNG V
-LEGS|Ferine Leggings (leather)|6690|34|29|Agathelos 4422, RFK|SOLO V
-LEGS|no rare mail leg in the 26-29 window - leather or a green
+LEGS|no rare mail leg in the window - heirloom, a green, or nothing
+FEET|Caverndeep Trudgers|9510|32|27|Gnomeregan zone drop|RNG V
 FEET|Highlander's Padded Greaves|20093|33|28|AB, Alliance, Hun/Sham|SOLO V
 FEET|Defiler's Chain Greaves|20157|33|28|AB, Horde, Hun/Sham|SOLO V
-FEET|Caverndeep Trudgers|9510|32|27|Gnomeregan zone drop|RNG V
 RING 1|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
 RING 2|ring, of the Monkey|-|unv.|29|green drop|SOLO
 TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO
 TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
 TRINKET 2|Minor Recombobulator|4381|28|none|Engineering, 10 charges|ALT
+   On the Arathi Basin pair: 20090/20093 (Alliance) and 20152/20157
+   (Horde) are tagged Hunter and Shaman but are filed in the database
+   under leather, not mail. They are the hunter's own battleground set and
+   the only 29 battleground armour a hunter can buy, so they are listed -
+   but a strict mail-only build skips them and keeps 9405 and 9510.
+   Shoulders 44101 is mail; 42950 Champion Herod's Shoulder and 42951
+   Mystical Pauldrons of Elements are the Strength and Intellect mail
+   shoulder heirlooms, not this one.
+
+2. WEAPONS - BEAST MASTERY AND MARKSMANSHIP
 MAIN|Zealot Blade|13033|34|29|world drop, one-hand sword|RNG V
 MAIN|Looming Gavel|13048|31|26|world drop, one-hand mace|RNG V
+MAIN|Death Speaker Scepter|2816|33|27|Death Speaker Jargba 4428, RFK|SOLO V
 RANGED|Ironweaver|13137|34|29|world drop, gun|RNG V
 RANGED|Outrider's Bow|19561|33|28|AB, Alliance|SOLO V
 RANGED|Outrunner's Bow|19565|33|28|AB, Horde|SOLO V
 RANGED|Chesterfall Musket|7729|33|28|world drop, gun|RNG V
 RANGED|Nightstalker Bow|6696|32|27|Blind Hunter 4425, RFK|SOLO V
-OFF|none - a bow or gun is two-handed for this purpose
-
-2. MARKSMANSHIP
-HEAD|Tusken Helm|6686|33|27|Overlord Ramtusk 4420, RFK|SOLO V
-HEAD|Sunblaze Coif|5819|33|28|world drop|RNG V
-HEAD|Frostreaver Crown|13127|32|27|world drop|RNG V
-NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
-NECK|necklace, of the Monkey|-|unv.|29|green drop|SOLO
-SHOULDER|Cutthroat's Mantle (leather)|15140|34|29|world drop|RNG V
-SHOULDER|Watchman Pauldrons (leather)|7727|32|27|world drop|RNG V
-SHOULDER|Forest Tracker Epaulets (leather)|2278|31|26|world drop|RNG V
-BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
-BACK|cloak, of the Monkey|-|unv.|29|green drop|SOLO
-CHEST|Avenger's Armor|1488|31|26|RFK zone drop|RNG V
-CHEST|Stained Shadowcraft Tunic (BoA)|unv.|scales|1|heirloom vendor|ALT
-WRIST|Emissary Cuffs|9455|33|28|Dark Iron Ambassador 6228, Gnomer|RNG V
-WRIST|Barbaric Bracers (leather)|18948|32|27|Leatherworking, spell 23399|ALT V
-HANDS|Grubbis Paws|9445|34|29|Grubbis 7361, Gnomeregan|SOLO V
-HANDS|Dog Training Gloves (leather)|7756|34|29|Houndmaster Loksey 3974|SOLO V
-WAIST|Highlander's Padded Girdle|20090|33|28|AB, Alliance, Hun/Sham|SOLO V
-WAIST|Defiler's Chain Girdle|20152|33|28|AB, Horde, Hun/Sham|SOLO V
-WAIST|Girdle of Golem Strength|9405|33|28|world drop|RNG V
-LEGS|Ferine Leggings (leather)|6690|34|29|Agathelos 4422, RFK|SOLO V
-LEGS|no rare mail leg in the 26-29 window - leather or a green
-FEET|Highlander's Padded Greaves|20093|33|28|AB, Alliance, Hun/Sham|SOLO V
-FEET|Defiler's Chain Greaves|20157|33|28|AB, Horde, Hun/Sham|SOLO V
-FEET|Caverndeep Trudgers|9510|32|27|Gnomeregan zone drop|RNG V
-RING 1|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
-RING 2|ring, of the Monkey|-|unv.|29|green drop|SOLO
-TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO
-TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
-TRINKET 2|Gnomish Shrink Ray|10716|41|none|Engineering, trinket|ALT
-MAIN|Zealot Blade|13033|34|29|world drop, one-hand sword|RNG V
-MAIN|Looming Gavel|13048|31|26|world drop, one-hand mace|RNG V
-RANGED|Ironweaver|13137|34|29|world drop, gun|RNG V
-RANGED|Outrider's Bow|19561|33|28|AB, Alliance|SOLO V
-RANGED|Outrunner's Bow|19565|33|28|AB, Horde|SOLO V
 RANGED|Crystalpine Stinger|13037|32|27|world drop, crossbow|RNG V
 RANGED|Harpyclaw Short Bow|13019|32|27|world drop|RNG V
-OFF|none - a bow or gun is two-handed for this purpose
+OFF|a second one-hand - whether a 29 hunter has Dual Wield trained in
+      8.3.7 is unverified
 
-3. SURVIVAL - melee, so the weapon slots carry this spec
-HEAD|Tusken Helm|6686|33|27|Overlord Ramtusk 4420, RFK|SOLO V
-HEAD|Sunblaze Coif|5819|33|28|world drop|RNG V
-HEAD|Enduring Cap (leather)|3020|33|28|world drop|RNG V
-NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
-NECK|necklace, of the Monkey|-|unv.|29|green drop|SOLO
-SHOULDER|Cutthroat's Mantle (leather)|15140|34|29|world drop|RNG V
-SHOULDER|Watchman Pauldrons (leather)|7727|32|27|world drop|RNG V
-SHOULDER|Forest Tracker Epaulets (leather)|2278|31|26|world drop|RNG V
-BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
-BACK|cloak, of the Monkey|-|unv.|29|green drop|SOLO
-CHEST|Avenger's Armor|1488|31|26|RFK zone drop|RNG V
-CHEST|Stained Shadowcraft Tunic (BoA)|unv.|scales|1|heirloom vendor|ALT
-WRIST|Emissary Cuffs|9455|33|28|Dark Iron Ambassador 6228, Gnomer|RNG V
-WRIST|Barbaric Bracers (leather)|18948|32|27|Leatherworking, spell 23399|ALT V
-HANDS|Grubbis Paws|9445|34|29|Grubbis 7361, Gnomeregan|SOLO V
-HANDS|Dog Training Gloves (leather)|7756|34|29|Houndmaster Loksey 3974|SOLO V
-WAIST|Highlander's Padded Girdle|20090|33|28|AB, Alliance, Hun/Sham|SOLO V
-WAIST|Defiler's Chain Girdle|20152|33|28|AB, Horde, Hun/Sham|SOLO V
-WAIST|Girdle of Golem Strength|9405|33|28|world drop|RNG V
-LEGS|Ferine Leggings (leather)|6690|34|29|Agathelos 4422, RFK|SOLO V
-LEGS|no rare mail leg in the 26-29 window - leather or a green
-FEET|Highlander's Padded Greaves|20093|33|28|AB, Alliance, Hun/Sham|SOLO V
-FEET|Defiler's Chain Greaves|20157|33|28|AB, Horde, Hun/Sham|SOLO V
-FEET|Caverndeep Trudgers|9510|32|27|Gnomeregan zone drop|RNG V
-RING 1|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
-RING 2|ring, of the Monkey|-|unv.|29|green drop|SOLO
-TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO
-TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
-TRINKET 2|Minor Recombobulator|4381|28|none|Engineering, 10 charges|ALT
-MAIN|Corpsemaker|6687|34|27|Overlord Ramtusk 4420, RFK|SOLO V
-MAIN|Cobalt Crusher|7730|34|29|Scarlet Monastery zone drop|RNG V
-MAIN|Combatant Claymore|2877|33|28|world drop|RNG V
-MAIN|Burning War Axe|2299|33|28|world drop|RNG V
-OFF|a second one-hand for a dual-wield set: Zealot Blade 13033, or
-      Torturing Poker 7682 (34/29, Interrogator Vishas 3983, SM)
-RANGED|none - Survival uses no ranged weapon in 8.3.7
+3. WEAPONS - SURVIVAL
+MAIN|Corpsemaker|6687|34|27|Overlord Ramtusk 4420, RFK, 2H axe|SOLO V
+MAIN|Cobalt Crusher|7730|34|29|Scarlet Monastery zone drop, 2H mace|RNG V
+MAIN|Combatant Claymore|2877|33|28|world drop, 2H sword|RNG V
+MAIN|Burning War Axe|2299|33|28|world drop, 2H axe|RNG V
+MAIN|Bloody Brass Knuckles|7683|34|29|Interrogator Vishas 3983, SM|SOLO V
+MAIN|Torturing Poker|7682|34|29|Interrogator Vishas 3983, SM|SOLO V
+MAIN|Electrocutioner Leg|9446|34|28|Electrocutioner 6000 6235, Gnomer|SOLO V
+RANGED|none - Survival has no ranged weapon slot in 8.3.7 (unverified)
+   Polearms did not come back from the weapon search in this window. A
+   Survival hunter who wants one is looking at an unverified item, not at
+   a hole in the list.
 
-4. WHAT IS NOT IN THIS FILE, AND WHY
-   Rings, neck and trinkets are the thin slots. The rare search returned
-   no jewellery category at 29 at all, so 13087 and 13097 are the only two
-   verified pieces and both are world-drop rares with random availability.
-   A second ring, a better neck and any trinket beyond 19024 and the
-   battleground Insignia are unverified.
-   Heirlooms: only 42952 Stained Shadowcraft Spaulders was verified before
-   (82 armor, +7 Stamina, +6 hit, +20 attack power at 29, item level shown
-   as 1). The leather tunic, the bow and the two-hand axe heirlooms were
-   not opened for this file, so no ids are quoted for them.
-   Polearms were not returned by the weapon search in this window; if a
-   Survival hunter wants one, it is unverified rather than absent.
-   All armour numbers are the WotLK-era item pages. Where 8.3.7 re-itemised
-   an item its item level can differ, and no required level moved on
-   anything checked.
+4. WHAT THE RULE COSTS, IN ONE BREATH
+   Two head pieces and three weapon slots are healthy; the armour is not.
+   Seven wearable mail pieces at this tier means the average bot hunter is
+   an heirloom shoulder, an heirloom chest or Avenger's Armor, one of two
+   helms, Grubbis Paws, one of two belts, one of two boots, and greens in
+   the wrist and leg slots. Weights, necks and rings are the same problem
+   the druid set hit: 13087 and 13097 are the only two verified pieces in
+   the whole window.
+   Not fixed by any of this: heirloom legs were not verified (no id), the
+   neck and ring pool beyond those two pieces is unverified, and the
+   trinket list stops at the arena chest and the battleground Insignia.
