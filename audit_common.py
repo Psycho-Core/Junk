@@ -81,6 +81,12 @@ def coord_trace(text, corpora):
     for m in re.finditer(
             r"(-?\d+\.\d+),\s*(-?\d+\.\d+),\s*(-?\d+\.\d+)", text):
         doc_triples.add(tuple(round(float(m.group(i)), 3) for i in (1, 2, 3)))
+    # Documents that list coordinates on labelled X / Y / Z lines.
+    for m in re.finditer(
+            r"^\s*X:\s*(-?\d+\.\d+)\s*$\n"
+            r"\s*Y:\s*(-?\d+\.\d+)\s*$\n"
+            r"\s*Z:\s*(-?\d+\.\d+)\s*$", text, re.M):
+        doc_triples.add(tuple(round(float(m.group(i)), 3) for i in (1, 2, 3)))
 
     lines, missing = [], []
     for t in sorted(doc_triples):
