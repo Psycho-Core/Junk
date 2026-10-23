@@ -19,7 +19,7 @@ import sys
 sys.path.insert(0, ".")
 from audit_common import gh_content, source_stage, mutation_probe, coord_trace
 
-DOC = "# Ai Research prompts/Mythic_Plus/MythicPlus_Duties_COMPLETED.txt"
+DOC = "# Ai Research prompts/Mythic_Plus_completed/MythicPlus_Duties_COMPLETED.txt"
 MDT_REF = "4d36744c53477fc9fcb990471b1bb639a62f0d48"
 MDT_REPO = "Nnoggie/MythicDungeonTools"
 FORK = "HavenWoW/BFA-HavenCore"

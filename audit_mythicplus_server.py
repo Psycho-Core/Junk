@@ -30,7 +30,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from audit_common import gh_content, source_stage, mutation_probe
 
-DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Mythic_Plus/"
+DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Mythic_Plus_completed/"
                "MythicPlus_Server_COMPLETED.txt")
 
 HP = "HavenWoW/BFA-HavenCore"
