@@ -1,4 +1,4 @@
-OPEN. Warsong Gulch is part of the 20-29 bracket in 8.3.7 (build 35662): 10 vs 10 (BattlemasterList 2 "Classic Warsong Gulch": MaxPlayers 10, RatedPlayers 10, MinPlayers 5 to start, GroupsAllowed 1, MaxGroupSize 5, MinLevel 10, MaxLevel 120), the 20-29 range is PVPDifficulty 7 (map 489, RangeIndex 1) and PVPDifficulty 1315 (map 2106, RangeIndex 1), it is a normal (unrated) queue that is open all the time, Call to Arms only adds bonus honor (HolidayWorldState 1942).
+OPEN. Warsong Gulch is part of the 20-29 bracket in 8.3.7 (build 35662): 10 vs 10 (BattlemasterList 2 "Classic Warsong Gulch": MaxPlayers 10 and MinPlayers 5 PER TEAM, so 10v10 with a 5v5 minimum to start, RatedPlayers 10, GroupsAllowed 1, MaxGroupSize 5, MinLevel 10, MaxLevel 120, InstanceType 3), the 20-29 range is PVPDifficulty 7 (map 489, RangeIndex 1) and PVPDifficulty 1315 (map 2106, RangeIndex 1), it is a normal (unrated) queue that is open all the time; Call to Arms (the holiday weekend, HolidayWorldState 1942) only changes the rewards (reputation per capture 35 -> 45, win bonus 1 -> 3 kills, completion 2 -> 4 kills), it does not change the rules.
 
 EXTRA BRACKET FACT: characters with experience turned off (Behsten 35365 / Slahtz 35364) are queued only against other experience-off characters (rule added in patch 3.2.0), so a level 29 twink meets twinks, not leveling players. Per the 5.2.0 rule a character's effective level is scaled up to the top of the bracket in the battleground (so a level 20 is scaled toward 29); whether your core implements that scaling is unverified.
 Rated play: the rated battleground queue is a separate entry (BattlemasterList 102 "Rated Battleground", maps include 2106) and is not available to a level 29; rated is set per queue (TrinityCore: queueId.Rated), a 29 can never be rated.
@@ -17,7 +17,7 @@ Rated play: the rated battleground queue is a separate entry (BattlemasterList 1
 
 
 2. THE MAP
-Map ids: 489 WarsongGulch ("Classic Warsong Gulch", the map the specific WSG queue uses, BattlemasterList 2 has only MapID_0 = 489) and 2106 WarsongGulch2 ("Warsong Gulch", the 8.1.5 remaster, listed in the Random Battleground entry, BattlemasterList 32). Both are the same layout; TrinityCore 8.3.7 builds the instance on BattlemasterList MapID[0] = 489, so on a TrinityCore core you will normally be on 489 and 2106 is only reachable through the client's random list. Coordinates below are map 489 unless marked. All coordinates are game coordinates (x, y, z) and come from TrinityCore 8.3.7 object spawns and from the world_safe_locs data used by the core; anything I could not read is marked unverified.
+Map ids: 489 (client Map row: directory PVPZone03, name "Classic Warsong Gulch") and 2106 (directory WarsongGulch2, name "Warsong Gulch", the 8.1.5 remaster). Which map you get is decided by the queue entry: BattlemasterList 2 "Classic Warsong Gulch" has only MapID_0 = 489, BattlemasterList 1014 "Warsong Gulch" has only MapID_0 = 2106, and both are also listed inside BattlemasterList 32 "Random Battleground". TrinityCore 8.3.7 builds the instance on BattlemasterEntry->MapID[0] and takes the queue id from the ID column of your battleground_template table, so the row IDs in that table decide whether your server runs 489 or 2106; which rows your database has is unverified. Both maps are the same layout with the same flag, door and power-up coordinates in the core (the 2106 graveyard and start locs differ slightly, listed below). Coordinates below are map 489 unless marked. All coordinates are game coordinates (x, y, z) and come from TrinityCore 8.3.7 object spawns and from the world_safe_locs data used by the core; anything I could not read is marked unverified.
 
 LAYOUT
 - Alliance base is Silverwing Hold, in the east: flag room elevated, flag at z 351.8.
@@ -58,10 +58,11 @@ Horde, entries 179916 179917 180322 180322:
 - 180322, 949.9523, 1422.751, 344.9273 (despawned when the gates open)
 - 180322, 950.7952, 1459.583, 342.1523 (despawned when the gates open)
 
-POWER-UPS (gameobjects, respawn 180 s, BUFF_RESPAWN_TIME = 180)
+POWER-UPS (gameobjects)
 - Speed, entry 179871, +100% movement for 10 s: 1449.93, 1470.71, 342.6346 (Alliance side, 91.1 yd from the Alliance flag) and 1005.171, 1447.946, 335.9032 (Horde side, 90.2 yd from the Horde flag).
 - Restoration, entry 179904, 10% health and mana per second for 10 s, cancelled by attacking or being attacked: 1317.506, 1550.851, 313.2344 (233.5 yd from the Alliance flag, 90.2 yd from the Alliance graveyard) and 1110.451, 1353.656, 316.5181 (210.5 yd from the Horde flag, 54.2 yd from the Horde graveyard).
 - Berserking, entry 179905, +30% damage done, +10% damage taken, +10% size, 1 minute: 1320.09, 1378.79, 314.7532 (243.0 yd from the Alliance flag) and 1139.688, 1560.288, 306.8432 (256.7 yd from the Horde flag). The two berserking spawns are 255.9 yards apart.
+- Respawn time: Battleground.h defines BUFF_RESPAWN_TIME = 180 s and BattlegroundWS passes it to AddObject for all six power-up spawns, but in the 8.3.7 core AddObject ignores that argument (uint32 /*respawnTime*/), so the respawn time your bots actually see comes from the gameobject template in your world database and is unverified.
 
 AREA TRIGGERS (ids from BattlegroundWS.cpp)
 - 3646 Alliance flag spawn (the Alliance capture point, in the Alliance flag room), 3647 Horde flag spawn (the Horde capture point).
@@ -75,14 +76,14 @@ MAIN ROUTES AND CHOKEPOINTS
 - Chokepoint 2: each base's tunnel mouth on the outer flank - single file, easy to trap with one root or fear.
 - Chokepoint 3: the two midfield humps (berserking spawns) - the natural place for the first fight.
 - Chokepoint 4: the ramp inside each base up to the flag room - where flag-room fights happen.
-- Distances you can use as timings: Alliance flag to Horde flag 626.2 yd, which is about 89 s at run speed 7.0 yd/s, 56 s at mount speed 11.2 yd/s (60% ground mount), and faster with the speed power-up (+100% for 10 s). Alliance graveyard to Alliance flag 157.6 yd, Horde graveyard to Horde flag 156.5 yd (about 22 s of running, 14 s mounted).
+- Distances you can use as timings (the yard figures are measured from the coordinates above; the speeds are the usual engine values and are assumptions, not read from 8.3.7 data): Alliance flag to Horde flag 626.2 yd, which is about 89 s at run speed 7.0 yd/s, 56 s at 11.2 yd/s (a 60% ground mount), and faster with the speed power-up (+100% for 10 s). Alliance graveyard to Alliance flag 157.6 yd, Horde graveyard to Horde flag 156.5 yd (about 22 s of running, 14 s mounted).
 - Ordered route checkpoints that exist in the data (Alliance attack run): Alliance start 1523.81, 1481.76, 352.008 -> Alliance speed buff 1449.93, 1470.71, 342.6346 -> Alliance-side berserking 1320.09, 1378.79, 314.7532 -> mid (about 1228, 1458) -> Horde-side berserking 1139.688, 1560.288, 306.8432 -> Horde speed buff 1005.171, 1447.946, 335.9032 -> Horde flag 916.0226, 1434.405, 345.413. The reverse works for Horde. Everything between those points is terrain with no verified waypoint data.
 - Buff and flag rules that decide routes: picking up the flag breaks stealth; mounting, stealthing, Vanish, Divine Shield, Blessing of Protection and Ice Block make the carrier drop the flag; shapeshifting (cat, travel form, ghost wolf), Divine Protection and using a power-up do not. A carrier can drop the flag on purpose by clicking their own flag buff (23333 / 23335).
 
 
 3. ROLES, SPLIT, OPENING 30 SECONDS, HOLDING MID, WHEN TO PUSH
 Team size 10. The split a real twink group uses (counts are estimate, taken from how 29 twink groups actually divide):
-- 1 flag carrier (FC): druid (travel form 783, Dash 1850, bear form) or a plate class with a defensive; never a healer, never the only stealth class.
+- 1 flag carrier (FC): druid (Travel Form 783 - its extra out-of-combat land speed is disabled in battlegrounds in 8.3.7, so it travels at normal speed - Dash 1850, bear form) or a plate class with a defensive; never a healer, never the only stealth class.
 - 2-3 healers (priest, paladin, druid, shaman, mistweaver), of which 1-2 stay glued to the FC.
 - 1 dedicated flag-room defender, almost always a stealth class (rogue or druid) sitting on the flag.
 - 2-3 offence, mostly stealth (rogue, druid) plus one burst caster (mage or warlock) who goes for the enemy flag room.
@@ -90,7 +91,7 @@ Team size 10. The split a real twink group uses (counts are estimate, taken from
 Common alternative splits: 2 defence + 8 offence (all-in), or 1 defence + 9 in a single group (all escort the FC).
 
 Opening 30 seconds (estimate, but it matches the geometry above):
-- 0-3 s: gates open (doors despawn), everyone runs. If your core keeps the retail riding gate, a 29 already has ground riding (Apprentice Riding 33388, 60% mount), so the first move is mount up instantly.
+- 0-3 s: gates open (doors despawn), everyone runs. Ground riding is spell 33388; whether your core requires the riding skill or gives a 29 a mount and at what speed is unverified, but on a server where 29s ride, the first move is mount up instantly.
 - 3-15 s: mounted sprint to the middle. The FC group and its healers take a side lane; the stealth offence takes the shortest line to the enemy flag room; the defender stays inside the flag room, stealthed, near the flag spawn (Alliance 1540.4, 1481.3 / Horde 916.0, 1434.4).
 - 15-30 s: first contact at the humps (berserking spawns at 1320.1, 1378.8 and 1139.7, 1560.3) or, if the enemy left the flag room open, a pick-up at about 25-35 s by a mounted stealth class. The first capture in an unorganised game happens 40-90 s after the gates open; against a team that defends it usually takes 3-6 minutes.
 
@@ -151,4 +152,4 @@ When a team pushes:
 - Burning the 3 s lockout: dropping the flag with nobody to hand off to, then watching it return to the enemy base.
 
 
-VERIFIED AGAINST (8.3.7 build 35662 unless noted): TrinityCore 8.3.7-35662 source BattlegroundWS.h/.cpp and Battleground.h/.cpp (flags, doors, buffs, triggers, timers, honour, graveyards, spirit guides, resurrection); TrinityCore world_safe_locs data (ids 769 770 771 772 3784 3785 7050 7051 7052 7053); client DB2 tables at this build: BattlemasterList 2 / 32 / 102, PVPDifficulty 7 and 1315, Map 489 and 2106; Warcraft Wiki Warsong Gulch (rules, drop conditions, power-up effects) and Twink (XP-off queue separation, 5.2.0 bracket scaling). Not verifiable and marked above: tunnel and roof waypoints, the exact Brutal Assault value, whether your core scales levels to the top of the bracket.
+VERIFIED AGAINST (8.3.7 build 35662): TrinityCore 8.3.7-35662 source BattlegroundWS.h/.cpp, Battleground.h/.cpp and BattlegroundMgr.cpp (flags, doors, buffs, triggers, timers, honour, graveyards, spirit guides, resurrection, per-team player counts, map selection); TrinityCore world_safe_locs data (ids 769 770 771 772 3784 3785 7050 7051 7052 7053); client DB2 tables at this build: BattlemasterList 2 / 32 / 1014 / 102, PVPDifficulty 7 and 1315, Map 489 and 2106; Warcraft Wiki Warsong Gulch (rules, drop conditions, power-up effects) and Twink (XP-off queue separation, 5.2.0 bracket scaling). Audited 2026-10-23, see Twink29_BG_Warsong_Gulch_AUDIT.txt. Not verifiable and marked above: tunnel and roof waypoints, the exact Brutal Assault value, mount availability and speed at 29, whether your core scales levels to the top of the bracket, which queue rows your battleground_template holds.
