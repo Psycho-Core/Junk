@@ -225,3 +225,14 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `08_Inscription.txt`: what Inscription gives a level 29 battleground twink in 8.3.7.
 - `09_Cooking_and_First_Aid.txt`: what Cooking and First Aid gives a level 29 battleground twink in 8.3.7.
 - `10_Herbalism_Mining_and_Skinning.txt`: what Herbalism, Mining and Skinning gives a level 29 battleground twink in 8.3.7.
+
+## Twink29/Druid-complete (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 druid in 8.3.7, rebuilt on
+  the rule "rare or bind-on-account only, item level 35 or less, required
+  level 26-29". Deliverable: `Twink29_Druid_1_Items.txt`.
+- `2_Talents.txt`: the level 15 talent row and the single level 20 PvP
+  slot. Deliverable: `Twink29_Druid_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: enchants for every slot including
+  neck and ring, consumables, professions and races. Deliverable:
+  `Twink29_Druid_3_Enchants_Consumables_Races.txt`.
