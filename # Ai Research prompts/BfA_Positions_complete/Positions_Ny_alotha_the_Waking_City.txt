@@ -1,0 +1,1014 @@
+POSITIONS AND NUMBERS - NY'ALOTHA, THE WAKING CITY
+================================================================================
+Instance : Ny'alotha, the Waking City (raid, 12 encounters)
+Map      : 2217   Client: 8.3.7 build 35662
+Written  : 2026-10-23
+Purpose  : the positions, the phase numbers, the ability timers and the
+           assignment triggers that the tactics document could not give.
+           Companion bots read this to path, to circle and to spread.
+
+================================================================================
+0. HOW TO READ THIS FILE
+================================================================================
+  [SRV]    the twelve boss scripts for map 2217 from YOUR OWN repository
+           (Psycho-Core/Psycho-Core-8.3.7_Scripts, scripts/Nyalotha/):
+           boss_wrathion, boss_prophet_skitra, boss_maut, boss_xanesh,
+           boss_hivemind, boss_raden, boss_shadhar, boss_drestagath,
+           boss_ilgynoth_n, boss_vexiona, boss_carapace, boss_nzoth, plus
+           nyalotha.h for the creature entries
+  [DBM]    Deadly Boss Mods, tag 8.3.34, DBM-Nyalotha - first-cast times,
+           cooldowns, phase re-arms, berserk timers
+  [GUIDE]  Icy Veins / Wowhead / Wowpedia / Warcraft Wiki / WowChakra
+           hotfix notes / Millenium / tanknotes / dozzur / azsharaguide 2020
+           write-ups - phase percentages, platform order and wording
+  [TAC]    the client-derived ids already in your tactics document,
+           BfA_8.3.7_companion_tactics_v2.txt section 17
+  [CALC]   arithmetic done on two [SRV] coordinates in this file
+  unverified  not in any source I could read
+
+COORDINATE ORDER. (x, y, z) in yards on map 2217, exactly as written in the
+script, with orientation in radians (0 = +x axis) where the script supplies
+one.
+
+HOW MUCH GEOMETRY THIS RAID HAS, COMPARED WITH THE LAST TWO FILES. It is
+uneven, and that matters more than the totals. Four encounters are fully
+furnished: Wrathion (24 placed points), Drest'agath (24 appendage spawns in
+five timed waves), Carapace (six walk/spawn points plus a tentacle set) and
+N'Zoth (four anchors). Six have one centre and nothing else. Shad'har has not
+a single coordinate in the script - every position in that fight is generated
+at runtime.
+
+THE ONE THING EVERY ENCOUNTER HAS is a server-side phase trigger, and those
+triggers disagree with the 2020 guides in three places. Where they disagree
+the file gives both and says which one your server runs.
+
+================================================================================
+1. SOURCES AND THEIR LIMITS
+================================================================================
+1.1 instance_nyalotha.cpp registers the map (2217) and nothing else; the
+    encounter count is 12 (nyalotha.h, EncounterCount = 12).
+1.2 The twelve boss scripts are real implementations of the fights, with
+    timers, phase gates, adds and, for four bosses, hard coordinates. They are
+    BfaCore-lineage code.
+1.3 DBM 8.3.34 is the last BfA build of these modules. Its timers are the
+    raiders' measurements, not client data, so a first cast that DBM never saw
+    (because the script casts it earlier than retail did) will not appear here.
+1.4 Some DBM entries are keyed to journal ("ej") ids rather than spell ids -
+    those are marked as journal ids in the tables below.
+1.5 Client tables (SpellRadius, SpellEffect, SpellDuration, creature spawns)
+    were not readable in this step. So: no boss spawn row in this file is
+    verified, and no ability radius is quoted unless it came from a script
+    GetRandomPoint/GetRandomNearPosition call, which is arithmetic and marked
+    [CALC].
+
+================================================================================
+2. INSTANCE GEOMETRY AND ROUTE
+================================================================================
+2.1 FLOOR HEIGHTS [SRV] - the raid is a set of separate bubbles, not a corridor
+      z   -156.6 to -191.5   Vexiona
+      z   -211.8             Ra-den
+      z   -251.1             Dark Inquisitor Xanesh
+      z   -294.6             The Hivemind
+      z   -484.6             Drest'agath
+      z   -518.0             The Annex of Prophecy (Wrathion's exit pad)
+      z   -518.4             The Prophet Skitra
+      z   -524.5 to -524.9   Il'gynoth, Corruption Reborn
+      z   -556.0             Maut
+      z   -1477.9            Wrathion, Vision of Destiny
+      z     98.2 to 126.9    Carapace of N'Zoth
+      z    125.9             N'Zoth the Corruptor
+    Two encounters sit more than 900 yards below everything else (Wrathion at
+    -1477.9) and two sit 1300 yards above (Carapace and N'Zoth). A bot must be
+    teleported between encounters; there is no path.
+
+2.2 ENCOUNTER ORDER. The tactics document numbers them 1 Wrathion, 2 Skitra,
+   3 Maut, 4 Xanesh, 5 Vexiona, 6 Hivemind, 7 Ra-den, 8 Shad'har, 9
+    Drest'agath, 10 Il'gynoth, 11 Carapace, 12 N'Zoth, and this file keeps that
+    numbering so the two documents line up. Blizzard's own raid order is
+    Wrathion, Maut, Skitra, Xanesh, Hivemind, Shad'har, Drest'agath, Vexiona,
+    Ra-den, Il'gynoth, Carapace, N'Zoth (gamingcy overview); the tactics
+    document's order is the journal order and is the one used here.
+
+2.3 ENCOUNTER IDENTIFIERS [SRV]/[DBM]/[TAC]
+   1 Wrathion             journal 2368  DE 2329  156818
+   2 Prophet Skitra       journal 2369  DE 2334  157620
+   3 Maut                 journal 2365  DE 2327  156523
+   4 Dark Inquisitor Xanesh journal 2377 DE 2328 156575
+   5 Vexiona              journal 2370  DE 2336  157354
+   6 The Hivemind         journal 2372  DE 2333  157253 + 157254
+   7 Ra-den the Despoiled journal 2364  DE 2331  156866
+   8 Shad'har the Insatiable journal 2367 DE 2335 157231
+   9 Drest'agath          journal 2373  DE 2343  157602
+  10 Il'gynoth            journal 2374  DE 2345  158328
+  11 Carapace of N'Zoth   journal 2366  DE 2337  157439
+  12 N'Zoth the Corruptor journal 2375  DE 2344  158041
+  (N'Zoth's own NPC entry is 150370 in the [TAC] journal data and 158041 in
+  the script's npc enum; both are real, one is the journal-visible creature.)
+
+2.4 ADD AND OBJECT ENTRIES [SRV] (nyalotha.h)
+   Wrathion      Molten Eruption Stalker 157348, Crackling Shard 158327,
+                 Ashwalker Assassin 160291, Wrathion 156818,
+                 N'Zoth Controller 161884
+   Skitra        Skitra 157620, Projection 161901, Image of Absolution 160990,
+                 Absolution movement controller 500527
+   Maut          Maut 156523, Dark Manifestation 156650, Mana Orb 500506
+   Xanesh        Xanesh 156575, Flayed Soul 157005, Ritual Obelisk 157126,
+                 Large Ritual Obelisk 162098, Awakened Terror 162432,
+                 Torment Vehicle 156840, Void Orb 500523, Goal Portal 500524
+   Vexiona       Vexiona 157354, Void Ascendant 162719, Gift of the Void 157422,
+                 Dark Gateway 161148, Fanatical Cultist 162715,
+                 Spellbound Ritualist 162716, Sinister Soulcarver 162717,
+                 Iron-Willed Enforcer 157451
+   Hivemind      Ka'zir 157253, Tek'ris 157254, Aqir Drone 157255,
+                 Aqir Darter 157256, Aqir Ravager 160599
+   Ra-den        Ra-den 156866, Essence of Vita 156884, Essence of Void 156980,
+                 Essence of Nightmare 160663, Crackling Stalker 157365,
+                 Void Hunter 157366, Night Terror 160937,
+                 Unstable Void Stalker 157235, Void Pool Stalker 157252
+   Shad'har      Shad'har 157231, Living Miasma 157229, Entropic Buildup 500600
+   Drest'agath   Drest'agath 157602, Eye 157612, Tentacle 157614, Maw 157613
+   Il'gynoth     Il'gynoth 158328, Organ of Corruption 158343,
+                 Blood of Ny'alotha 159514, Clotted Corruption 163678
+   Carapace      Fury of N'Zoth 157439, Wrathion 160177,
+                 Amalgamation of Flesh 163841, Nightmare Antigen 157452,
+                 Synthesis Growth 157475, Mycelial Cyst 157461,
+                 Thrashing Tentacle 162159, Gaze of Madness 157442,
+                 Infinite Darkness 163232
+   N'Zoth        N'Zoth 158041, Psychus 158376, Exposed Synapse 159578,
+                 Corrupted Neuron 162331, Basher Tentacle 158367,
+                 Corruptor Tentacle 158375, Spike Tentacle 160249,
+                 Mind's Eye 158122, Thought Harvester 162933
+
+2.5 TRASH. Spell list only, in section 16. No pull route exists to give: this
+   is a raid, and no spawn export for map 2217 was reachable.
+
+================================================================================
+3. LANDMARK TABLE (all coordinates [SRV], map 2217)
+================================================================================
+3.1 WRATHION
+      arena centre        (-1756.909, -43.431, -1477.872) o 6.2706
+      play rectangle      (-1792.640, -12.733) to (-1718.550, -73.557)
+                          z -1478.160  (the two "center square" corners; every
+                          random position in the fight is rolled inside this
+                          rectangle, so it is the true arena bound)
+      Burning Cataclysm landing points (4, the boss teleports to one):
+        South  (-1828.8824, -43.157169, -1477.873657)
+        West   (-1759.8195,   6.375,    -1476.1115)
+        East   (-1760.3156, -92.938530, -1477.557861)
+        North  (-1688.3801, -43.461460, -1477.789429)
+      Scorching Blister points (20, z -1477.38 to -1478.17):
+        (-1818.4462, -53.36111)   (-1818.6962, -35.100697)
+        (-1790.6823,  -8.862847)  (-1758.8281,  -3.8958333)
+        (-1758.6137, -84.570396)  (-1788.8361, -85.281670)
+        (-1699.5662, -31.777704)  (-1699.3105, -53.476192)
+        (-1817.9983, -73.68403)   (-1728.6459, -82.80903)
+        (-1729.2483, -53.543404)  (-1789.6024, -50.96875)
+        (-1757.8959, -57.526043)  (-1698.6892, -11.520833)
+        (-1818.7344, -14.232639)  (-1789.9810, -35.161457)
+        (-1729.3524, -32.689236)  (-1757.8767, -29.70139)
+        (-1729.3802,  -4.717014)  (-1700.9210, -76.174034)
+      Ashwalker Assassin spawn (-1729.0, -85.0, -1475.0) o 2.0
+      exit pad after the kill: boss (-1706.0, -44.0, -518.0) o 3.14,
+      raid (-1760.0, -43.0, -518.0) o 6.26
+    [CALC] the four Cataclysm points are 72.0 (S), 49.9 (W), 49.6 (E) and 68.5
+    (N) yards from the centre. The rectangle is 74.1 x 60.8 yards. Blisters land
+    39.6-62.3 yards out on the eight named ones.
+
+3.2 THE PROPHET SKITRA
+      arena centre  (-1487.0, -580.0, -518.4) o 4.71
+      projections and the boss's own blink land on a random point within 60
+      yards of that centre (two GetRandomPoint(middle_pos, 60.0f) calls), so
+      the playable disc is 60 yards in radius [SRV]+[CALC].
+
+3.3 MAUT
+      arena centre  (-1485.0, 487.0, -556.0) o 1.58
+      mana orb      (-1463.0, 481.0, -556.0) o 3.19
+    [CALC] 22.8 yards. The boss walks to the centre point at the end of Stage
+    One (MovePoint 1) and the orb is his mana source in Stage Two.
+
+3.4 DARK INQUISITOR XANESH
+      goal portals (4): (-559.329, -342.082, -251.202) o 1.0
+                        (-501.874, -336.755, -251.092) o 1.0
+                        (-496.966, -378.767, -251.133) o 1.0
+                        (-551.031, -382.878, -251.157) o 1.0
+      void orb spawn    (-521.773, -392.395, -251.088) o 1.682
+      Azshara position  (-524.841, -357.070, -250.923) o 4.783
+    [CALC] the four portals sit on a ring of radius 32.9-36.8 yards around
+    their centroid (-527.30, -360.12); the orb spawns 32.7 yards from that
+    centroid, i.e. just outside the ring, and Azshara stands 3.9 yards from it.
+
+3.5 VEXIONA
+      flight point one    (-372.505, -50.668, -191.482) o 6.282
+      flight point two    (-388.901, 114.360, -188.599) o 1.034
+      flight point three  (-721.146, -13.310, -156.645) o 4.833
+    [CALC] one to two is 165.8 yards, two to three 355.9, one to three 350.6.
+    These are the boss's own flight destinations, so they are also the three
+    places the raid has to follow her to.
+
+3.6 THE HIVEMIND
+      arena centre  (-290.083, 227.152, -294.551) o 2.512
+      Volatile Eruption is cast on that centre as a visual (CastSpell at the
+      constant), so the eruption is centred on the room.
+
+3.7 RA-DEN THE DESPOILED
+      Essence of Nightmare  (-358.802, 156.894, -211.818) o 0.859
+      Essence of Vita       (-266.726, 180.448, -211.817) o 3.255
+      Essence of Void       (-342.462, 247.273, -211.817) o 4.952
+    [CALC] the three essences are 91.8-101.0 yards apart, so the triangle is
+    roughly 100 yards on a side - a third of the room to each.
+
+3.8 SHAD'HAR THE INSATIABLE
+      No coordinates. Every spawn in the script is
+      GetRandomNearPosition() around the boss, so nothing in this fight is
+      fixed -> all positions unverified.
+
+3.9 DREST'AGATH - five timed appendage waves, all points [SRV]
+      wave 1 (17 s):  Eye      (-537.979, 249.764, -484.515) o 4.476
+                      Tentacle (-539.835, 230.644, -484.739) o 5.117
+                      Tentacle (-488.273, 242.526, -484.631) o 5.026
+                      Tentacle (-475.170, 183.860, -484.911) o 1.679
+                      Maw      (-551.022, 183.074, -484.938) o 1.690
+      wave 2 (110 s): Maw      (-517.787, 193.074, -484.684) o 1.568
+                      Maw      (-494.643, 206.261, -484.450) o 1.745
+                      Maw      (-527.579, 265.148, -484.951) o 4.722
+                      Eye      (-503.748, 181.565, -484.576) o 1.681
+                      Tentacle (-528.391, 173.251, -484.553) o 1.426
+      wave 3 (200 s): Eye      (-540.627, 230.830, -484.735) o 4.825
+                      Eye      (-550.973, 188.269, -484.962) o 0.532
+                      Eye      (-506.552, 181.430, -484.615) o 1.868
+                      Tentacle (-479.870, 227.161, -484.547) o 3.375
+                      Maw      (-546.596, 171.310, -484.794) o 0.199
+      wave 4 (290 s): Maw      (-558.856, 239.233, -484.629) o 5.773
+                      Maw      (-500.945, 212.461, -484.682) o 2.643
+                      Eye      (-503.177, 185.026, -484.567) o 1.650
+                      Eye      (-544.403, 225.410, -484.636) o 4.744
+                      Tentacle (-561.334, 181.176, -484.936) o 4.334
+      wave 5 (380 s): Tentacle (-518.446, 275.674, -484.946) o 3.558
+                      Tentacle (-473.772, 179.005, -484.926) o 1.203
+                      Maw      (-563.086, 202.996, -484.894) o 5.684
+                      Eye      (-568.914, 188.183, -484.989) o 2.749
+                      Eye      (-492.998, 233.653, -484.702) o 5.342
+                      Tentacle (-493.332, 221.747, -484.632) o 2.283
+      Tentacle (-515.428, 196.642, -484.751) o 4.193
+    The arena is not stated anywhere, but [CALC] the wave-1-to-4 points all
+    fall inside a 55-yard radius around their own mean (-516.9, 218.3), so a
+    bot can treat (-516.9, 218.3, -484.6) as the room centre. That mean is
+    arithmetic on the spawn points, not a script constant - it is marked as
+    such.
+
+3.10 IL'GYNOTH, CORRUPTION REBORN
+      Organ of Corruption left   (-284.047, 112.586, -524.631) o 3.925
+      Organ of Corruption mid    (-294.877, -1.449811, -524.986) o 2.198
+      Organ of Corruption right  (-408.385, 7.823, -524.518) o 0.711
+    [CALC] left to mid is 114.5 yards, mid to right 113.9, left to right 162.6.
+    The three organs form a triangle about 115 yards on a side, so the raid
+    splits three ways and the boss stands outside it.
+
+3.11 CARAPACE OF N'ZOTH
+      Gaze of Madness spawn      (-11536.851, 9343.937, 126.788) o 4.0266
+      stage-two walk (boss)      (-11332.596, 9317.054,  98.155)  [SRV]
+      Wrathion walk              (-11472.110, 9315.943, 110.878)  [SRV]
+      stage-three walk (boss)    (-11210.179, 9315.246, 126.866)  [SRV]
+      Thrashing Tentacle spawns (4):
+        (-11603.432, 9261.467, 123.591)  (-11565.716, 9269.769, 124.516)
+        (-11617.975, 9359.151, 125.251)  (-11568.685, 9365.344, 124.740)
+    [CALC] the stage-two walk is 139.5 yards from the stage-three walk, which
+    in turn is 81.2 yards from the N'Zoth anchor in 3.12; the two walks are
+    therefore two separate chambers, and the raid must follow the carapace
+    between them rather than path around.
+
+3.12 N'ZOTH THE CORRUPTOR
+      synapses anchor     (-11129.0, 9312.0, 125.866) o 0.0
+      Psychus             (-11194.0, 9323.0, 125.865) o 3.0
+      Basher Tentacle     (-11099.0, 9278.0, 125.866) o 2.2
+      Thought Harvester   (-11157.0, 9321.0, 125.866) o 3.0
+      Exposed Synapses spawn on a random point within 40 yards of the synapses
+      anchor; Thought Harvesters within 30 yards of their anchor [SRV].
+    [CALC] Psychus stands 65.9 yards from the synapses anchor, the harvester
+    29.4, the basher 45.3 - three separate corners of one 130-yard room.
+
+================================================================================
+4. BOSS 1 - WRATHION, THE BLACK EMPEROR
+================================================================================
+4.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified (world DB). The script's arena constant is
+  (-1756.909, -43.431, -1477.872) o 6.2706 and its play rectangle is
+  (-1792.640, -12.733) to (-1718.550, -73.557) at z -1478.160.
+  TANK POSITION: hold him at the centre facing away. Searing Breath 305978 is
+  a frontal cone and Tail Swipe 307974 hits behind him, so the tank faces him
+  away and the raid stands at his flank - the two zones leave the flanks as
+  the only safe side (tactics document, and the script's own Tail Swipe target
+  selector picks units behind the boss).
+  On death the script teleports the boss to (-1706.0, -44.0, -518.0) and the
+  raid to (-1760.0, -43.0, -518.0): that is the exit pad, not a fight position.
+
+4.2 PHASES [GUIDE]/[SRV] - energy, not health
+  HEALTH PERCENTAGE: none.
+  Stage One: The Black Emperor runs until his energy is gone. Each Burning
+  Cataclysm spends 50 energy; when energy reaches 0 he casts Smoke and Mirrors
+  and Stage Two begins (Wowhead journal text; the script does exactly this:
+  ModifyPower(-50) then, at 0 or below, SchedulePhase2()).
+  Stage Two: Smoke and Mirrors runs until he has finished transforming the
+  Molten Pools; the script ends it on the third Crackling Shard summon
+  (cracklingShards == 3 -> SPELL_BERSERK 301495) and returns to Stage One with
+  the Smoke and Mirrors ending spell.
+  So the cadence is P1 -> P2 -> P1 -> P2 and so on, with no percentage at all.
+  Berserk: DBM has no berserk timer for this encounter (it is commented out);
+  the script casts Berserk 301495 itself after the third shard summon.
+
+4.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Searing Breath 305978      first 7 or 7.3, cooldown 8.5
+  Incineration 306111        first 9.1 (28.6 later), cooldown 19.4
+  Gale Blast 306289          first 45 (74.3 later), cooldown 90.9
+  Burning Cataclysm 306735   first 59.7 (75.6 later), cooldown 90.9
+                             (8 s cast timer)
+  Smoke and Mirrors 306995   155 s next-timer (it is the stage change)
+  Script schedule (30 s cadence check): Tail Swipe 1 s, Incineration 28 s,
+  Searing Breath 8 s, Gale Blast 45 s, Burning Cataclysm 60 s.
+
+4.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Searing Breath 305978 - assigned to the TANK. Trigger: the cast; keep the
+     cone off the raid.
+  b) Tail Swipe 307974 - assigned to EVERYBODY ELSE. Trigger: the script hits
+     every unit behind the boss every 3 s; stand at the flank, not behind.
+  c) Incineration 306111 - assigned to 3 MARKED PLAYERS. Trigger: the debuff;
+     step out of the stack before it expires.
+  d) Gale Blast 306289 - assigned to EVERYBODY. Trigger: the stomp; step out
+     of the boss model.
+  e) Burning Cataclysm 306735 - assigned to EVERYBODY. Trigger: the boss
+     teleports to one of the four named sides; the raid moves to the opposite
+     side of the room from the landing point.
+  f) Scorching Blister 312490 - assigned to NOBODY, dodged. Twenty positions
+     are pre-placed (3.1); each grows for 10 s and then explodes for 30 yards.
+  g) Scales of Wrathion 308682 - assigned to the RAID as a catch rotation.
+     Trigger: each scale falls on a random point inside the play rectangle;
+     catching one applies Burning Madness 307013, missing one hits everyone.
+  h) Crackling Shard 158327 with Hardened Core 313175 - assigned to the ADD
+     GROUP. Trigger: Molten Pools become shards; run them over while carrying
+     Burning Madness (that is what the madness is for).
+  i) Smoke Shroud 312266 (Ashwalker Assassin 160291, Heroic and Mythic) -
+     assigned to the RAID: kill the assassin.
+
+4.5 SAFE SPOTS
+  Verified: the play rectangle in 3.1 and the 20 blister points. Because every
+  random position in the encounter is rolled inside the rectangle, standing
+  outside it is safe from Blisters and Scales by construction - but the
+  rectangle is 74 x 61 yards and the fight happens inside it, so the practical
+  safe spot moves.
+  Named sides: Cataclysm South/West/East/North, 49.6-72.0 yards from centre
+  [CALC]. The safe side is the one diagonally opposite the chosen landing
+  point.
+
+================================================================================
+5. BOSS 2 - THE PROPHET SKITRA
+================================================================================
+5.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Arena centre (-1487.0, -580.0, -518.4) o 4.71.
+  TANK POSITION: hold him on that centre facing away; Shred Psyche 307937 /
+  313276 is the tank hit and there is no positional mechanic on the tank.
+
+5.2 PHASES [GUIDE] - two intermissions, with a script that predates them
+  HEALTH PERCENTAGE: 66% and 33%. Blizzard's hotfix note is explicit:
+  "Prophet Skitra now enters intermission phases at 33% and 66% health (was
+  20%, 40%, 60% and 80%)". So in 8.3.7 there are exactly two intermissions
+  (Illusionary Projections), at 66% and at 33%.
+  DISCREPANCY: the script implements the pre-hotfix cadence - phase 2 at
+  HealthBelowPct(81) and back to phase 1 at HealthBelowPct(75) - i.e. a single
+  illusion window that opens just under 81% and closes at 75%. On your server
+  that is what actually happens; the guides describe the hotfixed version.
+  Berserk 480 s [DBM] (the module notes he only gains +300% damage, so the
+  berserk is survivable).
+
+5.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Shred Psyche 307937        first 12.8 (15.2 later), cooldown 37.7
+  Images of Absolution 313239 first 30.5 (33.9 later), cooldown 84.9
+  Script schedule: Shadow Shock 3 s (repeating), Shred Psyche 15 s,
+  Absolutions 30 s on Heroic and Mythic only.
+
+5.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Illusionary Projection 307445 - assigned to EVERY PLAYER SEPARATELY, and
+     this is the one mechanic in the raid where two bots must disagree. Each
+     unit sees its own set of images and must kill its own Image of Absolution
+     313239 / Intangible Illusion 313208 / Surging Images 313210. The AI needs
+     a per-unit target override; a shared target is wrong by definition.
+  b) Dark Ritual 309657 - assigned to everybody in the illusion window; the
+     script applies it to the whole raid every 5 s while phase 2 lasts.
+  c) Psychic Outburst 309687 - assigned to the HEALERS (raid hit after each
+     set of images).
+  d) Mindquake 307864 / Psychic Reverberation 312741 - assigned to NOBODY,
+     dodged.
+  e) Shred Psyche 307937 / 313276 - assigned to the TANK.
+  f) Clouded Mind 307784 / Twisted Mind 307785 - soak/split flags.
+
+5.5 SAFE SPOTS
+  Verified: the 60-yard disc around (-1487.0, -580.0, -518.4) - the script
+  places both the projections and the boss's blink on a random point inside it.
+  There is no fixed safe spot; the rule is "the image you can see is yours,
+  everyone else's are not".
+
+================================================================================
+6. BOSS 3 - MAUT
+================================================================================
+6.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Arena centre (-1485.0, 487.0, -556.0) o 1.58.
+  TANK POSITION: Stage One at the centre facing away (Shadow Claws 310129,
+  Shadow Wounds 307399). Stage Two (the Obsidian Statue) is rooted and
+  unturnable by script (UNIT_STATE_ROOT plus UNIT_FLAG2_DISABLE_TURN), so the
+  tank position is fixed by the script: he stands where he was when the mana
+  bar filled and faces 1.62 radians.
+
+6.2 PHASES [GUIDE]/[SRV] - mana, not health
+  HEALTH PERCENTAGE: none.
+  Stage One runs until his mana reaches 100, then Stage Two (Obsidian Statue)
+  begins: he gains Obsidian Skin 306005 and channels Obsidian Shatter 305722;
+  the raid burns the mana shield, and when mana hits 0 he returns to Stage One
+  (Wowhead journal text; the script does exactly this - energy 0 -> phase 1,
+  attackable again).
+  The 60-second figure in the journal is the Obsidian Shatter channel length on
+  Normal/Heroic/Mythic (Icy Veins: 60 s; LFR 72 s, per the same site's LFR
+  page).
+  Berserk 600 s on Heroic and Mythic, 660 s otherwise [DBM].
+
+6.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Devour Magic 307805          first 11.5 (12.1 later), cooldown 22
+  Stygian Annihilation 308044  first 40.2 (40.6 later), cooldown 55.3
+  Black Wings 305663           first 18.1 (19.9 later), cooldown 20.6
+  Shadow Claws 310129          first 7.1 (7.6 later), cooldown 12.3
+  Dark Manifestation 308903    first 12 (12.6 later), cooldown 35.2
+  Ancient Curse 314337         first 16.7 (16.9 later), cooldown 50
+  Dark Offering 308872         first 10 (12.1 later), cooldown 12.1
+  Forbidden Ritual 306290      first 4.1 (6.1 later), cooldown 7
+  Drain Essence 314993         first 7.8 (9.7 later), cooldown 13.8
+
+6.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Devoured Abyss 307839 - assigned to the KICK ROTATION. Trigger: the cast.
+  b) Stygian Annihilation 308044 - assigned to the KICK ROTATION, and it is
+     the one cast that must never land.
+  c) Forbidden Mana 306301 - assigned to the ORB BLOCKERS. Trigger: a mana orb
+     travels from the altar towards Maut; a player who touches it takes the
+     debuff instead. Each orb that reaches him restores up to 15% of his mana
+     on Normal, 20% on Heroic, 100% on Mythic (Icy Veins' three journal pages).
+     The orb spawns at (-1463.0, 481.0, -556.0), 22.8 yards from the boss
+     [CALC], so the block line is between those two points.
+  d) Drain Essence 314993 - assigned to the MARKED PLAYERS: break 8 yards from
+     the raid (the journal's 8-yard burst radius).
+  e) Shadow Wounds 307399 - assigned to the TANKS (stack-based swap).
+  f) Dark Aegis 305675 on the Dark Manifestation - assigned to the ADD GROUP.
+  g) Black Wings 305663 / Ancient Curse 314337 - assigned to the TANK and the
+     HEALERS respectively.
+
+6.5 SAFE SPOTS
+  Verified: the centre, the orb spawn, and the 22.8-yard line between them.
+  Everything else in the fight - Dark Manifestation pools, Devoured Abyss,
+  Drain Essence bursts - is spawned relative to players or to the boss, so
+  those points are unverified.
+
+================================================================================
+7. BOSS 4 - DARK INQUISITOR XANESH
+================================================================================
+7.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. There is no arena-centre constant in her script;
+  what exists is the ritual furniture: four goal portals on a 32.9-36.8 yard
+  ring around (-527.30, -360.12) (3.4), the void orb 32.7 yards out, and
+  Azshara's position 3.9 yards from the orb.
+  TANK POSITION: at the ring centre, facing away; Abyssal Strike 311551 and
+  Void-Touched 313198 are the tank hits. Exact stand point: unverified.
+
+7.2 PHASES [GUIDE]/[SRV] - single phase
+  HEALTH PERCENTAGE: none, and the journal carries no stage split (tactics
+  document: "single phase"). The fight is a repeating Void Ritual loop: the orb
+  is handed to a player, carried into the Ritual Field 305575 and dropped in an
+  obelisk; the raid survives until the next one.
+  Berserk 900 s [DBM].
+
+7.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Abyssal Strike 311551    first 30, cooldown 40
+  Void Ritual 312336       first 18.1 (61.8 and 94.7 later), cooldown 79.7
+  Soul Flay 306319         first 18.5 (24.9 and 57 later), cooldown 57
+  Torment 306208           first 20.3 (30, 30.3, 49.6, 63.4, 64.1, 76.1
+                           later), cooldown 46.5
+
+7.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Void Ritual 312336 -> Void Orb 314202 - assigned to ONE CARRIER.
+     Trigger: the ritual marks the carrier. Action: a hard state - path to the
+     marked Ritual Field circle and drop the orb in an obelisk (Summon Ritual
+     Obelisk 306495), doing nothing else on the way.
+  b) Soul Flay 306228 - assigned to the RAID (free the rooted unit).
+  c) Terror Wave 316211 - assigned to the KICK ROTATION and the DISPELLER
+     (magic).
+  d) Torment 311383 / Anguish 305792 (Azshara, 152910) - assigned to the
+     HEALERS.
+  e) Dark Collapse 306876 / Dark Ascension 313264 - assigned to NOBODY, dodged.
+  f) Awakened Terror 162432 - assigned to the ADD GROUP.
+
+7.5 SAFE SPOTS
+  Verified: the portal ring (4 points, 32.9-36.8 yards out) and the two
+  out-of-ring points (orb at 32.7 yards, Azshara at 3.9 yards from the orb).
+  The safe behaviour is to hold the ring centre and rotate to whichever obelisk
+  the carrier is running for; the obelisks themselves are summoned relative to
+  the carrier, so their coordinates are unverified.
+
+================================================================================
+8. BOSS 5 - VEXIONA
+================================================================================
+8.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Three flight points are scripted (3.5); the boss
+  moves to them in order during the fight, so they are destination geometry,
+  not a spawn.
+  TANK POSITION: hold her at the first flight point's chamber, facing her away
+  from the raid - Twilight Breath 307297 is a cone. The exact stand point is
+  unverified; the flight points are 165.8-355.9 yards apart, so each phase
+  happens in a different chamber.
+
+8.2 PHASES [GUIDE]/[SRV]
+      Stage One: Cult of the Void        from the pull
+      Stage Two: Death From Above        when the third Twilight Decimator is
+                                         up (script counter)
+      Stage Three: The Void Unleashed    at 40% health
+  HEALTH PERCENTAGE: the one hard gate is 40%, and both sources agree: Icy
+  Veins' journal page says "When Vexiona reaches 40% health, she stops
+  summoning Cultists and unleashes the full extent of her power", and the
+  script is HealthBelowPct(40).
+  The Stage Two gate is not a percentage: it is the third Twilight Decimator
+  307218 (the script counts twilightDecimator and flips to phase 2 at 3).
+  DBM warns stage 3 itself (warnPhase3).
+  Berserk 720 s [DBM]; the script also schedules its own 12-minute berserk.
+
+8.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Encroaching Shadows 307314  first 2 (7.7, 14.8, 21.1 later), cooldown 14.6
+  Twilight Breath 307020      first 7.2 (11.3, 13.4 later), cooldown 14.8
+  Despair 307359              first 10.1 (18 later), cooldown 35.2
+  Dark Gateway 307057         first 12.2 (32.9, 33 later), cooldown 33.2
+  No Escape 316437            first 11, cooldown 11
+  Twilight Decimator 307218   first 12.2 (12.7, 16.3, 89.7, 92, 92.3 later),
+                              cooldown 12.2
+  Heart of Darkness 307639    first 21.5 (31.6 later), cooldown 31.6
+  Desolation 310325           first 37.9, cooldown 32.3
+  Annihilation 307403         first 14.6, cooldown 14.6
+  Script schedule: Encroaching Shadows 13 s, Despair 15 s, Twilight Breath
+  18 s, Dark Gateway 32 s.
+
+8.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Twilight Breath 307297 - assigned to the TANK (frontal cone, keep it off
+     the raid).
+  b) Encroaching Shadows 307317 - assigned to the MARKED PLAYER. Trigger: the
+     debuff; it expands outward from the carrier, so the carrier runs out.
+  c) Despair 307359 - assigned to the HEALERS (fear; keep the raid in one camp
+     so the fear does not scatter it into the breath).
+  d) Gift of the Void 306878 - assigned to the TANK HANDOFF on a Void
+     Ascendant 162719.
+  e) Void Bolt 307177 - assigned to the KICK ROTATION (Spellbound Ritualist
+     162716).
+  f) Annihilation 307421 / Spiteful Assault 310311 / Brutal Smash 315932 -
+     assigned to the ADD GROUP by wave.
+  g) Dark Gateway 307057 and Twilight Decimator 307218 - assigned to NOBODY;
+     the gateway is a travel tool, the decimator is a dodge.
+  h) Void Corruption 307019 / Shattered Resolve 307371 - assigned to the TANKS.
+
+8.5 SAFE SPOTS
+  Verified: the three flight points (3.5) and their 165.8/355.9/350.6 yard
+  separations. Stage Three replaces her with the Shadow of Vexiona 162308, and
+  the script does not move her for that, so the third chamber is the last
+  fighting ground.
+  Everything else - residue pools, gateway pads, decimator zones - is spawned
+  relative to players -> unverified as points.
+
+================================================================================
+9. BOSS 6 - THE HIVEMIND
+================================================================================
+9.1 SPAWN AND TANK POSITION
+  Boss spawns: unverified. Arena centre (-290.083, 227.152, -294.551) o 2.512.
+  TANK POSITION: Ka'zir 157253 and Tek'ris 157254 are tanked apart and must
+  never be pulled together - the Hivemind link (308166; the two bosses share
+  damage through 307213 and 307201) splits damage between them, so pulling
+  them into one stack kills both tanks. Hold one on either side of the centre;
+  exact points unverified.
+
+9.2 PHASES [GUIDE]/[SRV] - no health gate, a shared-death gate
+  HEALTH PERCENTAGE: none. The journal carries a single header ("Lesser Aqir").
+  Instead there is a death gate: when either boss reaches 1% health he begins
+  Dark Reconstruction (script: GetHealthPct() == 1.0 -> cast
+  SPELL_DARK_RECONSTRUCTION, then a 10 s scheduler that kills him only if the
+  other boss is already dead). Practical rule: bring both to 1% and kill them
+  inside the same 10 seconds.
+  Berserk: none in DBM (commented out).
+
+9.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  These are the module's cooldowns; DBM's first-cast values for this encounter
+  are all re-arms, so the script's own schedule is given underneath.
+  Volatile Eruption 307583      cooldown 84   (script: first at 87 s)
+  Spawn Acidic Aqir 310340      cooldown 84   (script: first at 45 s)
+  Mind-Numbing Nova 313652      cooldown 7.3  (script: first at 8 s)
+  Flyer Swarm 312710            cooldown 120  (script: Darters first at 20 s)
+  Accelerated Evolution 307637  cooldown 84   (script: first at 15 s)
+  Nullification Blast 307968    cooldown 84   (script: first at 30 s)
+  Echoing Void 307232           cooldown 84   (script: first at 26 s)
+  Aqir Drones 312868            cooldown 120  (script: first at 10 s)
+  Ka'zir Hive Control 307213    cooldown 98.7
+  Tek'ris Hive Control 307201   cooldown 98.7
+
+9.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Echoing Void 307232 - assigned to the MARKED PLAYER: break away from the
+     stack before it resolves.
+  b) Mind-Numbing Nova 313652 - assigned to the KICK ROTATION.
+  c) Volatile Eruption 307583 - assigned to EVERYBODY; it is cast on the room
+     centre, so the safe place is anywhere that is not the middle.
+  d) Nullification Blast 307968 / Ravage 315311 - assigned to the ADD GROUP.
+  e) Corrosion 313461 / Entropic Echo 313692 - assigned to NOBODY, dodged.
+  f) Accelerated Evolution 307637 - assigned to the DPS RACE (it is the soft
+     enrage).
+
+9.5 SAFE SPOTS
+  Verified: only the centre, and it is a bad place to stand because Volatile
+  Eruption lands there. The fight is otherwise built from moving adds, so no
+  other point in this encounter is verifiable.
+
+================================================================================
+10. BOSS 7 - RA-DEN THE DESPOILED
+================================================================================
+10.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. The script's only constants are the three essence
+  spawns (3.7). Their centroid (-322.66, 194.87) is a usable stand-in for the
+  room centre [CALC] - it is arithmetic on three script points, not a constant.
+  TANK POSITION: at that centroid facing away; Nullifying Strike 306819 is the
+  tank hit in Stage One, Decaying Strike 313213 and Decaying Wound 313227 stack
+  in Stage Two.
+
+10.2 PHASES [SRV]/[GUIDE]
+      Stage One: Gathering Power    100% - 40%
+      Stage Two: Unleashed Wrath    40% - 0%
+  HEALTH PERCENTAGE: 40%, and both sources agree - the script is
+  HealthBelowPct(40) and the journal's stage two is "Unleashed Wrath".
+  Note the script's condition is written `if (this->phase = 1 && ...)`, an
+  assignment rather than a comparison. It therefore fires on any damage event
+  below 40% regardless of phase, but the effect (set phase 2 once, reset the
+  event list) is the same as intended.
+  Berserk: none - DBM's berserk line is commented out for this encounter.
+
+10.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Call Essence 306091             first 10 (55.2 later), cooldown 55
+  Nullifying Strike 306819        first 14.3 (15.5 later), cooldown 15.8
+  Call Crackling Stalker (ej20546) first 5.8, cooldown 30.1
+  Chain Lightning 306874          first 4.8, cooldown 4.8
+  Call Void Hunter (ej20549)      first 6, cooldown 30.1
+  Unstable Void 306634            first 6 (7 later), cooldown 5.9
+  Void Collapse 306881            first 5 (10.9 later), cooldown 10.8
+  Call Night Terror (ej21176)     first 7.2, cooldown 30.1
+  Dread Inferno 315252            first 8.9 (11.7 later), cooldown 11.7
+  Decaying Strike 313213          first 7.4 (8.1, 17.4 later), cooldown 16.9
+  Void Eruption 310003            first 12.1 (19.4, 22.1 later), cooldown 19.4
+  Charged Bonds 310019            first 4.7 (14.7 later), cooldown 10.2
+  Gorge Essence 309985            first 15.8 (19.4, 25.8 later), cooldown 29.1
+  Corrupted Existence 317276      first 1.2 (11.2 later), cooldown 12.2
+
+10.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) The three essences - assigned to the RAID as three counters, one per
+     spawn point: Nightmare 160663 at (-358.802, 156.894), Vita 156884 at
+     (-266.726, 180.448), Void 156980 at (-342.462, 247.273). Each is drawn on
+     by a matching mechanic (Draw Nightmare 312750, Draw Vita 306090, Draw Void
+     306168); the raid must keep all three balanced.
+  b) Chain Lightning 306874 - assigned to the KICK ROTATION (Crackling
+     Stalker 157365).
+  c) Nullifying Strike 306819 / Decaying Strike 313213 - assigned to the TANK.
+  d) Charged Bonds 310019 - assigned to PAIRS (break the link by moving apart).
+  e) Void Eruption 310003 / Ruin 309852 - assigned to NOBODY, dodged.
+  f) Unstable Void 306634 - assigned to the MARKED PLAYER.
+  g) Night Terror 160937 with Dread Inferno 315258 - assigned to the ADD GROUP.
+
+10.5 SAFE SPOTS
+  Verified: the three essence points, 91.8-101.0 yards apart, and their
+  centroid. The practical safe spot is the middle of that triangle: it is
+  equidistant from all three essences, which is what the balance mechanic
+  wants, and it is the tank position at the same time.
+
+================================================================================
+11. BOSS 8 - SHAD'HAR THE INSATIABLE
+================================================================================
+11.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified, and so is every other point in this encounter - the
+  script has no Position constant at all and spawns everything with
+  GetRandomNearPosition().
+  TANK POSITION: tank him facing away in all three stages (three frontal
+  breaths). The stand point itself is unverified.
+
+11.2 PHASES [GUIDE]/[SRV]
+      Stage One: Shadowy Carapace      100% - 66%
+      Stage Two: Void-tinged Carapace   66% - 33%
+      Stage Three: Noxious Carapace     33% - 0%
+  HEALTH PERCENTAGE: 66% and 33%. Solvable from three independent 2020 guides
+  (Millenium's per-phase ranges, dozzur's "Phase 2 - 66%" / "Phase 3 - 33%",
+  nyalothaguide's stage markers) and confirmed by the script's
+  HealthBelowPct(67) and HealthBelowPct(34) - "below 67" and "below 34" are the
+  same thresholds written from the other side.
+  Berserk 360 s [DBM] (module note: Heroic confirmed, Normal unknown).
+
+11.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Crush 307471               first 15.1, cooldown 25.1
+  Slurry Breath 306736       first 26.1, cooldown 17
+  Debilitating Spit 306953   first 10.1, cooldown 30.1
+  Fixate 307260              cooldown 30.2
+  Umbral Mantle 306448       20 s next-timer
+  Umbral Eruption 308157     10 s next-timer
+  Bubbling Overflow 314736   first 8, 10 s next-timer
+  Entropic Buildup 308177    first 4, 10 s next-timer
+
+11.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Entropic Buildup 308177 - assigned to the SOAK GROUP: orbs spawn around
+     the room and explode unless soaked (multiple players per orb, stacks
+     depend on how much each soaks).
+  b) The stage-two tank combo - assigned to the TANKS. Trigger: Entropic
+     Mantle; one debuff lands on the active tank, the second 3 s later, so the
+     off-tank has a 3-second window to taunt (Millenium).
+  c) Debilitating Spit 307358 - assigned to the MARKED PLAYER: move out, it
+     leaves Living Miasma 306692.
+  d) Bubbling Overflow 314736 - assigned to NOBODY, dodged; standing in it
+     costs 10% of maximum health and escalates.
+  e) Frenzy 306942 - the soft enrage; heal through it.
+  f) Tasty Morsel - assigned to NOBODY; it is the add that eats a player.
+
+11.5 SAFE SPOTS
+  Unverified - see 11.1. The only sourced positional advice is "stack near the
+  boss or on one half of the room" and, in stage three, "move to the edge of
+  the room" (nyalothaguide), neither of which is a coordinate.
+
+================================================================================
+12. BOSS 9 - DREST'AGATH
+================================================================================
+12.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. The arena's usable stand-in is the mean of the
+  wave spawn points, (-516.9, 218.3, -484.6) [CALC].
+  TANK POSITION: Drest'agath himself barely moves; the tank job is holding the
+  appendages. Eye of Drest'agath 157612 (Mind Flay 310552), Tentacle 157614
+  (Crushing Slam 310614) and Maw 157613 (Mutterings 310563) are each picked up
+  separately, so "the tank position" is whichever appendage is up.
+
+12.2 PHASES [SRV]/[GUIDE] - timed appendage waves, no health gate
+  HEALTH PERCENTAGE: none. The journal carries one header ("Appendages of
+  Drest'agath"). The fight is five timed waves, and the script hard-codes both
+  the spawn times and the spawn points:
+      wave 1 at  17 s (5 appendages)   wave 4 at 290 s (5)
+      wave 2 at 110 s (5)              wave 5 at 380 s (7)
+      wave 3 at 200 s (5)
+  Before any wave there are also pre-placed Eyes in the script's Reset(): one
+  at (-530.989, 213.483, -484.662) o 4.833 on every difficulty, plus a second
+  at (-505.739, 214.786, -484.683) o 4.766 on Mythic only. So the total is 27
+  wave points plus 1 or 2 pre-placed Eyes.
+  Berserk 600 s on Mythic, 900 s otherwise [DBM] (module note: Normal and
+  Heroic confirmed).
+
+12.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Volatile Seed 310277       first 7.2, cooldown 16.6
+  Entropic Crash 310329      first 15.5, cooldown 44.3
+  Mutterings of Insanity 310358 first 30.1 (50.2 later), cooldown 50.2
+  Unleashed Insanity 310361  5 s cast timer
+  Void Glare 310406          first 45.2, cooldown 45
+  Script schedule: Volatile Seed 3 s, Entropic Crash 15 s, Mutterings 30 s.
+
+12.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Volatile Seed 310277 - assigned to the MARKED PLAYER: move out before
+     Volatile Detonation 310288.
+  b) Mind Flay 310552 (Eye) - assigned to the KICK ROTATION.
+  c) Crushing Slam 310614 (Tentacle) - assigned to a TANK.
+  d) Mutterings of Betrayal 310563 (Maw) - assigned to a TANK plus dispel.
+  e) Throes of Agony 308947 / Throes of Dismemberment - assigned to EVERYBODY;
+     they are what happens when an appendage is left alive.
+  f) Reality Tear 308995 / Void Miasma 310478 - assigned to NOBODY, dodged.
+
+12.5 SAFE SPOTS
+  Verified: all 30 appendage spawn points in 3.9 and 12.2, with their z.
+  [CALC] measured from each wave's own mean, the points of a wave lie 24.9-55.1
+  (wave 1), 11.3-62.7 (wave 2), 26.0-52.7 (wave 3), 19.9-39.6 (wave 4) and
+  17.5-61.7 (wave 5) yards out. No wave is a clean ring, so "stand inside the
+  ring" is not a rule that survives contact with the numbers. What does hold is
+  that all 30 points fall in a 55-yard box around (-516.9, 218.3), and the raid
+  re-forms between them after each wave.
+  No room boundary is scripted -> the arena edge is unverified.
+
+================================================================================
+13. BOSS 10 - IL'GYNOTH, CORRUPTION REBORN
+================================================================================
+13.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. The script's constants are the three Organ of
+  Corruption points (3.10), which form a 115-yard triangle; the boss stands at
+  the centre of that triangle, roughly (-329.1, 39.65, -524.7) [CALC].
+  TANK POSITION: at that centre facing away; Eye of N'Zoth 309961 is the beam
+  on the tank line and Corruptor's Gaze 310319 follows it.
+
+13.2 PHASES [SRV]/[GUIDE]
+      Stage One: The Corruptor, Reborn    100% - 2%
+      Stage Two: The Organs of Corruption  from 2% until an organ dies
+  HEALTH PERCENTAGE: the body phase ends at 2%, not 0. The script is
+  HealthBelowPct(2), and on entering stage two it submerges the boss
+  (REACT_PASSIVE, SUBMERGED) and spawns the three organs. When an organ dies
+  the boss returns with full health (SetHealth(GetMaxHealth())) and the loop
+  repeats - which is why the health bar goes back up and why "2%" is a phase
+  marker rather than a kill.
+  Stage Two's own failure state is the Clotted Corruption 163678 with
+  Absorbing Charge 318383.
+  Berserk 600 s [DBM] (Heroic and Normal confirmed).
+
+13.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Eye of N'Zoth 309961        first 5.2 (6 later), cooldown 17
+  Touch of the Corruptor 311401 first 47.7 (48.5, 61.4 later), cooldown 64.4
+  Corruptor's Gaze 310319     first 12 (12.2 later), cooldown 32.2
+  Cursed Blood 311159         first 3 (20 later), cooldown 18
+  Absorbing Charge 318383     first 9 (18.3 later), cooldown 18.3
+
+13.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Pumping Blood 310788 (Organ of Corruption) - assigned to the KICK ROTATION.
+  b) Recurring Nightmare 312486 - assigned to the DISPELLER (magic).
+  c) Corruptor's Touch - assigned to the RAID: a mind-controlled ally must be
+     damaged below 30% health to be freed (namu.wiki's mechanic note and the
+     script's own HealthBelowPct(31) check on the aura).
+  d) Touch of the Corruptor 311401 - assigned to the MARKED PLAYER.
+  e) Blood of Ny'alotha 159514 with Fixate 275269 - assigned to the ADD GROUP;
+     kill it only when the raid can survive the Hemorrhage.
+  f) Morass of Corruption 310322 - assigned to NOBODY: it pacifies and silences
+     anything standing in it, so it is a hard avoid for casters and bots.
+  g) Cursed Pulse 316813 (Mythic) - assigned to EVERYBODY, 14-yard avoid.
+
+13.5 SAFE SPOTS
+  Verified: the three organ points (114.5/113.9/162.6 yards apart) and the
+  triangle centre. The safe ground in stage two is the middle of the organ
+  triangle; the organs themselves are 115 yards from each other, so a
+  three-group split is the only formation the geometry allows.
+
+================================================================================
+14. BOSS 11 - CARAPACE OF N'ZOTH
+================================================================================
+14.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. The script gives the two stage-transition walk
+  destinations and three other anchors (3.11):
+      stage two walk  (-11332.596, 9317.054, 98.155)
+      stage three walk (-11210.179, 9315.246, 126.866)
+      Wrathion        (-11472.110, 9315.943, 110.878)
+      Gaze of Madness (-11536.851, 9343.937, 126.788) o 4.0266
+  TANK POSITION: the Fury of N'Zoth is tanked facing away in every stage
+  (Mandible Slam 315947, Black Scar 315954). Stage two is a tunnel 139.5 yards
+  from stage three [CALC], so the tank moves with the boss between them.
+
+14.2 PHASES [SRV]/[GUIDE]
+      Stage One: Exterior Carapace       100% - 50%
+      Stage Two: Subcutaneous Tunnel      50% - 40%
+      Stage Three: Locus of Infinite Truths 40% - 0%
+  HEALTH PERCENTAGE: 50% and 40%, both from the script:
+  HealthBelowPct(50) starts the walk to (-11332.596, 9317.054, 98.155) and
+  HealthBelowPct(40) starts the walk to (-11210.179, 9315.246, 126.866). The
+  stage-three gate also requires that every Synthesis Growth 157475 is dead
+  (the script checks the list is empty before flipping phase).
+  Berserk 840 s on LFR, 780 s otherwise [DBM].
+
+14.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Madness Bomb 306973        first 5 (5.8-25 later), cooldown 22.2
+  Adaptive Membrane 306990   first 4.2 (16-20.6 later), cooldown 27.7
+  Mental Decay 313364        first 1 (9.1-16.7 later), cooldown 21
+  Growth-Covered Tentacle 307131 first 30 (37.5, 43 later), cooldown 60
+  Mandible Slam 315947       first 9.3 (15.1-20 later), cooldown 12.7
+  Gaze of Madness (ej20565)  first 10 (12.1, 13.7, 41.2 later), cooldown 58
+  Eternal Darkness 307048    first 7.8 (20-28.5 later), cooldown 22.2
+  Occipital Blast 307092     first 5 (6.2, 7 later), cooldown 33.3
+  Insanity Bomb 306984       first 21.6 (26.1-36.6 later), cooldown 66.9
+  Infinite Darkness 313040   first 16.1 (52, 54 later), cooldown 53.9
+  Thrashing Tentacle 315820  first 20 (32-43 later), cooldown 20
+  Stage-two re-arm (script, 30 s after the walk): Mental Decay 9 s, Madness
+  Bomb 12 s, Adaptive Membrane 18 s, Eternal Darkness 20 s.
+
+14.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Madness Bomb 306973 / Insanity Bomb 306984 - assigned to the MARKED
+     PLAYERS: run them out of the raid.
+  b) Adaptive Membrane 316847 / Breed Madness 307008 - assigned to the KICK
+     ROTATION.
+  c) Sanity 307831 - assigned to EVERYBODY; it is the resource, not a debuff.
+  d) Gaze of Madness 157442 (the add, not the timer) - assigned to the ADD
+     GROUP; it spawns at (-11536.851, 9343.937, 126.788) and walks out of there.
+  e) Thrashing Tentacle 162159 - four fixed spawns in 3.11, all in the
+     far chamber, 38.3-106.0 yards from the Gaze of Madness spawn [CALC].
+  f) Synthesis Growth 157475 / Mycelial Cyst 157461 - assigned to the RAID:
+     every growth must be dead before 40% or the stage three gate does not
+     open.
+  g) Mandible Slam 315947 / Black Scar 315954 - assigned to the TANK.
+
+14.5 SAFE SPOTS
+  Verified: the two walk destinations, the Wrathion pad, the Gaze spawn and the
+  four Thrashing Tentacle spawns. The stage-two chamber is the region around
+  (-11332.6, 9317.1, 98.2) and the stage-three chamber around (-11210.2,
+  9315.2, 126.9); no radii are scripted, so the chamber boundaries are
+  unverified.
+
+================================================================================
+15. BOSS 12 - N'ZOTH THE CORRUPTOR
+================================================================================
+15.1 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Four anchors are scripted (3.12): synapses
+  (-11129.0, 9312.0, 125.866), Psychus (-11194.0, 9323.0, 125.865), Basher
+  Tentacle (-11099.0, 9278.0, 125.866) o 2.2, Thought Harvester (-11157.0,
+  9321.0, 125.866) o 3.0.
+  TANK POSITION: stage two and three, the Basher Tentacle 158367 is the tank
+  target (Evolving Might 309592); it spawns at the basher anchor and the
+  Corruptor Tentacle 158375 is summoned within 10 yards of it [CALC radius from
+  the script's GetRandomPoint call]. Stage One is fought in the mind, not
+  against N'Zoth.
+
+15.2 PHASES [SRV]/[GUIDE]
+      Stage One: Dominant Mind          from the pull
+      Stage Two: Writhing Onslaught     when Psychus dies
+      Stage Three: Convergence          later; the journal also lists
+                                        Through the Mindgate, Corruption of
+                                        Deathwing and Treacherous Bargain as
+                                        scene headers between them
+  HEALTH PERCENTAGE: none of these gates is a percentage. The script starts
+  stage two from Psychus's JustDied: N'Zoth yells, gains Shattered Ego 309980
+  stun, and 30 s later ACTION_INIT_PHASE_2 fires and 13 Corrupted Neurons 162331
+  are summoned on random points within 40 yards of the synapses anchor.
+  The one percentage in the file is a quirk: N'Zoth "dies" at 3% health - the
+  script calls its death sequence at HealthBelowPct(3), plays the death scene
+  and sends the kill credit. A bot must not expect the last 3%.
+  Berserk 780 s in stage one, 720 s after the mind phases [DBM].
+
+15.3 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Mindwrack 316711            first 4.9 (6, 8.4 later), cooldown 5.6
+  Creeping Anguish 310184     first 12, cooldown 28.2
+  Void Gaze 310333            first 14.7 (33 later), cooldown 33
+  Collapsing Mindscape 317292 20 s cast timer
+  Mindgrasp 315772            first 7.5 (58.5-103 later), cooldown 30.1
+  Paranoia 309980             first 15.1 (15.5-59.5 later), cooldown 30.1
+  Mindgate 309046             first 55 (68 later), cooldown 30.1
+  Eternal Torment 318449      first 6.1 (20-35.3 later), cooldown 56.1
+  Basher Tentacle (ej21286)   first 23, cooldown 60
+  Void Lash 309698            first 16.7 (23.1 later), cooldown 22.9
+  Cataclysmic Flames 312866   first 19.3 (22.4 later), cooldown 22.4
+  Black Volley 313960         first 21, cooldown 20
+  Evoke Anguish 317102        first 15 (25, 27.7 later), cooldown 30.5
+  Stupefying Glare 317874     first 35 (38, 40.5 later), cooldown 22.9
+  Thought Harvester (ej21308) first 9.5 (12.3, 15 later), cooldown 30.1
+  Harvest Thoughts 317066     first 30.2, cooldown 35.2
+  Summon Gateway 318091       153.9 s next-timer
+  Event Horizon 318196        first 20, cooldown 22.9
+  Dark Matter 318971          first 39, cooldown 16
+  Annihilate 318460           first 60, cooldown 22.9
+  Cleansing Protocol 316970   first 25, cooldown 16 (8 s cast timer)
+
+15.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Mindgate 309046 - assigned to EVERYBODY in stage one: enter the mind,
+     kill Psychus 158376, come back.
+  b) Mindwrack 316711 / Probe Mind 314889 / Devour Thoughts 318771 - assigned
+     to the KICK ROTATION (Psychus and the Exposed Synapse 159578).
+  c) Paranoia 309980 - assigned to PAIRS: the two marked units must stay within
+     5 yards of each other.
+  d) Harvest Thoughts 317066 - assigned to the SOAK GROUP: it needs at least 5
+     players within 15 yards or it drains the whole raid's sanity.
+  e) Basher Tentacle 309592 / Void Lash 309713 - assigned to the TANK and the
+     melee.
+  f) Thought Harvester 162933 / Spike Tentacle 160249 / Corruptor Tentacle
+     158375 - assigned to the ADD GROUP.
+  g) Cleansing Protocol 316970 - assigned to the RAID: it is the way back out
+     of the mind.
+  h) Dark Matter 318971 / Event Horizon 318196 / Annihilate 318460 - assigned
+     to NOBODY, dodged.
+
+15.5 SAFE SPOTS
+  Verified: the four anchors and the two random radii (40 yards around the
+  synapses anchor for Exposed Synapses and Corrupted Neurons, 30 yards around
+  the harvester anchor for Thought Harvesters).
+  The synapses anchor is where the neurons land, so it is the opposite of a
+  safe spot; the safe ground in the mind phases is the ring between the Psychus
+  anchor (65.9 yards out) and the synapses anchor.
+
+================================================================================
+16. TRASH
+================================================================================
+16.1 The only trash data any readable source registers is DBM's
+     NyalothaTrash.lua spell list, already in your tactics document:
+       Shadow Smash 310780            Bursting Shadows 315011
+       Lava Burst 159409 (interrupt)  Dirge from Below 310839 (interrupt)
+       Brutal Smash 315932            Void Bolt Volley 311576 (interrupt)
+       Annihilation 307403            Annihilation 306982 (second id)
+       Rain of Blood 311544           Sanguine Fountain 314433
+       Fear the Void 311550           Psychic Detonation 316623
+16.2 Trash creature entries, pack positions and pull routes: unverified. No
+     spawn export for map 2217 was reachable, and the scripts in this step
+     contain boss encounters only.
+
+================================================================================
+17. WHAT IS STILL UNVERIFIED, AND WHAT WOULD RESOLVE IT
+================================================================================
+17.1 Every boss spawn row on map 2217. Resolve with an 8.3.7 world DB
+     `creature` dump filtered on map 2217.
+17.2 Shad'har in full: no script constant exists, so its tank spot, its add
+     spawns and its room bounds are all unverified.
+17.3 The room boundary of every encounter. The scripts place props, not walls,
+     so no arena radius in this file is anything but the radius of a
+     GetRandomPoint call.
+17.4 Xanesh's, Vexiona's, Ra-den's, Il'gynoth's and HiveMind's stand points -
+     their scripts give furniture, not a tank anchor.
+17.5 Ability radii, cast times and aura durations from client tables were not
+     readable in this step. Every radius above is either an arithmetic result
+     on a script call or a guide statement, and is labelled as such.
+17.6 Skitra's real intermission cadence: the script predates Blizzard's hotfix
+     (see 5.2) and disagrees with the guide text. Which one your server runs is
+     settled by the script; which one retail ran in 8.3.7 is 66% and 33%.
+17.7 Trash creature entries and pull routes (16.2).
+
+================================================================================
+END OF FILE
+================================================================================

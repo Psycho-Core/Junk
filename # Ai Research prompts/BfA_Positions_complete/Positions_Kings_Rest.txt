@@ -1,0 +1,852 @@
+================================================================================
+KINGS' REST - POSITIONS AND NUMBERS, BATTLE FOR AZEROTH 8.3.7 BUILD 35662
+Map id 1762. Four encounters: The Golden Serpent, Mchimba the Embalmer, The
+Council of Tribes (Kula the Butcher, Aka'ali the Conqueror, Zanazal the Wise),
+King Dazar.
+Companion file to the tactics document. Every number here is tagged with the
+source it came from. Anything I could not read is written "unverified".
+================================================================================
+
+0. HOW TO READ THIS FILE
+
+  Tags, used on every claim:
+    [DB]    a row in the 8.3.7 world SQL for this instance: creature,
+            gameobject, areatrigger, instance_template, and the 25 rows of
+            smart_scripts that drive every trash mob.
+    [SRV]   a line in the script: kings_rest.h, instance_kings_rest.cpp, or
+            one of the four boss scripts.
+    [MDT]   Method Dungeon Tools, BattleForAzeroth/KingsRest.lua: the name,
+            the per-kill force value, the health pool, the level.
+    [DBM]   DBM-Party-BfA/KingsRest/*.lua: a stopwatch value.
+    [LW]    LittleWigs BfA/KingsRest/*.lua: a second stopwatch value.
+    [CALC]  arithmetic I did on the numbers above. The inputs are always
+            given so you can redo it.
+    unverified   no readable source carries the value. It is never a guess.
+
+  Coordinates are (x, y, z) in world yards on map 1762. Orientation is
+  radians. It is quoted only where the row carries one.
+
+  The important structural fact about this dungeon on this core: ALL TRASH
+  BUT ONE IS SMART SCRIPTED. instance_kings_rest.cpp registers the instance
+  script and exactly one creature AI, npc_shadow_of_zul (8.3). Every other
+  trash mob is SmartAI, and its
+  rotation is the smart_scripts table in the world DB - 25 rows for 18
+  entries. That is why section 8 can give exact trash timers and why a
+  different world DB will run different trash.
+
+1. SOURCES AND THEIR LIMITS
+
+  1.1 The scripts are Psycho-Core-8.3.7_Scripts, scripts/Zandalar/King's
+      Rest: four boss files, instance_kings_rest.cpp and kings_rest.h. They
+      are short - 17.9 KB in total - and the four bosses schedule 15
+      events between them. Where a script is thin, this file says so
+      instead of filling the gap from a guide.
+  1.2 The spawn rows are NOT from the AshamaneCore update that steps 01-07
+      used. AshamaneCore has no King's Rest SQL. The 69 creature rows, 5
+      game-object rows over 4 entries, 1 areatrigger and 25 smart_scripts
+      rows here come from the LatincoreBfa 2020_07_20_00_kings_rest.sql. It
+      is internally consistent - its rows add up to 240 of MDT's 246 total
+      forces - but if your world DB is a different one, every coordinate
+      here can move and you should re-read your own creature table.
+  1.3 No client table was read. Radii, durations and damage below are
+      unverified unless the script, DBM or LittleWigs states them.
+  1.4 MDT clone positions were not used. They are stored in MDT's own map
+      space, not in world coordinates, so only MDT's names, forces, health
+      and levels are cited here.
+
+2. INSTANCE GEOMETRY AND THE ROUTE
+
+2.1 FLOOR LEVELS [DB]. Five bands over all 69 creature rows.
+    band        rows   x range          y range          what stands there
+    773 - 780    16   -1122.5 .. -792.6   2788.5 .. 3144.1  crypt, Mchimba
+    795 - 797    20   -1029.1 .. -798.8   2906.0 .. 3037.6  spectral hall
+    809 - 811    20   -1083.5 .. -931.5   2622.7 .. 2708.8  entrance, corridor
+    813 - 814    12   -1136.3 .. -1106.0   2735.1 .. 2761.2  the kings' room
+    827 +         1   -1061.9 .. -1061.9   2628.5 .. 2628.5  the Serpent
+    The bands are not rooms, but here they nearly are. z 773 is the crypt
+    (Mchimba), z 795 is the long spectral hall, z 809 is the entrance and the
+    Shadow-Borne corridor, z 813 is the raised room with the four kings, and
+    the Golden Serpent sits alone 17.1 yd above the corridor floor [CALC].
+    Two encounter rows fall outside the band their room suggests: Kula
+    (z 775.562) and King Dazar (z 779.051) both sit in the 773 band with the
+    crypt, and Shadow of Zul's Dazar-approach row (z 795.639) sits in the 795
+    band with the spectral hall. That is why those two bands read 16 and 20
+
+2.2 THE ENTRY POINT. Two game objects of entry 290682 stand at
+    (-1016.96, 2699.47, 809.916) o 3.86648 and (-1023.16, 2707.17,
+    809.917) o 3.87958 [DB]. They are 9.9 yd apart and face each other
+    across the doorway; the 290682 template row is not in this SQL, so what
+    they are called is unverified. The areatrigger is 100007 on map 1642 at
+    (-847, 2527, 731) and its areatrigger_teleport row is ID -99 -> PortLoc
+    6560 'Kings' Rest - Zone In Target' [DB]; the PortLoc row itself is not
+    in this file.
+    The other object, 290701 at (-821.216, 2891.82, 776.529) o 4.69331 [DB]
+    is a plain object at the far end of the crypt corridor.
+
+2.3 THE TWENTY-FIVE PULL CLUSTERS [DB], WITH z AND FORCES [MDT]
+
+  Clustering rule: every creature row links to another row inside 16.0 yd
+  and inside 8.0 yd of z. Nothing else is merged or split. 69 rows give 25
+  groups. Bosses are included and marked, because Ludwig-style exceptions do
+  not exist here: every one of the four bosses is a single DB row.
+
+  Columns: pack, creatures, force value summed from MDT per-kill counts,
+  centroid (x, y, z), the z range of the members, the members.
+  Abbreviations: AG Animated Guardian, MoZ Minion of Zul, SBW/SBC/SBWD
+  Shadow-Borne Warrior/Champion/Witch Doctor, SHP Spectral Hex Priest, SBe
+  Spectral Berserker, Rap Honored Raptor, SBru Spectral Brute, SBM Spectral
+  Beastmaster, SWD Spectral Witch Doctor, SHH Spectral Headhunter, Atu Guard
+  Captain Atu, Mba Seneschal M'Bara, Tim King Timalji, Was Queen Wasi, Aku
+  King A'akul, Rah King Rahu'ai, Pat Queen Patlaa, SRap Skeletal Hunting
+  Raptor, BAg Bloodsworn Agent, SoZ Shadow of Zul, IntC Interment Construct,
+  PurC Purification Construct, Fluid Embalming Fluid. A trailing digit is a
+  repeat count. BOSS marks an encounter.
+
+  pack  n   f  centroid (x, y, z)                 z range      members
+  P01   2  16 (-1015.230, 2702.870, 809.914) 809.91-809.92 AG2
+  P02   9   0 ( -983.238, 2699.161, 809.889) 809.88-809.91 MoZ9
+  P03   1   8 ( -958.921, 2707.010, 809.863) 809.86-809.86 AG1
+  P04   1   8 ( -931.458, 2707.150, 809.903) 809.90-809.90 AG1
+  P05   1   4 (-1055.120, 2656.930, 810.088) 810.09-810.09 SBW1
+  P06   2  11 (-1079.925, 2655.825, 810.423) 810.09-810.76 SBC1 SBWD1
+  P07   2   8 (-1077.785, 2625.070, 810.080) 810.07-810.09 SBW2
+  P08   1   0 (-1061.860, 2628.500, 827.161) 827.16-827.16 Serp1 BOSS
+  P09   2  11 (-1047.625, 2625.885, 810.088) 810.09-810.09 SBC1 SBWD1
+  P10  12  60 (-1122.508, 2752.224, 813.382) 813.31-813.41
+  BAg3 Mba1 Rah1 Atu1 Tim1 Was1 Aku1 Pat1 SRap1 SoZ1
+  P11   1  10 ( -963.851, 2823.930, 775.960) 775.96-775.96 PurC1
+  P12   2   2 ( -852.847, 2817.135, 773.274) 773.27-773.27 Fluid2
+  P13   7   7 ( -842.821, 2841.146, 773.274) 773.27-773.27 Fluid7
+  P14   1   0 ( -814.878, 2817.160, 774.594) 774.59-774.59 Mchi1 BOSS
+  P15   1   1 ( -798.110, 2833.480, 773.274) 773.27-773.27 Fluid1
+  P16   1   6 ( -792.553, 2853.130, 773.274) 773.27-773.27 IntC1
+  P17   1   6 ( -831.772, 2788.490, 773.275) 773.27-773.27 IntC1
+  P18   5  24 ( -842.756, 2911.636, 795.867) 795.87-795.87 Rap2 SBe1 SBru1 SWD1
+  P19   4  16 ( -801.491, 2911.343, 796.162) 796.16-796.16 SHP2 SBe1 SWD1
+  P20   3  12 ( -932.189, 2911.837, 795.493) 795.44-795.53 Rap1 SHP1 SBM1
+  P21   5  14 ( -986.832, 2911.730, 795.719) 795.63-795.82 SHH2 SBe1 SHP1 SWD1
+  P22   2   8 (-1029.080, 2911.430, 795.589) 795.59-795.59 SBM2
+  P23   1   0 (-1122.460, 2891.300, 775.562) 775.56-775.56 Kula1 BOSS
+  P24   1   8 ( -943.899, 3037.570, 795.639) 795.64-795.64 SoZ1
+  P25   1   0 ( -945.063, 3144.060, 779.051) 779.05-779.05 Daz1 BOSS
+  The 69 rows carry 240 force in total; MDT's own dungeon total is 246, so
+  this DB is 6 short of a full clear. Minion of Zul (133943) is f=0 in MDT
+  and there are 9 of them, which is why the count does not move.
+
+2.4 THE ROUTE: 25 LEGS, EVERY ONE WITH ITS DISTANCE AND ITS dz
+
+  This is a distance bookkeeping walk, not a walked route. It is ordered in
+  seven zones, and the zone order is taken from the four boss rows, which
+  are monotonic in y: Serpent y 2628.50, Mchimba y 2817.16, Council y
+  2891.30, Dazar y 3144.06 [DB]. Trash that sits between two of those y
+  values is placed between them. Whether the real floor connects the zones
+  in this order is unverified; no walkable mesh was read.
+    A entrance hall z 809.9        B Serpent corridor z 809-827
+    C kings' room z 813.4          D crypt z 773-776
+    E spectral hall z 795-796      F Council room z 775.6
+    G Dazar approach z 779-796
+
+  A -> P01    3.8 yd   dz  -0.00
+  A -> P02   32.2 yd   dz  -0.02
+  A -> P03   25.6 yd   dz  -0.03
+  A -> P04   27.5 yd   dz  +0.04
+  B -> P05  133.5 yd   dz  +0.18
+  B -> P06   24.8 yd   dz  +0.34
+  B -> P07   30.8 yd   dz  -0.34
+  B -> P08   23.6 yd   dz +17.08
+  B -> P09   22.4 yd   dz -17.07
+  C -> P10  146.9 yd   dz  +3.29
+  D -> P11  178.1 yd   dz -37.42
+  D -> P12  111.2 yd   dz  -2.69
+  D -> P13   26.0 yd   dz  +0.00
+  D -> P14   36.8 yd   dz  +1.32
+  D -> P15   23.4 yd   dz  -1.32
+  D -> P16   20.4 yd   dz  +0.00
+  D -> P17   75.6 yd   dz  +0.00
+  E -> P18  125.7 yd   dz +22.59
+  E -> P19   41.3 yd   dz  +0.30
+  E -> P20  130.7 yd   dz  -0.67
+  E -> P21   54.6 yd   dz  +0.23
+  E -> P22   42.2 yd   dz  -0.13
+  F -> P23   97.6 yd   dz -20.03
+  G -> P24  231.7 yd   dz +20.08
+  G -> P25  107.8 yd   dz -16.59
+  Total straight-line distance 1774 yd over 25 legs and 7 zones.
+  Seven legs are over 100 yd: P04 to P05 (entrance hall into the Serpent
+  corridor), P09 to P10 (corridor into the kings' room), P10 to P11 (kings'
+  room down to the crypt), P17 to P18 (crypt up to the spectral hall), P19
+  to P20 (inside the hall, which runs 230 yd along x), P23 to P24 (council
+  room to the Dazar approach) and P24 to P25 (that approach to Dazar). Each
+  one is the file saying "this is a different room", not a suggestion to
+  walk in a straight line.
+
+2.5 WHAT THE GEOMETRY DOES NOT GIVE
+  No line-of-sight data exists in any source I could read. There is no
+  collision, no mesh and no door list. The only physical facts in the file
+  are the rows themselves: the crypt floor is flat to 0.001 yd across the
+  12 rows that share z 773.274, the spectral hall is flat to 0.72 yd across
+  19 rows, and the only real height change inside a zone is the Golden
+  Serpent's 17.1 yd ledge.
+
+3. LANDMARK TABLE - EVERY STATIC COORDINATE THE INSTANCE HAS
+
+3.1 THE FOUR BOSS ROWS [DB]
+  The Golden Serpent 135322  (-1061.860, 2628.500, 827.161) o 1.85580
+  Mchimba            134993  ( -814.878, 2817.160, 774.594) o 2.30411
+  Kula the Butcher   135475  (-1122.460, 2891.300, 775.562) o 1.05984
+  King Dazar         136160  ( -945.063, 3144.060, 779.051) o 4.75927
+  Aka'ali and Zanazal have NO DB row: they are summoned by the script at
+  3.2. That is why the Council is the only encounter whose later two bosses
+  cannot be found in the creature table.
+
+3.2 THE THREE SCRIPT CONSTANTS, VERBATIM [SRV]
+  middle_pos  = { -1101.0f, 2911.0f, 775.560f, 3.11f }
+  akali_pos   = { -1122.0f, 2931.0f, 775.560f, 5.29f }
+  zanazal_pos = { -1135.0f, 2911.0f, 775.577f, 0.0f }
+  That is the complete list. There is no tank constant, no arena polygon
+  and no safe-spot constant in any of the five script files.
+  The geometry they describe: Kula's row to akali_pos is 39.7 yd, akali_pos
+  to zanazal_pos 23.9 yd, zanazal_pos to middle_pos 34.0 yd, and Kula's row
+  to middle_pos 29.1 yd [CALC]. middle_pos is the centre of the room, and
+  it is used for exactly one thing: the random point within 30.0 yd of it
+  where each of Zanazal's four totems is summoned.
+
+3.3 THE GAME OBJECTS AND THE ONE AREATRIGGER [DB]
+  290682  (-1016.960, 2699.470, 809.916) o 3.86648  entrance
+  290682  (-1023.160, 2707.170, 809.917) o 3.87958  entrance, 9.9 yd
+                                                    from the first
+  290701  ( -821.216, 2891.820, 776.529) o 4.69331  crypt corridor
+  288637  (-1079.620, 2910.410, 775.505) o 3.14192  The Council's Cache
+  288638  ( -945.327, 3116.190, 779.347) o 1.59333  Boon of the First King
+  Only 288637 and 288638 have template rows in this SQL: both are type 3
+  (chest) with displayId 48259, and the instance script starts both of them
+  GO_FLAG_LOCKED. The cache is 46.9 yd from Kula's row and 21.4 yd from
+  middle_pos; the Boon is 27.9 yd south of Dazar [CALC].
+  areatrigger 100007 is on map 1642 at (-847, 2527, 731) and teleports
+  through areatrigger_teleport ID -99 to PortLoc 6560 'Kings' Rest - Zone In
+  Target'. The PortLoc coordinate is not in this file.
+
+3.4 THE SINGLE-ROW ODDITIES
+  Shadow of Zul 138489 has two rows: one in the Shadow-Borne corridor at
+  (-943.899, 3037.570, 795.639) and one in the kings' room at (-1120.360,
+  2761.200, 813.308). The instance script gives it its own creature AI, so
+  it is the only trash mob on this core with hand-written behaviour.
+  Purification Construct 134739 is one row at (-963.851, 2823.930, 775.960):
+  2.69 yd above the crypt floor and 106.8 yd from the nearest crypt row, so
+  it stands in the corridor west of Mchimba, not in his room.
+  Interment Construct 137969 has two rows in the crypt, 75.6 yd apart.
+  Embalming Fluid 137989 has ten rows, all at z 773.274 exactly, spread over
+  x -858.86 to -798.11 and y 2813.55 to 2851.58. They are creatures, not
+  area triggers, and they carry force value 1 each.
+
+================================================================================
+4. BOSS 1 - THE GOLDEN SERPENT  (entry 135322, MDT hp 5,379,459, level 122)
+================================================================================
+4.1 SPAWN AND TANK POSITION
+  Boss  135322   (-1061.860, 2628.500, 827.161) o 1.855802   [DB]
+  He is 17.1 yd above the corridor floor: the nearest entrance-level row is
+  810.088 and the whole z 809 band tops out at 810.76 [DB][CALC]. He is
+  22.4 yd from the nearest Shadow-Borne pack centroid.
+  TANK: unverified. There is no constant, no MovePoint and no facing rule in
+  boss_the_golden_serpent.cpp. The only position in the fight is the one the
+  AURA creates: when 265773 Spirit of Gold expires, the caster drops 255583
+  Molten Gold on the player it was on. The script never picks a spot.
+  The room: he is a single row, so the DB says nothing about its size. What
+  the rows do say is that the corridor below him is 152 yd wide in x and
+  86 yd long in y, and that no creature row exists between z 810.76 and
+  his z 827.161 - the ledge is empty of data, not necessarily of floor.
+
+4.2 PHASES [SRV] - none, and no health gate anywhere
+  boss_the_golden_serpent.cpp has no HealthBelowPct and no
+  HealthWillBeBelowPctDamaged. Three events are scheduled once, on
+  EnterCombat, and never re-armed as a set. There is no intermission and no
+  berserk. The only state change in the file is the aura's removal handler.
+
+4.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                   script [SRV]     DBM [DBM]    LW [LW]
+  Spirit of Gold 265773     first 5.0, then  - (timeline)  9.0 then
+                            every 15.0                     15.0 / 41.5
+  Tail Thrash 265910        first 10.0, then - (timeline)  15.5 then
+                            every 25.0                     17.0 / 27.5
+  Serpentine Gust 265781    first 15.0, then - (timeline)  12.5 then
+                            every 35.0                     11.0 / 21.5
+  Lucre's Call 265923       NEVER SCHEDULED  - (timeline)  40.0
+  Luster 265991             NEVER SCHEDULED  -            -
+  DBM 8.3.34 ships this boss as a timeline rather than fixed timers, so it
+  has no single number to quote; LittleWigs' bars are the only addon values.
+  Two things in that table need saying plainly:
+  - Lucre's Call and Luster are declared in the script's Spells and Events
+    enums and then never used. No code path schedules either one.
+    LittleWigs still puts a 40 s bar on 265923, so the addon and the server
+    disagree about whether the ability exists at all.
+  - Tail Thrash has no break at the end of its case, so cast Tail Thrash
+    falls through into Serpentine Gust. Every Tail Thrash is therefore also
+    a Serpentine Gust, and it re-arms the Gust 35 s clock as a side effect.
+
+4.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) SPIRIT OF GOLD 265773 - ONE RANDOM PLAYER, and it is a move-out.
+     Trigger: the 5.0 s event, DoCastRandom(265773, 100.0f). The aura is a
+     periodic damage aura; when it is removed (AURA_EFFECT_HANDLE_REAL) the
+     caster casts 255583 Molten Gold on the same player, which is the gold
+     pool. So the assigned player is whoever has the debuff, and the
+     assignment is "walk it away from the group before it expires".
+     The pool's radius is unverified; 265914 exists in the script as
+     "Molten Gold AT damage" and nothing casts it.
+  b) TAIL THRASH 265910 - THE TANK. Trigger: DoCastVictim on the 10.0 s
+     event. It is aimed at the current victim and is the only
+     victim-targeted cast in the encounter.
+  c) SERPENTINE GUST 265781 - NOBODY. Self-cast AOE, no target. It is also
+     the fall-through of Tail Thrash (4.3).
+  d) SOAK LISTS, KICK ORDER AND TANK SWAPS: none. There is no interruptible
+     cast and no stacking debuff in this fight.
+
+4.5 SAFE SPOTS, WITH z
+  There is no safe-spot coordinate in any source, and the script never
+  positions anything. What the data does fix:
+  - the arena is at z 827.161 [DB]. Anything on the corridor floor (z 809.9
+    to 810.8) is 16.4 to 17.3 yd below it - out of line of sight in
+    practice, but no line-of-sight data exists to prove it.
+  - the Molten Gold pool spawns on the player who had 265773, at that
+    player's own position, at whatever z they stood on [SRV].
+  - Serpentine Gust has no radius in any source. Do not put one in a bot.
+  Everything else in this encounter is unverified.
+================================================================================
+5. BOSS 2 - MCHIMBA THE EMBALMER  (entry 134993, MDT hp 5,379,459, level 122)
+================================================================================
+5.1 SPAWN AND TANK POSITION
+  Boss  134993   ( -814.878, 2817.160, 774.594) o 2.304110   [DB]
+  He stands on the crypt floor: 12 rows share z 773.274 exactly and his own
+  z is 1.32 yd above it [CALC]. The crypt holds 14 rows over x -963.851 to
+  -792.553 and y 2788.490 to 2853.130, and every row in it is a construct,
+  a fluid puddle or the boss.
+  TANK: unverified. No constant, no MovePoint, no facing rule.
+
+5.2 PHASES [SRV] - none
+  boss_mchimba.cpp has no health gate. Three events, all scheduled on
+  EnterCombat: Entomb 5.0 s, Burn Corruption 10.0 s, Drain Fluids 15.0 s.
+  There is no intermission, no add wave and no berserk. The aura script on
+  267618 is the only conditional behaviour in the file.
+
+5.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                     script [SRV]     DBM [DBM]   LW [LW]
+  Entomb 267702               first 5.0, then 60.0         29.5
+                              every 30.0
+  Burn Corruption 267639      first 10.0, then 15.5        11.1 / 10.4
+                              every 15.0
+  Drain Fluids 267618         first 15.0, then 16.8        17.9 / 17.0
+                              every 20.0
+  Desiccation 267626          applied when 267618 is removed [SRV]
+  THE ENTOMB EVENT CASTS NOTHING. The case in ExecuteEvent only calls
+  Talk(SAY_ENTOMB) and re-arms itself for 30.0 s; 267702 is not cast and the
+  267763 that DBM and LittleWigs also watch never appears either. DBM bars
+  Entomb at 60 s and LittleWigs at 29.5 s; on this core it never happens.
+  That is the largest script/addon gap in the instance and it is in section
+  10 as well.
+
+5.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) BURN CORRUPTION 267639 - ONE RANDOM PLAYER. Trigger: DoCastRandom on
+     the 10.0 s event with a 300.0 yd search radius, so the whole crypt is
+     in range. LittleWigs treats it as a beam that has to be dodged; the
+     script just targets a random player.
+  b) DRAIN FLUIDS 267618 - ONE RANDOM PLAYER. Trigger: DoCastRandom, 300.0
+     yd, on the 15.0 s event. When the aura is removed the caster applies
+     267626 Desiccation to the same target (aura_drain_fluids). So the
+     assigned player is whoever is draining, and they get Desiccation when
+     it ends - there is no soak and no interrupt.
+  c) EMBALMING FLUID 137989 - NOBODY, but ten of them exist as creatures.
+     Their SmartAI casts 271565 Splash Fluid on a random player every 15 s
+     after a 1.5-2.0 s initial delay [DB]. They are the only trash-like
+     actors inside a boss room in this instance.
+  d) ENTOMB 267702 - NO TRIGGER EXISTS (5.3). If your DB or core does cast
+     it, nothing in these scripts places the tomb or frees the player from
+     it.
+  e) SOAK LISTS AND TANK SWAPS: none.
+
+5.5 SAFE SPOTS, WITH z
+  - the crypt floor is z 773.274 to 773.275 across the 12 rows that share
+    it; Mchimba at 774.594 and the Purification Construct at 775.960 are
+    the only rows off it, so the fight is on one plane to within 2.7 yd
+    [DB].
+  - ten Embalming Fluid rows sit at z 773.274-773.275, x -858.86 to -798.11
+    and y 2813.55 to 2851.58 [DB]. They are the only occupied ground in the
+    room, and they are static.
+  - the 290701 object is at (-821.216, 2891.820, 776.529), 74.9 yd from
+    Mchimba and 3.3 yd above the crypt floor [DB][CALC].
+  Burn Corruption's and Drain Fluids' radii are unverified. So is the
+  Desiccation duration.
+================================================================================
+6. BOSS 3 - THE COUNCIL OF TRIBES  (Kula 135475, Aka'ali 135470, Zanazal
+   135472; MDT hp 2,766,579 each, level 122)
+================================================================================
+6.1 SPAWN AND TANK POSITION
+  Kula   135475   (-1122.460, 2891.300, 775.562) o 1.059840   [DB]
+  Aka'ali 135470  (-1122.000, 2931.000, 775.560) o 5.290000   [SRV]
+  Zanazal 135472  (-1135.000, 2911.000, 775.577) o 0.000000   [SRV]
+  Only Kula has a DB row. Aka'ali is summoned at akali_pos when Kula dies,
+  and Zanazal at zanazal_pos when Aka'ali dies [SRV] - so a bot that looks
+  them up in the creature table finds nothing.
+  The room is flat: all three z values are 775.560 to 775.577, a 0.017 yd
+  spread [SRV]. Kula to Aka'ali is 39.7 yd, Aka'ali to Zanazal 23.9 yd,
+  Zanazal to middle_pos 34.0 yd [CALC].
+  TANK: unverified. Neither constant is a tank position; middle_pos is where
+  the totems are scattered around, not where a tank stands.
+
+6.2 PHASES [SRV] - no health percentage; three hand-offs by death
+  There is no HealthBelowPct in boss_council_of_tribe.cpp. What the fight
+  has is a chain:
+  1. Kula the Butcher fights alone. On death: _JustDied(), then
+     SummonCreature(135470, akali_pos).
+  2. Aka'ali fights alone. On death: _JustDied(), then
+     SummonCreature(135472, zanazal_pos).
+  3. Zanazal fights alone. On death: _JustDied(), then
+     FindNearestGameObject(288637, 300.0f) -> RemoveFlag(GO_FLAG_LOCKED).
+  Each one is a separate BossAI instance bound to the same encounter index
+  (DATA_COUNCIL), and each starts its own event list in EnterCombat.
+  There is no intermission, no shared health pool and no berserk.
+
+6.3 MAIN ABILITY TIMERS, seconds from that captain's pull
+  ability                     script [SRV]      DBM [DBM]    LW [LW]
+  KULA THE BUTCHER
+  Severing Axe 266231         first 5.0, then    21.8         -
+                              every 15.0
+  Whirling Axes 266206        first 10.0, then   10.8         -
+                              every 20.0
+  AKA'ALI THE CONQUEROR
+  Debilitating Backhand 266237 first 5.0, then   22.8         -
+                              every 15.0
+  Barrel Through 266951       first 10.0, then   23.0         -
+                              every 20.0
+  Barrel Through Charge 266941 fires 8.0 s after 266951 [SRV]
+  Barrel Through AOE 266940   fires 10.0 s after 266951 [SRV]
+  ZANAZAL THE WISE
+  Lightning Bolt 267308       first 5.0, then    -            -
+                              every 3.0
+  Poison Nova 267273          first 10.0, then   26.7         -
+                              every 20.0
+  Call of the Elements 267060 first 15.0, then   53.5         -
+                              every 30.0
+  DBM's own file marks Whirling Axes, Barrel Through and Poison Nova timers
+  as "Used inactive" and says the totem timer "needs doing", so its numbers
+  are not a rotation. The script's are.
+  The script repeats everything on 3.0, 15.0, 20.0 or 30.0 s; DBM measures
+  10.8 to 53.5 s on the same ids. Do not mix the two columns.
+
+6.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) BARREL THROUGH 266951 - THE TOP-AGGRO PLAYER, then everybody.
+     Trigger: SelectTarget(SELECT_TARGET_TOPAGGRO, 0, 100.0f, true) on the
+     10.0 s event, then three casts on one chain: 266951 immediately, 266941
+     on the same target 8.0 s later, and 266940 as an AOE 10.0 s later.
+     Because the target is the tank, the assignment is "the tank moves and
+     the group does not stand in the line".
+  b) DEBILATING BACKHAND 266237 - THE TANK. Trigger: DoCastVictim on the
+     5.0 s event. It is the only victim-targeted cast in the fight.
+  c) POISON NOVA 267273 - EVERYBODY, and it is the interrupt. Trigger:
+     DoCastAOE on the 10.0 s event. DBM flags it with the INTERRUPT icon;
+     the script gives it no cast time of its own, so whether it can be
+     interrupted at all is unverified.
+  d) CALL OF THE ELEMENTS 267060 - FOUR TOTEMS, everybody splits.
+     Trigger: DoCast(267060) on the 15.0 s event, then four DoSummons at
+     GetRandomPoint(middle_pos, 30.0f): 135764 Explosive, 135761 Thundering,
+     135765 Torrent and 135759 Earthwall. Each lands within 30.0 yd of
+     middle_pos (-1101.0, 2911.0, 775.560) and nowhere else.
+     What each totem does on spawn: Explosive casts 267077 Explode,
+     Thundering casts 267257 Thundering Crash, Torrent casts nothing and
+     Earthwall casts nothing. All four are REACT_PASSIVE.
+  e) SEVERING AXE 266231 AND WHIRLING AXES 266206 - RANDOM AND SELF.
+     Trigger: DoCastRandom(100 yd) and DoCastAOE. No assignment beyond
+     spreading; the Axe carries a bleed (DBM's aura sound option names it
+     "bleedyou").
+  f) SOAK LISTS AND TANK SWAPS: none.
+
+6.5 SAFE SPOTS, WITH z
+  - the whole room is one plane at z 775.560 to 775.577 [SRV]. That is the
+    most exact statement in this file: 0.017 yd of vertical spread across
+    the three spawn points.
+  - the totems land inside a 30.0 yd radius of middle_pos and nowhere else
+    [SRV]. Standing more than 30.0 yd from (-1101.0, 2911.0, 775.560) is
+    outside every possible totem spawn - that is arithmetic on the script's
+    own GetRandomPoint call, not a game rule [CALC].
+  - The Council's Cache, 288637 at (-1079.620, 2910.410, 775.505), is 46.9
+    yd from Kula's spawn and 21.4 yd from middle_pos [CALC]. It is locked
+    until Zanazal dies.
+  Everything else - Poison Nova's radius, Whirling Axes' radius, the
+  Explode radius - is unverified.
+================================================================================
+7. BOSS 4 - KING DAZAR  (entry 136160, MDT hp 5,994,255, level 122)
+================================================================================
+7.1 SPAWN AND TANK POSITION
+  Boss  136160   ( -945.063, 3144.060, 779.051) o 4.759270   [DB]
+  He has no adds at spawn, no summon point and no script position. The two
+  adds he creates are summoned on his OWN position:
+  SummonCreature(NPC_REBAN, me->GetPosition()) at 80% and
+  SummonCreature(NPC_TZALA, me->GetPosition()) at 60% [SRV].
+  TANK: unverified. No constant, no MovePoint, no facing rule.
+
+7.2 PHASES [SRV] - two health gates, 80% and 60%, and neither is a phase
+  DamageTaken: HealthBelowPct(80) -> summon 136984 Reban, once.
+  DamageTaken: HealthBelowPct(60) -> summon 136976 Tzala.
+  DBM's note says "boss phases at 80% health and changes attack pattern" and
+  uses the Hunting Leap cancel as the signal. On this server nothing changes
+  attack pattern at 80% or at 60%, because nothing is running to begin with
+  (7.3): the only difference the two gates make is the two adds.
+  There is no third gate, no intermission and no berserk.
+  ONE BUG IS WORTH KNOWING BEFORE YOU BUILD A BOT: the 60% branch sets
+  hp80 = true instead of hp60 = true, so hp60 is never set. Every damage
+  event after the boss drops below 60% re-runs that branch and summons
+  another Tzala. A bot should expect Tzala to exist more than once, and a
+  server owner should fix the flag.
+
+7.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                     script [SRV]      DBM [DBM]    LW [LW]
+  Blade Combo 268586          NEVER SCHEDULED   14.5         18.2
+  Quaking Leap 268932         NEVER SCHEDULED   19.3         12.1
+  Gale Slash 268403           NEVER SCHEDULED   13.0         12.1
+  Gale Slash AT damage 268419 declared, unused  -            -
+  Impaling Spear              empty case        -            -
+  REBAN 136984
+  Hunting Leap 270502         first 3.0, then 12.8          -
+                              every 15.0
+  TZALA 136976
+  Deathly Roar 269369         first 3.0, then 13.6          -
+                              every 30.0
+  Eternal Guardian 269351     declared, unused  -            -
+  Impaling Spear Stun 268796  declared, unused  -            -
+  EnterCombat in boss_dazar.cpp calls _EnterCombat() and nothing else - no
+  ScheduleEvent at all. There is no other ScheduleEvent in the file outside
+  the two minion AIs. So King Dazar himself casts none of his three
+  abilities on this core: Blade Combo, Quaking Leap and Gale Slash are
+  declared, never scheduled, and never fired. What a group actually fights
+  is a melee boss plus Reban and Tzala.
+  The two minions do run: npc_dazar_minions schedules one event per entry in
+  EnterCombat and repeats it. Tzala additionally mounts Dazar on summon
+  (Mount(NPC_TZALA, 0, NPC_TZALA)) if it finds him within 125.0 yd.
+
+7.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) HUNTING LEAP 270502 (REBAN) - ONE RANDOM PLAYER. Trigger: DoCastRandom
+     with a 100.0 yd radius on the 3.0 s event, then every 15.0 s. DBM
+     watches a different id (269231) for the same ability and LittleWigs
+     logs 269230, so three sources, three ids.
+  b) DEATHLY ROAR 269369 (TZALA) - NOBODY. DoCastAOE, self-centred, first
+     at 3.0 s and then every 30.0 s.
+  c) BLADE COMBO / QUAKING LEAP / GALE SLASH - NO TRIGGER ON THIS CORE.
+     If your core does fire them: Quaking Leap is aimed with
+     SelectTarget(SELECT_TARGET_FARTHEST, 0, 100.0f), Blade Combo at the
+     victim, Gale Slash at a random target, and the repeats would be 15.0,
+     20.0 and 30.0 s [SRV].
+  d) SOAK LISTS AND TANK SWAPS: none. There is no tank debuff in the file.
+
+7.5 SAFE SPOTS, WITH z
+  - Dazar stands at z 779.051 on the top floor [DB]. The only other object
+    at his height is the Boon of the First King, 288638 at (-945.327,
+    3116.190, 779.347), 27.9 yd south of him and 0.30 yd above [DB][CALC].
+  - the approach to him comes up from the spectral hall at z 795.6, i.e.
+    16.5 yd below his floor; the 138489 Shadow of Zul at (-943.899,
+    3037.570, 795.639) is the last row before that change.
+  - Tzala mounts Dazar, so the add and the boss share one position. Where
+    the mount ends up is unverified.
+  Every radius in this fight is unverified: neither script carries one.
+
+================================================================================
+8. TRASH - EVERY ABILITY, WHO OWNS IT, AND WHAT FIRES IT
+================================================================================
+8.1 THE MOBS. All 25 non-boss creature entries that have a DB row, with
+    per-kill forces [MDT] and the number of rows each one has [DB].
+    Name                       entry    force      hp       lvl  rows
+    Animated Guardian          133935      8 1,306,442    120     4
+    Shadow-Borne Warrior       134157      4   768,494    120     3
+    Shadow-Borne Champion      134158      6 1,229,590    121     2
+    Shadow-Borne Witch Doctor  134174      5 1,152,741    121     2
+    Spectral Berserker         135167      4   922,193    121     3
+    Honored Raptor             135192      4   768,494    120     3
+    Spectral Hex Priest        135204      4   691,644    120     4
+    Spectral Brute             135231      8 1,536,988    121     1
+    Spectral Beastmaster       135235      4   730,070    120     3
+    Spectral Witch Doctor      135239      4   768,494    120     3
+    Spectral Headhunter        134994      1   249,760    120     2
+    Guard Captain Atu          137473      4 1,248,802    120     1
+    Seneschal M'bara           134251      4   768,494    120     1
+    King Timalji               137474      6 1,229,590    121     1
+    Queen Wasi                 137478      6 1,229,590    121     1
+    King A'akul                137484      6 1,998,085    121     1
+    King Rahu'ai               134331      6 1,229,590    121     1
+    Queen Patlaa               137486      4 1,229,590    121     1
+    Skeletal Hunting Raptor    137487      4   768,494    120     1
+    Bloodsworn Agent           137485      4   768,494    120     3
+    Shadow of Zul              138489      8 2,612,880     -1     2
+    Interment Construct        137969      6 1,536,988    120     2
+    Purification Construct     134739     10 1,844,388    120     1
+    Embalming Fluid            137989      1   461,096    120    10
+    Minion of Zul              133943      0        36    120     9
+    Minion of Zul 133943 is f=0 and hp 36 in MDT: it is a summon, not a pull.
+    Embalming Fluid 137989 is f=1 and has ten rows: it is scenery that fights
+    back, and it is the only reason a full clear of this DB reads 240 rather
+    than 230.
+
+8.2 THE SMART SCRIPT TABLE, VERBATIM [DB]. 25 rows over 18 entries.
+
+    Two columns need a word. 'first' is event_param1-2 of an update-in-combat
+    event, i.e. seconds after that creature enters combat. 'then every' is
+    event_param3-4. A row with both repeats at 0 fires once. The arrow is
+    target_type: 1 self, 2 victim, 5 random player, 0 none. Target type 28
+    is used by the three leap abilities and by nothing else; its meaning is
+    unverified, so it is printed as a number.
+
+  Animated Guardian 133935  (4 rows)
+    Suppression Slam 270003
+      first 1.5-2.0 s, then every 10.0-20.0 s -> victim
+    Released Inihibitors 270016
+      once at 2.5 s -> self
+  Shadow-Borne Champion 134158  (2 rows)
+    Ancestral Fury 269976
+      once at 1.5-2.0 s -> self
+    Vigilant Defense 269928
+      first 3.0 s, then every 15.0 s -> self
+  Shadow-Borne Witch Doctor 134174  (2 rows)
+    Shadow Bolt Volley 269972
+      first 1.5-2.0 s, then every 10.0 s -> self
+    Deathly Chill 269973
+      first 2.5 s, then every 15.0 s -> random player
+  Spectral Berserker 135167  (3 rows)
+    Severing Blade 270487
+      first 0.0-2.0 s, then every 5.0 s -> victim
+    Blooded Leap 270482
+      first 3.0 s, then every 8.0 s -> type 28
+  Honored Raptor 135192  (3 rows)
+    Hunting Leap 270500
+      first 1.5-2.0 s, then every 10.0 s -> type 28
+  Spectral Hex Priest 135204  (4 rows)
+    Spectral Bolt 270493
+      first 1.5-2.0 s, then every 3.0 s -> random player
+    Hex 270492
+      first 3.0 s, then every 15.0 s -> random player
+  Spectral Brute 135231  (1 rows)
+    Ground Crush 270514
+      first 1.5-2.0 s, then every 10.0 s -> none
+  Spectral Beastmaster 135235  (3 rows)
+    Poison Barrage 270507
+      first 1.5-2.0 s, then every 10.0 s -> random player
+  Spectral Witch Doctor 135239  (3 rows)
+    Healing Tide Totem 270497
+      first 1.5-2.0 s, then every 15.0 s -> self
+    Frost Shock 270499
+      first 3.0 s, then every 20.0 s -> random player
+  Guard Captain Atu 137473  (1 rows)
+    Axe Barrage 270084
+      first 1.5-2.0 s, then every 15.0 s -> self
+  Seneschal M'bara 134251  (1 rows)
+    Induce Regeneration 270901
+      first 1.5-2.0 s, then every 15.0 s -> self
+  King Timalji 137474  (1 rows)
+    Bladestorm 270927
+      once at 1.5-2.0 s -> victim
+  Queen Wasi 137478  (1 rows)
+    Shadow Bolt 270923
+      first 1.5-2.0 s, then every 3.0 s -> random player
+  King A'akul 137484  (1 rows)
+    Hidden Blade 270865
+      first 1.5-2.0 s, then every 15.0 s -> random player
+  Queen Patlaa 137486  (1 rows)
+    Darkshot 270930
+      first 1.5-2.0 s, then every 15.0 s -> random player
+  Skeletal Hunting Raptor 137487  (1 rows)
+    Hunting Leap 270500
+      first 1.5-2.0 s, then every 10.0 s -> type 28
+    Seduction 270920
+      first 2.5 s, then every 15.0 s -> random player
+  Bloodsworn Agent 137485  (3 rows)
+    Shadow Whirl 270872
+      first 1.5-2.0 s, then every 15.0 s -> none
+  Embalming Fluid 137989  (10 rows)
+    Splash Fluid 271565
+      first 1.5-2.0 s, then every 10.0 s -> random player
+  Nothing else in the instance has a script. 18 of the 25 entries in 8.1 have
+  at least one smart_scripts row. The seven that have none: Shadow-Borne
+  Warrior 134157, Spectral Headhunter 134994, King Rahu'ai 134331, Interment
+  Construct 137969, Purification Construct 134739, Minion of Zul 133943 and
+  Shadow of Zul 138489. Of those seven only Shadow of Zul runs any code -
+  the C++ AI in 8.3. The other six are melee-only.
+
+8.3 SHADOW OF ZUL 138489 - THE ONLY HAND-WRITTEN TRASH AI [SRV]
+  Reset: adds UNIT_FLAG_IMMUNE_TO_PC and UNIT_FLAG_IMMUNE_TO_NPC, so it
+  cannot be attacked until its AI decides otherwise - and nothing in the
+  file ever removes those flags.
+  EnterCombat: ScheduleEvent(EVENT_SHADOW_BARRAGE, 5s) and
+  ScheduleEvent(EVENT_DARK_REVELATION, 10s).
+  EVENT_SHADOW_BARRAGE: DoCastVictim(272388), then Repeat(3s).
+  EVENT_DARK_REVELATION: DoCastRandom(271640, 100.0f), then
+  SummonCreature(133943, me->GetPosition()), then Repeat(10s).
+  There is no break after the Shadow Barrage case either, so every Shadow
+  Barrage also runs Dark Revelation, which summons a Minion of Zul every
+  3 s rather than every 10 s. The three-second heal-cut becomes a
+  three-second add spawn.
+  The two rows: (-943.899, 3037.570, 795.639) in the corridor before Dazar
+  and (-1120.360, 2761.200, 813.308) in the kings' room [DB].
+
+8.4 PACK NOTES, tied to the ids in 2.3
+  Zone A, P01 to P04, the entrance hall: 13 rows, 32 force, two creature
+  types (Animated Guardian 133935 and Minion of Zul 133943), y 2688.7 to
+  2708.8 over 0.05 yd of z. P02 is the nine Minion of Zul: 0 force, the
+  only trash pack in the instance a group can skip for free.
+  Zone B, P05 to P09, the Serpent corridor: 8 rows, 34 force, y 2622.7 to
+  2656.9. Seven of the eight sit at z 810.073 to 810.759; the eighth is the
+  Golden Serpent at 827.161, 16.4 yd above the highest trash row.
+  Zone C, P10, the kings' room: 12 rows, 60 force, 10 distinct creature
+  types (Bloodsworn Agent x3, then one each of A'akul, Rahu'ai, Timalji,
+  Wasi, Patlaa, Atu, M'Bara, the Skeletal Hunting Raptor and Shadow of
+  Zul). That is a quarter of the instance's 240 force in one pull, and the
+  only pack with more than four types. z 813.308 to 813.406.
+  Zone D, P11 to P17, the crypt: 14 rows, 32 force, y 2788.5 to 2853.1. Ten
+  of the 14 are Embalming Fluid 137989; 12 sit at z 773.274-773.275, with
+  Mchimba at 774.594 and the Purification Construct at 775.960.
+  Zone E, P18 to P22, the spectral hall: 19 rows, 74 force, y 2906.0 to
+  2917.7 and z 795.444 to 796.164 - a 0.72 yd z spread across 19 rows, the
+  flattest large group in the instance.
+  Zone F, P23, the council room: 1 row, 0 force, Kula the Butcher.
+  Zone G, P24 to P25, the Dazar approach: 2 rows, 8 force, Shadow of
+  Zul at z 795.639 and King Dazar at 779.051.
+  Twelve of the 25 packs hold a single row: P03, P04, P05, P08, P11, P14,
+  P15, P16, P17, P23, P24 and P25. Four of those twelve are bosses.
+
+8.5 DISPEL AND INTERRUPT DUTY, AS THE ADDONS SEE IT [LW][DBM]
+  LittleWigs marks six of these as dispels, and DBM's own sound options agree
+  on four of them:
+    270492 Hex (135204 Hex Priest)        magic  - also a polymorph
+    269972 Hex Volley (134174)            curse  - DBM: RemoveCurse
+    270920 Seduction (137487)             magic
+    269976 Ancestral Fury (134158)        enrage - DBM: RemoveEnrage
+    270865 Hidden Blade (137484)          poison - DBM: RemovePoison
+    267763 Wretched Discharge             disease - 267763 is not cast by
+                                                   any script row in this
+                                                   DB; LittleWigs attaches
+                                                   it to 270502 Hunting Leap
+    1298104 Putrid Seekers (137989)       poison - not in the DB either
+    1297918 Mortal Bleed (137484)         bleed
+    1297781 Sudden Rupture (137485)       bleed
+    1301851 Bloodthirsty Axe (135167)     bleed
+    1306763 Serpent Strike (137486)       poison
+  Six of those eleven ids appear nowhere in the SQL: 1297918, 1297781,
+  1301851, 1306763, 1298104 and 267763. They are addon-side ids for
+  abilities this core does not cast, and a companion that waits for them
+  will wait forever.
+  No trash spell in the DB is flagged interruptible, and none of the 25
+  smart_scripts rows is a cast-stop. Kick duty on trash is therefore
+  unverified on this core.
+
+================================================================================
+9. ID INDEX
+================================================================================
+  Creatures
+    133935 Animated Guardian        133943 Minion of Zul
+    134157 Shadow-Borne Warrior     134158 Shadow-Borne Champion
+    134174 Shadow-Borne Witch Doctor 134251 Seneschal M'Bara
+    134331 King Rahu'ai             134739 Purification Construct
+    134993 Mchimba the Embalmer     134994 Spectral Headhunter
+    135167 Spectral Berserker       135192 Honored Raptor
+    135204 Spectral Hex Priest      135231 Spectral Brute
+    135235 Spectral Beastmaster     135239 Spectral Witch Doctor
+    135322 The Golden Serpent       135470 Aka'ali the Conqueror
+    135472 Zanazal the Wise         135475 Kula the Butcher
+    135759 Earthwall Totem          135761 Thundering Totem
+    135764 Explosive Totem          135765 Torrent Totem
+    136160 King Dazar               136976 Tzala
+    136984 Reban                   137473 Guard Captain Atu
+    137474 King Timalji             137478 Queen Wasi
+    137484 King A'akul              137485 Bloodsworn Agent
+    137486 Queen Patlaa             137487 Skeletal Hunting Raptor
+    137969 Interment Construct      137989 Embalming Fluid
+    138250 Pool of Darkness         138489 Shadow of Zul
+  Game objects
+    288637 The Council's Cache      288638 Boon of the First King
+    290682 doorway object x2        290701 crypt corridor object
+  Triggers
+    100007 areatrigger, map 1642 (-847, 2527, 731)
+    areatrigger_teleport ID -99 -> PortLoc 6560
+  Boss spells
+    255583 Molten Gold  265773 Spirit of Gold  265781 Serpentine Gust
+    265910 Tail Thrash  265914 Molten Gold AT 265923 Lucre's Call
+    265991 Luster      267060 Call of the Elements  267077 Explode
+    267105 Torrent     267257 Thundering Crash    267273 Poison Nova
+    267308 Lightning Bolt  267618 Drain Fluids  267626 Desiccation
+    267639 Burn Corruption  267702 Entomb  267874 Burning Ground AT
+    266206 Whirling Axes  266231 Severing Axe  266237 Debilitating
+    266940/266941/266951 Barrel Through  268403 Gale Slash
+    268419 Gale Slash AT  268586 Blade Combo  268796 Impaling Spear
+    268932 Quaking Leap  269351 Eternal Guardian  269369 Deathly Roar
+    270502 Hunting Leap
+
+================================================================================
+10. DISCREPANCIES AND TRAPS
+================================================================================
+10.1 KING DAZAR CASTS NOTHING. boss_dazar.cpp EnterCombat calls
+     _EnterCombat() and returns. There is no ScheduleEvent in the file, so
+     Blade Combo 268586, Quaking Leap 268932 and Gale Slash 268403 are never
+     fired, never repeated and never seen. DBM and LittleWigs both time
+     them. On this server the encounter is a melee boss, one Reban and one
+     Tzala (and see 10.2 for the second one).
+10.2 THE 60% BRANCH SETS THE WRONG FLAG. DamageTaken's second block tests
+     !hp60 and then assigns hp80 = true. hp60 is never set, so every damage
+     event with the boss below 60% summons another Tzala. Fix it before you
+     write a bot that counts adds.
+10.3 MCHIMBA'S ENTOMB EVENT CASTS NOTHING. The case calls Talk(SAY_ENTOMB)
+     and re-arms for 30.0 s. Spell 267702 is never cast, and 267763 (the
+     dispel-driven part DBM and LittleWigs watch) never appears either.
+     Both addons still put an Entomb bar on the screen.
+10.4 THE GOLDEN SERPENT'S TAIL THRASH FALLS THROUGH. case EVENT_TAIL_THRASH
+     has no break, so it runs the Serpentine Gust case as well: every Tail
+     Thrash also casts 265781 and re-arms the Gust at 35.0 s. The Gust's own
+     15.0 s first cast therefore never happens on its own schedule.
+10.5 SHADOW OF ZUL FALLS THROUGH THE SAME WAY. Every Shadow Barrage also
+     runs Dark Revelation, so the 3 s spell also summons a Minion of Zul.
+10.6 LUcre'S CALL AND LUSTER ARE DEAD ENUMS. 265923 and 265991 are declared
+     in Spells and Events and scheduled by nothing. LittleWigs still bars
+     265923 at 40.0 s.
+10.7 HUNTING LEAP HAS THREE IDS. The core casts 270502. DBM times 269231 and
+     LittleWigs logs 269230. A companion keyed to the addon ids sees nothing.
+10.8 TWO OF THE THREE COUNCIL BOSSES HAVE NO DB ROW. Aka'ali 135470 and
+     Zanazal 135472 exist only as script constants (3.2). Creature-table
+     queries for them return nothing, and MDT lists both.
+10.9 THIS IS NOT THE ASHAMANE DB. The spawn rows are LatincoreBfa
+     2020_07_20_00_kings_rest.sql. Its 69 rows total 240 force against MDT's
+     246, so it is close to complete, but it is not the world DB that steps
+     01-07 used and it is not necessarily yours.
+10.10 EMBALMING FLUID IS A CREATURE. 137989 has 10 rows and force 1 each, so
+     10 of the instance's 240 force in this DB come from killing puddles.
+     Their SmartAI casts 271565 Splash Fluid at a random player every 10-20 s.
+10.11 BOTH CHESTS ARE LOCKED AT CREATE. instance_kings_rest.cpp sets
+     GO_FLAG_LOCKED on 288637 and 288638 in OnGameObjectCreate. Zanazal's
+     JustDied removes it from 288637 within 300 yd, and Dazar's from 288638
+     within 300 yd. If either chest is further than 300 yd from the corpse
+     it stays locked forever - and 288638 is 27.9 yd from Dazar, so that one
+     works, while 288637 is 46.9 yd from Kula and 55.4 yd from Zanazal's
+     spawn, so that one works too. The failure mode is real but not triggered
+     by these coordinates.
+10.12 THE INSTANCE SCRIPT NAME MATCHES HERE. instance_template says
+     'instance_kings_rest' and the C++ registers instance_kings_rest on 1762.
+     Unlike Freehold there is no mismatch - noted because steps 01-07 hit
+     one.
+
+================================================================================
+11. WHAT IS NOT IN THIS FILE, AND WHY
+================================================================================
+11.1 No radius, duration, cooldown or damage figure is quoted from a client
+     table. Every number is a script literal, a DB value, an addon timer or
+     arithmetic on those.
+11.2 Tank positions are unverified for all four encounters. No script in the
+     instance carries a tank constant, a facing requirement or a taunt swap.
+11.3 Line of sight is unverified everywhere. No collision or mesh data was
+     read, so 2.4's route is distance bookkeeping and not a walk.
+11.4 The route's zone order is inferred from the bosses' y coordinates, not
+     from a floor plan. Zone C (the kings' room) and zone E (the spectral
+     hall) are the two I would re-scout first.
+11.5 The two immunity flags on Shadow of Zul are never removed by any code I
+     can read, so whether it is killable at all is unverified.
+11.6 The 8.3 Awakened lieutenants (161124, 161241, 161243, 161244) and the
+     three emissaries (155432, 155433, 155434) are in MDT with force values
+     and have no DB row in this instance, so they are not in the pull table.
+11.7 No item id is quoted for either chest: neither the SQL nor the scripts
+     carry a loot table for 288637 or 288638.
+11.8 The 290682 and 290701 game-object names are unverified: their template
+     rows are not in this SQL.
+11.9 Nothing here was taken from a video, a guide site or a forum post.
+
+END OF FILE

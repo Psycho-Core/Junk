@@ -1,0 +1,636 @@
+==============================================================================
+THE MOTHERLODE!! - POSITIONS AND NUMBERS, BFA 8.3.7 BUILD 35662
+==============================================================================
+ Map id 1594. Four encounters: Coin-Operated Crowd Pummeler 129214,
+ Azerokk 129227, Rixxa Fluxflame 129231, Mogul Razdunk 129232.
+ Companion file to the tactics document. Every number is tagged with
+ the source it came from. Anything I could not read is written
+ "unverified".
+
+0. READ THIS FIRST - WHAT THIS FILE CAN AND CANNOT GIVE
+
+  Tags:
+    [DB]   a row in a world SQL: a smart_scripts row, a
+           creature_template row, or a game object id.
+    [SRV]  a line in the 8.3.7 script: the_motherlode.h,
+           instance_the_motherlode.cpp, the_motherlode.cpp, or one of
+           the four boss files.
+    [MDT]  Method Dungeon Tools BattleForAzeroth/TheMotherlode.lua:
+           name, creature id, per-kill force, health, level, points.
+    [DBM]  DBM-Party-BfA/TheMotherload/*.lua: a stopwatch value.
+    [LW]   LittleWigs BfA/TheMotherlode/*.lua: a second stopwatch
+           value.
+    [CALC] arithmetic on the numbers above, inputs always given.
+    unverified   no readable source carries the value. Never a guess.
+
+  THE HEADLINE, because it shapes the whole file: there is NO public
+  creature spawn table for map 1594, and unlike the six dungeons before
+  this one there is not even a SmartAI file to fall back on. TrinityCore
+  11.x and 9.x were checked for creature rows and returned only
+  creature_template_difficulty; vSLDB carries four Motherlode SQL files
+  and all four are loot or journal data. So in this file:
+    - boss spawns, tank positions and safe spots are unverified, except
+      the seven script constants in section 3, which are exact;
+    - pull positions with z are unverified; MDT's layout is in 8.3 as
+      RELATIVE map-space geometry only, because MDT stores positions in
+      its own map space and no conversion to world coordinates was
+      readable;
+    - line of sight is unverified. This instance has no door objects in
+      its instance script at all (2.3), so there is nothing to anchor
+      LOS to;
+    - timers and assignments are fully sourced, from the scripts and the
+      two addons.
+
+==============================================================================
+1. SOURCES AND THEIR LIMITS
+==============================================================================
+  1.1 The scripts are Psycho-Core-8.3.7_Scripts,
+      scripts/Zandalar/TheMotherlode: boss_azerokk.cpp (13.3 KB),
+      boss_coin_operated_crowd_pummeler.cpp (4.8 KB),
+      boss_mogulrazdunk.cpp (4.1 KB), boss_rixxafluxflame.cpp (3.5 KB),
+      instance_the_motherlode.cpp (2.4 KB), the_motherlode.cpp (1.2 KB)
+      and the header. Sizes are kB as bytes/1000, so these are the
+      upstream byte counts divided by 1000.
+  1.2 THERE IS NO TRASH AI IN THE SCRIPTS. the_motherlode.cpp registers
+      one creature - npc_mine_cart_136776, which sets faction 35 and
+      REACT_PASSIVE and does nothing else. Every other non-boss creature
+      on this map has no C++ AI in the repository.
+  1.3 There is no SmartAI file either. vSLDB has 2020_07_23_00_motherlode
+      _loot.sql (833 B), 2020_07_24_00_motherlode_journal.sql (105 B),
+      2020_08_09_00_motherlode.sql (87 B), 2020_08_27_TheMOTHERLODE
+      CreatureLoot.sql (24.4 KB) and 2020_09_04_01_Fix_Motherlode_final
+      boss_count.sql (844 B). None of them contains a smart_scripts row,
+      so section 8 has no DB table in it at all.
+  1.4 MDT BattleForAzeroth/TheMotherlode.lua is dungeonIndex 21,
+      dungeonTotalCount normal 384 / teeming 460, 45 enemy records. It
+      carries name, creature id, health, level, per-kill force and clone
+      positions, and no z.
+  1.5 DBM ships five files (Azerokk, CrowdPummeler, MogulRazzdunk,
+      RixxaFluxflame, UndermineTrash) and LittleWigs five (Azerokk,
+      CrowdPummeler, Razdunk, Rixxa, Trash). Both were read only for
+      stopwatch values and bar spell ids.
+  1.6 No client table was read. Radii, durations and damage below are
+      unverified unless a script literal states them.
+
+==============================================================================
+2. THE INSTANCE FRAME
+==============================================================================
+  2.1 Map 1594, from RegisterInstanceScript(instance_the_motherlode,
+      1594) in instance_the_motherlode.cpp [SRV].
+  2.2 Four encounters, ZERO-BASED again: DATA_COIN_OPERATED_CROWD
+      _PUMMELER = 0, DATA_AZEROKK = 1, DATA_RIXXA_FLUXFLAME = 2,
+      DATA_MOGUL_RAZDUNK = 3, EncounterCount = 4 [SRV]. A DB row that
+      says encounter 1 is Azerokk.
+  2.3 NO DOOR DATA. The instance script has OnCreatureCreate and
+      GetGuidData and nothing else: no LoadDoorData, no
+      OnGameObjectCreate, no OnPlayerEnter, no SetBossState of its own.
+      The file even opens with a `//Missing scripts` comment [SRV].
+  2.4 There is no player script in this instance: no water kill, no area
+      check, no kill boundary, no anti-cheat teleport. Nothing in the
+      four boss files repositions a player either.
+  2.5 The only scripted repositioning of any creature in the whole
+      instance is Azerokk's spawn of four Earthragers and two fracking
+      totems at the fixed points in 3.1.
+
+==============================================================================
+3. EVERY COORDINATE THE SCRIPTS CARRY
+==============================================================================
+
+  3.1 THE SEVEN CONSTANTS, ALL IN boss_azerokk.cpp [SRV]. Names are
+      the C++ symbols, arrays expanded one row per element.
+      name                x          y          z        o
+      centerPos           1215.50   -3325.10    57.33   0.00
+      earthragerPos[0]    1233.36   -3321.13    57.50   0.00
+      earthragerPos[1]    1216.14   -3340.71    55.34   0.00
+      earthragerPos[2]    1199.50   -3330.84    55.80   0.00
+      earthragerPos[3]    1202.84   -3315.90    55.58   0.00
+      frackingPos[0]      1180.16   -3300.33    56.83   0.00
+      frackingPos[1]      1181.85   -3301.90    56.79   0.00
+      All seven are Position literals with three components, so every
+      orientation is the default 0.
+  3.2 WHAT EACH ONE IS FOR.
+      a) centerPos is commented //40y and is NEVER READ by any code
+         path in the file. It is a note from the author that the arena
+         is 40 yd across, and it is the only statement anywhere about
+         its size.
+      b) earthragerPos[4] is used verbatim by SpawnAdd(), once per
+         index in a loop of four, with TEMPSUMMON_DEAD_DESPAWN. These
+         are real spawn points, not random offsets.
+      c) frackingPos[2] is used the same way for the two totems, with
+         TEMPSUMMON_MANUAL_DESPAWN.
+      d) Measured from centerPos [CALC]: the four earthragers are
+         18.30, 15.75, 17.07 and 15.75 yd away; the two totems are
+         43.16 and 40.88 yd away. So the adds stand INSIDE the 40 yd
+         arena and the totems stand ON or just OUTSIDE its edge. That
+         is the one positional statement this file can make about the
+         Azerokk room, and it comes from two exact numbers.
+
+  3.3 WHAT IS NOT A COORDINATE. There is no spawn row for any of the
+      four bosses, no tank point, no safe spot, no waypoint path and no
+      area trigger. The only other positional constant in the four boss
+      files is a distance: Azerokk evades when he is more than 25.0 yd
+      from his home position (CheckHomeDistToEvade(diff, 25.0f)), which
+      pins the fight to a 25 yd leash around where he was placed [SRV].
+
+==============================================================================
+4. BOSS 1 - COIN-OPERATED CROWD PUMMELER 129214
+==============================================================================
+
+  4.1 SPAWN AND TANK POSITION. Spawn unverified: no spawn row exists in
+      any readable source and the boss file has no position. MDT hp
+      8,914,542, level 122 [MDT]. TANK: unverified as a coordinate, but
+      it is the only role that is targeted by name - Shocking Claw is a
+      DoCastVictim (4.5a).
+  4.2 PHASES: NONE. There is no HealthBelowPct and no intermission in
+      boss_coin_operated_crowd_pummeler.cpp. Five events are scheduled
+      on EnterCombat and each re-arms itself.
+      One state does change: the boss carries 267547 Insufficient Funds
+      from Reset and loses it on EnterCombat. It is the only aura
+      transition in the fight, and it is not a phase.
+
+  4.3 TIMERS, seconds from pull
+      ability                    script [SRV]      LW [LW]   DBM [DBM]
+      Static Pulse 262347        8.0, then 20.0    6.1       6.2
+      Footbomb Launcher 269493   4.0, then 38.0    19.1      19.3
+      Shocking Claw 257337       7.0, then 30.0    30.0      30.1
+      Coin Magnet 271903 (H/M)   8.0, then 30.0    41.0      40.0
+      Pay to Win 271867 (H/M)    1.0, then 30.0    -         -
+      Throw Coins 271785         not cast           -     12.2 (271784)
+      Blazing Azerite 256163     not cast           -    bar only (256493)
+      The script's first four pull timers and the addons' first bars
+      disagree by 2 to 15 s at the first cast and then by a lot more:
+      the addons are timing the retail cadence and the script is
+      timing its own. Treat the script column as this core.
+
+  4.4 UNUSED SPELL IDS. Four ids are declared in the file and never
+      scheduled or cast anywhere in it: 271785 Throw Coins, 256137
+      Timed Detonation, 255996 Punt, 256163 Blazing Azerite. The two
+      addons still watch for Throw Coins and Blazing Azerite, but on
+      different ids - 271784 and 256493 - which is why the table in
+      4.3 carries two numbers in those cells. Read those two rows as
+      retail mechanics under retail ids, absent from this core.
+
+  4.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+      a) SHOCKING CLAW 257337 - THE TANK. DoCastVictim every 30.0 s
+         from 7.0 s. Nothing else in the fight selects the tank.
+      b) FOOTBOMB LAUNCHER 269493 - SELF-CAST, every 38.0 s from 4.0
+         s. The bombs it launches are spell-driven; the script gives
+         them no spawn radius and no landing point, so where they land
+         is unverified. This is the one mechanic where a bot has to
+         move, and the file cannot say where.
+      c) STATIC PULSE 262347 - SELF-CAST AOE every 20.0 s from 8.0 s.
+         No target selection; the counter is distance, and the radius
+         is not in the script.
+      d) COIN MAGNET 271903 and PAY TO WIN 271867 - heroic and mythic
+         only, both self-cast, on 30.0 s cycles staggered at 8.0 and
+         1.0 s. Both are unverified in effect beyond the cast itself.
+      e) SOAK LISTS, KICK ORDER, TANK SWAPS: none. There is no
+         interruptible cast in the file.
+
+  4.6 SAFE SPOTS, WITH z. Unverified. The script fixes no point in the
+      room, and every one of its mechanics is self-cast, so there is
+      nothing to drop, soak or stack at a named place. The only
+      defensible statement is negative: because Shocking Claw is the
+      only victim cast, standing away from the boss costs nothing
+      except Footbomb, whose landing zone is unknown.
+
+==============================================================================
+5. BOSS 2 - AZEROKK 129227
+==============================================================================
+
+  5.1 SPAWN AND TANK POSITION. Spawn unverified, but this is the one
+      encounter in the instance whose geometry is partly exact: the
+      arena centre is (1215.50, -3325.10, 57.33), commented //40y, and
+      the four Earthragers are summoned at the fixed points in 3.1,
+      15.75 to 18.30 yd from that centre [SRV].
+      TANK: unverified as a coordinate. Tectonic Smash is cast at
+      me->GetVictim() on heroic and mythic (5.4b), so the tank holds
+      the boss and eats it; nothing else in the fight picks a role.
+  5.2 THE ADD PACK IS PART OF THE SPAWN. The constructor calls
+      SpawnAdd(), and Reset calls it again: it despawns every Earthrager
+      within 30 yd and every pre-totem within 45 yd, then summons four
+      129802 Earthragers (TEMPSUMMON_DEAD_DESPAWN) and two 129804
+      fracking totems (TEMPSUMMON_MANUAL_DESPAWN) [SRV].
+  5.3 TIMERS, seconds from pull
+      ability                     script [SRV]     LW [LW]  DBM [DBM]
+      Azerite Infusion 271698     19.6, then 13.0   5.2      5.2
+      Resonant Pulse 258622       10.6, then 33.2   32.7     8.6
+      Call Earthrager 257593      60.0, then 60.4   40.2     40.1
+      Tectonic Smash 275907       5.0, then 23.0    12.1     12.2
+        (heroic and mythic only)
+      The addons invert two of these: LittleWigs bars Azerite
+      Infusion at 5.2 s against the script's 19.6 s, and DBM bars
+      Resonant Pulse at 8.6 s against the script's 10.6 s. Both then
+      settle near the script's repeat values on later cycles.
+
+  5.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+      a) THE FRACKING TOTEMS - THE ONE REAL ASSIGNMENT. Two 129804
+         totems stand at (1180.16, -3300.33, 56.83) and (1181.85,
+         -3301.90, 56.79), 43.16 and 40.88 yd from the arena centre,
+         measured in 3D as in 3.2d.
+         A player clicks one and the totem stuns the Earthrager that
+         player has selected (257481), after which that Earthrager
+         stops casting Raging Gaze. The trigger is the player's own
+         target selection, so a bot has to select the add before
+         clicking.
+      b) TECTONIC SMASH 275907 - THE TANK, heroic and mythic only.
+         Cast at the current victim every 23.0 s from 5.0 s.
+      c) RESONANT PULSE 258622 - SELF-CAST every 33.2 s from 10.6 s,
+         and the follow-up is what matters: OnSpellFinished makes every
+         Earthrager within 100 yd cast 258627 Resonant Quake on its own
+         victim. So the number of quakes is the number of living
+         Earthragers, and the stun in (a) is what reduces it.
+      d) AZERITE INFUSION 271698 - Azerokk picks ONE Earthrager within
+         100 yd and casts 271698 on it every 13.0 s from 19.6 s. The
+         filter is intended to skip stunned Earthragers, and it does
+         not work as written (10.6).
+      e) CALL EARTHRAGER 257593 - SELF-CAST every 60.4 s from 60.0 s.
+         What it summons is spell-driven and unverified.
+      f) SOAK LISTS, KICK ORDER, TANK SWAPS: none.
+
+  5.5 THE ADDS, FOR COMPLETENESS [SRV].
+      Earthrager 129802: on combat, 271526 Raging Gaze selector at 2.0
+      s and 257543 Jagged Cut at 3.0 s then every 3.0 s, but only if
+      the victim is inside melee range. It also fights at 10.0 yd
+      combat distance (SetCombatDistance(10.0f) in JustSummoned).
+      Fracking totem 136500: canStun once; it sets IMMUNE_TO_NPC and
+      IMMUNE_TO_PC on itself, inits 60000 ms of stats, reads the
+      summoner's SELECTED unit, and if that unit is an Earthrager
+      without 257481 it pulls 999999.9 threat onto the clicker and
+      applies the stun.
+
+  5.6 SAFE SPOTS, WITH z
+      - the four Earthrager spawn points are exact: z 57.50, 55.34,
+        55.80 and 55.58, which is 0.17 yd above to 1.99 yd below the
+        arena centre's z 57.33. The floor is not flat even inside the
+        40 yd the comment claims.
+      - the two totems are at z 56.83 and 56.79, on or just past the
+        40 yd edge.
+      - where Azerokk himself stands is unverified, and so is every
+        player position. There is no ground effect to drop and no ring
+        to stand in.
+
+==============================================================================
+6. BOSS 3 - RIXXA FLUXFLAME 129231
+==============================================================================
+
+  6.1 SPAWN AND TANK POSITION. Spawn unverified; the file has no
+      position. MDT hp 5,379,465, level 122 [MDT]. TANK: unverified as a
+      coordinate, but every one of her four casts is DoCastVictim, so
+      the tank takes all of them by definition (6.4).
+  6.2 PHASES: NONE. No HealthBelowPct, no intermission, no aura
+      transition in boss_rixxafluxflame.cpp. Three events, scheduled in
+      Initialize() - which is called from the constructor AND from
+      Reset(), after events.Reset().
+      Reset also sets her own boss state to FAIL, EnterCombat sets
+      IN_PROGRESS and JustDied sets DONE. Those three calls are the
+      only instance interaction in the file.
+
+  6.3 TIMERS, seconds from pull
+      ability                    script [SRV]      LW [LW]   DBM [DBM]
+      Searing Reagent 259474     1.5, then 15.8    -         -
+      Propellant Blast 260669    6.0, then 10.0    22.0      22.0
+      Chemical Burn 259853+256   12.0, then 34.5   14.5  12.0 (off)
+        (both cast on the same victim, and the whole event list is
+         delayed 5.0 s first)
+      Gushing Catalyst 275992    not in the script 3.0       3.0
+      Azerite Catalyst 270042    not in the script 10.0      10.0
+      The two catalyst ids do not appear anywhere in the 8.3.7 file,
+      so both addons are barring retail mechanics this core does not
+      have. LittleWigs also bars Propellant Blast under 259940, not the
+      script's 260669 - a second id for the same ability. And DBM's
+      cell for Chemical Burn is in a commented-out line in its
+      OnCombatStart (timerChemBurnCD:Start(12-delay, 1)), marked
+      '--SUCCESS' by its author: it is a note, not a live bar. The
+      live timer object is NewCDCountTimer(13, 259853) - a 13 s
+      default, with 27 and 15 s repeats inside the cast handler.
+
+  6.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+      a) CHEMICAL BURN 259853 and 259856 - THE TANK, every 34.5 s from
+         12.0 s. The script casts BOTH ids at the current victim in the
+         same event and delays every other event by 5.0 s, so the
+         tank's cooldown use is dictated by a 5 s stall she creates
+         herself.
+      b) PROPELLANT BLAST 260669 - the tank, every 10.0 s from 6.0 s.
+         This is the fastest cycle in the instance.
+      c) SEARING REAGENT 259474 - the tank, every 15.8 s from 1.5 s.
+         First cast at 1.5 s is before any pull timer in any other
+         encounter here.
+      d) SOAK LISTS, KICK ORDER, TANK SWAPS: none. No cast in the file
+         is interruptible (nothing sets an interrupt flag) and nothing
+         forces a swap.
+
+  6.5 SAFE SPOTS, WITH z. Unverified. There is no ground effect, no
+      ring and no positional selection in the file; all four casts pick
+      the victim. The one usable negative statement: because nothing
+      targets a random player, spreading is never required, and the
+      only reason to move is a tank mechanic this script does not
+      describe.
+
+==============================================================================
+7. BOSS 4 - MOGUL RAZDUNK 129232
+==============================================================================
+
+  7.1 SPAWN AND TANK POSITION. Spawn unverified; the file has no
+      position. MDT hp 5,994,261, level 122 [MDT]. TANK: unverified as a
+      coordinate. Gatling Gun, Drill Smash, Alpha Cannon and Micro
+      Missiles are all DoCastVictim, so the tank is the target of every
+      one of them.
+  7.2 PHASES: NONE BY HEALTH, BUT THERE IS A WEAPON SWAP. Four events
+      are scheduled in Initialize() (called from the constructor and
+      from Reset). The only state change is an aura, 260189
+      Configuration Drill: the Drill Smash event casts it with
+      DoCastVictim, and the Alpha Cannon event strips it with
+      me->RemoveAurasDueToSpell. Note the asymmetry - the cast targets
+      the victim, the removal targets the boss - which only lines up if
+      the spell self-targets its caster. Its target entry is not in the
+      file, so which unit carries the aura is unverified (10.13). No
+      health percentage is read anywhere in the file.
+
+  7.3 TIMERS, seconds from pull
+      ability                    script [SRV]      LW [LW]   DBM [DBM]
+      Gatling Gun 260280         5.0, then 40.4    20.0      20.0
+        + Homing Missile 260838  same event        5.0       4.9
+      Alpha Cannon 260318        11.0, then 15.0   -         -
+      Drill Smash 260202         15.0, then 25.0   -    17.0 repeat
+        (with 260189)            same event
+      Micro Missiles 276229      15.8, then 35.0   8.4       -
+        (heroic and mythic only)
+      Gatling Gun's event casts Homing Missile first and Gatling Gun
+      second, both at the victim, and delays the rest of the list by
+      1.0 s. LittleWigs bars Homing Missile at 5.0 s and Gatling at
+      20.0 s, so the addon splits one event into two bars.
+      Two DBM rows need their provenance stated. Its 17.0 for Drill
+      Smash is a Start(17, ...) inside the cast handler, i.e. a repeat
+      after a drill, not a pull timer; and it has no Micro Missiles bar
+      at all, so the '-' in that cell is a real absence, not missing
+      data. DBM's own drill timer is keyed on 271456 with a versioned
+      9.7-12.1 range, a third id for the same ability (10.11).
+
+  7.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+      a) DRILL SMASH 260202 - THE TANK, every 25.0 s from 15.0 s,
+         preceded in the same event by 260189 Configuration Drill,
+         also via DoCastVictim.
+      b) ALPHA CANNON 260318 - THE TANK, every 15.0 s from 11.0 s.
+         It first removes 260189 from the boss, then casts the cannon
+         at the victim. So the pair alternates a drill application and
+         a cannon cast, both aimed at the same player.
+      c) GATLING GUN 260280 - THE TANK, every 40.4 s from 5.0 s, after
+         a Homing Missile on the same target.
+      d) MICRO MISSILES 276229 - heroic and mythic, the tank, every
+         35.0 s from 15.8 s.
+      e) SOAK LISTS, KICK ORDER, TANK SWAPS: none. Nothing in the file
+         selects a random player, so no mechanic needs an assignee
+         beyond the tank.
+
+  7.5 SAFE SPOTS, WITH z. Unverified. This is the flattest encounter in
+      the dungeon from a positioning point of view: every cast is
+      victim-targeted or self-cast, there is no ground effect, no
+      random target anywhere in boss_mogulrazdunk.cpp, and the file has
+      no SummonCreature call at all, so it creates no entity of its
+      own.
+
+==============================================================================
+8. TRASH
+==============================================================================
+
+  8.1 THE MDT ROSTER [MDT]. Every enemy MDT tracks on this map, with
+      its entry, per-kill force, health, level and how many placement
+      blocks MDT draws for it. 'clones' is MDT's own map space, not a
+      spawn count; 'patrol' is extra waypoints nested inside those
+      blocks, so clones + patrol is the number of plotted points.
+      name                           entry force      health lvl clones patrol
+      Azerite Extractor             136643    12   1,229,592 121      4      0
+      Mechanized Peacekeeper        136139    12   1,229,592 121      2      4
+      Mechanized Peacekeeper        130485    12   1,229,592 121     12      0
+      Venture Co. War Machine       133463    12   1,229,592 121      6     12
+      Venture Co. Mastermind        133430     8   1,229,592 121      9     20
+      Taskmaster Askari             134012     6   1,229,592 121      1      0
+      Addled Thug                   130435     5     999,044 120     15      0
+      Expert Technician             133593     5     768,495 120      6      0
+      Feckless Assistant            133345     5     768,495 120     11      0
+      Ordnance Specialist           137029     5     768,495 120      6      0
+      Venture Co. Alchemist         133432     5     768,495 120     20      3
+      Venture Co. Skyscorcher       133436     5     768,495 120      9      0
+      Safety Shark                  137940     4   3,073,980 120      6      0
+      Blood of the Corruptor        161244     4   2,151,786 122      2      0
+      Samh'rek, Beckoner of Chaos   161243     4   2,151,786 122      1      0
+      Urg'roth, Breaker of Heroes   161124     4   2,151,786 122      1      0
+      Voidweaver Mal'thir           161241     4   2,151,786 122      2      0
+      Void-Touched Emissary         155433     4     999,042 122     19      0
+      Hired Assassin                134232     4     768,495 120      9      4
+      Mech Jockey                   130488     4     768,495 120     22      0
+      Refreshment Vendor            136470     4     768,495 120     17      0
+      Stonefury                     130635     4     768,495 120      3      4
+      Venture Co. Earthshaper       130661     4     768,495 120     14      4
+      Wanton Sapper                 130653     4     768,495 120     13      0
+      Weapons Tester                136934     4     768,495 120      8      0
+      Emissary of the Tides         155434     4     614,795 120     21      0
+      Mine Rat                      130437     2     461,097 120     11      0
+      Off-Duty Laborer              130436     1     307,398 120     30      0
+      Big Money Crab                137713     1     153,699 120      6      0
+      Shalebiter                    134005     1     153,699 120      6      0
+      Test Subject                  133963     1     153,699 120     29      0
+      Crawler Mine                  133482     1      19,707 121     19      0
+      Enchanted Emissary            155432     0  15,369,884 121     20      0
+      Coin-Operated Crowd Pummeler  129214     0   8,914,542 122      1      0
+      Mogul Razdunk                 129232     0   5,994,261 122      1      0
+      Rixxa Fluxflame               129231     0   5,379,465 122      1      0
+      Azerokk                       129227     0   4,733,929 122      1      0
+      Earthrager                    129802     0     768,495 120      4      0
+      Off-Duty Laborer              135975     0     307,398 120      1      0
+      Venture Co. Longshoreman      138061     0     307,398 120     14      0
+      Asset Manager                 144286     0     153,699 120      5      0
+      Bottom Feeder                 137716     0     153,699 120      5      0
+      Footbomb Hooligan             138369     0     153,699 120     17      0
+      Posh Vacationer               138064     0     153,699 120      9      0
+      Rowdy Reveler                 136006     0     153,699 120     42      0
+      MDT's dungeonTotalCount is 384 normal and 460 teeming [MDT]. The
+      force column sums to 155 over the 45 records; 384 is MDT's own
+      budget for the route, a different quantity. Do not add the column
+      up and compare it to 384.
+      Three roster facts worth naming. The four bosses carry count 0,
+      so they contribute nothing to the force budget and their health
+      is a nameplate figure, not force. Mechanized Peacekeeper is two
+      records, 136139 and 130485, for the same creature: 2 clones plus
+      4 patrol points in one and 12 clones in the other, which is why
+      a Peacekeeper count cannot be read off a single row. And only
+      seven records patrol at all: Peacekeeper, War Machine,
+      Mastermind, Alchemist, Hired Assassin, Stonefury, Earthshaper.
+
+  8.2 THERE IS NO TRASH SCRIPT TO QUOTE. This is the first dungeon in
+      this set where section 8 has no table of rows: the repository has
+      no C++ AI for any non-boss creature on map 1594 beyond the mine
+      cart, and the vSLDB Motherlode SQL files are loot and journal
+      data. So the trash mechanics below come from the addons only, and
+      every one of them is a retail statement, not a statement about
+      this core.
+
+  8.3 THE PULL LAYOUT, AND WHY IT IS NOT IN THIS FILE AS COORDINATES.
+      MDT stores every clone in its own map space, which has no z, and
+      no map-space to world conversion was readable. So every pull
+      position with z is unverified.
+      What MDT does give: the four boss anchors, in MDT units, which
+      fix the walking order of the dungeon (it matches the encounter
+      ids 0 to 3):
+        Coin-Operated Crowd Pummeler  (383.5, -269.4)   encounter 0
+        Azerokk                       (252.2, -149.5)   encounter 1
+        Rixxa Fluxflame               (466.8, -112.2)   encounter 2
+        Mogul Razdunk                 (578.2, -210.9)   encounter 3
+      Straight-line spacing between consecutive anchors [CALC]: 177.8,
+      217.9 and 148.9 MDT units. Those are chord lengths in map space,
+      not path lengths. The longest is the second leg, Azerokk to
+      Rixxa, and Azerokk is the only boss whose room has a stated size
+      (40 yd, 3.2a) - so the one room this file can measure is also the
+      one the route spends the most distance leaving.
+      The counts per enemy in 8.1 are the pull sizes to plan for. There
+      is no way to say where any of them stands.
+
+  8.4 INTERRUPT DUTY, AS THE ADDONS SEE IT [LW][DBM]
+      DBM builds interrupt warnings for six trash casts and LittleWigs
+      logs the same six. The priority words are DBM's own comments:
+        263202  Rock Lance - no cooldown, spell lock only, spammed
+        280604  Iced Spritzer - high priority
+        268702  Furious Quake - high priority
+        269302  Toxic Blades
+        268797  Transmute Enemy to Goo - high priority
+        263215  Tectonic Barrier - off by default, because
+                  Furious Quake is the priority interrupt
+      Tectonic Barrier also carries a separate magic-dispel warning
+      (263215, MagicDispeller), so DBM expects it to be dispelled
+      rather than interrupted. Its file adds Activate Mech 267433 as a
+      heroic-and-mythic cast and five more interrupts commented out
+      (268709, 268129, 263103, 263066, 262540). Nothing in the
+      repository can confirm any of these ids on this core, so read 8.4
+      as a list of what the addons watch, not as a script.
+
+==============================================================================
+9. ID INDEX
+==============================================================================
+
+  CREATURES [SRV] unless marked otherwise.
+    129214  Coin-Operated Crowd Pummeler   129227  Azerokk
+    129231  Rixxa Fluxflame                129232  Mogul Razdunk
+    129802  Earthrager (add)               129804  Fracking Totem (pre)
+    136500  Fracking Totem                 136776  Mine Cart
+  MAP AND ENCOUNTER IDS [SRV].
+    1594    map
+    encounter data: 0 Pummeler, 1 Azerokk, 2 Rixxa, 3 Razdunk
+  SPELLS - COIN-OPERATED CROWD PUMMELER [SRV].
+    267547 Insufficient Funds (reset aura)
+    262347 Static Pulse              269493 Footbomb Launcher
+    257337 Shocking Claw             271903 Coin Magnet (H/M)
+    271867 Pay to Win (H/M)          271785 Throw Coins (unused)
+    256137 Timed Detonation (unused) 255996 Punt (unused)
+    256163 Blazing Azerite (unused)
+  SPELLS - AZEROKK [SRV].
+    258622 Resonant Pulse            258627 Resonant Quake
+    271698 Azerite Infusion missile  257593 Call Earthrager
+    275907 Tectonic Smash (H/M)      257543 Jagged Cut (add)
+    271526 Raging Gaze selector       257582 Raging Gaze beam (add)
+    257455 Fracking Totem button     257480 Fracking Totem cast
+    257481 Fracking Totem stun       268204 Fracking Totem summon
+  SPELLS - RIXXA FLUXFLAME [SRV].
+    259853 Chemical Burn (first)     259856 Chemical Burn (second)
+    260669 Propellant Blast          259474 Searing Reagent
+  SPELLS - MOGUL RAZDUNK [SRV].
+    260280 Gatling Gun               260838 Homing Missile
+    260202 Drill Smash               260189 Configuration Drill
+    260318 Alpha Cannon              276229 Micro Missiles (H/M)
+  ADDON-ONLY SPELL IDS, not in any file above [LW][DBM].
+    275992 Gushing Catalyst          270042 Azerite Catalyst (Rixxa)
+    259940 Propellant Blast (LW's id for 260669)
+    260813 Homing Missile (LW's id for 260838)
+    1217294 LittleWigs' key for Shocking Claw
+    271784 Throw Coins as both addons spell it (script: 271785)
+    256493 Blazing Azerite buff-fade timer (script: 256163)
+    271456 DBM's drill smash key (script: 260202)
+
+==============================================================================
+10. DISCREPANCIES AND TRAPS
+==============================================================================
+
+  10.1 NO SPAWN TABLE AND NO TRASH SCRIPT. Every boss spawn, tank
+       position and safe spot in this file is unverified for that
+       reason, every pull position with z is unverified with it, and
+       section 8 has no DB rows to quote at all.
+  10.2 THE ENCOUNTER DATA IS ZERO-BASED (2.2). A DB row that opens
+       encounter 1 opens Azerokk, not the first boss.
+  10.3 THE INSTANCE SCRIPT HAS NO DOORS AND SAYS SO. It opens with
+       `//Missing scripts`, registers four GUIDs and nothing else. Any
+       tactic that assumes a door closes behind the group is assuming
+       something this core does not implement.
+  10.4 FOUR PUMMELER SPELLS ARE DECLARED AND NEVER USED: 271785 Throw
+       Coins, 256137 Timed Detonation, 255996 Punt and 256163 Blazing
+       Azerite. DBM still bars Throw Coins (12.2 s) and Blazing
+       Azerite, so two retail mechanics are missing here.
+  10.5 AZEROKK'S FIXATE CALL PASSES A SELECTOR ENUM WHERE A UNIT
+       BELONGS: me->CastSpell(SELECT_TARGET_RANDOM, SPELL_RAGING_GAZE
+       _SELECTOR). SELECT_TARGET_RANDOM is a targeting constant, not a
+       creature, so the selector is never applied to a chosen player.
+  10.6 EVENT_FIXATE IS NEVER RE-ARMED. In bfa_npc_earthrager the
+       Fixate case casts and breaks without scheduling itself again, so
+       the gaze happens once per Earthrager, 2.0 s after it enters
+       combat, and never again.
+  10.7 THE AZERITE INFUSION FILTER REMOVES FROM THE LIST IT IS
+       ITERATING: for (auto toDelete : clist) if (...) clist.remove(
+       toDelete). That is undefined behaviour, and it is also why 5.4d
+       says the stun filter does not work as written.
+  10.8 THE FRACKING TOTEM MAKES TWO UNCHECKED DEREFERENCES. It declares
+       Player* invoker; with no initialiser; only the summon branch
+       assigns it (GetSummoner()->ToPlayer(), which is null if the
+       summoner is not a player), and the guard `if (!invoker) return;`
+       then tests an indeterminate value on every other path. Past that
+       guard it calls rager->GetEntry() on invoker->GetSelectedUnit()
+       with no null check, so a click with nothing selected dereferences
+       null. The stun itself is also one-shot: canStun latches on the
+       first click and Reset is the only thing that clears it.
+  10.9 RIXXA'S Reset SETS HER BOSS STATE TO FAIL, and her Chemical Burn
+       event casts BOTH 259853 and 259856 at the same victim in one
+       event before delaying everything else 5.0 s.
+ 10.10 RAZDUNK'S JustDied CALLS _JustDied() AND BossAI::JustDied().
+       One of the two is redundant, and both run on the same death.
+ 10.11 THE ADDONS BAR SPELLS THIS CORE DOES NOT HAVE: 275992 and
+       270042 on Rixxa, 259940 and 260813 as alternate ids for spells
+       the script calls 260669 and 260838, and LittleWigs' 1217294 key
+       for Shocking Claw, plus 271784, 256493 and 271456 standing in
+       for 271785, 256163 and 260202. Read every addon number here as
+       retail.
+ 10.12 A CROSS-DUNGEON COINCIDENCE WORTH KNOWING: Rixxa's MDT health,
+       5,379,465, is exactly the MDT health of Siege of Boralus's Hadal
+       Darkfathom. If you see that number in a loot or scaling table it
+       is not evidence that the two share data.
+ 10.13 RAZDUNK'S DRILL AURA IS APPLIED AND REMOVED ON DIFFERENT UNITS.
+       Drill Smash casts 260189 with DoCastVictim, but Alpha Cannon
+       calls me->RemoveAurasDueToSpell(260189) on the boss. If the
+       spell's target entry is not 'caster', the aura sits on the tank
+       while the removal looks in the wrong place; if it is 'caster',
+       the aura sits on the boss and the victim cast does nothing. The
+       target entry is not in any file here (10.x is where this file
+       would have to stop).
+
+==============================================================================
+11. WHAT IS NOT IN THIS FILE, AND WHY
+==============================================================================
+
+ 11.1 Boss spawn coordinates, tank coordinates and safe-spot
+      coordinates are unverified for all four encounters. No spawn
+      table for map 1594 is public, and the scripts carry seven
+      coordinates, six of which are adds.
+ 11.2 Pull positions with z are unverified. MDT's clone layout is in
+      map space and has no z; 8.3 says what it can and cannot be used
+      for.
+ 11.3 Line of sight is unverified. There is no door data, no game
+      object data and no area trigger in the scripts.
+ 11.4 No radius, duration or damage figure came from a client table.
+      Radii are unverified unless a script literal states them, which
+      is why the 40 yd arena comment, the 25 yd evade leash, the 100 yd
+      Resonant Pulse range, the 10 yd Earthrager combat distance and the
+      45 yd totem pre-despawn radius are the only distances in the
+      file.
+ 11.5 Item ids are not quoted. The only Motherlode SQL with item data
+      is 2020_08_27_TheMOTHERLODECreatureLoot.sql, which is creature
+      loot for trash and covers no boss.
+ 11.6 Nothing here came from a video, a guide site or a forum post.
+
+END OF FILE

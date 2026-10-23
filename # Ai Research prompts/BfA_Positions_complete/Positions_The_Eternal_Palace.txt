@@ -1,0 +1,881 @@
+POSITIONS AND NUMBERS - THE ETERNAL PALACE
+================================================================================
+Instance : The Eternal Palace (raid, 8 encounters)
+Map      : 2164   Client: 8.3.7 build 35662
+Written  : 2026-10-23
+Purpose  : the positions, the phase numbers, the ability timers and the
+           assignment triggers that the tactics document could not give.
+           Companion bots read this to path, to stack and to spread.
+
+================================================================================
+0. HOW TO READ THIS FILE
+================================================================================
+  [SRV]    the boss scripts for map 2164, taken from YOUR OWN repository
+           (Psycho-Core/Psycho-Core-8.3.7_Scripts,
+           scripts/Nazjatar/EternalPalace/). Every coordinate in this file is
+           one of those hard-coded constants. They were cross-checked against
+           the same eight files in HavenWoW/BFA-HavenCore: the coordinates are
+           identical in all eight except Queen Azshara, where the two trees
+           differ and this file follows YOUR tree.
+  [DBM]    Deadly Boss Mods, tag 8.3.34, DBM-EternalPalace
+           (AbyssalCommanderSivara, BlackwaterBehemoth, RadianceofAzshara,
+           LadyPriscillaAshvane, Orgozoa, TheQueensCourt, Zaqul, QueenAzshara,
+           EternalPalaceTrash) - first-cast times, cooldowns, phase re-arms,
+           berserk timers
+  [GUIDE]  Icy Veins / MMO-Champion / Wowhead / Wowpedia / Warcraft Wiki /
+           tanknotes / guiaswow / worldofmoudi 2019 write-ups - phase
+           percentages, platform order and what each mechanic does in words
+  [TAC]    the client-derived ids already in your tactics document,
+           BfA_8.3.7_companion_tactics_v2.txt section 16
+  [CALC]   arithmetic done on two [SRV] coordinates in this file
+  unverified  not in any source I could read
+
+COORDINATE ORDER. (x, y, z) in yards on map 2164, exactly as written in the
+script, with orientation in radians (0 = +x axis) where the script supplies
+one.
+
+WHAT THIS FILE HAS THAT THE LAST TWO DID NOT. Six of the eight encounters have
+real interior geometry in your scripts - arena centres with a radius comment,
+seven platforms, eight intermission walk points, twenty-five egg positions,
+seventeen Squall Trap points, five Court banners and Azshara's whole ward set.
+Only Za'qul is a bare centre. Boss spawn rows are still world-DB data and are
+still unverified everywhere.
+
+MAP ID 2164 is registered by instance_eternal_palace.cpp in your tree and in
+two other copies of the same core (TCDEVEmu/AtalDazar_BFA and
+Marelli/AzgathCore).
+
+================================================================================
+1. SOURCES AND THEIR LIMITS
+================================================================================
+1.1 The instance script in your tree loads door data and nothing else: no
+    spawns, no teleports. It gives the map id only.
+1.2 The eight boss scripts are real implementations. They are BfaCore-lineage
+    scripts, not 8.3.7 retail code, so their coordinates are the private-core
+    layout of the instance. They agree with the HavenWoW tree everywhere except
+    Azshara (1.4).
+1.3 A comment after a centre constant ("//40y", "//100y", "//55y checks, 35y
+    for corals", "//50y") is the script author's note on the radius used with
+    that centre. They are quoted as-is and marked as such; the radius is not
+    independently verified.
+1.4 Queen Azshara's Position constants differ between the two trees. The
+    values below are your tree's. What differs is not published here, because
+    this file only reports the source the server actually runs.
+1.5 Boss spawn rows, ability radii, cast times and aura durations from client
+    tables (SpellRadius, SpellEffect, SpellMisc, SpellCooldowns,
+    SpellDuration) were not readable in this step.
+
+================================================================================
+2. INSTANCE GEOMETRY AND ROUTE
+================================================================================
+2.1 Z BANDS [SRV] - the raid descends
+      z 1449.97   Abyssal Commander Sivara
+      z 1290.00   Radiance of Azshara
+      z 1284.72   Lady Ashvane
+      z 1255.90   Blackwater Behemoth, platform one
+      z 1211.03   Blackwater Behemoth, platform two
+      z 1171.09   Blackwater Behemoth, platform three
+      z 1060.80   Orgozoa, egg chamber
+      z 1010.81   Orgozoa, naga chamber
+      z  858.91   The Queen's Court
+      z  755.92   Za'qul
+      z  710.65   Queen Azshara
+    The descent is monotonic: the raid only ever goes down.
+
+2.2 BOSS ORDER. The tactics document numbers them 1 Sivara, 2 Radiance,
+  3 Behemoth, 4 Ashvane, 5 Orgozoa, 6 Queen's Court, 7 Za'qul, 8 Azshara, and
+  this file keeps that numbering so the two documents line up. Sivara is the
+  first boss in every source; the exact order of 2-4 is a raid choice, because
+  Icy Veins' map notes say the Halls of the Chosen hold Ashvane and Radiance,
+  while the Darkest Depths hold the Behemoth.
+
+2.3 ENCOUNTER IDENTIFIERS [TAC] and [DBM]
+  1 Abyssal Commander Sivara  journal 2352  DungeonEncounter 2298  151881
+  2 Radiance of Azshara       journal 2353  DungeonEncounter 2305  152364
+  3 Blackwater Behemoth       journal 2347  DungeonEncounter 2289  150653
+  4 Lady Ashvane              journal 2354  DungeonEncounter 2304  152236
+  5 Orgozoa                   journal 2351  DungeonEncounter 2303  152128
+  6 The Queen's Court         journal 2359  DungeonEncounter 2311  152910
+                                                                  152853
+                                                                  152852
+  7 Za'qul                    journal 2349  DungeonEncounter 2293  150859
+  8 Queen Azshara             journal 2361  DungeonEncounter 2299  152910
+  The Queen's Court and Azshara share creature 152910: Azshara is present at
+  the Court as a decree caster and is not attackable there.
+
+2.4 TRASH. There is no pull-by-pull route: this is a raid, and the only trash
+  data any readable source registers is the spell list in section 5.1.
+
+================================================================================
+3. LANDMARK TABLE (all coordinates [SRV])
+================================================================================
+3.1 ABYSSAL COMMANDER SIVARA
+      arena centre                (298.54, 153.91, 1449.97)   script "//40y"
+      frost ground areatrigger    entry 16563
+      toxic ground areatrigger    entry 16564
+    The two grounds are triggered by areatrigger entries, not by coordinates
+    in the script, so their world positions live in the areatrigger table ->
+    unverified.
+
+3.2 RADIANCE OF AZSHARA
+      arena centre                (772.46, 638.60, 1290.00)  script "//100y"
+      Squall Trap lines, pattern 1 (7 points, z 1295.96):
+        (845.45, 623.99) (838.16, 623.64) (831.01, 623.29) (825.02, 622.99)
+        (818.60, 622.68) (811.80, 622.34) (804.77, 622.02)
+      Squall Trap lines, pattern 2 (5 points, z 1295.96 except last 1296.20):
+        (771.90, 600.62) (770.58, 593.38) (769.34, 586.53) (768.00, 579.16)
+        (766.57, 571.25)
+      Squall Trap lines, pattern 3 (5 points, z 1295.96 except last 1296.92):
+        (739.56, 656.40) (732.63, 661.55) (726.31, 666.24) (720.05, 670.88)
+        (713.98, 675.49)
+    These are casts of the Squall Trap areatrigger along one of three fixed
+    lines, and the script picks the line at random. A bot that knows the three
+    lines can predict where the walls of the quadrant will be.
+
+3.3 BLACKWATER BEHEMOTH - three platforms, each with an orientation
+      platform 1  (-4.35, 974.46, 1255.90) o 3.21
+      platform 2  (-263.46, 1099.83, 1211.03) o 4.68
+      platform 3  (-448.11, 788.86, 1171.09) o 0.85
+      jellyfish spawn 1   (-161.72, 991.28, 1242.16)
+      jellyfish spawn 2   (-354.09, 911.11, 1204.11)
+      arrival check 1     (-54.86, 959.30, 1249.38)   script "//50y"
+      arrival check 2a    (-300.46, 1030.39, 1207.40)
+      arrival check 2b    (-254.09, 1020.45, 1206.55)
+      arrival check 3a    (-443.87, 847.56, 1167.82)
+      arrival check 3b    (-395.65, 808.48, 1166.90)
+    [CALC] platform 1 to 2 is 287.8 yards, 2 to 3 is 361.7 yards, 1 to 3 is
+    481.0 yards. Those are open-water swims, not corridor walks: the Slipstream
+    currents, not pathing, are how the raid crosses them.
+    The boss is teleported to each platform constant with that platform's
+    orientation on the switch, so the platform constants double as the boss's
+    landing spot.
+
+3.4 LADY ASHVANE
+      arena centre  (298.22, 634.11, 1284.72)
+      script note "//55y checks, 35y for corals"
+    Coral Growths are placed with GetRandomPoint(centre, 35.0), i.e. anywhere
+    within 35 yards of the centre, so 35 is the coral ring radius.
+
+3.5 ORGOZOA
+      egg-chamber platform   (267.31, 703.25, 1060.80)   script "//30y"
+      naga-chamber platform  (220.20, 818.42, 1010.81)   script "//50y"
+      phase-one add spawns   (236.22, 707.51, 1060.93)
+                             (290.85, 700.58, 1060.94)
+      phase-two add spawns   (192.17, 823.58, 1010.77)
+                             (252.74, 818.31, 1010.98)
+      intermission walk points, in order (the boss's own path down the ramp):
+        1 (268.44, 721.32, 1060.82)    5 (326.42, 798.75, 1034.46)
+        2 (272.97, 741.00, 1060.25)    6 (212.08, 774.73, 1010.85)
+        3 (326.45, 737.38, 1051.20)    7 (211.57, 809.72, 1010.75)
+        4 (346.47, 762.44, 1043.44)    8 (220.20, 818.42, 1010.81)
+      unstable egg positions (25, the "Eggsplosion" ring, z 1010.92-1060.55):
+        (218.68, 778.92, 1010.92) (231.12, 774.02, 1014.37)
+        (238.68, 782.15, 1017.11) (245.94, 776.49, 1019.71)
+        (259.33, 774.78, 1023.61) (273.67, 779.43, 1025.80)
+        (267.61, 787.05, 1025.38) (283.98, 796.09, 1026.94)
+        (296.16, 790.87, 1028.03) (304.71, 799.31, 1029.78)
+        (316.43, 793.76, 1032.32) (321.22, 800.04, 1033.25)
+        (327.51, 790.89, 1035.81) (336.40, 783.79, 1038.50)
+        (346.83, 778.13, 1040.27) (337.77, 763.72, 1043.83)
+        (344.07, 753.08, 1045.55) (334.71, 748.83, 1047.64)
+        (325.72, 739.09, 1051.20) (314.48, 741.38, 1053.99)
+        (311.12, 729.96, 1054.75) (302.14, 737.68, 1057.32)
+        (292.33, 741.42, 1059.23) (284.90, 737.96, 1060.05)
+        (279.57, 745.14, 1060.55)
+    [CALC] the two chambers are 124.4 yards apart horizontally and 50.0 yards
+    apart vertically. The egg ring follows the ramp: its z falls from 1060.55
+    to 1010.92, so the eggs mark the descent, and the safe line through the
+    intermission is between them, not through them.
+
+3.6 THE QUEEN'S COURT
+      arena centre          (196.03, 1443.84, 858.91)
+      decree spawn trigger  (196.29, 1393.21, 869.79)
+      banners, one per decree (all z 858.91):
+        1 (196.355, 1477.08)   2 (236.54, 1443.90)   3 (202.42, 1406.81)
+        4 (162.60, 1416.94)    5 (160.13, 1467.54)
+    [CALC] banner distance from the centre: 33.2, 40.5, 37.6, 42.9, 43.0
+    yards. The decree trigger is 50.6 yards from the centre, i.e. it sits
+    outside the banner ring - it is a spawn point, not a stand point.
+
+3.7 ZA'QUL
+      arena centre  (197.69, 2012.56, 755.92)
+    No other constant exists in the script. Everything Za'qul places -
+    Manifest Nightmares, Nightmare Pools, Dark Tears, portals - is placed
+    relative to players or to the centre at runtime -> unverified.
+
+3.8 QUEEN AZSHARA
+      arena centre / middle ward  (216.65, 2444.94, 710.65)
+      left ward                   (182.32, 2454.58, 710.79)
+      right ward                  (250.27, 2454.62, 710.79)
+      south ward                  (216.27, 2410.97, 710.78)
+      ward overload areatrigger   (216.47, 2415.98, 712.34)
+      pre-engage position         (266.21, 2475.89, 743.32) o 3.65
+      engage position             (223.30, 2482.45, 710.81)
+      roleplay adds, 4 points (all z 710.80):
+        Thalyssra (206.12, 2408.97)  Jaina     (200.15, 2411.34)
+        Lor'themar (227.28, 2407.95) Shandris (232.28, 2409.54)
+      first adds, 2 points (all z 710.80):
+        (210.72, 2480.79) and (229.15, 2479.40)
+    [CALC] the three wards sit 34.0-35.7 yards from the centre and the left
+    and right wards are 68.0 yards apart, so the ward triangle is a ring
+    roughly 70 yards across. Azshara's engage point is 38.1 yards from the
+    centre and her pre-engage point is 58.4 yards away at z 743.32, i.e. she
+    starts the encounter standing on the raised console platform.
+
+================================================================================
+4. BOSS 1 - ABYSSAL COMMANDER SIVARA
+================================================================================
+4.1 IDENTITY [TAC]/[DBM]
+  journal 2352 | DungeonEncounter 2298 | creature 151881
+
+4.2 SPAWN AND TANK POSITION
+  Boss spawn: unverified (world DB).
+  Arena: centred on (298.54, 153.91, 1449.97); the script sizes its checks to
+  40 yards, so treat the fight area as a 40-yard disc on that centre.
+  TANK POSITION: hold her on that centre facing away from the raid. The
+  script's own logic guarantees the tank cannot simply stand still: the two
+  ground effects are isareatrigger entries 16563 (frost) and 16564 (toxic)
+  and the script checks which one a unit is standing in. Exact tank offsets:
+  unverified.
+
+4.3 PHASES [TAC]/[GUIDE]
+  HEALTH PERCENTAGE: none. The client journal carries a single stage, and no
+  guide read here puts a percentage gate on the fight. The fight is a mark and
+  ground rotation: Chimeric Marks 294726 assigns Frost Mark 294711 or Toxic
+  Brand 294715, Inversion 295791 swaps every mark, and the raid must be
+  standing on ground matching its current mark.
+  Berserk 360 s [DBM] (the module's own default is 600 s; its combat-start
+  value is 360-delay).
+
+4.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Crushing Reverberation 295332   first 10.6, cooldown 22.3
+  Overwhelming Barrage 296551     first 40, cooldown 40
+                                  (journal id 295138 [TAC])
+  Overflow 295346                 first 15.7, cooldown 40.1
+                                  (Mythic 40, other difficulties 34.4 inside
+                                  the module)
+  Inversion 295791                first 70 or 90, cooldown 72.9
+  Frostshock Bolts 295601         first 50.8, cooldown 60.8
+  Chimeric Marks 294726           first 23, cooldown 22.8
+
+4.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Chimeric Marks 294726 - assigned to EVERYBODY.
+     Trigger: the cast. Action: read the new mark and move to matching ground
+     (Frost 294711 -> frost ground, Toxic 294715 -> toxic ground).
+  b) Inversion 295791 - assigned to EVERYBODY, and it is the reset.
+     Trigger: the cast. Action: every mark flips, so every unit re-reads its
+     colour and swaps sides; a unit caught in the wrong ground takes Frozen
+     295807 or Venomous Blood 295796.
+  c) Overwhelming Barrage 295138 - assigned to the TANK.
+     Trigger: the tank-targeted cast. Action: keep her turned away, use a
+     cooldown, and do not let it point into the raid.
+  d) Frostshock Bolts 295601 - assigned to the KICK ROTATION.
+     Trigger: SPELL_CAST_START of 295601, plus Frost Bolt 295704 and Toxic
+     Bolt 295705.
+  e) Crushing Reverberation 295332 - assigned to NOBODY, dodged.
+  f) Overflow 295346 / Overflowing Chill 295348 / Overflowing Venom 295421 -
+     assigned to the HEALERS; the stacks are the real damage of the fight.
+  g) Unstable Mixture 294847 and Delirious 295850 - the failure states of
+     standing in the wrong ground; no assignment, just avoidance.
+
+4.6 SAFE SPOTS
+  Verified: the 40-yard disc around (298.54, 153.91, 1449.97) is the arena the
+  script checks against.
+  The frost and toxic grounds are cast by areatrigger entries 16563 and 16564,
+  so the safe spot is defined by which trigger a unit is standing in, not by a
+  coordinate this file can give -> unverified as points.
+  Practical rule from the mechanics: half the raid must be standing in frost
+  ground and half in toxic ground after every Inversion, and no unit may stand
+  in the ground of the other colour.
+
+================================================================================
+5. BOSS 2 - RADIANCE OF AZSHARA
+================================================================================
+5.1 IDENTITY [TAC]/[DBM]
+  journal 2353 | DungeonEncounter 2305 | creature 152364
+
+5.2 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Arena centre (772.46, 638.60, 1290.00), script
+  radius note "//100y" - the platform is 100 yards across in that note.
+  TANK POSITION: she is stationary (the script disables combat movement with
+  SetCombatMovement(false) and drives her by power, not by positioning), so
+  the tank holds her at the centre and the raid moves around her. Tide Fist
+  296566 is the tank hit and Unshackled Power 296894 is the soft enrage.
+
+5.3 PHASES [GUIDE] - energy, not health
+  HEALTH PERCENTAGE: none.
+  Phase One lasts 100 seconds, i.e. until her energy reaches 100%, then
+  Ancient Tempest 295916 is cast and Phase Two begins; Phase Two lasts until
+  the Stormwraith is killed, and then Phase One restarts. The cycle repeats
+  until she dies (Icy Veins, both the fight-overview and the ability text).
+  In Phase Two she takes 99% reduced damage and only keeps casting Arcane Bomb
+  296746 (Icy Veins).
+  Berserk 540 s Mythic / 720 s otherwise [DBM].
+
+5.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Tide Fist 296546               first 15 or 18, cooldown 58.2
+                                 (journal id 296566 [TAC])
+  Arcanado Burst 296430          first 6 or 9, cooldown 58.2
+                                 (journal id 296449)
+  Arcane Bomb 296737             first 7 or 10, cooldown 58.2
+                                 (journal id 296746)
+  Unshackled Power 296894        first 10 or 13, cooldown 58.2 same id
+  Ancient Tempest 295916         first 95.6 or 98.8, cooldown 95.9
+  Gale Buffet 304098             first 11, cooldown 22.6
+                                 (journal ids 296701 / 304098)
+
+5.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Arcane Bomb 296746 - assigned to the DISPELLER and to the marked player.
+     Trigger: aura; the module warns on the player. Action: run to the edge of
+     the room and dispel there, never in the stack (burstjames: "drop at edge
+     of room and call for dispel"; Icy Veins treats it as the only dispel).
+  b) Tide Fist 296566 - assigned to the TANK (taunt swap on stacks).
+  c) Focus Power 304951 - assigned to the KICK ROTATION.
+     Trigger: the Stormwraith's cast. Action: interrupt it, then kill the
+     Stormwraith; Phase Two ends when it dies.
+  d) Chain Lightning 296673 - assigned to the KICK ROTATION (Stormlings).
+  e) Squall Trap 296462 - assigned to EVERYBODY.
+     Trigger: a line of traps forms across the platform (the three lines in
+     3.2). Action: cross through a gap; touching one detonates it and spawns
+     an Arcanado 296421.
+  f) Gale Buffet 296701 - assigned to EVERYBODY; it pushes units, so the raid
+     keeps its back to a wall and never to the open platform edge.
+  g) Unshackled Power 296894 - assigned to the HEALERS; it is the soft enrage.
+  h) Swirling Winds 296389 / Radiant Fury 299093 - assigned to NOBODY, dodged.
+
+5.6 SAFE SPOTS
+  Verified: the platform centre (772.46, 638.60, 1290.00) and the three Squall
+  Trap lines in 3.2. The safe spot during Phase Two is the Eye of the Storm
+  where the Stormwraith stands; the script does not hard-code it, so its
+  coordinate is unverified.
+  Because the Squall Traps are the only fixed furniture on the platform, a bot
+  can pre-plan the three crossings: pattern 1 runs west-to-east along y ~622,
+  pattern 2 runs north-to-south at x ~768, pattern 3 runs north-to-south at
+  x ~727. Cross perpendicular to the line, not along it.
+
+================================================================================
+6. BOSS 3 - BLACKWATER BEHEMOTH
+================================================================================
+6.1 IDENTITY [TAC]/[DBM]
+  journal 2347 | DungeonEncounter 2289 | creature 150653
+
+6.2 SPAWN AND TANK POSITION
+  Boss spawn: unverified. The script teleports him onto platform 1
+  (-4.35, 974.46, 1255.90) with orientation 3.21 at encounter start and after
+  a wipe, so that teleport IS his opening position [SRV].
+  TANK POSITION: he is fought in open water with no floor constraint; the tank
+  holds him at the platform anchor above and keeps the Radiant Biomass adds
+  (292138) off the raid. The three platform constants are the only verified
+  positions in the fight.
+
+6.3 PHASES [GUIDE]/[SRV] - energy, not health
+  HEALTH PERCENTAGE: none.
+  Three platforms. The script gives him POWER_ENERGY, 0 to 100, and adds 1 per
+  energy tick; at 100 he swims to the next platform and channels Cavitation
+  292084 (32 s cast) until the raid reaches and interrupts him. Two
+  transitions, 90 seconds apart (Icy Veins), matching the three "phases" that
+  the guides describe as one continuous fight.
+  Berserk 545 s on Heroic/Mythic ("IsHard") and 720 s otherwise [DBM].
+
+6.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Toxic Spine 292167             first 5.4 (11 or 20 later), cooldown 20
+  Shock Pulse 292270             first 19.4 (21.9, 23 or 30 later),
+                                 cooldown 30   (journal id 292279)
+  Piercing Barb 301494           first 13, cooldown 29.9
+                                 (journal id 301930)
+  Cavitation 292084              32 s cast timer
+  Next-phase timer               100 s (the module's own countdown to the
+                                 100-energy platform switch)
+
+6.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Cavitation 292084 - assigned to the WHOLE RAID as an interrupt.
+     Trigger: the 32 s channel at the start of a new platform. Action: swim
+     down the Slipstream 301180 / 305085 currents and interrupt before it
+     finishes, or it pulses heavy raid damage every 2 s.
+  b) Bioelectric Feelers 292247 - assigned to EVERYBODY.
+     Trigger: a scan every 4 s; any two units within 5 yards are hit.
+     Action: spread, and spread vertically: the fight is in open water, so
+     depth counts (tanknotes).
+  c) Radiant Biomass 292138 / Feeding Frenzy 298424 - assigned to the ADD
+     GROUP. Trigger: a pufferfish dies near the boss or an add is eaten.
+     Action: never let a Shimmerskin Pufferfish 150773 be eaten; kill it away.
+  d) Bioluminescence 292133 - assigned to the RAID (buff pickup).
+     Trigger: killing a pufferfish leaves a Bioluminescent Cloud 292205.
+     Action: swim through it for the buff; tanks get the same effect from
+     Radiant Biomass on every swing.
+  e) Glowing Stinger 298595 / 305404 - assigned to NOBODY, dodged (jellyfish).
+  f) Slipstream 301180 / 305085 - assigned to EVERYBODY during a transition;
+     it is the only way to cross the 287.8-481.0 yard gaps in time.
+
+6.6 SAFE SPOTS
+  Verified: the three platforms (3.3) and the two jellyfish spawn points.
+  Platform 1 is a single disc; platforms 2 and 3 have a visible gap between the
+  melee and ranged parts (tanknotes), and the script's arrival checks
+  (3.3) encode roughly where the raid is expected to surface.
+  There is no ground to stand on between platforms: the transition is swum
+  through Slipstreams, and any coordinate between the platform constants is
+  open water -> not a safe spot.
+
+================================================================================
+7. BOSS 4 - LADY ASHVANE
+================================================================================
+7.1 IDENTITY [TAC]/[DBM]
+  journal 2354 | DungeonEncounter 2304 | creature 152236
+
+7.2 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Arena centre (298.22, 634.11, 1284.72), script note
+  "//55y checks, 35y for corals": coral growths are placed within 35 yards of
+  that centre.
+  TANK POSITION: hold her at the centre facing away; the tank must keep her
+  off the coral and drag her out of Cutting Coral 296752. Exact offset:
+  unverified.
+
+7.3 PHASES [GUIDE] - shield phasing, not health percentage
+  HEALTH PERCENTAGE: none, and this is worth stating plainly: Ashvane's two
+  stages cycle on her damage-absorption shield, not on her health.
+  Stage One: Hardened Carapace 296650 absorbs a share of her maximum health -
+  30% in the Wowhead journal text, 40% in tanknotes and mmotip - and each time
+  it regrows it is 150% stronger. Stage Two: Exposed Azerite 297206 begins
+  when the shield breaks and lasts until her energy reaches 100, about 60
+  seconds (Icy Veins), then the shield returns.
+  The DBM module carries a 70.5 s shield timer [DBM].
+  Because of that cycle there is no single figure like "phase two at 70%" that
+  is true for the whole fight; the one hard number that recurs in guides is
+  that the first shield break lands around 70-75% of her health (mmotip).
+  Berserk 505 s Mythic / 559 s Heroic [DBM].
+
+7.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Coral Growth 296555            first 30, cooldown 30
+  Rippling Wave 296688           first 20.5, cooldown 35
+  Barnacle Bash 296725           first 13 (14.9 later), cooldown 15
+  Briny Bubble 297324            cooldown 15, no first-cast value
+  Upsurge 298055                 first 14.9 (17.5, 29.9, 43.9 later),
+                                 cooldown 15.3   (journal id 298054)
+  Arcing Azerite 296944          first 20.5 or 34.9, cooldown 35
+  Hardened Carapace 296650       shield timer 70.5
+
+7.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Briny Bubble 297333 / 302992 - assigned to the RAID.
+     Trigger: a player is bubbled; the bubble must be killed before Upsurge
+     298054 lands, or the player dies.
+  b) Rippling Wave 296688 - assigned to SOAKERS.
+     Trigger: bubbles spawn from Coral Growths and travel; a player soaks each
+     one, taking Waterlogged 296693 stacks. Action: soak only while below the
+     stack limit, and the Empowered Rippling Wave 302779 bubble must be soaked
+     three times (Icy Veins, tanknotes).
+  c) Arcing Azerite 296944 - assigned to PAIRS of marked players.
+     Trigger: up to three pairs are marked and detonate after 8 s (Warcraft
+     Wiki; the Wowhead text says 8 s as well). Action: each pair places a
+     Coral Growth between the two of them so the line destroys it.
+  d) Barnacle Bash 296725 - assigned to the TANK (taunt swap after it).
+  e) Upsurge 298054 - assigned to NOBODY, dodged; it is also the timer on the
+     Briny Bubble rescue.
+  f) Exposed Azerite 297206 - assigned to the HEALERS; it is the Stage Two
+     raid damage.
+  g) Regenerative Coral 302836 - assigned to the RAID on Mythic: soak every
+     marked zone around a destroyed coral or it respawns.
+
+7.6 SAFE SPOTS
+  Verified: 35 yards around (298.22, 634.11, 1284.72) is where corals can
+  appear, so the safe ground in Stage One is the inner disc and the corals line
+  the outside.
+  Stage Two wants the opposite: the raid spreads so the Arcing Azerite lines
+  can be aimed through corals, and the Coral Growth rings become the aiming
+  furniture rather than a hazard.
+
+================================================================================
+8. BOSS 5 - ORGOZOA
+================================================================================
+8.1 IDENTITY [TAC]/[DBM]
+  journal 2351 | DungeonEncounter 2303 | creature 152128
+
+8.2 SPAWN AND TANK POSITION
+  Boss spawn: unverified. Verified instead: the egg-chamber platform centre
+  (267.31, 703.25, 1060.80) with a 30-yard note, and the naga-chamber platform
+  centre (220.20, 818.42, 1010.81) with a 50-yard note.
+  TANK POSITION: phase one at the egg-chamber centre, phase two at the
+  naga-chamber centre, both facing her away from the raid. The script also
+  hard-codes her four add spawns and her eight intermission walk points (3.5),
+  so the room geometry is the best-documented in this file.
+
+8.3 PHASES [GUIDE] - one real health gate
+  HEALTH PERCENTAGE: 40%. "When reduced to 40% health remaining Orgozoa will
+  transition to the Naga Chamber" (Wowhead journal text); Blizzard's
+  September 20 2019 hotfix changed the trigger to 40% health, replacing the
+  earlier 3.5-minute timer, so in 8.3.7 the gate is 40%.
+  Phase One: Egg Chamber   100% - 40%
+  Intermission: The Moulting Hatchery - from 40% until Massive Incubator
+                              298548 is interrupted at the bottom of the ramp
+  Phase Two: Naga Chamber   the rest, to 0%
+  Older guides (Icy Veins 2019) still describe the 3.5-minute version -> if
+  your core kept the pre-hotfix script, the gate is time, not health.
+  Berserk 759 s [DBM] (module note: "Normal and Heroic at least, unconfirmed
+  LFR and mythic").
+
+8.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Desensitizing Sting 298156     first 3, cooldown 5.3
+  Dribbling Ichor 298103         first 26.1 (28.9 later), cooldown 84
+  Incubation Fluid 298242        first 18.6, cooldown 31.7
+  Arcing Current 295825          first 38.2 or 41, cooldown 30.1
+                                 (second id 305048)
+  Call of the Tender 305057      first 20.3 or 35, cooldown 35
+  Massive Incubator 298548       20 s cast timer (the intermission interrupt)
+  Amniotic Eruption 298465       5 s cast timer
+  Aqua Lance 295779              cooldown 25.5
+  Shocking Lightning 295818      cooldown 4.8
+  Conductive Pulse 295822        cooldown 18.2
+  Powerful Stomp 296691          cooldown 29.1
+
+8.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Desensitizing Sting 298156 / Heart-Stopping Paralysis 298164 - assigned
+     to the TANKS. Trigger: stack count; the script kills a tank at 10 stacks
+     (guiaswow), so swap before that. Tanknotes gives 6/7 stacks for phase one
+     and 7-9 for phase two.
+  b) Amniotic Splatter 298430 / Amniotic Eruption 298459 - assigned to the
+     TANK with the highest Sting stacks; the corpse puddles are soaked.
+  c) Arcing Current 295825 / 305048 - assigned to EVERYBODY.
+     Trigger: the cast chains to units afflicted with Incubation Fluid.
+     Action: spread so the chain has no second target.
+  d) Massive Incubator 298548 - assigned to the KICK ROTATION, and it is the
+     intermission's only job: interrupt it after the raid is at the bottom.
+  e) Aqua Lance 295779 - assigned to SOAKERS; it marks a player and drops a
+     puddle after 4 s.
+  f) Powerful Stomp 296691 - assigned to the SOAK GROUP (a big circle).
+  g) Shocking Lightning 295818 / Conductive Pulse 295822 - assigned to the
+     KICK ROTATION (Azsh'ari Witch).
+  h) Skewer 295766 - assigned to the TANK (Zanj'ir Myrmidon).
+  i) Pervasive Shock 295161 - assigned to EVERYBODY; the Zoatroids pulse it
+     while alive.
+  j) Eggsplosion 300308 - assigned to NOBODY; the 25 egg positions in 3.5 are
+     the minefield to walk around.
+
+8.6 SAFE SPOTS
+  Verified: both platform centres and radii (30 yards upstairs, 50 yards
+  downstairs), the eight walk points down the ramp, and the 25 egg positions.
+  The intermission safe line follows the boss's own path: points 1-8 in 3.5 are
+  on the walkable ramp, so a bot can path point to point and stay inside the
+  clear lane while the eggs sit 3-6 yards to either side.
+  Phase two: the naga chamber is the larger disc (50 yards), so the spread for
+  Arcing Current happens there, not on the ramp.
+
+================================================================================
+9. BOSS 6 - THE QUEEN'S COURT
+================================================================================
+9.1 IDENTITY [TAC]/[DBM]
+  journal 2359 | DungeonEncounter 2311 | creatures 152910 Azshara (decree
+  caster, not attackable), 152853 Silivaz the Zealous, 152852 Pashmar the
+  Fanatical.
+
+9.2 SPAWN AND TANK POSITION
+  Boss spawns: unverified. Arena centre (196.03, 1443.84, 858.91); the five
+  banner positions and the decree spawn trigger are verified (3.6).
+  TANK POSITION: the two fanatics are tanked apart, each at least 21 yards
+  from the other, because Separation of Power 296704 gives them 99% damage
+  reduction while they are within 21 yards (MMO-Champion, azsharaguide). The
+  banner ring is 33-43 yards out, so holding one boss near banner 1 and the
+  other near banner 3 satisfies the 21-yard rule with the raid between them.
+  Exact tank coordinates: unverified.
+
+9.3 PHASES [GUIDE] - no health gate; a decree cycle
+  HEALTH PERCENTAGE: none. The journal carries one stage ("Decrees").
+  The decree cycle starts 30 s into the fight and repeats every 60 s
+  (45 s Heroic, 30 s Mythic), always in the same order: Form Ranks, Repeat
+  Performance, Stand Alone, Deferred Sentence, Obey or Suffer
+  (Icy Veins, MMO-Champion). Each decree lasts 30 s.
+  The two bosses do not share health and must be brought to 1 health within
+  15 s of each other or Desperate Measures 300088 (a 10 s cast) heals the
+  first one back (MMO-Champion, azsharaguide, tanknotes).
+  Berserk 450 s [DBM].
+
+9.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Decree timers, all started by the decree events:
+      Form Ranks 298050            first 30, cooldown 40
+                                   (journal id 303227)
+      Repeat Performance 301244    cooldown 40 (journal id 304409)
+      Stand Alone 297656           cooldown 40 (same id in both)
+      Deferred Sentence 297566     cooldown 40 (journal id 297564)
+      Obey or Suffer 297585        cooldown 40 (same id in both)
+  Boss abilities
+      Frenetic Charge 299914       first 30 (40 or 75 later), cooldown 40
+      Zealous Eruption 301807      first 50 or 60.5, cooldown 104.4
+      Fervent Bolt 300395          first 5.1, cooldown 11.3
+      Fanatical Verdict 296850     first 37.3, cooldown 26.7
+      Violent Outburst 297325      first 100.1, cooldown 104.4
+                                   (Mythic 106)
+      Potent Spark 301947          first 15.8 or 20.2, cooldown 92.2
+                                   (journal id 297832)
+      Desperate Measures 300088    10 s cast timer
+  CAVEAT: DBM's decree cooldowns are all the same 40 s placeholder even though
+  the guides give 60/45/30 by difficulty. The first-cast 30 s is the reliable
+  number; use the difficulty figure from 9.3 for the repeat interval.
+
+9.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) The decree itself - assigned to EVERY PLAYER, and it overrides every
+     other positioning rule while active.
+     Trigger: the decree announcement (banner lights at its position).
+     Action: obey it - Form Ranks 303227 = five soak zones (banners), Stand
+     Alone 297656 = spread, Deferred Sentence 297564 = keep moving, Obey or
+     Suffer 297585 = take no damage or lose all healing for 5 s, Repeat
+     Performance 304409 = repeat the previous decree.
+  b) Frenetic Charge 299914 - assigned to the SOAK GROUP.
+     Trigger: Silivaz charges; the impact is soaked by the raid.
+  c) Commander's Fury 299563 / Pashmar's Touch 301829 - assigned to the TANKS.
+  d) Potent Spark 297832 - assigned to the KILL ORDER: kill one spark at a
+     time, never two within 5 s (azsharaguide), because the death explosion
+     stacks.
+  e) Zealous Eruption 301807 / Fanatical Verdict 296850 / Mighty Rupture
+     300546 - assigned to NOBODY, dodged.
+  f) Desperate Measures 300088 - assigned to the DPS RACE; it is the reason
+     both bosses must die together.
+  g) Sphere of Influence 303306 (Mythic) - assigned to EVERYBODY; standing in
+     the active banner's zone amplifies its decree, so the raid fights away
+     from the lit banner.
+
+9.6 SAFE SPOTS
+  Verified: the centre, the five banner positions and their distances (3.6).
+  The practical safe spot is the middle of the ring: the banners are 33-43
+  yards out, so a raid stacked at the centre obeys "Stand Alone" by spreading
+  outward and never needs to enter the banner zones. On Mythic the banners
+  become no-go zones while their decree is up.
+  Deferred Sentence wants constant movement; the ring between the centre and
+  the banners is the widest corridor for that.
+
+================================================================================
+10. BOSS 7 - ZA'QUL, HARBINGER OF NY'ALOTHA
+================================================================================
+10.1 IDENTITY [TAC]/[DBM]
+  journal 2349 | DungeonEncounter 2293 | creature 150859
+
+10.2 SPAWN AND TANK POSITION
+  Boss spawn: unverified. The script carries one constant only: the arena
+  centre (197.69, 2012.56, 755.92).
+  TANK POSITION: hold him at that centre, facing away, and move him only when
+  the encounter demands it - Stage Two requires walking him into the Maddening
+  Eruption 292996 zone so he gains Punctured Darkness 295099 (+30% damage
+  taken for 20 s). Exact tank coordinates: unverified.
+
+10.3 PHASES [GUIDE]/[DBM] - four stages, health-gated
+  HEALTH PERCENTAGE (Icy Veins, stated as a table):
+      Stage One: The Harbinger      100% - 85%
+      Stage Two: Grip of Fear        85% - 70%
+      Stage Three: Delirium's Descent 70% - 50%
+      Stage Four: All Pathways Open  50% - 0%
+  DBM does not read health at all: it advances its stage counter on spell
+  296257 (Opening Fear Realm) for stage two and on 304733 (Delirium's
+  Descent) for stage three, and re-arms its timers from those events.
+  CONFLICT, now resolved: the Wowhead journal text says Thalyssra returns
+  players to reality at 60% health, which does not match a clean 50% Stage
+  Four gate. The script settles it: HealthBelowPct(85), (70) and (50), i.e.
+  the Icy Veins table is what your core runs and the 60% journal line is not
+  implemented.
+  Berserk 600 s [DBM].
+
+10.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Crushing Grasp 292565          first 30 or 35, cooldown 31.4
+  Dread 292963                   first 10.8 or 11.8, cooldown 75.4
+  Mind Tether 295444             first 3.3, cooldown 47.8
+  Manifest Nightmares 293509     first 37.2 (started by the stage-two event),
+                                 cooldown 35
+  Maddening Eruption 292996      first 1 (the module starts it on the stage
+                                 event), cooldown 66.4
+  Punctured Darkness 295099      25 s next-timer, 20 s buff-active timer
+  Delirium's Descent 304733      cooldown 35, no first-cast value
+  Dark Pulse 303978              first 75.1, cooldown 93.5
+  Manic Dread 296018             cooldown 75.4
+  Psychotic Split 301068         first 75.1, cooldown 100, 25 s cast timer
+  Dread Scream 303543            first 15.8, cooldown 8.5
+  Void Slam 302593               4.1 s cast timer
+  Horrific Summoner summon       first 20.4, cooldown 80.1 (journal 20172)
+  No berserk subtleties: 600 s flat.
+
+10.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Mind Tether 295444 - assigned to PAIRS.
+     Trigger: two units are linked. Action: the pair moves as one and never
+     breaks line of sight; Snapped 300133 is the failure.
+  b) Crushing Grasp 292565 - assigned to the TANK.
+     Trigger: the grip on the current tank. Action: taunt swap, and never
+     stand in it (the module warns "far from line").
+  c) Manifest Nightmares 293509 - assigned to the MARKED PLAYERS.
+     Trigger: aura. Action: run out and drop the pool at the room edge.
+  d) Maddening Eruption 292996 - assigned to the TANKS.
+     Trigger: the zone spawns. Action: drag Za'qul INTO it before it explodes;
+     he takes +30% damage for 20 s and the raid avoids a raid-wide hit.
+  e) Dread 292963 / Manic Dread 296018 / Shattered Psyche 295327 - assigned to
+     the DISPELLER (all magic).
+  f) Dread Scream 303543 - assigned to the KICK ROTATION.
+  g) Void Slam 302593 (Echo of Delirium) and Quivering Claws 294652
+     (Unleashed Nightmare) - assigned to the TANKS of the split realms.
+  h) Gathering Nightmare 300635 (Horrific Vision) - assigned to the ADD GROUP.
+  i) Reality Portal 300584 (Thalyssra) - assigned to EVERYBODY: it is the way
+     back from the Delirium Realm.
+
+10.6 SAFE SPOTS
+  Only the centre is verified. Everything else in this fight is placed
+  relative to players or to the boss at runtime, including the Eruption zone
+  the tanks must steer into -> the positions that matter are unverified.
+  What can be said with a source: the Eruption is a "large Shadow zone
+  typically on the opposite side of the room from the boss" (tanknotes), so
+  the tank's job is a ~40-yard drag across the room, and the raid's safe spot
+  is the far side of that zone.
+
+================================================================================
+11. BOSS 8 - QUEEN AZSHARA
+================================================================================
+11.1 IDENTITY [TAC]/[DBM]
+  journal 2361 | DungeonEncounter 2299 | creature 152910
+
+11.2 SPAWN AND TANK POSITION
+  Boss spawn: the script has both a pre-engage and an engage point:
+      pre-engage (266.21, 2475.89, 743.32) o 3.65
+      engage     (223.30, 2482.45, 710.81)
+  The engage point is 38.1 yards from the arena centre and is where she is
+  placed when the encounter starts, so this is a verified starting position
+  even though the DB row is not.
+  TANK POSITION: tank her at/near the centre (216.65, 2444.94, 710.65),
+  facing away, with the raid between her and the ward ring. In Stage One the
+  two lovers are tanked apart: Aethanel and Cyranus each have their own tank
+  hit (Charged Spear 298425, Serrated Edge 298756).
+
+11.3 PHASES [GUIDE] - four stages, two intermissions
+      Stage One: Cursed Lovers        from the pull until Aethanel and Cyranus
+                                      are both dead
+      Intermission One: Queen's Decree  about 40 s
+      Stage Two: Hearts Unleashed     100% - 70%
+      Intermission Two: Adoration     starts at 70%, about 40 s
+      Stage Three: Song of the Tides  Tidemistresses; ends when both are dead
+                                      or when she reaches 40%
+      Stage Four: My Palace Is a Prison  to 0%
+  Source: Icy Veins' fight-structure list (P1 until the lovers die, ~40 s
+  intermissions, P2 ends at 70%, "the phase will end when Queen Azshara
+  reaches 40% health, even if the Tidemistresses have not been killed").
+  A minority guide (worldofmoudi) puts Stage Four at 50% -> the 40% figure is
+  the sourced one; 50% is unverified.
+  DISCREPANCY: the script implements the gates as HealthBelowPct(70) and
+  HealthBelowPct(45), so on this core Stage Four begins at 45%, not 40%. The
+  70% gate agrees with every guide; only the second one differs.
+  DBM advances its own stage counter on 299178 (Ward of Power) for stage two
+  and on the decree events for the intermissions.
+  Berserk 843 s [DBM], plus a separate 180 s stage-three timer that the module
+  runs as "timerStageThreeBerserk".
+
+11.4 MAIN ABILITY TIMERS, seconds from pull [DBM]
+  Stage one (lovers)
+      Painful Memories 297937     first 19.6, cooldown 60
+      Longing 297934              cooldown 60 (Mythic 60 / Heroic 65 / 70)
+      Lightning Orbs 298121       first 23, cooldown 16.1
+      Cold Blast 298014           first 14.3, cooldown 9.4
+      Charged Spear 301078        first 23.6 or 27.5, cooldown 32.3
+                                  (journal id 298425 for the Myrmidon cast)
+      Hulk spawn (journal 20480)  first 35 or 41, cooldown 30.4
+  Stage two and later
+      Arcane Orbs 298787          first 64.8 or 69.8, cooldown 65
+      Beckon 299094               first 25 (then 40-73.9 across the fight),
+                                  cooldown 30.4
+      Divide and Conquer 300478   first 39 (39.9, 45.4 later), cooldown 65
+                                  (87.5 in stage four, 59.8 in stage three)
+      Arcane Detonation 300519    first 54.7 (75, 94.7 later), cooldown 80
+      Reversal of Fortune 297371  first 51.9 (68.1, 77.7 later), cooldown 80
+      Arcane Burst 303657         first 45 (52.1, 55, 66.7 later),
+                                  cooldown 58.2
+      Azshara's Devoted (20353)   first 35 or 95, cooldown 95
+      Azshara's Indomitable       first 95.1, cooldown 100 (journal 20410)
+      Loyal Myrmidon (20355)      cooldown 95, no first-cast value
+      Greater Reversal 297372     first 48.8 (64, 74.7 later), cooldown 70
+      Void Touched 300743         first 12.9, cooldown 6.9
+      Nether Portal 303980        first 23.9 or 26.7, cooldown 35
+      Overload 301431             first 14, cooldown 54.9
+      Piercing Gaze 300768        first 43.9 or 51.5, cooldown 65
+      Massive Energy Spike 301518 42 s cast timer
+      Next-phase timer 30.4 s
+
+11.5 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) Ancient Wards - assigned to a ROTATION of players.
+     Trigger: a ward's energy falls; standing on it restores energy and applies
+     Drained Soul 298569 (-8% maximum health per application, ~1.8 min;
+     -10% in older text). Action: cycle players through the wards, keep every
+     ward off zero, and never exceed the stack limit (Icy Veins; Wowhead
+     journal text for the 8% figure).
+  b) Pressure Surge 300074 / Catastrophic Failure 300076 - assigned to
+     EVERYBODY: a drained ward is the wipe condition.
+  c) Queen's Decree (Suffer! 299249 and the 299250-299255 family) - assigned to
+     EVERY PLAYER and it overrides everything else while active.
+     Trigger: the intermission decree. Action: obey the individual decree -
+     soak or do not soak Arcane Orbs, stand together, stand alone, stay, march
+     (guidance differs by difficulty: 1 decree Normal, up to 2 Heroic, up to 3
+     Mythic).
+  d) Arcane Detonation 300519 - assigned to EVERYBODY.
+     Trigger: the cast at 100 energy. Action: break line of sight to Azshara -
+     the pillars and the Titan console are the sourced hiding places. This is
+     the only mechanic in the raid that is solved by line of sight, so the bot
+     needs an LOS target, not a coordinate.
+  e) Beckon 299094 / 302141 / 303797 - assigned to the MARKED PLAYER.
+     Trigger: aura. Action: walk against the pull; reaching the rune applies
+     Crushing Depths, which drains 10% of maximum health per second.
+  f) Arcane Burst 303657 - assigned to the DISPELLER (magic), and the carrier
+     must be away from the raid when it expires.
+  g) Arcane Vulnerability 302999 - assigned to the TANKS (taunt swap).
+  h) Arcane Orbs 298787 - assigned to the SOAK ROTATION, obeying the decree.
+  i) Divide and Conquer 300478 - assigned to the MARKED PAIRS (line blast).
+  j) Chain Lightning 297972 and Drain Ancient Ward 300491 / 300490 - assigned
+     to the KICK ROTATION.
+  k) Final Sacrifice 299890 / 304729 - the Devoted and the Indomitable die at
+     the Ward of Power to empower it; they are a switch target.
+  l) Controlled Release 300848, Nether Portal 303980, Ground Pound 298531 -
+     assigned to NOBODY, dodged or switched.
+
+11.6 SAFE SPOTS
+  Verified geometry: the centre (216.65, 2444.94, 710.65), the three wards at
+  34.0-35.7 yards, the ward pair 68.0 yards apart, and the ward overload
+  trigger at (216.47, 2415.98, 712.34).
+  Stage One: the lovers are fought between the centre and the south ward; the
+  raid stays off the ward ring because charging a ward costs maximum health.
+  Stage Two: the raid stands at the centre with Azshara, and the safe spot for
+  Arcane Detonation is behind a pillar or the Titan console - the script does
+  not hard-code those, so the LOS cover coordinates are unverified.
+  Intermissions: decrees govern the formation, so there is no single safe spot
+  - the "safe spot" is compliance.
+  Stage Three/Four: the Tidemistresses spawn at the fixed points in 3.8, and
+  the safe ground is between the centre and the ward ring.
+
+================================================================================
+12. TRASH
+================================================================================
+12.1 The only trash mechanics any readable source registers are the seven
+     spells in your tactics document, sourced from DBM's
+     EternalPalaceTrash.lua: Rejuvenating Algae 304261 (interrupt),
+     Gale Buffet 304098 and 296701, Dread 303619 (magic dispel), Heal 303205
+     (interrupt), Arcane Bomb 304026 (magic dispel), Coalesced Nightmares
+     303942.
+12.2 Trash creature entries, counts and positions: unverified. No spawn export
+     for map 2164 was reachable and the tactics document lists spells only.
+
+================================================================================
+13. WHAT IS STILL UNVERIFIED, AND WHAT WOULD RESOLVE IT
+================================================================================
+13.1 Every boss spawn row. The scripts give arena centres and platforms, not
+    spawns. Resolve with an 8.3.7 world DB `creature` dump filtered on map
+    2164.
+13.2 Tank standing points, except where a platform constant is also the boss's
+    teleport destination (Behemoth) or the engage point is scripted (Azshara).
+13.3 The areatrigger geometry behind Sivara's frost and toxic grounds
+    (entries 16563 and 16564) - those live in the areatrigger table.
+13.4 The Eye of the Storm coordinate in Radiance Phase Two, and the LOS cover
+    points for Arcane Detonation in Azshara Phase Two.
+13.5 Za'qul's stage-four gate was 50% vs 60%; the script's HealthBelowPct(50)
+    settles it in favour of 50% (see 10.3).
+13.6 Azshara's stage-four start: 40% (Icy Veins) against 50% (worldofmoudi),
+    and the script trees disagree on her Position constants (1.4).
+13.7 Ashvane's carapace size: 30% of maximum health (Wowhead journal) against
+    40% (tanknotes, mmotip).
+13.8 Orgozoa's gate on a core that kept the pre-hotfix script: 3.5 minutes
+    instead of 40%.
+13.9 The 21-yard Separation of Power radius on Queen's Court is a guide figure
+    (MMO-Champion, azsharaguide); the script does not hard-code it.
+13.10 Ability radii, cast times and aura durations from client tables were not
+    readable in this step, so any radius above is either a script arithmetic
+    result or a guide statement.
+13.11 Trash positions and pull routes (12.2).
+
+================================================================================
+END OF FILE
+================================================================================
