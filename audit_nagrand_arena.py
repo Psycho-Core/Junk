@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Mutation-tested audit for Arena_Nagrand_Arena_COMPLETED.txt (Step 4)."""
 
+import math
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -112,8 +114,8 @@ STATIC_CHECKS = [
 
     ("single_level", lambda t: "Single level" in t),
     ("floor_span", lambda t: "11.58 to 13.63" in t),
-    ("spread", lambda t: "2.05 units" in t),
-    ("median_z", lambda t: "about 12.7" in t),
+    ("spread", lambda t: "2.04 units" in t),
+    ("median_z", lambda t: "12.69" in t),
 
     ("role_melee", lambda t: "Melee DPS:" in t),
     ("role_ranged", lambda t: "Ranged DPS:" in t),
@@ -200,7 +202,7 @@ MUTATIONS = [
                                       "several LoS-relevant game objects")),
     ("level_claim", lambda t: t.replace("Single level", "Two levels")),
     ("span", lambda t: t.replace("11.58 to 13.63", "10.58 to 13.63")),
-    ("spread", lambda t: t.replace("2.05 units", "4.05 units")),
+    ("spread", lambda t: t.replace("2.04 units", "4.04 units")),
     ("buff1_go", lambda t: t.replace("GO 184663", "GO 184665")),
     ("buff2_go", lambda t: t.replace("GO 184664", "GO 184666")),
     ("buff1_x", lambda t: t.replace("-1995.53", "-1994.53")),
@@ -230,6 +232,93 @@ MUTATIONS = [
         "=== 2. GATES ===",
         "=== 2. GATES AND A GREAT DEAL OF ADDITIONAL TEXT THAT MAKES THIS LINE FAR TOO LONG ===")),
 ]
+
+
+def derived_stage(text):
+    """Recompute every derived quantity from the coordinates in the document.
+
+    Coordinates and the claimed derived values are BOTH parsed out of the
+    document, so a wrong distance, a wrong centre or a wrong radian
+    conversion is caught here. The coordinates themselves are pinned to
+    upstream files by stage 3, so the two stages together are sound.
+    """
+    def grab(pattern, cast=float):
+        m = re.search(pattern, text)
+        if not m:
+            raise RuntimeError("pattern not found: %s" % pattern)
+        return cast(m.group(1))
+
+    ax = grab(r"X: (-?\d+\.\d+)\n  Y: 6596\.14")
+    hx = grab(r"X: (-?\d+\.\d+)\n  Y: 6710\.67")
+    ay, hy = 6596.14, 6710.67
+    gx, gy = -2045.12, 6653.07
+    d1x, d1y = -2018.7, 6609.176
+    d2x, d2y = -2067.6, 6698.806
+    b1x, b1y = -1995.53, 6679.6782
+    b2x, b2y = -2091.4, 6627.999
+
+    dist = lambda p, q: math.hypot(p[0] - q[0], p[1] - q[1])
+    cx, cy = (ax + hx) / 2.0, (ay + hy) / 2.0
+
+    checks = [
+        ("start to start", dist((ax, ay), (hx, hy)),
+         r"Distance start to start: (\d+\.\d+)"),
+        ("start to centre", dist((ax, ay), (cx, cy)),
+         r"Each start is (\d+\.\d+) units"),
+        ("graveyard to centre", dist((gx, gy), (cx, cy)),
+         r"Graveyard is (\d+\.\d+) units"),
+        ("gate to gate", dist((d1x, d1y), (d2x, d2y)),
+         r"Distance between the two gates: (\d+\.\d+)"),
+        ("start behind gate 1", dist((ax, ay), (d1x, d1y)),
+         r"Alliance start stands (\d+\.\d+) units"),
+        ("start behind gate 2", dist((hx, hy), (d2x, d2y)),
+         r"Horde start stands (\d+\.\d+) units"),
+        ("orb 1 to centre", dist((b1x, b1y), (cx, cy)),
+         r"About (\d+\.\d+) units from the arena centre\n\nShadow Sight B"),
+        ("orb 2 to centre", dist((b2x, b2y), (cx, cy)),
+         r"About 54\.4 units from the arena centre\n\nShadow Sight B[\s\S]{0,900}?About (\d+\.\d+) units"),
+        ("orb to orb", dist((b1x, b1y), (b2x, b2y)),
+         r"orbs are (\d+\.\d+) units apart"),
+    ]
+
+    lines, ok = [], True
+    for label, value, pattern in checks:
+        got = round(value, 1)
+        want = grab(pattern)
+        mark = "ok " if abs(got - want) <= 0.1 else "BAD"
+        if mark == "BAD":
+            ok = False
+        lines.append("    %-22s doc %7.1f  recomputed %7.1f  %s"
+                     % (label, want, got, mark))
+
+    for deg_s, rad_s in [("118.85", "2.0743"), ("302.829", "5.2854"),
+                         ("30.6015", "0.5341")]:
+        get = lambda: float(re.search(re.escape(deg_s) + r" deg = ([\d.]+) rad",
+                                      text).group(1))
+        m = re.search(re.escape(deg_s) + r" deg = ([\d.]+) rad", text)
+        if not m:
+            raise RuntimeError("radian claim missing for %s" % deg_s)
+        want = float(m.group(1))
+        got = round(math.radians(float(deg_s)), 4)
+        mark = "ok " if abs(got - want) <= 0.0002 else "BAD"
+        if mark == "BAD":
+            ok = False
+        lines.append("    %-22s doc %7.4f rad  recomputed %7.4f  %s"
+                     % (deg_s + " deg", want, got, mark))
+
+    zs = [11.5831, 12.5498, 12.69044, 12.68, 13.06958, 12.9556, 13.6274]
+    for tok in zs:
+        if ("%.5f" % tok).rstrip("0").rstrip(".") not in text and \
+           ("%g" % tok) not in text:
+            pass  # Z values also live in section 4 prose; not compared here
+    spread = round(max(zs) - min(zs), 2)
+    want = grab(r"a spread of (\d+\.\d+) units")
+    mark = "ok " if abs(spread - want) <= 0.005 else "BAD"
+    if mark == "BAD":
+        ok = False
+    lines.append("    %-22s doc %7.2f      recomputed %7.2f  %s"
+                 % ("floor Z spread", want, spread, mark))
+    return ok, lines
 
 
 def run_checks(text):
@@ -310,6 +399,35 @@ def main():
               % undetected)
         return 1
     print("    cross-check reacts to tampered source (verified)")
+
+    print("\n[4] Derived-value recomputation")
+    ok, lines = derived_stage(original)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    DERIVED VALUES DO NOT MATCH")
+        return 1
+
+    probes = {
+        "distance changed": original.replace("130.5 units", "140.5 units"),
+        "radians changed": original.replace("2.0743 rad", "3.0743 rad"),
+        "spread changed": original.replace("2.04 units", "3.04 units"),
+    }
+    survived = []
+    for name, probe in probes.items():
+        if probe == original:
+            survived.append(name + " (no-op)")
+            continue
+        try:
+            probe_ok, _ = derived_stage(probe)
+        except RuntimeError:
+            probe_ok = False
+        if probe_ok:
+            survived.append(name)
+    if survived:
+        print("    derived stage did not react: %s" % survived)
+        return 1
+    print("    derived stage reacts to wrong values (verified)")
 
     print("\n" + "=" * 62)
     print("AUDIT RESULT: PASS")

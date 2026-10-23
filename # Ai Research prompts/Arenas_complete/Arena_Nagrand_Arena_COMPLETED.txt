@@ -116,8 +116,8 @@ Verified Z values on map 1505:
   Arena graveyard:    13.6274
 
 Floor Z therefore runs 11.58 to 13.63 across every verified point,
-a spread of 2.05 units. That is a gently uneven sand floor, not
-separate height levels. Median height is about 12.7.
+a spread of 2.04 units. That is a gently uneven sand floor, not
+separate height levels. Median of those seven values is 12.69.
 
 Elevation differences inside the arena (platforms, steps):
   none documented, none in server data.
