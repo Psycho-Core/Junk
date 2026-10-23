@@ -1,0 +1,293 @@
+AUDIT OF 02_Completed_Arathi_Basin.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. Every factual line of the finished file was re-read from the
+file and compared with the source named in brackets. Nothing was grep-checked
+in bulk: each number was looked up again, and every distance was recomputed
+from the printed coordinates.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong or imprecise; the correction is described
+  ESTIMATE    the line is labelled estimate in the file; only checked for
+              consistency with the verified numbers, not for truth
+  UNVERIFIED  the file itself marks the item unverified and that is correct
+
+Sources used:
+  [AB.cpp]  TrinityCore 8.3.7-35662 src/server/game/Battlegrounds/Zones/BattlegroundAB.cpp
+  [AB.h]    TrinityCore 8.3.7-35662 src/server/game/Battlegrounds/Zones/BattlegroundAB.h
+  [BG.h]    TrinityCore 8.3.7-35662 src/server/game/Battlegrounds/Battleground.h
+  [BG.cpp]  TrinityCore 8.3.7-35662 src/server/game/Battlegrounds/Battleground.cpp
+  [MGR.cpp] TrinityCore 8.3.7-35662 src/server/game/Battlegrounds/BattlegroundMgr.cpp
+  [SQL]     TrinityCore world_safe_locs rows (893-899, 3705, 3706, 7055, 7056, 7251-7257)
+  [DB2]     wago.tools DB2, build 8.3.7.35662 (BattlemasterList, PVPDifficulty, Map)
+  [WIKI]    warcraft.wiki.gg Twink, read 2026-10-23
+  [CALC]    recomputed from the coordinates printed in the file itself
+  [TERRAIN] known map layout, flagged in the file as not read from 8.3.7 data
+
+
+------------------------------------------------------------------------------
+SECTION 1   queue, bracket, team size
+------------------------------------------------------------------------------
+001  PASS  BattlemasterList 3 exists and is named "Classic Arathi Basin" [DB2]
+002  PASS  list 3 has MapID_0 = 529 and -1 in MapID_1..15 [DB2]
+003  PASS  list 3 InstanceType 3, MinLevel 10, MaxLevel 120 [DB2]
+004  PASS  list 3 MaxPlayers 15 and MinPlayers 8 are PER TEAM, so 15v15 with
+           an 8v8 minimum (BattlegroundTemplate::GetMinPlayersPerTeam returns
+           BattlemasterEntry->MinPlayers) [DB2 + MGR.cpp]
+005  PASS  list 3 RatedPlayers 10, GroupsAllowed 1, MaxGroupSize 5 [DB2]
+006  PASS  list 3 HolidayWorldState 1943 [DB2]
+007  PASS  PVPDifficulty 15 = map 529, RangeIndex 1, MinLevel 20, MaxLevel 29 [DB2]
+008  PASS  PVPDifficulty 1373 = map 2107, RangeIndex 1, MinLevel 20, MaxLevel 29 [DB2]
+009  PASS  rated queue is a separate list, BattlemasterList 102, MinLevel 100,
+           so a 29 cannot be rated [DB2]
+010  PASS  experience-off players queue only against experience-off players,
+           patch 3.2.0 rule [WIKI]
+011  PASS  patch 5.2.0 bracket scaling described, core support marked
+           unverified [WIKI] UNVERIFIED
+
+
+------------------------------------------------------------------------------
+SECTION 2   objective, score, timers
+------------------------------------------------------------------------------
+012  PASS  five capture points named and counted [AB.h BG_AB_BattlegroundNodes]
+013  PASS  cap is 1600: BG_AB_MAX_TEAM_SCORE = 1600 [AB.h]
+014  PASS  near-victory warning above 1400:
+           BG_AB_WARNING_NEAR_VICTORY_SCORE = 1400 [AB.h]
+015  PASS  warning texts 10598 Alliance / 10599 Horde and sound 8456 [AB.h]
+016  PASS  client map text says "Earn 1500 resources" for both map 529 and map
+           2107 (PvpLongDescription) [DB2]
+017  PASS  the 1600 / 1500 disagreement is stated as a disagreement and the
+           file tells the reader to check BG_AB_MAX_TEAM_SCORE, instead of
+           picking one [source conflict, handled]
+018  PASS  no time limit: there is no elapsed-time check in BattlegroundAB.cpp,
+           and the only 47-minute check in Battleground.cpp is inside
+           "if (isArena())" [AB.cpp + BG.cpp]
+019  PASS  the match ends when a team reaches the cap, plus the premature-end
+           path when a team drops below the minimum player count
+           (_ProcessProgress, GetPrematureFinishTimer, GetPrematureWinner) [BG.cpp]
+020  PASS  tick intervals {0, 12000, 9000, 6000, 3000, 1000} ms [AB.h]
+021  PASS  tick points {0, 10, 10, 10, 10, 30} [AB.h]
+022  PASS  rates: 0.833, 1.111, 1.667, 3.333 and 30 points per second [CALC]
+023  PASS  time to 1600: 32.0, 24.0, 16.0, 8.0 min and 53 s [CALC]
+024  PASS  time to 1500: 30.0, 22.5, 15.0, 7.5 min and 50 s [CALC]
+025  PASS  capture timer BG_AB_FLAG_CAPTURING_TIME = 60000 [AB.h]
+026  PASS  the timer lives on the node (m_NodeTimers) and PostUpdateImpl counts
+           it down with no reference to the clicking player, so killing the
+           clicker does not stop the flip [AB.cpp]
+027  PASS  owning team clicking its own contested banner restores the node at
+           once and awards SCORE_BASES_DEFENDED (objective 123) [AB.cpp]
+028  PASS  a contested node whose previous state was not occupied is
+           re-contested with SCORE_BASES_ASSAULTED (objective 122) [AB.cpp]
+029  PASS  assaulting an occupied enemy node calls _NodeDeOccupied, which
+           deletes that node's spirit guide (DelCreature(node)) [AB.cpp]
+030  PASS  _NodeDeOccupied also calls RelocateDeadPlayers, so ghosts waiting at
+           the lost guide are moved [AB.cpp] - mechanism confirmed, not claimed
+           as a separate line in the file
+031  PASS  banner replacement delay 2000 ms (m_BannerTimers[node].timer = 2000
+           in _CreateBanner) [AB.cpp]
+032  FIXED   the file said a contested banner is "not clickable again during
+           that gap". That is an inference: the banner object is deleted and
+           recreated 2 s later, there is no separate invulnerability rule.
+           Text now says it is removed for the gap, so a click inside the 2 s
+           is lost, and marks it as an inference [AB.cpp]
+033  PASS  honour tics 260 (normal) / 160 (holiday) points per bonus kill
+           honour, reward GetBonusHonorFromKill(1) [AB.h + AB.cpp]
+034  PASS  reputation tics 160 (normal) / 120 (holiday) points per 10
+           reputation [AB.h + AB.cpp]
+035  PASS  factions 509 League of Arathor (Alliance) and 510 Defilers (Horde) [AB.cpp]
+036  PASS  with three nodes: 260 / 1.667 = 156 s per bonus kill and
+           160 / 1.667 = 96 s per 10 reputation [CALC]
+037  PASS  end of match: winner and both teams each receive
+           GetBonusHonorFromKill(1) [AB.cpp EndBattleground]
+038  PASS  honorable defender spell 68652 (+50% honour within 25 yards) cast on
+           a world trigger at every occupied node [BG.h + AB.cpp]
+039  PASS  quest-credit spells 24061 (4 bases) and 24064 (5 bases) [BG.h + AB.cpp]
+040  PASS  objective ids 122 assault / 123 defend [AB.h]
+
+
+------------------------------------------------------------------------------
+SECTION 3   map identity, objectives, gates
+------------------------------------------------------------------------------
+041  PASS  map 529 directory PVPZone04, name "Classic Arathi Basin" [DB2]
+042  PASS  map 2107 directory ArathiBasin2, name "Arathi Basin" [DB2]
+043  PASS  BattlemasterList 3 -> 529 only, BattlemasterList 1018 -> 2107 only,
+           both also inside lists 32 and 1029 "Random Battleground" [DB2]
+044  PASS  the instance map is BattlemasterEntry->MapID[0] [BG.cpp GetMapId]
+045  PASS  the queue id is the ID column of battleground_template and is looked
+           up in BattlemasterList [MGR.cpp LoadBattlegroundTemplates]
+046  PASS  which rows your database holds is marked unverified [MGR.cpp] UNVERIFIED
+047  PASS  one shared BattlegroundAB class builds both maps, so banner, buff
+           and gate coordinates are the same on 529 and 2107 [AB.cpp
+           SetupBattleground]
+048  PASS  neutral banner entries 180087 Stables, 180088 Blacksmith, 180089
+           Farm, 180090 Lumber Mill, 180091 Gold Mine [AB.h]
+049  PASS  captured banners 180058 Alliance / 180060 Horde, contested 180059 /
+           180061, auras 180100 / 180101 / 180102 [AB.h]
+050  PASS  Stables banner at 1166.785, 1200.132, -56.70859, orientation
+           0.9075713 [AB.h BG_AB_NodePositions]
+051  PASS  Blacksmith banner at 977.0156, 1046.616, -44.80923, orientation
+           -2.600541 [AB.h]
+052  PASS  Farm banner at 806.1821, 874.2723, -55.99371, orientation -2.303835 [AB.h]
+053  PASS  Lumber Mill banner at 856.1419, 1148.902, 11.18469, orientation
+           -2.303835 [AB.h]
+054  PASS  Gold Mine banner at 1146.923, 848.1782, -110.917, orientation
+           -0.7330382 [AB.h]
+055  PASS  Alliance gate entry 180255 at 1284.597, 1281.167, -15.97792,
+           orientation 0.7068594 [AB.h BG_AB_DoorPositions]
+056  PASS  Horde gate entry 180256 at 708.0903, 708.4479, -17.8342, orientation
+           -2.391099 [AB.h]
+057  PASS  only these two door gameobjects exist in the battleground
+           (BG_AB_OBJECT_MAX = 57, gates are object types 40 and 41) [AB.h]
+058  PASS  both closed during preparation and opened by StartingEventOpenDoors
+           (DoorClose / DoorOpen) [AB.cpp]
+
+
+------------------------------------------------------------------------------
+SECTION 4   start positions, graveyards, resurrection
+------------------------------------------------------------------------------
+059  PASS  898, 529, 1355.2, 1274.19, -9.3585, facing 157.05 Alliance base
+           graveyard (Trollbane Hall) [SQL]
+060  PASS  899, 529, 711.536, 648.83, -10.0401, facing 74.0853 Horde base
+           graveyard (Defiler's Den) [SQL]
+061  PASS  895, 529, 1201.87, 1163.13, -56.286, facing 106.65 Stables [SQL]
+062  PASS  894, 529, 1016.59, 955.185, -42.8287, facing 96.75 Blacksmith [SQL]
+063  PASS  893, 529, 834.726, 784.979, -57.0819, facing 97.65 Farm [SQL]
+064  PASS  897, 529, 772.756, 1213.11, 15.7974, facing 289.35 Lumber Mill [SQL]
+065  PASS  896, 529, 1211.52, 781.557, -82.7095, facing 145.35 Gold Mine [SQL]
+066  PASS  3705, 529, 1313.9, 1310.74, -9.01043, facing 140 Alliance
+           anti-cheat target; 3706, 529, 684.014, 681.22, -12.9159, facing 314
+           Horde anti-cheat target [SQL]
+067  PASS  7251-7257 and 7055-7056 on map 2107, all seven graveyards and both
+           entrances, coordinates as printed [SQL]
+068  PASS  the Alliance base graveyard is the Alliance start and fallback
+           (BG_AB_GraveyardIds[5] = 898, [6] = 899) [AB.h]
+069  PASS  spirit guide creature 13116 Alliance / 13117 Horde [BG.h]
+070  PASS  seven spirit guide positions as printed [AB.h BG_AB_SpiritGuidePos]
+071  PASS  a dead player goes to the nearest graveyard his team owns
+           (squared-distance search over occupied nodes), else to his base
+           graveyard [AB.cpp GetClosestGraveyard]
+072  PASS  graveyards are not captured separately, they follow node ownership
+           [AB.cpp _NodeOccupied / GetClosestGraveyard]
+073  PASS  resurrection in 30 s batches, RESURRECTION_INTERVAL = 30000 [BG.h]
+074  PASS  spirit heal spells 22011, 22012, 44535, 2584, 24171 [BG.h]
+
+
+------------------------------------------------------------------------------
+SECTION 5   terrain, area triggers, distances
+------------------------------------------------------------------------------
+075  FIXED   the ramp/bridge paragraph read as if it came from the coordinates.
+           Only the heights are in the data; the text now says so and labels
+           the Lumber Mill ramp, Blacksmith bridge, Farm bridge and Gold Mine
+           tunnel mouth as known map layout, with waypoints unverified
+           [TERRAIN + AB.h heights]
+076  PASS  the five node heights quoted (11.2 / -44.8 / -56.7 / -56.0 / -110.9)
+           match BG_AB_NodePositions z [AB.h]
+077  PASS  area triggers 6634 Alliance start, 6635 Horde start, with the
+           preparation teleport to 3705 / 3706 [AB.cpp HandleAreaTrigger]
+078  PASS  exit portals 3948 Alliance, 3949 Horde, both call LeaveBattleground
+           and both refuse the other faction [AB.cpp]
+079  PASS  node triggers 3866 Stables, 3867 Farm, 3868 Lumber Mill, 3869 Gold
+           Mine, 3870 Blacksmith [AB.cpp]
+080  PASS  4020, 4021, 4674 listed as unnamed and ignored [AB.cpp]
+081  PASS  a banner can be clicked from within 10 yards
+           (IsWithinDistInMap(obj, 10)) [AB.cpp EventPlayerClickedOnFlag]
+082  PASS  the node lookup walks nodes in the order Stables, Blacksmith, Farm,
+           Lumber Mill, Gold Mine [AB.cpp]
+083  PASS  distances: Alliance gate to Stables 143, Blacksmith 387, Lumber Mill
+           448, Gold Mine 454, Farm 628 [CALC]
+084  PASS  Horde gate to Farm 193, Blacksmith 432, Gold Mine 461, Lumber Mill
+           465, Stables 672 [CALC]
+085  PASS  Alliance base to Stables 202, Blacksmith 441, Lumber Mill 515, Gold
+           Mine 474, Farm 679 [CALC]
+086  PASS  Horde base to Farm 245, Blacksmith 478, Gold Mine 479, Lumber Mill
+           521, Stables 715 [CALC]
+087  PASS  base to base 897.4 [CALC]
+088  PASS  all nine node-to-node distances as printed (244.1, 242.7, 158.3,
+           261.2, 314.8, 352.5, 279.1, 341.7, 418.3) [CALC]
+089  PASS  "158-315 yd apart" for Stables + Blacksmith + Lumber Mill/Farm,
+           "352-418 yd" for any set including Gold Mine [CALC]
+090  PASS  travel times use 7.0 yd/s and 11.2 yd/s and are labelled engine
+           assumptions, not 8.3.7 data [assumption, labelled]
+091  PASS  ramp, bridge and tunnel waypoints marked unverified [TERRAIN] UNVERIFIED
+
+
+------------------------------------------------------------------------------
+SECTION 6   power-ups
+------------------------------------------------------------------------------
+092  PASS  at gates open one random power-up per node: urand(0, 2) picks speed,
+           regeneration or berserking [AB.cpp StartingEventOpenDoors]
+093  PASS  entries 179871 speed, 179904 regeneration, 179905 berserking [BG.h]
+094  PASS  the five node buff positions as printed [AB.h BG_AB_BuffPositions]
+095  PASS  only one of the three objects is spawned per node, so which buff you
+           get is luck [AB.cpp]
+096  PASS  a used node buff's respawn time is not applied by this core
+           (AddObject takes uint32 /*respawnTime*/ and ignores it); file marks
+           the real value unverified [BG.cpp AddObject] UNVERIFIED
+097  PASS  the file does not quote a respawn number for these buffs, which is
+           correct given 096
+
+
+------------------------------------------------------------------------------
+SECTION 7   sections 3 to 6 (roles, behaviour, mistakes)
+------------------------------------------------------------------------------
+098  ESTIMATE  role split (2-3 defence per owned node, 4-6 attack block, 1-2
+              roamers, 1-2 base sitters, 2-3 healers) labelled estimate and
+              consistent with 15v15 / 8v8
+099  ESTIMATE  opening timings 3-12 s and 12-30 s, first clicks 10-25 s, first
+              capture 1:10-1:25; consistent with 143-387 yd at the printed
+              speeds
+100  ESTIMATE  "both sides reach Blacksmith in under 35 s" (387 yd / 11.2 =
+              34.5 s) [CALC against the file's own assumption]
+101  ESTIMATE  "4 points catch up in 8 minutes, 5 points under a minute"
+              matches the tick table
+102  PASS     "base to Blacksmith 441-478 yd, 40-43 s mounted" [CALC]
+103  FIXED    the file said a death costs "a 20-45 s run (143-441 yd)". At
+              7.0 yd/s, 441 yd is 63 s, so the range was wrong; now "20-63 s
+              on foot (13-39 s mounted), so 50-95 s of absence" [CALC]
+104  ESTIMATE  chase, detour, undefended-node and rotation frequencies in
+              section 5
+105  ESTIMATE  mistake list: every item restates a rule verified above (60 s
+              timer, defend click, spirit guide removal, respawn distance), no
+              new number introduced
+106  PASS     no creature, spell, item or gameobject id in sections 3-6 that is
+              not verified above
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+  claims checked ...................................... 106
+  PASS ................................................ 97
+  FIXED ............................................... 3    (032 075 103)
+  ESTIMATE lines accepted ............................. 6
+  UNVERIFIED statements confirmed correctly marked .... 4
+  claims found wrong in substance and withdrawn ...... 0
+
+  Four corrections in three lines: the banner-click gap was an inference
+  presented as a rule (032), the ramp/bridge paragraph implied data it did not
+  have (075), and the respawn run range contradicted its own 441 yd figure
+  (103), which also fixed the absence total in that line to 50-95 s.
+  Everything else held.
+
+  Not in the original file and worth adding for the next pass: _NodeDeOccupied
+  also calls RelocateDeadPlayers, so a team that loses a node has the ghosts
+  waiting at that guide moved by the core, not left standing in a lost camp.
+
+
+------------------------------------------------------------------------------
+WHAT WAS RE-READ FOR THIS AUDIT
+------------------------------------------------------------------------------
+  BattlegroundAB.cpp      717 lines: PostUpdateImpl, capture handlers,
+                          _NodeOccupied, _NodeDeOccupied, HandleAreaTrigger,
+                          SetupBattleground, EndBattleground,
+                          GetClosestGraveyard, Reset
+  BattlegroundAB.h        372 lines, full read (node ids, positions, buffs,
+                          spirit guides, tics, worldstates, objects)
+  Battleground.h/.cpp     AddObject, SpawnBGObject, RESURRECTION_INTERVAL,
+                          GetMinPlayersPerTeam, GetPrematureWinner, the arena-only
+                          47-minute check, GetMapId
+  BattlegroundMgr.cpp     LoadBattlegroundTemplates, per-team player counts
+  world_safe_locs SQL     ids 893-899, 3705, 3706, 7055, 7056, 7251-7257
+  DB2 build 35662         BattlemasterList 3, 32, 102, 1018, 1029;
+                          PVPDifficulty 529, 2107; Map 489, 529, 2106, 2107
+  wiki                     Twink (XP-off queue, 5.2.0 scaling)

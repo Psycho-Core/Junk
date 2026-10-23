@@ -1,0 +1,88 @@
+AUDIT OF 08_Completed_Deepwind_Gorge.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file is a single line, as the prompt requires when a
+battleground is closed to the bracket.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong or imprecise; the correction is described
+
+Sources used:
+  [DB2]     wago.tools DB2 build 8.3.7.35662 (BattlemasterList, PVPDifficulty,
+            Map)
+  [PROMPT]  08_Deepwind_Gorge.txt, the "if it is not, write only that line and
+            stop" rule
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the battleground has two maps, 1105 and 2245 [DB2 Map rows]
+002  PASS  map 1105: Map row directory GoldRushBG, name "Deepwind Gorge
+           (Legacy)", MapType 1, InstanceType 3, ExpansionID 4 (MoP) [DB2]
+003  PASS  map 2245: Map row directory 2245, name "Deepwind Gorge", MapType 1,
+           InstanceType 3, ExpansionID 4 [DB2]
+004  PASS  BattlemasterList 754 "Deepwind Gorge (Legacy)", GameType
+           "Domination", InstanceType 3, MinLevel 45, MaxLevel 120, MinPlayers
+           8, MaxPlayers 15, RatedPlayers 10, MapID_0 1105 [DB2]
+005  PASS  the per-team reading gives 15 vs 15 with an 8 vs 8 minimum; the same
+           table gives WSG 10, AB 15, EotS 15, AV 40, IoC 40, so the reading is
+           consistent [DB2]
+006  PASS  BattlemasterList 1037 "Deepwind Gorge", GameType Domination,
+           InstanceType 3, MinLevel 0, MaxLevel 0, MinPlayers 8, MaxPlayers 15,
+           RatedPlayers 10, MapID_0 2245 [DB2]
+007  FIXED   the file explained the 0/0 levels as "the level gate is left to the
+           bracket table instead of the list", which is an inference stated as
+           fact. Now worded as: the list itself carries no level gate, so the
+           bracket rows decide. [DB2]
+008  PASS  BattlemasterList 1039 references map 2245 with Flags 0x20 [DB2]
+009  FIXED   the file called 1039 "a Brawl entry" on the strength of its flag
+           alone. It now says "Flags 0x20, the same flag pattern as the other
+           Brawl rows", which is what the data supports (the other Brawl rows
+           849/860/881/883 also carry 0x20 or 0x24, and 1039's name has no
+           brawl suffix in the row). [DB2]
+010  PASS  lowest PVPDifficulty bracket is 713 = map 1105, RangeIndex 0,
+           MinLevel 45, MaxLevel 49 [DB2]
+011  PASS  lowest bracket for map 2245 is 1404 = RangeIndex 0, MinLevel 45,
+           MaxLevel 49 [DB2]
+012  PASS  every paired row quoted matches: 863/1405 50-59, 864/1406 60-69,
+           865/1407 70-79, 866/1408 80-89, 875/1409 90-99, 796/1410 100-109,
+           1004/1411 110, 903/1412 111-119, 1181/1403 120 [DB2]
+013  PASS  neither map has a 20-29 range row; the RangeIndex 0 row on both is
+           already 45-49, so a level 29 has no bracket to be placed into [DB2]
+014  PASS  remaining rows: 849 and 860 "Deepwind Dunk" on 1105, MinLevel 45,
+           MaxLevel 120, MinPlayers 8, MaxPlayers 15, Flags 0x24; 881 "Deepwind
+           Gorge" on 1105, MinLevel 110, 6 vs 6, Flags 0x20 [DB2]
+015  PASS  client text for 1105 is "Capture and hold the mines / Capture the
+           enemy mine cart / Earn 1500 gold" [DB2 Map 1105]
+016  PASS  client text for 2245 is "Capture and hold the objectives / Earn 1500
+           resources" [DB2 Map 2245]
+017  PASS  format: one line, no sections, which is what the prompt asks for when
+           the answer is "not open" [PROMPT]
+018  PASS  no invented numbers; the only derived figure is 15 vs 15 / 8 vs 8,
+           which comes from MaxPlayers and MinPlayers [DB2 + arithmetic]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+  claims checked ...................................... 18
+  PASS ................................................ 16
+  FIXED ............................................... 2    (007 009)
+  claims found wrong in substance and withdrawn ...... 0
+
+  Both fixes are of the same kind: the step-08 file drew conclusions from DB2
+  nulls and flag bits ("the level gate is left to the bracket table", "i.e. a
+  Brawl entry") that the table does not literally say. The numbers were all
+  right and the verdict does not change - the lowest bracket on both maps is
+  45-49, so no level 29 can enter either version of Deepwind Gorge.
+
+
+------------------------------------------------------------------------------
+WHAT WAS RE-READ FOR THIS AUDIT
+------------------------------------------------------------------------------
+  DB2 build 35662   BattlemasterList 754, 1037, 1039, 849, 860, 881;
+                    PVPDifficulty 631-equivalent rows 713, 1403-1412, 796, 863,
+                    864, 865, 866, 875, 903, 1004, 1181 on MapID 1105 and 2245;
+                    Map 1105 and Map 2245
+  prompt 08         the "not open" output rule

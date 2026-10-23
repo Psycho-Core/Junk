@@ -1,0 +1,102 @@
+AUDIT OF 11_Completed_Strand_of_the_Ancients.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file is a single line, as the prompt requires when a
+battleground is closed to the bracket.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong or imprecise; the correction is described
+
+Sources used:
+  [DB2]     wago.tools DB2 build 8.3.7.35662 (BattlemasterList, PVPDifficulty,
+            Map)
+  [CORE]    TrinityCore 8.3.7-35662 src/server/game/Battlegrounds/
+            BattlegroundMgr.cpp
+  [PROMPT]  11_Strand_of_the_Ancients.txt, the "if it is not, write only that
+            line and stop" rule
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the battleground is map 607 [DB2]
+002  PASS  BattlemasterList 9 "Strand of the Ancients", GameType "Siege",
+           InstanceType 3 [DB2]
+003  PASS  MinLevel 50, MaxLevel 120 [DB2]
+004  PASS  MinPlayers 8, MaxPlayers 15 -> 15v15 cap with an 8v8 minimum, the
+           same per-team reading used for WSG 10, AB 15, EotS 15, AV 40, IoC 40
+           [DB2]
+005  PASS  RatedPlayers 15, GroupsAllowed 1, MaxGroupSize 5 [DB2]
+006  PASS  HolidayWorldState 3695 [DB2]
+007  PASS  MinLevel 50 excludes a level 29 outright [DB2]
+008  PASS  PVPDifficulty 71 is MapID 607, RangeIndex 0, MinLevel 50, MaxLevel
+           59 - the lowest bracket for the map [DB2]
+009  PASS  the rows quoted all match: 868 60-69, 72 70-79, 177 80-89, 881
+           90-99, 801 100-109, 1009 110, 911 111-119, 1183 120 [DB2]
+010  PASS  map 607 has no 20-29, 30-39 or 40-49 row at all; RangeIndex 0 is
+           already 50-59 [DB2]
+011  PASS  Map row 607: directory NorthrendBG, name "Strand of the Ancients",
+           15 vs 15, "each side takes a turn attacking and defending the Titan
+           artifact", short description "Capture the Titan Relic" [DB2]
+012  PASS  BattlemasterList 9 carries Flags 0x1, and the file refuses to say
+           what the flag means: it is marked unverified and the verdict is left
+           to the level gate [DB2]
+013  FIXED   the file claimed "Strand of the Ancients appears in no other
+           BattlemasterList row". That is false: BattlemasterList 101 "Rated
+           Battleground" references map 607 as MapID_2, with MinLevel 20,
+           MaxLevel 90, RatedPlayers 15, MinPlayers 8, MaxPlayers 15,
+           MaxGroupSize 15 and Flags 0x2 (its maps are 2107 Arathi Basin, 566
+           Eye of the Storm and 607). The paragraph has been rewritten to say
+           so, and to explain why it still does not open the battleground to a
+           29: no PVPDifficulty bracket below 50 exists for map 607, and the
+           8.3.7 core has no rated battleground queue path. [DB2 + CORE]
+014  PASS  the corrected text keeps the true part of the old claim: map 607 is
+           not in list 102 (MinLevel 100, maps 727, 998, 726, 2106, 1803)
+           [DB2]
+015  PASS  the corrected text keeps the true part that map 607 has no Brawl
+           variant in this build; a MapID_0, MapID_1, MapID_3 and MapID_4 filter
+           for 607 returns only list 9 and list 101 [DB2]
+016  PASS  BattlegroundMgr::IsValidQueueId only returns true for Rated on
+           BattlegroundQueueIdType::Arena, so rated battlegrounds are not a
+           queue type the core can create [CORE]
+017  PASS  format: one line in the original delivery, and the correction stayed
+           inside that one line [PROMPT]
+018  PASS  no invented numbers; 15v15 and 8v8 come from MaxPlayers/MinPlayers
+           [DB2 + arithmetic]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+  claims checked ...................................... 18
+  PASS ................................................ 17
+  FIXED ............................................... 1    (013)
+  claims found wrong in substance and withdrawn ...... 1    (the "no other
+                                                              BattlemasterList
+                                                              row" sentence)
+
+  The one substantive error is a negative claim that was never tested against
+  the secondary map slots of BattlemasterList. Row 101 "Rated Battleground"
+  (MinLevel 20, MaxLevel 90) lists map 607 in MapID_2, along with map 566 and
+  2107. The verdict survives - map 607 has no bracket below 50, and this core
+  has no rated battleground queue - but the sentence as written was wrong and
+  is now replaced.
+
+  CROSS-FILE CONSEQUENCE: the same negative-style sentence appears in earlier
+  steps as "rated play is a separate list (BattlemasterList 102, MinLevel 100),
+  so a level 29 can never be rated" (steps 04, 05, 06). Row 101 undermines the
+  "so a level 29 can never be rated" half of it, even though the practical
+  conclusion (a 29 cannot be rated in this core) still holds because the core
+  only permits Rated on arena queues. Those three files were NOT edited in this
+  pass; they should get the same one-sentence correction if the set is ever
+  revised.
+
+
+------------------------------------------------------------------------------
+WHAT WAS RE-READ FOR THIS AUDIT
+------------------------------------------------------------------------------
+  DB2 build 35662   BattlemasterList 9, 101, 102; BattlemasterList filtered on
+                    MapID_1/2/3/4 = 607; PVPDifficulty 71, 72, 177, 801, 868,
+                    881, 911, 1009, 1183 on MapID 607; Map 607 and Map 2107
+  core              BattlegroundMgr::IsValidQueueId, BGQueueTypeId
+  prompt 11         the "not open" output rule

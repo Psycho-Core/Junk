@@ -1,0 +1,83 @@
+AUDIT OF 10_Completed_Twin_Peaks.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file is a single line, as the prompt requires when a
+battleground is closed to the bracket.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong or imprecise; the correction is described
+
+Sources used:
+  [DB2]     wago.tools DB2 build 8.3.7.35662 (BattlemasterList, PVPDifficulty,
+            Map)
+  [PROMPT]  10_Twin_Peaks.txt, the "if it is not, write only that line and stop"
+            rule
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the battleground is map 726 [DB2]
+002  PASS  BattlemasterList 108 "Twin Peaks", GameType "Capture the Flag",
+           InstanceType 3 [DB2]
+003  PASS  MinLevel 30, MaxLevel 120 in that row [DB2]
+004  PASS  MinPlayers 5, MaxPlayers 10, so 10v10 cap with a 5v5 minimum; the
+           per-team reading is the one the same table uses for WSG 10, AB 15,
+           EotS 15, AV 40, IoC 40 [DB2]
+005  PASS  RatedPlayers 10, GroupsAllowed 1, MaxGroupSize 5, HolidayWorldState
+           5361 [DB2]
+006  PASS  MinLevel 30 means a level 29 cannot queue it and no 20-29 instance
+           can be formed [DB2]
+007  PASS  PVPDifficulty 128 is MapID 726, RangeIndex 0, MinLevel 30, MaxLevel
+           39 - the lowest bracket for the map [DB2]
+008  PASS  the rows quoted all match: 847 40-49, 848 50-59, 849 60-69, 850
+           70-79, 851 80-89, 886 90-99, 806 100-109, 1014 110, 916 111-119,
+           1170 120 [DB2]
+009  PASS  there is no 20-29 range row for map 726; RangeIndex 0 is 30-39
+           [DB2]
+010  PASS  the only other BattlemasterList row that names map 726 is list 102,
+           the Rated Battleground row: MinLevel 100, MaxLevel 100, MinPlayers 4,
+           MaxPlayers 6, RatedPlayers 6, and 726 is the third map in the row
+           (727, 998, 726, 2106, 1803) [DB2]
+011  FIXED   the file first said "map 726 is MapID_3 in that row". It is
+           MapID_2: the row lists 727 as MapID_0, 998 as MapID_1 and 726 as
+           MapID_2. Corrected in the text. [DB2]
+012  PASS  map 1726 is a separate map with PVPDifficulty rows from 45-49 up to
+           120 (1103-1111 and 1189) [DB2]
+013  PASS  the only battleground entry for 1726 is 856 "[TEMP] RaceTrackBG",
+           GameType Domination, MinLevel 0, MaxLevel 0, Flags 0x1, name carries
+           the TEMP prefix [DB2]
+014  PASS  calling it a development map and "not a Twin Peaks variant" is
+           supported by the name and by the fact that no Twin Peaks row points
+           at 1726 [DB2]
+015  PASS  format: one line, no sections, as the prompt asks for a "not open"
+           answer [PROMPT]
+016  PASS  no invented numbers; 10v10 / 5v5 come from MaxPlayers / MinPlayers
+           [DB2 + arithmetic]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+  claims checked ...................................... 16
+  PASS ................................................ 15
+  FIXED ............................................... 1    (011)
+  claims found wrong in substance and withdrawn ...... 0
+
+  The one fix was a field index: map 726 is MapID_2 of the rated list, not
+  MapID_3. It does not change the verdict or any other sentence. The step-10
+  file also does something the previous three did not need to do - it warns
+  that map 1726's 45-49 bracket rows appear under the same MapID filter and are
+  not a second, lower-level Twin Peaks. That warning is worth keeping, because
+  a reader filtering PVPDifficulty by 726 sees eleven extra rows that look like
+  the missing bracket.
+
+
+------------------------------------------------------------------------------
+WHAT WAS RE-READ FOR THIS AUDIT
+------------------------------------------------------------------------------
+  DB2 build 35662   BattlemasterList 108 and 102 (full map list of the rated
+                    row); BattlemasterList 856; PVPDifficulty 128, 806, 847-851,
+                    886, 916, 1014, 1170 on MapID 726 and 1103-1111, 1189 on
+                    MapID 1726
+  prompt 10         the "not open" output rule
