@@ -796,7 +796,10 @@ TAXI NODE 1519  HIGHPASS, GORGROND
 
 TAXI NODE 1520  BREAKER'S CROWN, GORGROND
   flight master   : Nisha
-  creature entry  : 81677
+  creature entry  : 81674
+  entry note      : 81674 is Nisha as "<Flight Master>", Gorgrond, and it ends the two Rexxar-camp quests at the crown, On
+                    the Mend and Basilisk Butcher; the id the research pass printed for this pair, 81677, is Nisha as
+                    "<Rexxar's Mount>" with no location and is not a flight master at all
   faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 396
   position        : map 1116 (Draenor), 6593.4, 1316.0, 64.6  - TaxiNodes.Pos, the roost the taxi mount uses
   walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
@@ -825,7 +828,10 @@ TAXI NODE 1523  DEEPROOT, GORGROND
 
 TAXI NODE 1524  IRON DOCKS, GORGROND
   flight master   : Nisha
-  creature entry  : 81677
+  creature entry  : unverified
+  entry note      : three Nisha "<Flight Master>" ids exist - 81674, 86492 and 84700 - and only 81674 can be tied to a
+                    place, Breaker's Crown, which leaves this node's id open; no source names the Iron Docks copy, so
+                    nothing is guessed here
   faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 395
   position        : map 1116 (Draenor), 8486.2, 1544.2, 78.9  - TaxiNodes.Pos, the roost the taxi mount uses
   walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
@@ -1141,12 +1147,13 @@ WHAT IS VERIFIED AND WHAT IS NOT
   Positions are TaxiNodes.Pos from Map 1116 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
   flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
   so every "walk-to position" line says unverified rather than a guessed offset.
-  Creature entries: all 72 resolved, and again none from creature_template - all 72 master names were run against both
-  creature_template exports in the repo and none matches a row, so those exports stop before Warlords of Draenor. 57 entries come
-  from section 3.1 of the research document and 15 were read this run from wiki NPC pages, where the Elinks-NPC id is the Wowhead
-  id: Ja'kana 78699, Ernst ten Bosch 85959, Bron Skyhorn 79407, Mok'ra 81053, Skyguard Amelia 81060, Roka 81078, Zamara 81064,
-  Vamuun 81289, Dungar Longdrink 81103 (Lunarfall, not his Stormwind id 352), Biggy Warprofits 83924, Tal 82346 (Wor'var, not his
-  Thunder Bluff id 2995), Windscreamer 84508, Itara 86685, Nasher 90552.
+  Creature entries: 71 of the 72 are resolved, and again none from creature_template - all 72 master names were run against both
+  creature_template exports in the repo and none matches a row, so those exports stop before Warlords of Draenor. 55 entries come
+  from section 3.1 of the research document and 16 were read this run from wiki NPC pages or Wowhead, where the Elinks-NPC id is
+  the Wowhead id: Ja'kana 78699, Ernst ten Bosch 85959, Bron Skyhorn 79407, Mok'ra 81053, Skyguard Amelia 81060, Roka 81078,
+  Zamara 81064, Vamuun 81289, Dungar Longdrink 81103 (Lunarfall, not his Stormwind id 352), Biggy Warprofits 83924, Tal 82346
+  (Wor'var, not his Thunder Bluff id 2995), Windscreamer 84508, Itara 86685, Nasher 90552, Nisha 81674. The one entry left
+  unverified is 1524 Iron Docks, and the reason is in that block.
   Three of the 57 section-3.1 rows were wrong, in the same way: where the export carries an Alliance node and a Horde node at the
   same named place, that table gave both nodes the Alliance master and the Alliance entry. 1454 Exarch's Refuge was printed with
   Niaa 81077 instead of Roka 81078, 1512 Bastion Rise with Rangari Yaval 84507 instead of Windscreamer 84508, and 1644 the Horde
@@ -1157,7 +1164,9 @@ WHAT IS VERIFIED AND WHAT IS NOT
   Alliance mask, 33174 on 1621 Vol'mar and 923 on 1644 the Horde Iron Front carry the Horde mask. No Draenor taxi node is gated on
   level, class, achievement or reputation.
   Two flight master names serve two nodes each, and both cases are real rather than a copy error: Nisha holds Breaker's Crown
-  (1520) and Iron Docks (1524), and Itara holds Tranquil Court (1556) and the Temple of Karabor node (1567). The second of those
+  (1520) and Iron Docks (1524), and Itara holds Tranquil Court (1556) and the Temple of Karabor node (1567). Nisha is a dread
+  raven rather than a humanoid, and Wowhead carries several Nisha ids: the flight-master version at Breaker's Crown is 81674,
+  while the id section 3.1 printed for both nodes, 81677, is her as Rexxar's mount with no location. The second of those
   pairs is a quirk of the export - 1567 sits 1.2 yards from 1556 and has no TaxiPath row in either direction, so it is a node
   nothing can fly to or from, and its master is read from the shared roost.
   Faction: TaxiNodes.Flags gives 23 Alliance-only roosts, 21 Horde-only roosts and 28 with both bits set; each block prints the

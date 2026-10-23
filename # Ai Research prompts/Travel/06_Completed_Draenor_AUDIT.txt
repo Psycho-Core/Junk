@@ -1,0 +1,143 @@
+AUDIT OF 06_Completed_Draenor.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file has 72 node blocks plus a closing evidence section.
+Every block was re-derived from the source document with a second, independent
+parser (not the one that wrote the file) and compared field by field. One entry
+inherited from the source document turned out to be the wrong NPC and was
+replaced; a second one could not be resolved at all and is now marked
+unverified.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong; the correction is described
+  UNVERIFIED  the item is not checkable from the sources used here
+
+Sources used:
+  [TAXI]   TaxiNodes export, build 8.3.7.35662, map 1116, the "1116 DRAENOR"
+           node table and LINKS list of BfA_8.3.7_flight_points_and_travel.txt
+  [PC]     PlayerCondition decode, section 2.1 of the same document
+  [SEC31]  section 3.1 "verified entries" table of the same document
+  [WIKI]   warcraft.wiki.gg NPC pages, read this run
+  [WH]     Wowhead NPC and search pages, read this run
+  [CT]     creature_template exports (4.3.4 TDB update pack and the 8.x dump)
+  [FILE]   06_Completed_Draenor.txt itself
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the export holds 72 Draenor nodes and the file prints 72 blocks,
+           one per node, ids identical [TAXI + FILE]
+002  PASS  all 72 position triples equal TaxiNodes.Pos for map 1116 (72/72
+           compared programmatically, 0 differences) [TAXI]
+003  PASS  all 72 CharacterBitNumber values equal the export's bit column
+           (0 differences) [TAXI]
+004  PASS  every block's link set equals the export's rows, with the wrapped
+           continuation lines read correctly: 603 directed rows in, 603 printed
+           out, 0 set differences, 0 missing, 0 invented [TAXI]
+005  PASS  every printed "yd" equals the export row and every "min" equals
+           yards / 1920 rounded to 2 decimals (0 differences) [TAXI]
+006  PASS  distances are printed per direction, not mirrored: all 301 pairs that
+           exist both ways carry different yards each way, e.g. 1502 -> 1504
+           reads 601 yd = 0.31 min while 1504 -> 1502 reads 371 yd = 0.19 min,
+           and 1520 -> 1524 reads 2109 yd while 1524 -> 1520 reads 2267 yd
+           [TAXI]
+007  PASS  every link target is one of the 72 nodes: no printed id falls outside
+           the export's map-1116 node set [TAXI]
+008  PASS  section 3.1 matches a master name for 60 of the 72 nodes, and the file
+           takes 55 of its entries from that table; the remaining 16 are read
+           from wiki NPC pages or Wowhead and each block names its source
+           [SEC31 + WIKI + WH]
+009  PASS  the 16 web-sourced entries are the masters section 3.1 does not cover
+           or covers wrongly: 78699 Ja'kana, 85959 Ernst ten Bosch, 79407 Bron
+           Skyhorn, 81053 Mok'ra, 81060 Skyguard Amelia, 81078 Roka, 81064
+           Zamara, 81289 Vamuun, 81103 Dungar Longdrink, 83924 Biggy Warprofits,
+           82346 Tal, 84508 Windscreamer, 86685 Itara, 90552 Nasher, 81674 Nisha
+           and the one unverified entry [WIKI + WH]
+010  PASS  all 72 numeric entries that remain are distinct (71 numeric ids, no
+           repeats); before this audit 81677 stood for two different nodes
+           [FILE]
+011  PASS  all 72 walk-to lines read "unverified" and no coordinate was invented
+           for any of them; no source used here gives a player-standing spot
+           [FILE]
+012  PASS  node 1567 has no TaxiPath row in either direction - it is the only
+           node in map 1116 with an empty link set - and the block says so; the
+           block also records that it sits 1.2 yards from 1556 Tranquil Court and
+           reads its master from that shared roost [TAXI + FILE]
+013  PASS  1574 Joz's Rylaks -> 1502 The Ring of Trials exists in one direction
+           only (1738 yd = 0.91 min) and is printed once, inside the 1502 block,
+           marked "(reverse row only)"; 1574's own block carries no 1502 row
+           [TAXI + FILE]
+014  PASS  gate 1520 Breaker's Crown sits behind ConditionID 29229, a
+           PlayerCondition PrevQuest satisfied by quest 35730, 35049 or 34992,
+           and the block names all three [PC]
+015  PASS  1620 Lion's Watch is gated by ConditionID 33173, a race mask limited
+           to the Alliance races, and 1621 Vol'mar by 33174, the mirror mask for
+           the Horde races; each block describes its own gate [PC]
+016  PASS  1644 The Iron Front is gated by ConditionID 923 (Horde race mask) and
+           1645 The Iron Front by 924 (Alliance race mask), and each of the two
+           nodes' TaxiNodes.Flags faction matches its mask [PC + TAXI]
+017  PASS  no other node has a ConditionID: 67 of the 72 blocks print "no
+           ConditionID, so no PlayerCondition gate at all" [TAXI]
+018  PASS  the faction tally is 23 Alliance-only, 21 Horde-only and 28
+           Alliance-and-Horde, which sums to 72, and the per-block "bit 1 / bit 2"
+           wording agrees with the tally for all 72 [TAXI]
+019  FIXED  Nisha at 1520 is 81674, not 81677. Section 3.1 prints 81677 for both
+           Nisha nodes, but Wowhead's 81677 is "<Rexxar's Mount>" with the
+           location listed as unknown and no flight-master title; 81674 is Nisha
+           as "<Flight Master>" in Gorgrond and ends the two quests at the crown,
+           On the Mend and Basilisk Butcher. The block now prints 81674 with a
+           note explaining the change [WH + WIKI]
+020  UNVERIFIED  1524 Iron Docks has no settled creature entry. Three Nisha
+           "<Flight Master>" ids exist - 81674, 86492 and 84700 - and only 81674
+           can be tied to a place, Breaker's Crown, so the Iron Docks copy cannot
+           be named from these sources. The block prints "unverified" plus the
+           three candidate ids rather than picking one [WH]
+021  PASS  Nisha genuinely serves both 1520 and 1524: the wiki states she is the
+           flight point at Breaker's Crown, and the block pair notes why one
+           master name appears twice [WIKI]
+022  PASS  Itara 86685 genuinely serves both 1556 Tranquil Court and 1567 Temple
+           of Karabor, the 1.2-yard-apart pair, and both blocks print the same
+           entry with the shared-roost explanation [SEC31 + FILE]
+023  PASS  1476 Dungar Longdrink is 81103, his Lunarfall entry, not his
+           Stormwind entry 352, and the block says which one it is [WIKI]
+024  PASS  1504 Tal is 82346, his Wor'var entry, not his Thunder Bluff entry
+           2995, and the block says which one it is [WIKI]
+025  PASS  1644's Horde node is Nasher 90552, correcting section 3.1's pairing of
+           that node with Skyguard Blann 91940; 1645 keeps Skyguard Blann 91940,
+           and both blocks describe the swap [WIKI + SEC31]
+026  PASS  1454 Exarch's Refuge is Roka 81078 and 1512 Bastion Rise is
+           Windscreamer 84508, correcting section 3.1's 81077 Niaa and 84507
+           Rangari Yaval, which belong to the two Alliance nodes at the same
+           positions, 1453 and 1511. 81077 and 84507 appear nowhere else in the
+           file [WIKI + SEC31]
+027  PASS  the file is 1183 lines, every line 130 characters or shorter (longest
+           exactly 130), and the 72 block headers are unique [FILE]
+028  UNVERIFIED  no Draenor entry has any creature_template backing: all 72
+           master names were run against both creature_template exports and not
+           one matches a row, so those exports stop before Warlords of Draenor
+           and every entry here rests on the research document or a web page [CT]
+029  UNVERIFIED  the 72 walk-to positions cannot be confirmed from any source
+           used in steps 01 to 06; they are printed as "unverified" on purpose,
+           and this audit does not treat them as checked [FILE]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+29 claims: 25 PASS, 1 FIXED, 3 UNVERIFIED. One edit: the Breaker's Crown entry
+changed from 81677 to 81674, and the Iron Docks block now prints its entry as
+unverified instead of repeating 81677. No coordinate, link, travel time, faction
+or gate value changed, and the block count is unchanged at 72.
+
+What was re-read rather than trusted:
+  - all 72 positions, bit numbers, link sets and travel times were re-parsed
+    from the section-1116 text and compared with the file;
+  - the two Nisha blocks, which is where the only edit came from: 81677 was
+    opened on Wowhead and found to be her mount, not the flight master;
+  - the five gated nodes and the quests behind the one quest gate, plus the two
+    race-mask gates at the Iron Front pair;
+  - the three faction-swap corrections inherited from step 05's method (1454,
+    1512, 1644), each re-checked against its wiki NPC page.
+Not re-read: the 8.3.7 TaxiNodes export itself (section 1116 of the research
+document is the transcription used here, as in steps 01 to 05).
