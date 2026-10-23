@@ -40,9 +40,12 @@ A level 29 cannot take it.  ALL specialisation recipes are therefore ALT.
 Consequences that shape the whole shopping list:
   - Anything with RequiredSkillRank 226+ on skill line 2506 is unusable: Artisan
     only.
-  - Anything with a specialisation requirement cannot be crafted by the twink,
-    but many of those items are Bind on Equip and only ask for Engineering skill
-    to USE. Buy them from an alt/level 60 engineer and wear them at 225.
+  - The specialisation gate is ItemSparse.RequiredAbility: 20219 = Gnomish
+    Engineering, 20222 = Goblin Engineering. An item carrying either value is
+    unusable at 29 however it was obtained. Items carrying RequiredAbility 0 need
+    only the Engineering rank (7189, 10716, 10720, 10721, 10726 all carry 0).
+  - Items a 29 cannot craft but can wear are still worth buying from an alt or a
+    level 60 engineer, as long as RequiredAbility is 0.
   - Every engineering explosive sits on one shared-cooldown group, so grenades,
     dynamite and bombs cannot be chained: Wowhead Classic files Iron Grenade
     4068, Big Iron Bomb 4069, Solid Dynamite 12419 and Explosive Sheep 4074 all
@@ -193,8 +196,9 @@ An anvil is required for the metal-part recipes; every capital city has one.
 ================================================================================
 A 29 cannot learn Goblin or Gnomish Engineering, but these items only require
 Engineering skill to USE. Have an alt or a level 60 engineer craft them and mail
-them over. Bind on Equip confirmed in 8.3.7 ItemSparse for 7189, 10720, 10721 and
-10726; 10724 and 10716 rest on Wowhead only; 10646 is unbound.
+them over. Bind on Equip and RequiredAbility 0 confirmed in 8.3.7 ItemSparse
+for 7189, 10716, 10720, 10721 and 10726; 10646 is unbound and needs no
+specialisation.
 
 --- Goblin Rocket Boots ------------------------------------------------------
 Item 7189. Item level 45, cloth feet, binds when equipped.
@@ -202,15 +206,10 @@ Use (spell 8892): +run speed for 20 sec, can backfire and explode. 5 minute
 cooldown.
 Recipe: spell 8895, Goblin Engineering, Engineering 225 (SkillLineAbility 4927,
 TrivialSkillLineID 2506).
-Materials: 1x 10026 (name not resolvable in 8.3.7 tables, unverified), 2x
-Mithril Tube 10559, 4x Heavy Leather 4234, 2x Goblin Rocket Fuel 9061,
-1x Unstable Trigger 10560.
-
---- Gnomish Rocket Boots -----------------------------------------------------
-Item 10724. Item level 45, cloth feet, binds when equipped.
-Recipe: spell 12905, Gnomish Engineering, Engineering 225.
-Material list not queried; unverified.
-Use: speed burst plus the Gnomish backfire table, 30 minute cooldown.
+Materials: 1x Black Mageweave Boots 10026, 2x Mithril Tube 10559, 4x Heavy
+Leather 4234, 2x Goblin Rocket Fuel 9061, 1x Unstable Trigger 10560.
+  Black Mageweave Boots 10026: tailoring, cloth feet, item level 46, requires
+  level 41 to equip. The crafter supplies them; the twink never wears them.
 
 --- Gnomish Net-o-Matic Projector --------------------------------------------
 Item 10720. Item level 42, trinket, binds when equipped.
@@ -237,7 +236,8 @@ Fire per Classic), 2x Star Ruby 7910, 4x Mageweave Cloth 4338.
 Item 10721. Item level 43, waist, +Stamina, binds when equipped.
 Use: absorbs incoming damage, 1 hour cooldown.
 Recipe: spell 12903, Gnomish Engineering, Engineering 215.
-Materials: 1x 7387 (unverified name), 4x Mithril Bar 3860, 2x Truesilver Bar
+Materials: 1x Dusky Belt 7387 (leather waist, item level 39, requires level 34
+to equip), 4x Mithril Bar 3860, 2x Truesilver Bar
 6037, 1x Unstable Trigger 10560, 2x Aquamarine 7909.
 
 --- Goblin Sapper Charge -----------------------------------------------------
@@ -261,12 +261,16 @@ house. Nothing in this list can be made by the twink.
   Arcane Bomb 16040            skill 300  Fire damage + 5 sec silence
   Sniper Scope 10548           skill 240  +7 gun/bow damage, also requires
                                           character level 40
-  Field Repair Bot 74A 18232   skill 300  (unverified rank, Classic 300)
-  World Enlarger 18660         skill 250  (unverified rank, Classic 250)
-  Ultrasafe Transporter: Gadgetzan 18986  skill 260 (unverified rank)
-  Dimensional Ripper - Everlook 18984     skill 260 (unverified rank)
+  Field Repair Bot 74A 18232   skill 300
+  Ultrasafe Transporter: Gadgetzan 18986  skill 260, Gnomish 20219, Bind on Use
+  World Enlarger 18660         skill rank 1, but RequiredAbility 20219 Gnomish:
+                               blocked by the specialisation, not by the rank
+  Dimensional Ripper - Everlook 18984     skill 260 (rank unverified)
 
-4b. Blocked by the specialisation quest (level 30 requirement):
+4b. Blocked by the specialisation quest (level 30 requirement) or by
+    RequiredAbility:
+  Gnomish Rocket Boots 10724  skill 225, RequiredAbility 20219 Gnomish, so
+      unusable at 29 even bought; recipe spell 12905
   Gnomish Death Ray 10645   skill 240, Bind on Pickup, Gnomish
   Gnomish Battle Chicken 10725  skill 230, Bind on Pickup, Gnomish (id and
       rank unverified)
