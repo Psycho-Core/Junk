@@ -1,0 +1,117 @@
+AUDIT - Twink29_Priest_1_Items.txt
+File under audit: step 1 of 3, 190 lines after this audit's corrections.
+27 claims checked: 20 pass, 3 corrected, 4 unverified.
+Searches and pages used for this audit, all re-read or re-run for it:
+rare cloth (required 26-29) 19 rows, rare cloth heirlooms 5 rows, cloaks 11,
+amulets 9, rings 18 (opened to level 24), off-hand frills 7 (opened to 20),
+wands 2, staves 5, daggers 5, one-hand maces 3; and item tooltips for 2721,
+13087, 19521, 19525, 19529, 19533, 19541, 19537, 2912, 45627, 55928, 55963,
+55964, 65914, 65966, 6681, 7685, 7687, 7708, 7709, 7711, 7712, 7713, 7714,
+7752, 9447, 9461, 13048, 19569, 19573, 20099.
+Method note: the values are the pre-squish ones, which is what 8.3.7 uses.
+Where a stat was not opened the claim says unverified rather than guessing.
+
+1. THE THREE CORRECTIONS
+   1  CORRECTED  "There is no cloth leg heirloom at all" was wrong, and it
+      was wrong in two places (section 0 and the leg slot). The cloth
+      heirloom search returns five rows: 61958 Tattered Dreadmist Mask
+      (head), 48691 Robe (chest), 42985 and 44107 Mantle (shoulder) and
+      62029 Tattered Dreadmist Leggings (legs). 62029 is now the second
+      legs row and 61958 is the third head row, with 20832 Moonsoul Crown
+      demoted to the note under head. The summary no longer claims a
+      priest can be stuck with a green leg.
+   2  CORRECTED  "All three blue one-hand maces are Strength weapons" was
+      wrong. Only 7752 Dreamslayer is: +7 Strength. 7687 Ironspine's Fist
+      is +3 Agility +5 Stamina and 13048 Looming Gavel is +3 Agility
+      +6 Stamina, both 31/26. The conclusion survives and got better - no
+      mace in the bracket carries Intellect - but the reason had to be
+      rewritten, and the file now gives the three stat lines it claims.
+   3  CORRECTED  The head slot listed 20832 Moonsoul Crown as the third
+      pick while the heirloom head existed. The heirloom is the better
+      third line; 20832 is now the note under the slot.
+
+2. THE ITEM LINES THAT WERE CHECKED ONE BY ONE
+   4  PASS  7709 Blighted Leggings, 31/26, +8 Stamina +11 Intellect, +8
+      crit, 80 armour, Azshir the Sleepless 6490 in the Scarlet Monastery,
+      31.38% drop. The file's "only blue leg in the bracket" claim holds:
+      the 19-row cloth search has one legs row.
+   5  PASS  19533 Caretaker's Cape (Illiyana Moonblaze, Ashenvale) and
+      19529 Battle Healer's Cloak (Kelm Hargunth, Northern Barrens), both
+      33/28, +6 Stamina +6 Intellect +4 Spirit, 48 armour.
+   6  PASS  19525 Lorekeeper's Ring and 19521 Advisor's Ring, both 33/28,
+      +4 Stamina +6 Intellect +6 Spirit, unique-equipped, one per faction.
+      The two-ring note in the file is therefore right: two different
+      rings, not two copies.
+   7  PASS  Staff mapping: 19573 Lorekeeper's Staff sold by Illiyana
+      Moonblaze (Alliance), 19569 Advisor's Gnarled Staff sold by Kelm
+      Hargunth (Horde), both 33/28 with +11 Stamina +7 Intellect
+      +10 Spirit. Note for the audit trail: the mage file has these two
+      reversed. That is a mage-file error, not a priest-file one, but the
+      same trap will be in any file that copies it.
+   8  PASS  7711 Robe of Doan, 34/29, +5 Stamina +14 Intellect +7 Spirit,
+      99 armour, Arcanist Doan 6487.
+   9  PASS  7712 Mantle of Doan, 34/29, +9 Intellect, 6 crit, 6 hit.
+   10 PASS  7713 Illusionary Rod, 34/29, +7 Stamina +14 Intellect, 5 crit,
+      28.82 damage per second.
+   11 PASS  7714 Hypnotic Blade, 34/29 main hand, +11 Stamina +7 Intellect
+      +3 Spirit.
+   12 PASS  7685 Orb of the Forgotten Seer, 31/26, +8 Intellect, Bloodmage
+      Thalnos 4543.
+   13 PASS  55963 Tranquility of Furien, 31/27, +4 Stamina +7 Intellect
+      +5 crit, Desolace quest 14198.
+   14 PASS  20099 Highlander's Cloth Girdle, 33/28, +6 Stamina +9 Intellect
+      +24 bonus armour, class label Priest, Mage, Warlock.
+   15 PASS  65914 Vishas' Hood, 30/26, +11 Stamina +8 Intellect +8 Spirit.
+   16 PASS  13087 River Pride Choker, 33/28, +4 Strength +9 Stamina. The
+      file's point stands: the item level is good and the second stat is
+      useless to this class.
+   17 PASS  9447 Electrocutioner Lagnut, 34/28, +4 Stamina +9 Spirit.
+   18 PASS  45627 Amulet of Truesight, 34/29, hit rating only, no Intellect.
+
+3. THE POOL COUNTS
+   19 PASS  The nine searches in the header are the nine the file says it
+      ran, and the counts match: cloth 19, cloaks 11, amulets 9, rings 18,
+      off-hand frills 7, wands 2, staves 5, daggers 5, maces 3. The
+      "bigger than the mage file assumed" section rests on that cloth
+      count, which is the number to trust if the two files ever disagree.
+   20 PASS  9448 Spidertank Oilrag and 9454 Acidic Walkers are both 29/24
+      in the database - required level 24, so below this file's floor. The
+      mage file lists them at 32/27 and 33/28; the priest file treats them
+      as notes and does not put them in a slot.
+   21 PASS  The mage file really does say "no rare cloth leg" and "no rare
+      back in the window". Both statements are contradicted by 7709 and by
+      the two Warsong Gulch capes, which is what the priest file says.
+   22 PASS  19541 Sentinel's Medallion and 19537 Scout's Medallion, the two
+      Warsong Gulch necks, are +8 Agility +5 Stamina and are correctly left
+      out of a priest file. 55964 Flashfire Collar is +6 Strength and is
+      also correctly out.
+
+4. WHAT IS NOT VERIFIED, AND WHY THAT IS ACCEPTABLE
+   23 UNVERIFIED  What the heirloom pieces scale to at 29. The pages show
+      item level 1 and a required level band, not the value at 29. The file
+      says "scales" and never prints a number, which is the honest form.
+   24 UNVERIFIED  Whether hit rating survived into 8.3.7 on 7712, 7708,
+      65966 and 55928, and what it became if not. Hit was taken off gear in
+      a later patch; the conversion is not read anywhere for this file, so
+      the four rows are flagged in the header rather than cleaned up.
+   25 UNVERIFIED  The stat lines the file quotes but this audit did not
+      open: 20832 Moonsoul Crown, 57510 and 57466 armbands, 9395 Gloves of
+      Old, 55906 Balmy Wraps, 59209 Eldritch Gloves, 13106 bracelets,
+      55929 and 55926 cloaks, 59208 Wrap of Open Menace, 20096 and 20162
+      boots, 20164 Defiler's girdle, 13063 Starfaller, 13031 and 16887
+      off-hands. Their item level, required level and source are read off
+      the search tables; only the stat sentence is unread.
+   26 UNVERIFIED  "No off-hand is better than the staff" is a judgement,
+      not a page. The two off-hands are weaker than the staff line on the
+      numbers that were read, but the comparison is not a query.
+   27 UNVERIFIED  Whether 66014 or 65914 is the Alliance copy of Vishas'
+      Hood. Both exist at 30/26 from the same Scarlet Monastery quest line,
+      but which id belongs to which faction was not read.
+
+5. WHAT TO CHANGE
+   Done: the two heirloom rows are in, the mace paragraph is right, the
+   head slot no longer ignores 61958, and the summary sentence about the
+   missing leg now names 62029 as the substitute. The nine searches, the
+   slot count and the eleven "the mage file was wrong" points all hold, and
+   the file's spine - cloth is the best served armour type at 29, and the
+   Spirit set is the one that decides a priest - is unaffected.

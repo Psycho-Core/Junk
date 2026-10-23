@@ -26,13 +26,14 @@ or crit and needs no conversion.
      BACK  19533 Caretaker's Cape for the Alliance and 19529 Battle
            Healer's Cloak for the Horde, both 33/28, +6 Stamina +6
            Intellect +4 Spirit, both from the Warsong Gulch vendor.
-   What is genuinely missing is a cloth leg heirloom (there is none), a
-   second blue leg, and a neck with a real caster line on it.
+   What is genuinely missing is a second blue leg and a neck with a real
+   caster line on it. The heirloom leg does exist - 62029 Tattered
+   Dreadmist Leggings - and it is the only alternative to 7709 (V).
    The other gap is the mace. A priest can hold one, and the bracket has
-   three blue one-hand maces, but all three are Strength weapons:
-   7752 Dreamslayer is +7 Strength, and 7687 Ironspine's Fist and 13048
-   Looming Gavel are the same family (V). A priest's weapon is a staff,
-   a dagger or a wand, not a mace.
+   three blue one-hand maces, but none of them carries Intellect:
+   7752 Dreamslayer is +7 Strength, 7687 Ironspine's Fist is +3 Agility
+   +5 Stamina and 13048 Looming Gavel is +3 Agility +6 Stamina (V). A
+   priest's weapon is a staff, a dagger or a wand, not a mace.
 
 1. CLOTH - THE SAME LIST FOR ALL THREE SPECS
    Discipline, Holy and Shadow wear identical gear at 29. The spec notes
@@ -40,11 +41,14 @@ or crit and needs no conversion.
 
 HEAD|Holy Shroud|2721|32|27|world drop|RNG V
 HEAD|Vishas' Hood|65914 [66014]|30|26|SM quest 26950 / 26972|SOLO V
-HEAD|Moonsoul Crown|20832|31|26|Jewelcrafting 25321|ALT V
+HEAD|Tattered Dreadmist Mask|61958|scales|1|heirloom vendor|ALT V
    2721 is the best head in the bracket for any caster: +15 Intellect,
    +6 Spirit, 76 armour. It is a world drop, so it is luck, not a plan.
    65914 is the safe one: +11 Stamina +8 Intellect +8 Spirit, and the
-   quest gives both factions a version (66014 is the other).
+   quest gives both factions a version (66014 is the other). 20832
+   Moonsoul Crown, 31/26, Jewelcrafting 25321, is the fourth head and the
+   only one a crafter can simply buy. Cloth heirlooms exist for head,
+   chest, shoulder and legs; 61958 is the head of that family.
 SHOULDER|Mantle of Doan|7712|34|29|Arcanist Doan 6487, SM|SOLO V
 SHOULDER|Exquisite Sunderseer Mantle|44107|scales|1|heirloom, WG|ALT V
 SHOULDER|Bloodmage Mantle|7684|31|26|Bloodmage Thalnos 4543, SM|SOLO V
@@ -75,8 +79,11 @@ WAIST|Defiler's Cloth Girdle|20164|33|28|AB vendor, Horde|SOLO V
    20099 is +6 Stamina +9 Intellect +24 bonus armour and carries a
    Priest, Mage, Warlock class label (V), so no other class can buy it.
 LEGS|Blighted Leggings|7709|31|26|Azshir the Sleepless 6490, SM|SOLO V
-   +8 Stamina +11 Intellect +8 crit, 80 armour. There is no second blue
-   leg and no cloth leg heirloom at all, so this one row is the slot.
+LEGS|Tattered Dreadmist Leggings|62029|scales|1|heirloom vendor|ALT V
+   +8 Stamina +11 Intellect +8 crit, 80 armour, and the only blue leg in
+   the bracket. 62029 is the heirloom leg and the reason a priest never
+   has to wear a green here. The heirloom head 61958 is the same family;
+   both scale, and their item level at 29 is unverified.
 FEET|Highlander's Cloth Boots|20096|33|28|AB vendor, Alliance|SOLO V
 FEET|Defiler's Cloth Boots|20162|33|28|AB vendor, Horde|SOLO V
    9454 Acidic Walkers, the boot the mage file lists, is 29/24 in the
@@ -153,7 +160,7 @@ OFF|no off-hand is better than the staff for a healer: the staff's +10
      the window is not gear and is not here: it is in step 3.
 
 5. WHAT TO WEAR, SLOT BY SLOT
-   HEAD      2721 Holy Shroud, then 65914 Vishas' Hood, then 20832.
+   HEAD      2721 Holy Shroud, then 65914 Vishas' Hood, then 61958.
    NECK      55928 Grounding Choker, then 13087 for the item level.
    SHOULDER  7712 Mantle of Doan, then 44107 heirloom, then 7684.
    BACK      19533 or 19529, the Warsong Gulch cape.
@@ -161,7 +168,7 @@ OFF|no off-hand is better than the staff for a healer: the staff's +10
    WRIST     57510 or 57466 quest band, then 13106.
    HANDS     9395 Gloves of Old, then 55906, then 59209.
    WAIST     20099 Alliance, 20164 Horde, the Arathi Basin girdle.
-   LEGS      7709 Blighted Leggings - the only blue leg in the bracket.
+   LEGS      7709 Blighted Leggings, or 62029 if the heirloom is owned.
    FEET      20096 Alliance, 20162 Horde, the Arathi Basin boots.
    RINGS     19525 and 9447, or 19525 and 65966.
    TRINKETS  19024 Arena Grand Master and the Insignia, 4381 third.
@@ -179,4 +186,5 @@ OFF|no off-hand is better than the staff for a healer: the staff's +10
    by a 29 alone except the cloak, which needs Warsong Gulch marks.
    The two things a 29 priest cannot get and would want are a neck with
    Intellect and Spirit on it (55928 has Intellect only) and a second
-   rare leg. Neither exists in the window, so neither is invented here.
+   rare leg. Neither is in the window, so neither is invented here; the
+   heirloom leg 62029 is the substitute, not a second blue.
