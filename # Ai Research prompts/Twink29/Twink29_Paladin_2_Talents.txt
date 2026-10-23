@@ -35,17 +35,21 @@ V = read off a wiki page in this turn. Unverified means unverified.
 
 3. ROW 1 - HOLY (three options)
    CRUSADER'S MIGHT, spell 196926 (V)
-     Crusader Strike reduces the cooldown of Holy Shock and Judgment.
+     Crusader Strike reduces the cooldown of Holy Shock by 1.5 sec. On
+     8.3.7 that is the whole effect - the Judgment half was added on 11.0.0
+     (V, from the spell's patch notes).
    BESTOW FAITH, spell 223306 (V)
      12 sec cooldown, instant, heals a friendly target for a large amount
      after 5 seconds. In BfA it did not generate Holy Power - that was added
      on 9.0.1 (V).
    LIGHT'S HAMMER, spell id unverified
      A hammer on the ground that pulses damage and healing in an area.
+     That it was still the third Holy option in BfA is an INFERENCE from a
+     Legion-era row table and a partial BfA table, not a page that says so.
    PICK: CRUSADER'S MIGHT.
      A Holy paladin's throughput at 29 is Holy Shock, and this is the only
-     talent in the row that shortens its cooldown. It is passive, so a bot
-     cannot get it wrong.
+     talent in the row that shortens its cooldown - 1.5 sec per Crusader
+     Strike. It is passive, so a bot cannot get it wrong.
    SECOND CHOICE: BESTOW FAITH, for a bot that is expected to keep one
      tank alive rather than heal a group, because it adds an instant heal to
      a spec that otherwise has none at 29.
@@ -71,8 +75,10 @@ V = read off a wiki page in this turn. Unverified means unverified.
 
 5. ROW 1 - RETRIBUTION (three options)
    ZEAL, spell 269569 (V)
-     Passive: Judgment empowers the next 2 auto attacks to swing 30% faster
-     and hit for extra Holy damage.
+     Passive: Judgment empowers the next auto attacks to swing 30% faster
+     and hit for extra Holy damage. The 8.0.1 note says "next 2"; later BfA
+     and Shadowlands descriptions say 3. Which number applied on 8.3.7 is
+     unverified.
    RIGHTEOUS VERDICT, spell id unverified
      Templar's Verdict increases the damage of the next Templar's Verdict.
    EXECUTION SENTENCE, spell 213757 (id from a Legion-era list, unverified
