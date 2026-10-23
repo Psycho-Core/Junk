@@ -1,0 +1,170 @@
+=== BLADE'S EDGE ARENA (Circle of Blood Arena) - MAP 562 / 1672 ===
+
+Map ID: 562 (Map.dbc, instanced arena)
+Instance ID: 1672 (modern client)
+Map name: bladesedgearena
+Expansion: The Burning Crusade (TBC)
+Available in 8.3.7: Yes
+
+=== 1. START POSITIONS (WorldSafeLocs, map 562) ===
+
+Alliance Start (Team 1, WorldSafeLoc 939):
+  X: 6292.66
+  Y: 288.579
+  Z: 4.95929
+  Orientation: 0.0 (North)
+  Comment: "Blade's Edge Arena, Team 1"
+
+Horde Start (Team 2, WorldSafeLoc 940):
+  X: 6184.98
+  Y: 236.011
+  Z: 4.97687
+  Orientation: 3.14159 (South/Pi)
+  Comment: "Blade's Edge Arena, Team 2"
+
+Graveyard (WorldSafeLoc 971):
+  X: 6238.93
+  Y: 262.963
+  Z: 0.889519
+  Comment: "Blades Edge - PvP - Arena Graveyard"
+
+Note: Arena uses opposite-corner starts. Alliance at NW corner,
+Horde at SE corner (or vice versa depending on map
+orientation). Both teams start on ground level (bottom
+floor, Z ~5).
+
+=== 2. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+Two main pillars under the bridge (from TrinityCore pathfinding data):
+
+Southeast Pillar (near SE corner, under bridge):
+  Approximate center: X ~6236-6240, Y ~258-260, Z ~11.5 (bridge level)
+  Local map coordinates (from mmaps generator): x ~247-252, y ~258, z ~11.5
+  Radius for pathfinding: ~5 units
+  Connected to bridge via rope walkway
+
+Northwest Pillar (near NW corner, under bridge):
+  Approximate center: X ~6241-6246, Y ~265-272, Z ~11.3-11.5
+  Local map coordinates: x ~268-280, y ~265-272, z ~11.3-11.5
+  Connected to bridge via rope walkway
+
+Pillar tops (at bridge level, Z ~11.5):
+  Used for LoS breaking, stealth detection crystals (historical)
+  Players can jump between pillars or use rope walkways from bridge
+
+Rope walkways (bridge to pillars):
+  Path points (world coordinates):
+    (6236.57, 258.05, 11.50)
+    (6246.32, 271.57, 11.30)
+    (6242.94, 267.21, 11.28)
+    (6241.54, 265.44, 11.28)
+  Walkable on retail (mmaps generator config.walkableRadius for map 562)
+
+Center pit pillars (4 small pillars in pit under bridge center):
+  Positions: unverified (no readable source with exact coordinates)
+  Used for LoS kiting at ground level
+
+=== 3. HEIGHT LEVELS AND RAMPS ===
+
+Ground Level (Bottom Floor):
+  Z: ~4.9 - 5.0 (start positions, graveyard)
+  Flat dirt/sand surface with 4 small pillars in center pit
+
+Bridge Level (Upper Level):
+  Z: ~11.3 - 11.5 (bridge surface, pillar tops, rope walkways)
+  Spans full width of arena E-W
+  Bridge width: unverified
+
+Ramps (6 total, from Liquipedia/guide sources):
+  2 corner ramps on Alliance side (NW corners of bridge)
+  2 corner ramps on Horde side (SE corners of bridge)
+  2 center ramps (middle of bridge, N and S edges)
+  Ramp incline: ground level (Z~5) to bridge level (Z~11.5)
+  Ramp positions: unverified (no readable source with exact coordinates)
+
+Height difference: ~6.5 units (bridge Z~11.5 minus ground Z~5)
+
+=== 4. USUAL FIRST POSITIONS BY ROLE ===
+
+Melee DPS:
+  Start: On ground level at team start position
+  Common opening: Rush up nearest ramp to bridge for height advantage
+  Or: Stay ground level to kite under bridge pillars
+
+Ranged DPS:
+  Start: At team start position (ground level)
+  Common opening: Move up ramp to bridge for LoS advantage and safety
+  Bridge center provides best LoS coverage
+
+Healers:
+  Start: At team start position (ground level)
+  Common opening: Follow melee up ramp, position on bridge near pillar for LoS
+  Alternative: Stay ground level behind SE/NW pillars for maximum LoS breaking
+
+General strategy (from guides):
+  "Control of the bridge creates height advantage for
+   ranged damage and healer positioning"
+  "Falling off the bridge does not kill you but does
+   create gaps in your positioning"
+  "Caster-heavy teams with crowd control chains use
+   the bridge for safe freecast windows"
+  "Melee teams often fight on ground level using
+   pillars for LoS"
+
+=== 5. BUFF / HEALTH PICKUPS ===
+
+Note: Unlike some modern arena maps (e.g., Glade Arena
+has mirrored heal/haste pickups), Blade's Edge Arena in
+8.3.7 does NOT have arena power-up pickups (healing/
+haste orbs) in the instanced arena. The "Arena
+Preparation" buff is applied on zone-in (restores
+health/mana, removes short buffs).
+
+Outdoor world version (Circle of Blood in Blade's Edge Mountains):
+  Has an Arena Vendor (Meminnie, Goblin female) at [52.7, 41.4] zone coords
+  No health/haste pickups in instanced arena
+
+The Crowd Chose You (dampening mechanic after 15 min):
+  Applied automatically based on team alive count / lowest enemy health
+  Not a physical pickup - server-awarded buff
+
+=== 6. ADDITIONAL NOTES ===
+
+Arena Layout Summary:
+- Rectangular arena, bridge spans E-W across center
+- Two pillars under bridge (SE and NW) with rope walkways to bridge
+- 6 ramps: 4 corners + 2 center
+- Center pit under bridge with 4 small pillars
+- Starting areas on opposite corners (ground level)
+
+Stealth Detection Crystals (historical, TBC):
+  Located on top of the two main pillars
+  Removed in later patches
+
+Outdoor Access:
+  Circle of Blood accessible in open world (Blade's Edge Mountains)
+  Coordinates: [69, 35] zone coords from Zangarmarsh cave
+  Serves as PvA (PvP Arena) in outdoor world
+
+Performance Issues:
+  Temporarily removed in Oct 2023 for terrain issues
+(players falling through floor)
+  Map 562 has known mmaps generator special case for walkable ropes
+
+Sources:
+- TrinityCore WorldSafeLocs.dbc (entries 939, 940, 971 for map 562)
+- TrinityCore Map.dbc (map 562 = Blade's Edge Arena)
+- TrinityCore battleground_template (ID 5 = Blade's Edge Arena)
+- TrinityCore mmaps_generator MapBuilder.cpp (map 562 rope walkable config)
+- Liquipedia / Wowpedia / Warcraft Wiki (layout descriptions)
+- Almar's Guide / Billow's Guide (role positions, strategy)
+- Wowhead zone 3702 (Blade's Edge Arena)
+- Gist saqirmdev/4772221 (pillar pathfinding coordinates)
+
+Unverified:
+- Exact pillar center coordinates (world space)
+- Exact ramp start/end coordinates
+- Center pit pillar coordinates
+- Bridge width and exact boundaries
+- Corner ramp positions
+- Any consumable pickups in instanced arena
