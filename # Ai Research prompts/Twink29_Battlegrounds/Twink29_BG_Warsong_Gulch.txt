@@ -1,0 +1,154 @@
+OPEN. Warsong Gulch is part of the 20-29 bracket in 8.3.7 (build 35662): 10 vs 10 (BattlemasterList 2 "Classic Warsong Gulch": MaxPlayers 10, RatedPlayers 10, MinPlayers 5 to start, GroupsAllowed 1, MaxGroupSize 5, MinLevel 10, MaxLevel 120), the 20-29 range is PVPDifficulty 7 (map 489, RangeIndex 1) and PVPDifficulty 1315 (map 2106, RangeIndex 1), it is a normal (unrated) queue that is open all the time, Call to Arms only adds bonus honor (HolidayWorldState 1942).
+
+EXTRA BRACKET FACT: characters with experience turned off (Behsten 35365 / Slahtz 35364) are queued only against other experience-off characters (rule added in patch 3.2.0), so a level 29 twink meets twinks, not leveling players. Per the 5.2.0 rule a character's effective level is scaled up to the top of the bracket in the battleground (so a level 20 is scaled toward 29); whether your core implements that scaling is unverified.
+Rated play: the rated battleground queue is a separate entry (BattlemasterList 102 "Rated Battleground", maps include 2106) and is not available to a level 29; rated is set per queue (TrinityCore: queueId.Rated), a 29 can never be rated.
+
+
+1. OBJECTIVE AND WIN CONDITION, WITH THE NUMBERS
+- Take the enemy flag from their flag room and carry it to your own flag room, then stand on your own flag spawn point. Capture is only possible while your own flag is on its base: TrinityCore 8.3.7 checks both flag states at the area trigger (trigger 3646 Alliance flag spawn, 3647 Horde flag spawn) and refuses the capture if your own flag is picked up or lying on the ground.
+- 3 captures win the match (BG_WS_MAX_TEAM_SCORE = 3). PvP objective ids: 42 capture flag, 44 return flag (used for the scoreboard and for criteria).
+- Match length: the client timer worldstate 4248 starts at 25 and drops by 1 each minute (25 minute display). TrinityCore 8.3.7 force-ends at 27 minutes (GetElapsedTime() >= 27 min): higher score wins, equal score = the team that captured last wins, 0-0 = draw. (Warcraft Wiki's "20 minutes" is a later retail value, not 8.3.7.)
+- After a capture both flags respawn on their bases after 23 s (BG_WS_FLAG_RESPAWN_TIME = 23000 ms; Warcraft Wiki says 20 s).
+- Carrying the flag: aura 23333 Warsong Flag (Horde flag, carried by the Alliance player) and 23335 Silverwing Flag (Alliance flag, carried by the Horde player). Dropped versions 23334 and 23336. Ground objects 179785 (Alliance flag on ground) and 179786 (Horde flag on ground).
+- Dropped flag: the player who dropped it cannot pick it up again for 3 s (spell 42792 Recently Dropped Flag). A defender clicks it to return it instantly (objective id 44, SCORE_FLAG_RETURNS); otherwise it returns itself after 10 s in TrinityCore 8.3.7 (BG_WS_FLAG_DROP_TIME = 10000 ms; Warcraft Wiki says "about five seconds").
+- Returning and re-picking: the return is a click on the ground object (179785 / 179786) within 10 yards (IsWithinDistInMap 10); a flag picked up again after the 10 / 15 minute mark gets the same debuff (46392 / 46393) re-applied instantly.
+- Both flags held: the carriers get spell 46392 Focused Assault after 10 minutes (about +10% damage taken) and spell 46393 Brutal Assault after 15 minutes (stronger; exact value unverified in 8.3.7 data). TrinityCore applies one step at 10 min and one at 15 min, it does not stack per minute as current retail does.
+- Honour in the 8.3.7 core: BG_WSG_Honor normal {20,40,40} and holiday {60,40,80} for win / flag cap / map complete; a capture awards honour equal to 2 kills to the whole team; reputation 35 per capture (45 on a holiday weekend) to Silverwing Sentinels 890 (Alliance) or Warsong Outriders 889 (Horde); win reward 1 kill bonus (3 on holiday), completion 2 kills (4 on holiday).
+
+
+2. THE MAP
+Map ids: 489 WarsongGulch ("Classic Warsong Gulch", the map the specific WSG queue uses, BattlemasterList 2 has only MapID_0 = 489) and 2106 WarsongGulch2 ("Warsong Gulch", the 8.1.5 remaster, listed in the Random Battleground entry, BattlemasterList 32). Both are the same layout; TrinityCore 8.3.7 builds the instance on BattlemasterList MapID[0] = 489, so on a TrinityCore core you will normally be on 489 and 2106 is only reachable through the client's random list. Coordinates below are map 489 unless marked. All coordinates are game coordinates (x, y, z) and come from TrinityCore 8.3.7 object spawns and from the world_safe_locs data used by the core; anything I could not read is marked unverified.
+
+LAYOUT
+- Alliance base is Silverwing Hold, in the east: flag room elevated, flag at z 351.8.
+- Horde base is Warsong Lumber Mill, in the west: flag room elevated, flag at z 345.4.
+- The two flags are 626.2 yards apart (straight line). The open middle of the map is a valley with two raised humps; the two berserking power-ups sit on those humps, the speed power-ups sit close to each base, the restoration power-ups sit between base and middle.
+- Each base has: an upper flag room, a front ramp down to the courtyard and front gate, a covered tunnel exit that surfaces on the outer flank of the base, and a roof you can climb and jump from. The roof and tunnel let a carrier leave without using the front gate. Exact tunnel/roof waypoints: unverified (no coordinate source read); use your server's mmaps/pathfinding for those.
+
+FLAGS (gameobject entries)
+- Alliance flag, entry 179830, map 489, 1540.423, 1481.325, 351.8284, orientation 3.089233.
+- Horde flag, entry 179831, map 489, 916.0226, 1434.405, 345.413, orientation 0.01745329.
+- Dropped flags: 179785 (Alliance), 179786 (Horde).
+- 2106 capture area trigger positions (from the modern core's areatrigger data, same layout): Alliance 1540.446, 1481.217, 353.577; Horde 917.311, 1434.004, 346.134. Note the z is about 1.7 yards higher than on 489.
+
+START POSITIONS AND GRAVEYARDS (world_safe_locs)
+- 769, map 489, 1523.81, 1481.76, 352.008, facing 180 - Alliance enter/start, inside the Alliance flag room.
+- 770, map 489, 933.331, 1433.72, 345.536, facing 0 - Horde enter/start, inside the Horde flag room.
+- 771, map 489, 1406.65, 1564.74, 328.326, facing 203.635 - Alliance main graveyard (used for every death while the match is in progress).
+- 772, map 489, 1061.6, 1377.09, 328.558, facing 337 - Horde main graveyard (used for every death while the match is in progress).
+- 769 and 770 are also the flag-room graveyards: the core only uses them when the match is not in progress (preparation phase deaths).
+- 3784, map 489, 1528.2, 1481.45, 351.992, facing 180 - Alliance anti-cheat teleport target (used if an Alliance player leaves the start area during preparation).
+- 3785, map 489, 930.716, 1435.44, 345.536, facing 360 - Horde anti-cheat teleport target.
+- Map 2106 equivalents: 7051, 2106, 1523.81, 1481.76, 352.008, facing 180 (Alliance enter); 7050, 2106, 933.66, 1434.7, 345.536, facing 0 (Horde enter); 7052, 2106, 1407.48, 1561.21, 328.351, facing 196.435 (Alliance rez); 7053, 2106, 1058.21, 1375.86, 328.597, facing 7.15001 (Horde rez).
+- Spirit guides: creature 13116 (Alliance) and 13117 (Horde), spawned on the main graveyards; spells 22011 Spirit Heal Channel, 22012 Spirit Heal, 44535 Spirit Heal mana, 2584 Waiting to Resurrect, 24171 Resurrection Impact Visual.
+- Resurrection: dead players release to the main graveyard, talk to the spirit guide and are resurrected in batches every 30 s (RESURRECTION_INTERVAL = 30000 ms in Battleground.h).
+- Graveyard ownership: never changes in Warsong Gulch (no capture). Alliance deaths always at 771 / 7052, Horde deaths always at 772 / 7053.
+
+DOORS (preparation gates; opened by the start event)
+Alliance, entries 179918 179919 179920 179921 180322 180322:
+- 179918, 1503.335, 1493.466, 352.1888
+- 179919, 1492.478, 1457.912, 342.9689
+- 179920, 1468.503, 1494.357, 351.8618
+- 179921, 1471.555, 1458.778, 362.6332
+- 180322, 1492.347, 1458.34, 342.3712 (despawned when the gates open)
+- 180322, 1503.466, 1493.367, 351.7352 (despawned when the gates open)
+Horde, entries 179916 179917 180322 180322:
+- 179916, 949.1663, 1423.772, 345.6241
+- 179917, 953.0507, 1459.842, 340.6526
+- 180322, 949.9523, 1422.751, 344.9273 (despawned when the gates open)
+- 180322, 950.7952, 1459.583, 342.1523 (despawned when the gates open)
+
+POWER-UPS (gameobjects, respawn 180 s, BUFF_RESPAWN_TIME = 180)
+- Speed, entry 179871, +100% movement for 10 s: 1449.93, 1470.71, 342.6346 (Alliance side, 91.1 yd from the Alliance flag) and 1005.171, 1447.946, 335.9032 (Horde side, 90.2 yd from the Horde flag).
+- Restoration, entry 179904, 10% health and mana per second for 10 s, cancelled by attacking or being attacked: 1317.506, 1550.851, 313.2344 (233.5 yd from the Alliance flag, 90.2 yd from the Alliance graveyard) and 1110.451, 1353.656, 316.5181 (210.5 yd from the Horde flag, 54.2 yd from the Horde graveyard).
+- Berserking, entry 179905, +30% damage done, +10% damage taken, +10% size, 1 minute: 1320.09, 1378.79, 314.7532 (243.0 yd from the Alliance flag) and 1139.688, 1560.288, 306.8432 (256.7 yd from the Horde flag). The two berserking spawns are 255.9 yards apart.
+
+AREA TRIGGERS (ids from BattlegroundWS.cpp)
+- 3646 Alliance flag spawn (the Alliance capture point, in the Alliance flag room), 3647 Horde flag spawn (the Horde capture point).
+- 8965 Horde start area, 8966 Alliance start area (leaving them during preparation teleports you to 3785 / 3784).
+- 3686 and 3687 speed power-up triggers, 3706 and 3708 restoration triggers, 3707 and 3709 berserking triggers (the core notes the triggers sit inside other triggers, so use distance checks to the gameobjects).
+- 3649, 3688, 4628, 4629: unnamed triggers, ignored by the core.
+
+MAIN ROUTES AND CHOKEPOINTS
+- Between the bases there are three practical lanes: the two outer lanes along the valley walls and the middle lane over the humps. The middle lane passes both berserking spawns and is the shortest line but the most exposed.
+- Chokepoint 1: each base's front gate (door coordinates above) - the only exit that a whole group can use at once.
+- Chokepoint 2: each base's tunnel mouth on the outer flank - single file, easy to trap with one root or fear.
+- Chokepoint 3: the two midfield humps (berserking spawns) - the natural place for the first fight.
+- Chokepoint 4: the ramp inside each base up to the flag room - where flag-room fights happen.
+- Distances you can use as timings: Alliance flag to Horde flag 626.2 yd, which is about 89 s at run speed 7.0 yd/s, 56 s at mount speed 11.2 yd/s (60% ground mount), and faster with the speed power-up (+100% for 10 s). Alliance graveyard to Alliance flag 157.6 yd, Horde graveyard to Horde flag 156.5 yd (about 22 s of running, 14 s mounted).
+- Ordered route checkpoints that exist in the data (Alliance attack run): Alliance start 1523.81, 1481.76, 352.008 -> Alliance speed buff 1449.93, 1470.71, 342.6346 -> Alliance-side berserking 1320.09, 1378.79, 314.7532 -> mid (about 1228, 1458) -> Horde-side berserking 1139.688, 1560.288, 306.8432 -> Horde speed buff 1005.171, 1447.946, 335.9032 -> Horde flag 916.0226, 1434.405, 345.413. The reverse works for Horde. Everything between those points is terrain with no verified waypoint data.
+- Buff and flag rules that decide routes: picking up the flag breaks stealth; mounting, stealthing, Vanish, Divine Shield, Blessing of Protection and Ice Block make the carrier drop the flag; shapeshifting (cat, travel form, ghost wolf), Divine Protection and using a power-up do not. A carrier can drop the flag on purpose by clicking their own flag buff (23333 / 23335).
+
+
+3. ROLES, SPLIT, OPENING 30 SECONDS, HOLDING MID, WHEN TO PUSH
+Team size 10. The split a real twink group uses (counts are estimate, taken from how 29 twink groups actually divide):
+- 1 flag carrier (FC): druid (travel form 783, Dash 1850, bear form) or a plate class with a defensive; never a healer, never the only stealth class.
+- 2-3 healers (priest, paladin, druid, shaman, mistweaver), of which 1-2 stay glued to the FC.
+- 1 dedicated flag-room defender, almost always a stealth class (rogue or druid) sitting on the flag.
+- 2-3 offence, mostly stealth (rogue, druid) plus one burst caster (mage or warlock) who goes for the enemy flag room.
+- 3-4 midfield/roamers (hunter, warrior, retribution paladin, warlock, mage) who fight at the humps, then rotate to whichever flag is in play.
+Common alternative splits: 2 defence + 8 offence (all-in), or 1 defence + 9 in a single group (all escort the FC).
+
+Opening 30 seconds (estimate, but it matches the geometry above):
+- 0-3 s: gates open (doors despawn), everyone runs. If your core keeps the retail riding gate, a 29 already has ground riding (Apprentice Riding 33388, 60% mount), so the first move is mount up instantly.
+- 3-15 s: mounted sprint to the middle. The FC group and its healers take a side lane; the stealth offence takes the shortest line to the enemy flag room; the defender stays inside the flag room, stealthed, near the flag spawn (Alliance 1540.4, 1481.3 / Horde 916.0, 1434.4).
+- 15-30 s: first contact at the humps (berserking spawns at 1320.1, 1378.8 and 1139.7, 1560.3) or, if the enemy left the flag room open, a pick-up at about 25-35 s by a mounted stealth class. The first capture in an unorganised game happens 40-90 s after the gates open; against a team that defends it usually takes 3-6 minutes.
+
+How the middle is held:
+- Holding mid means owning the humps: a hunter with a freezing/explosive trap on the berserking spawn, a healer behind cover, 2-3 damage dealers who focus the enemy FC as it crosses, and one person calling positions.
+- The point of mid control is not kills, it is that the enemy FC cannot cross without being slowed, rooted or killed, while your FC crosses with an escort.
+- Mid players also serve as the return team: when your own flag is taken they collapse on the carrier instead of chasing into the enemy base.
+
+When a team pushes:
+- Push the enemy flag room when the enemy team has committed most of its players to mid/your base (2 or fewer defenders visible) - estimate, this is the read a human makes.
+- Push out of your own base when your FC has the enemy flag and needs the route cleared; then escort, do not fight at mid.
+- Push mid to your own base when your flag has been taken (retrieve first, everything else is secondary).
+- Late game (about 5-6 minutes left on a 25-minute timer) teams that are behind abandon mid entirely and stack offence; teams that are ahead stack the flag room and the tunnel mouth.
+
+
+4. WHAT DECIDES A TWINK FIGHT IN WARSONG GULCH
+- Burst on the flag carrier: the fight is decided by whether the FC dies inside the 3-second window before the dropped flag can be picked up again (spell 42792). Rogue openers, warrior charge plus Mortal Strike, mage burst on a rooted target.
+- Crowd control: roots, fears, stuns and slows on the carrier and on the healers. A single fear or root at the tunnel mouth or gate ends a run.
+- Interrupts: an interrupted heal at 29 is often the whole fight, because a 29 healer has one big heal and a long cast.
+- Healing: 2-3 healers with the FC beat 10 damage dealers without healers; healers that stand still get interrupted, so twink healers move and use instant heals.
+- Flag carrier handoffs: the flag cannot be passed on purpose. The handoff is a planned drop point: the FC runs to a teammate and dies or is dispelled there, the teammate picks the flag up immediately (only the player who dropped it is locked out for 3 s), while the defender considers returning it. Real groups pre-place a second carrier in the flag room before the FC dies.
+- Kiting: hunters, frost mages, shamans and druids win by never standing in melee; the 626 yd map with a 90 s run means a kited carrier dies before it reaches base.
+- Stealth: the defender's stealth decides whether the enemy gets a free flag; a rogue opening on a carrier at the flag spawn is the single most common capture-prevention.
+- Gear and level of the bracket: heirlooms and twink items, the one PvP talent slot a level 29 has, enchants and consumables (potions, engineering bombs, bandages) matter more than class choice at 29.
+- Power-ups: berserking (+30% damage done, +10% taken, 1 min, entry 179905) on a burst class in a team fight; speed (entry 179871) to break a chase; restoration (entry 179904) to reset after a fight.
+- Numbers at the point of contact: 3 attackers on 1 defender beats gear every time; human teams lose WSG by fighting 1v2 at the flag room.
+
+
+5. HOW A HUMAN BEHAVES INSTEAD OF A SCRIPT (all frequencies and times in this section are estimate unless they come from the data above)
+- Time stopped to fight near an objective: midfield skirmishes last 10-30 s before players break off; a flag-room fight lasts 5-20 s; players who get a kill usually stay another 3-10 s to finish the corpse camp before moving.
+- Chasing off the route: about 1 player in 3 chases an enemy 30-60 yards off the lane before turning back; roughly 1 in 5 keeps chasing into the enemy base and dies there.
+- Going the wrong way: 1-2 players per team per match take a 10-30 s detour (wrong tunnel, wrong lane, into the enemy graveyard), most often right after a death and respawn.
+- Leaving an objective undefended: in unorganised play the flag room is empty at some point in most matches - estimate: in 40-70% of matches one team has nobody in its flag room for 10 s or more, and the defender that is there is often the first player to leave when a fight starts elsewhere.
+- Arriving late: the mounted first wave reaches the midfield humps 15-25 s after the gates open; stragglers who stop to fight or buff arrive 10-40 s behind. A respawned player needs about 30 s of running (19 s mounted) to get from the main graveyard to the middle (208 yd) plus the up to 30 s resurrection wait, so a death costs 40-60 s of presence.
+- Running into a group: solo players charge into 3 or more enemies roughly 1-3 times per player per match; a player with a defensive up does it more often than one without.
+- Reaction to a flag being taken: most players need 3-8 s to notice the chat/worldstate and start moving; only 1-2 per team go straight for the carrier, the rest go to where the carrier was last seen.
+- Reaction to a carrier dying: the dropped flag gets picked up by a nearby teammate within 1-3 s in about half of cases; the other half of the time it lies there for its 10 s and returns itself.
+- Holding still on defence: a human defender does not stand on the flag spot the whole game. Typical pattern is 20-60 s near the flag, then a short walk to the ramp or the tunnel, then back; the defender also leaves for 10-20 s to help a nearby fight in maybe 1-2 times per match.
+- Attempting a capture: humans rarely stand on the capture point by accident; when the flag is carried they head for the flag spawn point (3646 / 3647) and stop there for 1-3 s until the capture registers.
+- Rotating: players switch from mid to offence or defence on average 2-4 times per match, usually after a death rather than on a call.
+- Grouping: a real team regroups at the middle hump or behind its own gate in the first 60 s; after that the group breaks into 2-4 loose packs of 2-4 players.
+
+
+6. COMMON MISTAKES OF AVERAGE PLAYERS HERE
+- All offence, no defence: the whole team runs to the enemy flag room, the enemy FC walks out of an empty base and caps.
+- Chasing the enemy carrier into the enemy base, alone, instead of cutting the route or waiting at a chokepoint.
+- Not returning their own flag when it lies on the ground, letting it auto-return after 10 s (and often losing the tempo that comes with an instant return).
+- Mounting or stealthing while carrying the flag, which drops it (mount, stealth, Vanish, Divine Shield, Blessing of Protection, Ice Block all drop it).
+- Bubbling or Ice Blocking as the carrier in a panic, dropping the flag at the worst spot, instead of dropping it to a teammate on purpose.
+- Fighting at the midfield hump while their own flag carrier is dying 20 yards away.
+- Picking the flag up as the wrong class (a healer or a cloth caster grabs it first) and dying in the first stun.
+- Standing on the flag spawn point with the enemy flag while their own flag is in the enemy base, so no capture registers (this is a rule, not a bug).
+- Not using the berserking power-up, or taking it and then standing in a 3v1.
+- Fighting on the enemy graveyard: the killed players return at full strength nearby and the fight never ends.
+- No call-outs on the flag carrier, so 10 players chase in 10 directions.
+- Ignoring the tunnel and the roof lanes, so all traffic goes through the front gate, which is the easiest place to be trapped.
+- Leaving one defender at the flag who is not a stealth class, or a stealth class that is not in stealth.
+- Burning the 3 s lockout: dropping the flag with nobody to hand off to, then watching it return to the enemy base.
+
+
+VERIFIED AGAINST (8.3.7 build 35662 unless noted): TrinityCore 8.3.7-35662 source BattlegroundWS.h/.cpp and Battleground.h/.cpp (flags, doors, buffs, triggers, timers, honour, graveyards, spirit guides, resurrection); TrinityCore world_safe_locs data (ids 769 770 771 772 3784 3785 7050 7051 7052 7053); client DB2 tables at this build: BattlemasterList 2 / 32 / 102, PVPDifficulty 7 and 1315, Map 489 and 2106; Warcraft Wiki Warsong Gulch (rules, drop conditions, power-up effects) and Twink (XP-off queue separation, 5.2.0 bracket scaling). Not verifiable and marked above: tunnel and roof waypoints, the exact Brutal Assault value, whether your core scales levels to the top of the bracket.
