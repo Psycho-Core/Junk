@@ -1,0 +1,225 @@
+THE FIRST SATYR'S SPOULDERS - WORKED COLLECTION CHECK
+==============================================================================
+
+Item 141006, build 8.3.7.35662. Every number below was read out of the 8.3.7
+tables or the 8.3.7 core; the one web source is named where it is used.
+
+
+------------------------------------------------------------------------------
+THE ITEM
+------------------------------------------------------------------------------
+  name              The First Satyr's Spaulders
+  item id           141006
+  class             4 - Armor
+  subclass          2 - Leather
+  inventory type    3 - Shoulder
+  material          8
+  quality           4 - Epic
+  item level        168
+  required level    110
+  binding           1 - Bind on Acquire (bind on pickup)
+  allowable class   0xffffffff - every class
+  allowable race    0xffffffff - every race
+  expansion         6 - Legion, added in patch 7.0.3
+  Flags[0]          0x0
+  Flags[1]          0x2000 - the core names it ITEM_FLAG2_SHOW_BEFORE_DISCOVERED
+  Flags[2]          0x0
+  Flags[3]          0x0
+  IconFileDataID    0 in the Item table, 1045428 through ItemAppearance
+
+The same values repeat in ItemSearchName 141006, the table the collection code
+tests for existence right after the source type: quality 4, expansion 6,
+required level 110, item level 168, allowable class 0xffffffff, Flags[1] 0x2000,
+MinFactionID 0, RequiredSkill 0.
+
+0x2000 in Flags[1] is not ITEM_FLAG2_NO_SOURCE_FOR_ITEM_VISUAL, which is
+0x00400000. Nothing in the item's flags blocks collection.
+
+
+------------------------------------------------------------------------------
+THE APPEARANCE ROWS
+------------------------------------------------------------------------------
+ItemModifiedAppearance holds exactly two rows for item 141006, and no others:
+
+  IMA 93947   ItemID 141006   ItemAppearanceModifierID 1
+              ItemAppearanceID 31252   OrderIndex 0   TransmogSourceTypeEnum 1
+  IMA 93948   ItemID 141006   ItemAppearanceModifierID 3
+              ItemAppearanceID 31252   OrderIndex 1   TransmogSourceTypeEnum 1
+
+  ItemAppearance 31252   DisplayType 1 - Shoulder
+                         ItemDisplayInfoID 154217
+                         DefaultIconFileDataID 1045428
+                         UiOrder 3125200
+
+Source type 1 is Dungeon Journal Encounter, which matches the drop below. It is
+neither 6 (Can't Collect) nor 9 (Not Valid for Transmog), so the item passes the
+source-type test that removes 86 other rows from the collection.
+
+There is no row with modifier 0. Both rows point at the same ItemAppearance, so
+either modifier fills the same wardrobe entry, but an item object that carries
+no appearance bonus at all resolves to nothing at all. Which difficulty each
+modifier stands for is unverified.
+
+
+------------------------------------------------------------------------------
+WHERE IT COMES FROM
+------------------------------------------------------------------------------
+  creature      Xavius, entry 103769, title Nightmare Lord
+  map           The Emerald Nightmare, map id 1520, directory NightmareRaid,
+                instance type 2 - RaidDungeon, expansion 6, loading screen 400
+  zone id       Wowhead files the zone as 8026
+  drop rate     0.27 percent on Wowhead's sample, 327 recorded out of 119,688
+  other source  Wowhead also lists it as sold on the Black Market Auction House
+
+Coordinates: the item is an instance boss drop, and no map coordinates apply to
+a boss kill. No world position was verified for this check.
+
+It is a bind-on-pickup drop, so the character that wins it is the character that
+binds it. There is no trade-window wrapper on it beyond the ordinary
+bind-on-pickup loot window.
+
+
+------------------------------------------------------------------------------
+THE VERDICT FOR A LEVEL 120 MAIL WEARER
+------------------------------------------------------------------------------
+No. A hunter or a shaman at level 120 that loots this item should not have
+collected it, and nothing it does afterwards will change that.
+
+Walk the 8.3.7 checks in order, against the data above:
+
+  bound at all          yes - bind on acquire, binds the moment it is looted
+  source type 1         passes; only 6 and 9 are refused
+  ItemSearchName row    exists
+  item template         exists in Item and ItemSparse
+  can use it            every class, every race, required level 110 is below
+                        120, no skill, spell, reputation or holiday - passes
+  flags and quality     Flags[1] 0x2000 is not the no-source flag; quality is
+                        Epic - passes
+  class is armour       yes
+  inventory type        Shoulder, one of the nine gear slots whose subclass
+                        must not be Miscellaneous - leather is not
+                        Miscellaneous, so this sub-test passes
+  armour subclass vs class
+                        leather maps to rogue, monk, druid and demon hunter
+                        only. Hunter and shaman are not in that set. This is
+                        the test that refuses the row.
+
+So the item is soulbound, the appearance is refused, and the character never
+sees it in the wardrobe.
+
+Note what the refusal is not: it is not the level, not the quality, not the
+bind, and not the source type. A level 120 mail wearer meets all of those. The
+refusal is the primary-armour-type rule alone, which in the core is the
+PlayerClassByArmorSubclass table and in the client is the second of the four
+questions - does equipping it keep your armour bonus.
+
+The same item looted by a rogue, monk, druid or demon hunter of level 110 or
+above is collected at once, with no equip step.
+
+
+------------------------------------------------------------------------------
+BY WHICH PATH IT WOULD HAVE BEEN COLLECTED
+------------------------------------------------------------------------------
+For a leather class the path is the loot path, not the equip path:
+
+  1  the boss loot is stored through Player::StoreNewItem, which calls
+     CollectionMgr::OnItemAdded on the new item;
+  2  OnItemAdded calls AddItemAppearance(Item);
+  3  the item is soulbound, so the soulbound test passes;
+  4  the item resolves to IMA 93947 or IMA 93948 depending on the appearance
+     modifier it carries;
+  5  CanAddAppearance passes every test, including the leather class mask;
+  6  the account-wide bit for that IMA is set and the client is told.
+
+No transmogrifier is involved and no equip is involved. A leather class that
+receives this item by any means that ends in StoreNewItem collects it, as long
+as the item object carries one of the two appearance modifiers - see cause 2
+below.
+
+If the item still carries the refundable or the bind-on-pickup-tradeable flag
+when it is granted, step 6 is replaced by a conditional appearance, and the bit
+becomes permanent only when that window closes (two hours of played time) or
+when the appearance is used at a transmogrifier.
+
+
+------------------------------------------------------------------------------
+THE USUAL REASONS AN APPEARANCE DOES NOT COLLECT ON A TRINITYCORE-BASED 8.3.7 SERVER
+------------------------------------------------------------------------------
+In the order worth checking. Each one was read out of the 8.3.7 core used for
+this research, not guessed.
+
+ 1  The item never becomes soulbound. A bind-on-equip item sitting in the bags,
+    bank or void storage is not collected by anyone. This core re-offers every
+    soulbound item in the bags at login, which hides the problem for
+    bind-on-pickup items and exposes it for bind-on-equip ones.
+
+ 2  No ItemModifiedAppearance row for the pair (item id, appearance modifier).
+    This is the most common cause for a hand-made or custom item, and it is the
+    live risk on 141006 itself: the item has rows for modifiers 1 and 3 only,
+    so an item object created with modifier 0 resolves to nothing. On a server
+    that hands the item out through a command or a script without the
+    difficulty bonus, even a druid collects nothing.
+
+ 3  TransmogSourceTypeEnum is 6 or 9. 86 rows in this build are 6, and the 9s
+    include item 17.
+
+ 4  No ItemSearchName row. The collection code tests that table before
+    anything else, so an item that exists only in the world database is
+    invisible to it even when every other table has it.
+
+ 5  No ItemSparse row, so no item template. Same result: refused before the
+    item is examined.
+
+ 6  The character cannot use the item at that moment: wrong class or race mask,
+    required level above the character, missing required skill or spell,
+    Horde-only or Alliance-only flag, or a holiday that is not active.
+
+ 7  ITEM_FLAG2_NO_SOURCE_FOR_ITEM_VISUAL, or artifact quality.
+
+ 8  A weapon the character has no proficiency bit for, or a weapon subclass the
+    core refuses outright - exotic, thrown, spear, fishing pole.
+
+ 9  Armour in an inventory type outside the list, or armour whose subclass the
+    character's class does not wear. This is 141006 on a mail wearer.
+
+10  A class that is neither weapon nor armour - neck, finger, trinket, bag,
+    reagent.
+
+11  Quality below Uncommon, unless the item carries both the ignore-quality
+    and the hidden-visual flag.
+
+12  The appearance is already collected. The call is a no-op and nothing is
+    logged.
+
+13  The item was created through a path that does not collect. StoreNewItem
+    takes an addToCollection parameter that defaults to true, and the vendor
+    path passes false and then calls OnItemAdded itself. Other paths never
+    call StoreNewItem at all: mail delivery goes through StoreItem, which does
+    not grant. A script that uses StoreItem, or StoreNewItem with false and no
+    follow-up call, produces a bound item with no appearance.
+
+14  The grant went to the wrong account. The collection is stored per Battle.net
+    account in battlenet_item_appearances, not per character, so a companion
+    character running on a different account id writes to a different bit set.
+
+15  The database never saved. The bit set is written by an append-only
+    upsert when the character saves; a crash before that save loses the
+    session's grants.
+
+For this specific item the answer narrows to two: cause 9 for any hunter or
+shaman, and cause 2 for anyone if the item is created without its appearance
+modifier bonus.
+
+
+------------------------------------------------------------------------------
+UNVERIFIED
+------------------------------------------------------------------------------
+  Which raid difficulty each appearance modifier stands for on this item.
+  The exact item bonus id that a Mythic Xavius kill attaches; Wowhead serves
+  the item with bonus 9085 in its page URL, but its contents were not read.
+  Whether this core's loot table for Xavius 103769 carries that bonus - that
+  is a world-database question, not a DB2 question.
+  Whether the Black Market Auction House exists in this core and how it binds
+  the item.
+  Whether the 8.3.7 client displays the appearance as collected before the
+  server confirms the bit; no client behaviour was observed.

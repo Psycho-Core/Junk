@@ -251,10 +251,10 @@ Item::GetItemModifiedAppearance (Item.cpp:2318) does nothing more than
 sDB2Manager.GetItemModifiedAppearance(GetEntry(), _bonusData.AppearanceModID).
 AppearanceModID comes from the item bonus ITEM_BONUS_APPEARANCE, and when an
 item carries several such bonuses the one with the lowest priority value wins
-(Item.cpp:2787-2793). DB2Manager::GetItemModifiedAppearance (DB2Stores.cpp:2432)
+(Item.cpp:2788-2795). DB2Manager::GetItemModifiedAppearance (DB2Stores.cpp:2432)
 looks the pair up in a map keyed by ItemID | (ItemAppearanceModifierID << 24),
 and if that fails and a modifier was requested it retries with modifier 0. The
-core asserts ItemID <= 0xFFFFFF when it builds that map (DB2Stores.cpp:1166).
+core asserts ItemID <= 0xFFFFFF when it builds that map (DB2Stores.cpp:1167).
 
 
 ------------------------------------------------------------------------------
@@ -270,10 +270,12 @@ The call sites in this core, by file and line:
                       addToCollection = true by default; callers that pass
                       false take over the duty themselves. Child items created
                       by StoreNewItem inherit the same flag.
-  Player.cpp:24072    Player::_StoreOrEquipNewItem, the vendor purchase. It
-                      stores or equips with addToCollection = false and then
-                      calls OnItemAdded(it) itself, after the refundable flag
-                      has already been attached if the item qualifies.
+  Player.cpp:24072    Player::_StoreOrEquipNewItem, the vendor purchase. The
+                      store branch passes addToCollection = false to
+                      StoreNewItem and the equip branch goes through
+                      EquipNewItem; either way the function then calls
+                      OnItemAdded(it) itself, after the refundable flag has
+                      already been attached if the item qualifies.
   Player.cpp:13234    Player::VisualizeItem - the bind-on-equip,
                       bind-on-acquire and bind-on-quest item is bound here and
                       the appearance granted at the same moment.
@@ -298,10 +300,12 @@ The call sites in this core, by file and line:
                       grant.
   VoidStorageHandler.cpp:199  withdrawal from void storage: store, bind,
                       grant.
-  TransmogrificationHandler.cpp:282  the transmogrifier. Item and illusion
-                      changes first call SetNotRefundable and
-                      ClearSoulboundTradeable, then grant the appearance of the
-                      item that was just made non-refundable.
+  TransmogrificationHandler.cpp:282  the transmogrifier, and only for an
+                      appearance that was still temporary when the change was
+                      made (the handler queues those at line 94). After the
+                      change the item that provided it is made
+                      non-refundable, its trade window is closed, and the
+                      appearance is granted permanently.
   Item.cpp:1764       Item::SetNotRefundable, only when the caller left
                       addToCollection true. This is the refund clock running
                       out, and also the trade, auction, mail and guild bank
@@ -332,12 +336,12 @@ receipt by itself. Those arrive as item creation (StoreNewItem) or not at all.
 ------------------------------------------------------------------------------
 TEMPORARY VERSUS PERMANENT, AND THE TWO CLOCKS
 ------------------------------------------------------------------------------
-AddTemporaryAppearance (CollectionMgr.cpp:812) keys an unordered_set of item
+AddTemporaryAppearance (CollectionMgr.cpp:813) keys an unordered_set of item
 GUIDs by ItemModifiedAppearance id and, for the first item of that id, calls
 Player::AddConditionalTransmog. The wardrobe shows the appearance while the
 item exists; the account-wide bit stays clear. HasItemAppearance
-(CollectionMgr.cpp:837) returns (true, false) for permanent and (true, true) for
-temporary, and IsSetCompleted (CollectionMgr.cpp:664) only counts a piece when
+(CollectionMgr.cpp:840) returns (true, false) for permanent and (true, true) for
+temporary, and IsSetCompleted (CollectionMgr.cpp:663) only counts a piece when
 the appearance is permanent.
 
 The permanent grant (CollectionMgr.cpp:777) does four things: grows the bitset
@@ -356,7 +360,7 @@ Both clocks are two hours of played time, not real time:
                The flag itself is ITEM_FIELD_FLAG_REFUNDABLE, set at purchase
                only when the item template has ITEM_FLAG_ITEM_PURCHASE_RECORD,
                the purchase had an extended cost and the stack size is 1.
-  tradeable    Item::CheckSoulboundTradeExpire (Item.cpp:1828) compares
+  tradeable    Item::CheckSoulboundTradeExpire (Item.cpp:1827) compares
                CreatePlayedTime + 2*HOUR against the owner's total played time
                and calls ClearSoulboundTradeable. The flag is
                ITEM_FIELD_FLAG_BOP_TRADEABLE, with the allowed looters kept in
@@ -405,10 +409,12 @@ its condition, and the tracking quest is never completed by the grant.
 
 ItemAppearance.DisplayType is never read. The transmogrification slot comes
 from ItemTransmogrificationSlots (Item.cpp:1928), a table indexed by
-InventoryType: head, shoulders, body, chest, waist, legs, feet, wrists, hands,
-mainhand, offhand, back, tabard and robe map to the obvious equipment slots;
-non-equip, neck, finger, trinket, bag, ammo, thrown, quiver and relic map to
--1. Slot -1 means no criteria credit, nothing else.
+InventoryType. Head, shoulders, body, waist, legs, feet, wrists, hands, tabard
+and back map to the slot of the same name; chest and robe map to chest;
+one-hand, two-hand, ranged, wand and off-hand weapon types all map to main
+hand; shields and holdable items map to off hand. Non-equip, neck, finger,
+trinket, bag, ammo, thrown, quiver and relic map to -1, and -1 means no
+criteria credit and nothing else.
 
 An ItemModifiedAppearance row whose ItemAppearanceID is 0, such as 105225 for
 item 169762, passes the tests and sets a bit that points at nothing. Nothing in
