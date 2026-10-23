@@ -323,6 +323,40 @@ MUTATIONS = [
 ]
 
 
+def absence_stage(text, corpora):
+    """Recompute the document's negative and count claims from the data."""
+    sql = corpora["world_safe_locs (8.x)"]
+    ttp = corpora["BattlegroundTTP.cpp"]
+    lines, ok = [], True
+
+    rows = [ln for ln in sql.splitlines() if re.search(r"\(\d+,1134,", ln)]
+    want_rows = 3 if "No arena graveyard row exists on map 1134" in text else 4
+    mark = "ok " if len(rows) == want_rows else "BAD"
+    if mark == "BAD":
+        ok = False
+    lines.append("    %-32s claim %d  found %d  %s"
+                 % ("graveyard rows on 1134", want_rows, len(rows), mark))
+
+    gy = [ln for ln in rows if "Graveyard" in ln]
+    wants_none = "No arena graveyard row exists on map 1134" in text
+    mark = "ok " if (not gy) == wants_none else "BAD"
+    if mark == "BAD":
+        ok = False
+    lines.append("    %-32s %-22s %s"
+                 % ("any graveyard comment", "none expected" if wants_none
+                    else "at least one expected", mark))
+
+    objs = ttp.count("AddObject(")
+    want_objs = 4 if "exactly four objects" in text else 5
+    mark = "ok " if objs == want_objs else "BAD"
+    if mark == "BAD":
+        ok = False
+    lines.append("    %-32s claim %d  found %d  %s"
+                 % ("AddObject calls in zone", want_objs, objs, mark))
+
+    return ok, lines
+
+
 def derived_stage(text):
     def grab(pattern):
         m = re.search(pattern, text)
@@ -539,7 +573,24 @@ def main():
         return 1
     print("    derived stage reacts to wrong values (verified)")
 
-    print("\n[5] No-invented-coordinates trace")
+    print("\n[5] Absence and count claims checked against the data")
+    ok, lines = absence_stage(original, corpora)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    ABSENCE CLAIMS DO NOT MATCH THE DATA")
+        return 1
+    sql_broken = corpora["world_safe_locs (8.x)"].replace(
+        "(4534,1134,",
+        "(4544,1134,0,0,0,0,'Arena - Shado-Pan - Graveyard'),\n(4534,1134,")
+    probe_corpora = dict(corpora)
+    probe_corpora["world_safe_locs (8.x)"] = sql_broken
+    if absence_stage(original, probe_corpora)[0]:
+        print("    absence stage did not react to changed data")
+        return 1
+    print("    absence stage reacts to changed data (verified)")
+
+    print("\n[6] No-invented-coordinates trace")
     ok, lines, _ = coord_trace(original, corpora)
     for line in lines:
         print(line)
