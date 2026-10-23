@@ -98,14 +98,20 @@ CLAIMS
            Cosmowrench, Toshley's Station), which is the same basis used in
            steps 01 and 02 [WIKI]
 
+028  FIXED   the master note on node 149 said only that the wiki lists Runetog
+           Wildhammer among the Alliance masters. Wowhead also files him under
+           Honor Hold, which is the point of the note, so the note now says both
+           [WH + FILE]
+
 
 ------------------------------------------------------------------------------
 RESULT
 ------------------------------------------------------------------------------
-27 claims: 24 PASS, 1 FIXED, 1 UNVERIFIED (026 is the fix; 027 is the standing
-caveat). One edit, in the closing section only: a tautological sentence was
-replaced. No coordinate, entry, link, travel time, faction or gate value
-changed, and the block count is unchanged at 38.
+28 claims: 25 PASS, 2 FIXED, 1 UNVERIFIED (026 and 028 are the fixes; 027 is the
+standing caveat). Two edits: a tautological sentence in the closing section was
+replaced, and one master note was strengthened. No coordinate, entry, link,
+travel time, faction or gate value changed, and the block count is unchanged at
+38.
 
 What was re-read rather than trusted:
   - all 38 position triples, bit numbers, link sets and travel times were
