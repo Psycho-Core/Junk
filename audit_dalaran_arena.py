@@ -41,7 +41,7 @@ SOURCE_TOKENS = {
     ],
 }
 
-DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Arenas_complete/"
+DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Arenas-completed/"
                "Arena_Dalaran_Arena_COMPLETED.txt")
 
 STATIC_CHECKS = [

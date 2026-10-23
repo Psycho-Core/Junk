@@ -9,7 +9,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from audit_common import gh_content, source_stage, mutation_probe
 
-DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Arenas_complete/"
+DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Arenas-completed/"
                "Arena_Ruins_of_Lordaeron_COMPLETED.txt")
 
 SQL_REPO = "TrinityCore/TrinityCore"

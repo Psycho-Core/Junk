@@ -2,7 +2,7 @@
 """Audit script for Arena_Queue.txt - mutation tested."""
 import sys, os, re
 
-PATH = "/home/user/Junk/# Ai Research prompts/Arenas_complete/Arena_Queue_COMPLETED.txt"
+PATH = "/home/user/Junk/# Ai Research prompts/Arenas-completed/Arena_Queue_COMPLETED.txt"
 
 def load(p):
     with open(p) as f:
