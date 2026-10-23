@@ -1,0 +1,129 @@
+AUDIT - Twink29_Mage_3_Enchants_Consumables_Races.txt
+File under audit: 239 lines, step 3 of 3. 26 claims checked: 18 pass,
+3 corrected, 5 unverified.
+Sources opened for this audit: the professions set in
+Twink29_Professions-completed (Engineering step 01, Alchemy step 02,
+Leatherworking step 04, Enchanting step 06, Cooking step 09), the racial
+spell lists already checked for the druid and hunter sets, wowdb human and
+gnome racial lists opened this turn, and item pages 955 and 1478.
+
+1. THE CENTRAL CLAIM, AND IT HOLDS
+   1  PASS  "The verified enchant list in this set is melee-shaped."
+      True and worth the prominence: 13661 bracer Strength and 13693
+      weapon Striking give a mage nothing, 13882 cloak and 13815 gloves
+      are agility, and the two caster-neutral survivors are 13890 boots
+      minor speed and 13640 chest health. The file's advice - two classic
+      enchants, plus a weapon oil - is right, and the honest gap is that
+      the Intellect and spell power classics were never verified.
+   2  PASS  20744 Minor Wizard Oil: requires level 5, +8 spell power for
+      one hour, 5 charges, Enchanting 45, spell 25124, item level cap 165.
+      Read on its item page earlier in this set. 20750 Wizard Oil at level
+      40 correctly marked ALT.
+   3  PASS  The neck and ring block: 190894 with enchant id 5439 and the
+      "items above level 120" cap, 190892, 228405 called dead at 29
+      because a 29 has no mastery, 190871 and 191014 capped at "items
+      above level 60". Unchanged since the druid correction.
+   4  UNVERIFIED  "There is no Intellect ring enchant in that family."
+      Nothing opened shows one, and nothing opened proves there is none.
+      The file states it as a finding; it should be read as a search
+      result.
+
+2. CONSUMABLES
+   5  PASS  Potions: 2459 req 5, 1710 req 21, 5634 req 20, 3385 req 14,
+      and Greater Mana 6149 at level 31 marked ALT. Step 02 of the
+      professions set, unchanged.
+   6  PASS  Elixirs: 6373 req 18 +10 fire spell damage, 8951 req 29, 3825
+      req 25, 8949 req 27. Step 02.
+   7  PASS  The five protection potions at 10/17/23/28/28. Step 02.
+   8  CORRECTED, AND IT WAS A DOUBLE ERROR  955 is Scroll of Intellect,
+      rank I, +3 Intellect, spell 8096, and it has no required level at
+      all. The file called it "Scroll of Intellect II, +5 Intellect" and
+      marked the id unverified in the same line, which is the worst of both
+      - a wrong name attached to a right id. Fixed: 955 is now quoted at
+      +3 with its spell id, and the existence of a rank II scroll is noted
+      with its id marked unverified.
+   9  ADDED FROM THE SAME PAGE  "Only one scroll effect can be active at a
+      time" is printed on the scroll's own tooltip. That is a real
+      constraint on a bot's buff routine and the file had nothing about
+      it.
+   10 ADDED  1478 Scroll of Protection II, +105 armor, requires level 15,
+      spell 8094. The second scroll a cloth wearer wants and the file did
+      not list it. Read on its item page this turn.
+   11 PASS  Food: 12210 Roast Raptor req 25 at +8/+8, 12209 req 15 and
+      5479 req 12 named as smaller versions. Step 09.
+   12 UNVERIFIED  "Spirit does very likely nothing for mana regeneration in
+      BfA." The file hedges it and should: no page was opened.
+
+3. ARMOR KITS
+   13 PASS  4265 Heavy Armor Kit, +24, item level 15 and up, skill 150,
+      spell 3780, 5x Heavy Leather 4234; 8173 at level 30 and 15564 at
+      level 40 marked ALT. Step 04.
+   14 UNVERIFIED  The kit-versus-enchant slot conflict, same as in the
+      hunter file: believed right, not opened, and the file tells the
+      reader to test it on one piece.
+
+4. ENGINEERING
+   15 PASS  4385 Green Tinted Goggles: cloth head, item level 30, 35
+      armor, +8 Stamina and +7 Spirit, skill 150, spell 3956, and 4368
+      Flying Tiger Goggles as its reagent at skill 100. Step 01. This is
+      the one item that makes Engineering a gear choice rather than a toy
+      choice for a mage, because it is a rare head inside the item rule.
+   16 PASS  The combat items: 4390 Iron Grenade skill 175, 4394 Big Iron
+      Bomb skill 190, 4388 Discombobulator Ray skill 160 with its real
+      effect (-40 melee and spell damage, -20% movement, 12 sec, forces a
+      dismount), 4397 Gnomish Cloaking Device skill 200 with no
+      specialisation needed. Step 01.
+   17 PASS  10720 Gnomish Net-o-Matic is Gnomish Engineering at 210, so a
+      29 cannot make one; marked ALT and buy. This is the hunter audit's
+      correction applied in advance here.
+   18 PASS  10518 Parachute Cloak at item level 45 is labelled a toy
+      outside the item rule and not counted as gear. Correct, and it is the
+      same fix the mage item file needed.
+   19 PASS  109076 Goblin Glider Kit, auction house only. Step 01.
+   20 PASS  The second-slot ranking: Tailoring, Alchemy, Enchanting, with
+      Jewelcrafting, Inscription, Blacksmithing and the gathering trades
+      ruled out for the reasons the professions set gives.
+
+5. RACES
+   21 PASS  Gnome: 20589 Escape Artist, 20591 Expansive Mind, 20593
+      Engineering Specialization, 20592 Arcane Resistance, 92680 Nimble
+      Fingers, plus the other Expansive Mind ids 154744, 154746, 154747 and
+      227057. All five families confirmed on the wowdb gnome list this
+      turn, including the four parallel Expansive Mind entries the file
+      warns about.
+   22 PASS  Human: 59752 Will to Survive and 20598 The Human Spirit, both
+      confirmed on the wowdb human list this turn. The file's point that a
+      human carries a second crowd-control break because 59752 does not
+      share the PvP trinket's cooldown is the most useful racial line in
+      the section, and the "whether it clears only stuns" hedge is right.
+   23 PASS  Blood elf 50613 Arcane Torrent as the mage version, with the
+      per-class id family listed and left unverified. Undead 7744, 5227,
+      20577, 20579; night elf 58984, 20582, 21009, 20583, 154748; worgen
+      68992, 68975, 68976; dwarf 20594, 59224, 20596, 92682; tauren
+      20549, 20550, 154743, 20552, 20551; orc 21563, 20572, 20573 - all
+      read in the druid work.
+   24 UNVERIFIED  Troll 26297 Berserking, 20557 Beast Slaying, 20555
+      Regeneration, 58943 Da Voodoo Shuffle, and draenei 28880 Gift of the
+      Naaru, 6562 Heroic Presence, 28875 Gemcutting, 59221 Shadow
+      Resistance. Names and ids from memory of the racial tables, not
+      opened this turn, and the file marks the draenei ones as unverified
+      while the troll ones it does not.
+   25 UNVERIFIED  The full race roster in section 7 - "Alliance: human,
+      dwarf, gnome, night elf, draenei, worgen, void elf, dark iron dwarf,
+      kul tiran, mechagnome, lightforged draenei" and the Horde list. The
+      file says it is from memory rather than a page, which is honest, but
+      it is also the kind of list a reader will take at face value. The
+      Hunter races page opened this set covers hunters, not mages, so it
+      could not be used as a proxy.
+   26 PASS  All three specs open at 29, chosen at level 10, no forms or
+      stances, and the Water Elemental's level requirement left unverified.
+      Consistent with the talents file.
+
+6. WHAT TO CHANGE
+   The scroll block, and it is done: 955 corrected to rank I at +3 with its
+   spell id, 1478 Scroll of Protection II added, and the one-scroll-at-a-time
+   rule written in. The engineering section needed nothing, because the
+   hunter audit's lessons about specialisation-gated items and the item level
+   rule were applied when it was written. The weak points left are the ones
+   marked unverified: the troll and draenei racial ids, the full race roster,
+   and whether Spirit does anything at all in 8.3.7.

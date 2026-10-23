@@ -104,11 +104,16 @@ Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
    PROTECTION POTIONS - one hour, one school each.
      6051 Holy req 10, 6048 Shadow req 17, 6049 Fire req 23, 6050 Frost
      req 28, 6052 Nature req 28.
-   SCROLLS - 30 minutes, usable on another character.
-     955 Scroll of Intellect II, +5 Intellect, the caster scroll at the
-     same tier as the verified Strength and Agility ones. Id unverified.
-     1477 Scroll of Agility II and 2289 Scroll of Strength II are verified
-     and both wrong for a mage.
+   SCROLLS - 30 minutes, usable on another character. Only one scroll
+   effect can be active at a time - the item page says so in as many words -
+   and a scroll is not an elixir, so the two may stack.
+     955  Scroll of Intellect, +3 Intellect, no required level, spell 8096.
+          The caster scroll at this tier. Verified.
+     1478 Scroll of Protection II, +105 armor, requires level 15, spell
+          8094. Verified, and the only other scroll a cloth wearer wants.
+     A Scroll of Intellect II exists - the next rank up - but its item id
+     was not found and is unverified. 1477 Scroll of Agility II and 2289
+     Scroll of Strength II are verified and both wrong for a mage.
    FOOD - well fed, 15 minutes, ten seconds seated.
      12210 Roast Raptor req 25, +8 Stamina and +8 Spirit. The Stamina is
      real; the Spirit half is very likely wasted, because Spirit does not
