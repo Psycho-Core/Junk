@@ -16,8 +16,8 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    Surprise" quest (quest 6610, Dirge Quikcleave in Gadgetzan, Tanaris),
    which needs level 35 and 225 skill. So 225 is a hard ceiling at 29,
    and it is the cleanest ceiling in this whole set.
-   The short version of both halves: Cooking is worth about +6 Stamina
-   and +6 Spirit to a 29, and First Aid is worth a stack of bandages
+   The short version of both halves: Cooking is worth about +8 Stamina
+   and +8 Spirit to a 29, and First Aid is worth a stack of bandages
    bought from the auction house. Neither is a reason to spend a
    profession slot.
 
@@ -27,23 +27,29 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    for First Aid skill. The live database shows the rework plainly:
 
    Item   Bandage                  Heals (8 s)  Made at
+   6450   Silk Bandage                800       7928,  Tailoring 180
+   6451   Heavy Silk Bandage         1280       7929,  Tailoring 210
    8544   Mageweave Bandage          1600       10840, Tailoring 240
    14529  Runecloth Bandage          1200       18629, Tailoring 290
    14530  Heavy Runecloth Bandage    1360       18630, Tailoring 300
-   6450   Heavy Silk Bandage        unverified   unverified
-   Those heal figures are the current live values, which is the 8.x
-   re-itemisation, not the 3.x ones; the old 3.x tooltips read 640, 800,
-   1200 and 2000 for the same items. Treat the numbers as live-data
-   values and re-check one in game before trusting the ordering - the
-   rework flattened them and Mageweave now heals more than Runecloth,
-   which is not what a 3.x player expects.
+   The heal figures are the current live values, not the 3.x ones. In 3.x
+   both silk crafts were First Aid, not Tailoring: spell 7928 made Silk
+   Bandage from 1x Silk Cloth 4306 at First Aid 150, difficulty
+   150/150/180/210, and the item healed 400; spell 7929 made Heavy Silk
+   Bandage from 2x Silk Cloth at First Aid 180, difficulty 180/180/210/240,
+   and the item healed 640. Heavy Runecloth healed 2000 in 3.x against
+   1360 live. So the rework did not move every row the same way, and live
+   Mageweave out-heals live Runecloth, which is not what a 3.x player
+   expects. Re-check one in game before trusting the ordering.
    The practical consequences for a 29:
    - Using a bandage needs no profession and no character level any
      more; the item tooltip in the live database has no requirement
      line at all. A 29 can use a Heavy Runecloth Bandage he bought.
-   - Making one is a Tailoring job with a 240-300 skill floor, above the
-     225 ceiling a 29 has in Tailoring (step 05), so a 29 tailor makes
-     at most the silk bandages and should not bother.
+   - Making one is a Tailoring job. The silk tier is inside a 29's 225
+     ceiling (Silk Bandage 6450 at 180, Heavy Silk Bandage 6451 at 210,
+     1280 healing) and everything better starts at Mageweave 8544 at 240,
+     which a 29 cannot reach. So a 29 tailor's best bandage is the heavy
+     silk one, bought or made.
    - Bandages share one cooldown and apply a 60 second "Recently
      Bandaged" debuff on the user, and they are flagged usable in
      arenas. That makes them a real battleground item: one free 1200 to
@@ -54,8 +60,9 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    found and does not list bandages. They belong in the Tailoring file
    whenever that file is revised.
    Table the shopping list, not the profession: buy 20 Mageweave
-   Bandages 8544, keep a stack of the cheapest healing bandage on the
-   realm's auction house, and spend the profession slot elsewhere.
+   Bandages 8544 if they are cheap - they heal 1600 for no profession at
+   all - or make Heavy Silk Bandages 6451 at 210 if your twink happens to
+   be a tailor anyway, and spend the profession slot on gear.
 
 3. COOKING AT 29 - THE HONEST ANSWER
    Cooked food gives a "well fed" buff only if you eat for at least ten
@@ -67,15 +74,26 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    5479  Crispy Lizard Tail - item level 22, requires level 12.
          Restores 552 health over 24 sec; well fed for 10 sec gives
          +6 Stamina and +6 Spirit for 15 minutes.
-         Spell 6418, Cooking 100, difficulty 100/140/160/180.
-         Recipe 5488 is sold by Tari'qa in the Barrens.
+         Spell 6418, Cooking 100, difficulty 100/140/160/180, 1x Thunder
+         Lizard Tail 5470, needs a cooking fire. Recipe 5488 is sold by
+         Tari'qa (npc 3482) in the Barrens.
    12209 Lean Wolf Steak - item level 25, requires level 15.
          Restores 552 health over 24 sec; +6 Stamina and +6 Spirit for
          15 minutes. Spell 15853, Cooking 125, difficulty 125/165/185/205.
-   Both give the same buff, so the cheap one wins: level Cooking to 100,
-   cook Crispy Lizard Tail from lizard meat, and eat that.
-   That is the whole combat value of the profession at 29 - six
-   stamina and six spirit for fifteen minutes. For a companion
+   12210 Roast Raptor - item level 35, requires level 25.
+         Restores 874.8 health over 27 sec; well fed for 10 sec gives
+         +8 Stamina and +8 Spirit for 15 minutes.
+         Spell 15855, Cooking 175, difficulty 175/215/235/255,
+         1x Raptor Flesh 12184. Recipe 12228 from Hammon Karwn or Keena
+         in the Arathi Highlands.
+   3729 Soothing Turtle Bisque - item level 35, requires level 25; the
+         same level-25 band as Roast Raptor, buff magnitude unverified.
+   So the ladder inside a 29's reach is +6 at skill 100, +6 again at 125,
+   and +8 at 175. Level Cooking to 175 and cook Roast Raptor; that is the
+   best food buff a 29 can eat, eight stamina and eight spirit for
+   fifteen minutes.
+   That is the whole combat value of the profession at 29 - eight
+   stamina and eight spirit for fifteen minutes. For a companion
    character this is still worth modelling, because it is a buff a
    non-caster can hand out for almost nothing.
 
@@ -92,10 +110,9 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    20452 Smoked Desert Dumplings - requires 45; well fed gives +20
          Strength for 15 minutes; spell 24801, Cooking 285.
    35563 Charred Bear Kabobs - requires 45.
-   So the Strength, Intellect and the bigger Stamina foods are all 15
-   or 30 levels away. Cooking at 29 is a +6/+6 profession and nothing
-   more; anything above 125 skill in Cooking is for selling food to
-   other people, not for wearing.
+   So the Strength, Intellect and the biggest Stamina foods are all 15 or
+   30 levels away. Cooking at 29 tops out at +8/+8 from Roast Raptor; the
+   only reason to push past 175 is to cook for other people.
 
 5. TRAINERS AND THE FOUR RANKS
    The rank gates are level gates as well as skill gates, and the first
@@ -154,10 +171,11 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    recipe is a quest reward from Chef Jessen or Christoph Jeffcoat in
    the Hillsbrad Foothills, and Mithril Headed Trout 20916 uses Raw
    Mithril Head Trout 8365.
-   For a twink the honest stop is 100, not 225. Skill 100 buys Crispy
-   Lizard Tail, which is the best food a 29 can eat; 125 buys Lean Wolf
-   Steak, which gives exactly the same buff; 225 buys nothing a 29 can
-   use.
+   For a twink the honest stop is 175, not 225. Skill 100 buys Crispy
+   Lizard Tail at +6 Stamina and Spirit, 125 buys Lean Wolf Steak for the
+   same buff, and 175 buys Roast Raptor 12210 at +8 and +8 - the last
+   food upgrade a 29 can use. Everything from 175 to 225 cooks food a 29
+   is not allowed to eat.
    One warning about the first row: wowhead's own difficulty line for
    Charred Wolf Meat reads 45/65/85, while the classic route cooks it
    from skill 1. The route is what players actually did, but if your
@@ -176,24 +194,24 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
    Everything in the Outland, Northrend and Battle for Azeroth cooking
      tiers, including feasts and the BfA "Kul Tiran and Zandalari
      Cooking" recipes - those need level 110 and a separate skill bar.
-   Any bandage above the silk tier as a crafting project: 240 to 300
-     Tailoring, past the 225 ceiling. Buying them is fine and is the
-     whole point of section 2.
+   Any bandage above the silk tier as a crafting project: Mageweave at
+     240, Runecloth at 290 and Heavy Runecloth at 300, all past the 225
+     ceiling. Buying them is fine and is the whole point of section 2.
    Anti-venoms - they left First Aid for Alchemy in 8.0.1.
    A higher-level cook can make the two foods a 29 can eat, and both are
      tradeable, so cooking at 29 is optional in a way bandages are not.
 
 8. WHICH CLASSES SHOULD TAKE IT
-   1. Nobody, on combat grounds. Cooking gives +6 Stamina and Spirit,
+   1. Nobody, on combat grounds. Cooking gives +8 Stamina and Spirit,
       First Aid gives a 1200-1600 heal per minute that anyone can use
       from a vendor stack. Neither is worth one of the two profession
       slots against Engineering or Blacksmithing.
    2. A companion character meant to support a group. Cooking is worth
-      exactly one thing here: a 29 cook can hand a +6 Stamina and
-      Spirit food buff to the party, which costs a stack of food and
-      no skill to receive. Model it as a one-line buff, not a
-      profession.
-   3. A twink with a free slot and no gold problem. Take Cooking to 100
+      exactly one thing here: a 29 cook can hand a +8 Stamina and
+      Spirit food buff (Roast Raptor 12210) to the party, which costs a
+      stack of food and no skill to receive. Model it as a one-line buff,
+      not a profession.
+   3. A twink with a free slot and no gold problem. Take Cooking to 175
       for the food buff and stop; take Tailoring only if the same
       character wants bags and cloth, and buy his bandages rather than
       make them.
@@ -202,5 +220,6 @@ Scope: what Cooking and First Aid give a level 29 battleground twink.
       profession requirement, is the cheapest survivability a 29 can
       buy, and it does not cost a profession slot at all.
    Last line: First Aid does not exist at 8.3.7, Cooking does and gives
-   +6 Stamina and +6 Spirit. Level Cooking to 100, buy bandages, spend
-   the real profession slots on the files that give gear.
+   +8 Stamina and +8 Spirit at skill 175. Level Cooking to 175, buy or
+   make heavy silk bandages, and spend the real profession slots on the
+   files that give gear.

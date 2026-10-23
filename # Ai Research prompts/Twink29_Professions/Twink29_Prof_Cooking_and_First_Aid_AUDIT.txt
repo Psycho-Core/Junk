@@ -1,0 +1,149 @@
+AUDIT - Twink29_Prof_Cooking_and_First_Aid.txt
+==============================================================================
+
+File audited   "# Ai Research prompts/Twink29_Professions/"
+               Twink29_Prof_Cooking_and_First_Aid.txt, step 09, 206 lines as
+               written, 226 lines after the corrections below
+Audited on     the day after it was written, by reopening the bandage, food
+               and recipe pages the file cites and comparing skill, level
+               requirement, healing and buff.
+
+Note on the numbering: this is the audit of step 09. Audit 08 (Inscription)
+was delivered in the previous turn together with the step 09 file, so this
+pass starts at the newest file that exists.
+
+Sources used for the re-check
+  Wowhead live item pages (8.x+ data): 6450, 6451, 8544, 14529, 14530
+  Wowhead WotLK item pages: 5479, 12209, 3729, 18254, 20452, 17222
+  Wowhead WotLK spell pages: 2538 (Charred Wolf Meat), 6418 (Crispy Lizard
+    Tail), 7928 (Silk Bandage), 7929 (Heavy Silk Bandage), 15853 (Lean
+    Wolf Steak), 15855 (Roast Raptor)
+  wow-professions.com Classic Cooking 1-300: rank gates, trainer list,
+    Expert Cookbook, Clamlette Surprise quest, 1-300 route
+  Wowpedia and warcraft.wiki.gg "First Aid": the 8.0.1 removal
+
+RESULT   26 claims checked: 20 passed, 4 corrected, 2 left unverified
+
+FORMAT
+  1  PASS   one plain-text file, 80 columns maximum, ASCII, no tabs, no
+            code, sections 1 to 8, no intro and no summary.
+
+THE REMOVAL
+  2  PASS   First Aid was removed in patch 8.0.1 (2018-07-17), the Battle
+            for Azeroth pre-patch. Wowpedia and warcraft.wiki.gg both say
+            so, and add that the trainers were renamed "Bandage Trainer".
+  3  PASS   bandages became Classic Tailoring recipes and the items no
+            longer require First Aid skill. Confirmed on the live pages:
+            8544 by spell 10840 at Classic Tailoring 240, 14529 by 18629 at
+            290, 14530 by 18630 at 300 - all in the 2540 tier.
+  4  CORRECTED  the id in the file was wrong and so was its status. 6450 is
+            the plain Silk Bandage, 800 healing, spell 7928 at Tailoring
+            180. The heavy version is 6451 Heavy Silk Bandage, 1280
+            healing, spell 7929 at Tailoring 210 - which is inside a 29's
+            225 Tailoring ceiling, so the file's "a 29 tailor makes at most
+            the silk bandages and should not bother" was too dismissive.
+            Both rows are now in the table and the consequence paragraph
+            says the heavy silk bandage is a 29 tailor's best.
+  5  CORRECTED  the file claimed the 3.x tooltips "read 640, 800, 1200 and
+            2000", which reads as if every row changed. Spell 7929 shows
+            the 3.x heavy silk craft as First Aid 180, difficulty
+            180/180/210/240, 2x Silk Cloth 4306, item healing 640, while
+            spell 7928 shows plain Silk at First Aid 150 and item healing
+            400. The 3.x Mageweave and Runecloth items heal 1600 and 1200,
+            the same as live, so the rework is uneven and only some rows
+            moved. Both craft tiers are now stated in the paragraph.
+  6  PASS   bandages are flagged "usable in arenas" on every bandage page
+            opened, share a cooldown, and apply the 60 second Recently
+            Bandaged debuff, which is the wowpedia description.
+  7  UNVERIFIED  "no character level requirement any more". The live
+            database shows no requirement line on any bandage, but that is
+            current retail data, not a build 35662 readout. The file says
+            so and tells the reader to re-check in game.
+  8  PASS   anti-venoms moved to Alchemy in the same patch, per both wikis.
+
+COOKING AS A PROFESSION
+  9  PASS   skill line 185, and the 225 ceiling is documented in the
+            strongest way of anything in this set: artisan Cooking is not
+            trainer-taught at all, it is the "Clamlette Surprise" quest
+            6610 from Dirge Quikcleave in Gadgetzan, which needs level 35
+            and 225 skill, 12x Giant Egg 12207, 10x Zesty Clam Meat 7974
+            and 20x Alterac Swiss 8932.
+ 10  PASS   the rank gates and the Expert Cookbook: apprentice at level 5,
+            journeyman at level 10 and skill 50, expert at level 20 and
+            skill 125 via Expert Cookbook 16072 sold by Wulan in Desolace
+            and Shandrina in Ashenvale.
+
+SECTION 3 - THE FOOD A 29 CAN EAT
+ 11  PASS   Crispy Lizard Tail 5479: item level 22, requires level 12,
+            restores 552 health over 24 sec, +6 Stamina and +6 Spirit for
+            15 minutes, spell 6418 at Cooking 100 with difficulty
+            100/140/160/180, 1x Thunder Lizard Tail 5470, needs a cooking
+            fire, recipe 5488 from Tari'qa (npc 3482) in the Barrens. The
+            reagent was missing from the file's description and is now
+            named - "lizard meat" would have sent a reader to the wrong
+            mobs.
+ 12  PASS   Lean Wolf Steak 12209: item level 25, requires level 15, the
+            same +6/+6 buff, spell 15853 at Cooking 125, difficulty
+            125/165/185/205.
+ 13  CORRECTED  the file's central conclusion was one food short. Roast
+            Raptor 12210 requires level 25 and gives +8 Stamina and +8
+            Spirit for 15 minutes, from spell 15855 at Cooking 175
+            (difficulty 175/215/235/255, 1x Raptor Flesh 12184, recipe
+            12228). So +8 is reachable at 29, not +6. Section 3 now carries
+            the +6 to +6 to +8 ladder, and Soothing Turtle Bisque 3729
+            (item level 35, requires level 25) is named as the same band.
+ 14  PASS   the ALT food list matches the item pages on level requirement:
+            Spider Sausage 17222 at 35, Poached Sunscale Salmon 13932 at
+            35, Spotted Yellowtail 6887 at 35, Spiced Chili Crab 12216 at
+            40, Charred Bear Kabobs 35563 at 45.
+ 15  PASS   Runn Tum Tuber Surprise 18254 is level 45 with +10 Intellect
+            and spell 22761 at Cooking 275; Smoked Desert Dumplings 20452
+            is level 45 with +20 Strength and spell 24801 at Cooking 285.
+
+SECTION 6 - THE ROUTE
+ 16  PASS   the 1-50 row: Charred Wolf Meat 2538 takes 1x Stringy Wolf Meat
+            2672, requires a cooking fire, and the alternatives named are
+            the guide's own.
+ 17  PASS   the 50-100 row: Boiled Clams 6499 with Clam Meat 5503 and
+            Refreshing Spring Water 159, plus the guide's four alternatives.
+ 18  PASS   the 100-130 row: Crab Cake 2544 from Crawler Meat 2674, and
+            the three alternatives the guide lists.
+ 19  UNVERIFIED  the 130-175 row, Curiously Tasty Omelet 3376 with Raptor
+            Egg 3685. It is the guide's step and the recipe vendors are the
+            guide's, but neither the spell page nor the item page was
+            opened for this audit. This is the one gap left in the route.
+ 20  PASS   the 175-225 row: Roast Raptor 15855 at 175 with 1x Raptor
+            Flesh 12184, recipe 12228 sold in the Arathi Highlands - all on
+            the spell page, including the fact that its item needs level 25
+            and that the spell requires a cooking fire.
+ 21  CORRECTED  the advice "the honest stop is 100" followed from
+            correction 13 and is now "175". The route paragraph, the class
+            section and the closing line all say 175 and note that
+            175-225 cooks food a 29 cannot eat.
+
+SECTION 5, 7 AND 8
+ 22  UNVERIFIED  the twelve cooking trainer names. They are the classic
+            trainer list's, with no creature entries and no coordinates; the
+            file says exactly that.
+ 23  PASS   the cooking fire requirement is on both spells that were
+            opened, and Basic Campfire 818 really is listed under Cooking
+            in the profession's spell list.
+ 24  PASS   the vendor reagents: Soothing Spices 3713, Hot Spices 2692 and
+            Refreshing Spring Water 159, as the guide lists them next to the
+            trainers.
+ 25  UNVERIFIED  "the BfA cooking tier needs level 110 and a separate skill
+            bar". That is general 8.x knowledge and was not checked against
+            a page; the file labels it as such. It does not affect a 29,
+            who cannot reach that tier either way.
+ 26  PASS   the first-row discrepancy is real and is worth keeping:
+            wowhead's own difficulty line for Charred Wolf Meat reads
+            45/65/85 while every classic route cooks it from skill 1. The
+            file warns instead of picking one silently.
+
+WHAT THIS AUDIT DID NOT DO
+  No 8.3.7 client data was available, so skill floors and level
+  requirements are the 3.x ones wherever a later build might have moved
+  them, and the live pages are current retail. Both cases are labelled in
+  the file, and the two places where live and 3.x data disagree on
+  substance - the bandage healing table and the Heavy Runecloth value -
+  are now written out side by side.
