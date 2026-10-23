@@ -88,16 +88,19 @@ SHOULDER|a leather alternative if no heirloom: 15140 Cutthroat's Mantle,
 4. NECK, RINGS, TRINKETS - WHERE A TWINK IS DECIDED
 NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
 NECK|no second blue neck exists in the window for a Strength class
-RING 1|no rare ring in the window fits a paladin; the only one is 13097
-RING 2|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
-     13097 is the right ring with the wrong level - required 24 sits below
-     this file's 26-29 floor. It is a note, not a row, exactly as in the
-     druid and monk files. A paladin that relaxes the floor wears two.
+RING 1|green ring, of the Bear or of Strength|-|unv.|29|green drop|SOLO
+RING 2|second ring, same two suffixes|-|unv.|29|green drop|SOLO
+     13097 Thunderbrow Ring, 29/24, +8 Str +3 Agi, is the right ring with
+     the wrong level - required 24 sits below this file's 26-29 floor, so
+     it is a note and not a row, exactly as in the druid and monk files. A
+     paladin that relaxes the floor wears two of them.
 TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838
 TRINKET 2|Insignia of the Alliance / Horde|unv.|unv.|honour vendor|SOLO
 TRINKET 2|Minor Recombobulator|4381|28|none|Engineering, 10 charges|ALT
-   The Insignia breaks fear, which is the one thing a paladin cannot do
-   itself until Divine Shield, so it is not a filler slot for this class.
+   The Insignia is not a filler slot for this class - a paladin has no
+   crowd-control break of its own that it can use while stunned, and the
+   trinket is the only answer a 29 has. Its exact effect on 8.3.7 was not
+   read for this file.
 
 5. WEAPONS AND SHIELD
    Paladin weapon skills: one-hand and two-hand maces, swords and axes, and
@@ -172,5 +175,5 @@ RANGED|none - a paladin has no ranged slot at all
    Weapons: three one-hand maces, four one-hand swords, two two-hand maces,
    two two-hand swords, three two-hand axes and ONE shield.
    A 29 paladin is therefore the most cross-type class in this set - it wears
-   its own battleground set on two slots, mail on four, leather on two and
+   its own battleground set on two slots, mail on five, leather on two and
    plate only where an heirloom covers it.

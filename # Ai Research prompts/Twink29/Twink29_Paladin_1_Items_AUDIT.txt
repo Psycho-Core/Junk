@@ -1,0 +1,105 @@
+AUDIT - Twink29_Paladin_1_Items.txt
+File under audit: 179 lines, step 1 of 3. 21 claims checked: 14 pass,
+3 corrected, 4 unverified.
+Searches and pages used for this audit: the plate rare search run twice
+(with and without the required level filter), the plate heirloom search, the
+mail rare search, the shield rare search and the 37-row weapon search on
+wotlk.evowow.com, all re-read for this file; plus the leather pool and cloth
+conclusions already established by the druid and mage files.
+
+1. THE FINDING THE FILE TURNS ON
+   1  PASS  Zero rare plate at item level 35 or less. The filtered search
+      (quality 3, required 26-29, item level 35 or less) returns no rows,
+      and the control search that drops the required level filter and keeps
+      only the item level cap also returns no rows. That second query is
+      what makes the claim safe: it is not the level window excluding the
+      armour, it is the armour not existing in the window.
+   2  PASS  Four plate bind-on-account rows: 42949, 44099, 44100, 48685.
+      Read off the plate heirloom search, which returns exactly those four.
+   3  UNVERIFIED  "In the Classic data a plate wearer could not put plate on
+      until level 40, so every plate item starts around there." This is the
+      explanation for claim 1, not a page I opened. It is the standard
+      reading of the itemisation and it fits the data, but it is reasoning.
+   4  PASS  The paladin's battleground pieces are filed as MAIL and carry
+      Paladin class labels: 20108 and 20111 (Alliance lamellar), 20178 and
+      20182 (Horde lamellar), 20126 and 20129 (Alliance mail, Paladin or
+      Warrior), 20207 and 20210 (Horde mail, Paladin or Warrior), all 33/28.
+      The class labels are printed in the search result, which is why this
+      is a pass rather than a guess.
+   5  CORRECTED  "Eight are the paladin's battleground girdle-and-greaves
+      pairs" read as though one character buys eight. It is four per
+      faction, and the file now says so in section 2 - a paladin cannot buy
+      the other faction's version.
+   6  PASS  The fifteen-row mail pool is accounted for in full: three head,
+      two non-battleground waist and feet rows, one chest, one hands, and
+      the eight battleground rows. Nothing was left out of the list.
+   7  PASS  Mail has nothing for wrists, legs, shoulders or back. Read off
+      the same fifteen rows.
+
+2. THE CROSS-TYPE SECTION
+   8  PASS  9455 Emissary Cuffs, 18948, 6690 Ferine Leggings, 15140, 7727 -
+      all five are rows from the leather searches the druid and monk files
+      already audited, with the same item levels and required levels.
+   9  UNVERIFIED  "A paladin can wear cloth, leather, mail and plate - it
+      always could." True as I know the class, not read on a page, and the
+      entire cross-type argument rests on it.
+   10 PASS  48687 and 42984 as the leather Intellect heirlooms and 48691 and
+      44107 as the cloth pair, for a Holy build. Both pairs were verified in
+      the mage and druid work, and 44100 is the one plate Intellect piece,
+      which the plate heirloom search confirms.
+   11 UNVERIFIED  "At 29 they scale to roughly the item level 31 to 33 band."
+      The file already marks this unverified per item; the range itself is
+      an estimate and should not be quoted as a number.
+
+3. RINGS - AND THE INCONSISTENCY THE FILE SHIPPED WITH
+   12 CORRECTED  The ring block contradicted itself. RING 1 said "no rare
+      ring in the window fits a paladin" while RING 2 simply listed 13097
+      Thunderbrow Ring, which is required level 24 and therefore outside the
+      file's own 26-29 floor. Both rows are now greens with the 13097 note
+      below them, which is the pattern the druid and monk files already use.
+      This is the same mistake the monk file made and the same fix.
+   13 PASS  13087 River Pride Choker as the only blue neck, 33/28, +9 Stam
+      and +4 Str. For once the odd stat is the right one - Strength is a
+      paladin's primary.
+
+4. WEAPONS AND SHIELD
+   14 PASS  Every weapon row matches the 37-row search: 7752, 2816, 13048,
+      13033, 9446, 19557, 19553, 7730, 9449, 2877, 13049, 6687, 2299, 7753,
+      with item levels and required levels as printed. The counts in the
+      summary - three one-hand maces, four one-hand swords, two two-hand
+      maces, two two-hand swords, three two-hand axes - add up correctly.
+   15 PASS  7787 Resplendent Guardian as the only rare shield, 31/26. The
+      shield search returns exactly one row, so "one blue shield in the
+      bracket and nothing behind it" is a read result.
+   16 UNVERIFIED  The paladin weapon-skill list, and with it the exclusion
+      of daggers, staves, polearms and fist weapons. Class knowledge, not
+      a page. It matters because 13063 Starfaller and the staves in the mage
+      file would otherwise look attractive.
+   17 UNVERIFIED  Whether a paladin can buy 19557 and 19553. The file says
+      the class labels were not read, which is honest, and the two swords
+      sit behind the same warning the mage file gave.
+
+5. TRINKETS
+   18 CORRECTED  "The Insignia breaks fear, which is the one thing a paladin
+      cannot do itself until Divine Shield." Two problems: the trinket's
+      effect on 8.3.7 was never read, and a paladin does have Divine Shield
+      at 29-adjacent levels but cannot press it while stunned, which is the
+      actual argument. Rewritten to say the class has no crowd-control break
+      it can use while stunned, with the trinket's exact effect marked
+      unread.
+   19 UNVERIFIED  19024 Arena Grand Master, for the fifth file running.
+   20 PASS  4381 Minor Recombobulator at item level 28, no level
+      requirement, from the Engineering file.
+   21 UNVERIFIED  "No rare back exists in the window for any armour type."
+      Carried from the mage file's search, not re-run for this one.
+
+6. WHAT TO CHANGE
+   Done: the ring block is consistent again, the battleground count no longer
+   implies eight items for one character, the Insignia line no longer rests
+   on an unread effect, and the slot count in the summary is right (mail
+   covers five slots, not four). What is left unverified is honest and
+   small: the level-40 explanation for the empty plate pool, the cross-type
+   permission itself, the heirloom scaling band, the weapon-skill list, the
+   two Arathi Basin sword class locks, and the Arena Grand Master.
+   The file's structure holds: four plate heirlooms, a mail pool that covers
+   five slots, leather for the two mail cannot reach, and one shield.

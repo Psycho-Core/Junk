@@ -1,0 +1,146 @@
+TWINK29 - PALADIN - STEP 2 OF 3 - TALENTS, NORMAL AND PVP
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+V = read off a wiki page in this turn. Unverified means unverified.
+
+0. THE SHORT ANSWER
+   A level 29 paladin has ONE normal talent and ONE PvP talent.
+   One normal talent because the second row opens at 30, and the second row
+   is where Crusader's Judgment, Hammer of Wrath and Cavalier sit.
+   One PvP talent because the PvP pane gives its first slot at level 20 and
+   its second at 40.
+   Which PvP talent that slot can hold depends on the spec, and for Holy the
+   answer is "not verified" rather than "none" - see section 6.
+
+1. WHICH SPECIALIZATIONS ARE OPEN AT 29
+   All three. Holy, Protection and Retribution are chosen at level 10 and
+   every one of them is legal at 29. Each has its own talent tree and its
+   own PvP talent list, so there are three different answers to every
+   question below.
+
+2. THE NORMAL TREE AT 29
+   Rows open at 15, 30, 45, 60, 75, 90 and 100, one point per row, and the
+   row opens on level alone - nothing has to be spent in the row above.
+   Two patch notes pin the shape of the tree in this era:
+     Zeal, 8.0.1: "Redesigned as a Passive level 15 talent (was level 30)".
+     Bestow Faith, 10.0.0: "Now a row 3 Holy talent (was a level 15 Holy
+     talent)", which is the note that tells us row 1 was still level 15 at
+     the end of BfA.
+   So at 29: ROW 1 OPEN, one pick. ROW 2 at 30 CLOSED, one level away.
+   ROWS 3 to 7 at 45 to 100 CLOSED.
+   ROW 2, for reference, is the row a 29 misses:
+     Holy  Cavalier, Unbreakable Spirit, Blessing of Spellwarding
+     Prot  First Avenger, Crusader's Judgment, Bastion of Light
+     Ret   Fires of Justice, Blade of Wrath, Hammer of Wrath
+
+3. ROW 1 - HOLY (three options)
+   CRUSADER'S MIGHT, spell 196926 (V)
+     Crusader Strike reduces the cooldown of Holy Shock and Judgment.
+   BESTOW FAITH, spell 223306 (V)
+     12 sec cooldown, instant, heals a friendly target for a large amount
+     after 5 seconds. In BfA it did not generate Holy Power - that was added
+     on 9.0.1 (V).
+   LIGHT'S HAMMER, spell id unverified
+     A hammer on the ground that pulses damage and healing in an area.
+   PICK: CRUSADER'S MIGHT.
+     A Holy paladin's throughput at 29 is Holy Shock, and this is the only
+     talent in the row that shortens its cooldown. It is passive, so a bot
+     cannot get it wrong.
+   SECOND CHOICE: BESTOW FAITH, for a bot that is expected to keep one
+     tank alive rather than heal a group, because it adds an instant heal to
+     a spec that otherwise has none at 29.
+
+4. ROW 1 - PROTECTION (three options)
+   HOLY SHIELD, spell 152261 (id from a Legion-era talent list, unverified
+     for 8.3.7)
+     Increases block chance, lets the paladin block spells, and deals Holy
+     damage to anything it blocks.
+   REDOUBT, spell id unverified
+     The Avenger's Shield / block-and-stamina option.
+   BLESSED HAMMER, spell 204019 (id from the same Legion-era list,
+     unverified for 8.3.7)
+     Replaces Hammer of the Righteous with a thrown hammer that hits in a
+     spiral and reduces the damage of the next attack from everything it
+     hits.
+   PICK: BLESSED HAMMER.
+     A Protection twink at 29 tanks other twinks, and Blessed Hammer is the
+     one option that adds area damage and area damage reduction at the same
+     time - it is the only pick that helps a bot holding three attackers.
+   SECOND CHOICE: HOLY SHIELD, when the enemy team is casters, because
+     blocking spells is the one thing no other row-1 talent gives.
+
+5. ROW 1 - RETRIBUTION (three options)
+   ZEAL, spell 269569 (V)
+     Passive: Judgment empowers the next 2 auto attacks to swing 30% faster
+     and hit for extra Holy damage.
+   RIGHTEOUS VERDICT, spell id unverified
+     Templar's Verdict increases the damage of the next Templar's Verdict.
+   EXECUTION SENTENCE, spell 213757 (id from a Legion-era list, unverified
+     for 8.3.7)
+     1 min cooldown, 30 yd: a hammer falls and the target takes a large
+     amount of Holy damage after the delay.
+   PICK: ZEAL.
+     It is passive, it needs no target selection, and a 29 Retribution
+     paladin lands more auto attacks than anything else. For a bot this is
+     the zero-management option that also happens to be the BfA pick for
+     sustained damage.
+   SECOND CHOICE: EXECUTION SENTENCE, for a bot built to burst one target
+     in a team fight or a duel.
+
+6. PVP TALENTS - THE SLOT, AND WHAT FITS IN IT
+   The PvP pane is SEPARATE from the normal tree - the normal row and the
+   PvP slot are two independent picks.
+   Four slots in BfA, opening at 20, 40, 70 and 110 (V, from the PvP talent
+   page read earlier in this set). At 29 that is ONE slot, opened at 20.
+   Individual PvP talents carry their own level requirement, and for this
+   class that gate is the whole story:
+   PROTECTION
+     STEED OF GLORY, spell 199542 (V)
+       Level 20. Divine Steed lasts 2 sec longer, makes the paladin immune
+       to crowd control while it is up, and knocks back anything it rides
+       through. 8.0.1 converted it "from a rank 20 honor talent to a PvP
+       talent" and no later patch changed its level, so 20 is the BfA
+       number (V, and the "rank 20" in that note is the corroboration).
+     PICK: 199542. It is the only paladin PvP talent verified available at
+       29, and it is the best of them for a battleground anyway - a
+       crowd-control-immune rush that scatters a group.
+   RETRIBUTION
+     BLESSING OF SANCTUARY, spell 210256 (V)
+       Level 20. Removes stun, silence, fear and horror from a friendly
+       target and cuts the duration of those effects by 60% for 5 sec on a
+       45 sec cooldown in BfA (it was raised to 1 min in 2025). 8.0.1
+       converted it from a rank 25 honor talent (V).
+     PICK: 210256. On a 29 this is a second trinket on a friendly target,
+       which is worth more than any damage talent in the bracket.
+   HOLY
+     NOTHING VERIFIED. Cleanse the Weak is the obvious candidate and it is
+     the wrong answer: 9.0.1 changed it to "available at level 27 (was 60)",
+     so on 8.3.7 it is a level 60 talent and a 29 cannot take it (V). The
+     rest of the Holy list - Avenging Light, Divine Plea, Luminescence,
+     Shining Revelation, Searing Glare - was not opened for this file, so no
+     level and no id is quoted. A 29 Holy paladin should be assumed to have
+     the slot and nothing legal to put in it until a page says otherwise.
+
+7. TALENTS THAT LOOK AVAILABLE AND ARE NOT
+   DENOUNCE. It is in the paladin PvP talent category, so it looks legal.
+   Its own patch notes say it was removed on 7.0.3 and only re-added on
+   10.1.5 as a level 30 talent (V). It does not exist on 8.3.7 at all.
+   CLEANSE THE WEAK. Level 60 in BfA, level 27 only from Shadowlands (V).
+   THE ROW 2 TALENTS. Hammer of Wrath 30, Crusader's Judgment 30, Cavalier
+   30 - all one level out of reach. A 29 paladin that wants Hammer of Wrath
+   has to level once.
+   THE SPEC LOCK. Steed of Glory is a Protection talent and Blessing of
+   Sanctuary a Retribution one on the current pages. Whether those spec
+   locks were the same in 8.3.7 was not verified, and if they were not, a
+   Holy paladin has one more option than this file gives it.
+
+8. WHAT THE BOTS SHOULD TAKE
+   HOLY        196926 Crusader's Might + a PvP slot with nothing verified
+   PROTECTION  Blessed Hammer (204019, id unverified) + 199542 Steed of
+               Glory
+   RETRIBUTION 269569 Zeal + 210256 Blessing of Sanctuary
+   One talent each, one PvP talent each, and the spec choice decides both.
+   UNVERIFIED, and worth a look on the server before the roster is written:
+   the Light's Hammer, Redoubt and Righteous Verdict ids; the BfA ids of
+   Holy Shield and Blessed Hammer; the whole Holy PvP list; and whether the
+   spec locks on Steed of Glory and Blessing of Sanctuary existed on 8.3.7.
