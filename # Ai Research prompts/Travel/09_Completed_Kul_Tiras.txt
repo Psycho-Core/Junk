@@ -725,9 +725,11 @@ WHAT IS VERIFIED AND WHAT IS NOT
   Unlock: a node's bit is set by visiting its flight master, so the practical requirement is reaching the zone. Flying over Kul
   Tiras additionally needs Battle for Azeroth Pathfinder, Part One (achievement 12989) and Part Two (13250); a taxi flight needs
   neither, only the node's bit.
-  Fourteen names in this file are longer than the 33-character name column of the source table, which cuts them mid-word
+  Fourteen names in this file are cut at the 33-character limit of the source table's name column, which trims them mid-word
   ("Firebreaker Expedition, Tiragarde", "Shrine of the Storm, Stormsong Va" and so on). Each is printed out in full with its zone:
-  Tiragarde Sound, Stormsong Valley or Mechagon. No other field was reconstructed.
+  Tiragarde Sound, Stormsong Valley or Mechagon. Five other names fill exactly 33 characters without being cut (2052 Anglepoint
+  Wharf, 2091 Stonetusk Watch, 2092 Diretusk Hollow, 2101 The Amber Waves, 2139 Windfall Cavern) and are left as the source has
+  them. No other field was reconstructed.
   Two of the nodes, 2441 Prospectus Bay and 2442 Overspark Expedition Camp, stand on Mechagon Island, which is carried in this
   map's taxi table rather than in a map of its own, so their ContinentID is 1643 like every other block here.
   Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of ConditionID 62086, the Warcraft

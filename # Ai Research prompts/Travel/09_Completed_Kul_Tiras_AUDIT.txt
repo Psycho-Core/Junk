@@ -1,0 +1,137 @@
+AUDIT OF 09_Completed_Kul_Tiras.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file has 57 node blocks plus a closing evidence section.
+Every block was re-derived from the source document with a second, independent
+parser (not the one that wrote the file) and compared field by field. Two
+entries inherited from the source document were withheld on faction grounds and
+one footer sentence about truncated names was reworded after the reread.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong; the correction is described
+  UNVERIFIED  the item is not checkable from the sources used here
+
+Sources used:
+  [TAXI]   TaxiNodes export, build 8.3.7.35662, map 1643, the "1643 KUL TIRAS"
+           node table and LINKS list of BfA_8.3.7_flight_points_and_travel.txt
+  [PC]     PlayerCondition decode, section 2.1 of the same document
+  [SEC31]  section 3.1 "verified entries" table of the same document
+  [WIKI]   warcraft.wiki.gg pages read for step 09: Anglepoint Wharf,
+           Prospectus Bay, Shrine of the Storm
+  [WH]     Wowhead NPC pages read for step 09: Jorum Hayes, Galeheart, Scroll of
+           Flight
+  [FILE]   09_Completed_Kul_Tiras.txt itself
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the export holds 57 Kul Tiras nodes and the file prints 57 blocks, one
+           per node, ids identical [TAXI + FILE]
+002  PASS  all 57 position triples equal TaxiNodes.Pos for map 1643 (57/57
+           compared programmatically, 0 differences) [TAXI]
+003  PASS  all 57 CharacterBitNumber values equal the export's bit column
+           (0 differences) [TAXI]
+004  PASS  every block's link set equals the export's rows, with wrapped
+           continuation lines read correctly: 234 directed rows in, 234 printed
+           out, 0 set differences, 0 missing, 0 invented [TAXI]
+005  PASS  every printed "yd" equals the export row and every "min" equals
+           yards / 1920 rounded to 2 decimals (0 differences) [TAXI]
+006  PASS  distances are printed per direction: 2023 -> 2077 reads 900 yd = 0.47
+           min while 2077 -> 2023 reads 1146 yd = 0.60 min [TAXI]
+007  PASS  all 234 rows pair up: 117 pairs carry a row each way and no pair
+           carries a single-direction row, which is why no block prints a
+           "reverse row only" leg - the string appears zero times [TAXI + FILE]
+008  PASS  one pair measures the same both ways, 2037 Barbthorn Ridge and 2084
+           Norwington Estate, and the footer says so rather than claiming every
+           pair differs [TAXI + FILE]
+009  PASS  every link target is one of the 57 nodes: no printed id falls outside
+           the export's map-1643 node set [TAXI]
+010  PASS  every one of the 57 nodes starts at least one TaxiPath row, so no
+           block prints "none" for links [TAXI]
+011  PASS  the faction tally is 35 Alliance-only, 17 Horde-only and 5
+           Alliance-and-Horde, which sums to 57, and each block's "bit 1 / bit 2"
+           wording agrees with the tally for all 57 [TAXI]
+012  PASS  exactly 8 nodes are gated and 49 are not, the eight are 2052, 2053,
+           2054, 2055, 2056, 2057, 2104 and 2105, and all eight carry the same
+           ConditionID 62086 [TAXI]
+013  PASS  62086 decodes as a PrevQuest condition satisfied by quest 52128 or
+           55142, which is what every one of those eight blocks prints [PC]
+014  PASS  49 blocks print a numeric creature entry, 8 print "unverified", and
+           the eight are 2052, 2053, 2054, 2055, 2095, 2104, 2276 and 2441
+           [FILE]
+015  PASS  the 49 numeric entries are exactly what section 3.1 prints for those
+           node ids (49/49 compared, 0 disagreements); the two rows the file
+           does not follow are the two it withholds as wrong-faction [SEC31]
+016  FIXED  2095 Shrine of the Storm is Horde-only and section 3.1 gives it
+           Galeheart, the gryphon the wiki places in the Alliance camp at the
+           Shrine. The block prints "unverified" instead of borrowing him from
+           2133, and says why [WIKI + SEC31]
+017  FIXED  2276 Tol Dagor is Horde-only and section 3.1 gives it Jorum Hayes
+           130593, whom Wowhead shows with Alliance react in Tol Dagor. The block
+           prints "unverified" instead of borrowing him from 2096, and says why
+           [WH + SEC31]
+018  PASS  the three gated duplicates do keep a master, and each is Alliance on
+           both sides: 2056 Fallhaven repeats Clarence Page 124466 from 2033, 2057
+           Fletcher's Hollow repeats Bridget Bran 126724 from 2035, and 2105
+           Tradewinds Market repeats Joan Weber 124725 from 2083 [SEC31]
+019  PASS  the five gated nodes left open are 2052, 2053, 2054, 2055 and 2104,
+           and each note names the place rather than a person: the wiki has no
+           flight master for Anglepoint Wharf, and a Wowhead search for
+           Firebreaker Expedition returns only a storyline [WIKI + WH]
+020  PASS  2089 Seekers Vista prints Scroll of Flight 137318, which is correct
+           here because Wowhead places 137318 in Stormsong Valley, where this
+           node stands; the block also records why the Zandalar file withheld
+           the same id [WH]
+021  PASS  2441 Prospectus Bay is left unverified and the note matches its
+           source: the wiki page for the bay lists the Horde goblins and a
+           rustbot, and no flight master [WIKI]
+022  PASS  2442 Overspark Expedition Camp prints Cog Captain Winklespring 147950
+           exactly as section 3.1 has it, Mechagon being carried in map 1643
+           rather than in a map of its own [SEC31 + TAXI]
+023  PASS  every block's walk-to line reads "unverified" (57/57) and no
+           coordinate was invented for any of them [FILE]
+024  FIXED  the footer sentence about truncated names was wrong in its reason,
+           not its count: fourteen names are cut at the 33-character limit of the
+           source name column, and five more fill exactly 33 characters without
+           being cut (2052, 2091, 2092, 2101, 2139). The sentence now says that
+           and lists the five [TAXI + FILE]
+025  PASS  all fourteen expansions match the zone the node is in and nothing else
+           was reconstructed: the long names end in Tiragarde Sound, Stormsong
+           Valley or Mechagon, and every other field of those blocks comes from
+           the export [FILE]
+026  PASS  the file is 737 lines, every line 130 characters or shorter, has no
+           title, no table of contents and no summary, and its 57 headers are
+           unique [FILE]
+027  PASS  the footer's counts recompute exactly: 49 entries printed and 8
+           unverified, 8 gated and 49 not, 234 directed rows over 117 pairs, and
+           35/17/5 for the faction split [FILE + TAXI]
+028  UNVERIFIED  no Kul Tiras entry has creature_template backing in this run: the
+           4.3.4 and 8.x exports used in steps 01 to 04 are not present in this
+           workspace, so every entry rests on section 3.1, the wiki or Wowhead
+           [FILE]
+029  UNVERIFIED  the 57 walk-to positions cannot be confirmed from any source
+           used in steps 01 to 09; they are printed as "unverified" on purpose,
+           and this audit does not treat them as checked [FILE]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+29 claims: 26 PASS, 3 FIXED, 2 UNVERIFIED. Two fixes are the faction-mismatched
+entries (2095 and 2276) carried in from the previous step, which this audit
+confirms rather than changes; the third is the footer wording about cut names.
+No coordinate, link, travel time, faction or gate value changed, and the block
+count is unchanged at 57.
+
+What was re-read rather than trusted:
+  - all 57 positions, bit numbers, link sets and travel times were re-parsed from
+    the section-1643 text and compared with the file;
+  - the eight gated nodes were checked against the single ConditionID they share,
+    and the three gated duplicates against section 3.1;
+  - the two withheld entries were re-checked against the wiki and Wowhead pages
+    that justify withholding them;
+  - the name-column truncations were recounted character by character, which is
+    what exposed the footer wording error.
+Not re-read: the 8.3.7 TaxiNodes export itself (section 1643 of the research
+document is the transcription used here, as in steps 01 to 08).
