@@ -1,0 +1,101 @@
+AUDIT OF 13_Completed_Ashran.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file is a single line, as the prompt requires when a
+battleground is closed to the bracket. This is the last step of the set.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong or imprecise; the correction is described
+
+Sources used:
+  [DB2]     wago.tools DB2 build 8.3.7.35662 (BattlemasterList, PVPDifficulty,
+            Map)
+  [MGR]     TrinityCore 8.3.7-35662 BattlegroundMgr.cpp (CreateNewBattleground)
+  [BF.h]    TrinityCore 8.3.7-35662 Battlefield/Battlefield.h
+  [PROMPT]  13_Ashran.txt, the "if it is not, write only that line and stop" rule
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the battleground is map 1191 [DB2]
+002  PASS  BattlemasterList 1020 "Ashran", GameType "Epic Battleground",
+           InstanceType 3 [DB2]
+003  PASS  1020 MinLevel 100, MaxLevel 120 [DB2]
+004  PASS  1020 MinPlayers 10, MaxPlayers 25 -> 25v25 cap with a 10v10 minimum
+           [DB2 + the per-team reading used throughout this set]
+005  PASS  1020 RatedPlayers 25, GroupsAllowed 1, MaxGroupSize 5,
+           HolidayWorldState 0, Flags 0x18 [DB2]
+006  PASS  1021 "Classic Ashran", GameType "Endless Epic Battleground",
+           InstanceType 3 [DB2]
+007  PASS  1021 MinLevel 20, MaxLevel 120, MinPlayers 10, MaxPlayers 25,
+           RatedPlayers 25, MaxGroupSize 5, HolidayWorldState 1941, Flags 0x28
+           [DB2]
+008  PASS  map 1191 has exactly four PVPDifficulty rows: 1397 RangeIndex 0
+           100-109, 1385 RangeIndex 1 110-110, 1386 RangeIndex 2 111-119, 1367
+           RangeIndex 3 120-120 [DB2]
+009  PASS  no bracket below 100 exists for map 1191, and the file enumerates
+           20-29 through 90-99 as absent [DB2]
+010  PASS  the conclusion that list 1021's MinLevel 20 has no matching bracket
+           row follows directly from 008 and 009 [DB2]
+011  FIXED   the file said list 901 is "the only other row that names the map"
+           without sweeping the remaining map slots. Swept this time: MapID_2,
+           MapID_3, MapID_4 and MapID_5 for map 1191 all return "No entries
+           found", so the set of rows is exactly 1020 and 1021 (MapID_0) plus
+           901 (MapID_1). The sentence now states the sweep and names them that
+           way, so the claim is backed by the search rather than assumed. [DB2]
+012  PASS  list 901 "Random Epic Battleground": MinLevel 20, MaxLevel 120,
+           MinPlayers 5, MaxPlayers 40, GroupsAllowed 1, MaxGroupSize 5,
+           Flags 0x0, maps 30, 1191, 2118, 628 [DB2]
+013  FIXED   the file listed 2118 as a bare map id. Map 2118 is "Battle for
+           Wintergrasp" (directory WintergraspEpic, InstanceType 3, ExpansionID
+           2 WotLK). Named in the text now. [DB2]
+014  PASS  a random bucket can only select maps for a bracket that exists, so
+           901 cannot place a 29 on map 1191 [DB2 + 008]
+015  PASS  Map row 1191: directory Ashran, name "Ashran", InstanceType 3
+           PVPBattlefield, ExpansionID 5 (Warlords of Draenor), ParentMapID
+           1116, short description "Slay the enemy's leader", long description
+           "Slay the enemy's leader / Reduce the enemy reinforcements to 0"
+           [DB2]
+016  PASS  CreateNewBattleground constructs AV, WS, AB, NA, BE, EY, RL, SA, DS,
+           RV, IC, TP and BFG only [MGR]
+017  PASS  BATTLEGROUND_RB, BATTLEGROUND_AA and BATTLEGROUND_RANDOM_EPIC share
+           a case that falls through to default and returns nullptr, and there
+           is no Ashran case in the switch at all [MGR]
+018  PASS  Battlefield.h defines only BATTLEFIELD_WG and BATTLEFIELD_TB in the
+           BattlefieldType enum; BATTLEFIELD_BATTLEID_ASHRAN 24 exists as a
+           battle id but has no implementation behind it [BF.h]
+019  PASS  format: one line after the corrections [PROMPT]
+020  PASS  no invented numbers; 25v25 and 10v10 come from MaxPlayers/MinPlayers
+           [DB2 + arithmetic]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+  claims checked ...................................... 20
+  PASS ................................................ 18
+  FIXED ............................................... 2    (011 013)
+  claims found wrong in substance and withdrawn ...... 0
+
+  Both fixes are the same hardening the last two audits demanded: the "only
+  other row" sentence was rebuilt around an explicit sweep of MapID_2 to
+  MapID_5 (all empty for 1191), and the unnamed map id 2118 is now identified
+  as Battle for Wintergrasp. The verdict is unchanged - Ashran has no bracket
+  below level 100 and this core has no Ashran battleground class.
+
+  The find worth keeping: list 1021 "Classic Ashran" carries MinLevel 20, which
+  looks exactly like an open door for a 29. It is not one, and the reason is
+  the bracket table, not the list. Anyone reading BattlemasterList alone would
+  get this wrong.
+
+
+------------------------------------------------------------------------------
+WHAT WAS RE-READ FOR THIS AUDIT
+------------------------------------------------------------------------------
+  DB2 build 35662   BattlemasterList 1020, 1021, 901; BattlemasterList filtered
+                    on MapID_2/3/4/5 = 1191; PVPDifficulty 1367, 1385, 1386,
+                    1397 on MapID 1191; Map 1191 and Map 2118
+  core              BattlegroundMgr::CreateNewBattleground switch;
+                    Battlefield.h BattlefieldType enum and battle ids
+  prompt 13         the "not open" output rule
