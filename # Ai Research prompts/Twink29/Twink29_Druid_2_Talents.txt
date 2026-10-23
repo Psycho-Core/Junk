@@ -52,8 +52,8 @@ Bracket: level 29 (20-29).
      on a class whose problem at 29 is being focused, not throughput.
 
 4. ROWS THAT ARE NOT OPEN AT 29 - ALL ALT
-   Balance    row 2 to 7: level 30, 45, 60, 75, 90. Includes the eclipse
-              and Starfall support talents.
+   Balance    row 2 to 7: level 30, 45, 60, 75, 90, 100. Includes the
+              eclipse and Starfall support talents.
    Feral      row 2 to 7: level 30 upward. Includes the combo-point and
               Berserk support talents.
    Guardian   row 2 to 7: level 30 upward. Includes the active-mitigation

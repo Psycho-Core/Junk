@@ -1,0 +1,152 @@
+AUDIT - Twink29_Hunter_1_Items.txt
+File under audit: 155 lines, step 1 of 3, written before the mail-only rule
+was set. 20 claims checked: 11 pass, 4 corrected, 5 unverified.
+Sources opened for this audit: the same filtered item searches the file was
+built from (rare quality, required level 26-29, item level 35 or less, per
+armour and weapon type), the heirloom mail list, and the two jewellery
+rows carried from the druid set.
+
+1. THE BIG ONE - LEATHER SHOULD NOT BE IN A HUNTER FILE
+   Hunters wear mail. The first draft listed leather as ordinary gear,
+   complete with a note that mixing armour types costs the all-mail bonus,
+   and it did that because the item search returns leather pieces with
+   better numbers than the mail ones. That is the wrong frame: a hunter
+   bot is geared in mail, and a leather row is at best a stopgap.
+   Wrong: 15140 Cutthroat's Mantle, 7727 Watchman Pauldrons, 2278 Forest
+   Tracker Epaulets, 3020 Enduring Cap, 9455 Emissary Cuffs, 18948
+   Barbaric Bracers, 7756 Dog Training Gloves, 888 Naga Battle Gloves,
+   6690 Ferine Leggings - all leather, all presented as hunter armour.
+   The rebuild carries none of them. Where a mail slot has no rare item in
+   the window, the rebuilt file says so instead of substituting leather.
+
+2. WHAT SURVIVES THE REBUILD - PASS
+   2  PASS  9445 Grubbis Paws, hands, item level 34, required 29, Grubbis
+            7361 in Gnomeregan. Mail.
+   3  PASS  6686 Tusken Helm, head, 33/27, Overlord Ramtusk 4420, RFK.
+   4  PASS  5819 Sunblaze Coif, head, 33/28, world drop.
+   5  PASS  13127 Frostreaver Crown, head, 32/27, world drop.
+   6  PASS  1488 Avenger's Armor, chest, 31/26, RFK zone drop.
+   7  PASS  9405 Girdle of Golem Strength, waist, 33/28, world drop.
+   8  PASS  9510 Caverndeep Trudgers, feet, 32/27, Gnomeregan zone drop.
+   9  PASS  The mail search returns 15 rows in total and five of them are
+            class-locked to Paladin or Warrior: 20108, 20111, 20126,
+            20129, 20178, 20182, 20207, 20210. A hunter cannot wear them,
+            and the rebuild drops them.
+
+3. THE ARATHI BASIN PAIR - PASS WITH A CAVEAT
+   10 PASS  20090 and 20093 (Alliance), 20152 and 20157 (Horde) are the
+            hunter's 20-29 battleground belt and boots, item level 33,
+            required 28. The search page tags all four "Hunter, Shaman",
+            which is what makes them the hunter set.
+   11 CAVEAT  All four are filed under the leather category, not the mail
+            one, so under a strict mail-only rule they are a downgrade
+            piece, not core gear. The rebuilt file keeps them but marks
+            them. This is the one place the mail rule and the class tag
+            disagree, and the file should not pretend otherwise.
+
+4. THE EMPTY SLOTS - CORRECTED FROM "THIN" TO "EMPTY"
+   12 PASS  The search really does contain no rare mail legs at item level
+            35 or less with required level 26-29. The draft said this.
+   13 CORRECTED  It said it only for legs. It is also true for shoulders
+            and wrists: the 15-row mail list has no shoulder, no wrist and
+            no back. So a mail-only 29 hunter has three armour slots with
+            no blue item at all, and the draft hid that behind leather
+            substitutions. The rebuild lists all three as empty.
+
+5. HEIRLOOMS - CORRECTED, AND ONE ERROR THAT IS NOT IN THIS FILE
+   14 CORRECTED  The draft wrote "Stained Shadowcraft Tunic (BoA)" with no
+            id. Stained Shadowcraft is the leather agility set, so it is
+            the wrong set for a mail hunter as well as an unverified id.
+            The hunter mail heirlooms were checked this turn:
+            44101 Prized Beastmaster's Mantle, mail shoulders, item level
+            shown as 1, vendor and Wintergrasp.
+            48677 Champion's Deathdealer Breastplate, mail chest, item
+            level 1, vendors.
+            42950 Champion Herod's Shoulder and 42951 Mystical Pauldrons
+            of Elements are the other two mail shoulder heirlooms, for a
+            Strength and an Intellect wearer.
+   15 CROSS-FILE ERROR  The Druid step 1 file labels 48677 "Preened
+            Ironfeather Breastplate, leather caster chest". 48677 is
+            Champion's Deathdealer Breastplate, mail agility. The druid
+            row is wrong and the druid file is already merged. Fix it in a
+            follow-up commit; it is not corrected here.
+
+6. JEWELLERY, TRINKETS AND WEAPONS
+   16 PASS  13087 River Pride Choker, 33/28, +9 Stamina +4 Strength, and
+            13097 Thunderbrow Ring, 29/24, +8 Strength +3 Agility - both
+            read on their item pages during the druid work.
+   17 PASS  The "no jewellery category at 29" claim: the armour-misc
+            search at this window returns five rows, all bags and novelty
+            hats, so the finding stands. It is a limit of the database,
+            not proof that nothing exists.
+   18 PASS  Weapons: 13137 Ironweaver 34/29 gun, 19561 and 19565 the
+            battleground bows 33/28, 7729 Chesterfall Musket 33/28, 6696
+            Nightstalker Bow 32/27, 13037 Crystalpine Stinger 32/27,
+            13019 Harpyclaw Short Bow 32/27, 6687 Corpsemaker 34/27,
+            7730 Cobalt Crusher 34/29, 2877 Combatant Claymore 33/28,
+            2299 Burning War Axe 33/28, 13033 Zealot Blade 34/29, 13048
+            Looming Gavel 31/26, 7682 Torturing Poker 34/29, 7683 Bloody
+            Brass Knuckles 34/29, 9446 Electrocutioner Leg 34/28. All
+            confirmed on the weapon search page.
+   19 UNVERIFIED  The dual-wield off-hand row. Whether a level 29 hunter
+            has Dual Wield trained in 8.3.7 was not checked, and the draft
+            offered a second one-hand as if it were settled.
+   20 UNVERIFIED  "Survival uses no ranged weapon in 8.3.7" is correct for
+            the spec as designed, but no page was opened this turn to
+            confirm the 8.3.7 version.
+   Also unverified and left that way: 13108 Tigerstrike Mantle (no page),
+   19024 Arena Grand Master's item level and required level, and the
+   battleground Insignia's.
+
+7. WHAT TO CHANGE
+   Drop every leather row. Keep the seven usable mail pieces, mark the
+   Arathi Basin pair as the one leather-typed exception, and say plainly
+   that shoulders, wrists and legs have no rare mail item in the window.
+   Put the two verified mail heirlooms in with their ids. Keep the weapon
+   and jewellery sections as they are, and downgrade the dual-wield row to
+   unverified.
+
+================================================================================
+NOTE ON THE REQUEST - "audit 2 hunter"
+There is no Hunter step 2 deliverable. The Hunter prompt file is
+Twink29/Hunter/2_Talents.txt, but Twink29_Hunter_2_Talents.txt has never been
+written: steps 2 and 3 of the Hunter set are still to do. Per the standing
+rule this audit therefore covers the newest Hunter file that does exist, the
+rebuilt item list, as a second pass.
+================================================================================
+
+SECOND PASS - Twink29_Hunter_1_Items.txt AFTER THE MAIL-ONLY REBUILD
+21 PASS  The leather purge. A text search of the rebuilt file returns three
+         hits and none is a gear row: the rule statement in the header, the
+         wrist line that offers leather only as a fallback, and the Arathi
+         Basin caveat. Every armour row in the file is mail or bind-to-account
+         except 20090, 20093, 20152 and 20157, which are flagged.
+22 PASS  The seven-piece claim. The rows are 6686, 5819, 13127 (head), 1488
+         (chest), 9445 (hands), 9405 (waist), 9510 (feet) - seven, all mail,
+         all read off the mail search.
+23 PASS  The empty-slot claim. The 15-row mail search at rare quality,
+         required 26-29 and item level 35 or less contains no shoulder, no
+         wrist and no back, so "no rare mail shoulder, wrist or leg" is
+         right, and the rebuilt file now says it for all three.
+24 PASS  Heirlooms. 44101 Prized Beastmaster's Mantle and 48677 Champion's
+         Deathdealer Breastplate, both mail, both item level 1, both vendors;
+         42950 and 42951 identified as the Strength and Intellect mail
+         shoulders and correctly not offered to a hunter.
+25 CORRECTED  Two counting slips inside the rebuilt file. Section 0 said
+         "five" class-locked rows and then listed eight ids - corrected to
+         eight. Section 4 said "two head pieces" against three head rows -
+         corrected to three. Both were caught here and fixed in the file.
+26 PASS  Weapons and jewellery are unchanged by the rebuild and still read
+         off the weapon search page: guns 13137 and 7729, battleground bows
+         19561 and 19565, bows 6696 and 13019, crossbow 13037, and the
+         Survival melee list.
+27 UNVERIFIED, UNCHANGED  The dual-wield off-hand, the 8.3.7 Survival
+         ranged-slot statement, 13108 Tigerstrike Mantle, 19024's item level
+         and the Insignia's. None of them was fixed by this pass.
+
+WHAT IS STILL MISSING FROM THE HUNTER SET
+  Step 2 (talents) and step 3 (enchants, consumables, races) are not written
+  yet. The talents file is the natural next one: it needs the BfA level 15
+  row for Beast Mastery, Marksmanship and Survival, and the same single PvP
+  slot a 29 has in any class. Everything the druid talents file says about
+  that slot applies here unchanged.
