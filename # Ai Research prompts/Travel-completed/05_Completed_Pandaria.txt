@@ -1,0 +1,701 @@
+TAXI NODE 894  GROOKIN HILL, JADE FOREST
+  flight master   : Grookin Flapmaster
+  creature entry  : 60952
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 262
+  position        : map 870 (Pandaria), 1418.6, -487.7, 356.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 17197 - PlayerCondition PrevQuest: after quest 29879
+  master note     : the gate is quest 29879, which Wowhead names "Swallowed Whole"; the wiki says this flight point
+                    appears after "Orders are Orders", the next quest in the same Horde Jade Forest chain, so the two
+                    sources name different steps
+  links           : 895 Dawn's Blossom 1872 yd = 0.97 min; 971 Tian Monastery 1710 yd = 0.89 min;
+                    973 Honeydew Village 1817 yd = 0.95 min; 984 Pang's Stead 1176 yd = 0.61 min;
+                    1080 Serpent's Overlook 1777 yd = 0.93 min
+
+TAXI NODE 895  DAWN'S BLOSSOM, JADE FOREST
+  flight master   : Keg Runner Lee
+  creature entry  : 59186
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 228
+  position        : map 870 (Pandaria), 1503.7, -1832.1, 246.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 894 Grookin Hill 2106 yd = 1.10 min; 966 Paw'Don Village 2311 yd = 1.20 min;
+                    967 The Arboretum 817 yd = 0.43 min;
+                    968 Jade Temple Grounds 1040 yd = 0.54 min;
+                    970 Emperor's Omen 1162 yd = 0.61 min; 971 Tian Monastery 1457 yd = 0.76 min;
+                    972 Pearlfin Village 2069 yd = 1.08 min;
+                    973 Honeydew Village 2632 yd = 1.37 min; 984 Pang's Stead 2240 yd = 1.17 min;
+                    1057 Shrine of Seven Stars 5332 yd = 2.78 min;
+                    1058 Shrine of Two Moons 4986 yd = 2.60 min;
+                    1080 Serpent's Overlook 1138 yd = 0.59 min;
+                    1293 Tushui Landing 4247 yd = 2.21 min;
+                    1294 Huojin Landing 4289 yd = 2.23 min
+
+TAXI NODE 966  PAW'DON VILLAGE, JADE FOREST
+  flight master   : Wing Kyo
+  creature entry  : 66023
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 232
+  position        : map 870 (Pandaria), -307.2, -1762.8, 61.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 895 Dawn's Blossom 2872 yd = 1.50 min; 968 Jade Temple Grounds 1936 yd = 1.01 min;
+                    972 Pearlfin Village 1119 yd = 0.58 min; 986 Zhu's Watch 1444 yd = 0.75 min;
+                    1017 Binan Village 3281 yd = 1.71 min;
+                    1057 Shrine of Seven Stars 3911 yd = 2.04 min;
+                    1190 Lion's Landing 1151 yd = 0.60 min
+
+TAXI NODE 967  THE ARBORETUM, JADE FOREST
+  flight master   : Injar'i Lakebloom
+  creature entry  : 59732
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 231
+  position        : map 870 (Pandaria), 1600.7, -2530.3, 152.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 895 Dawn's Blossom 783 yd = 0.41 min; 968 Jade Temple Grounds 904 yd = 0.47 min;
+                    969 Sri-La Village 1485 yd = 0.77 min
+
+TAXI NODE 968  JADE TEMPLE GROUNDS, JADE FOREST
+  flight master   : Ginsa Arroweye
+  creature entry  : 59727
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 233
+  position        : map 870 (Pandaria), 773.2, -2359.0, 121.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 895 Dawn's Blossom 1327 yd = 0.69 min; 966 Paw'Don Village 1692 yd = 0.88 min;
+                    967 The Arboretum 1132 yd = 0.59 min;
+                    972 Pearlfin Village 1064 yd = 0.55 min
+
+TAXI NODE 969  SRI-LA VILLAGE, JADE FOREST
+  flight master   : Gingo Alebottom
+  creature entry  : 59733
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 230
+  position        : map 870 (Pandaria), 2550.8, -2418.3, 24.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 967 The Arboretum 1463 yd = 0.76 min; 970 Emperor's Omen 610 yd = 0.32 min
+
+TAXI NODE 970  EMPEROR'S OMEN, JADE FOREST
+  flight master   : Supplier Towsa
+  creature entry  : 59735
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 50
+  position        : map 870 (Pandaria), 2400.8, -2099.4, 228.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 895 Dawn's Blossom 1113 yd = 0.58 min; 969 Sri-La Village 646 yd = 0.34 min;
+                    971 Tian Monastery 630 yd = 0.33 min
+
+TAXI NODE 971  TIAN MONASTERY, JADE FOREST
+  flight master   : Studious Chu
+  creature entry  : 59736
+  entry note      : Studious Chu is 59736 on his wiki NPC page; he stands at the Banquet Grounds of Tian Monastery
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 3
+  position        : map 870 (Pandaria), 2505.9, -1590.9, 400.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 894 Grookin Hill 1945 yd = 1.01 min; 895 Dawn's Blossom 1247 yd = 0.65 min;
+                    970 Emperor's Omen 637 yd = 0.33 min;
+                    973 Honeydew Village 1591 yd = 0.83 min
+
+TAXI NODE 972  PEARLFIN VILLAGE, JADE FOREST
+  flight master   : Ut-Nam
+  creature entry  : 56737
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 261
+  position        : map 870 (Pandaria), -186.1, -2594.6, 0.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 895 Dawn's Blossom 2232 yd = 1.16 min; 966 Paw'Don Village 1387 yd = 0.72 min;
+                    968 Jade Temple Grounds 1079 yd = 0.56 min;
+                    1080 Serpent's Overlook 1319 yd = 0.69 min
+
+TAXI NODE 973  HONEYDEW VILLAGE, JADE FOREST
+  flight master   : Wing Hya
+  creature entry  : 66227
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 1
+  position        : map 870 (Pandaria), 2927.2, -509.2, 268.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 894 Grookin Hill 1897 yd = 0.99 min; 895 Dawn's Blossom 2302 yd = 1.20 min;
+                    971 Tian Monastery 1272 yd = 0.66 min; 1017 Binan Village 1816 yd = 0.95 min;
+                    1058 Shrine of Two Moons 3776 yd = 1.97 min
+
+TAXI NODE 984  PANG'S STEAD, VALLEY OF THE FOUR WINDS
+  flight master   : Princeton
+  creature entry  : 60230
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 239
+  position        : map 870 (Pandaria), 543.9, -637.8, 257.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 894 Grookin Hill 1048 yd = 0.55 min; 895 Dawn's Blossom 1658 yd = 0.86 min;
+                    985 Halfhill 1553 yd = 0.81 min; 986 Zhu's Watch 1076 yd = 0.56 min;
+                    987 Thunder Cleft 1914 yd = 1.00 min;
+                    1029 Tavern in the Mists 834 yd = 0.43 min;
+                    1052 Grassy Cline 736 yd = 0.38 min;
+                    1057 Shrine of Seven Stars 2587 yd = 1.35 min;
+                    1058 Shrine of Two Moons 2805 yd = 1.46 min
+
+TAXI NODE 985  HALFHILL, VALLEY OF THE FOUR WINDS
+  flight master   : Wing Nga
+  creature entry  : 60231
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 238
+  position        : map 870 (Pandaria), -221.3, 464.6, 185.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this master moved to the east side of Halfhill, near the inn, in 5.1.0; the node
+                    itself is where the export puts it
+  links           : 984 Pang's Stead 1410 yd = 0.73 min; 986 Zhu's Watch 1201 yd = 0.63 min;
+                    987 Thunder Cleft 984 yd = 0.51 min; 988 The Incursion 1219 yd = 0.63 min;
+                    989 Stoneplow 1560 yd = 0.81 min; 991 Sentinel Basecamp 1973 yd = 1.03 min;
+                    992 Cradle of Chi-Ji 2330 yd = 1.21 min; 1052 Grassy Cline 965 yd = 0.50 min;
+                    1057 Shrine of Seven Stars 2056 yd = 1.07 min;
+                    1058 Shrine of Two Moons 2146 yd = 1.12 min
+
+TAXI NODE 986  ZHU'S WATCH, KRASARANG WILDS
+  flight master   : Gee Hung
+  creature entry  : 60232
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 234
+  position        : map 870 (Pandaria), -375.7, -648.0, 117.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 966 Paw'Don Village 1179 yd = 0.61 min; 984 Pang's Stead 993 yd = 0.52 min;
+                    985 Halfhill 1359 yd = 0.71 min; 987 Thunder Cleft 1261 yd = 0.66 min;
+                    1017 Binan Village 2588 yd = 1.35 min
+
+TAXI NODE 987  THUNDER CLEFT, KRASARANG WILDS
+  flight master   : Lira Skysplitter
+  creature entry  : 59046
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 237
+  position        : map 870 (Pandaria), -878.3, 171.4, 13.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 984 Pang's Stead 1794 yd = 0.93 min; 985 Halfhill 953 yd = 0.50 min;
+                    986 Zhu's Watch 1128 yd = 0.59 min;
+                    990 Dawnchaser Retreat 2373 yd = 1.24 min; 993 Marista 2094 yd = 1.09 min
+
+TAXI NODE 988  THE INCURSION, KRASARANG WILDS
+  flight master   : Tylen Moonfeather
+  creature entry  : 59049
+  entry note      : Tylen Moonfeather is 59049 on his wiki NPC page (Alliance, Krasarang Wilds)
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 236
+  position        : map 870 (Pandaria), -1125.3, -227.7, 31.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this master only offers flights after The Arcanic Oubliette; the node carries no
+                    ConditionID, so that gating is on the NPC rather than on the taxi node
+  links           : 985 Halfhill 1296 yd = 0.68 min; 989 Stoneplow 2637 yd = 1.37 min;
+                    991 Sentinel Basecamp 2272 yd = 1.18 min;
+                    992 Cradle of Chi-Ji 2273 yd = 1.18 min; 993 Marista 1871 yd = 0.97 min;
+                    1190 Lion's Landing 1521 yd = 0.79 min
+
+TAXI NODE 989  STONEPLOW, VALLEY OF THE FOUR WINDS
+  flight master   : "Dragonwing" Dan
+  creature entry  : 58843
+  entry note      : "Dragonwing" Dan is 58843 on his wiki NPC page
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 243
+  position        : map 870 (Pandaria), -436.5, 1886.7, 131.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 985 Halfhill 1492 yd = 0.78 min; 988 The Incursion 2639 yd = 1.37 min;
+                    990 Dawnchaser Retreat 1444 yd = 0.75 min;
+                    991 Sentinel Basecamp 911 yd = 0.47 min;
+                    992 Cradle of Chi-Ji 1870 yd = 0.97 min; 1070 Klaxxi'vess 1886 yd = 0.98 min;
+                    1195 Domination Point 1514 yd = 0.79 min
+
+TAXI NODE 990  DAWNCHASER RETREAT, KRASARANG WILDS
+  flight master   : Munch Windhoof
+  creature entry  : 59047
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 242
+  position        : map 870 (Pandaria), -1685.7, 1590.3, 16.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 987 Thunder Cleft 1972 yd = 1.03 min; 989 Stoneplow 1542 yd = 0.80 min;
+                    992 Cradle of Chi-Ji 535 yd = 0.28 min; 993 Marista 1489 yd = 0.78 min;
+                    1070 Klaxxi'vess 3082 yd = 1.61 min;
+                    1195 Domination Point 1717 yd = 0.89 min
+
+TAXI NODE 991  SENTINEL BASECAMP, KRASARANG WILDS
+  flight master   : Maylen Moonfeather
+  creature entry  : 59048
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 240
+  position        : map 870 (Pandaria), -1156.6, 1770.4, 17.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 985 Halfhill 2000 yd = 1.04 min; 988 The Incursion 2238 yd = 1.17 min;
+                    989 Stoneplow 1347 yd = 0.70 min; 992 Cradle of Chi-Ji 1123 yd = 0.58 min;
+                    993 Marista 2213 yd = 1.15 min; 1070 Klaxxi'vess 2184 yd = 1.14 min
+
+TAXI NODE 992  CRADLE OF CHI-JI, KRASARANG WILDS
+  flight master   : Feather Keeper Li
+  creature entry  : 65189
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 285
+  position        : map 870 (Pandaria), -2082.3, 1483.6, 0.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 985 Halfhill 2401 yd = 1.25 min; 988 The Incursion 2370 yd = 1.23 min;
+                    989 Stoneplow 1802 yd = 0.94 min; 990 Dawnchaser Retreat 436 yd = 0.23 min;
+                    991 Sentinel Basecamp 1063 yd = 0.55 min; 993 Marista 1264 yd = 0.66 min
+
+TAXI NODE 993  MARISTA, KRASARANG WILDS
+  flight master   : Nan-Po
+  creature entry  : 60441
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 235
+  position        : map 870 (Pandaria), -2504.1, 491.6, 2.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 987 Thunder Cleft 1816 yd = 0.95 min; 988 The Incursion 1842 yd = 0.96 min;
+                    990 Dawnchaser Retreat 1894 yd = 0.99 min;
+                    991 Sentinel Basecamp 2552 yd = 1.33 min;
+                    992 Cradle of Chi-Ji 1515 yd = 0.79 min
+
+TAXI NODE 1017  BINAN VILLAGE, KUN-LAI SUMMIT
+  flight master   : Jo the Wind Watcher
+  creature entry  : 61474
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 263
+  position        : map 870 (Pandaria), 1690.1, 304.0, 478.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 966 Paw'Don Village 3122 yd = 1.63 min; 973 Honeydew Village 1702 yd = 0.89 min;
+                    986 Zhu's Watch 2541 yd = 1.32 min;
+                    1018 Temple of the White Tiger 1960 yd = 1.02 min;
+                    1019 Eastwind Rest 1007 yd = 0.52 min; 1020 Westwind Rest 1515 yd = 0.79 min;
+                    1022 One Keg 1797 yd = 0.94 min; 1029 Tavern in the Mists 1165 yd = 0.61 min;
+                    1057 Shrine of Seven Stars 2881 yd = 1.50 min;
+                    1058 Shrine of Two Moons 2481 yd = 1.29 min
+
+TAXI NODE 1018  TEMPLE OF THE WHITE TIGER, KUN-LAI SUMMIT
+  flight master   : Big Greenfeather
+  creature entry  : 61118
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 264
+  position        : map 870 (Pandaria), 3504.0, 690.7, 608.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1017 Binan Village 2216 yd = 1.15 min; 1019 Eastwind Rest 1536 yd = 0.80 min;
+                    1020 Westwind Rest 1813 yd = 0.94 min;
+                    1021 Zouchin Village 1179 yd = 0.61 min; 1022 One Keg 914 yd = 0.48 min
+
+TAXI NODE 1019  EASTWIND REST, KUN-LAI SUMMIT
+  flight master   : Soaring Paw
+  creature entry  : 61745
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 265
+  position        : map 870 (Pandaria), 2250.6, 931.6, 481.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point appears after Challenge Accepted (Horde); the node carries no
+                    ConditionID
+  links           : 1017 Binan Village 887 yd = 0.46 min; 1018 Temple of the White Tiger 1752 yd = 0.91 min;
+                    1021 Zouchin Village 2613 yd = 1.36 min; 1022 One Keg 1409 yd = 0.73 min;
+                    1023 Kota Basecamp 1830 yd = 0.95 min;
+                    1024 Shado-Pan Fallback 1479 yd = 0.77 min;
+                    1058 Shrine of Two Moons 1799 yd = 0.94 min
+
+TAXI NODE 1020  WESTWIND REST, KUN-LAI SUMMIT
+  flight master   : Tabo the Flyer
+  creature entry  : 61744
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 266
+  position        : map 870 (Pandaria), 2103.4, 1463.8, 487.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point appears after Challenge Accepted (Alliance); the node carries no
+                    ConditionID
+  links           : 1017 Binan Village 1309 yd = 0.68 min; 1018 Temple of the White Tiger 1871 yd = 0.97 min;
+                    1021 Zouchin Village 2908 yd = 1.51 min; 1022 One Keg 1384 yd = 0.72 min;
+                    1023 Kota Basecamp 1136 yd = 0.59 min;
+                    1024 Shado-Pan Fallback 815 yd = 0.42 min;
+                    1057 Shrine of Seven Stars 1921 yd = 1.00 min
+
+TAXI NODE 1021  ZOUCHIN VILLAGE, KUN-LAI SUMMIT
+  flight master   : Bo the Wind Claimer
+  creature entry  : 61511
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 267
+  position        : map 870 (Pandaria), 4363.0, 932.1, 110.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1018 Temple of the White Tiger 1290 yd = 0.67 min; 1019 Eastwind Rest 2445 yd = 1.27 min;
+                    1020 Westwind Rest 2762 yd = 1.44 min; 1022 One Keg 1831 yd = 0.95 min;
+                    1221 Beeble's Wreck 1472 yd = 0.77 min;
+                    1222 Bozzle's Wreck 1516 yd = 0.79 min
+
+TAXI NODE 1022  ONE KEG, KUN-LAI SUMMIT
+  flight master   : Little Cleankite
+  creature entry  : 61504
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 268
+  position        : map 870 (Pandaria), 3124.5, 1224.3, 654.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1017 Binan Village 1988 yd = 1.04 min; 1018 Temple of the White Tiger 694 yd = 0.36 min;
+                    1019 Eastwind Rest 1373 yd = 0.72 min; 1020 Westwind Rest 1651 yd = 0.86 min;
+                    1021 Zouchin Village 1726 yd = 0.90 min;
+                    1023 Kota Basecamp 1534 yd = 0.80 min
+
+TAXI NODE 1023  KOTA BASECAMP, KUN-LAI SUMMIT
+  flight master   : Uncle Eastwind
+  creature entry  : 60416
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 269
+  position        : map 870 (Pandaria), 2716.4, 2163.3, 589.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1019 Eastwind Rest 1739 yd = 0.91 min; 1020 Westwind Rest 1087 yd = 0.57 min;
+                    1022 One Keg 1230 yd = 0.64 min; 1024 Shado-Pan Fallback 883 yd = 0.46 min;
+                    1025 Winter's Blossom 836 yd = 0.44 min
+
+TAXI NODE 1024  SHADO-PAN FALLBACK, KUN-LAI SUMMIT
+  flight master   : Kite Master Ni
+  creature entry  : 61473
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 270
+  position        : map 870 (Pandaria), 1880.6, 2088.6, 500.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1019 Eastwind Rest 1347 yd = 0.70 min; 1020 Westwind Rest 745 yd = 0.39 min;
+                    1023 Kota Basecamp 899 yd = 0.47 min;
+                    1053 Longying Outpost 1548 yd = 0.81 min;
+                    1054 Gao-Ran Battlefront 1122 yd = 0.58 min
+
+TAXI NODE 1025  WINTER'S BLOSSOM, KUN-LAI SUMMIT
+  flight master   : Kite-Master Len
+  creature entry  : 61512
+  entry note      : Kite Master Len is 61512 on his wiki NPC page; the wiki spells the name without a hyphen
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 271
+  position        : map 870 (Pandaria), 3151.9, 2677.8, 579.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1023 Kota Basecamp 779 yd = 0.41 min; 1053 Longying Outpost 992 yd = 0.52 min;
+                    1073 Serpent's Spine 2977 yd = 1.55 min
+
+TAXI NODE 1029  TAVERN IN THE MISTS, THE VEILED STAIR
+  flight master   : Shin the Weightless
+  creature entry  : 61759
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 272
+  position        : map 870 (Pandaria), 784.9, -203.7, 402.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 984 Pang's Stead 625 yd = 0.33 min; 1017 Binan Village 1131 yd = 0.59 min;
+                    1052 Grassy Cline 576 yd = 0.30 min
+
+TAXI NODE 1052  GRASSY CLINE, VALLEY OF THE FOUR WINDS
+  flight master   : Kim of the Mountain Winds
+  creature entry  : 62658
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 273
+  position        : map 870 (Pandaria), 460.5, -100.5, 179.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 984 Pang's Stead 870 yd = 0.45 min; 985 Halfhill 939 yd = 0.49 min;
+                    1029 Tavern in the Mists 456 yd = 0.24 min;
+                    1057 Shrine of Seven Stars 1895 yd = 0.99 min;
+                    1058 Shrine of Two Moons 2037 yd = 1.06 min
+
+TAXI NODE 1053  LONGYING OUTPOST, TOWNLONG STEPPES
+  flight master   : Kite Master Wong
+  creature entry  : 62901
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 274
+  position        : map 870 (Pandaria), 2363.2, 2994.4, 420.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1024 Shado-Pan Fallback 1197 yd = 0.62 min; 1025 Winter's Blossom 1003 yd = 0.52 min;
+                    1054 Gao-Ran Battlefront 1168 yd = 0.61 min;
+                    1055 Rensai's Watchpost 1424 yd = 0.74 min;
+                    1117 Serpent's Spine 910 yd = 0.47 min
+
+TAXI NODE 1054  GAO-RAN BATTLEFRONT, TOWNLONG STEPPES
+  flight master   : Kite Master Nenshi
+  creature entry  : 62903
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 275
+  position        : map 870 (Pandaria), 1440.7, 2804.5, 301.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1024 Shado-Pan Fallback 1152 yd = 0.60 min; 1053 Longying Outpost 1336 yd = 0.70 min;
+                    1055 Rensai's Watchpost 1499 yd = 0.78 min;
+                    1072 The Sunset Brewgarden 961 yd = 0.50 min;
+                    1117 Serpent's Spine 997 yd = 0.52 min
+
+TAXI NODE 1055  RENSAI'S WATCHPOST, TOWNLONG STEPPES
+  flight master   : Kite Master Li-Sen
+  creature entry  : 62898
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 276
+  position        : map 870 (Pandaria), 1531.7, 3963.7, 227.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1053 Longying Outpost 1434 yd = 0.75 min; 1054 Gao-Ran Battlefront 1302 yd = 0.68 min;
+                    1056 Shado-Pan Garrison 649 yd = 0.34 min
+
+TAXI NODE 1056  SHADO-PAN GARRISON, TOWNLONG STEPPES
+  flight master   : Kite Master Yao-Li
+  creature entry  : 62909
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 277
+  position        : map 870 (Pandaria), 1803.3, 4204.2, 157.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1055 Rensai's Watchpost 394 yd = 0.21 min
+
+TAXI NODE 1057  SHRINE OF SEVEN STARS, VALE OF ETERNAL BLOSSOMS
+  flight master   : Sharinga Springrunner
+  creature entry  : 61121
+  entry note      : Sharinga Springrunner is 61121 on her wiki NPC page; the page also lists 159100, a Vale of Eternal
+                    Twilight copy, which is not printed
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 278
+  position        : map 870 (Pandaria), 896.5, 334.4, 506.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is the Summer Terrace of the Shrine of Seven Stars
+  links           : 895 Dawn's Blossom 5064 yd = 2.64 min; 966 Paw'Don Village 3698 yd = 1.93 min;
+                    984 Pang's Stead 2361 yd = 1.23 min; 985 Halfhill 1985 yd = 1.03 min;
+                    1017 Binan Village 2688 yd = 1.40 min; 1020 Westwind Rest 1898 yd = 0.99 min;
+                    1052 Grassy Cline 1847 yd = 0.96 min; 1070 Klaxxi'vess 3377 yd = 1.76 min;
+                    1072 The Sunset Brewgarden 3345 yd = 1.74 min;
+                    1073 Serpent's Spine 2039 yd = 1.06 min;
+                    1115 The Lion's Redoubt 2453 yd = 1.28 min;
+                    1221 Beeble's Wreck 5980 yd = 3.11 min
+
+TAXI NODE 1058  SHRINE OF TWO MOONS, VALE OF ETERNAL BLOSSOMS
+  flight master   : Tania Summerbreeze
+  creature entry  : 61122
+  entry note      : Tania Summerbreeze is 61122 on her wiki NPC page
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 279
+  position        : map 870 (Pandaria), 1580.2, 894.2, 474.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is the Golden Terrace of the Shrine of Two Moons
+  links           : 895 Dawn's Blossom 4877 yd = 2.54 min; 973 Honeydew Village 3967 yd = 2.07 min;
+                    984 Pang's Stead 2723 yd = 1.42 min; 985 Halfhill 2190 yd = 1.14 min;
+                    1017 Binan Village 2483 yd = 1.29 min; 1019 Eastwind Rest 1999 yd = 1.04 min;
+                    1052 Grassy Cline 2208 yd = 1.15 min; 1070 Klaxxi'vess 3202 yd = 1.67 min;
+                    1072 The Sunset Brewgarden 3190 yd = 1.66 min;
+                    1073 Serpent's Spine 1878 yd = 0.98 min;
+                    1117 Serpent's Spine 2489 yd = 1.30 min;
+                    1222 Bozzle's Wreck 5748 yd = 2.99 min
+
+TAXI NODE 1070  KLAXXI'VESS, DREAD WASTES
+  flight master   : Kik'tik
+  creature entry  : 63501
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 280
+  position        : map 870 (Pandaria), 172.7, 3152.2, 215.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 989 Stoneplow 1450 yd = 0.76 min; 990 Dawnchaser Retreat 2981 yd = 1.55 min;
+                    991 Sentinel Basecamp 2085 yd = 1.09 min;
+                    1057 Shrine of Seven Stars 3263 yd = 1.70 min;
+                    1058 Shrine of Two Moons 2894 yd = 1.51 min;
+                    1071 Soggy's Gamble 1435 yd = 0.75 min;
+                    1072 The Sunset Brewgarden 1146 yd = 0.60 min;
+                    1073 Serpent's Spine 1241 yd = 0.65 min;
+                    1090 The Briny Muck 1249 yd = 0.65 min
+
+TAXI NODE 1071  SOGGY'S GAMBLE, DREAD WASTES
+  flight master   : Min the Breeze Rider
+  creature entry  : 63498
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 281
+  position        : map 870 (Pandaria), -1086.2, 3136.2, 1.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1070 Klaxxi'vess 1817 yd = 0.95 min; 1073 Serpent's Spine 2427 yd = 1.26 min;
+                    1090 The Briny Muck 1303 yd = 0.68 min
+
+TAXI NODE 1072  THE SUNSET BREWGARDEN, DREAD WASTES
+  flight master   : Jin the Flying Keg
+  creature entry  : 63500
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 282
+  position        : map 870 (Pandaria), 982.7, 3451.9, 256.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1054 Gao-Ran Battlefront 1003 yd = 0.52 min; 1057 Shrine of Seven Stars 3503 yd = 1.82 min;
+                    1058 Shrine of Two Moons 3141 yd = 1.64 min;
+                    1070 Klaxxi'vess 961 yd = 0.50 min; 1073 Serpent's Spine 1532 yd = 0.80 min
+
+TAXI NODE 1073  SERPENT'S SPINE, VALE OF ETERNAL BLOSSOMS
+  flight master   : Mai of the Wall
+  creature entry  : 63497
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 283
+  position        : map 870 (Pandaria), 611.4, 2125.0, 368.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1025 Winter's Blossom 3033 yd = 1.58 min; 1057 Shrine of Seven Stars 2092 yd = 1.09 min;
+                    1058 Shrine of Two Moons 1727 yd = 0.90 min;
+                    1070 Klaxxi'vess 1555 yd = 0.81 min; 1071 Soggy's Gamble 2153 yd = 1.12 min;
+                    1072 The Sunset Brewgarden 1593 yd = 0.83 min
+
+TAXI NODE 1080  SERPENT'S OVERLOOK, JADE FOREST
+  flight master   : Sky Dancer Ji
+  creature entry  : 64310
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 284
+  position        : map 870 (Pandaria), 465.9, -1558.6, 154.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 894 Grookin Hill 1800 yd = 0.94 min; 895 Dawn's Blossom 1330 yd = 0.69 min;
+                    972 Pearlfin Village 1299 yd = 0.68 min
+
+TAXI NODE 1090  THE BRINY MUCK, DREAD WASTES
+  flight master   : Infiltrator Ik'thal
+  creature entry  : 65511
+  entry note      : Infiltrator Ik'thal is 65511 on his wiki NPC page (Klaxxi, Brant Muck master)
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 286
+  position        : map 870 (Pandaria), -570.4, 3859.8, 0.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1070 Klaxxi'vess 1455 yd = 0.76 min; 1071 Soggy's Gamble 974 yd = 0.51 min
+
+TAXI NODE 1115  THE LION'S REDOUBT, DREAD WASTES
+  flight master   : Tiper Windman
+  creature entry  : 65865
+  entry note      : Tiper Windman is 65865 on her wiki NPC page (Alliance, Lion's Redoubt)
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 288
+  position        : map 870 (Pandaria), 234.4, 2198.0, 271.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1057 Shrine of Seven Stars 2429 yd = 1.27 min
+
+TAXI NODE 1117  SERPENT'S SPINE, KUN-LAI SUMMIT
+  flight master   : Morla Skyblade
+  creature entry  : 65863
+  entry note      : Morla Skyblade is 65863 on her wiki NPC page, and her three flight connections - Shrine of Two
+                    Moons, Gao-Ran Battlefront and Longying Outpost - are exactly the three links the export gives
+                    this node
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 287
+  position        : map 870 (Pandaria), 2123.1, 2584.9, 542.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : section 3.1 of the research document lists Mai of the Wall (63497) for this node, but that is the
+                    master of 1073, the other Serpent's Spine node; the Horde tower in Kun-Lai is Morla Skyblade, and
+                    the export's three links match her three flight connections
+  links           : 1053 Longying Outpost 631 yd = 0.33 min; 1054 Gao-Ran Battlefront 776 yd = 0.40 min;
+                    1058 Shrine of Two Moons 2278 yd = 1.19 min
+
+TAXI NODE 1190  LION'S LANDING, KRASARANG WILDS
+  flight master   : Daggin Windbeard
+  creature entry  : 68226
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 290
+  position        : map 870 (Pandaria), -1193.6, -1193.7, 37.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 19486 - PlayerCondition PrevQuest: after quest 32108, 32109 or 32477
+  master note     : the wiki says this flight point was added in 5.1.0 and needs the Lion's Landing quest; the gate
+                    decodes as after quest 32108, 32109 or 32477
+  links           : 966 Paw'Don Village 1507 yd = 0.78 min; 988 The Incursion 1066 yd = 0.56 min
+
+TAXI NODE 1195  DOMINATION POINT, KRASARANG WILDS
+  flight master   : Kromthar
+  creature entry  : 67785
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 291
+  position        : map 870 (Pandaria), -1752.2, 2492.0, 34.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point was added in 5.1.0 and needs the Domination Point quest; the node
+                    carries no ConditionID
+  links           : 989 Stoneplow 1523 yd = 0.79 min; 990 Dawnchaser Retreat 1439 yd = 0.75 min
+
+TAXI NODE 1221  BEEBLE'S WRECK, ISLE OF GIANTS
+  flight master   : Beeble Sockwrench
+  creature entry  : 69359
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 292
+  position        : map 870 (Pandaria), 5753.8, 1255.6, 1.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point was added in 5.2.0
+  links           : 1021 Zouchin Village 1600 yd = 0.83 min; 1057 Shrine of Seven Stars 6063 yd = 3.16 min
+
+TAXI NODE 1222  BOZZLE'S WRECK, ISLE OF GIANTS
+  flight master   : Bozzle Blastinfuse
+  creature entry  : 69360
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 293
+  position        : map 870 (Pandaria), 5799.6, 1080.6, 1.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point was added in 5.2.0
+  links           : 1021 Zouchin Village 1489 yd = 0.78 min; 1058 Shrine of Two Moons 5522 yd = 2.88 min
+
+TAXI NODE 1293  TUSHUI LANDING, TIMELESS ISLE
+  flight master   : Michi Windblossom
+  creature entry  : 71940
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 297
+  position        : map 870 (Pandaria), -901.4, -4639.1, 5.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point was added in 5.4.0
+  links           : 895 Dawn's Blossom 4230 yd = 2.20 min
+
+TAXI NODE 1294  HUOJIN LANDING, TIMELESS ISLE
+  flight master   : Chi-Ro the Skytamer
+  creature entry  : 71939
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 298
+  position        : map 870 (Pandaria), -405.0, -4608.6, 4.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki says this flight point was added in 5.4.0
+  links           : 895 Dawn's Blossom 4254 yd = 2.22 min
+
+WHAT IS VERIFIED AND WHAT IS NOT
+  Positions are TaxiNodes.Pos from Map 870 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
+  flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
+  so every "walk-to position" line says unverified rather than a guessed offset.
+  Creature entries: all 51 resolved, but none of them from creature_template - all 51 master names were run against the two
+  creature_template exports in this repo (the 4.3.4 TDB update pack and the 8.x dump) and not one of them matches a row there, so
+  those exports stop before Pandaria. 42 entries come from section 3.1 of the research document, which is a Wowhead lookup pass,
+  and the other 9 were read
+  this run from the wiki NPC page of each master, where the Elinks-NPC id is the Wowhead id: Studious Chu 59736, Tylen
+  Moonfeather 59049, Sharinga Springrunner 61121, Tania Summerbreeze 61122, Infiltrator Ik'thal 65511, Tiper Windman 65865,
+  "Dragonwing" Dan 58843, Kite Master Len 61512 and Morla Skyblade 65863.
+  One of the 42 section-3.1 entries was wrong. That table gives node 1117 - Serpent's Spine, Kun-Lai Summit, Horde - the master
+  Mai of the Wall (63497), but Mai of the Wall is the master of 1073, the Vale of Eternal Blossoms Serpent's Spine node, and
+  section 3.1 gives 63497 to both. The Kun-Lai tower is the Serpent's Spine Horde Tower and its master is Morla Skyblade, whose
+  three flight connections - Shrine of Two Moons (1058), Gao-Ran Battlefront (1054) and Longying Outpost (1053) - are exactly
+  the three links this node has in the export. 65863 is printed and the master note says so.
+  Gate evidence: two of the 51 nodes are gated and 49 are not. ConditionID 17197 sits on 894 Grookin Hill and decodes as after
+  quest 29879, which Wowhead names "Swallowed Whole"; the wiki instead names "Orders are Orders" for that flight point, which is
+  the next quest in the same chain. ConditionID 19486 sits on 1190 Lion's Landing and decodes as after quest 32108, 32109 or
+  32477, the 5.1.0 Lion's Landing chain the wiki refers to. No Pandaria taxi node is gated on level, race, class, achievement or
+  reputation, and no other node carries a ConditionID at all. Where the wiki adds a quest condition the export does not have -
+  The Incursion, Eastwind Rest, Westwind Rest, Domination Point - that is printed as a master note and not as a gate.
+  Faction: TaxiNodes.Flags gives 10 Alliance-only roosts, 10 Horde-only roosts and 31 with both bits set; each block prints the
+  bits it actually found rather than inferring a side from the name.
+  Travel time is derived, not read: TaxiPath.Cost is copper and TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, so neither is a
+  clock. Minutes here are yards / 1920, i.e. 32 yards per second. Every one of the 258 directed rows in section 870 targets
+  another node of this same set, so no leg in this file carries an off-map tag. Distances are per direction: the row 1073 -> 1025
+  reads 3033 yd while the row 1025 -> 1073 reads 2977 yd, and each block prints its own direction rather than reusing the other.
+  Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of ConditionIDs 17197 and 19486, the
+  Warcraft Wiki flight-master tables by location and zone plus nine NPC pages read from it this run, Wowhead quest 29879, and the
+  creature_template check that found no Pandaria rows. Everything read from a source is printed; nothing was estimated.

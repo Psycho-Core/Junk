@@ -1,0 +1,127 @@
+AUDIT OF 04_Completed_Northrend.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file has 52 node blocks plus a closing evidence section.
+Every block was re-derived from the source document with a second, independent
+parser (not the one that wrote the file) and compared field by field; seven
+entries were opened on Wowhead this run, one of which turned out to be the wrong
+NPC under the right name.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong; the correction is described
+  UNVERIFIED  the item is not checkable from the sources used here
+
+Sources used:
+  [TAXI]   TaxiNodes export, build 8.3.7.35662, map 571, the "571 NORTHREND"
+           node table and LINKS list of BfA_8.3.7_flight_points_and_travel.txt
+  [PC]     PlayerCondition decode, section 2.1 of the same document
+  [SEC31]  section 3.1 "verified entries" table of the same document
+  [CT434]  creature_template export, TDB update pack 4.3.4
+  [CT8]    creature_template export, 8.x
+  [WIKI]   warcraft.wiki.gg, River's Heart subzone page
+  [WH]     Wowhead NPC and quest pages, checked this run
+  [FILE]   04_Completed_Northrend.txt itself
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the export holds 52 Northrend nodes and the file prints 52 blocks,
+           one per node, ids identical [TAXI + FILE]
+002  PASS  all 52 position triples equal TaxiNodes.Pos for map 571 (52/52
+           compared programmatically, 0 differences) [TAXI]
+003  PASS  all 52 CharacterBitNumber values equal the export's bit column
+           (0 differences) [TAXI]
+004  PASS  every block's link set equals the export's rows for that node, with
+           the wrapped continuation lines of the LINKS list read correctly:
+           304 directed rows in, 304 printed out, 0 set differences [TAXI]
+005  PASS  every printed "yd" equals the export row and every "min" equals
+           yards / 1920 rounded to 2 decimals (0 differences) [TAXI]
+006  PASS  distances are printed per direction rather than copied: 308 -> 309 is
+           1277 yd and 309 -> 308 is 1519 yd, exactly as the two rows read
+           [TAXI + FILE]
+007  PASS  43 of the 52 blocks carry the entry from section 3.1, and the 9 that
+           do not are exactly the nine the file filled from the
+           creature_template exports [SEC31 + FILE]
+008  PASS  all 52 entries are digit strings and all 52 are distinct [FILE]
+009  PASS  exactly one block is gated: 309, ConditionID 7376; the export's gate
+           column carries c7376 on 309 and "-" on the other 51 [TAXI + FILE]
+010  PASS  7376 decodes as "after quest 12523" in the PlayerCondition table
+           [PC]
+011  PASS  quest 12523 is "Have a Part, Give a Part", a Sholazar Basin quest
+           that starts and ends with Weslex Quickwrench at the Nesingwary Base
+           Camp, which is what the block and the footer say [WH]
+012  PASS  the faction split in the footer is right: 13 Alliance-only, 16
+           Horde-only, 23 with both bits, counted from the blocks [FILE]
+013  PASS  no block carries an off-map tag, and no link row targets a node
+           outside the 52, so the footer's off-map sentence is accurate [TAXI]
+014  PASS  all 52 "walk-to position" lines say unverified and no coordinate
+           anywhere in the file was estimated [FILE]
+015  PASS  node 308: the export names the node River's Heart, the wiki puts
+           Marvin Wobblesprocket's flight point at Lakeside Landing on the
+           north-east shore, and the block says exactly that [WIKI + FILE]
+016  PASS  Helidan Lightwing is 33849: Wowhead page "<Flight Master>",
+           Icecrown, react AH, added in 3.1.0 [WH]
+017  PASS  Aludane Whitecloud is 28674: Wowhead page "<Flight Master>",
+           Dalaran, faction Kirin Tor, react AH, added in 3.0.1 [WH]
+018  PASS  Adeline Chambers is 27344: Wowhead page "<Bat Handler>", Howling
+           Fjord, faction The Hand of Vengeance, react H, added in 3.0.1, and
+           no creature_template row in either export carries that name [WH +
+           CT434 + CT8]
+019  PASS  Derek Rammel is 26877: Wowhead page "<Gryphon Master>", Dragonblight
+           [WH]
+020  PASS  The Spirit of Gnomeregan is 28037: Wowhead page "<Flight Master>",
+           Sholazar Basin [WH]
+021  PASS  Penumbrius is 31069: Wowhead page "<Flight Master>", Icecrown,
+           faction Argent Crusade, added in 3.0.2 [WH]
+022  FIXED   node 252 printed entry 57287 for Nethestrasz. Wowhead shows 57287
+           as "Nethestrasz <Defense of Wyrmrest Summit>", a Dragon Soul encounter
+           added in 4.3.0, not the Wyrmrest Temple flight master, who is 26851
+           ("<Flight Master>", Dragonblight, The Wyrmrest Accord, added 3.0.1).
+           The block now prints 26851 and a master note explains the name clash
+           [WH + FILE]
+023  FIXED   the footer said "No Northrend master name in this file has more
+           than one creature row", which is false: the exports carry a second
+           row for Penumbrius (30227, alongside 31069) and for Nethestrasz
+           (26851 alongside 57287). The footer now states both, says which id
+           is printed, and the block for 252 says why [CT434 + CT8 + FILE]
+024  PASS  the travel-time paragraph is right on the data: TaxiPath.Cost is
+           copper, TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, and
+           minutes are yards / 1920 at 32 yd/s [TAXI]
+025  PASS  no two blocks name the same flight master, and no line in the file
+           is longer than 130 characters [FILE]
+026  PASS  the sources paragraph names every external page used and the
+           creature_template exports, so no claim rests on an unnamed source
+           [FILE]
+027  UNVERIFIED  eight of the nine exact-name matches (183 Pricilla Winterwind,
+           255 Samuel Clearbook, 294 Cid Flounderfix, 304 Gurric, 331 Rafae,
+           333 Morlia Doomwing, 334 Aedan Moran, 308 Marvin Wobblesprocket)
+           rest on a name match inside the creature_template exports and were
+           not opened on Wowhead. 310 Aludane Whitecloud was [CT434 + CT8]
+028  UNVERIFIED  of the 43 section-3.1 entries, seven were re-opened or
+           re-checked on Wowhead this run (191, 251, 252, 309, 310, 335, 340)
+           and one of them was corrected. The other 36 were not individually
+           re-checked [WH]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+28 claims: 24 PASS, 2 FIXED, 2 UNVERIFIED. Two edits: the Wyrmrest Temple entry
+changed from 57287 to 26851 with an explanatory master note, and one false
+footer sentence about duplicate creature rows was replaced with the true
+statement and the reason. No coordinate, link, travel time, faction or gate
+value changed, and the block count is unchanged at 52.
+
+What was re-read rather than trusted:
+  - all 52 positions, bit numbers, link sets and travel times were re-parsed
+    from the section-571 text by a second parser and compared with the file;
+  - the 43 / 9 entry split was re-derived: the nine nodes missing from section
+    3.1 are the nine the file filled from the creature_template exports;
+  - seven NPC ids were opened on Wowhead, which is how the Nethestrasz error
+    surfaced - the id 57287 exists, carries the same name, and is a different
+    NPC, which is exactly the failure mode a name match cannot catch;
+  - the gate, the quest behind it, the faction counts and the 304-row link
+    total were recounted.
+Not re-read: the 8.3.7 TaxiNodes export itself (section 571 of the research
+document is the transcription used here, as in steps 01 to 03).

@@ -1,0 +1,118 @@
+AUDIT OF 05_Completed_Pandaria.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file has 51 node blocks plus a closing evidence section.
+Every block was re-derived from the source document with a second, independent
+parser and compared field by field; eight masters were opened on Wowhead or the
+wiki this run, one of which exposed a wrong entry inherited from the source.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong; the correction is described
+  UNVERIFIED  the item is not checkable from the sources used here
+
+Sources used:
+  [TAXI]   TaxiNodes export, build 8.3.7.35662, map 870, the "870 PANDARIA"
+           node table and LINKS list of BfA_8.3.7_flight_points_and_travel.txt
+  [PC]     PlayerCondition decode, section 2.1 of the same document
+  [SEC31]  section 3.1 "verified entries" table of the same document
+  [WIKI]   warcraft.wiki.gg flight-master tables and NPC pages
+  [WH]     Wowhead quest page, checked this run
+  [CT]     creature_template exports (4.3.4 TDB update pack and the 8.x dump)
+  [FILE]   05_Completed_Pandaria.txt itself
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the export holds 51 Pandaria nodes and the file prints 51 blocks,
+           one per node, ids identical [TAXI + FILE]
+002  PASS  all 51 position triples equal TaxiNodes.Pos for map 870 (51/51
+           compared programmatically, 0 differences) [TAXI]
+003  PASS  all 51 CharacterBitNumber values equal the export's bit column
+           (0 differences) [TAXI]
+004  PASS  every block's link set equals the export's rows, with the wrapped
+           continuation lines read correctly: 258 directed rows in, 258 printed
+           out, 0 set differences [TAXI]
+005  PASS  every printed "yd" equals the export row and every "min" equals
+           yards / 1920 rounded to 2 decimals (0 differences) [TAXI]
+006  PASS  distances are printed per direction: 1073 -> 1025 reads 3033 yd and
+           1025 -> 1073 reads 2977 yd, matching the two export rows [TAXI]
+007  PASS  section 3.1 supplies an entry for 43 of the 51 nodes, and the file
+           uses a different source for exactly the nodes that table cannot
+           cover (the eight plus the one it gets wrong) [SEC31 + FILE]
+008  PASS  all 51 entries are digit strings and all 51 are distinct [FILE]
+009  PASS  exactly two blocks are gated: 894 (ConditionID 17197) and 1190
+           (19486); the export carries "-" on the other 49 [TAXI + FILE]
+010  PASS  17197 decodes as "after quest 29879" and 19486 as "after quest
+           32108, 32109 or 32477" in the PlayerCondition table [PC]
+011  PASS  quest 29879 is "Swallowed Whole", a Horde Jade Forest quest, and the
+           wiki names a later quest in the same chain ("Orders are Orders") for
+           that flight point; the block prints both and does not merge them [WH
+           + WIKI]
+012  PASS  the wiki puts Lion's Landing at 5.1.0 after the Lion's Landing quest
+           and the gate is the 5.1.0 quest chain, which is what the block says
+           [WIKI + FILE]
+013  PASS  the faction split in the footer is right: 10 Alliance-only, 10
+           Horde-only, 31 with both bits [FILE]
+014  PASS  no block carries an off-map tag, and none of the 258 rows targets a
+           node outside the 51, so the footer's off-map sentence is accurate
+           [TAXI]
+015  PASS  all 51 "walk-to position" lines say unverified and no coordinate in
+           the file was estimated [FILE]
+016  PASS  Studious Chu is 59736 [WIKI]
+017  PASS  Tylen Moonfeather is 59049, Alliance, and the wiki says he only
+           offers flights after The Arcanic Oubliette, which the block repeats
+           as a note rather than as a gate [WIKI + FILE]
+018  PASS  Sharinga Springrunner is 61121, with 159100 as a Vale of Eternal
+           Twilight copy, which the block mentions and does not print [WIKI]
+019  PASS  Tania Summerbreeze is 61122 [WIKI]
+020  PASS  Infiltrator Ik'thal is 65511 [WIKI]
+021  PASS  Tiper Windman is 65865 and the wiki gives her exactly one flight
+           connection, Shrine of Seven Stars - the node's one link is 1057
+           [WIKI + TAXI]
+022  PASS  "Dragonwing" Dan is 58843 [WIKI]
+023  PASS  Kite Master Len is 61512, and the wiki spells the name without a
+           hyphen, so the file's master name is the wiki's, not the truncated
+           one in the research document [WIKI + FILE]
+024  PASS  Morla Skyblade is 65863, and her three connections - Shrine of Two
+           Moons, Gao-Ran Battlefront, Longying Outpost - are exactly the three
+           node 1117 has in the export [WIKI + TAXI]
+025  FIXED   node 1117 (Serpent's Spine, Kun-Lai Summit, Horde) originally took
+           section 3.1's entry for it, Mai of the Wall 63497. That id is the
+           master of 1073, the Vale of Eternal Blossoms node, and the source
+           table hands it to both. The file prints 65863 and a master note says
+           why [WIKI + FILE]
+026  PASS  the source really does reuse one entry across two Pandaria nodes,
+           63497 on 1073 and 1117, which is the whole of the error found here
+           [SEC31]
+027  PASS  the travel-time paragraph is right on the data: TaxiPath.Cost is
+           copper, TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, and
+           minutes are yards / 1920 at 32 yd/s [TAXI]
+028  UNVERIFIED  four of the 42 section-3.1 entries were re-opened this run and
+           match: Grookin Flapmaster 60952, Keg Runner Lee 59186, Wing Kyo
+           66023, Daggin Windbeard 68226. The other 38 were not individually
+           re-checked [WIKI]
+029  UNVERIFIED  no Pandaria entry has any creature_template backing: all 51
+           master names were run against both creature_template exports and not
+           one matches a row, so every entry in this file rests on a Wowhead
+           lookup or a wiki NPC page [CT]
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+29 claims: 26 PASS, 1 FIXED, 2 UNVERIFIED. One edit: the Kun-Lai Serpent's
+Spine entry changed from 63497 to 65863 with an explanatory master note. No
+coordinate, link, travel time, faction or gate value changed, and the block
+count is unchanged at 51.
+
+What was re-read rather than trusted:
+  - all 51 positions, bit numbers, link sets and travel times were re-parsed
+    from the section-870 text and compared with the file;
+  - the eight wiki-resolved masters were re-checked against their NPC pages,
+    and two of them (Tiper Windman, Morla Skyblade) were cross-checked against
+    the export's link sets, which is what proved the 1117 error;
+  - the two gates, the quest behind each gate, the faction counts and the
+    258-row link total were recounted.
+Not re-read: the 8.3.7 TaxiNodes export itself (section 870 of the research
+document is the transcription used here, as in steps 01 to 04).

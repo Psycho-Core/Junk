@@ -1,0 +1,357 @@
+B1  THE MAIDEN'S FANCY
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : neutral
+  dock A            : Ratchet, Northern Barrens (map 1) - -1965.0, -5824.0, -1.0
+  dock coordinate   : TaxiNodes 34 "Transport, Booty Bay"; the node is named for the far end, the coordinate is the
+                      Ratchet side
+  dock B            : Booty Bay, Cape of Stranglethorn (map 0) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : The ship is the neutral Ratchet <-> Booty Bay crossing named on the wiki transportation page,
+                      and the 8.3.7 export carries the Ratchet boarding point as a "Transport" taxi node with no taxi
+                      bit. The Booty Bay side has no transport node and no coordinate in any source read here.
+
+B2  THE LADY MEHLEY
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Alliance
+  dock A            : Menethil Harbor, Wetlands (map 0) - position unverified
+  dock B            : Theramore Isle, Dustwallow Marsh (map 1) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Alliance crossing named on the wiki transportation page. Neither end has a "Transport" taxi node
+                      in the 8.3.7 export, so neither dock coordinate can be printed.
+
+B3  THE KRAKEN
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Alliance
+  dock A            : Stormwind Harbor, Stormwind City (map 0) - position unverified
+  dock B            : Valiance Keep, Borean Tundra (map 571) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Alliance crossing added in Wrath of the Lich King and still listed as active on the wiki
+                      transportation page. No transport node for either dock survives in the 8.3.7 export.
+
+B4  THE NORTHSPEAR
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Alliance
+  dock A            : Menethil Harbor, Wetlands (map 0) - position unverified
+  dock B            : Valgarde, Howling Fjord (map 571) - 785.0, -5066.0, -8.0
+  dock coordinate   : TaxiNodes 175 "Transport, Howling Fjord"; the node serves the Howling Fjord end of the route
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : The wiki transportation page gives this route as Menethil Harbor <-> Valgarde; the research
+                      document lists the ship as B4 with the route unverified, and the wiki page read this run
+                      supplies it.
+
+B5  THE RELENTLESS
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Alliance
+  dock A            : Stormwind Harbor, Stormwind City (map 0) - position unverified
+  dock B            : Boralus Harbor, Tiragarde Sound (map 1643) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Battle for Azeroth crossing named on the wiki transportation page. The Kul Tiras end sits in
+                      Boralus Harbor, which is the harbour the Sanctum of the Sages portal room serves; neither dock
+                      has a transport node in the export.
+
+B6  THE GOLDEN SKIPPER
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Horde
+  dock A            : Port of Zandalar, Zuldazar (map 1642) - position unverified
+  dock B            : Echo Isles, Durotar (map 1) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Horde Battle for Azeroth crossing named on the wiki transportation page. No transport node for
+                      either end in the 8.3.7 export.
+
+B9  THE WALKER OF WAVES (TURTLE BOAT)
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : neutral
+  dock A            : Moa'ki Harbor, Dragonblight (map 571) - position unverified
+  dock B            : Unu'pe, Borean Tundra (map 571) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Wrath of the Lich King crossing listed on the wiki transportation page under turtle boats, a
+                      separate list from the eight boat rows above. Neither end has a transport taxi node in the
+                      8.3.7 export.
+
+B10  THE GREEN ISLAND (TURTLE BOAT)
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : neutral
+  dock A            : Moa'ki Harbor, Dragonblight (map 571) - position unverified
+  dock B            : Kamagua, Howling Fjord (map 571) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Wrath of the Lich King crossing on the same turtle boat list. The Kul Tiras and Zuldazar
+                      short-hop services in B7 and B8 are not turtle boats, and neither is this.
+
+Z1  THE IRON EAGLE
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Horde
+  dock A            : Orgrimmar, Durotar (map 1) - 1320.0, -4649.0, 22.0
+  dock coordinate   : TaxiNodes 35 "Transport, Orgrimmar"
+  dock B            : Grom'gol Base Camp, Stranglethorn Vale (map 0) - -12419.0, 235.0, 1.0
+  dock coordinate   : TaxiNodes 47 "Transport, Grom'gol"
+  wait position     : unverified - no source read here gives a player-standing spot on either platform
+  dock dwell        : 60 seconds at the tower before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a crossing time
+  route note        : Route named on the wiki transportation page and both ends carry a transport taxi node in the
+                      8.3.7 export.
+
+Z2  THE ZEPHYR
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Horde
+  dock A            : Orgrimmar, Durotar (map 1) - 1320.0, -4649.0, 22.0
+  dock coordinate   : TaxiNodes 35 "Transport, Orgrimmar"; Orgrimmar has two towers and the export carries one
+                      boarding node for the city
+  dock B            : Thunder Bluff, Mulgore (map 1), Spirit Rise platform - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either platform
+  dock dwell        : 60 seconds at the tower before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a crossing time
+  route note        : Route named on the wiki transportation page; the Thunder Bluff platform has no transport node in
+                      the export.
+
+Z3  THE MIGHTY WIND
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Horde
+  dock A            : Orgrimmar, Durotar (map 1) - 1320.0, -4649.0, 22.0
+  dock coordinate   : TaxiNodes 35 "Transport, Orgrimmar"
+  dock B            : Warsong Hold, Borean Tundra (map 571) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either platform
+  dock dwell        : 60 seconds at the tower before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a crossing time
+  route note        : Route named on the wiki transportation page; the zeppelin docks inside Warsong Hold, which has
+                      no transport node.
+
+ZEPPELIN TOWERS STANDING IN 8.3.7
+  Eight towers at six sites in 8.3.7, from the wiki zeppelin-tower page. A tower is a route end point, not a route.
+    two stone towers between Brill and the Undercity, Tirisfal Glades (map 0)
+    docking platform on Spirit Rise, Thunder Bluff (map 1)
+    zeppelin landing at Grom'gol Base Camp, Stranglethorn Vale (map 0)
+    Forsaken tower at Vengeance Landing, Howling Fjord (map 571)
+    docking platform inside Warsong Hold, Borean Tundra (map 571)
+    two zeppelin towers inside Orgrimmar, Durotar (map 1)
+  Two plus one plus one plus one plus one plus two is eight towers at six sites. The page says "seven" because it counts
+  each site once - the Brill pair and the Orgrimmar pair are one entry each - and then adds the tower at the Dranosh'ar
+  Blockade, which came with Dragonflight and is not in 8.3.7.
+  The Brill pair and the Vengeance Landing tower still stand, but the three Undercity routes were removed in 8.0.1 and are
+  not in 8.3.7: The Thundercaller (Orgrimmar <-> Undercity), The Purple Princess (Undercity <-> Grom'gol) and The Cloudkisser
+  (Undercity <-> Vengeance Landing). This is why three zeppelins sail here and not five. No zeppelin serves the Alliance.
+
+B7  FERRY MASTERS, KUL TIRAS
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Alliance
+  docks             : the ferry masters run short crossings between areas across Kul Tiras (wiki transportation page), map 1643
+  dock coordinates  : unverified - no source read here lists the individual crossings or their landing points
+  wait position     : unverified
+  visit interval    : unverified - no source read here gives a timetable for these short crossings
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  crossing time     : unverified
+
+B8  WAVESINGERS, ZULDAZAR
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : Horde
+  docks             : wavesingers run short crossings between areas across Zuldazar (wiki transportation page), map 1642
+  dock coordinates  : unverified - no source read here lists the individual crossings or their landing points
+  wait position     : unverified
+  visit interval    : unverified - no source read here gives a timetable for these short crossings
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  crossing time     : unverified
+
+TRANSPORT TAXI NODES IN THE 8.3.7 EXPORT
+  Twelve rows of TaxiNodes are boarding points for boats, zeppelins and lifts. They carry no taxi bit, so the flight-point
+  files leave them out. The coordinate is TaxiNodes.Pos, the point the transport calls at, not a player standing spot.
+
+  node | name                                | map | x, y, z                | what it serves
+  34   | Transport, Booty Bay                | 1   | -1965.0, -5824.0, -1.0 | the Ratchet side of the Booty Bay boat
+  35   | Transport, Orgrimmar                | 1   | 1320.0, -4649.0, 22.0  | the Orgrimmar zeppelin towers
+  46   | Transport, Southshore               | 0   | -986.0, -548.0, -4.0   | no route here is on the wiki active list
+  47   | Transport, Grom'gol                 | 0   | -12419.0, 235.0, 1.0   | the Grom'gol zeppelin landing
+  54   | Transport, Feathermoon              | 1   | -4204.0, 3284.0, -13.0 | the Feathermoon ferry landing, removed in 4.0.3a
+  88   | Transport, Exodar                   | 530 | -4284.0, -11195.0, 13.0 | its Rut'theran crossing went in 8.0.1
+  175  | Transport, Howling Fjord            | 571 | 785.0, -5066.0, -8.0   | the Valgarde end of The Northspear
+  206  | Transport, Feathermoon (NE Ship)    | 1   | -4348.0, 2427.0, 7.0   | a Feathermoon landing with no 8.3.7 route
+  218  | Transport, Howling Fjord (Gondola)  | 571 | 691.0, -3820.0, 249.0  | a Howling Fjord lift, not a boat
+  219  | Transport, Howling Fjord (Gondola)  | 571 | 608.0, -2906.0, 39.0   | a Howling Fjord lift, not a boat
+  328  | Transport, Icecrown Airship (A)     | 571 | 7502.0, 1140.0, 682.0  | the Alliance gunship platform at Icecrown
+  329  | Transport, Icecrown Airship (H)     | 571 | 7562.0, 1725.0, 684.0  | the Horde gunship platform at Icecrown
+
+PORTAL ROOM  WIZARD'S SANCTUM, STORMWIND CITY
+  faction           : Alliance
+  where             : the mage tower in the Mage Quarter; the portal room inside it was rebuilt in patch 8.1.5
+  position          : the wiki gives in-city map coordinates for each portal (0-100 scale, not world coordinates); the
+                      world coordinate of the room is unverified
+  portals, 8.3.7    :
+    Portal to Dalaran, Crystalsong Forest (Violet Gate, Northrend) - 44.4, 89.7 - added 8.1.5
+    Portal to the Exodar (Vault of Lights, Azuremyst Isle) - 43.6, 87.2 - added 8.1.5
+    Portal to Caverns of Time (Tanaris) - 43.7, 85.4 - added 8.2.0
+    Portal to Shattrath (Terrace of Light, Terokkar Forest) - 44.9, 85.7 - added 8.1.5
+    Portal to Jade Forest (Paw'don Village, Pandaria) - 45.7, 87.2 - added 8.1.5
+    Portal to Boralus (Sanctum of the Sages, Tiragarde Sound) - 40.9, 92.7 - added 8.1.5
+    Portal to Stormshield (Ashran, Draenor) - 41.3, 90.0 - added 8.1.5
+    Portal to Azsuna (Crumbled Palace, Broken Isles) - 42.0, 91.4 - added 8.1.5
+  unlock            : the wiki gives no quest, level or reputation requirement for any of these eight portals, but the
+                      page does not say in as many words that none exists, so treat the requirement as unverified. The
+                      mage spells that make the same trips are listed further down with their level requirements.
+
+PORTAL ROOM  PATHFINDER'S DEN, ORGRIMMAR
+  faction           : Horde
+  where             : inside the Gates of Orgrimmar, on two floors
+  position          : the wiki gives in-city map coordinates for each portal (0-100 scale, not world coordinates); the
+                      world coordinate of the room is unverified
+  portals, 8.3.7    :
+    top floor: Portal to Jade Forest (Honeydew Village, Pandaria) - 57.5, 92.3 - added 8.1.5
+    top floor: Portal to Dalaran, Crystalsong Forest (Violet Gate, Northrend) - 56.2, 91.7 - added 8.1.5
+    bottom floor: Portal to Azsuna (Crumbled Palace, Broken Isles) - 57.2, 88.3 - added 8.1.5
+    bottom floor: Portal to Zuldazar (Port of Zandalar, Zuldazar) - 57.8, 89.9 - added 8.1.5
+    bottom floor: Portal to Shattrath (Terrace of Light, Terokkar Forest) - 57.4, 91.6 - added 8.1.5
+    bottom floor: Portal to Caverns of Time (Tanaris) - 56.4, 92.5 - added 8.1.5
+    bottom floor: Portal to Warspear (Ashran, Draenor) - 55.2, 92.0 - added 8.1.5
+    bottom floor: Portal to Silvermoon (Sunfury Spire, Eversong Woods) - 54.6, 90.4 - added 8.1.5
+  unlock            : the wiki gives no requirement for any of these eight portals, which is not the same as saying
+                      there is none, so treat the requirement as unverified. A Thrallmar Mage beside the Shattrath
+                      portal offers a ride to the Dark Portal in the Blasted Lands instead of a portal.
+
+PORTAL ROOM  SANCTUM OF THE SAGES, BORALUS
+  faction           : Alliance
+  where             : an old tidesage study in Boralus, run by the portal trainer Yvia Wavebound
+  position          : unverified - the wiki page for this room gives no coordinates at all
+  portals, 8.3.7    :
+    Portal to Stormwind City (Wizard's Sanctum)
+    Portal to Ironforge (Dun Morogh)
+    Portal to the Exodar (Azuremyst Isle)
+    Portal to Magni's Encampment (Silithus)
+    Portal to Mezzamere (Nazjatar) - unlockable, added 8.2.0
+  unlock            : the wiki says most of these open after the opening Kul Tiras quests; the Nazjatar portal is
+                      described as unlockable and was added in 8.2.0. No source read here gives the exact quest or
+                      level for any of them.
+
+PORTAL ROOM  HALL OF ANCIENT PATHS, DAZAR'ALOR
+  faction           : Horde
+  where             : the north-eastern lower room of the Great Seal
+  position          : unverified - the wiki page for this room gives no coordinates at all
+  portals, 8.3.7    :
+    Portal to Orgrimmar (Pathfinder's Den, Durotar)
+    Portal to Thunder Bluff (Mulgore)
+    Portal to Silvermoon City (Eversong Woods)
+    Portal to Magni's Encampment (Silithus)
+    Portal to Newhome (Nazjatar) - unlockable, added 8.2.0
+  unlock            : the wiki dates the room to 8.0.1 and the Nazjatar portal to 8.2.0, where it is described as
+                      unlockable; no source read here gives the exact quest for it.
+
+MINOR PORTAL ROOMS THAT ALSO STAND IN 8.3.7
+  Eastern Earthshrine, Stormwind City (Alliance): portals to the Cataclysm zones plus Tol Barad. The wiki gives the rules
+  rather than a coordinate list: the Tol Barad portal is always open but needs level 85 and leads to Baradin Base Camp; the
+  Mount Hyjal portal needs As Hyjal Burns and leads to Nordrassil; Vashj'ir needs Call of Duty; Deepholm needs Deepholm,
+  Realm of Earth and leads to the Temple of Earth; Uldum needs Escape From the Lost City; Twilight Highlands needs Any
+  Portal in a Storm and leads to Highbank. Positions: unverified.
+  Western Earthshrine, Orgrimmar (Horde): the Horde counterpart, with the Cataclysm portals. Its portal list and its
+  positions: unverified.
+  Terrace of Light, Shattrath City (neutral), and Chamber of the Guardian, Dalaran in the Broken Isles (neutral): the wiki
+  portal-room page lists both as minor portal rooms of 8.3.7 without a portal list. Positions: unverified.
+
+MAGE TELEPORT AND PORTAL SPELLS
+  Spell ids from the client SpellName table; level and faction from the spell tooltip of that exact id.
+
+  destination                             | teleport | portal   | level   | faction
+  Stormwind (Elwynn Forest)               | 3561     | 10059    | 21 / 24 | Alliance
+  Ironforge (Dun Morogh)                  | 3562     | 11416    | 21 / 24 | Alliance
+  Darnassus (Teldrassil)                  | 3565     | 11419    | 21 / 24 | Alliance
+  The Exodar (Azuremyst Isle)             | 32271    | 32266    | 21 / 24 | Alliance
+  Orgrimmar (Durotar)                     | 3567     | 11417    | 21 / 24 | Horde
+  Silvermoon (Eversong Woods)             | 32272    | 32267    | 21 / 24 | Horde
+  Shattrath (Terokkar Forest)             | 33690    | unverified | 21      | both
+  Dalaran, Northrend (Crystalsong Forest) | 53140    | 53142    | 21      | both
+  Dalaran, Broken Isles                   | 224869   | 224871   | 11 / 24 | both
+  Vale of Eternal Blossoms                | 132621   | 132620   | unverified | Alliance
+  Where two levels are printed they are the teleport level and the portal level, in that order. The Shattrath row has no
+  portal id and the Vale row no level, so those two cells stay unverified rather than filled from a near match.
+
+CAPITAL AND EXPANSION PORTAL SPELLS IN THE CLIENT SPELL TABLE
+  168900  Portal: Stormshield (Alliance)
+  169294  Portal: Warspear (Horde)
+  273617  Teleport: Zuldazar
+  273695  Teleport: Boralus
+  290662  Portal to Zuldazar
+  290670  Orgrimmar: Horde Portal to Zuldazar
+  267877  Portal: Boralus
+  281405  Portal Effect: Boralus
+  What each one does in 8.3.7 is unverified: the spell tooltips do not name a destination, and the portal objects are not in
+  the exports used here. Do not wire them by name alone.
+
+PORTAL GAMEOBJECT ENTRIES
+  Wowhead carries several objects under each portal name, so a name match is not an entry. Two were pinned down this run:
+    323845  Portal to Boralus, in Stormwind City, added in patch 8.1.5 - the Wizard's Sanctum back-room portal
+    284431  Portal to Zuldazar, in Orgrimmar, added in patch 8.0.1 - but a second id, 323855, is also a Portal to Zuldazar
+            in Orgrimmar, so which object stands inside the Pathfinder's Den is unverified
+  Every other portal and every transport object in this file: unverified. The 8.3.7 export used here has no portal or
+  transport gameobject table, and Wowhead lists up to eight objects under a single portal name with no page tying one to a
+  room, so none was guessed.
+
+HEARTHSTONES
+  6948    Hearthstone - the one every character starts with; binds to an innkeeper and returns the character there
+  110560  Garrison Hearthstone
+  140192  Dalaran Hearthstone
+  162973  Greatfather Winter's Hearthstone (seasonal)
+  Item ids verified by their Wowhead item tooltips. The wiki gives the standard cooldown as 30 minutes, cut to 15 by the
+  guild perk Hasty Hearth; per-item cooldowns are unverified.
+
+OTHER INSTANT CITY LINKS THAT ARE NOT PORTALS
+  Deeprun Tram (Alliance): Dwarven District, Stormwind City <-> Tinker Town, Ironforge. Position and carriage entries: unverified.
+  Orb of Translocation (Horde): Sunfury Spire, Silvermoon City <-> Ruins of Lordaeron, Undercity. Its position and object
+  entry: unverified.
+  The 8.3.7 flights, boats, zeppelins and portals are free and unrestricted by riding skill or Pathfinder; flying over a
+  continent is what the Pathfinder achievements unlock, and those are in the flight-point files.
+
+WHAT IS VERIFIED AND WHAT IS NOT
+  Routes and dock pairs: the wiki transportation page's active boat list has eight rows - six named ships, the Kul Tiras ferry
+  masters and the Zuldazar wavesingers, printed here as B1 to B8 - plus two Northrend turtle boats on a separate list (B9, B10),
+  and three active zeppelins (Z1 to Z3). The research document lists the same eight boat rows but marks B4 The Northspear's
+  route unverified; the wiki page supplies it as Menethil Harbor <-> Valgarde, and that is what is printed.
+  Zeppelin routes: the wiki's active list has three - The Iron Eagle, The Zephyr and The Mighty Wind - and its defunct list has
+  three more removed in 8.0.1: The Thundercaller, The Purple Princess and The Cloudkisser. The research document inferred five
+  routes from the seven standing towers; the tower list is still right, but only three of those routes sail in 8.3.7, and this
+  file prints the three.
+  Dock coordinates: the route blocks print six coordinate triples, and all six come from four of the twelve "Transport"
+  boarding nodes - 34, 35, 47 and 175. The eight other nodes in the table are dead routes (46, 54, 88, 206), lifts (218, 219)
+  or the two Icecrown gunship platforms (328, 329), none of which belongs to a boat in this file. Every other dock says
+  unverified rather than carrying a guessed coordinate, and no coordinate here is a player standing spot, so every
+  "wait position" says unverified too.
+  Transport and portal gameobject entries: 2 of the portal objects were pinned down (323845 and 284431); every transport object
+  and every other portal object is unverified, because the 8.3.7 export has no transport or portal object table and Wowhead
+  carries several objects under each name.
+  Schedules: the only schedule fact in any source read here is the wiki statement that a transport stays docked for exactly 60
+  seconds before departing. Crossing times and the interval between visits are not in the client tables - TaxiPath.Cost is
+  copper and TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, so neither is a clock - and the wiki gives no interval, so both
+  are unverified on every route.
+  Portal rooms: four main rooms (Wizard's Sanctum, Pathfinder's Den, Sanctum of the Sages, Hall of Ancient Paths) and four minor
+  ones, from the wiki portal-room page. The portal lists for the two capital rooms come from their own wiki pages with the patch
+  each portal was added in, so the post-8.3.7 portals (Oribos 9.0.2, Bel'ameth 10.2.5, Valdrakken 10.0.2, Dornogal 11.0.2,
+  Founder's Point 11.2.7, the new Silvermoon portal 12.0.1) are left out. The Boralus and Dazar'alor rooms have portal lists but
+  no coordinates at all, so their positions are unverified.
+  Mage spells: the ten teleport/portal pairs, the eight capital and expansion portal spells and the four hearthstones are the
+  ids the research document verified against SpellName and Wowhead tooltips. The two spell rows the document marks unverified are
+  still unverified here: Shattrath has no portal id, and the Vale of Eternal Blossoms row has no level.
+  Sources: warcraft.wiki.gg Transportation, Zeppelin tower, Portal room, Wizard's Sanctum, Pathfinder's Den, Sanctum of the
+  Sages, Hall of Ancient Paths, Eastern Earthshrine; Wowhead object pages 323845 and 284431 and the object searches for "Portal
+  to Boralus" and "Portal to Zuldazar"; and sections 4 and 5 of BfA_8.3.7_flight_points_and_travel.txt for the transport nodes
+  and spell ids. Everything read from a source is printed; nothing was estimated.

@@ -1,0 +1,737 @@
+TAXI NODE 2023  FREEHOLD, TIRAGARDE SOUND
+  flight master   : Rodrigo
+  creature entry  : 129098
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 508
+  position        : map 1643 (Kul Tiras), -1786.5, -729.4, 61.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Freehold is the one A+H node in Tiragarde Sound and the pirate town has a single neutral master
+  links           : 2042 Vigil Hill 2271 yd = 1.18 min; 2067 Timberfell Outpost 1786 yd = 0.93 min;
+                    2077 Castaway Point 900 yd = 0.47 min;
+                    2079 Kennings Lodge 1006 yd = 0.52 min;
+                    2279 Stonefist Watch 2408 yd = 1.25 min
+
+TAXI NODE 2033  FALLHAVEN, DRUSTVAR
+  flight master   : Clarence Page
+  creature entry  : 124466
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 512
+  position        : map 1643 (Kul Tiras), -66.3, 2141.2, 46.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Fallhaven has a second, gated roost at 2056 and section 3.1 gives both the same master, which is
+                    possible here because both nodes are Alliance and stand at the same town
+  links           : 2034 Hangman's Point 1108 yd = 0.58 min; 2037 Barbthorn Ridge 924 yd = 0.48 min;
+                    2106 Arom's Stand 1401 yd = 0.73 min;
+                    2107 Watchman's Rise 1502 yd = 0.78 min
+
+TAXI NODE 2034  HANGMAN'S POINT, DRUSTVAR
+  flight master   : Aaron Ridgeley
+  creature entry  : 128576
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 513
+  position        : map 1643 (Kul Tiras), -297.0, 1227.5, 5.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2033 Fallhaven 1001 yd = 0.52 min; 2035 Fletcher's Hollow 926 yd = 0.48 min;
+                    2037 Barbthorn Ridge 874 yd = 0.46 min; 2042 Vigil Hill 835 yd = 0.43 min;
+                    2060 Hatherford 1942 yd = 1.01 min;
+                    2084 Norwington Estate 1325 yd = 0.69 min;
+                    2277 Proudmoore Keep 2029 yd = 1.06 min
+
+TAXI NODE 2035  FLETCHER'S HOLLOW, DRUSTVAR
+  flight master   : Bridget Bran
+  creature entry  : 126724
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 514
+  position        : map 1643 (Kul Tiras), -1045.7, 1277.7, 7.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Fletcher's Hollow has a second, gated roost at 2057 and section 3.1 gives both the same master;
+                    both nodes are Alliance
+  links           : 2034 Hangman's Point 794 yd = 0.41 min; 2042 Vigil Hill 727 yd = 0.38 min;
+                    2106 Arom's Stand 2213 yd = 1.15 min; 2108 Falconhurst 3000 yd = 1.56 min
+
+TAXI NODE 2037  BARBTHORN RIDGE, DRUSTVAR
+  flight master   : Anna Ridgeley
+  creature entry  : 129984
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 515
+  position        : map 1643 (Kul Tiras), 350.9, 1710.3, 10.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2033 Fallhaven 1051 yd = 0.55 min; 2034 Hangman's Point 1012 yd = 0.53 min;
+                    2084 Norwington Estate 922 yd = 0.48 min;
+                    2102 Roughneck Camp 1031 yd = 0.54 min;
+                    2107 Watchman's Rise 2079 yd = 1.08 min
+
+TAXI NODE 2042  VIGIL HILL, TIRAGARDE SOUND
+  flight master   : Sky Marshal Sanders
+  creature entry  : 130599
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 517
+  position        : map 1643 (Kul Tiras), -731.0, 706.6, 64.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2023 Freehold 2025 yd = 1.05 min; 2034 Hangman's Point 889 yd = 0.46 min;
+                    2035 Fletcher's Hollow 928 yd = 0.48 min; 2074 Bridgeport 1674 yd = 0.87 min;
+                    2079 Kennings Lodge 1508 yd = 0.79 min;
+                    2277 Proudmoore Keep 1602 yd = 0.83 min
+
+TAXI NODE 2052  ANGLEPOINT WHARF, TIRAGARDE SOUND
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this is one of the eight nodes gated on ConditionID 62086, and no source read here names a flight
+                    master at this wharf
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 521
+  position        : map 1643 (Kul Tiras), 790.8, 1861.5, -0.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  links           : 2054 Firebreaker Expedition 1861 yd = 0.97 min; 2056 Fallhaven 1224 yd = 0.64 min
+
+TAXI NODE 2053  OLD DRUST ROAD, TIRAGARDE SOUND
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this is one of the eight nodes gated on ConditionID 62086, and no source read here names a flight
+                    master on this road
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 522
+  position        : map 1643 (Kul Tiras), -318.5, 980.1, 1.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  links           : 2055 Southwind Station 1355 yd = 0.71 min; 2056 Fallhaven 865 yd = 0.45 min;
+                    2057 Fletcher's Hollow 870 yd = 0.45 min
+
+TAXI NODE 2054  FIREBREAKER EXPEDITION, TIRAGARDE SOUND
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this is one of the eight nodes gated on ConditionID 62086, and neither the wiki page for the
+                    expedition nor a Wowhead search names a flight master for the camp
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 523
+  position        : map 1643 (Kul Tiras), 801.1, 252.2, 0.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  links           : 2052 Anglepoint Wharf 1878 yd = 0.98 min; 2055 Southwind Station 1131 yd = 0.59 min;
+                    2105 Tradewinds Market 1052 yd = 0.55 min
+
+TAXI NODE 2055  SOUTHWIND STATION, TIRAGARDE SOUND
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this is one of the eight nodes gated on ConditionID 62086, and no source read here names a flight
+                    master at this station
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 524
+  position        : map 1643 (Kul Tiras), -145.1, 41.0, -0.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  links           : 2053 Old Drust Road 1345 yd = 0.70 min; 2054 Firebreaker Expedition 1174 yd = 0.61 min;
+                    2104 Eastpoint Station 661 yd = 0.34 min
+
+TAXI NODE 2056  FALLHAVEN, DRUSTVAR
+  flight master   : Clarence Page
+  creature entry  : 124466
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 525
+  position        : map 1643 (Kul Tiras), -135.6, 1764.3, -0.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  master note     : this is the gated second roost at Fallhaven; it and 2033, the ungated one, are both Alliance and
+                    section 3.1 gives both Clarence Page 124466
+  links           : 2052 Anglepoint Wharf 1245 yd = 0.65 min; 2053 Old Drust Road 832 yd = 0.43 min;
+                    2057 Fletcher's Hollow 1382 yd = 0.72 min
+
+TAXI NODE 2057  FLETCHER'S HOLLOW, DRUSTVAR
+  flight master   : Bridget Bran
+  creature entry  : 126724
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 526
+  position        : map 1643 (Kul Tiras), -928.1, 1325.5, 1.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  master note     : this is the gated second roost at Fletcher's Hollow, and section 3.1 gives it the same master as
+                    2035
+  links           : 2053 Old Drust Road 787 yd = 0.41 min; 2056 Fallhaven 1423 yd = 0.74 min
+
+TAXI NODE 2060  HATHERFORD, TIRAGARDE SOUND
+  flight master   : Mariah McKee
+  creature entry  : 133210
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 529
+  position        : map 1643 (Kul Tiras), 1167.6, 24.1, 15.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2034 Hangman's Point 2067 yd = 1.08 min; 2083 Tradewinds Market 673 yd = 0.35 min;
+                    2084 Norwington Estate 1449 yd = 0.75 min; 2086 Brennadam 1676 yd = 0.87 min;
+                    2277 Proudmoore Keep 877 yd = 0.46 min
+
+TAXI NODE 2062  WOLF'S DEN, TIRAGARDE SOUND
+  flight master   : Narkalt
+  creature entry  : 133331
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 531
+  position        : map 1643 (Kul Tiras), 1641.3, 385.9, 87.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2067 Timberfell Outpost 2318 yd = 1.21 min; 2090 Hillcrest Pasture 951 yd = 0.50 min;
+                    2273 Waning Glacier 1999 yd = 1.04 min;
+                    2274 Swiftwind Post 2949 yd = 1.54 min;
+                    2275 Mudfisher Cove 1995 yd = 1.04 min;
+                    2279 Stonefist Watch 2606 yd = 1.36 min
+
+TAXI NODE 2067  TIMBERFELL OUTPOST, TIRAGARDE SOUND
+  flight master   : Michaela Reed
+  creature entry  : 133861
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 533
+  position        : map 1643 (Kul Tiras), -254.6, -362.4, 116.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2023 Freehold 1783 yd = 0.93 min; 2062 Wolf's Den 2460 yd = 1.28 min;
+                    2077 Castaway Point 1894 yd = 0.99 min;
+                    2140 Plunder Harbor 1206 yd = 0.63 min;
+                    2275 Mudfisher Cove 2524 yd = 1.31 min;
+                    2279 Stonefist Watch 2025 yd = 1.05 min
+
+TAXI NODE 2074  BRIDGEPORT, TIRAGARDE SOUND
+  flight master   : Jeb Johnson
+  creature entry  : 134226
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 539
+  position        : map 1643 (Kul Tiras), -93.7, -633.3, 6.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2042 Vigil Hill 1811 yd = 0.94 min; 2079 Kennings Lodge 987 yd = 0.51 min;
+                    2083 Tradewinds Market 1354 yd = 0.71 min;
+                    2084 Norwington Estate 2075 yd = 1.08 min; 2096 Tol Dagor 2294 yd = 1.19 min;
+                    2277 Proudmoore Keep 909 yd = 0.47 min; 2278 Mariner's Row 611 yd = 0.32 min
+
+TAXI NODE 2077  CASTAWAY POINT, TIRAGARDE SOUND
+  flight master   : Skinny Tim
+  creature entry  : 128224
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 542
+  position        : map 1643 (Kul Tiras), -1688.0, -1420.5, 35.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2023 Freehold 1146 yd = 0.60 min; 2067 Timberfell Outpost 1965 yd = 1.02 min;
+                    2079 Kennings Lodge 1195 yd = 0.62 min; 2096 Tol Dagor 2159 yd = 1.12 min;
+                    2140 Plunder Harbor 1726 yd = 0.90 min; 2276 Tol Dagor 2272 yd = 1.18 min
+
+TAXI NODE 2079  KENNINGS LODGE, TIRAGARDE SOUND
+  flight master   : Finnia Hawkshot
+  creature entry  : 134465
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 544
+  position        : map 1643 (Kul Tiras), -922.0, -696.6, 115.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2023 Freehold 1023 yd = 0.53 min; 2042 Vigil Hill 1801 yd = 0.94 min;
+                    2074 Bridgeport 964 yd = 0.50 min; 2077 Castaway Point 1133 yd = 0.59 min
+
+TAXI NODE 2083  TRADEWINDS MARKET, TIRAGARDE SOUND
+  flight master   : Joan Weber
+  creature entry  : 124725
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 558
+  position        : map 1643 (Kul Tiras), 1153.0, -470.3, 31.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Tradewinds Market has a second, gated roost at 2105, and section 3.1 gives both Joan Weber 124725;
+                    both nodes are Alliance, but no page pins her to one roost rather than the other
+  links           : 2060 Hatherford 551 yd = 0.29 min; 2074 Bridgeport 1607 yd = 0.84 min;
+                    2096 Tol Dagor 3082 yd = 1.61 min; 2277 Proudmoore Keep 828 yd = 0.43 min;
+                    2278 Mariner's Row 999 yd = 0.52 min
+
+TAXI NODE 2084  NORWINGTON ESTATE, TIRAGARDE SOUND
+  flight master   : Hestia Strongbolt
+  creature entry  : 134685
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 545
+  position        : map 1643 (Kul Tiras), 889.0, 1064.6, 62.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2034 Hangman's Point 1277 yd = 0.67 min; 2037 Barbthorn Ridge 922 yd = 0.48 min;
+                    2060 Hatherford 1215 yd = 0.63 min; 2074 Bridgeport 2191 yd = 1.14 min;
+                    2102 Roughneck Camp 947 yd = 0.49 min;
+                    2277 Proudmoore Keep 1437 yd = 0.75 min
+
+TAXI NODE 2085  TIDECROSS, STORMSONG VALLEY
+  flight master   : Marla Featherfoot
+  creature entry  : 134696
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 546
+  position        : map 1643 (Kul Tiras), 3346.8, -376.0, 18.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2086 Brennadam 1152 yd = 0.60 min; 2088 Mildenhall Meadery 955 yd = 0.50 min;
+                    2089 Seekers Vista 1867 yd = 0.97 min; 2097 Deadwash 1519 yd = 0.79 min;
+                    2133 Shrine of the Storm 1130 yd = 0.59 min
+
+TAXI NODE 2086  BRENNADAM, STORMSONG VALLEY
+  flight master   : Anna Skyspirit
+  creature entry  : 134704
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 547
+  position        : map 1643 (Kul Tiras), 2495.5, -44.4, 55.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2060 Hatherford 1711 yd = 0.89 min; 2085 Tidecross 1140 yd = 0.59 min;
+                    2088 Mildenhall Meadery 790 yd = 0.41 min;
+                    2101 The Amber Waves 549 yd = 0.29 min
+
+TAXI NODE 2087  OUTRIGGER POST, TIRAGARDE SOUND
+  flight master   : Gregory Mussler
+  creature entry  : 134749
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 548
+  position        : map 1643 (Kul Tiras), 1080.9, 2347.9, 3.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2102 Roughneck Camp 697 yd = 0.36 min; 2109 Whitegrove Chapel 1840 yd = 0.96 min
+
+TAXI NODE 2088  MILDENHALL MEADERY, STORMSONG VALLEY
+  flight master   : Colony Caretaker
+  creature entry  : 142060
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 549
+  position        : map 1643 (Kul Tiras), 2700.3, -547.6, 5.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2085 Tidecross 838 yd = 0.44 min; 2086 Brennadam 704 yd = 0.37 min
+
+TAXI NODE 2089  SEEKERS VISTA, STORMSONG VALLEY
+  flight master   : Scroll of Flight
+  creature entry  : 137318
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 550
+  position        : map 1643 (Kul Tiras), 3752.6, 1068.6, 6.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : 137318 is the Scroll of Flight that Wowhead places in Stormsong Valley, which is where this node
+                    stands; the Zandalar file had to withhold the same id for four Zuldazar nodes because it is not on
+                    that continent
+  links           : 2085 Tidecross 1936 yd = 1.01 min; 2091 Stonetusk Watch 1260 yd = 0.66 min;
+                    2094 Warfang Hold 1028 yd = 0.54 min; 2138 Fort Daelin 618 yd = 0.32 min;
+                    2441 Prospectus Bay 4093 yd = 2.13 min;
+                    2442 Overspark Expedition Camp 3896 yd = 2.03 min
+
+TAXI NODE 2090  HILLCREST PASTURE, STORMSONG VALLEY
+  flight master   : Hosan Cloudhoof
+  creature entry  : 134842
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 551
+  position        : map 1643 (Kul Tiras), 2126.5, 350.0, 127.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2062 Wolf's Den 735 yd = 0.38 min; 2091 Stonetusk Watch 1217 yd = 0.63 min;
+                    2092 Diretusk Hollow 1273 yd = 0.66 min;
+                    2093 Ironmaul Overlook 1648 yd = 0.86 min
+
+TAXI NODE 2091  STONETUSK WATCH, STORMSONG VALLEY
+  flight master   : Wyna Breezehorn
+  creature entry  : 134844
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 552
+  position        : map 1643 (Kul Tiras), 2636.5, 1138.2, 97.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2089 Seekers Vista 1183 yd = 0.62 min; 2090 Hillcrest Pasture 1290 yd = 0.67 min;
+                    2092 Diretusk Hollow 1295 yd = 0.67 min;
+                    2273 Waning Glacier 2004 yd = 1.04 min
+
+TAXI NODE 2092  DIRETUSK HOLLOW, STORMSONG VALLEY
+  flight master   : Kudra Windblade
+  creature entry  : 134848
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 553
+  position        : map 1643 (Kul Tiras), 3299.0, 262.9, 82.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2090 Hillcrest Pasture 1268 yd = 0.66 min; 2091 Stonetusk Watch 1109 yd = 0.58 min;
+                    2093 Ironmaul Overlook 1626 yd = 0.85 min;
+                    2094 Warfang Hold 1055 yd = 0.55 min
+
+TAXI NODE 2093  IRONMAUL OVERLOOK, STORMSONG VALLEY
+  flight master   : Chulani Cloudbreath
+  creature entry  : 134850
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 554
+  position        : map 1643 (Kul Tiras), 2737.4, -966.7, 84.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2090 Hillcrest Pasture 1764 yd = 0.92 min; 2092 Diretusk Hollow 1413 yd = 0.74 min;
+                    2095 Shrine of the Storm 1767 yd = 0.92 min
+
+TAXI NODE 2094  WARFANG HOLD, STORMSONG VALLEY
+  flight master   : Muka Stormbreaker
+  creature entry  : 138097
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 555
+  position        : map 1643 (Kul Tiras), 3889.1, 423.1, 130.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2089 Seekers Vista 843 yd = 0.44 min; 2092 Diretusk Hollow 1120 yd = 0.58 min;
+                    2139 Windfall Cavern 814 yd = 0.42 min;
+                    2441 Prospectus Bay 5128 yd = 2.67 min
+
+TAXI NODE 2095  SHRINE OF THE STORM, STORMSONG VALLEY
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : section 3.1 prints Galeheart, a gryphon, but the wiki puts Galeheart in the Alliance camp at the
+                    Shrine and this node is Horde-only, so the entry is left open rather than copied from the Alliance
+                    node 2133
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 556
+  position        : map 1643 (Kul Tiras), 4252.0, -1080.8, 178.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2093 Ironmaul Overlook 1747 yd = 0.91 min; 2139 Windfall Cavern 1090 yd = 0.57 min
+
+TAXI NODE 2096  TOL DAGOR, TIRAGARDE SOUND
+  flight master   : Jorum Hayes
+  creature entry  : 130593
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 557
+  position        : map 1643 (Kul Tiras), -80.0, -2648.4, 1.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the Tol Dagor pair splits by faction: this Alliance node keeps Jorum Hayes, while 2276, the Horde
+                    one, could not be given him because Wowhead marks him Alliance react
+  links           : 2074 Bridgeport 2393 yd = 1.25 min; 2077 Castaway Point 2193 yd = 1.14 min;
+                    2083 Tradewinds Market 2552 yd = 1.33 min;
+                    2278 Mariner's Row 2255 yd = 1.17 min
+
+TAXI NODE 2097  DEADWASH, STORMSONG VALLEY
+  flight master   : Malorian Tailwind
+  creature entry  : 134832
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 559
+  position        : map 1643 (Kul Tiras), 2991.1, 914.7, 14.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2085 Tidecross 1675 yd = 0.87 min; 2101 The Amber Waves 1040 yd = 0.54 min;
+                    2137 Millstone Hamlet 834 yd = 0.43 min; 2138 Fort Daelin 844 yd = 0.44 min
+
+TAXI NODE 2101  THE AMBER WAVES, STORMSONG VALLEY
+  flight master   : Karla Fairweather
+  creature entry  : 134963
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 560
+  position        : map 1643 (Kul Tiras), 2508.1, 458.8, 66.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2086 Brennadam 640 yd = 0.33 min; 2097 Deadwash 727 yd = 0.38 min;
+                    2137 Millstone Hamlet 1379 yd = 0.72 min
+
+TAXI NODE 2102  ROUGHNECK CAMP, TIRAGARDE SOUND
+  flight master   : Dagin
+  creature entry  : 129163
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 561
+  position        : map 1643 (Kul Tiras), 1174.6, 1838.4, 124.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2037 Barbthorn Ridge 1021 yd = 0.53 min; 2084 Norwington Estate 932 yd = 0.49 min;
+                    2087 Outrigger Post 774 yd = 0.40 min;
+                    2137 Millstone Hamlet 2073 yd = 1.08 min
+
+TAXI NODE 2104  EASTPOINT STATION, TIRAGARDE SOUND
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : this is one of the eight nodes gated on ConditionID 62086, and no source read here names a flight
+                    master at this station
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 562
+  position        : map 1643 (Kul Tiras), 124.2, -498.5, -0.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  links           : 2055 Southwind Station 638 yd = 0.33 min; 2105 Tradewinds Market 1652 yd = 0.86 min
+
+TAXI NODE 2105  TRADEWINDS MARKET, TIRAGARDE SOUND
+  flight master   : Joan Weber
+  creature entry  : 124725
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 563
+  position        : map 1643 (Kul Tiras), 1038.6, -586.5, -0.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 62086 - PlayerCondition PrevQuest: after quest 52128 or 55142
+  master note     : this is the gated second roost at Tradewinds Market, and section 3.1 gives it the same master as
+                    2083
+  links           : 2054 Firebreaker Expedition 1078 yd = 0.56 min; 2104 Eastpoint Station 1650 yd = 0.86 min
+
+TAXI NODE 2106  AROM'S STAND, DRUSTVAR
+  flight master   : Jess Albury
+  creature entry  : 135023
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 565
+  position        : map 1643 (Kul Tiras), -742.6, 3115.3, 328.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2033 Fallhaven 1299 yd = 0.68 min; 2035 Fletcher's Hollow 2148 yd = 1.12 min;
+                    2107 Watchman's Rise 1031 yd = 0.54 min; 2108 Falconhurst 1220 yd = 0.64 min;
+                    2127 Anyport 1265 yd = 0.66 min
+
+TAXI NODE 2107  WATCHMAN'S RISE, DRUSTVAR
+  flight master   : Ensign Wallace
+  creature entry  : 135024
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 564
+  position        : map 1643 (Kul Tiras), 100.1, 3478.3, 197.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2033 Fallhaven 1526 yd = 0.79 min; 2037 Barbthorn Ridge 2112 yd = 1.10 min;
+                    2106 Arom's Stand 1088 yd = 0.57 min; 2108 Falconhurst 1875 yd = 0.98 min;
+                    2109 Whitegrove Chapel 684 yd = 0.36 min; 2127 Anyport 1055 yd = 0.55 min
+
+TAXI NODE 2108  FALCONHURST, DRUSTVAR
+  flight master   : Viviana Swailes
+  creature entry  : 134866
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 566
+  position        : map 1643 (Kul Tiras), -1502.0, 3755.7, 5.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2035 Fletcher's Hollow 2881 yd = 1.50 min; 2106 Arom's Stand 1268 yd = 0.66 min;
+                    2107 Watchman's Rise 1804 yd = 0.94 min; 2127 Anyport 1331 yd = 0.69 min
+
+TAXI NODE 2109  WHITEGROVE CHAPEL, DRUSTVAR
+  flight master   : Bertram
+  creature entry  : 135342
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 567
+  position        : map 1643 (Kul Tiras), 632.0, 3829.4, 101.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2087 Outrigger Post 1820 yd = 0.95 min; 2107 Watchman's Rise 726 yd = 0.38 min;
+                    2127 Anyport 1170 yd = 0.61 min; 2135 Krazzlefrazz Outpost 939 yd = 0.49 min;
+                    2273 Waning Glacier 2321 yd = 1.21 min;
+                    2441 Prospectus Bay 3087 yd = 1.61 min;
+                    2442 Overspark Expedition Camp 2748 yd = 1.43 min
+
+TAXI NODE 2127  ANYPORT, DRUSTVAR
+  flight master   : Tan Lotuswind
+  creature entry  : 136231
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 577
+  position        : map 1643 (Kul Tiras), -392.1, 4203.9, 29.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2106 Arom's Stand 1413 yd = 0.74 min; 2107 Watchman's Rise 1075 yd = 0.56 min;
+                    2108 Falconhurst 1362 yd = 0.71 min;
+                    2109 Whitegrove Chapel 1162 yd = 0.61 min;
+                    2135 Krazzlefrazz Outpost 1445 yd = 0.75 min;
+                    2274 Swiftwind Post 3182 yd = 1.66 min
+
+TAXI NODE 2133  SHRINE OF THE STORM, STORMSONG VALLEY
+  flight master   : Galeheart
+  creature entry  : 141017
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 578
+  position        : map 1643 (Kul Tiras), 4073.1, -1087.6, 184.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the Shrine of the Storm pair splits by faction: this Alliance node keeps Galeheart, while 2095,
+                    the Horde one, could not be given him because the wiki puts Galeheart in the Alliance camp
+  links           : 2085 Tidecross 1361 yd = 0.71 min
+
+TAXI NODE 2135  KRAZZLEFRAZZ OUTPOST, DRUSTVAR
+  flight master   : Rixi Rocketboom
+  creature entry  : 138022
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 579
+  position        : map 1643 (Kul Tiras), 340.8, 3160.4, 367.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2109 Whitegrove Chapel 922 yd = 0.48 min; 2127 Anyport 1475 yd = 0.77 min;
+                    2274 Swiftwind Post 2451 yd = 1.28 min;
+                    2275 Mudfisher Cove 1956 yd = 1.02 min
+
+TAXI NODE 2137  MILLSTONE HAMLET, STORMSONG VALLEY
+  flight master   : Alexa Davenport
+  creature entry  : 138180
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 581
+  position        : map 1643 (Kul Tiras), 2644.8, 1594.3, 58.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2097 Deadwash 1179 yd = 0.61 min; 2101 The Amber Waves 1765 yd = 0.92 min;
+                    2102 Roughneck Camp 2048 yd = 1.07 min; 2138 Fort Daelin 992 yd = 0.52 min;
+                    2442 Overspark Expedition Camp 3386 yd = 1.76 min
+
+TAXI NODE 2138  FORT DAELIN, STORMSONG VALLEY
+  flight master   : Misty Koret
+  creature entry  : 147635
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 582
+  position        : map 1643 (Kul Tiras), 3372.2, 1397.4, 42.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2089 Seekers Vista 695 yd = 0.36 min; 2097 Deadwash 854 yd = 0.44 min;
+                    2137 Millstone Hamlet 830 yd = 0.43 min
+
+TAXI NODE 2139  WINDFALL CAVERN, STORMSONG VALLEY
+  flight master   : Allabas
+  creature entry  : 138251
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 580
+  position        : map 1643 (Kul Tiras), 4133.6, -110.0, 208.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2094 Warfang Hold 736 yd = 0.38 min; 2095 Shrine of the Storm 1140 yd = 0.59 min
+
+TAXI NODE 2140  PLUNDER HARBOR, TIRAGARDE SOUND
+  flight master   : Skrash
+  creature entry  : 138265
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 583
+  position        : map 1643 (Kul Tiras), -191.6, -1488.0, 14.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2067 Timberfell Outpost 1235 yd = 0.64 min; 2077 Castaway Point 1751 yd = 0.91 min;
+                    2276 Tol Dagor 1367 yd = 0.71 min
+
+TAXI NODE 2273  WANING GLACIER, TIRAGARDE SOUND
+  flight master   : Kip Wingnut
+  creature entry  : 142740
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 591
+  position        : map 1643 (Kul Tiras), 1397.3, 2043.4, 264.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2062 Wolf's Den 2006 yd = 1.04 min; 2091 Stonetusk Watch 2353 yd = 1.23 min;
+                    2109 Whitegrove Chapel 2330 yd = 1.21 min;
+                    2275 Mudfisher Cove 920 yd = 0.48 min
+
+TAXI NODE 2274  SWIFTWIND POST, DRUSTVAR
+  flight master   : Windtamer Loka
+  creature entry  : 140772
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 593
+  position        : map 1643 (Kul Tiras), -1001.1, 1493.9, 47.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2062 Wolf's Den 2967 yd = 1.55 min; 2127 Anyport 3100 yd = 1.61 min;
+                    2135 Krazzlefrazz Outpost 2450 yd = 1.28 min;
+                    2275 Mudfisher Cove 1806 yd = 0.94 min;
+                    2279 Stonefist Watch 648 yd = 0.34 min
+
+TAXI NODE 2275  MUDFISHER COVE, DRUSTVAR
+  flight master   : Drasha Windspear
+  creature entry  : 140939
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 592
+  position        : map 1643 (Kul Tiras), 618.9, 1740.4, 1.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2062 Wolf's Den 2095 yd = 1.09 min; 2067 Timberfell Outpost 2522 yd = 1.31 min;
+                    2135 Krazzlefrazz Outpost 1878 yd = 0.98 min;
+                    2273 Waning Glacier 1153 yd = 0.60 min;
+                    2274 Swiftwind Post 1732 yd = 0.90 min
+
+TAXI NODE 2276  TOL DAGOR, TIRAGARDE SOUND
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : section 3.1 prints Jorum Hayes 130593, but Wowhead gives him Alliance react in Tol Dagor and this
+                    node is Horde-only, so the entry is left open rather than copied from the Alliance node 2096
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 594
+  position        : map 1643 (Kul Tiras), 139.7, -2541.4, 0.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2077 Castaway Point 2408 yd = 1.25 min; 2140 Plunder Harbor 1170 yd = 0.61 min
+
+TAXI NODE 2277  PROUDMOORE KEEP, TIRAGARDE SOUND
+  flight master   : Jessica Clarke
+  creature entry  : 143535
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 595
+  position        : map 1643 (Kul Tiras), 552.2, -126.1, 25.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2034 Hangman's Point 2074 yd = 1.08 min; 2042 Vigil Hill 1841 yd = 0.96 min;
+                    2060 Hatherford 798 yd = 0.42 min; 2074 Bridgeport 990 yd = 0.52 min;
+                    2083 Tradewinds Market 750 yd = 0.39 min;
+                    2084 Norwington Estate 1436 yd = 0.75 min;
+                    2278 Mariner's Row 581 yd = 0.30 min
+
+TAXI NODE 2278  MARINER'S ROW, TIRAGARDE SOUND
+  flight master   : Nicolas Araujo
+  creature entry  : 143547
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 596
+  position        : map 1643 (Kul Tiras), 465.7, -642.7, 28.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2074 Bridgeport 760 yd = 0.40 min; 2083 Tradewinds Market 813 yd = 0.42 min;
+                    2096 Tol Dagor 2593 yd = 1.35 min; 2277 Proudmoore Keep 579 yd = 0.30 min
+
+TAXI NODE 2279  STONEFIST WATCH, TIRAGARDE SOUND
+  flight master   : Munovuth Boldcleaver
+  creature entry  : 140533
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 599
+  position        : map 1643 (Kul Tiras), -809.1, 1041.0, 50.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2023 Freehold 2437 yd = 1.27 min; 2062 Wolf's Den 2697 yd = 1.40 min;
+                    2067 Timberfell Outpost 1834 yd = 0.96 min;
+                    2274 Swiftwind Post 617 yd = 0.32 min
+
+TAXI NODE 2441  PROSPECTUS BAY, MECHAGON
+  flight master   : unverified
+  creature entry  : unverified
+  entry note      : the wiki page for Prospectus Bay lists the Horde goblins of the camp but no flight master, so the
+                    entry is left open
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 615
+  position        : map 1643 (Kul Tiras), 3282.0, 4900.5, 3.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2089 Seekers Vista 4256 yd = 2.22 min; 2094 Warfang Hold 5591 yd = 2.91 min;
+                    2109 Whitegrove Chapel 3213 yd = 1.67 min
+
+TAXI NODE 2442  OVERSPARK EXPEDITION CAMP, MECHAGON
+  flight master   : Cog Captain Winklespring
+  creature entry  : 147950
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 614
+  position        : map 1643 (Kul Tiras), 3044.4, 4800.8, 1.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 2089 Seekers Vista 3973 yd = 2.07 min; 2109 Whitegrove Chapel 2737 yd = 1.43 min;
+                    2137 Millstone Hamlet 3536 yd = 1.84 min
+
+WHAT IS VERIFIED AND WHAT IS NOT
+  Positions are TaxiNodes.Pos from Map 1643 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
+  flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
+  so every "walk-to position" line says unverified rather than a guessed offset.
+  Creature entries: 49 of the 57 nodes print one and 8 print "unverified". All 49 are the entry section 3.1 of the research
+  document prints for that node id, with two exceptions where that table names a master of the wrong faction: 2095 Shrine of the
+  Storm is Horde-only but was given Galeheart, the gryphon the wiki places in the Alliance camp, and 2276 Tol Dagor is Horde-only
+  but was given Jorum Hayes 130593, whom Wowhead marks Alliance react. Both print "unverified" rather than borrowing the Alliance
+  master from 2133 and 2096. The other six open entries are 2052 Anglepoint Wharf, 2053 Old Drust Road, 2054 Firebreaker
+  Expedition, 2055 Southwind Station and 2104 Eastpoint Station - five of the eight nodes the quest gate below covers, where no
+  source read here names a master - and 2441 Prospectus Bay on Mechagon, where the wiki lists the Horde camp's goblins but no
+  flight master.
+  Two of the gated roosts do print an entry, because section 3.1 gives them the same master as their ungated twin at the same
+  town: 2056 Fallhaven carries Clarence Page 124466 like 2033, and 2057 Fletcher's Hollow carries Bridget Bran 126724 like 2035.
+  The third gated duplicate, 2105 Tradewinds Market, carries Joan Weber 124725 like 2083. All three pairs are Alliance on both
+  sides, so the shared master is possible; no page pins either master to one roost rather than the other.
+  Gate evidence: 8 of the 57 nodes are gated and 49 are not, and all eight share one gate, ConditionID 62086, decoded as a
+  PrevQuest condition satisfied by quest 52128 or 55142. The eight are 2052, 2053, 2054, 2055, 2056, 2057, 2104 and 2105. No Kul
+  Tiras taxi node is gated on level, class, race, reputation or an achievement.
+  Faction: TaxiNodes.Flags gives 35 Alliance-only roosts, 17 Horde-only roosts and 5 with both bits set, which sums to 57; each
+  block prints the bits it found rather than inferring a side from the name. Every one of the 57 nodes starts at least one
+  TaxiPath row, so this map has no arrival-only node and no block prints a reverse-only leg.
+  Travel time is derived, not read: TaxiPath.Cost is copper and TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, so neither is a
+  clock. Minutes here are yards / 1920, i.e. 32 yards per second. Distances are per direction: 2023 -> 2077 reads 900 yd while
+  2077 -> 2023 reads 1146 yd. The 234 directed rows form 117 pairs with a row each way, and one pair, 2037 Barbthorn Ridge and
+  2084 Norwington Estate, happens to measure the same both ways.
+  Unlock: a node's bit is set by visiting its flight master, so the practical requirement is reaching the zone. Flying over Kul
+  Tiras additionally needs Battle for Azeroth Pathfinder, Part One (achievement 12989) and Part Two (13250); a taxi flight needs
+  neither, only the node's bit.
+  Fourteen names in this file are cut at the 33-character limit of the source table's name column, which trims them mid-word
+  ("Firebreaker Expedition, Tiragarde", "Shrine of the Storm, Stormsong Va" and so on). Each is printed out in full with its zone:
+  Tiragarde Sound, Stormsong Valley or Mechagon. Five other names fill exactly 33 characters without being cut (2052 Anglepoint
+  Wharf, 2091 Stonetusk Watch, 2092 Diretusk Hollow, 2101 The Amber Waves, 2139 Windfall Cavern) and are left as the source has
+  them. No other field was reconstructed.
+  Two of the nodes, 2441 Prospectus Bay and 2442 Overspark Expedition Camp, stand on Mechagon Island, which is carried in this
+  map's taxi table rather than in a map of its own, so their ContinentID is 1643 like every other block here.
+  Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of ConditionID 62086, the Warcraft
+  Wiki pages for Anglepoint Wharf, Prospectus Bay and the Shrine of the Storm, and Wowhead pages for Jorum Hayes, Galeheart and
+  the Scroll of Flight ids. Everything read from a source is printed; nothing was estimated.
