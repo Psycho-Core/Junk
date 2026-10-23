@@ -1,0 +1,285 @@
+=== BLACK ROOK HOLD ARENA - MAP 1504 - COMPLETED ===
+
+8.3.7 build 35662.
+
+Arena map ID: 1504
+  Map.dbc directory: BlackrookHoldArena
+  InstanceType: 4 (arena)
+  Client instance list: 1504 "Black Rook Hold Arena"
+  AreaTable zone: 7816 (subzone Raven's Glory)
+  ExpansionID field in the map row: 6
+  WDT FileDataID: 1244360
+  No legacy duplicate: the 8.3.7 map dump has a single
+  BlackrookHoldArena entry
+
+Battleground entry: 808 "Black Rook Hold Arena"
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 90, MaxLvl 120
+  AllianceStartLoc 5121, HordeStartLoc 5122, StartMaxDist 0
+  Weight 1
+
+Location: outside Black Rook Hold, Val'sharah
+Added: patch 7.0.3 (2016-07-19), Legion. Ninth arena map counting
+  from Ring of Trials as the first, and the second of the two
+  arenas added in that same patch, after Ashamane's Fall
+
+Caution when searching by map id: map 1170 also carries a row
+labelled "Boss Fight Arena - Horde Start" at 4382.98, -433.246.
+That is a different instance and not this arena. The arena rows
+are the three on map 1504 listed below.
+
+=== 1. START POSITIONS (world_safe_locs, map 1504) ===
+
+Team 1 / Alliance (WorldSafeLoc 5121 = AllianceStartLoc):
+  X: 1372.13
+  Y: 1247.19
+  Z: 33.0047
+  Facing: 358.226 deg = 6.2522 rad
+  Comment: "Blackrook Hold Arena - Start Position - Team 1"
+
+Team 2 / Horde (WorldSafeLoc 5122 = HordeStartLoc):
+  X: 1472.7
+  Y: 1275.16
+  Z: 32.1104
+  Facing: 210.632 deg = 3.6762 rad
+  Comment: "Blackrook Hold Arena - Start Position - Team 2"
+
+Arena graveyard (WorldSafeLoc 5120):
+  X: 1419.42
+  Y: 1255.49
+  Z: 34.1073
+  Facing: 0
+  Comment: "Blackrook Hold Arena - GY"
+
+There is no Game On row on map 1504. The map has exactly three
+targets: graveyard and the two starts. That is the reverse of
+Tol'viron and Tiger's Peak, which have a Game On row and no
+graveyard row. Where players are staged before the gates open on
+this map is unverified.
+
+Derived from those points (arithmetic on verified values):
+  Distance start to start: 104.39 units
+  Midpoint of the two starts: about 1422.41, 1261.18
+  Each start is 52.19 units from that midpoint
+  Start axis is mostly X: 100.57 apart on X, 27.97 apart on Y
+  Bearing from Team 1 to Team 2 is 15.54 deg
+  Team 1 faces 358.226 deg, which is 17.32 deg off that bearing
+  Team 2 faces 210.632 deg, which is 15.09 deg off the reverse
+  Graveyard is 6.43 units from the midpoint, so it is effectively
+  the centre of the arena
+  Graveyard Z is 0.84 above the highest door and 1.10 above the
+  Team 1 start, so the centre is raised relative to the floor
+
+=== 2. GATES AND THE NINE DOOR OBJECTS ===
+
+This zone spawns nine door game objects, not the two the other
+arenas use. All nine sit in a rough ring around the centre at
+Z 33.21 to 33.27.
+
+  Index  Entry   X        Y        Z      Orientation  Radius
+  1      245763  1464.32  1254.87  33.24  0.84         42.4
+  2      245766  1384.06  1258.20  33.21  3.46         38.5
+  3      245767  1384.61  1232.35  33.27  2.86         47.5
+  4      245768  1411.41  1206.09  33.22  5.03         56.2
+  5      245770  1437.22  1206.74  33.23  4.43         56.4
+  6      245781  1450.72  1276.73  33.24  0.24         32.3
+  7      245762  1455.90  1264.99  33.27  0.54         33.7
+  8      245765  1385.84  1245.18  33.27  3.16         39.9
+  9      245769  1424.42  1208.04  33.27  4.73         53.2
+
+Radius is measured from the midpoint of the two starts; it runs
+from 32.3 to 56.4 units, so these are not two symmetric gates.
+
+Open behaviour, verified in the zone file:
+  The close event spawns every object from door 1 to the end of
+  the array, which includes the buffs and the anvil.
+  The open event runs a loop that stops before door 7, so only
+  doors 1 to 6 are ever opened. Doors 7, 8 and 9 - entries
+  245762, 245765 and 245769 - are spawned shut and are never
+  opened by the core.
+  Whether those three are meant to stay shut, or are a loop
+  off-by-three, is unverified. They are close to the centre
+  (33.7, 39.9 and 53.2 units out) so it matters for pathing.
+
+=== 3. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+One central pillar: the statue of Black Rook Hold. Layout:
+
+  "The map features a statue in the centre of the map that
+   functions as a pillar. At the base of the statue is a slightly
+   raised, circular platform. Stairs surround most of the
+   platform, with a higher platform in front of the statue
+   completing the circle. Another feature of this map is that the
+   rooms that each team enters from are quite large. These rooms
+   remain accessible after the gates have opened."
+   (Liquipedia)
+
+  Notable features listed by the same page: "One Pillar", "Two
+  Large Rooms", "Platform".
+
+Pillar count: 1, plus the raised platform that shares its base
+Pillar position: unverified. The statue itself is not a server
+  object; the server spawns only doors, the two orbs and the
+  anvil
+Platform position: unverified, but the arena graveyard at
+  1419.42, 1255.49, 34.1073 sits 6.43 units from the midpoint of
+  the starts and 0.84 above the door band, which matches the
+  "slightly raised, circular platform" at the statue's base
+The two entry rooms are the only large LoS structures behind
+  each spawn and they stay open after the gates open
+
+The distinctive feature against the other arenas: the cover here
+is in the middle, not at the rim. The two entry rooms are the
+only deep LoS behind the spawns.
+
+=== 4. HEIGHT LEVELS AND RAMPS ===
+
+Two levels plus the entry rooms.
+
+  Arena floor (door band):      33.21 to 33.27
+  Team 2 start:                 32.1104
+  Team 1 start:                 33.0047
+  Central platform (graveyard): 34.1073
+
+So the floor the doors sit on is 33.21 to 33.27, the spawn
+shelves are slightly below it (32.1104 and 33.0047), and the
+central platform is 0.84 to 1.10 above the floor. That is the
+"slightly raised" platform; the step is under 1.2 units.
+
+Ramps and stairs: the platform is reached by stairs that surround
+most of it, with a higher platform in front of the statue
+completing the circle. That much is documented. Stair count,
+width, direction and the height of the higher platform are
+unverified; no readable source and no server data give them.
+
+No second floor. The two entry rooms are on the same level as
+the floor they lead from.
+
+=== 5. USUAL FIRST POSITIONS BY ROLE ===
+
+The walk from spawn to the centre is 52.19 units, and the cover
+is in the middle, so both teams arrive at the statue at the same
+time. The two entry rooms stay open, which makes them a retreat
+rather than a place to hold at the start.
+
+Melee DPS:
+  Go over the central platform edge rather than around it. The
+  statue itself is the only real pillar, so whoever holds the
+  statue side controls the first exchange
+  Do not get pushed into the open ring between the statue and
+  the doors; there is no cover there
+
+Ranged DPS:
+  Take the raised platform and cast over the stairs. The step is
+  small but it is the only elevation on the map
+  Because the rooms behind each spawn stay open, an escape into
+  your own room is always available
+
+Healers:
+  The centre platform is the safest ground, and the graveyard is
+  on it, so a death near the middle returns you close to the
+  fight
+  The two large rooms behind the spawns give a deep LoS reset if
+  the platform is lost
+
+General opener notes:
+  Both teams are 52.19 from the midpoint and the axis is 15.54 deg
+  off X, so the opening paths are close to head-on
+  The gate ring is not symmetric (radii 32.3 to 56.4), so the
+  distance from each spawn to its first door differs
+
+=== 6. BUFF PICKUPS ===
+
+Only Shadow Sight exists on this map.
+
+Shadow Sight A (GO 184663):
+  X: 1423.24
+  Y: 1287.08
+  Z: 32.84
+  Orientation: 4.75 rad
+  About 25.92 units from the start midpoint
+
+Shadow Sight B (GO 184664):
+  X: 1461.35
+  Y: 1225.18
+  Z: 33.0
+  Orientation: 2.59 rad
+  About 53.02 units from the start midpoint
+
+The two orbs are 72.69 units apart. They are strongly asymmetric
+about the centre: 25.92 against 53.02 units, a measured
+difference of 27.11 units. Do not assume a mirrored layout here.
+Both orbs sit at or below the door band, not on the raised
+platform.
+
+Spawn: 60 s after the gates open (ARENA_COUNTDOWN_MAX)
+Buff respawn time passed to the core: 180 s (BUFF_RESPAWN_TIME)
+Spell: 34709 Shadow Sight - 15 s, stealth and invisibility
+  detection, +5% damage taken while active
+The wiki quotes 90 s as the arena appearance time, the BfA core
+spawns them at 60 s; the exact retail 8.3.7 delay is unverified
+
+No health, mana, haste or berserking pickups are spawned here.
+The zone file spawns twelve objects: nine doors, one anvil and
+the two orbs.
+
+Stray object: entry 249825, the ANVIL, sits at
+  X: 1185.11
+  Y: 1404.49
+  Z: 65.18
+That is 277.22 units from the arena midpoint and 31.98 units
+above the door band, so it is outside the playable floor. The
+zone spawns it and then never mentions it again: nothing opens,
+uses or respawns it during a match. The zone file itself marks
+the entry with a comment questioning it. Treat it as a misplaced
+spawn.
+
+=== 7. MATCH FLOW NOTES ===
+
+Gates close before the start and the first six open together.
+This zone does not override the world state list, so unlike
+Tol'viron, Tiger's Peak and Ashamane's Fall it does not send
+worldstate 0xE1A. It only sends the base arena alive-player
+world states from Arena::FillInitialWorldStates.
+Dampening applies like every other arena.
+Arena Preparation is applied on zone-in.
+No out-of-bounds or under-map return points are wired in the BfA
+core for this map, and there are no area-trigger overrides.
+
+Known consequence of the door loop, from section 2: three door
+objects stay shut for the whole match. If a private server finds
+players stuck against an invisible or closed gate near the
+centre, that loop is the first thing to check.
+
+=== 8. SOURCES AND CONFIDENCE ===
+
+Sources:
+- world_safe_locs (TrinityCore 8.x dump): ids 5120, 5121, 5122
+  on map 1504
+- battleground_template: id 808 "Black Rook Hold Arena",
+  AllianceStartLoc 5121, HordeStartLoc 5122, StartMaxDist 0,
+  max 5 per team, level 90-120
+- HavenWoW/BFA-HavenCore BattlegroundBRH.cpp and .h: nine door
+  entries, buffs 184663/184664, anvil 249825, the 12-slot
+  position table, the door loop bounds
+- HavenWoW/BFA-HavenCore Battleground.h: BUFF_RESPAWN_TIME 180,
+  ARENA_COUNTDOWN_MAX 60
+- HavenWoW/BFA-HavenCore Arena.cpp: the base world state list
+- Ghostopheles/Datamine Map_BlackRookHoldArena.lua: map 1504,
+  directory BlackrookHoldArena, InstanceType 4, ExpansionID 6,
+  WDT 1244360
+- Warcraft Wiki "Black Rook Hold Arena": Val'sharah, outside the
+  hold, patch 7.0.3, zone 7816, subzone Raven's Glory
+- Liquipedia "Black Rook Hold Arena": central statue as pillar,
+  raised circular platform, stairs, higher platform, two large
+  entry rooms that stay accessible
+- Wowhead zone 7816; Warcraft Wiki "Shadow Sight"
+
+Unverified:
+- Statue position, size and height
+- Stair count, width and direction, and the height of the higher
+  platform
+- Whether doors 7, 8 and 9 are meant to stay shut
+- Where players are staged before the gates open (no Game On row)
+- Arena boundary and room dimensions
+- Exact retail 8.3.7 Shadow Sight spawn delay
+- Purpose of the stray anvil spawn

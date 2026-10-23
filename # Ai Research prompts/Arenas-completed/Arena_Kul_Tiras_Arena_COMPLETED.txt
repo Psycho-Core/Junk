@@ -1,0 +1,289 @@
+=== KUL TIRAS ARENA - MAP 1825 - COMPLETED ===
+
+8.3.7 build 35662.
+
+In the 8.3.7 client: yes, map 1825.
+
+READ THIS FIRST - this arena and step 10's Hook Point are the
+same map under different names. There is exactly one Kul Tiras
+arena map in the client, and every readable source agrees on the
+id even though they disagree on the name:
+  - Map.dbc has a single entry, directory KulTirasArena,
+    MapID 1825, and its MapName field says "Hook Point"
+  - battleground_template has a single row for it, id 897,
+    name 'Hook Point'; no row mentioning Tiras or Hook exists
+    other than that one
+  - the world safe locations on map 1825 are commented
+    "Kul Tiras Arena - Purple Team - Start" and
+    "Kul Tiras Arena - Gold Team - Start", so the server data
+    itself uses the Kul Tiras Arena name
+  - Wowhead lists two arena zones added in 8.0.1: 9278 "Kul
+    Tiras Arena" and 9279 "Hook Point"
+  - SharedDefines.h declares BATTLEGROUND_HOOK_POINT = 897 and
+    no Kul Tiras arena enum; MAP_KUL_TIRAS = 1643 is the
+    continent, not this instance
+So this document and Arena_Hook_Point_COMPLETED.txt describe one
+map with one queue entry and three names. Nothing below repeats a
+different map: the coordinates are the same rows, verified again
+against the source dump for this file.
+
+Core status: identical to step 10, and just as fatal. This core
+cannot create the arena at all:
+  - BATTLEGROUND_HOOK_POINT = 897 is declared and the template
+    queues it
+  - BattlegroundMgr::CreateNewBattleground has no HOOK_POINT
+    case, so the type reaches "default: return nullptr;"
+  - there is no zone file in src/server/game/Battlegrounds/Zones
+    under any spelling
+So the rest of this file describes what a working 8.3.7 client
+has, plus what the server data can prove, and nothing is spawned
+here.
+
+Arena map ID: 1825
+  Map.dbc directory: KulTirasArena
+  Map.dbc name: "Hook Point"
+  InstanceType: 4 (arena)
+  AreaTable zone: 9278 "Kul Tiras Arena" per Wowhead; 9279 "Hook
+  Point" is also an arena zone added in 8.0.1; which of the two
+  the instance reports is unverified
+  ExpansionID field in the map row: 7
+  WDT FileDataID: 1712797
+  No legacy duplicate: the 8.3.7 map dump has a single
+  KulTirasArena entry
+  Battleground entry: 897 "Hook Point"
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 90, MaxLvl 120
+  AllianceStartLoc 6276, HordeStartLoc 6277, StartMaxDist 0
+  Weight 1
+
+Location: Ashvane Company Yards, Boralus
+Added: patch 8.0.1 (2018-07-17), Battle for Azeroth
+
+=== 1. START POSITIONS (world_safe_locs, map 1825) ===
+
+Purple team (WorldSafeLoc 6276 = AllianceStartLoc):
+  X: 1052.47
+  Y: -364.773
+  Z: 1.89676
+  Facing: 114.343 deg = 1.9957 rad
+  Comment: "Kul Tiras Arena - Purple Team - Start"
+
+Gold team (WorldSafeLoc 6277 = HordeStartLoc):
+  X: 966.125
+  Y: -290.78
+  Z: 3.28703
+  Facing: 297.523 deg = 5.1928 rad
+  Comment: "Kul Tiras Arena - Gold Team - Start"
+
+Game On target (WorldSafeLoc 6896):
+  X: 1031.07
+  Y: -334.044
+  Z: 0.776609
+  Facing: 131.268 deg = 2.2911 rad
+  Comment: "Arena - Kul Tiras - Teleport Target - Game On"
+
+The two start comments carry the name this prompt asks about:
+both say "Kul Tiras Arena". The Game On comment drops the word
+Arena and says "Kul Tiras" alone. Treat 6276 as the Alliance
+start because the template points AllianceStartLoc at it, not
+because of the colour in the comment.
+
+No arena graveyard row exists on map 1825 in this dump. The map
+has exactly three rows: two starts and Game On. Where the dead
+respawn is unverified.
+
+Derived from those points (arithmetic on verified values):
+  Distance start to start: 113.71 units
+  Midpoint of the two starts: about 1009.298, -327.776
+  Each start is 56.86 units from that midpoint
+  Axis is 86.35 apart on X and 73.99 apart on Y, so the start
+  line runs diagonally, not along either axis
+  Bearing from Purple to Gold is 139.41 deg
+  Purple faces 114.343 deg, which is 25.06 deg off that bearing
+  Gold faces 297.523 deg, which is 21.88 deg off the reverse
+  Both teams face inward, both off-axis
+  Game On target is 22.66 units from the midpoint, well off the
+  start line, not on it
+
+=== 2. GATES ===
+
+None. This core spawns no gates on map 1825 because it has no
+zone class for battleground 897, and no other file places
+objects on this map.
+
+Gate count, entries and coordinates are unverified. The arena
+would need a zone class registered for BATTLEGROUND_HOOK_POINT
+plus door positions taken from retail, and no readable source
+gives those coordinates.
+
+=== 3. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+Sources disagree on how many pillars this map has.
+
+Pillars and a wooden fence (Liquipedia, NamuWiki, Inven):
+
+  "It is a squared off area with two pillars in the middle area.
+   One side is covered by fences allowing for line-of-sight, with
+   the middle and both ends open."
+   (Liquipedia)
+
+  "it has an asymmetrical shape, with pillars slanted and a tall
+   and long wooden fence on one side."
+   (NamuWiki arena page, from Korean)
+
+  "There are two structures in the centre of the arena that act
+   as pillars... The variable is the wooden wall located on one
+   side of the arena."   (Inven preview, June 2018, from Korean)
+
+Four plus two (one source, preview text):
+
+  "It features four pillars for players to dance around - one
+   with a shark hanging from it - and two smaller pillars."
+   (Blizzard arena preview text, August 2018, quoted by xpoff)
+
+Liquipedia and Inven say two pillars in the middle; NamuWiki
+describes slanted pillars without giving a count. All three
+describe a fence on one side. The Blizzard preview
+claims four big pillars plus two small, which no later page
+repeats. Pillar count is therefore conflicting between
+sources; the majority reading is two LoS pillars in the
+middle.
+
+Pillar positions: unverified. Pillar size and slant: unverified.
+Fence side: unverified beyond "one side". Nothing spawns here in
+server data, and no readable source gives coordinates, so this
+section is prose only. The starts being 25.06 and 21.88 degrees
+off the line between them does back the asymmetry all sources
+describe.
+
+=== 4. HEIGHT LEVELS AND RAMPS ===
+
+One level as far as any readable source goes. No source
+describes a ramp or a second floor on this map. The only Z
+values the server gives:
+
+  Game On target:    0.776609
+  Purple team start: 1.89676
+  Gold team start:   3.28703
+
+Spread across all three: 2.51 units. The two spawn floors differ
+by 1.39 units.
+
+A 2.51-unit spread means the ground is not perfectly flat, but
+three points cannot describe its shape, and no readable source
+gives pillar or fence heights.
+
+Ramps: unverified. No source describes one, and the world safe
+locations alone cannot prove one either way.
+
+=== 5. USUAL FIRST POSITIONS BY ROLE ===
+
+Read with caution: with no zone file and no spawn data, the
+following is reasoned from the published descriptions and the
+start geometry, not from coordinates.
+
+Melee DPS:
+  Race for the middle pillars; two of the three map pages put
+  the cover in the centre, and the fenced side is the only wall
+  Approach along the diagonal: the starts face 25.06 and 21.88
+  degrees off the line between them, so no straight run exists
+
+Ranged DPS:
+  The map is medium sized and open at both ends, so max-range
+  casting across the middle works; do not stand in the open
+  middle against a melee cleave
+  Use the fenced side as a wall for LoS, the open ends for space
+
+Healers:
+  Play the edge of the fenced side, wall on one hand and a
+  central pillar a short walk away
+  Do not hold an open end: nothing to hide behind, and one
+  enemy start sits near an end
+
+General opener notes:
+  Both teams are 56.86 from the midpoint, so first contact is
+  close to simultaneous
+  The start line is diagonal (86.35 by 73.99), so the approach
+  is not along one clean axis
+  Game On is 22.66 off the midpoint, consistent with an
+  asymmetric layout rather than a mirrored one
+
+=== 6. BUFF PICKUPS ===
+
+None spawned. This core places no Shadow Sight orbs on map 1825
+because no zone class exists for battleground 897.
+
+Retail almost certainly has the usual two Shadow Sight orbs,
+since every other arena in this set does, but for this map the
+count, object entries, positions and respawn are all unverified.
+Do not copy coordinates from Tol'viron or Tiger's Peak; they are
+different maps.
+
+Spell for reference: 34709 Shadow Sight - 15 s, stealth and
+invisibility detection, +5% damage taken while active. That the
+spell exists is verified; that an orb on this map casts it is
+not.
+
+=== 7. MATCH FLOW AND NAMING NOTES ===
+
+The queue selects this map and then fails:
+  battleground_template row 897 "Hook Point", Weight 1
+  CreateNewBattleground has no HOOK_POINT case and returns
+  nullptr from the default branch
+So on this core a queue pop produces no instance, and a player
+here would see neither name in game.
+
+If you record names for your own tooling, use them as follows:
+  map id to teleports and waypoints: 1825
+  battleground id: 897
+  name in the client's map list: Hook Point
+  name in world safe location comments: Kul Tiras Arena
+  zone id on the instance: 9278 or 9279, unverified
+Liquipedia, NamuWiki and the wiki all page this arena as Hook
+Point; Wowhead keeps both zone pages.
+
+Dampening, Arena Preparation and the arena countdown would apply
+if the instance were created; they are inherited from Arena, not
+per-map, and nothing here overrides them.
+
+=== 8. SOURCES AND CONFIDENCE ===
+
+Sources:
+- world_safe_locs (TrinityCore 8.x dump): ids 6276, 6277, 6896
+  on map 1825, comments naming Kul Tiras Arena
+- battleground_template: single matching row, id 897 "Hook
+  Point", AllianceStartLoc 6276, HordeStartLoc 6277
+- HavenWoW/BFA-HavenCore SharedDefines.h: BATTLEGROUND_HOOK_POINT
+  = 897, MAP_KUL_TIRAS = 1643 (continent), no arena enum named
+  Kul Tiras
+- HavenWoW/BFA-HavenCore BattlegroundMgr.cpp: no HOOK_POINT case,
+  default returns nullptr
+- HavenWoW/BFA-HavenCore Zones directory listing: no zone file
+  for this battleground under any spelling
+- Ghostopheles/Datamine Map_KulTirasArena.lua: MapName "Hook
+  Point", MapID 1825, directory KulTirasArena, InstanceType 4,
+  ExpansionID 7, WDT 1712797
+- Wowhead zones 9278 "Kul Tiras Arena" and 9279 "Hook Point":
+  both arena, both added 8.0.1, neither has a zone map
+- Warcraft Wiki "Hook Point (arena)": Ashvane Company Yards,
+  Boralus, patch 8.0.1
+- Liquipedia "Hook Point": squared area, two middle pillars, one
+  fenced side, medium size
+- NamuWiki arena page: slanted pillars, tall wooden fence, one
+  side
+- Inven preview, June 2018: two central pillar structures, a
+  wooden wall on one side
+- Blizzard arena preview text, August 2018 (via xpoff): four
+  pillars and two smaller, one with a shark
+- WoW map-pool logic does not apply: this map never enters
+  rotation on this core because it cannot be created
+
+Unverified:
+- Which zone id (9278 or 9279) the instance reports
+- Gate objects: count, entries, positions (no zone file)
+- Shadow Sight orbs: count, entries, positions, respawn
+- Pillar count (sources conflict: 2 versus 4 plus 2)
+- Pillar positions, size and slant
+- Which side carries the wooden fence
+- Any ramp or second level
+- Graveyard location (no row on map 1825)
+- Exact retail 8.3.7 Shadow Sight spawn delay

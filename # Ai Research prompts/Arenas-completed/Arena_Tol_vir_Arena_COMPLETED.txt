@@ -1,0 +1,252 @@
+=== TOL'VIRON ARENA - MAP 980 - COMPLETED ===
+
+8.3.7 build 35662. Also spelled Tol'Viron in the finder UI.
+
+Arena map ID: 980
+  Map.dbc directory: TolVirArena
+  InstanceType: 4 (arena)
+  Client instance list: 980 "Tol'Viron Arena"
+  AreaTable zone: 6296
+  ExpansionID field in the map row: 3
+  NOTE: that field reads 3 (Cataclysm era) while the wiki dates
+  the arena to patch 5.0.4, Mists of Pandaria. The field is the
+  map asset's, not the arena's release date. Treat the "3" as a
+  data field value, not as a release claim.
+
+Battleground entry: 719 "Tol'viron Arena"
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 90, MaxLvl 120
+  AllianceStartLoc 4136, HordeStartLoc 4137, StartMaxDist 10
+  StartMaxDist 10. Every other arena row in the template has 0;
+  the only other non-zero rows are battlegrounds: AV 150, WSG 75,
+  AB 75, EotS 75, IoC 200 and Kotmogu 50
+
+Location: Uldum
+Added: patch 5.0.4 (2012-08-28). Sixth arena map, first new arena
+  since Dalaran Sewers, and a heavily modified Ruins of Ammon
+
+=== 1. START POSITIONS (world_safe_locs, map 980) ===
+
+Alliance / Team 1 (WorldSafeLoc 4136 = AllianceStartLoc):
+  X: -10649.9
+  Y: 428.172
+  Z: 24.419
+  Facing: 182.385 deg = 3.1832 rad
+  Comment: "Arena - Tol'vir - Teleport Target - Team 1"
+
+Horde / Team 2 (WorldSafeLoc 4137 = HordeStartLoc):
+  X: -10778.2
+  Y: 430.875
+  Z: 24.4117
+  Facing: 0.332764 deg = 0.005808 rad
+  Comment: "Arena - Tol'vir - Teleport Target - Team 2"
+
+Arena graveyard (WorldSafeLoc 4135):
+  X: -10716.7
+  Y: 429.295
+  Z: 24.4117
+  Facing: 0
+  Comment: "Tol'vir Arena - PvP - Arena Graveyard"
+
+Game On target (WorldSafeLoc 4138):
+  X: -10716.4
+  Y: 429.233
+  Z: 24.4117
+  Facing: 0
+  Comment: "Arena - Tol'vir - Teleport Target - Game On"
+
+The two starts lie almost exactly on the X axis. The Horde facing
+of 0.33 degrees is effectively due north, which does not point at
+the enemy start 128 units west; treat the facing values as data,
+not as a reliable line of sight.
+
+Derived from those points (arithmetic on verified values):
+  Distance start to start: 128.3 units
+  Arena centre: about -10714.05, 429.52
+  Each start is 64.2 units from that centre
+  Start axis is X: 128.3 apart on X, only 2.7 apart on Y
+  Graveyard is 2.7 units from the centre
+  Game On target is 2.4 units from the centre
+
+=== 2. GATES ===
+
+Team 1 gate (GO 213196):
+  X: -10654.3
+  Y: 428.3047
+  Z: 23.54276
+  Orientation: 3.141593 rad
+  Quaternion: 0, 0, -1, 0
+  Alliance start stands 4.4 units behind it
+
+Team 2 gate (GO 213197):
+  X: -10774.61
+  Y: 431.2383
+  Z: 23.54276
+  Orientation: 0
+  Quaternion: 0, 0, 0, 1
+  Horde start stands 3.6 units behind it
+
+Distance between the two gates: 120.3 units
+Both gates open at match start (DoorOpen on both).
+Area triggers 8451 and 8452 are handled as no-ops on this map.
+
+Note the gates sit 0.876 units below the spawn Z, so a player is
+dropped slightly onto the arena floor after the gate opens.
+
+=== 3. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+This map is the Nagrand layout in Uldum art. The wiki is explicit:
+
+  "The map's design is based on the simplistic Nagrand Arena.
+   The only difference between the two arenas is the art style
+   and the direction of the pillars."
+
+So: four pillars, same spacing and same open-field shape as
+Nagrand Arena, rotated relative to the Nagrand arrangement.
+
+Verified: the server spawns no LoS object on this map. Only the
+two gates and the two Shadow Sight orbs are game objects, so the
+pillars are world model geometry with no coordinates in server
+data.
+
+Pillar count: 4 (inherited from the Nagrand layout)
+Pillar positions: unverified (no readable source with x, y, z)
+Pillar rotation versus Nagrand: unverified as an angle; the wiki
+  says only that the direction differs
+
+Useful cross-check from the orb axis: on this map the two orbs
+sit 91.5 units apart along Y, perpendicular to the 128.3-unit
+start axis along X. On Nagrand the orbs sit 108.9 apart on a
+diagonal. That is consistent with "pillars rotated" being a real
+difference between the two maps.
+
+=== 4. HEIGHT LEVELS AND RAMPS ===
+
+Single level, no ramps. The arena is flat like Nagrand.
+
+Verified Z values on map 980:
+  Team 1 gate:        23.54276
+  Team 2 gate:        23.54276
+  Horde start:        24.4117
+  Arena graveyard:    24.4117
+  Game On target:     24.4117
+  Alliance start:     24.419
+  Shadow Sight A:     24.412825
+  Shadow Sight B:     24.4131
+
+Floor Z spans 23.54276 to 24.419. That is a spread of 0.876 units,
+almost all of it the gate sill sitting below the spawn points.
+The playable floor itself is flat to within 0.0073 units
+(24.4117 to 24.419).
+
+Elevation changes inside the arena: none documented and none in
+server data. No platform, no steps, no bridge.
+
+=== 5. USUAL FIRST POSITIONS BY ROLE ===
+
+Because the map is Nagrand with rotated pillars, the opening is a
+race for the pillars, but the approach angle is different from
+Nagrand - the enemy comes along the X axis here, so the pillars
+do not line up the same way against your healer.
+
+Melee DPS:
+  Cross toward the nearest pillar and take the far side of it in
+  one move; the short 64-unit run from spawn to centre means both
+  teams arrive together
+  Use the pillar to break the first caster casts, then fight on
+  the pillar's shadowed side
+
+Ranged DPS:
+  Take a pillar early and hold max range. The map is flat, so the
+  pillars are the only LoS on the field
+  Rotate around the pillar rather than standing still
+
+Healers:
+  Choose a pillar that keeps your partner inside healing range;
+  on this map the pillars sit at a different angle to Nagrand,
+  so re-check the geometry at the start rather than copying a
+  Nagrand habit
+  Do not take the centre; it is open on every side
+
+General opener notes:
+  Both teams are 64.2 units from the centre, so the first contact
+  is simultaneous
+  The orbs sit off the start axis, so picking one costs a detour
+  away from the fight - worth it only against a stealth comp
+
+=== 6. BUFF PICKUPS ===
+
+Only Shadow Sight exists on this map.
+
+Shadow Sight A (GO 184663):
+  X: -10717.63
+  Y: 383.8223
+  Z: 24.412825
+  Orientation: 1.555 rad
+  About 45.8 units from the arena centre
+
+Shadow Sight B (GO 184664):
+  X: -10716.6
+  Y: 475.364
+  Z: 24.4131
+  Orientation: 0
+  About 45.9 units from the arena centre
+
+The two orbs are 91.5 units apart and sit on the Y axis, i.e.
+perpendicular to the 128.3-unit start axis. Both are level with
+the arena floor to within 0.0003 units.
+
+Spawn: 60 s after the gates open (core spawn call)
+Respawn after pickup: 120 s (object spawn parameter)
+Spell: 34709 Shadow Sight - 15 s, stealth and invisibility
+  detection, +5% damage taken while active
+The wiki quotes 90 s as the arena appearance time, the BfA core
+spawns them at 60 s; the exact retail 8.3.7 delay is unverified
+wiki: two orbs "appear on opposite sides of the Arena", which
+  matches the Y-axis placement measured above
+
+No health, mana, haste or berserking pickups are spawned here.
+The core spawns exactly four objects on this map - two gates and
+two orbs - so any other pickup object would have to come from the
+map itself, and none is placed there.
+
+=== 7. MATCH FLOW NOTES ===
+
+Gates close before the start and open together.
+Worldstate 0xE1A is set to 1 on this map.
+Dampening: the arena did not have Dampening until the hotfix of
+  2014-10-30, which "should now correctly" apply it. In 8.3.7 it
+  applies like every other arena.
+Arena Preparation is applied on zone-in.
+No out-of-bounds or under-map return points are wired in the BfA
+core for this map: the core handles only triggers 8451 and 8452
+and sends everything else to the default handler.
+
+=== 8. SOURCES AND CONFIDENCE ===
+
+Sources:
+- world_safe_locs (TrinityCore 8.x dump): ids 4135, 4136, 4137,
+  4138 on map 980
+- battleground_template: id 719 "Tol'viron Arena",
+  AllianceStartLoc 4136, HordeStartLoc 4137, StartMaxDist 10,
+  max 5 per team, level 90-120
+- HavenWoW/BFA-HavenCore BattlegroundTVA.cpp and .h: gates
+  213196/213197, buffs 184663/184664, coordinates, worldstate
+- Ghostopheles/Datamine Map_TolVirArena.lua: map 980,
+  directory TolVirArena, InstanceType 4, ExpansionID 3
+- Warcraft Wiki "Tol'viron Arena": Uldum, patch 5.0.4, sixth
+  arena, Nagrand layout, "only the art style and the direction
+  of the pillars" differ, 2014-10-30 Dampening hotfix
+- Wowhead zone 6296
+- Warcraft Wiki "Shadow Sight": spell 34709, two orbs on
+  opposite sides after 90 s, 15 s duration, +5% damage taken
+
+Unverified:
+- Coordinates, size and height of the four pillars
+- The angle by which the pillars are rotated versus Nagrand
+- Exact arena boundary and wall shape
+- What area triggers 8451 and 8452 do
+- Exact retail 8.3.7 Shadow Sight spawn delay
+- Why the map row's ExpansionID is 3 while the arena dates to
+  5.0.4
+- The BattlemasterList row that carries map 980 (no readable
+  8.3.7 DB2 dump; nothing in this file depends on it)
