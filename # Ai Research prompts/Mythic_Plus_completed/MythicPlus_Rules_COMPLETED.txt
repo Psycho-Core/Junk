@@ -1,0 +1,359 @@
+=== MYTHIC+ RULES - BATTLE FOR AZEROTH SEASON 4 (8.3.7) - COMPLETED ===
+
+Step 2 of 3 (prompt 02_Rules.txt).
+Server context: BfA 8.3.7 build 35662, TrinityCore-based HavenCore fork.
+Rule sources are era-dated (BfA season 4, Jan-Oct 2020) where possible; community
+tools are cited by exact source. Anything without a readable source says unverified.
+
+=====================================================================
+1. HOW THE KEYSTONE LEVEL SCALES HEALTH AND DAMAGE
+=====================================================================
+
+- Per keystone level: enemies gain +10% health and +10% damage, compounding.
+  Verified two ways:
+  * MethodDungeonTools (MDT) formula, commit 4d36744c (2020-07-19),
+    MythicDungeonTools.lua function MDT:CalculateEnemyHealth:
+    multiplier = round(1.10 ^ max(level - 2, 0), 2); health = multiplier * baseHealth.
+    So +2 = x1.00, +3 = x1.10, +4 = x1.21, +5 = x1.33, ... +15 = x3.45 of the base.
+  * warcraft.wiki patch 7.2.5 note (quoted on the Mythic+ page, Feb-2020 revision
+    oldid 4869763): "Mythic Keystone enemy health and damage now increase by 10%
+    per level (was 8% per level)." No later scaling change is listed on that page.
+- Base of the scale = the dungeon's Mythic 0 (+0) enemies.
+- Affix multipliers on top (MDT CalculateEnemyHealth, BfA data):
+  * Fortified: non-boss enemies x1.20 health.
+  * Tyrannical: boss enemies x1.40 health.
+  * Damage percentages of Fortified/Tyrannical: unverified (wiki text says both
+    increase health and damage; no numeric damage value in any source read).
+- Season 4 level rebase (warcraft.wiki Patch 8.3.0 notes, 2020-01-14):
+  * Non-keystone Mythic (+0) enemy health/damage +45%; Heroic +25%; Normal unchanged.
+  * "Mythic Keystones have been reduced by 4 levels, to account for this
+    difficulty increase."
+  * M+ rewards raised by 30 item levels for season 4.
+- On this fork (HavenCore): GetHealthMultiplier/GetDamageMultiplier return
+  100 * (GameTable Scalar - 1), loading "ChallengeModeHealth.txt" and
+  "ChallengeModeDamage.txt" (GameTables.cpp lines 126-127). The per-level scalar
+  VALUES in those tables for build 35662: unverified (wago.tools csv endpoint for
+  build 8.3.7.35662 returned "Table not found" / HTTP 500). The +10%-per-level
+  formula above is the retail rule; the fork formula is equivalent to it.
+
+=====================================================================
+2. WHICH AFFIXES APPLY AT WHICH LEVEL (BFA SEASON 4)
+=====================================================================
+
+Slots (warcraft.wiki "Mythic+ affix" page, Feb-2020 revision of Mythic+, and
+mythicpl.us snapshot 2020-04-02 - both agree):
+- Level 2: first affix - always Fortified OR Tyrannical, alternating weekly.
+- Level 4: second affix - exactly one of 5:
+  Bolstering (7), Bursting (11), Raging (6), Sanguine (8), Teeming (5).
+- Level 7: third affix - exactly one of 6:
+  Explosive (13), Grievous (12), Necrotic (4), Quaking (14), Skittish (2), Volcanic (3).
+- Level 10: fourth (seasonal) affix - does NOT rotate weekly; one per whole season.
+  Season 1: Infested. Season 2: Reaping. Season 3: Beguiling.
+  Season 4: Awakened (patch 8.3.0, removed in 9.0.1). Wowhead affix id: 120.
+- Active affixes are the same for all players each week (weekly reset).
+- Total: +2 has 1 affix, +4 has 2, +7 has 3, +10 and above have 4.
+
+Affix id numbers (fork comments in InstanceScript CastChallengeCreatureSpell /
+CastChallengePlayerSpell list 2 Skittish, 3 Volcanic, 4 Necrotic, 6 Raging,
+7 Bolstering, 8 Sanguine, 9 Tyrannical, 10 Fortified, 11 Bursting, 12 Grievous,
+13 Explosive, 14 Quaking; 1 Overflowing and 5 Teeming from the affix links on the
+archived mythicpl.us page; Overflowing was removed in patch 7.2.0 and is not BfA).
+
+Affix effects, BfA-era text (warcraft.wiki Feb-2020 revision, Mythic+ page):
+- Fortified: increases health and damage of non-boss enemies (health x1.20 per MDT).
+- Tyrannical: increases health and damage of boss enemies (health x1.40 per MDT).
+- Bolstering: on death, bolsters allies within 30 yards, permanently +20% max
+  health and damage; stacks.
+- Bursting: slain non-boss enemies deal 5% of max health to all players over
+  4 sec; stacks.
+- Raging: non-boss enemies enrage at 30% health, +100% damage until defeated.
+- Sanguine: pools heal enemies 5% of max health per sec and damage players 15%
+  of max health per sec.
+- Teeming: additional non-boss enemies throughout the dungeon; the enemy-forces
+  requirement is raised (MDT totals below give both variants).
+- Explosive: enemies summon Explosive Orbs in combat that detonate if not
+  destroyed (detonation damage: unverified).
+- Grievous: below 90% health players take stacking damage over time until healed
+  above 90%.
+- Necrotic: melee attacks deal physical damage every 2 sec and reduce healing
+  and absorption received by 2% per stack for 9 sec; stacks.
+- Quaking: periodic shockwave, damage + interrupts casting.
+- Skittish: enemies pay far less attention to tank threat.
+- Volcanic: eruptions under distant players' feet.
+
+Season 4 affix: Awakened (warcraft.wiki "Awakened (affix)", Patch 8.3.0 notes):
+- At +10 and above, four obelisks (visible on the dungeon map; no use in combat)
+  pull players into Ny'alotha ("Ny'alotha Incursion") where a lieutenant waits.
+  Kill it or it joins the final boss fight. Return portal spawns where the
+  lieutenant died (used for skips). Voice of the Corruptor offers a
+  damage/healing buff that resets Heroism/Bloodlust debuffs.
+- The four lieutenants (appear in all 12 dungeons in the forces data below):
+  Urg'roth, Breaker of Heroes (Brutal Spire) 161124;
+  Voidweaver Mal'thir (Cursed Spire) 161241;
+  Blood of the Corruptor (Defiled Spire) 161244;
+  Samh'rek, Beckoner of Chaos (Entropic Spire) 161243.
+  Patch 8.3.0 note detail: Blood of the Corruptor rot deals 60,000 damage/sec.
+
+Weekly schedule as printed in the 2020-04-02 mythicpl.us snapshot (Baseline | +4 | +7 | seasonal):
+  Fortified  | Bolstering | Grievous   | Awakened
+  Tyrannical | Raging     | Explosive  | Awakened
+  Fortified  | Sanguine   | Grievous   | Awakened
+  Tyrannical | Teeming    | Volcanic   | Awakened
+  Fortified  | Bolstering | Skittish   | Awakened
+  Tyrannical | Bursting   | Necrotic   | Awakened
+  Fortified  | Sanguine   | Quaking    | Awakened
+  Tyrannical | Bolstering | Explosive  | Awakened
+  Fortified  | Bursting   | Volcanic   | Awakened
+  Tyrannical | Raging     | Necrotic   | Awakened
+  Fortified  | Teeming    | Quaking    | Awakened
+  Tyrannical | Bursting   | Skittish   | Awakened
+(Cross-checked against raider.io "BFA SEASON 4 GUIDES" weekly route titles:
+Fortified+Bursting+Volcanic+Awakened, Tyrannical+Teeming+Volcanic+Awakened,
+Fortified+Bolstering+Skittish+Awakened, etc. all appear.)
+
+On this fork: affixes are NOT implemented - REQUEST_AFFIXES goes to Handle_NULL,
+m_affixes/_affixes are never assigned (start packet sends 0,0,0), all affix
+effect points are hardcoded 0, affix aura scripts are commented out (step-1 audit).
+
+=====================================================================
+3. HOW ENEMY FORCES ARE COUNTED AND WHAT EACH CREATURE ADDS
+=====================================================================
+
+Rule: a run completes when all bosses are dead AND the enemy-forces counter
+reaches the dungeon's required total (100% of the map's count budget). The
+counter shows killed points / required total as a percentage (MDT
+FormatEnemyForces, default format "forces/forcesmax (percent%)"). Bosses are on
+the list with count 0 (they add nothing; they are required separately).
+With the Teeming affix active, the higher "teeming" total is used instead of the
+normal total (MDT: IsCurrentPresetTeeming -> dungeonTotalCount[].teeming).
+
+Fork status: HavenCore has NO enemy-forces tracking and no forces packet at all
+(step-1 audit). The numbers below are the retail/MDT season-4 reference values.
+
+Source for all values in this section: Nnoggie/MythicDungeonTools commit
+4d36744c53477fc9fcb990471b1bb639a62f0d48 (2020-07-19), files
+BattleForAzeroth/<Dungeon>.lua: MDT.dungeonTotalCount = {normal, teeming} and
+per-enemy ["id"], ["name"], ["count"]. Files were fetched one at a time to /tmp,
+extracted, and deleted.
+
+Per dungeon: map id (fork RegisterInstanceScript) | required total normal/teeming:
+  Atal'Dazar            1763 | 198 / 237
+  Freehold              1754 | 261 / 313
+  King's Rest           1762 | 246 / 286
+  Mechagon - Junkyard   unverified map id | 332 / 398
+  Mechagon - Workshop   2097 (fork registers instance_operation_mechagon here;
+                        second half's own map id unverified) | 160 / 192
+  Shrine of the Storm   1864 | 695 / 834
+  Siege of Boralus      1822 | 319 / 383
+  Temple of Sethraliss  1877 | 220 / 264
+  The MOTHERLODE!!      1594 | 384 / 460
+  The Underrot          1841 | 252 / 286
+  Tol Dagor             1771 | 400 / 479
+  Waycrest Manor        1862 | 303 / 363
+
+Per-creature count values (entry id NAME=count; count 0 = gives no forces):
+
+Atal'Dazar: 127799 Dazar'ai Honor Guard=4; 122971 Dazar'ai Juggernaut=4; 122973 Dazar'ai Confessor=4; 122972 Dazar'ai Augur=4; 122984 Dazar'ai Colossus=6; 132126 Gilded Priestess=4; 122967 Priestess Alun'za=0; 122970 Shadowblade Stalker=4; 127757 Reanimated Honor Guard=4; 127315 Reanimation Totem=0; 122969 Zanchuli Witch-Doctor=4; 127879 Shieldbearer of Zul=4; 122965 Vol'kaal=0; 128435 Toxic Saurid=1; 128434 Feasting Skyscreamer=4; 122963 Rezan=0; 129553 Dinomancer Kish'o=10; 128455 T'lonja=6; 129552 Monzumi=6; 122968 Yazma=0; 155434 Emissary of the Tides=4; 155433 Void-Touched Emissary=4; 155432 Enchanted Emissary=0; 161244 Blood of the Corruptor=4; 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4
+
+Freehold: 129602 Irontide Enforcer=6; 128551 Irontide Mastiff=4; 126918 Irontide Crackshot=4; 126928 Irontide Corsair=4; 129788 Irontide Bonesaw=4; 129598 Freehold Pack Mule=0; 126832 Skycap'n Kragg=0; 129559 Cutwater Duelist=4; 127111 Irontide Oarsman=6; 129548 Blacktooth Brute=4; 130404 Vermin Trapper=4; 130024 Soggy Shiprat=1; 129550 Bilge Rat Padfoot=4; 129529 Blacktooth Scrapper=4; 130011 Irontide Buccaneer=4; 129527 Bilge Rat Buccaneer=4; 129600 Bilge Rat Brinescale=3; 129547 Blacktooth Knuckleduster=4; 129599 Cutwater Knife Juggler=3; 126848 Captain Eudora=0; 126847 Captain Raoul=0; 126845 Captain Jolly=0; 129601 Cutwater Harpooner=4; 130400 Irontide Crusher=6; 129699 Ludwig Von Tortollan=4; 126969 Trothak=0; 126919 Irontide Stormcaller=4; 130012 Irontide Ravager=4; 127106 Irontide Officer=6; 126983 Harlan Sweete=0; 129526 Bilge Rat Swabby=4; 127119 Freehold Deckhand=0; 130522 Freehold Shipmate=2; 127124 Freehold Barhand=0; 129547000 Blacktooth Knuckleduster=0; 126497 Shiprat=0; 155434 Emissary of the Tides=4; 155433 Void-Touched Emissary=4; 155432 Enchanted Emissary=0; 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4; 161244 Blood of the Corruptor=4; 130521 Freehold Deckhand=1
+
+King's Rest: 133935 Animated Guardian=8; 133943 Minion of Zul=0; 134174 Shadow-Borne Witch Doctor=5; 134158 Shadow-Borne Champion=6; 134157 Shadow-Borne Warrior=4; 135322 The Golden Serpent=0; 137487 Skeletal Hunting Raptor=4; 137486 Queen Patlaa=4; 137484 King A'akul=6; 137485 Bloodsworn Agent=4; 134251 Seneschal M'bara=4; 137473 Guard Captain Atu=4; 134331 King Rahu'ai=6; 137474 King Timalji=6; 137478 Queen Wasi=6; 134739 Purification Construct=10; 137969 Interment Construct=6; 134993 Mchimba the Embalmer=0; 135204 Spectral Hex Priest=4; 135167 Spectral Berserker=4; 135239 Spectral Witch Doctor=4; 135231 Spectral Brute=8; 135235 Spectral Beastmaster=4; 135192 Honored Raptor=4; 134994 Spectral Headhunter=1; 135472 Zanazal the Wise=0; 135475 Kula the Butcher=0; 135470 Aka'ali the Conqueror=0; 138489 Shadow of Zul=8; 136160 King Dazar=0; 137989 Embalming Fluid=1; 155434 Emissary of the Tides=4; 155433 Void-Touched Emissary=4; 155432 Enchanted Emissary=0; 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4; 161244 Blood of the Corruptor=4
+
+Mechagon - Junkyard: 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4; 161244 Blood of the Corruptor=4; 150142 Scrapbone Trashtosser=4; 150250 Pistonhead Blaster=4; 150249 Pistonhead Scrapper=4; 150143 Scrapbone Grinder=4; 150547 Scrapbone Grunter=1; 150146 Scrapbone Shaman=4; 152009 Malfunctioning Scrapbot=5; 150253 Weaponized Crawler=6; 150254 Scraphound=4; 150251 Pistonhead Mechanic=4; 150154 Saurolisk Bonenipper=4; 150160 Scrapbone Bully=5; 150276 Heavy Scrapbot=5; 153755 Naeno Megacrash=0; 150712 Trixie Tazer=0; 150159 King Gobbamak=0; 150195 Gnome-Eating Slime=4; 150169 Toxic Lurker=4; 150297 Mechagon Renormalizer=4; 155094 Mechagon Trooper=4; 150165 Slime Elemental=5; 155090 Anodized Coilbearer=4; 150292 Mechagon Cavalry=5; 150293 Mechagon Prowler=4; 150168 Toxic Monstrosity=6; 150222 Gunker=0; 150295 Tank Buster MK1=0; 150190 HK-8 Aerial Oppression Unit=0
+
+Mechagon - Workshop: 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161244 Blood of the Corruptor=4; 144294 Mechagon Tinkerer=4; 144293 Waste Processing Unit=6; 144301 Living Waste=1; 144299 Workshop Defender=4; 144249 Omega Buster=0; 151476 Blastatron X-80=8; 144295 Mechagon Mechanic=4; 151659 Rocket Tonk=4; 151658 Strider Tonk=4; 144248 Head Machinist Sparkflux=0; 144244 The Platinum Pummeler=0; 161241 Voidweaver Mal'thir=4; 144300 Mechagon Citizen=0; 144296 Spider Tank=5; 144246 K.U.-J.0.=0; 151325 Alarm-o-Bot=0; 144298 Defense Bot Mk III=6; 144303 G.U.A.R.D.=4; 151649 Defense Bot Mk I=4; 150396 Aerial Unit R-21/X=0; 145185 Gnomercy 4.U.=0; 151657 Bomb Tonk=4; 151773 Junkyard D.0.G.=4
+
+Shrine of the Storm: 134139 Shrine Templar=10; 136347 Tidesage Initiate=1; 134137 Temple Attendant=9; 134173 Animated Droplet=1; 136186 Tidesage Spiritualist=9; 134144 Living Current=18; 134056 Aqu'sirr=0; 139800 Galecaller Apprentice=9; 136214 Windspeaker Heldis=36; 139799 Ironhull Apprentice=9; 134150 Runecarver Sorn=36; 136249 Guardian Elemental=36; 155432 Enchanted Emissary=0; 134063 Brother Ironhull=0; 134417 Deepsea Ritualist=12; 139626 Dredged Sailor=1; 134338 Tidesage Enforcer=9; 134418 Drowned Depthbringer=9; 134514 Abyssal Cultist=9; 136353 Colossal Tentacle=10; 134423 Abyss Dweller=1; 134060 Lord Stormsong=0; 140038 Abyssal Eel=2; 136295 Sunken Denizen=13; 136297 Forgotten Denizen=9; 134069 Vol'zith the Whisperer=0; 134058 Galecaller Faye=0; 155434 Emissary of the Tides=9; 155433 Void-Touched Emissary=9; 161243 Samh'rek, Beckoner of Chaos=9; 161124 Urg'roth, Breaker of Heroes=9; 161241 Voidweaver Mal'thir=9; 161244 Blood of the Corruptor=9
+
+Siege of Boralus: 141283 Kul Tiran Halberd=4; 141495 Kul Tiran Footman=1; 141284 Kul Tiran Wavetender=4; 141285 Kul Tiran Marksman=4; 141566 Scrimshaw Gutter=1; 128649 Sergeant Bainbridge=0; 132530 Kul Tiran Vanguard=0; 132532 Kul Tiran Marksman=0; 129373 Dockhound Packmaster=4; 129640 Snarling Dockhound=4; 129371 Riptide Shredder=4; 129372 Blacktar Bomber=4; 129369 Irontide Raider=8; 135258 Irontide Marauder=1; 129370 Irontide Waveshaper=4; 128969 Ashvane Commander=8; 137521 Irontide Powdershot=4; 138255 Ashvane Spotter=4; 141565 Kul Tiran Footman=1; 138464 Ashvane Deckhand=4; 138465 Ashvane Cannoneer=4; 129208 Dread Captain Lockwood=0; 129366 Bilge Rat Buccaneer=4; 135245 Bilge Rat Demolisher=8; 135241 Bilge Rat Pillager=4; 129367 Bilge Rat Tempest=4; 137511 Bilge Rat Cutthroat=4; 128967 Ashvane Sniper=4; 137516 Ashvane Invader=4; 137517 Ashvane Destroyer=4; 128651 Hadal Darkfathom=0; 128652 Viq'Goth=0; 138019 Kul Tiran Vanguard=4; 141282 Kul Tiran Footman=1; 138247 Irontide Marauder=1; 138254 Irontide Powdershot=1; 144071 Irontide Waveshaper=4; 138002 Scrimshaw Gutter=1; 133990 Scrimshaw Gutter=1; 129374 Scrimshaw Enforcer=4; 128650 Chopper Redhook=0; 129879 Irontide Cleaver=0; 129928 Irontide Powdershot=0; 155434 Emissary of the Tides=4; 155433 Void-Touched Emissary=4; 155432 Enchanted Emissary=0; 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4; 161244 Blood of the Corruptor=4; 137614 Demolishing Terror=0; 137405 Gripping Terror=0
+
+Temple of Sethraliss: 134600 Sandswept Marksman=4; 134616 Krolusk Pup=2; 134990 Charged Dust Devil=4; 134991 Sandfury Stonefist=6; 134602 Shrouded Fang=4; 134617 Krolusk Hatchling=1; 133944 Aspix=0; 133379 Adderis=0; 134629 Scaled Krolusk Rider=6; 135562 Venomous Ophidian=2; 135846 Sand-Crusted Striker=2; 139422 Scaled Krolusk Tamer=6; 134686 Mature Krolusk=4; 134364 Faithless Tender=4; 139425 Crazed Incubator=4; 133384 Merektha=0; 136076 Agitated Nimbus=6; 134599 Imbued Stormcaller=4; 134691 Static-charged Dervish=4; 133389 Galvazzt=0; 68819 Eye of Sethraliss=12; 136250 Hoodoo Hexer=4; 139949 Plague Doctor=4; 133392 Avatar of Sethraliss=0; 139110 Spark Channeler=11; 155434 Emissary of the Tides=4; 155433 Void-Touched Emissary=4; 155432 Enchanted Emissary=0; 139946 Heart Guardian=6; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4; 161244 Blood of the Corruptor=4
+
+The MOTHERLODE!!: 137713 Big Money Crab=1; 137716 Bottom Feeder=0; 138061 Venture Co. Longshoreman=0; 138064 Posh Vacationer=0; 130436 Off-Duty Laborer=1; 136470 Refreshment Vendor=4; 130488 Mech Jockey=4; 130435 Addled Thug=5; 134232 Hired Assassin=4; 136006 Rowdy Reveler=0; 136139 Mechanized Peacekeeper=12; 129214 Coin-Operated Crowd Pummeler=0; 130661 Venture Co. Earthshaper=4; 130437 Mine Rat=2; 130653 Wanton Sapper=4; 136643 Azerite Extractor=12; 137940 Safety Shark=4; 134005 Shalebiter=1; 130635 Stonefury=4; 134012 Taskmaster Askari=6; 129227 Azerokk=0; 129802 Earthrager=0; 138369 Footbomb Hooligan=0; 133430 Venture Co. Mastermind=8; 133345 Feckless Assistant=5; 136934 Weapons Tester=4; 133432 Venture Co. Alchemist=5; 133963 Test Subject=1; 129231 Rixxa Fluxflame=0; 133593 Expert Technician=5; 133463 Venture Co. War Machine=12; 137029 Ordnance Specialist=5; 133436 Venture Co. Skyscorcher=5; 129232 Mogul Razdunk=0; 133482 Crawler Mine=1; 130485 Mechanized Peacekeeper=12; 144286 Asset Manager=0; 135975 Off-Duty Laborer=0; 155433 Void-Touched Emissary=4; 155434 Emissary of the Tides=4; 155432 Enchanted Emissary=0; 161243 Samh'rek, Beckoner of Chaos=4; 161124 Urg'roth, Breaker of Heroes=4; 161241 Voidweaver Mal'thir=4; 161244 Blood of the Corruptor=4
+
+The Underrot: 131402 Underrot Tick=1; 131436 Chosen Blood Matron=6; 133663 Fanatical Headhunter=4; 133852 Living Rot=4; 131817 Cragmaw the Infested=0; 131383 Sporecaller Zancha=0; 133870 Diseased Lasher=4; 133007 Unbound Abomination=0; 131492 Devout Blood Priest=4; 133836 Reanimated Guardian=4; 155432 Enchanted Emissary=0; 161243 Samh'rek, Beckoner of Chaos=4; 134284 Fallen Deathspeaker=4; 161124 Urg'roth, Breaker of Heroes=4; 130909 Fetid Maggot=4; 133685 Befouled Spirit=4; 133912 Bloodsworn Defiler=6; 161244 Blood of the Corruptor=4; 138187 Grotesque Horror=4; 133835 Feral Bloodswarmer=4; 138281 Faceless Corruptor=6; 161241 Voidweaver Mal'thir=4; 155434 Emissary of the Tides=4; 131318 Elder Leaxa=0
+
+Tol Dagor: 127477 Saltwater Snapper=6; 127480 Stinging Parasite=1; 127381 Silt Crab=3; 135366 Blacktooth Arsonist=6; 135699 Ashvane Jailer=7; 161244 Blood of the Corruptor=7; 127486 Ashvane Officer=7; 130582 Despondent Scallywag=0; 130027 Ashvane Marine=7; 161241 Voidweaver Mal'thir=7; 127479 The Sand Queen=0; 127485 Bilge Rat Looter=3; 136665 Ashvane Spotter=7; 161124 Urg'roth, Breaker of Heroes=7; 127490 Knight Captain Valyri=0; 131112 Cutwater Striker=6; 127497 Ashvane Warden=9; 127482 Sewer Vicejaw=4; 130025 Irontide Thug=7; 130026 Bilge Rat Seaspeaker=6; 127503 Overseer Korgus=0; 127488 Ashvane Flamecaster=7; 135706 Bilge Rat Looter=3; 135254 Irontide Raider=4; 155434 Emissary of the Tides=7; 155433 Void-Touched Emissary=7; 131445 Block Warden=9; 155432 Enchanted Emissary=0; 130028 Ashvane Priest=7; 161243 Samh'rek, Beckoner of Chaos=7; 127484 Jes Howlis=0
+
+Waycrest Manor: 131666 Coven Thornshaper=4; 131850 Maddened Survivalist=4; 155433 Void-Touched Emissary=4; 135234 Diseased Mastiff=3; 131849 Crazed Marksman=4; 134024 Devouring Maggot=1; 135048 Gorestained Piglet=4; 134041 Infected Peasant=4; 137830 Pallid Gorger=4; 131586 Banquet Steward=4; 131685 Runic Disciple=4; 131677 Heartsbane Runeweaver=6; 135052 Blight Toad=1; 131670 Heartsbane Vinetwister=6; 131667 Soulbound Goliath=0; 131858 Thornguard=4; 131819 Coven Diviner=4; 161243 Samh'rek, Beckoner of Chaos=4; 131527 Lord Waycrest=0; 161124 Urg'roth, Breaker of Heroes=4; 131824 Sister Solena=0; 131587 Bewitched Captain=5; 135329 Matron Bryndle=10; 131821 Faceless Maiden=0; 131545 Lady Waycrest=0; 161241 Voidweaver Mal'thir=4; 131847 Waycrest Reveler=4; 131863 Raal the Gluttonous=0; 131585 Enthralled Guard=4; 135474 Thistle Acolyte=4; 131823 Sister Malady=0; 135049 Dreadwing Raven=2; 131669 Jagged Hound=1; 131812 Heartsbane Soulcharmer=6; 131864 Gorak Tul=0; 161244 Blood of the Corruptor=4; 155434 Emissary of the Tides=4; 155432 Enchanted Emissary=0; 139269 Gloom Horror=4; 135240 Soul Essence=2; 131825 Sister Briar=0; 131818 Marked Sister=4; 135365 Matron Alma=16
+
+Note: 129547000 in Freehold is the MDT pseudo-entry id as stored in the data
+file (Blacktooth Knuckleduster, count 0), reproduced verbatim.
+
+=====================================================================
+4. THE TIMER AND CHEST THRESHOLDS
+=====================================================================
+
+Start: the keystone is placed in the Font of Power (GO 246779, item 158923),
+Activate forces a UI reload, puts a green wall at the entrance and starts a
+10-second countdown; when it reaches 0 the wall drops and the timer starts
+(warcraft.wiki both era revisions; fork sends SMSG_START_TIMER 0x25BC, 10 s,
+TIMER_TYPE_CHALLENGE).
+
+Timer: counts down from the dungeon's par time. Deaths remove time (section
+below). If the objectives (all bosses + 100% forces) are not done when it hits
+0, the run fails.
+
+Par times and thresholds (mythicpl.us snapshot 2020-04-02, "up to date for
+Season 4"; +2 = finish with 20% time left, +3 = 40% left):
+
+  Dungeon               Par    +2 upgrade time   +3 upgrade time
+  Atal'Dazar           30:00   24:00 (6:00 left) 18:00 (12:00 left)
+  Freehold             33:00   26:24 (6:36 left) 19:48 (13:12 left)
+  The MOTHERLODE!!     39:00   31:12 (7:48 left) 23:24 (15:36 left)
+  Shrine of the Storm  42:00   33:36 (8:24 left) 25:12 (16:48 left)
+  Temple of Sethraliss 36:00   28:48 (7:12 left) 21:36 (14:24 left)
+  Tol Dagor            36:00   28:48 (7:12 left) 21:36 (14:24 left)
+  The Underrot         33:00   26:24 (6:36 left) 19:48 (13:12 left)
+  Waycrest Manor       39:00   31:12 (7:48 left) 23:24 (15:36 left)
+  King's Rest          42:00   33:36 (8:24 left) 25:12 (16:48 left)
+  Siege of Boralus     36:00   28:48 (7:12 left) 21:36 (14:24 left)
+  Mechagon: Junkyard   38:00   30:24 (7:36 left) 22:38 (15:12 left)
+  Mechagon: Workshop   32:00   25:36 (6:24 left) 19:12 (12:48 left)
+
+Note: the source prints 22:38 for the Mechagon: Junkyard +3 cell; its own
+"(15:12 left)" parenthetical and the 40%-remaining rule both compute 22:48
+(38:00 - 15:12 = 22:48). The printed value is reproduced above; the rule-derived
+value is 22:48.
+
+Keystone outcome (warcraft.wiki Feb-2020 revision):
+- Finished within the timer: +1 keystone level; more than 20% time left: +2;
+  more than 40% left: +3 (max +3). The keystone moves to a random dungeon.
+- Finished after the timer: keystone -1 level, same dungeon.
+- Resetting the dungeon: -1 level, same dungeon (downgrade-by-reset exists
+  since 7.2.5; party cannot be changed after start without a reset).
+
+Death cost: each player death subtracts 5 seconds from the timer
+("Challenger's Burden"; warcraft.wiki Feb-2020 revision and mythicpl.us
+snapshot both state 5 s). Fork formula = total duration is elapsed + 5 x death
+count (ChallengeModeMgr, step-1 audit), buff SPELL_CHALLENGER_BURDEN = 206151.
+Fork's per-bracket chest thresholds compare against MapChallengeMode
+CriteriaCount[3]; the retail percentage thresholds are the table above.
+
+Fork note: _chestTimers[3] thresholds are never initialized in this repo
+(step-1 audit), so bracket comparisons are unverified server-side.
+
+=====================================================================
+5. WHAT THE END OF THE RUN GIVES
+=====================================================================
+
+Keystone: placed in the initiating player's bag, upgraded per section 4
+(new random dungeon on upgrade; same dungeon downgraded on failure/reset).
+A toast shows the result. Achievements granted when the run is timed
+(fork CompleteChallengeMode): 11183 (key >= 2), 11184 (>= 5), 11185 (>= 10),
+11162 and 11224 (>= 15).
+
+End-of-run chest (warcraft.wiki Feb-2020 revision + patch 7.2.5 notes + mythicpl.us):
+- A chest (Challenger's Cache style, "dungeon chest") spawns after the final
+  boss whether or not the timer was beaten; all players may loot it.
+- Guaranteed: 2 pieces for the group from the dungeon's loot table; +1 piece
+  (3 total) if the timer was beaten. Personal loot, class/spec appropriate,
+  tradeable if not an ilvl upgrade.
+- Extra-piece chances above +15 (sources conflict - listed as read):
+  warcraft.wiki Patch 8.3.0 notes: M+ has a chance to drop more than 2 items
+  at +16 or higher (was +11). mythicpl.us snapshot: +11 = 40% for one extra,
+  +13 = 100% for one extra (+20% for another), +15 = two extra guaranteed
+  (5 total). The official +16 line is authoritative for season 4; treat the
+  community extra-loot ladder as unverified.
+- Ilvl of end-of-run piece by keystone level (mythicpl.us snapshot; anchors
+  match Patch 8.3.0 notes: "up to item level 465 at +15"):
+  +2:435  +3:435  +4:440  +5:445  +6:445  +7:450  +8:455
+  +9:455  +10:455  +11:460  +12:460  +13:460  +14:465  +15:465
+
+Weekly chest (faction hub - Boralus/Zuldazar city; "chest from your faction's
+hub the week after" per warcraft.wiki Feb-2020 revision; mythicpl.us detail):
+- Appears after the weekly reset; contains one gear piece, Azerite Power,
+  Titan Residuum, and a keystone.
+- Gear ilvl from the highest keystone level COMPLETED last week, timed or not
+  (mythicpl.us snapshot; Patch 8.3.0: weekly ilvl scaling now extends to +15,
+  which awards a 475 piece):
+  +2:440  +3:445  +4:450  +5:450  +6:455  +7:460  +8:460
+  +9:460  +10:465  +11:465  +12:470  +13:470  +14:470  +15:475
+- Keystone inside the weekly chest: based on the highest level COMPLETED in the
+  season, -1 for every week you do not complete a higher one (example on source:
+  best +11 this week -> chest next week gives +10; if you never top it, the
+  week after gives +9). Minimum floor: unverified (source only shows the -1/week
+  decay; M0 completions grant a +2 keystone - warcraft.wiki Feb-2020).
+- Titan Residuum amounts in the weekly chest (mythicpl.us snapshot):
+  +10:1700, +11:1790, +12:1880, +13:1970, +14:2060, +15:2150, +16:2240,
+  +17:2330, +18:2420, +19:2510, +20:2600, +21:2665, +22:2730, +23:2795,
+  +24:2860, +25:2915. (The weekly cache no longer awards a random Azerite
+  armor piece as of 8.3 - it gives Titan Residuum instead, buyable Azerite
+  from Thaumaturge Vashreen.)
+- Corrupted items can drop from season-4 M+ rewards (Patch 8.3.0 notes);
+  cloaks do not drop from season-4 weekly caches.
+
+Fork status: Reward() grants one item directly by toast using bonus lists
+3410-3418/3509/3510/3534/3535 over baseMythicIlevel 885 (the 885 constant
+matches Legion-era M0 ilvl on the same wiki page - likely legacy; semantics
+unverified), then sends completion + achievements. The reward chest object is a
+virtual no-op (SpawnChallengeModeRewardChest, zero overrides), the weekly
+rewards reply is commented out, and the challenge_oplote_loot/SaveChallengeToDB
+path has no callers in-repo (step-1 audit).
+
+=====================================================================
+6. MAP IDS AND COORDINATES
+=====================================================================
+
+Map ids (fork RegisterInstanceScript lines, verified directly in the files):
+  Atal'Dazar 1763 | Freehold 1754 | King's Rest 1762 |
+  Operation: Mechagon 2097 (single script for the instance; the other half's
+  own map id unverified) | Shrine of the Storm 1864 | Siege of Boralus 1822 |
+  Temple of Sethraliss 1877 | The MOTHERLODE!! 1594 | The Underrot 1841 |
+  Tol Dagor 1771 | Waycrest Manor 1862.
+
+Coordinates found (fork scripts set no other positions - see below):
+  Map 1763 (Atal'Dazar), checkpoint position set by instance_atal_dazar.cpp:
+  x = -839.0337, y = -2092.268, z = 725.8119, o = 0.4123.
+
+Coordinates unverified: Font of Power placement, challenge door and reward
+chest spawn positions per BfA dungeon - the fork's SetFontOfPowerPos /
+SpawnChallengeModeRewardChest / ShowChallengeDoor exist only as base-class
+virtuals with no BfA overrides (step-1 audit); MDT files contain monster clone
+coordinates but those are route data, not rule data.
+
+=====================================================================
+7. SOURCES (queried one small page/query at a time; downloads deleted)
+=====================================================================
+
+- warcraft.wiki "Mythic+" revision oldid 4869763 (2020-02-05, BfA season 4):
+  affix slots/pools, affix numbers, death penalty, chest thresholds, end/weekly
+  loot description, keystone rules.
+- warcraft.wiki current pages: Mythic+, Affix, Mythic+ affix, Awakened (affix),
+  Patch 8.3.0 (season-4 rewards and rebalance notes, Awakened mechanics),
+  Patch 7.2.5 note (10% per level, third timed item).
+- web.archive.org snapshot 2020-04-02 of mythicpl.us (changelog: "up to date
+  for Season 4"): par times, +2/+3 times, death rule, affix schedule, end/weekly
+  loot ilvl tables, Titan Residuum, weekly keystone decay.
+- GitHub Nnoggie/MythicDungeonTools @4d36744c (2020-07-19): scaling formula,
+  Fortified/Tyrannical health multipliers, dungeon totals (normal + teeming),
+  per-creature counts (12 BattleForAzeroth files, fetched to /tmp and deleted).
+- GitHub raider.io weekly-route titles (S4 cross-check of the affix schedule).
+- HavenCore repo: RegisterInstanceScript map ids, SetCheckPointPos, step-1
+  findings reused (opcodes, ids, formulas, lacks).
+- Wowhead item 158923 (step-1), wowhead affix=120 (Awakened).
+- wago.tools DB2 csv for build 8.3.7.35662: attempted, failed ("Table not
+  found" / HTTP 500) - no numbers taken from it.
+
+=====================================================================
+8. UNVERIFIED (explicit)
+=====================================================================
+
+- Per-level scalar values in ChallengeModeHealth/Damage tables for build 35662
+  (formula +10%/level is verified; table contents are not).
+- Fortified/Tyrannical damage-increase percentages (health multipliers +20%/+40% verified via MDT).
+- Second Mechagon instance's own map id (Workshop half).
+- Extra-loot chance ladder above +15 (official +16 note vs community ladder conflict).
+- Explosive orb damage; individual affix aura spell ids (only the fork's script
+  spell ids are verified: ChallengerBolstering 209859, ChallengerNecrotic
+  209858, ChallengerRaging 228318, ChallengerSanguine 226489, ChallengerBursting
+  240443, ChallengerVolcanic 209862 / plume 209861, ChallengerQuake 240447,
+  ChallengerOverflowing 221772; Challenger's Might 206150, Challenger's Burden 206151).
+- Game-side numeric id of the Awakened affix (wowhead affix id 120 verified; the
+  client's affix index for it not read from any source).
+- Weekly keystone floor below the -1/week decay; exact semantic of the Atal
+  checkpoint position (only that the script sets it).
+- Whether the schedule table above covers the entire season or repeats (only
+  the printed 12 weeks were read).
+- Guild achievement ids named in fork comments (Keystone Initiate / Challenger /
+  Conqueror / Master Guild Run).
