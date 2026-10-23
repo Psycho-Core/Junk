@@ -1,0 +1,130 @@
+OPEN. Alterac Valley is part of the 20-29 bracket in 8.3.7 (build 35662): 40 vs 40 (BattlemasterList 1 "Alterac Valley": MaxPlayers 40 PER TEAM, MinLevel 20, MaxLevel 120, InstanceType 3, GroupsAllowed 1, MaxGroupSize 5), the 20-29 range is PVPDifficulty 173 (map 30, RangeIndex 0), it is a normal (unrated) queue; rated play is a separate list (BattlemasterList 102, MinLevel 100), so a level 29 can never be rated. Minimum 10 per team to start (MinPlayers 10), RatedPlayers 25, HolidayWorldState 1941.
+
+EXTRA BRACKET FACTS: experience-off characters queue only against other experience-off characters (rule from patch 3.2.0), so a 29 twink meets twinks. Per the 5.2.0 rule a character is scaled up to the top of the bracket (a 20 scaled toward 29); whether your core implements that is unverified. Note the practical consequence for bots: 40v40 with only a 10-per-team minimum still needs 20 players queueing, so a private server will rarely fire a 20-29 Alterac Valley at all, and the NPC levels (guards, marshals, captains, bosses) come from your world database and are not scaled by the battleground code - whether a 61-63 boss is killable by level 29s on your server is unverified and is the first thing to test before scripting behaviour for this map.
+
+
+1. OBJECTIVE AND WIN CONDITION, WITH THE NUMBERS
+- Both sides start with 600 reinforcements (BG_AV_SCORE_INITIAL_POINTS = 600). A team that reaches 0 loses; UpdateScore ends the battleground and awards the win to the other team.
+- Player deaths cost reinforcements: every player death subtracts 1 from that player's own team (HandleKillPlayer calls UpdateScore(player->GetTeam(), -1)).
+- Towers and bunkers: destroying one costs its owner 75 reinforcements (BG_AV_RES_TOWER = 75), gives the destroyer 3 bonus-kill honour and 12 reputation (BG_AV_KILL_TOWER = 3, BG_AV_REP_TOWER = 12).
+- Captain: killing the enemy captain costs that team 100 reinforcements (BG_AV_RES_CAPTAIN = 100), gives 3 bonus-kill honour and 125 reputation (BG_AV_REP_CAPTAIN = 125).
+- Boss: killing the enemy boss ends the battleground immediately in the killer's favour (HandleKillUnit calls EndBattleground for Vanndar 11948 or Drek'Thar 11946), with 4 bonus-kill honour and 350 reputation (BG_AV_KILL_BOSS = 4, BG_AV_REP_BOSS = 350).
+- Near-lose warning at 120 reinforcements (SEND_MSG_NEAR_LOSE = 120, broadcasts 23210 Alliance and 23211 Horde).
+- End-of-match bonuses for what survived: each surviving tower gives its owner 2 bonus-kill honour and 12 reputation (BG_AV_KILL_SURVIVING_TOWER / BG_AV_REP_SURVIVING_TOWER), a surviving captain gives 2 bonus-kill honour and 125 reputation (BG_AV_KILL_SURVIVING_CAPTAIN / BG_AV_REP_SURVIVING_CAPTAIN).
+- The mines are the only source of reinforcements: an owned mine adds 1 reinforcement to its owner every 45 s (AV_MINE_TICK_TIMER = 45000, UpdateScore(owner, 1)). Mines can be recaptured by the neutral team after 20 minutes (AV_MINE_RECLAIM_TIMER = 1200000, marked @todo in the core, so treat it as a placeholder value).
+- Captain buffs: while the captain is alive the core casts 23693 (Alliance, Balinda) or 22751 (Horde, Galvangar) on the whole team every 120 s plus a random 0-4 minutes (m_CaptainBuffTimer = 120000 + urand(0,4)*60000). Both the interval and the random part are marked @todo in the core, so treat the exact period as unverified.
+- Graveyard capture times: 4 minutes (BG_AV_CAPTIME = 240000) for a graveyard that has had an owner, 5 minutes for Snowfall's first capture (BG_AV_SNOWFALL_FIRSTCAP = 300000). The timer runs on the node and is not tied to the player who clicked, exactly like Arathi Basin.
+- There is no time limit in the core for this battleground: the match ends on reinforcements or on a boss kill. (The 47-minute check in Battleground.cpp is arena-only.)
+
+
+2. THE MAP
+Map id 30. The battleground is a long north-south valley: the Alliance hold Dun Baldar in the south-east, the Horde hold Frostwolf Keep in the north-west. The corridor between them is the whole map, and the fighting moves along it from one end to the other. All coordinates are map 30, game coordinates (x, y, z).
+
+GRAVEYARDS (world_safe_locs; these are the respawn points, the flags are objects at the same places)
+- 751, 30, 643, 44, 69.7402, facing 274.95 - Stormpike Aid Station, the Alliance base graveyard (node 0).
+- 689, 30, 676, -374, 30, facing 115 - Stormpike Graveyard, the Alliance forward graveyard (node 1).
+- 729, 30, 73.4178, -496.433, 72.1391, facing 88 - Stoneheart Graveyard, the middle graveyard both sides fight over (node 2).
+- 169, 30, -157.409, 31.2063, 77.0506, facing 257 - Snowfall Graveyard, the neutral graveyard in the middle of the valley (node 3).
+- 749, 30, -531.218, -405.231, 49.5514, facing 135 - Iceblood Graveyard, the Horde forward graveyard (node 4).
+- 690, 30, -1090.48, -253.309, 57.6724, facing 270 - Frostwolf Graveyard (node 5).
+- 750, 30, -1496.06, -333.338, 101.135, facing 15 - Frostwolf Relief Hut, the Horde base graveyard (node 6).
+- 611, 30, 873.002, -491.284, 96.5419, facing 225 - Alliance safe/start location.
+- 610, 30, -1437.67, -610.089, 51.1619, facing 51.4951 - Horde safe/start location.
+
+TOWERS AND BUNKERS (each is a destructible node worth 75 reinforcements; node ids from BattlegroundAV.h)
+- Alliance-owned, destroyed by the Horde: Dun Baldar South (node 7), Dun Baldar North (node 8), Icewing Bunker (node 9), Stoneheart Bunker (node 10).
+- Horde-owned, destroyed by the Alliance: Iceblood Tower (node 11), Tower Point (node 12), Frostwolf East Tower (node 13), Frostwolf West Tower (node 14).
+- The banner objects are 178927 / 178955 (tower banners) and 179446 / 179436 (pre-banners), flags per team 178925 / 178943 and their contested versions 178940 / 179435, with the "_B" variants for the base areas.
+- The exact x, y, z of each tower banner was not extracted in this pass: unverified. The marshals that stand on them are spawned from the AV_CPLACE table (ids 69-76 for the eight tower marshals).
+
+BASES, BOSSES AND GATES
+- Vanndar Stormpike (boss of the Alliance), creature 11948, at 722.43, -10.9982, 50.7046.
+- Captain Balinda Stonehearth, creature 11949, at -57.7891, -286.597, 15.6479.
+- Drek'Thar (boss of the Horde), creature 11946, at -1370.9, -219.793, 98.4258.
+- Captain Galvangar, creature 11947, at -545.23, -165.35, 57.7886.
+- Base gates: both use gameobject entry 180424 (BG_AV_OBJECTID_GATE_A and _H are the same entry in the core), Alliance gate at 780.487, -493.024, 99.9553, orientation 3.0976, Horde gate at -1375.193, -538.981, 55.2824, orientation 0.72178. They are closed in preparation and opened by the start event.
+- Entrance targets: 3664, 30, 942.93, -507.627, 94.4662 (Alliance) and 3665, 30, -1504.52, -711.542, 47.9798 (Horde); the same two coordinates also exist as ids 3979 and 3980.
+- Mine objects: 178785 north mine, 178784 south mine; mine supply crates and miners are spawned per owner when a mine flips.
+
+ROUTES AND CHOKEPOINTS (from the graveyard and base coordinates; the terrain readings are the known map layout, not data)
+- The valley has one main road: Dun Baldar 643, 44 -> Stormpike 676, -374 -> Snowfall -157, 31 -> Iceblood -531, -405 -> Frostwolf -1090, -253 -> Frostwolf Hut -1496, -333. Straight-line distances between consecutive graveyards are the numbers to plan with: Aid Station to Stormpike 419.3 yd, Stormpike to Snowfall 926.7 yd, Snowfall to Iceblood 574.6 yd, Iceblood to Frostwolf 579.5 yd, Frostwolf to Frostwolf Hut 413.4 yd; Aid Station to Snowfall 800.5 yd, Aid Station to Stoneheart 785.2 yd, Stormpike to Stoneheart 614.9 yd. At 7.0 yd/s on foot those are 37-132 s, at 11.2 yd/s 60-83 s (speeds are engine assumptions).
+- Chokepoint 1: the Stormpike Graveyard pass, the only practical way into Dun Baldar from the south.
+- Chokepoint 2: the Iceblood/Icewing ridge, where the Horde towers overlook the road; whoever holds Iceblood controls the Horde half.
+- Chokepoint 3: Stoneheart, the centre graveyard, which sits between Snowfall and the Alliance half and is the usual first big fight.
+- Chokepoint 4: the two base gates and the ramps behind them; a base assault has to cross one of these.
+- Tunnels, caves and the exact ramp geometry are the known map layout and are not in the data read here: unverified.
+
+GRAVEYARD RULES
+- Graveyards are captured by clicking their flag; the node becomes contested for the capture time above and then flips. A graveyard is the respawn point for whoever owns it, so the front line follows the graveyards.
+- A player who dies respawns at the closest graveyard his team owns, using the same resurrection batching as every battleground: 30 s (RESURRECTION_INTERVAL = 30000 in Battleground.h).
+- Spirit guide and resurrection spells are the shared ones: 22011, 22012, 44535, 2584, 24171.
+- Snowfall starts neutral, so its first capture takes 5 minutes; every later capture of any graveyard takes 4.
+
+
+3. ROLES, SPLIT, OPENING 30 SECONDS, HOLDING THE MIDDLE, WHEN TO PUSH
+Team size 40 (20 minimum). Everything in this section is estimate except where a number is quoted from section 1.
+- 8-12 tower group ("O"): the players who go for Icewing/Stoneheart bunkers or Iceblood Tower/Tower Point. At 29 these are the objectives that actually decide games, because 4 towers is 300 reinforcements.
+- 6-10 graveyard fighters: the group that takes and holds Stormpike or Iceblood, and then Stoneheart.
+- 4-6 defence: one or two per owned graveyard plus the tower/bunker guards.
+- 2-4 miners/roamers: players who flip the north or south mine for the +1 per 45 s and who call incoming.
+- 3-5 healers total; at 40 players that is thin, but 29 twink groups rarely bring more.
+- 1-2 boss runners late: a small group that goes for Vanndar or Drek'Thar only after the enemy team has collapsed.
+
+Opening 30 seconds (estimate):
+- 0-3 s: gates open, everyone mounts (riding 33388; mount availability at 29 unverified).
+- 3-30 s: the main body runs the road toward Snowfall/Stoneheart (about 785-800 yd from the base, about 70-72 s mounted), the tower group splits off to the nearest enemy tower, and 2-4 players go to the nearest mine. The first contact is at Snowfall at about 70-90 s.
+- The first graveyard capture lands at roughly 5-7 minutes (4-5 minute capture timer plus the fight), which is the first real score swing of the match.
+
+Holding the middle:
+- In Alterac Valley "the middle" is Snowfall plus Stoneheart: Snowfall is the neutral graveyard in the valley floor, Stoneheart is the graveyard between Snowfall and the Alliance half. Holding both means the enemy has to fight 300-500 yd from its own respawn.
+- Holding the middle is done with the graveyard, not with a kill count: as long as your graveyard is yours, your dead come back 30 s later and 100 yd away, while the enemy's come back at their base.
+
+When a team pushes:
+- Push a tower/bunker when its marshal pack is dead or the enemy is not defending it; a tower is 75 reinforcements and cannot be recaptured, so it is worth more than any number of kills.
+- Push the enemy base when the enemy has lost its forward graveyards: with no forward graveyard the defenders respawn at their relief hut and the attackers keep the field.
+- Do not push the boss while the enemy still has a captain and towers up unless the group is 10+ and the enemy is elsewhere; the boss ends the game, so it is the last push, not the first.
+- When behind on reinforcements, stack the mine and towers, never the boss: 75 per tower plus 1 per 45 s per mine is the only comeback path.
+
+
+4. WHAT DECIDES A TWINK FIGHT IN ALTERAC VALLEY
+- There is no flag carrier in Alterac Valley; the "handoff" equivalent is graveyard control and the tower race. Bots should treat a graveyard flag as the objective, not a player.
+- Burst on the graveyard clicker: killing the player does not stop the 4-minute timer, so the fight is about clearing the flag area and clicking it back, exactly like Arathi Basin.
+- Crowd control at the flag and on the ramp: a root or fear that keeps the defender off the flag radius decides the node.
+- Interrupts and healing: a 29 healer has one long heal; one interrupt decides most small fights in a tower or on a flag.
+- NPC packs: every tower and graveyard has guards and, at the towers, a marshal; at 29 the guards' level comes from your world database (unverified). If your NPCs are not scaled, bots must pull them in small groups rather than charge in.
+- Kiting and line of sight: the valley is open ground with ridges; hunters and frost mages dominate the road, while melee needs the towers and the base interiors to fight in.
+- Stealth: rogues and druids decide tower races - a stealthed player can take a tower's flag while the enemy group is on the road.
+- Numbers: 40v40 means a 3-player advantage at a tower is decisive, and a 10-player group that stays together beats 20 players arriving one at a time.
+- Gear and level in the bracket: heirlooms, one PvP talent slot at 29, enchants and consumables matter as much as class.
+
+
+5. HOW A HUMAN BEHAVES INSTEAD OF A SCRIPT (all frequencies and times in this section are estimate)
+- Time stopped to fight near an objective: a graveyard fight lasts 20-60 s; tower fights 30-90 s because of the NPC packs. After a win players stand around the flag for 5-20 s before moving.
+- Chasing off the route: about 1 in 3 players chases 40-100 yd off the road; in Alterac Valley the road makes this expensive, so the chaser usually dies to the next group coming down it.
+- Going the wrong way: 2-4 players per team per match take a 30-90 s detour, most often into the wrong tower or down the wrong side of the valley after a respawn.
+- Leaving an objective undefended: at 40 players this is constant - estimate: in most matches at least one owned graveyard has no defender for 30 s or more, and towers are usually left with only their NPC guards.
+- Arriving late: the first wave reaches Snowfall 70-90 s after the gates open; stragglers arrive 20-60 s behind. A death costs the 30 s resurrection wait plus a 60-132 s run (419-927 yd) at 29, so 90-160 s of absence - the single biggest reason a 29 AV feels empty.
+- Running into a group: solo players walk into 5+ enemies at least 2-4 times per match, most often on the road between Snowfall and Stoneheart.
+- Reaction to a tower being attacked: 5-10 s to notice the yell and the map icon, then 20-40 s to decide to go; usually only 2-5 players rotate because the rest are on the road.
+- Reaction to a graveyard capture in progress: a defender within 30 yd almost always clicks back within 3-8 s; a defender who is dead does not return in time against a 4-minute timer.
+- Grouping: 40-player teams break into 4-8 loose packs of 3-8 players; only the tower groups stay together for more than a minute.
+- Boss attempts: humans start asking for a boss push only after the enemy has lost at least two towers or its captain (estimate).
+- Mine behaviour: 1-3 players per team care about the mine; the rest ignore it.
+
+
+6. COMMON MISTAKES OF AVERAGE PLAYERS HERE
+- Fighting on the road instead of taking towers: kills cost the enemy 1 reinforcement each, a tower costs 75.
+- Leaving towers with only NPC guards and no player, so a single stealth class takes 75 reinforcements for free.
+- Not clicking a contested graveyard flag back, or clicking and leaving before the 4-minute timer finishes.
+- Pushing the boss too early and wiping at 29 against NPCs that were never pulled or scaled.
+- Ignoring the mine for the whole match: 1 reinforcement per 45 s is small, but two mines for 20 minutes is hundreds.
+- Dying in the enemy half: the 419-927 yd run back means the team is 2 minutes short for every death far from home.
+- Splitting into four groups of ten that each lose to the enemy's one group of twenty.
+- Pulling a marshal's pack with the whole tower group and dying to the NPCs before the enemy even arrives.
+- Chasing a runner off the road into the next enemy graveyard.
+- Letting Snowfall stay neutral for the first 5 minutes instead of taking the free middle graveyard.
+- No call-outs, so the tower group and the road group never combine.
+- Fighting for a graveyard that is already lost instead of falling back to the next one while the timer runs.
+
+
+VERIFIED AGAINST (8.3.7 build 35662): TrinityCore 8.3.7-35662 source BattlegroundAV.h/.cpp (reinforcement values, tower / captain / boss rewards, score updates, capture times, mine tick, captain buff timer, node list, banner and gate entries, boss and captain positions, door positions, start events), Battleground.h/.cpp (resurrection interval, spirit heal spells, arena-only 47-minute rule), TrinityCore world_safe_locs data (ids 169, 610, 611, 689, 690, 729, 749, 750, 751, 3664, 3665, 3979, 3980), client DB2 PVPDifficulty 173 (map 30, 20-29); client DB2 BattlemasterList 1 (MaxPlayers 40 and MinPlayers 10 per team, RatedPlayers 25, MinLevel 20, MaxLevel 120, InstanceType 3, HolidayWorldState 1941), PVPDifficulty brackets, and Warcraft Wiki Twink for the XP-off queue separation and the 5.2.0 bracket scaling. Not verifiable and marked above: minimum players to start and holiday worldstate for list 1, tower banner coordinates, tunnel and ramp waypoints, NPC levels at 20-29 on your database, mount availability at 29, mine reclaim time (marked @todo in the core), captain buff period (marked @todo in the core).

@@ -1,0 +1,136 @@
+OPEN. Eye of the Storm is part of the 20-29 bracket in 8.3.7 (build 35662): 15 vs 15 (BattlemasterList 7 "Eye of the Storm": MaxPlayers 15 and MinPlayers 8 PER TEAM, so 15v15 with an 8v8 minimum to start, RatedPlayers 15, MinLevel 15, MaxLevel 120, InstanceType 3, GroupsAllowed 1, MaxGroupSize 5, HolidayWorldState 2851), the 20-29 range is PVPDifficulty 837 (map 566, RangeIndex 1), it is a normal (unrated) queue; rated play is a separate list (BattlemasterList 102, MinLevel 100), so a level 29 can never be rated.
+
+EXTRA BRACKET FACTS: experience-off characters queue only against other experience-off characters (rule from patch 3.2.0), so a 29 twink meets twinks. Per the 5.2.0 rule a character is scaled up to the top of the bracket; whether your core implements that is unverified.
+
+
+1. OBJECTIVE AND WIN CONDITION, WITH THE NUMBERS
+- Four bases: Fel Reaver Ruins, Blood Elf Tower, Draenei Ruins and Mage Tower. Holding bases generates resources every tick. First team to the resource cap wins.
+- The cap in the TrinityCore 8.3.7 code is 1600 resources (BG_EY_MAX_TEAM_SCORE = 1600). The 8.3.7 client map text for map 566 says "Earn 1500 resources" (Map row 566, PvpLongDescription). The two disagree; check BG_EY_MAX_TEAM_SCORE on your build before scripting the end game. Where the discrepancy comes from is unverified.
+- Tick timer: 2 seconds (BG_EY_FPOINTS_TICK_TIME = 2*IN_MILLISECONDS). Points per tick by number of bases held: 1 base 1 point, 2 bases 2, 3 bases 5, 4 bases 10 (BG_EY_TickPoints = {1,2,5,10}). That is 0.5, 1.0, 2.5 and 5.0 resources per second.
+- Time to 1600 at those rates: 1 base 53.3 min, 2 bases 26.7 min, 3 bases 10.7 min, 4 bases 5.3 min. Time to 1500 (the client's number): 50.0, 25.0, 10.0 and 5.0 min.
+- The centre flag is the second scoring route. One neutral flag spawns in the middle of the map, any player can pick it up within 10 yards (EventPlayerClickedOnFlag requires IsWithinDistInMap 10 and that no one else already carries it), and it is captured by the carrier entering an area trigger of a base his own team controls and holds (triggers 4514 Fel Reaver, 4476 Blood Elf, 4518 Draenei Ruins, 4516 Mage Tower; the base must be EY_POINT_UNDER_CONTROL and owned by the carrier's team).
+- Flag capture is worth 75, 85, 100 or 500 resources depending on how many bases the capturing team holds at that moment (BG_EY_FlagPoints = {75,85,100,500}, indexed by bases owned). With four bases a single flag cap is 500 of the 1600 needed.
+- Flag timers: 8 seconds (BG_EY_FLAG_RESPAWN_TIME = 8*IN_MILLISECONDS). After a capture the flag respawns on its stand after 8 s; after a drop it also returns in 8 s (EventPlayerDroppedFlag sets m_FlagsTimer = BG_EY_FLAG_RESPAWN_TIME).
+- Re-picking a dropped flag: the core casts 42792 Recently Dropped Flag on the dropper but EventPlayerClickedOnFlag performs no lockout check, so the 3 s style of lockout is not enforced here: unverified whether the client blocks the click.
+- Base capture: a bar per base, range 0 to 100 (BG_EY_PROGRESS_BAR_HORDE_CONTROLLED = 0, BG_EY_PROGRESS_BAR_ALI_CONTROLLED = 100, neutral band 30 to 70, start value 50). Every 2 s the bar moves by (alliance players near) minus (horde players near), clamped to plus or minus 5 (BG_EY_POINT_MAX_CAPTURERS_COUNT = 5). Owned by the Alliance at 70 or above, by the Horde at 30 or below, and neutral in between (the bar itself still runs 0 to 100).
+- What that means in time: a base flips to the Alliance the moment the bar reaches 70, so a neutral base (50) needs only 20 bar points - 4 ticks at a full 5-player advantage = 8 s, 20 s at a 2-player advantage, 40 s at a 1-player advantage. Taking a fully Alliance base (100) down to Horde control (30) is 70 bar points: 28 s at a 5-player advantage, 70 s at 2, 140 s at 1.
+- Capture radius: a player counts for a base only within 70 yards of its tower-cap object (BG_EY_POINT_RADIUS = 70) and only if the core's own CanCaptureTowerPoint() gate passes (its exact conditions are in the player class and were not read in this pass, so which states it excludes is unverified).
+- Honour: accumulates with the same points as resources, and pays GetBonusHonorFromKill(1) every 260 points (m_HonorTics, normal) or every 160 points (holiday weekend, BG_EY_EYWeekendHonorTicks). With three bases that is a bonus kill about every 104 s.
+- Capturing the flag also counts personally: UpdatePlayerScore(player, SCORE_FLAG_CAPTURES, 1).
+- There is no time limit in this battleground; the match ends at the cap or through the generic premature-end rules when a team drops below its minimum player count (GetPrematureWinner falls back to comparing scores).
+- No defensive or assault objective ids exist for bases here (unlike Arathi Basin); the only personal score is flag captures.
+
+
+2. THE MAP
+Map id 566 (client Map row: directory NetherstormBG, name "Eye of the Storm"). All coordinates are map 566, game coordinates (x, y, z). The four bases sit on a ring around a central platform, with two bases close to each faction's spawn: Fel Reaver Ruins and Blood Elf Tower are the Horde-side pair (west, lower x), Draenei Ruins and Mage Tower are the Alliance-side pair (east, higher x).
+
+THE FOUR BASES (area-trigger centre, then the flag and tower-cap objects)
+- Fel Reaver Ruins: centre 2044.28, 1729.68, 1189.96, orientation 0.017453. Base flag object at the same point; tower cap object 2024.600708, 1742.819580, 1195.157715; graveyard 2013.06, 1677.24, 1182.13.
+- Blood Elf Tower: centre 2048.83, 1393.65, 1194.49, orientation 0.20944. Tower cap 2050.493164, 1372.235962, 1194.563477; graveyard 2012.4, 1455.41, 1172.2.
+- Draenei Ruins: centre 2286.56, 1402.36, 1197.11, orientation 3.72381. Tower cap 2301.010498, 1386.931641, 1197.183472; graveyard 2351.22, 1455.63, 1185.33.
+- Mage Tower: centre 2284.48, 1731.23, 1189.99, orientation 2.89725. Tower cap 2282.121582, 1760.006958, 1189.707153; graveyard 2355.3, 1683.71, 1173.15.
+- Area trigger ids: 4476 Blood Elf, 4514 Fel Reaver, 4516 Mage Tower, 4518 Draenei Ruins.
+- Banner gameobjects: 184381 Alliance, 184380 Horde, 184382 neutral, three of each per base (centre, left, right). Tower cap entries: 184080 Blood Elf, 184081 Fel Reaver, and the Draenei/Mage Tower equivalents from the same block.
+
+THE FLAG
+- Netherstorm flag stand: object 184141 at 2174.782227, 1569.054688, 1160.361938, orientation -1.448624. Generic flag 184493, dropped-flag object 184142. Carrying aura 34976 (BG_EY_NETHERSTORM_FLAG_SPELL), dropped visual 34991.
+- Worldstates: 2757 flag state, 9808 Alliance state, 9809 Horde state.
+
+START POSITIONS, GATES AND GRAVEYARDS (world_safe_locs, map 566)
+- 1103, 566, 2523.76, 1596.13, 1247.7, facing 180 - Alliance start graveyard.
+- 1104, 566, 1803.02, 1539.97, 1249.19, facing 0 - Horde start graveyard.
+- 1105, 566, 2013.06, 1677.24, 1182.13, facing 340 - Fel Reaver Ruins graveyard.
+- 1106, 566, 2012.4, 1455.41, 1172.2, facing 65 - Blood Elf Tower graveyard.
+- 1107, 566, 2351.22, 1455.63, 1185.33, facing 270 - Draenei Ruins graveyard.
+- 1108, 566, 2355.3, 1683.71, 1173.15, facing 225 - Mage Tower graveyard.
+- 1109-1133 on map 566 are named "Corpse Catcher 000 to 024" (unused by the core, which only reads 1103-1108).
+- Alliance gate object 184719 at 2527.6, 1596.91, 1262.13, orientation -3.12414. Horde gate object 184720 at 1803.21, 1539.49, 1261.09, orientation 3.14159. Both are closed in preparation and opened by the start event.
+- Area triggers 4531 Alliance start and 4530 Horde start send a player who leaves during preparation to the exploit location: 3773, 566, 2523.51, 1596.58, 1269.27 (Alliance) and 3772, 566, 1808.21, 1539.49, 1267.41 (Horde).
+- Spirit guide and resurrection use the shared values: creature 13116 Alliance / 13117 Horde, spells 22011, 22012, 44535, 2584, 24171, batches every 30 s (RESURRECTION_INTERVAL = 30000).
+- Graveyard rule: every captured base spawns its own spirit guide for the owner, and EventTeamCapturedPoint spawns the guide on the base's graveyard; a player who dies goes to the nearest owned, fully controlled base graveyard, otherwise to his own start graveyard (GetClosestGraveyard scans the four points by squared distance and falls back to 1103 / 1104).
+
+DISTANCES (measured from the coordinates above; exact yard values, travel times assume 7.0 yd/s on foot and 11.2 yd/s mounted, which are engine assumptions, not 8.3.7 data)
+- Flag stand to a base: Fel Reaver 207.0 yd, Blood Elf 215.9, Draenei 200.7, Mage Tower 195.8. So a flag run from the centre to any base is 196-216 yd, about 18-19 s mounted.
+- Base to base, the ring: Fel Reaver-Blood Elf 336.1, Blood Elf-Draenei 237.9, Draenei-Mage Tower 328.9, Mage Tower-Fel Reaver 240.2. Diagonals: Fel Reaver-Draenei 407.2, Blood Elf-Mage Tower 411.7.
+- Each base's graveyard sits 61.0 (Fel Reaver), 71.7 (Blood Elf), 83.8 (Draenei) and 85.3 (Mage Tower) yards from its own base - a respawn is effectively on the point.
+- Start graveyards: Alliance start to Mage Tower 274.8 and to Draenei Ruins 306.3; Horde start to Fel Reaver 306.9 and to Blood Elf 286.1. Start to centre flag 350.0 (Alliance) and 372.9 (Horde).
+- Practical read: the two bases nearest each start (Mage Tower/Draenei for the Alliance, Blood Elf/Fel Reaver for the Horde) are 275-307 yd away, about 25-27 s mounted, while the far pair is 400+ yd; the centre flag is 350-373 yd from the spawns and 40-65 s from any base.
+
+HIGH GROUND, RAMPS AND CHOKEPOINTS
+- The map is four raised bases around a sunken middle, joined by bridges and ramps; the flag stand is on the low central platform. The exact ramp and bridge waypoints are not in the data read here: unverified (use your map's pathfinding data).
+- Chokepoint 1: the ramp or bridge up to each base - a small group can hold a base against a larger one for the 8-28 s it takes the enemy to flip it at full advantage.
+- Chokepoint 2: the centre platform where the flag spawns - open ground, no cover, the most exposed spot on the map.
+- Chokepoint 3: the two "side" crossings between the Horde pair and the Alliance pair (Blood Elf-Draenei 237.9 yd and Mage Tower-Fel Reaver 240.2 yd) - the short rotations that decide who reinforces faster.
+- Chokepoint 4: each base's graveyard building interior, which is where defenders respawn 61-85 yd from the point.
+
+
+3. ROLES, SPLIT, OPENING 30 SECONDS, HOLDING THE MIDDLE, WHEN TO PUSH
+Team size 15 (8 minimum). All counts and timings here are estimate except where a number is quoted from sections 1 and 2.
+- 1-2 defenders per held base, one of them a stealth class parked inside the capture radius rather than on the flag.
+- 1 flag runner, typically a druid (Travel Form 783 - its extra out-of-combat speed is disabled in battlegrounds in 8.3.7 - or cat form with Dash 1850), a rogue or a hunter.
+- 1 escort for the runner, ideally a healer.
+- 6-9 in the attack block that moves base to base together.
+- 2-3 healers total, plus the escort healer.
+- 0-2 roamers who sit on the two short crossings (Blood Elf-Draenei, Mage Tower-Fel Reaver) and call incoming.
+Common shapes: 2 bases + a flag camp, or 3 bases and no flag at all (the 3-base tick, 10.7 min to the cap, beats most flag play in a random game).
+
+Opening 30 seconds (estimate):
+- 0-3 s: gates open, everyone mounts (riding 33388; whether your server grants a mount at 29 and at what speed is unverified).
+- 3-25 s: each side takes its two near bases - Alliance runs Mage Tower and Draenei Ruins, Horde runs Blood Elf and Fel Reaver - which is 25-27 s mounted for the near one. The usual split is 4-5 players to each near base and the flag runner plus escort straight to the centre (350-373 yd, about 31-33 s mounted).
+- 25-60 s: the first contested base is whichever side pushes the enemy's near base; the flag runner picks the flag at about 30-35 s and either caps it at a held base (196-216 yd, 18-19 s) or dies with it.
+
+Holding the middle:
+- In Eye of the Storm "the middle" is the flag platform plus the two short crossings. Holding two bases and denying the flag is worth more than holding three bases and feeding the flag to the enemy: at three bases a flag cap is only 100 points, at four it is 500.
+- The decision rule humans use: with 2 bases, fight for a third; with 3 bases, camp the flag stand and the crossings and let the tick win; with 4 bases, everything collapses on the flag.
+- Defence is inside the 70 yd capture radius, because a defender outside it does not slow the enemy bar at all.
+
+When a team pushes:
+- Push a base when you can put 5 more players inside its 70 yd radius than the enemy has there, which is the cap on capture speed; with only 1-2 extra the flip takes 70-140 s on an enemy base and the defenders' respawns (61-85 yd away) will beat you.
+- Push the enemy's near pair when they are committed to the middle or to your side of the map.
+- A team that is behind stops defending its third base and stacks a single enemy base with 5+ to flip it in about 28 s.
+- Late game (about 2-3 minutes from the cap at 3 bases) the leading team stops pushing and stacks the flag stand; the trailing team has to take a base and cap a flag in the same window, which is 28 s plus an 18-19 s flag run.
+
+
+4. WHAT DECIDES A TWINK FIGHT IN EYE OF THE STORM
+- Numbers inside 70 yards: the capture bar only counts players in the radius and only up to 5 per side, so five attackers against zero defenders is an 8 s flip, and five against five is a stalemate that never flips until someone dies.
+- Flag carrier handoffs: the flag cannot be passed; the carrier either reaches a controlled base or dies and drops it, and the dropped flag returns to its stand in 8 s. A planned death next to a teammate is the only real handoff, so escorts matter more than the runner's gear.
+- Crowd control on the carrier: a root or a fear 50 yards from the base trigger is worth more than any damage, because the carrier only scores on entering the trigger.
+- Interrupts and healing: at 29 one interrupted heal decides a 2v2 on a base; a healer standing on the bar with the defenders is what turns an 8 s flip into 40-140 s.
+- Burst: with an 8-30 s window before a base flips or a flag returns, burst on the player standing in the radius is the whole fight.
+- Kiting: the open centre platform and the bridges favour hunters, frost mages and shamans; melee wants the base interiors.
+- Stealth: a stealthed defender inside the radius is invisible to the bar and can stall a capture alone; a stealthed attacker on a base with one defender flips it before help arrives.
+- Respawn geometry: because a base graveyard is 61-85 yd from its point, the defender always comes back first; attackers need to clear the graveyard as well as the point, or the fight resets every 30 s.
+- Gear and level in the bracket: heirlooms, one PvP talent slot at 29, enchants and consumables decide 1v1s more than class.
+
+
+5. HOW A HUMAN BEHAVES INSTEAD OF A SCRIPT (all frequencies and times in this section are estimate)
+- Time stopped to fight near an objective: a base fight lasts 10-40 s; after a flip players stand in the radius 5-20 s before moving. A player watching a bar often stands still for the full 8-140 s of a capture.
+- Chasing off the route: about 1 in 3 players chases 30-60 yd off a base; on the bridges this is fatal because the bridge is the only way in.
+- Going the wrong way: 1-2 players per team per match take a 20-40 s detour, most often after respawning at a base that was just lost, or by running to the flag with no base to cap it at.
+- Leaving an objective undefended: in random play a base is often held by nobody - estimate: in 40-70% of matches one team has a held base with no player inside the radius for 15 s or more, and the "defender" is usually the first to leave when a fight starts elsewhere.
+- Arriving late: the first wave reaches its near bases 20-30 s after the gates open; the flag runner reaches the centre at 30-35 s. A death costs the 30 s resurrection wait plus a 10-20 s run from the base graveyard, so 40-50 s of absence at a base but only 2-4 s of running, which is why base fights rest so quickly.
+- Running into a group: solo players run into 3+ enemies about 1-3 times per match, most often on the centre platform and on the two short crossings.
+- Reaction to a base being contested: 3-8 s to notice the bar or the call, then 10-20 s to rotate; only 1-2 players per team actually rotate, the rest keep fighting.
+- Reaction to a flag being taken: most players take 3-8 s to notice, and only 1-2 go for the carrier; the rest keep fighting at a base, which is why flag caps in random games usually succeed.
+- Holding still on defence: a human defender does not stand in the radius for a whole game; the pattern is 20-60 s inside, a short walk to the ramp or the graveyard, then back, plus 1-2 absences of 10-20 s per match to help a nearby fight.
+- Rotations: players switch bases 2-4 times per match on average, usually after a death rather than on a call.
+- Flag behaviour: a human runner caps at the nearest controlled base rather than the best one. In this core the flag (aura 34976) is dropped when the carrier dies, leaves the battleground, or loses the aura to a spell that carries the StealthOrInvis interrupt flag (mounting, stealthing and similar); the exact list of such spells is unverified, so bots should assume any of them drops it.
+- Reading the score: players check the resource bar around 800-1000 and again near the cap; a team 200+ behind starts stacking one base and stops defending the third (estimate).
+
+
+6. COMMON MISTAKES OF AVERAGE PLAYERS HERE
+- Standing outside the 70 yd capture radius and calling it defence: the bar does not move.
+- Fighting for a base with only 1-2 extra players inside the radius, so an enemy base takes 70-140 s and the defenders respawn back into it.
+- Ignoring the flag entirely while holding two bases, or fighting for the flag while holding four (a 4-base flag cap is 500, which is a third of the game).
+- Carrying the flag to a base that is being contested, so the capture trigger never fires.
+- Dying with the flag 20 yards short of the base instead of dropping it to a teammate, and letting it return in 8 s.
+- Not clearing the base graveyard: the defenders come back 61-85 yd away every 30 s and the fight never ends.
+- Chasing a carrier across the centre platform instead of cutting him off at the base ramp.
+- Splitting 15 players across all four bases, so every base is a 3v3 that flips randomly.
+- Not using the base buffs that spawn at the four points (one random one of speed 179871, regeneration 179904 or berserking 179905 per base when the gates open).
+- Fighting on the enemy's near bases while their own two are undefended.
+- Rotating alone across a 240-330 yd ring instead of with the group.
+- No call-outs on the flag carrier, so 15 players chase in every direction.
+
+
+VERIFIED AGAINST (8.3.7 build 35662): TrinityCore 8.3.7-35662 source BattlegroundEY.h/.cpp (base and flag positions, tower cap positions, area trigger ids, capture bar maths, capture radius, tick points and timer, flag points, flag respawn time, flag pick-up and capture rules, graveyard selection, spirit guides, worldstates, gate entries and positions, exploit teleport ids), Battleground.h/.cpp (resurrection interval, spirit heal spells, per-team player counts), TrinityCore world_safe_locs data (ids 1103-1108 on map 566, 3772, 3773), client DB2 tables at this build: BattlemasterList 7 and 102, PVPDifficulty 837, Map 566. Not verifiable and marked above: whether your build caps at 1600 or 1500, bridge and ramp waypoints, whether the client enforces a lockout on a dropped flag, mount availability at 29, bracket level scaling in your core.

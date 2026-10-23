@@ -197,7 +197,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `2_Talents.txt`: the talents of the level 29 Warrior twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Warrior twink.
 
-## Twink29_Battlegrounds (13 prompts)
+## Twink29_Battlegrounds_Completed (13 prompts, all completed)
 
 - `01_Warsong_Gulch.txt`: how a level 29 twink plays Warsong Gulch (map 489 and 2106) in 8.3.7. The computer-controlled characters must 
 - `02_Arathi_Basin.txt`: how a level 29 twink plays Arathi Basin (map 529 and 2107) in 8.3.7. The computer-controlled characters must b

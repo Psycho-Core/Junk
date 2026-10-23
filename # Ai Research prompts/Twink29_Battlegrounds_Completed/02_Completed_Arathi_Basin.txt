@@ -1,0 +1,145 @@
+OPEN. Arathi Basin is part of the 20-29 bracket in 8.3.7 (build 35662): 15 vs 15 (BattlemasterList 3 "Classic Arathi Basin": MaxPlayers 15 and MinPlayers 8 PER TEAM, so 15v15 with an 8v8 minimum to start, RatedPlayers 10, GroupsAllowed 1, MaxGroupSize 5, MinLevel 10, MaxLevel 120, InstanceType 3), the 20-29 range is PVPDifficulty 15 (map 529, RangeIndex 1) and PVPDifficulty 1373 (map 2107, RangeIndex 1), it is a normal (unrated) queue that is open all the time; the holiday weekend (Call to Arms, HolidayWorldState 1943) only changes the reward rates, not the rules. Rated play is a separate list (BattlemasterList 102 "Rated Battleground", MinLevel 100), so a level 29 can never be rated.
+
+EXTRA BRACKET FACT: characters with experience turned off (Behsten 35365 / Slahtz 35364) queue only against other experience-off characters (rule added in patch 3.2.0), so a 29 twink meets twinks. Per the 5.2.0 rule a character's effective level is scaled up to the top of the bracket (a level 20 is scaled toward 29); whether your core implements that scaling is unverified.
+
+
+1. OBJECTIVE AND WIN CONDITION, WITH THE NUMBERS
+- Five capture points (Stables, Blacksmith, Farm, Lumber Mill, Gold Mine). Each occupied point generates resources for its team every tick. First team to the resource cap wins.
+- The cap in the TrinityCore 8.3.7 code is 1600 resources (BG_AB_MAX_TEAM_SCORE = 1600) with a near-victory warning above 1400 (BG_AB_WARNING_NEAR_VICTORY_SCORE, broadcast texts 10598 Alliance / 10599 Horde, sound 8456). The 8.3.7 client's own map text says "Earn 1500 resources" (Map rows 529 and 2107, PvpLongDescription). The two disagree; the core you run decides which one your bots see, and where the truncation comes from is unverified. Check BG_AB_MAX_TEAM_SCORE on your build before you script the end game.
+- There is no time limit in the 8.3.7 core: Arathi Basin has no MINUTE or elapsed-time check in BattlegroundAB.cpp, the match only ends when a team reaches the cap (plus the usual premature-end rules for a team dropping below the minimum player count). At the standard rates a two-node game can therefore run for 24 minutes and a one-node game for 32 (see the tick table below).
+- Ticks: the core stores two tables, BG_AB_TickIntervals[6] = {0, 12000, 9000, 6000, 3000, 1000} ms and BG_AB_TickPoints[6] = {0, 10, 10, 10, 10, 30} for 0 to 5 owned points. That is:
+  1 point: 10 resources every 12 s = 0.833/s
+  2 points: 10 every 9 s = 1.111/s
+  3 points: 10 every 6 s = 1.667/s
+  4 points: 10 every 3 s = 3.333/s
+  5 points: 30 every 1 s = 30/s
+  Time to 1600 at those rates: 1 point 32.0 min, 2 points 24.0 min, 3 points 16.0 min, 4 points 8.0 min, 5 points 53 s. Time to 1500 (the client's number): 30.0, 22.5, 15.0, 7.5 min and 50 s.
+- Capture timer: a click on a neutral or enemy banner starts a 60 s capture (BG_AB_FLAG_CAPTURING_TIME = 60000). The node flips to occupied when the timer runs out.
+- Capture does not need the clicker alive: the timer lives on the node (m_NodeTimers), not on the player, and PostUpdateImpl counts it down with no player check. Killing the player who clicked does not stop the flip.
+- Defending: if your team owned the node and an enemy has just contested it, clicking your own contested banner restores it to occupied instantly, awards the defend score (objective 123) and cancels the enemy's 60 s timer. If the node was still neutral (nobody had owned it since the last flip), an enemy clicking it only restarts a 60 s timer for themselves and awards them the assault score (objective 122).
+- Assaulting an occupied enemy node also removes that node's spirit guide at once, so the defenders lose their graveyard while the timer runs.
+- Captured banner replacement is delayed 2000 ms (m_BannerTimers default 2000 in _CreateBanner); a contested banner is removed for that gap, so a click in the first 2 s after a flip is lost (inference from _DelBanner + the 2000 ms timer, not a separate rule in the code).
+- Honour and reputation per tick: honour accumulates with the same tick points and pays GetBonusHonorFromKill(1) every 260 points (m_HonorTics, normal) or every 160 points (holiday weekend); reputation is 10 points of League of Arathor (faction 509, Alliance) or Defilers (faction 510, Horde) every 160 points (normal) or every 120 points (holiday). With three nodes that is about one bonus honour kill every 156 s and 10 reputation every 96 s. End of match: the winner and both teams each receive GetBonusHonorFromKill(1).
+- Node ownership bonus: on every occupied node the core spawns a world trigger that casts spell 68652 (SPELL_HONORABLE_DEFENDER_25Y, +50% honour within 25 yards) for the owning team, and flashes quest-credit spells 24061 (4 bases) and 24064 (5 bases) when a team holds four or five points. Note 68652 is an honour bonus, not a combat buff.
+- Objective ids for the scoreboard: 122 assault base, 123 defend base.
+
+
+2. THE MAP
+Map ids: 529 (client Map row: directory PVPZone04, name "Classic Arathi Basin", used by the classic queue entry) and 2107 (directory ArathiBasin2, name "Arathi Basin", used by the newer queue entry). Which one you get is decided by the queue entry: BattlemasterList 3 "Classic Arathi Basin" has only MapID_0 = 529, BattlemasterList 1018 "Arathi Basin" has only MapID_0 = 2107, and both are also inside BattlemasterList 32 / 1029 "Random Battleground". TrinityCore 8.3.7 creates the instance on BattlemasterEntry->MapID[0] and takes the queue id from the ID column of your battleground_template table, so those rows decide whether your server runs 529 or 2107; which rows your database holds is unverified. One shared BattlegroundAB class builds both maps, so banner, buff and gate coordinates are identical on the two maps; only the safe locations differ (both sets listed below). Coordinates are game coordinates (x, y, z) on map 529 unless marked.
+
+THE FIVE OBJECTIVES (banner gameobject entries, all neutral banners are 180087 to 180091 in the order below; captured banners are 180058 Alliance / 180060 Horde, contested 180059 / 180061, auras 180100 / 180101 / 180102)
+- Stables: entry 180087, 1166.785, 1200.132, -56.70859, orientation 0.9075713. South-east quadrant, high ground, closest point to the Alliance base.
+- Blacksmith: entry 180088, 977.0156, 1046.616, -44.80923, orientation -2.600541. Dead centre, the most valuable single point.
+- Farm: entry 180089, 806.1821, 874.2723, -55.99371, orientation -2.303835. South-west, closest point to the Horde base.
+- Lumber Mill: entry 180090, 856.1419, 1148.902, 11.18469, orientation -2.303835. North-west, on the highest ground (z 11.2).
+- Gold Mine: entry 180091, 1146.923, 848.1782, -110.917, orientation -0.7330382. North-east, lowest ground (z -110.9), the furthest from everything.
+
+BASE GATES (the only two door gameobjects the core creates for Arathi Basin)
+- Alliance gate, entry 180255, 1284.597, 1281.167, -15.97792, orientation 0.7068594.
+- Horde gate, entry 180256, 708.0903, 708.4479, -17.8342, orientation -2.391099.
+- Both are closed during the preparation phase and opened by StartingEventOpenDoors. There are no inner doors; the bases are open after the gate.
+
+START POSITIONS AND GRAVEYARDS (world_safe_locs, map 529)
+- 898, 529, 1355.2, 1274.19, -9.3585, facing 157.05 - Alliance base graveyard (Trollbane Hall), the Alliance start and their fallback graveyard.
+- 899, 529, 711.536, 648.83, -10.0401, facing 74.0853 - Horde base graveyard (Defiler's Den), the Horde start and fallback.
+- 895, 529, 1201.87, 1163.13, -56.286, facing 106.65 - Stables graveyard.
+- 894, 529, 1016.59, 955.185, -42.8287, facing 96.75 - Blacksmith graveyard.
+- 893, 529, 834.726, 784.979, -57.0819, facing 97.65 - Farm graveyard.
+- 897, 529, 772.756, 1213.11, 15.7974, facing 289.35 - Lumber Mill graveyard.
+- 896, 529, 1211.52, 781.557, -82.7095, facing 145.35 - Gold Mine graveyard.
+- Anti-cheat teleport targets: 3705, 529, 1313.9, 1310.74, -9.01043, facing 140 (Alliance) and 3706, 529, 684.014, 681.22, -12.9159, facing 314 (Horde).
+- Map 2107 equivalents (the core uses the same ids only on the same map, so these are the modern equivalents): 7251 Alliance base 1353.22, 1272.2, -11.2072; 7252 Stables 1201.54, 1166.4, -56.205; 7253 Gold Mine 1212.31, 784.983, -82.9087; 7254 Lumber Mill 773.495, 1208.02, 15.7973; 7255 Horde base 708.266, 644.445, -12.5542; 7256 Farm 835.172, 789.642, -55.9021; 7257 Blacksmith 1016.93, 956.981, -42.8305; entrances 7055 Horde 684.014, 681.22, -12.9159 and 7056 Alliance 1315.21, 1305.74, -11.697.
+
+SPIRIT GUIDES AND RESURRECTION
+- One spirit guide per owned node plus the two base guides; the creature is the battleground spirit guide, 13116 for the Alliance and 13117 for the Horde (Battleground.h), spawned per node by _NodeOccupied. BattlegroundAB only stores the positions: 1200.03, 1171.09, -56.47 Stables; 1017.43, 960.61, -42.95 Blacksmith; 833.00, 793.00, -57.25 Farm; 775.17, 1206.40, 15.79 Lumber Mill; 1207.48, 787.00, -83.36 Gold Mine; 1354.05, 1275.48, -11.30 Alliance base; 714.61, 646.15, -10.87 Horde base.
+- A dead player is sent to the closest graveyard his team owns (GetClosestGraveyard picks the nearest owned node by squared distance); with no owned node he goes to his own base graveyard. That is the whole graveyard rule: graveyards are not captured, they follow node ownership, and the base graveyard never changes hands.
+- Resurrection runs in 30 s batches (RESURRECTION_INTERVAL = 30000 in Battleground.h), so a death costs the wait plus the run back.
+- Nodes taken from a team also take its spirit guide away immediately (assault), so a team that loses Blacksmith loses the Blacksmith respawn point while the 60 s timer runs.
+- Spells on the guides: 22011 Spirit Heal Channel, 22012 Spirit Heal, 44535 Spirit Heal mana, 2584 Waiting to Resurrect, 24171 Resurrection Impact Visual.
+
+DOORS, RAMPS AND TUNNELS
+- The only real doors are the two base gates above. Everything else is terrain.
+- Ramps and high ground: the only heights the coordinates prove are Lumber Mill at z 11.2 (high ground), Blacksmith at z -44.8, Stables at z -56.7, Farm at z -56.0 and Gold Mine at z -110.9 (lowest, in a cave). The shape of the terrain between them (Lumber Mill ramp, Blacksmith bridge, Farm bridge, Gold Mine tunnel mouth) is the known map layout, not something read from the 8.3.7 data in this pass.
+- Precise ramp, bridge and tunnel mouth waypoints are unverified (no coordinate source read); use the map's pathfinding data.
+- Area triggers in the code: 6634 Alliance start, 6635 Horde start (leaving either during preparation teleports you to 3705 / 3706), 3948 Alliance exit portal, 3949 Horde exit portal, and 3866 Stables, 3867 Farm, 3868 Lumber Mill, 3869 Gold Mine, 3870 Blacksmith node triggers; 4020, 4021 and 4674 are unnamed and ignored.
+- Any player can click a banner within 10 yards of it (IsWithinDistInMap 10 in EventPlayerClickedOnFlag); the node lookup walks the five contested auras in order Stables, Blacksmith, Farm, Lumber Mill, Gold Mine.
+
+DISTANCES (measured from the coordinates above; the yard values are exact, the travel times assume 7.0 yd/s on foot and 11.2 yd/s on a 60% ground mount, which are engine assumptions, not 8.3.7 data)
+- Gate to point: Alliance gate to Stables 143 yd (20 s / 13 s), to Blacksmith 387, to Lumber Mill 448, to Gold Mine 454, to Farm 628. Horde gate to Farm 193 yd (28 s / 17 s), to Blacksmith 432, to Gold Mine 461, to Lumber Mill 465, to Stables 672.
+- Base graveyard to point: Alliance base to Stables 202, Blacksmith 441, Lumber Mill 515, Gold Mine 474, Farm 679. Horde base to Farm 245, Blacksmith 478, Gold Mine 479, Lumber Mill 521, Stables 715. Base to base 897.4 yd.
+- Point to point (decides who can reinforce whom): Stables-Blacksmith 244.1, Blacksmith-Farm 242.7, Blacksmith-Lumber Mill 158.3, Blacksmith-Gold Mine 261.2, Stables-Lumber Mill 314.8, Stables-Gold Mine 352.5, Farm-Lumber Mill 279.1, Farm-Gold Mine 341.7, Lumber Mill-Gold Mine 418.3.
+- The three-point plan in numbers: Stables + Blacksmith + Lumber Mill (or Farm) puts every pair you have to defend 158-315 yd apart; a three-point set that includes Gold Mine forces 352-418 yd rotations.
+
+
+3. ROLES, SPLIT, OPENING 30 SECONDS, HOLDING THE MIDDLE, WHEN TO PUSH
+Team size 15 (8 minimum). Counts below are estimate; the geometry above is the reason for them:
+- 2-3 defence per owned node: one stealth class (rogue or druid) plus one ranged who can interrupt. Estimate 1 defender on a freshly taken node, 2 on Blacksmith.
+- 4-6 attack group: the mobile block that goes from node to node, led by 1 warrior or paladin and 1-2 healers.
+- 1-2 roamers/duellists: hunter, mage or rogue who camp the lane between Blacksmith and the enemy's nearest node and call incoming.
+- 1-2 base sitters on each side (estimate): someone at the base graveyard is rare in twink games but common in random ones.
+- 2-3 healers total is the usual twink number; a 29 group with no healer loses the 60 s node fights even when it out-damages the enemy.
+- Common splits: 2 nodes held + a 5-man mid block (the usual plan), or 3 nodes split by lane (1-2 per node, 2 rotating).
+
+Opening 30 seconds (estimate, but consistent with the distances above):
+- 0-3 s: gates open, everyone mounts (riding spell 33388; whether your core grants a mount at 29 and at what speed is unverified) and moves.
+- 3-12 s: Alliance sends 3-4 to Stables (143 yd, about 13 s mounted) and the rest toward Blacksmith/Lumber Mill; Horde sends 3-4 to Farm (193 yd, about 17 s mounted) and the rest toward Blacksmith. One player each side goes to the far node (Gold Mine or Lumber Mill).
+- 12-30 s: first clicks land at about 10-15 s (Stables/Farm) and 20-25 s (Blacksmith); the first 60 s capture therefore completes at about 1:10-1:25 on the match clock. The first real fight is almost always at Blacksmith, because it is 158 yd from Lumber Mill and 244 from Stables - both sides can reach it in under 35 s.
+
+Holding the middle:
+- In Arathi Basin "the middle" is Blacksmith, not an open field: it is the point that is within 158-261 yd of four of the other four nodes, and owning it lets a team reinforce any lane in under 25 s mounted.
+- A team that holds Blacksmith plus one side node can afford to trade the other node; a team that holds three points simply rotates its 4-6 attack block to whichever node the enemy is contesting, and never splits the block.
+- Defence is not standing on the banner; it is standing 10-20 yd off it so a stealther cannot open on you from behind while you are inside the flag click radius.
+
+When a team pushes:
+- Push when the enemy's block is committed to a node you do not need (estimate: 3 or more enemies visible at one node means the other two are soft).
+- Push a node only with at least 2 more players than the defenders, because a 60 s timer is long enough for the defenders' respawn wave to arrive (base to Blacksmith 441-478 yd, 40-43 s mounted).
+- Late game, a team that is behind abandons its third node and stacks a single node with 8+, because the tick table means only 4 or 5 points catch up quickly (4 points is 8 minutes to the cap, 5 points is under a minute).
+- A team that is ahead stops pushing and stacks the two nodes with the shortest mutual distance (Stables + Blacksmith 244 yd, or Blacksmith + Lumber Mill 158 yd).
+
+
+4. WHAT DECIDES A TWINK FIGHT IN ARATHI BASIN
+- The 60 s capture timer: the fight is not won by killing the clicker, it is won by clicking the banner yourself (assault) or restoring your own contested banner (instant defend). A team that kills 5 enemies and then stands next to the banner without clicking has lost the node.
+- Numbers at the click: 1 defender cannot hold against 3 attackers for 60 s at 29, where a single stun plus a burst rotation kills. Two defenders with one healer usually can.
+- Crowd control at the banner: roots, fears and stuns that keep the defender off the 10 yd click radius decide the flip; a fear that lands at 55 s of a 60 s timer wins the node outright.
+- Interrupts and healing: a 29 healer casts one big heal with a long cast; one interrupt on the defender's healer is often the whole fight. Attackers should kill the healer first, defenders should keep the healer moving.
+- Burst windows: rogue openers, warrior charge plus Mortal Strike, and mage burst on a rooted target kill a 29 in one stun. The counter is trinket-style abilities and pre-emptive healing.
+- Stealth: the defender's stealth is what stops a solo stealther from taking a node for free; the attacker's stealth is what turns a 3v3 into a 4v3. A rogue sitting stealthed 15 yd off a banner is worth more than a rogue in the fight.
+- Kiting and the respawn race: because the closest owned graveyard is chosen, losing a node also lengthens your own respawn run. Kiting a fight away from a banner so the enemy dies out of position is a real Arathi Basin tactic.
+- Gear and level in the bracket: heirlooms and twink items, one PvP talent slot at 29, enchants and consumables decide a 1v1 more than class.
+- Buffs at the nodes: at gates open the core spawns one random power-up of the three at each of the five nodes (urand(0,2) picks speed 179871, regeneration 179904 or berserking 179905); the node buff positions are 1185.566, 1184.629, -56.36329 Stables; 990.1131, 1008.73, -42.60328 Blacksmith; 818.0089, 842.3543, -56.54062 Farm; 808.8463, 1185.417, 11.92161 Lumber Mill; 1147.091, 816.8362, -98.39896 Gold Mine. Only one of the three is visible at each node, so which buff you get is luck. Respawn of a used node buff: the core passes no usable respawn time (AddObject ignores its respawn argument in 8.3.7), so the real value comes from the gameobject template and is unverified.
+- The four-point and five-point quest spells (24061, 24064) and the +50% honour aura (68652) are rewards, not combat effects: do not script bots to chase them.
+
+
+5. HOW A HUMAN BEHAVES INSTEAD OF A SCRIPT (frequencies and times are estimate unless a verified number is quoted)
+- Time stopped to fight near a point: a node fight lasts 10-40 s; after a win, players stand on or near the banner for another 5-15 s before moving. A player who just clicked a banner often stays to watch the 60 s bar, which is 60 s of standing still if nothing attacks.
+- Chasing off the route: about 1 in 3 players chases a runner 30-60 yd off the lane; 1 in 5 follows into the enemy's next node and dies there. On the Blacksmith bridge this happens more often because the bridge funnels everyone.
+- Going the wrong way: 1-2 players per team per match take a 20-40 s detour, most often after a respawn at a node graveyard they do not recognise, or by running to the node they died at instead of the node being attacked.
+- Leaving a point undefended: in random play a node is left with nobody on it within 1-3 minutes of being captured in most matches - estimate: 50-70% of captured nodes have no defender for 15 s or more at some point. Twink groups defend 1-2 nodes properly and let the third go.
+- Arriving late: the first wave reaches Stables/Farm 15-25 s after the gates open and Blacksmith 20-35 s; stragglers arrive 10-30 s behind. A death costs the 30 s maximum resurrection wait plus a 20-63 s run on foot (143-441 yd, 13-39 s mounted), so 50-95 s of absence.
+- Running into a group: solo players run into 3 or more enemies about 1-3 times per match; it happens most at Blacksmith (everyone's shortest path) and at a node just after it flipped.
+- Reaction to a node being assaulted: 3-8 s to notice the chat line and the map icon, then 10-20 s to decide to rotate; only 1-2 players per team actually rotate, the rest keep fighting where they are.
+- Reaction to a node capture in progress: a defender who is alive and within 30 yd almost always clicks within 2-5 s; a defender who is dead does not come back in time (respawn plus 40-70 s run against a 60 s timer).
+- Holding still on defence: a human defender does not stand on the banner for 5 minutes. Typical pattern is 20-60 s near the banner, a short walk to the ramp or the high ground, then back; a defender also leaves for 10-20 s to help a fight 20-40 yd away in roughly 1-2 times per match.
+- Rotations: players switch nodes 2-4 times per match on average, and usually after a death rather than on a call. Groups rotate together only when a leader types.
+- Remounting: humans remount within 1-2 s of leaving a fight if nothing is attacking them; they forget to remount after a long fight maybe 1 in 5 times.
+- Reading the score: players check the resource bar at 800-1000 and again near the cap; teams that are 200+ behind start stacking one node and stop defending the third (estimate).
+
+
+6. COMMON MISTAKES OF AVERAGE PLAYERS HERE
+- Standing next to a contested banner without clicking it, or clicking it once and walking away while the 60 s timer still runs for the other team.
+- Killing the enemy team at a node and then leaving before the 60 s capture finishes, so the node flips back or stays contested.
+- Not defending their own contested node: clicking your own contested banner restores it instantly, and almost nobody does it.
+- Fighting at Blacksmith forever: it is the most contested point and the easiest place to get stuck in a 10-minute stalemate while the enemy quietly holds three other nodes.
+- Splitting into five solo players at five nodes: at 8-15 players per side, a five-way split means every node is one defender and every enemy attack is a free flip.
+- Chasing kills off the node and losing the 60 s timer.
+- Ignoring the respawn geometry: dying at Gold Mine while your team owns only Stables means a 352 yd run back.
+- Clicking a banner as a healer or a low-health player and dying with the timer running (harmless to the timer, but it feeds the enemy and removes your healer).
+- Not using the node's power-up, or taking the buff and then charging a group.
+- Fighting on the enemy graveyard: killed defenders respawn 20-50 yd away at full strength.
+- Three defenders on one node while two nodes are undefended; the usual random-battleground shape is a clump at Blacksmith and nothing else.
+- Letting the Gold Mine or Lumber Mill be the third node "because it is far": the tick table means a distant third node is worth the same 10 points as a close one, but it costs 350-420 yd to defend.
+- No call-outs, so the 4-6 player attack block arrives one player at a time.
+- Starting the match by fighting at the enemy gate instead of taking a node; a fight in front of a gate is a fight you lose on numbers and respawns.
+
+
+VERIFIED AGAINST (8.3.7 build 35662): TrinityCore 8.3.7-35662 source BattlegroundAB.h/.cpp (node ids and positions, banners, auras, buff positions, gates, spirit guide positions, capture timer, tick tables, defend and assault rules, honour and reputation ticks, worldstates, area triggers, graveyard selection, end condition, honour spells 68652 / 24061 / 24064), Battleground.h/.cpp and BattlegroundMgr.cpp (resurrection interval, spirit heal spells, per-team player counts, queue to map selection, AddObject respawn behaviour); TrinityCore world_safe_locs data (ids 893-899, 3705, 3706, 7055, 7056, 7251-7257); client DB2 tables at this build: BattlemasterList 3, 32, 102, 1018, 1029, PVPDifficulty 15 and 1373, Map 529 and 2107, Spell 783, 1850, 33388; Warcraft Wiki Twink (XP-off queue separation, 5.2.0 bracket scaling). Not verifiable and marked above: whether your core caps at 1600 or 1500, buff respawn times, ramp/bridge/tunnel waypoints, mount availability at 29, which battleground_template rows your database holds, bracket level scaling in your core.

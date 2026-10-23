@@ -1,0 +1,143 @@
+OPEN, but with a narrower level range than the rest of this set: The Battle for Gilneas uses the 25-29 bracket, not 20-29. BattlemasterList 120 "The Battle for Gilneas" (GameType "Domination", InstanceType 3, MinLevel 25, MaxLevel 120, MinPlayers 3, MaxPlayers 10, RatedPlayers 10, GroupsAllowed 1, MaxGroupSize 5, HolidayWorldState 5360, MapID_0 761) means 10 vs 10 per team with a 3 vs 3 minimum to start, and nobody below level 25 can queue it at all. The 20-29 range does not exist for map 761: PVPDifficulty 144 is RangeIndex 0 with MinLevel 25 and MaxLevel 29, then 841 30-39, 842 40-49, 843 50-59, 844 60-69, 845 70-79, 846 80-89, 883 90-99, 803 100-109, 1011 110, 913 111-119, 1187 120. A level 29 twink is therefore at the very top of his bracket here (29 is scaled-to cap), while a level 20-24 twink cannot enter. Unrated: rated play is the separate list 102, MinLevel 100.
+
+SOURCE AND CORE NOTE - read this before scripting. The 8.3.7 (35662) fork this series used for steps 01-05 (Lasko73/BFA_8.3.7-35662) ships BattlegroundBFG.cpp as a 20-line stub: no capture, score or win logic at all, only the scoreboard class (BFG_OBJECTIVE_BASES_ASSAULTED 370, BFG_OBJECTIVE_BASES_DEFENDED 371). A different 8.3.7 core (MttAI-dev/MTT-WoW-BfA, master = 8.3.7, and HavenWoW/BFA-HavenCore, same file) carries the full legacy implementation, and that is what the numbers below come from. TrinityCore's 2024 Cataclysm-Classic rewrite of the same battleground uses different score rates, quoted separately where they differ. If your server is the stub fork, the battleground cannot be won until you port the logic; the map, coordinates and capture rules below are still correct.
+
+EXTRA BRACKET FACTS: experience-off characters queue only against other experience-off characters (rule from patch 3.2.0), so a 29 twink meets twinks. Because the floor is 25 and the ceiling is 29, the pool is 25-29 only and a 29 twink is the strongest character in it. Per the 5.2.0 rule a character is scaled up to the top of the bracket; whether your core implements that is unverified. How many players a 25-29 Gilneas actually fields is unverified; 3 per side is enough to start it.
+
+
+1. OBJECTIVE AND WIN CONDITION, WITH THE NUMBERS
+- Three capture points, all neutral at the start: Lighthouse, Waterworks, Mines. Holding them accumulates resources; the first team to 1500 resources wins.
+- The 1500 is confirmed three ways: the 8.3.7 client map text for 761 is "Capture and hold objectives / Earn 1500 resources"; the achievement Battle for Gilneas Perfection is "score of 1500 to 0"; and the code constant is BG_BFG_MAX_TEAM_SCORE = 1500. The wiki's "first team to gather 2000 resources" sentence is Cata-era text and contradicts the client - use 1500.
+- Capture: clicking a banner starts a 60 second capture (BG_BFG_FLAG_CAPTURING_TIME = 60000). The banner shows a contested (grey) state for those 60 s, then becomes the capturing team's occupied banner. Every one of the three points works this way at the start.
+- Contested rules, exactly as Arathi Basin's (same state machine, same +1 score):
+  Neutral node clicked: becomes contested for the clicked team, 60 s timer, +1 "bases assaulted" to the clicker.
+  Enemy-contested node clicked by the other team while the previous state was not occupied (i.e. two teams fighting over a neutral node): the node flips to the new team's contested state and the 60 s restarts, +1 assaulted.
+  Your own node that the enemy contested, clicked back by you: it returns to occupied immediately (no 60 s), +1 "bases defended", spirit guide respawns.
+  Enemy occupied node clicked: becomes contested for you for 60 s, +1 assaulted, and the node is de-occupied at once - the enemy spirit guide disappears and its ghosts are moved to their closest own graveyard.
+- Click range is 10 yards (the code only accepts a click within IsWithinDistInMap 10 of the node's object). One player clicking is enough; there is no "more players captures faster" rule and no per-player capture speed.
+- Resource rates on the legacy 8.3.7 implementation: the tick interval and the points paid depend on how many nodes the team holds. 1 node: 10 points every 12000 ms. 2 nodes: 10 points every 6000 ms. 3 nodes: 30 points every 1000 ms. That is 0.83, 1.67 and 30 points per second, so time to 1500 at a constant hold is about 30 min with one node, about 15 min with two, and about 50 s with all three.
+- DIFFERENT SOURCE: TrinityCore's Cataclysm-Classic rewrite uses TICK_POINTS {0,1,3,30} on a 1 s tick (1, 3 and 30 per second), which gives 25 min, 8.3 min and 50 s. Both agree on the all-three case (30/s) and on the cap; they disagree on one and two nodes. Which table the real 8.3.7 client used is unverified; check which one your core implements before you tune bot pacing.
+- Near-victory warning: broadcast when a team passes BG_BFG_WARNING_NEAR_VICTORY_SCORE = 1400 (the cata_classic rewrite uses 1200; texts 10598 Alliance / 10599 Horde in that rewrite).
+- Honour: points earned also fill an honour counter, and the fork sets the payout threshold to 330 points normally and 200 on a Battleground weekend (BG_BFG_NotBGBGWeekendHonorTicks / BG_BFG_BGBGWeekendHonorTicks). The code that spends the counter is not in this file, so whether your build actually pays the bonus kill is unverified; if it does, two nodes at 1.67 points per second would pay about every 3.3 min. The EndBattleground path pays every team GetBonusHonorFromKill(1).
+- No time limit. Nothing in the legacy implementation sets a match timer; the match ends only at 1500 or through the generic premature-end rules when a side drops under its minimum players.
+- Preparation is the standard TrinityCore countdown (2 min, 1 min, 30 s, "has begun"); the gates stay closed until it ends.
+- Scoreboard columns: the Lasko73 8.3.7 header defines 370 and 371 for bases assaulted and defended; whether those are the client's column ids on this build is unverified. The legacy fork instead updates criteria 122 and 123, which are criteria ids, not scoreboard columns.
+- Honour-aura: the team that owns a node gets SPELL_HONORABLE_DEFENDER_25Y (68652, +50% honour within 25 yards of the node) from a trigger creature at the node; it is removed when the node is lost. Killing and dying at a node you own is worth more honour for you.
+
+
+2. THE MAP
+Map id 761 (client Map row: directory "Gilneas_BG_2", name "The Battle for Gilneas", MapType 1, InstanceType 3 PVPBattlefield, client description "As the Greymane wall collapses ... a 10 vs 10 domination battleground, where each side attempts to control the Mine, Lighthouse, and Waterworks for as long as possible", short description "Capture the objectives"). All coordinates are map 761, x, y, z.
+Layout: Alliance starts in the north-west (around 908, 1338; +x is east and +y is north) and Horde in the south-east (around 1401, 977). The Lighthouse is the Alliance-side point (163 yards from the Alliance start), the Mine is the Horde-side point (151 yards from the Horde start), and the Waterworks is the contested point (397 yards from the Alliance start, 422 from the Horde start). The Overlook is the high ground in the middle of all three, and a river with one bridge divides the map (bridge position unverified).
+
+THE THREE OBJECTIVES (node/trigger position, then its graveyard)
+- Lighthouse: 1057.78, 1278.26, 3.1924. Graveyard safe loc 1736 at 1034.82, 1335.58, 12.0095, spirit guide 1036.32, 1341.61, 11.55. 62.4 yards from the point.
+- Waterworks: 980.09, 948.74, 12.67. Graveyard safe loc 1738 at 887.578, 937.337, 23.7737, spirit guide 886.44, 938.06, 24.13. 93.9 yards from the point.
+- Mines: 1251.11, 958.3639, 5.68. Graveyard safe loc 1735 at 1252.23, 836.547, 27.7895, spirit guide 1252.39, 831.77, 27.78. 123.8 yards from the point.
+- Buff object positions next to each node (one random buff of three spawns at each node every match): Lighthouse 1063.39, 1309.09, 4.91; Waterworks 990.95, 984.46, 13.01; Mines 1196.65, 1020.01, 7.97. The three buff types are the standard battleground speed, regeneration and berserking buffs; their exact gameobject entries on 761 are unverified.
+
+START POSITIONS, GATES
+- Alliance start graveyard 1740 at 908.274, 1338.6, 27.6449 (spirit guide 898.15, 1341.58, 27.66); spawn point safe loc 1798 at 909.46, 1337.36.
+- Horde start graveyard 1739 at 1401.38, 977.125, 7.44215 (spirit guide 1408.16, 977.34, 7.44); spawn point safe loc 1799 at 1430.44, 983.861.
+- Keep gates, closed during the countdown and opened at the start: 207177 Alliance at 918.876, 1336.56, 27.6195 and 207178 Horde at 1396.15, 977.014, 7.43169. They are the only doors; nothing else in the battleground is gated.
+- Anti-cheat teleport rows: 3968 Alliance 901.106, 1341.41, 27.6449 and 3969 Horde 1403.13, 977.137, 7.44215 (world_safe_locs).
+- Gates are 597.9 yards apart; at a 60% ground mount (11.2 yards per second) that is about 53 s of riding before the first fight, about 43 s at 100%.
+
+GRAVEYARDS AND OWNERSHIP
+- Three capturable graveyards, one per node: 1736 Lighthouse, 1738 Waterworks, 1735 Mines (the legacy table orders them by node: {1736, 1738, 1735} for Lighthouse, Waterworks, Mines).
+- Two permanent start graveyards: 1740 Alliance and 1739 Horde. They cannot be captured.
+- Rule (as designed): a dead player goes to the nearest graveyard of a node his team OCCUPIES; contested nodes do not count; if his team holds nothing he goes to his start graveyard. When a node is taken from you, the ghosts already waiting there are teleported to the closest own node's graveyard.
+- CORE QUIRK: in the MTT/Haven 8.3.7 fork the GetClosestGraveYard body is commented out and always returns NULL, so the relocation above does not actually happen there. If your build inherits that, resurrection placement follows the base Battleground behaviour instead (unverified).
+- Spirit guides are the shared battleground entries 13116 Alliance / 13117 Horde. They appear when a node is occupied and disappear when it is lost.
+
+DISTANCES THAT MATTER (straight line, yards)
+- Node to its own graveyard: Lighthouse 62.4, Waterworks 93.9, Mines 123.8.
+- Node to node: Lighthouse-Waterworks 338.7, Lighthouse-Mines 373.8, Waterworks-Mines 271.3.
+- Start to the near node: Alliance start-Lighthouse 163.1, Horde start-Mines 151.4. Start to the contested node: Alliance start-Waterworks 396.7, Horde start-Waterworks 422.3. Start to the far node: Alliance start-Mines 512.4, Horde start-Lighthouse 456.9.
+- Gate to gate 597.9; Alliance gate to Lighthouse 152.6; Horde gate to Mines 146.2.
+
+ROUTES, CHOKEPOINTS
+- The two near nodes decide the opening: each team can be at its own point 15-20 s after the gates open.
+- The Waterworks is the swing point: 271 yards from the Mines, 339 from the Lighthouse, and roughly 400 from either start, so whoever wins it holds the centre of the triangle.
+- The Overlook is the central high ground between the three points; holding it lets you see and rotate to any of them, and losing it means every rotation is contested.
+- Hills on both sides form the chokepoints, with narrow paths through them as the alternate routes, and a river with a single bridge is the main crossing (the wiki describes this; the bridge and ramp coordinates are unverified).
+- There are no vehicles and no doors other than the two start gates. Whether the terrain has tunnels of its own is unverified; the layout elements this file can source are the two hills, the narrow paths through them, and the single bridge. Fall damage and knockbacks at the Overlook and at the bridge are the terrain hazards a bot has to path around.
+
+
+3. ROLES, OPENING 30 SECONDS, HOLDING MID, PUSH TIMING
+A 10-man side is small enough that every player is a rotating body; the split is a start position, not a fixed job (all counts are estimate):
+- 1 defender parked on the home node (Lighthouse for Alliance, Mines for Horde), the one player who never leaves.
+- 4-5 to the home node at the start, because it must be capped in the first 20 s and it is 150-165 yards away.
+- 3-4 to the Waterworks as the main contest group.
+- 1-2 stealth or fast players to the enemy's near node to force a response (a rogue or druid on the Mines at 0:40 buys the Waterworks fight for free).
+- 1-2 healers total, attached to the Waterworks group; a 10-man side rarely has more.
+- After the opening, the shape is: 1 on each owned node, 5-6 in one roaming kill group that rotates between the two contested points, 1-2 harassing the enemy's home node.
+
+Opening, first 30 seconds (estimate): gates open, everyone mounts. The home group reaches its node at 15-20 s and clicks; the Waterworks group arrives at 25-35 s and the first Waterworks click usually lands 30-40 s, with the first contested-to-owned flip at 90-100 s (60 s of capture on top of arrival). Expect one team to open 2-0 in nodes about 60% of the time and the other to answer within a minute - the first 60 s is a numbers race, not a skill race.
+
+Holding the middle: the Waterworks is the node that must be held; the way to hold it is to own the Overlook and the near approach rather than to stand on the banner. A 10-man team that leaves two bodies at the Waterworks and keeps four rotating through the Overlook will win the node back every time it is clicked. Because a click is instant and a capture is 60 s, the defender's job is to interrupt the click, not to kill the clicker.
+
+When a team pushes: (a) with 2 nodes held and a 5-6 man group alive, push the third node - at 1.67 points per second a two-node hold is already a 15-minute win, so the third node is only worth taking if it is free; (b) with the enemy's home node contested, push their graveyard-side approach, because killing respawns there is what turns 2 nodes into 3; (c) when a team holds all three, the match is over in about 50 s, so the correct response for the losing side is to strip one node immediately, not to fight for the middle.
+
+The push rule that matters: with 3 nodes the rate jumps from 1.67 to 30 points per second, a factor of 18. One steal at that moment is worth more than the previous ten minutes of play, which is why every team should keep one player whose only job is to interrupt the enemy's third cap.
+
+
+4. WHAT DECIDES A TWINK FIGHT HERE
+- Numbers at the point, not gear. With 10 per side and a 60 s capture, a 2v2 that becomes a 3v2 decides the node; a 29 twink beats a 25-27 leveller one on one, but two of them beat him.
+- Burst: the first 2-3 s of a stun or Fear decides the duel, and the loser of the opener usually dies before his healer can react. A 29 twink's burst kills a 25-28 character in one window.
+- CC: because the capture is a click, the winning play is a root or a stun on the player standing on the banner, not on the player doing damage. Polymorph, Fear, Frost Nova, Hammer of Justice and Kidney Shot on the clicker are worth more than any damage rotation. Diminishing returns make the second chain in a row cheaper than the first.
+- Interrupts: with 1-2 healers per side, the fight is decided by locking the healer out. Kick, Pummel, Counterspell, Earth Shock, Mind Freeze on the healer is the win condition of every 3v3 at a node.
+- Healing: one free-casting healer behind two damage dealers holds a node indefinitely against three melee; killing him is the whole plan.
+- Flag-carrier handoffs: there is no flag, so the equivalent is the click handoff. The dangerous pattern is a low-health player clicking a contested banner with enemies alive; the good pattern is clearing first, then clicking, then leaving one body on the point while the group pushes.
+- Kiting: the Overlook and the bridge are the kite ground. Pulling a group off the banner into the open, then having a stealth player click behind them, is the standard 3-man play. Melee cannot catch a hunter or a mage up the Overlook ramps.
+- Stealth: rogue and druid are the interrupt class. One stealth player who only ever clicks the enemy's third node forces 1-2 defenders to stay home forever, which is exactly the 2-node split you want.
+- Gear and bracket: at 29 you are the top of the bracket, so a full twink wins any even fight; the losing pattern is a twink who fights in the open instead of on the banner.
+- Everything above is consistent with the rules in section 1; the weighting between them is estimate.
+
+
+5. HUMAN BEHAVIOUR VERSUS A SCRIPT
+All times and frequencies here are estimate.
+- Time stopped at an objective: a human defending a node stays 5-10 s if nothing is happening, but fights 15-40 s the moment someone contests; he rarely leaves a fight he is winning, even after the node is already lost.
+- Chasing: after a kill at a node, 50-60% of players chase the runner 20-60 yards. At the Waterworks that chase usually ends at the Overlook ramp, and it is the single most common reason a node is left unguarded.
+- Wrong way: in the first minute maybe 1 player in 8 runs to the wrong node (the far node instead of the home or Waterworks). With only 10 per side that is one wasted body for 40-60 s.
+- Leaving an objective undefended: after a cap the group leaves 0-1 players within 20 s. A node with nobody on it is the normal state after the first minute, on both sides.
+- Arriving late: a death at the Waterworks costs 15-25 s to run back from a start graveyard (397-422 yards) or 10-15 s from the Waterworks graveyard if it is yours. The second wave of any node fight is therefore 1-2 players, not 5.
+- Running into a group: solo arrivals into a 3-4 man group happen every 15-25 s at the Waterworks and at the Overlook, mostly from players who respawned alone.
+- Clicking discipline: humans click a contested banner while enemies are alive about half the time, and they almost never wait for a group. They also re-click their own contested node fast (within 2-5 s), which is why recapping your own point is much easier than taking the enemy's.
+- Score awareness: almost nobody watches the resource number. Players fight for a third node at 1400-1400 instead of defending the two they have, and teams that are 500 behind still push the middle instead of splitting.
+- Group cohesion: a 10-man side forms one main group and 1-2 solo roamer groups within the first 30 s and stays that way; reforming after a wipe takes 20-30 s because everyone respawns at a different graveyard.
+- Node buffs: players pick up the speed or berserking buff at their node almost every time they pass it, usually without looking; a bot that grabs the buff before a rotation is behaving normally, not optimally.
+
+
+6. COMMON MISTAKES OF AVERAGE PLAYERS
+- Fighting in the middle instead of on the banner. The capture is a click; kills at the Overlook pay honour but do not stop a 60 s cap that is already running.
+- Leaving the third node click unpunished. Letting the enemy finish a 60 s capture of their third node turns a 15-minute game into a 50-second loss.
+- Over-rotating. A 10-man team that sends 5 to recap one node loses the other two while it walks.
+- Not re-clicking their own contested node. Recapping your own point is instant (defended, no 60 s); players still stand and fight instead of clicking.
+- Pushing the enemy's home node while the Waterworks is neutral. The Waterworks is the swing point and is closer to your own graveyard than to the enemy's in most rotations.
+- Solo arrivals at the Waterworks, one at a time, every 20 s, feeding a 3-man group.
+- Ignoring the graveyard consequence: taking a node gives a spawn point 60-124 yards behind it; losing one moves your respawns 400 yards back. Players fight for the banner and not for the graveyard.
+- Clicking a banner at 20% health in front of two enemies, dying, and giving the node back for free.
+- Never using the node buffs, or picking up the berserking buff on a healer.
+- Standing in the open at the Overlook against ranged, instead of using the hill and the bridge chokepoint.
+- Treating a 1-v-1 at a far node as a duel and dying to it, instead of delaying the click and waiting for the group.
+- Forgetting the level floor: a level 24 twink cannot even queue this battleground, so any "20-29 Gilneas" plan is wrong from the start.
+
+
+VERIFIED AGAINST
+- wago.tools DB2, build 8.3.7.35662: BattlemasterList 120 (MinLevel 25, MaxLevel 120, MinPlayers 3, MaxPlayers 10, RatedPlayers 10, MaxGroupSize 5, HolidayWorldState 5360, MapID_0 761) and 102; PVPDifficulty 144, 803, 841, 842, 843, 844, 845, 846, 883, 913, 1011, 1187 on MapID 761; Map 761 (directory Gilneas_BG_2, 10v10 domination description, "Earn 1500 resources", InstanceType 3, MaxPlayers 0).
+- MttAI-dev/MTT-WoW-BfA (master = 8.3.7) src/server/game/Battlegrounds/Zones/BattlegroundBFG.cpp and .h: BG_BFG_FLAG_CAPTURING_TIME 60000, BG_BFG_MAX_TEAM_SCORE 1500, BG_BFG_WARNING_NEAR_VICTORY_SCORE 1400, TickIntervals {0,12000,6000,1000}, TickPoints {0,10,10,30}, node order Lighthouse/Waterworks/Mine, node positions, spirit guide positions, graveyard ids {1736,1738,1735,1740,1739}, gate entries 207177/207178 and door positions, banner and aura gameobjects 208676/208682/208763/208769/180100/180101/180102, neutral banners 208779/208780/208781, node icons 2412/2405/2404, worldstates 1776-1780 and 1955, sounds 8173/8174/8192/8212/8213/8456, honour tics 330/200, the click state machine in EventPlayerClickedOnFlag, the 10 yard click check, the buff positions, the honourable defender trigger. The same file with only two cosmetic differences is in HavenWoW/BFA-HavenCore.
+- TrinityCore/TrinityCore cata_classic src/server/scripts/Battlegrounds/BattleForGilneas/battleground_battle_for_gilneas.cpp: capture point gameobjects 228050 Lighthouse / 228052 Waterworks / 228053 Mines, TICK_POINTS {0,1,3,30} on a 1 s tick, MAX_TEAM_SCORE 1500, warning 1200, worldstates 1776-1779 and 17355-17360, doors 207177/207178/205495/205496, texts 10598/10599, sounds 8173/8174/8212/8213.
+- Lasko73/BFA_8.3.7-35662 BattlegroundBFG.cpp/.h: the stub (constructor and destructor only) and the scoreboard objective ids 370/371.
+- TrinityCore battleground_template gameobject_template data in the 8.3.7 fork SQL: 228050, 228052 and 228053 are type 42 capture points whose Data0 field is 60000 ms, i.e. the same 60 s capture time.
+- TrinityCore world_safe_locs rows 1735, 1736, 1738, 1739, 1740, 1798, 1799, 3968, 3969 on map 761, plus Battleground.h spirit guide entries 13116/13117 and SPELL_HONORABLE_DEFENDER_25Y 68652.
+- warcraft.wiki.gg/wiki/Battle_for_Gilneas: 10v10 domination, the three nodes, the Overlook, hills and chokepoints, the river and single bridge, node graveyards, the "1500 to 0" achievement, and the stale "2000 resources" line.
+- Distances recomputed from the coordinates above.
+
+UNVERIFIED IN THIS FILE
+- Which score-rate table the real 8.3.7 client used: the legacy 8.3.7 fork says 10 points per 12 s / 6 s / 1 s, the Cataclysm-Classic rewrite says 1 / 3 / 30 per second.
+- The exact buff gameobject entries on map 761 and whether the 8.3.7 world DB spawns the legacy banners (208676 etc.) or the type 42 capture points (228050 etc.).
+- Coordinates of the river bridge, the Overlook ramps and the hill paths.
+- Whether your core implements the 5.2.0 bracket scaling.
+- Whether the resurrection relocation on losing a node works on your build (the fork's GetClosestGraveYard is stubbed out).
+- How many players a 25-29 Gilneas actually fields on your server.
+- Honor tick payout (330/200) behaviour on 8.3.7, since the base Battleground class in the same fork does not reference those counters.

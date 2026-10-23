@@ -1,0 +1,467 @@
+TAXI NODE 82  SILVERMOON CITY, EVERSONG WOODS
+  flight master   : Skymistress Gloaming
+  creature entry  : 16192
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 82
+  position        : map 530 (Outland), 9375.2, -7165.9, 9.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is "West of the Silvermoon entrance", Eversong Woods
+  links           : 83 Tranquillien 1993 yd = 1.04 min; 213 Shattered Sun Staging Area 5523 yd = 2.88 min;
+                    625 Fairbreeze Village 932 yd = 0.49 min;
+                    631 Falconwing Square 674 yd = 0.35 min
+
+TAXI NODE 83  TRANQUILLIEN, GHOSTLANDS
+  flight master   : Skymaster Sunwing
+  creature entry  : 238480
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 83
+  position        : map 530 (Outland), 7594.5, -6784.3, 86.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 68 Light's Hope Chapel 7296 yd = 3.80 min [node on map 0]; 82 Silvermoon City 2201 yd = 1.15 min;
+                    205 Zul'Aman 1541 yd = 0.80 min; 625 Fairbreeze Village 1562 yd = 0.81 min
+
+TAXI NODE 93  BLOOD WATCH, BLOODMYST ISLE
+  flight master   : Laando
+  creature entry  : 17554
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 93
+  position        : map 530 (Outland), -1933.3, -11954.6, 57.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 94 The Exodar (Seat of the Naaru) 2987 yd = 1.56 min
+
+TAXI NODE 94  THE EXODAR (SEAT OF THE NAARU)
+  flight master   : Stephanos
+  creature entry  : 17555
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 94
+  position        : map 530 (Outland), -3867.6, -11641.1, -137.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is "Seat of the Naaru", The Exodar
+  links           : 26 Lor'danel 20009 yd = 10.42 min [node on map 1];
+                    27 Rut'theran Village 21122 yd = 11.00 min [node on map 1];
+                    93 Blood Watch 2643 yd = 1.38 min; 624 Azure Watch 1161 yd = 0.60 min
+
+TAXI NODE 99  THRALLMAR, HELLFIRE PENINSULA
+  flight master   : Barley
+  creature entry  : 16587
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 99
+  position        : map 530 (Outland), 228.5, 2633.6, 87.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 102 Falcon Watch 1997 yd = 1.04 min; 127 Stonebreaker Hold 3850 yd = 2.01 min;
+                    128 Shattrath 3668 yd = 1.91 min; 130 The Dark Portal 2097 yd = 1.09 min;
+                    141 Spinebreaker Ridge 1961 yd = 1.02 min
+
+TAXI NODE 100  HONOR HOLD, HELLFIRE PENINSULA
+  flight master   : Flightmaster Krill Bitterhue
+  creature entry  : 16822
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 100
+  position        : map 530 (Outland), -673.4, 2717.3, 94.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 101 Temple of Telhamat 2267 yd = 1.18 min; 121 Allerian Stronghold 3532 yd = 1.84 min;
+                    128 Shattrath 3585 yd = 1.87 min; 129 The Dark Portal 1924 yd = 1.00 min;
+                    149 Shatter Point 1690 yd = 0.88 min
+
+TAXI NODE 101  TEMPLE OF TELHAMAT, HELLFIRE PENINSULA
+  flight master   : Kuma
+  creature entry  : 18785
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 101
+  position        : map 530 (Outland), 199.2, 4241.6, 121.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 100 Honor Hold 2612 yd = 1.36 min; 117 Telredor 2415 yd = 1.26 min;
+                    129 The Dark Portal 3441 yd = 1.79 min (reverse row only)
+
+TAXI NODE 102  FALCON WATCH, HELLFIRE PENINSULA
+  flight master   : Innalia
+  creature entry  : 18942
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 102
+  position        : map 530 (Outland), -587.4, 4101.0, 91.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 99 Thrallmar 2186 yd = 1.14 min; 118 Zabra'jin 4488 yd = 2.34 min;
+                    120 Garadar 3958 yd = 2.06 min; 128 Shattrath 2138 yd = 1.11 min;
+                    130 The Dark Portal 3654 yd = 1.90 min (reverse row only);
+                    151 Swamprat Post 2059 yd = 1.07 min
+
+TAXI NODE 117  TELREDOR, ZANGARMARSH
+  flight master   : Munci
+  creature entry  : 18788
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 117
+  position        : map 530 (Outland), 213.8, 6063.8, 148.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 101 Temple of Telhamat 2437 yd = 1.27 min; 119 Telaar 3729 yd = 1.94 min;
+                    125 Sylvanaar 2721 yd = 1.42 min; 128 Shattrath 2914 yd = 1.52 min;
+                    156 Toshley's Station 2053 yd = 1.07 min;
+                    164 Orebor Harborage 1874 yd = 0.98 min
+
+TAXI NODE 118  ZABRA'JIN, ZANGARMARSH
+  flight master   : Du'ga
+  creature entry  : 18791
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 118
+  position        : map 530 (Outland), 219.4, 7816.0, 22.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 102 Falcon Watch 4412 yd = 2.30 min; 120 Garadar 2432 yd = 1.27 min;
+                    126 Thunderlord Stronghold 3372 yd = 1.76 min;
+                    128 Shattrath 4526 yd = 2.36 min; 151 Swamprat Post 3346 yd = 1.74 min
+
+TAXI NODE 119  TELAAR, NAGRAND
+  flight master   : Furgu
+  creature entry  : 18789
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 119
+  position        : map 530 (Outland), -2729.0, 7305.3, 88.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 117 Telredor 3785 yd = 1.97 min; 121 Allerian Stronghold 3636 yd = 1.89 min;
+                    128 Shattrath 2624 yd = 1.37 min
+
+TAXI NODE 120  GARADAR, NAGRAND
+  flight master   : Gursha
+  creature entry  : 18808
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 120
+  position        : map 530 (Outland), -1261.1, 7133.4, 57.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 102 Falcon Watch 3775 yd = 1.97 min; 118 Zabra'jin 2003 yd = 1.04 min;
+                    128 Shattrath 2300 yd = 1.20 min
+
+TAXI NODE 121  ALLERIAN STRONGHOLD, TEROKKAR FOREST
+  flight master   : Furnan Skysoar
+  creature entry  : 18809
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 121
+  position        : map 530 (Outland), -2987.2, 3872.8, 9.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 100 Honor Hold 2879 yd = 1.50 min; 119 Telaar 4465 yd = 2.33 min;
+                    124 Wildhammer Stronghold 2365 yd = 1.23 min;
+                    128 Shattrath 2231 yd = 1.16 min
+
+TAXI NODE 122  AREA 52, NETHERSTORM
+  flight master   : Krexcil
+  creature entry  : 18938
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 122
+  position        : map 530 (Outland), 3082.3, 3596.1, 144.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 125 Sylvanaar 3798 yd = 1.98 min; 126 Thunderlord Stronghold 3238 yd = 1.69 min;
+                    139 The Stormspire 1431 yd = 0.75 min; 150 Cosmowrench 1974 yd = 1.03 min;
+                    156 Toshley's Station 2781 yd = 1.45 min; 160 Evergrove 2408 yd = 1.25 min;
+                    163 Mok'Nathal Village 1934 yd = 1.01 min
+
+TAXI NODE 123  SHADOWMOON VILLAGE, SHADOWMOON VALLEY
+  flight master   : Drek'Gol
+  creature entry  : 19317
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 123
+  position        : map 530 (Outland), -3018.6, 2557.1, 79.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 127 Stonebreaker Hold 2189 yd = 1.14 min; 140 Altar of Sha'tar 2506 yd = 1.31 min;
+                    159 Sanctum of the Stars 1940 yd = 1.01 min
+
+TAXI NODE 124  WILDHAMMER STRONGHOLD, SHADOWMOON VALLEY
+  flight master   : Brubeck Stormfoot
+  creature entry  : 18939
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 124
+  position        : map 530 (Outland), -3982.1, 2156.5, 105.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 121 Allerian Stronghold 3013 yd = 1.57 min; 140 Altar of Sha'tar 2488 yd = 1.30 min;
+                    159 Sanctum of the Stars 1260 yd = 0.66 min
+
+TAXI NODE 125  SYLVANAAR, BLADE'S EDGE MOUNTAINS
+  flight master   : Amerun Leafshade
+  creature entry  : 18937
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 125
+  position        : map 530 (Outland), 2183.6, 6794.5, 183.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 117 Telredor 2446 yd = 1.27 min; 122 Area 52 3565 yd = 1.86 min;
+                    139 The Stormspire 4627 yd = 2.41 min;
+                    156 Toshley's Station 1708 yd = 0.89 min; 160 Evergrove 1533 yd = 0.80 min;
+                    164 Orebor Harborage 2270 yd = 1.18 min
+
+TAXI NODE 126  THUNDERLORD STRONGHOLD, BLADE'S EDGE MOUNTAINS
+  flight master   : Unoke Tenderhoof
+  creature entry  : 18953
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 126
+  position        : map 530 (Outland), 2446.4, 6020.9, 154.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 118 Zabra'jin 4439 yd = 2.31 min; 122 Area 52 2898 yd = 1.51 min;
+                    139 The Stormspire 4721 yd = 2.46 min; 151 Swamprat Post 3471 yd = 1.81 min;
+                    160 Evergrove 769 yd = 0.40 min; 163 Mok'Nathal Village 1655 yd = 0.86 min
+
+TAXI NODE 127  STONEBREAKER HOLD, TEROKKAR FOREST
+  flight master   : Kerna
+  creature entry  : 18807
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 127
+  position        : map 530 (Outland), -2567.3, 4423.8, 39.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 99 Thrallmar 3742 yd = 1.95 min; 123 Shadowmoon Village 2027 yd = 1.06 min;
+                    128 Shattrath 1679 yd = 0.87 min
+
+TAXI NODE 128  SHATTRATH, TEROKKAR FOREST (TERRACE OF LIGHT)
+  flight master   : Nutral
+  creature entry  : 18940
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 128
+  position        : map 530 (Outland), -1837.2, 5301.9, -12.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is the Terrace of Light, Shattrath City
+  links           : 99 Thrallmar 3934 yd = 2.05 min; 100 Honor Hold 3320 yd = 1.73 min;
+                    102 Falcon Watch 2295 yd = 1.20 min; 117 Telredor 2510 yd = 1.31 min;
+                    118 Zabra'jin 4084 yd = 2.13 min; 119 Telaar 2632 yd = 1.37 min;
+                    120 Garadar 2440 yd = 1.27 min; 121 Allerian Stronghold 2249 yd = 1.17 min;
+                    127 Stonebreaker Hold 2054 yd = 1.07 min;
+                    151 Swamprat Post 2370 yd = 1.23 min
+
+TAXI NODE 129  THE DARK PORTAL, HELLFIRE PENINSULA (ALLIANCE)
+  flight master   : Amish Wildhammer
+  creature entry  : 18931
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 129
+  position        : map 530 (Outland), -327.4, 1020.5, 54.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is the Stair of Destiny, Hellfire Peninsula (Alliance side)
+  links           : 100 Honor Hold 2178 yd = 1.13 min; 101 Temple of Telhamat 3441 yd = 1.79 min;
+                    149 Shatter Point 814 yd = 0.42 min
+
+TAXI NODE 130  THE DARK PORTAL, HELLFIRE PENINSULA (HORDE)
+  flight master   : Vlagga Freyfeather
+  creature entry  : 18930
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 130
+  position        : map 530 (Outland), -178.1, 1026.7, 54.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is the Stair of Destiny, Hellfire Peninsula (Horde side)
+  links           : 99 Thrallmar 1784 yd = 0.93 min; 102 Falcon Watch 3654 yd = 1.90 min
+
+TAXI NODE 139  THE STORMSPIRE, NETHERSTORM
+  flight master   : Grennik
+  creature entry  : 19583
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 139
+  position        : map 530 (Outland), 4157.6, 2959.7, 352.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 122 Area 52 1602 yd = 0.83 min; 125 Sylvanaar 4608 yd = 2.40 min;
+                    126 Thunderlord Stronghold 4380 yd = 2.28 min;
+                    150 Cosmowrench 2060 yd = 1.07 min
+
+TAXI NODE 140  ALTAR OF SHA'TAR, SHADOWMOON VALLEY
+  flight master   : Maddix
+  creature entry  : 19581
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 140
+  position        : map 530 (Outland), -3065.6, 749.4, -10.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 6211 - PlayerCondition PrevQuest: after quest 10551
+  master note     : the wiki lists this master for Aldor characters only, which fits the node gate 6211 (after quest
+                    10551)
+  links           : 123 Shadowmoon Village 1982 yd = 1.03 min; 124 Wildhammer Stronghold 2398 yd = 1.25 min
+
+TAXI NODE 141  SPINEBREAKER RIDGE, HELLFIRE PENINSULA
+  flight master   : Amilya Airheart
+  creature entry  : 19558
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 141
+  position        : map 530 (Outland), -1316.8, 2358.6, 89.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 99 Thrallmar 1859 yd = 0.97 min
+
+TAXI NODE 149  SHATTER POINT, HELLFIRE PENINSULA
+  flight master   : Runetog Wildhammer
+  creature entry  : 20234
+  faction         : neither faction - TaxiNodes.Flags has neither the Alliance bit 1 nor the Horde bit 2 set;
+                    CharacterBitNumber 149
+  position        : map 530 (Outland), 276.2, 1486.9, -15.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the export gives this node no faction, although the wiki lists Runetog Wildhammer among the
+                    Alliance masters and Wowhead files him under Honor Hold
+  links           : 100 Honor Hold 1699 yd = 0.88 min; 129 The Dark Portal 961 yd = 0.50 min
+
+TAXI NODE 150  COSMOWRENCH, NETHERSTORM
+  flight master   : Harpax
+  creature entry  : 20515
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 150
+  position        : map 530 (Outland), 2974.9, 1848.2, 141.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 122 Area 52 1921 yd = 1.00 min; 139 The Stormspire 1818 yd = 0.95 min
+
+TAXI NODE 151  SWAMPRAT POST, ZANGARMARSH
+  flight master   : Gur'zil
+  creature entry  : 20762
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 151
+  position        : map 530 (Outland), 91.7, 5214.9, 23.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 102 Falcon Watch 1876 yd = 0.98 min; 118 Zabra'jin 3309 yd = 1.72 min;
+                    126 Thunderlord Stronghold 3175 yd = 1.65 min;
+                    128 Shattrath 2591 yd = 1.35 min; 163 Mok'Nathal Village 2112 yd = 1.10 min
+
+TAXI NODE 156  TOSHLEY'S STATION, BLADE'S EDGE MOUNTAINS
+  flight master   : Rip Pedalslam
+  creature entry  : 21107
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 156
+  position        : map 530 (Outland), 1857.3, 5531.9, 277.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 117 Telredor 2159 yd = 1.12 min; 122 Area 52 2503 yd = 1.30 min;
+                    125 Sylvanaar 1783 yd = 0.93 min; 160 Evergrove 1587 yd = 0.83 min
+
+TAXI NODE 159  SANCTUM OF THE STARS, SHADOWMOON VALLEY
+  flight master   : Alieshor
+  creature entry  : 21766
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 159
+  position        : map 530 (Outland), -4073.2, 1123.6, 42.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 6212 - PlayerCondition PrevQuest: after quest 10552
+  master note     : the wiki lists this master for Scryer characters only, which fits the node gate 6212 (after quest
+                    10552)
+  links           : 123 Shadowmoon Village 1823 yd = 0.95 min; 124 Wildhammer Stronghold 1244 yd = 0.65 min
+
+TAXI NODE 160  EVERGROVE, BLADE'S EDGE MOUNTAINS
+  flight master   : Fhyn Leafshadow
+  creature entry  : 22216
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 160
+  position        : map 530 (Outland), 2976.0, 5501.1, 143.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 122 Area 52 2312 yd = 1.20 min; 125 Sylvanaar 1643 yd = 0.86 min;
+                    126 Thunderlord Stronghold 1076 yd = 0.56 min;
+                    156 Toshley's Station 1307 yd = 0.68 min
+
+TAXI NODE 163  MOK'NATHAL VILLAGE, BLADE'S EDGE MOUNTAINS
+  flight master   : Sky-Master Maxxor
+  creature entry  : 22455
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 163
+  position        : map 530 (Outland), 2028.8, 4705.3, 150.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 122 Area 52 1684 yd = 0.88 min; 126 Thunderlord Stronghold 1883 yd = 0.98 min;
+                    151 Swamprat Post 2191 yd = 1.14 min
+
+TAXI NODE 164  OREBOR HARBORAGE, ZANGARMARSH
+  flight master   : Halu
+  creature entry  : 22485
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 164
+  position        : map 530 (Outland), 966.7, 7399.2, 29.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 117 Telredor 1568 yd = 0.82 min; 125 Sylvanaar 1922 yd = 1.00 min
+
+TAXI NODE 205  ZUL'AMAN, GHOSTLANDS (HATCHET HILLS)
+  flight master   : Kiz Coilspanner
+  creature entry  : 24851
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 205
+  position        : map 530 (Outland), 6789.8, -7747.6, 126.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki location for this master is Hatchet Hills at Zul'Aman, Ghostlands
+  links           : 67 Light's Hope Chapel 6945 yd = 3.62 min [node on map 0];
+                    68 Light's Hope Chapel 6913 yd = 3.60 min [node on map 0];
+                    83 Tranquillien 1560 yd = 0.81 min;
+                    213 Shattered Sun Staging Area 7526 yd = 3.92 min
+
+TAXI NODE 213  SHATTERED SUN STAGING AREA, ISLE OF QUEL'DANAS
+  flight master   : Ohura
+  creature entry  : 26560
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 213
+  position        : map 530 (Outland), 13012.7, -6908.4, 9.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 5953 - PlayerCondition MinLevel 65
+  master note     : the wiki says this flight point is learned automatically at level 65, which matches the node gate
+                    5953 (MinLevel 65)
+  links           : 67 Light's Hope Chapel 13411 yd = 6.98 min [node on map 0];
+                    82 Silvermoon City 5131 yd = 2.67 min; 205 Zul'Aman 6958 yd = 3.62 min
+
+TAXI NODE 624  AZURE WATCH, AZUREMYST ISLE
+  flight master   : Zaldaan
+  creature entry  : 43991
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 146
+  position        : map 530 (Outland), -4130.1, -12520.5, 44.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 924 - PlayerCondition race mask: Human, Dwarf, Night Elf, Gnome, Draenei, Worgen,
+                    Pandaren-Alliance
+  links           : 94 The Exodar (Seat of the Naaru) 1219 yd = 0.63 min
+
+TAXI NODE 625  FAIRBREEZE VILLAGE, EVERSONG WOODS
+  flight master   : Skymaster Brightdawn
+  creature entry  : 44036
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 181
+  position        : map 530 (Outland), 8745.8, -6654.1, 69.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 82 Silvermoon City 863 yd = 0.45 min; 83 Tranquillien 1366 yd = 0.71 min
+
+TAXI NODE 631  FALCONWING SQUARE, EVERSONG WOODS
+  flight master   : Skymaster Skyles
+  creature entry  : 239639
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 180
+  position        : map 530 (Outland), 9501.9, -6767.1, 16.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 82 Silvermoon City 531 yd = 0.28 min
+
+WHAT IS VERIFIED AND WHAT IS NOT
+  Positions are TaxiNodes.Pos from Map 530 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
+  flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
+  so every "walk-to position" line says unverified rather than a guessed offset.
+  Creature entries: all 38 resolved. 23 come from the research pass whose Wowhead lookup returned the exact master name for
+  8.3.7, and 15 were matched on the exact NPC name against the creature_template exports (the 4.3.4 TDB update pack and the 8.x
+  creature_template dump from the same server repository). No Outland master name in this file has more than one creature row, so
+  no entry here is written unverified.
+  Two of the 23 Wowhead-verified entries are 8.3.7 versions that the 4.3.4 dump does not carry under that name: Skymaster Sunwing
+  is 238480 (the dump has the older 16189) and Skymaster Skyles is 239639 (the dump has 44244). Both are printed as the 8.3.7
+  lookup returned them, because the row that spawns in 8.3.7 is the one a server needs.
+  Gate evidence: four of the 38 nodes are gated and 34 are not. 6211 on 140 Altar of Sha'tar (after quest 10551, and the wiki
+  marks that master for Aldor); 6212 on 159 Sanctum of the Stars (after quest 10552, wiki: Scryers); 5953 on 213 Shattered Sun
+  Staging Area (MinLevel 65, wiki: learned automatically at 65); 924 on 624 Azure Watch (Alliance race mask). No Outland taxi
+  node is gated on an achievement and none is gated on reputation in PlayerCondition.
+  Node 149 Shatter Point is the one faction oddity: the export sets neither faction bit, while the wiki lists Runetog Wildhammer
+  with the Alliance masters. Both facts are printed as they stand rather than reconciled.
+  Travel time is derived, not read: TaxiPath.Cost is copper and TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, so neither is a
+  clock. Minutes here are yards / 1920, i.e. 32 yards per second. Four nodes have links that leave the map - 83 and 205 to the
+  Light's Hope nodes 67/68 on map 0, 94 to Lor'danel 26 and Rut'theran 27 on map 1, and 213 to node 67 on map 0. Those legs are
+  tagged "[node on map n]" and are long taxi connections across continents, not local hops.
+  Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of every ConditionID listed above, the
+  Warcraft Wiki flight-master tables by location and zone, and the creature_template exports named above. Everything read from a
+  source is printed; nothing was estimated.
