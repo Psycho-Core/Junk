@@ -76,6 +76,31 @@ B6  THE GOLDEN SKIPPER
   route note        : Horde Battle for Azeroth crossing named on the wiki transportation page. No transport node for
                       either end in the 8.3.7 export.
 
+B9  THE WALKER OF WAVES (TURTLE BOAT)
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : neutral
+  dock A            : Moa'ki Harbor, Dragonblight (map 571) - position unverified
+  dock B            : Unu'pe, Borean Tundra (map 571) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Wrath of the Lich King crossing listed on the wiki transportation page under turtle boats, a
+                      separate list from the eight boat rows above. Neither end has a transport taxi node in the
+                      8.3.7 export.
+
+B10  THE GREEN ISLAND (TURTLE BOAT)
+  transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
+  faction           : neutral
+  dock A            : Moa'ki Harbor, Dragonblight (map 571) - position unverified
+  dock B            : Kamagua, Howling Fjord (map 571) - position unverified
+  wait position     : unverified - no source read here gives a player-standing spot on either dock
+  dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
+  visit interval    : unverified - the client tables carry no schedule, and the wiki gives no interval
+  crossing time     : unverified - no source read here gives a sailing time
+  route note        : Wrath of the Lich King crossing on the same turtle boat list. The Kul Tiras and Zuldazar
+                      short-hop services in B7 and B8 are not turtle boats, and neither is this.
+
 Z1  THE IRON EAGLE
   transport object  : unverified - no file in this repo carries a transport or portal gameobject entry for this build
   faction           : Horde
@@ -125,8 +150,9 @@ ZEPPELIN TOWERS STANDING IN 8.3.7
     Forsaken tower at Vengeance Landing, Howling Fjord (map 571)
     docking platform inside Warsong Hold, Borean Tundra (map 571)
     two zeppelin towers inside Orgrimmar, Durotar (map 1)
-  Two plus one plus one plus one plus one plus two is eight towers at six sites. The page itself says "seven" because it
-  also counts the tower at the Dranosh'ar Blockade, which was added in Dragonflight and is not in 8.3.7.
+  Two plus one plus one plus one plus one plus two is eight towers at six sites. The page says "seven" because it counts
+  each site once - the Brill pair and the Orgrimmar pair are one entry each - and then adds the tower at the Dranosh'ar
+  Blockade, which came with Dragonflight and is not in 8.3.7.
   The Brill pair and the Vengeance Landing tower still stand, but the three Undercity routes were removed in 8.0.1 and are
   not in 8.3.7: The Thundercaller (Orgrimmar <-> Undercity), The Purple Princess (Undercity <-> Grom'gol) and The Cloudkisser
   (Undercity <-> Vengeance Landing). This is why three zeppelins sail here and not five. No zeppelin serves the Alliance.
@@ -137,6 +163,7 @@ B7  FERRY MASTERS, KUL TIRAS
   docks             : the ferry masters run short crossings between areas across Kul Tiras (wiki transportation page), map 1643
   dock coordinates  : unverified - no source read here lists the individual crossings or their landing points
   wait position     : unverified
+  visit interval    : unverified - no source read here gives a timetable for these short crossings
   dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
   crossing time     : unverified
 
@@ -146,6 +173,7 @@ B8  WAVESINGERS, ZULDAZAR
   docks             : wavesingers run short crossings between areas across Zuldazar (wiki transportation page), map 1642
   dock coordinates  : unverified - no source read here lists the individual crossings or their landing points
   wait position     : unverified
+  visit interval    : unverified - no source read here gives a timetable for these short crossings
   dock dwell        : 60 seconds at the dock before departure (wiki transportation page)
   crossing time     : unverified
 
@@ -295,16 +323,18 @@ OTHER INSTANT CITY LINKS THAT ARE NOT PORTALS
   continent is what the Pathfinder achievements unlock, and those are in the flight-point files.
 
 WHAT IS VERIFIED AND WHAT IS NOT
-  Routes and dock pairs: 8 active boat routes and 3 active zeppelin routes, all read from the wiki transportation page this run,
-  plus the ferry masters of Kul Tiras and the wavesingers of Zuldazar. The research document lists the same eight boats but marks
-  B4 The Northspear's route unverified; the wiki page supplies it as Menethil Harbor <-> Valgarde, and that is what is printed.
+  Routes and dock pairs: the wiki transportation page's active boat list has eight rows - six named ships, the Kul Tiras ferry
+  masters and the Zuldazar wavesingers, printed here as B1 to B8 - plus two Northrend turtle boats on a separate list (B9, B10),
+  and three active zeppelins (Z1 to Z3). The research document lists the same eight boat rows but marks B4 The Northspear's
+  route unverified; the wiki page supplies it as Menethil Harbor <-> Valgarde, and that is what is printed.
   Zeppelin routes: the wiki's active list has three - The Iron Eagle, The Zephyr and The Mighty Wind - and its defunct list has
   three more removed in 8.0.1: The Thundercaller, The Purple Princess and The Cloudkisser. The research document inferred five
   routes from the seven standing towers; the tower list is still right, but only three of those routes sail in 8.3.7, and this
   file prints the three.
-  Dock coordinates: only six positions exist in any source read here, and all six are TaxiNodes.Pos rows of the twelve
-  "Transport" boarding nodes (34, 35, 47, 175 and the two Icecrown airship platforms 328 and 329). Every other dock in this file
-  says unverified rather than carrying a guessed coordinate, and no coordinate here is a player standing spot, so every
+  Dock coordinates: the route blocks print six coordinate triples, and all six come from four of the twelve "Transport"
+  boarding nodes - 34, 35, 47 and 175. The eight other nodes in the table are dead routes (46, 54, 88, 206), lifts (218, 219)
+  or the two Icecrown gunship platforms (328, 329), none of which belongs to a boat in this file. Every other dock says
+  unverified rather than carrying a guessed coordinate, and no coordinate here is a player standing spot, so every
   "wait position" says unverified too.
   Transport and portal gameobject entries: 2 of the portal objects were pinned down (323845 and 284431); every transport object
   and every other portal object is unverified, because the 8.3.7 export has no transport or portal object table and Wowhead
