@@ -23,8 +23,8 @@ was not opened.
 
 2. THE NORMAL TALENT TREE AT 29
    BfA rows open at 15, 30, 45, 60, 75, 90 and 100 - one point per row, and
-   you must finish the row above before the next one opens. At 29 that is
-   row 1 only.
+   the row opens on level alone; nothing has to be spent in the row above
+   first. At 29 that is row 1 only.
    ROW 1, level 15 - OPEN, one pick, three options for Brewmaster and
    Windwalker, two for Mistweaver.
    ROW 2, level 30 - CLOSED, one level away, and it is the movement row:
