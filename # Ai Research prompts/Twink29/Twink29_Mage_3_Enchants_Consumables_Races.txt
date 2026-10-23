@@ -1,0 +1,244 @@
+TWINK29 - MAGE - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
+
+1. THREE THINGS THAT SHAPE A MAGE'S SHOPPING LIST
+   Mana is real. A mage is the one class in this set where mana potions,
+   mana food and mana regeneration actually matter, and it is the class
+   that can conjure its own water, so half the supply problem solves
+   itself out of combat.
+   A wand is a stat stick. Wands have no auto-shoot role worth planning
+   around in BfA; the wand slot exists to carry Intellect, and 13063
+   Starfaller is the only rare one in the bracket.
+   The verified enchant list in this set is melee-shaped. That is the
+   single most useful thing this file can tell a mage, and it gets its own
+   paragraph below.
+
+2. THE CLASSIC ENCHANTS, AND WHY MOST OF THEM ARE WRONG FOR A MAGE
+   The seven enchants the professions set verified at 225 or below are the
+   same seven for every class. Six of them were chosen for a melee build:
+     CLOAK   13882 Enchant Cloak - Lesser Agility, +3 Agility, skill 225,
+             formula 11206, 2x Lesser Nether Essence 11174.
+     CLOAK   13746 Enchant Cloak - Greater Defense, +50 armor, skill 205,
+             3x Vision Dust 11137.
+     CHEST   13640 Enchant Chest - Greater Health, +35 health, skill 160,
+             3x Soul Dust 11083.
+     BRACERS 13661 Enchant Bracer - Strength, +5 Strength, skill 180. A
+             mage gets nothing from Strength. Do not buy it.
+     GLOVES  13815 Enchant Gloves - Agility, +5 Agility, skill 210.
+             Agility is dodge and armor for a cloth wearer - not nothing,
+             but not the point.
+     BOOTS   13890 Enchant Boots - Minor Speed, skill 225, 1x Small
+             Radiant Shard 11177, 1x Aquamarine 7909, 1x Lesser Nether
+             Essence 11174. The one enchant on the list that is right for
+             every class, and for a caster it is the best of the seven:
+             distance is a mage's armor.
+     WEAPON  13693 Enchant Weapon - Striking, +3 weapon damage, skill 195.
+             Useless to a mage - a mage's weapon damage is not the
+             rotation.
+   So the honest answer for the classic tier is two enchants: boots with
+   Minor Speed, chest with Greater Health. The Intellect and mana variants
+   of the bracer, chest and weapon enchants exist somewhere in the classic
+   book, but none was verified for this set, so no id is quoted. Read the
+   enchanting trainer's window in game and take an Intellect bracer and a
+   spell power weapon enchant if the server has them at 225.
+   Weapon oil is verified and is the caster's weapon enchant at this tier:
+     20744 Minor Wizard Oil, requires level 5, +8 spell power for 1 hour,
+     5 charges, Enchanting 45, spell 25124, cannot be applied to an item
+     above item level 165. Every staff and sword a 29 can hold qualifies.
+     20750 Wizard Oil needs level 40. ALT
+   Heads and shoulders take nothing: no head arcanum inside the 225 cap,
+   and the Mists shoulder inscriptions 83006, 87580, 44133 and 50335 need
+   level 80 or 85 on the character who applies them.
+
+3. NECK AND RING - TWO SLOTS, BOTH ALT, BOTH LEGION
+   Each carries an item level cap and a level 29 item at item level 33 or
+   less passes it.
+   NECK   190894 Mark of the Hidden Satyr, enchant id 5439. Sometimes
+          summons a satyr that fires a nightmare bolt. Cap: "cannot be
+          applied to items above level 120". 15x Chaos Crystal 124442,
+          12x Leylight Shard 124441, Runed Enchanting Rod. The pick for
+          Fire and Arcane, where the fight is a race.
+         190892 Mark of the Claw. Sometimes +critical strike and +haste for
+          6 sec. The safer pick for Frost, because a Frost mage's damage
+          is spread over more casts and a crit window feeds Shatter.
+         228405 Mark of the Trained Soldier. Mastery, which a level 29
+          does not have. Do not buy it.
+   RING   190871 Binding of Haste rank 1, 191014 rank 3, item form 128542.
+          Flat Haste on a ring, capped at "items above level 60". Two
+          rings, two enchants, and this is the largest stat gain available
+          to a mage at 29 - casters scale hardest off haste at low level.
+         The Critical Strike and Versatility versions of the same family
+         exist; their ids were not read. There is no Intellect ring enchant
+         in that family as far as these pages show, so a caster's ring
+         enchant is a secondary stat and nothing else.
+
+4. ARMOR KITS, AND THE SLOT THEY COMPETE WITH
+   4265 Heavy Armor Kit, +24 armor, item level 15 and up, no character
+   level gate, crafted at Leatherworking 150 (spell 3780, 5x Heavy Leather
+   4234). 8173 Thick (+32, level 30) and 15564 Rugged (+40, level 40) are
+   ALT.
+   A kit and an enchant occupy the same enhancement slot on the same item,
+   so one piece takes one or the other. For a mage the split should be
+   kits on the LEGS, where no cloth leg item or leg enchant exists anyway,
+   and enchants everywhere else. Whether this server enforces the conflict
+   is unverified; test it on one piece first.
+
+5. CONSUMABLES A 29 MAGE CAN USE
+   POTIONS - one shared cooldown, one per fight.
+     2459  Swiftness Potion        req 5   +50% speed 15 sec. A mage's
+           escape, and the reason a mage carries more of these than of
+           anything else.
+     1710  Greater Healing Potion  req 21  455-585 health
+     5634  Free Action Potion      req 20  stun and root immunity 30 sec
+     3385  Lesser Mana Potion      req 14  the only mana potion at 29.
+           Greater Mana Potion 6149 needs level 31. ALT
+   ELIXIRS - one hour, lost on death.
+     6373  Elixir of Firepower       req 18  +10 fire spell damage, 30 min.
+           Fire only, and it is the only spell-school elixir verified at
+           this tier.
+     8951  Elixir of Greater Defense req 29  +250 armor
+     3825  Elixir of Fortitude       req 25  +120 health
+     8949  Elixir of Agility         req 27  dodge and armor for a cloth
+           wearer - marginal.
+   PROTECTION POTIONS - one hour, one school each.
+     6051 Holy req 10, 6048 Shadow req 17, 6049 Fire req 23, 6050 Frost
+     req 28, 6052 Nature req 28.
+   SCROLLS - 30 minutes, usable on another character. Only one scroll
+   effect can be active at a time - the item page says so in as many words -
+   and a scroll is not an elixir, so the two may stack.
+     955  Scroll of Intellect, +3 Intellect, no required level, spell 8096.
+          The caster scroll at this tier. Verified.
+     1478 Scroll of Protection II, +105 armor, requires level 15, spell
+          8094. Verified, and the only other scroll a cloth wearer wants.
+     A Scroll of Intellect II exists - the next rank up - but its item id
+     was not found and is unverified. 1477 Scroll of Agility II and 2289
+     Scroll of Strength II are verified and both wrong for a mage.
+   FOOD - well fed, 15 minutes, ten seconds seated.
+     12210 Roast Raptor req 25, +8 Stamina and +8 Spirit. The Stamina is
+     real; the Spirit half is very likely wasted, because Spirit does not
+     drive mana regeneration in Battle for Azeroth as far as these pages
+     show - unverified.
+     A mage's own conjured food and water are the practical answer, and
+     conjuring costs nothing.
+   BANDAGES - no profession, no level, 60 second cooldown, usable in
+   arenas. 8544 Mageweave Bandage heals 1600 over 8 sec; 6451 Heavy Silk
+   heals 1280. A mage who has spent mana is a mage who needs one.
+
+6. THE TWO PROFESSIONS
+   Engineering first, and unlike the hunter this one gives a mage a real
+   armour slot as well as the toys.
+     4385 Green Tinted Goggles, cloth head, item level 30, 35 armor, +8
+          Stamina and +7 Spirit, skill 150, spell 3956. Rare quality and
+          inside the item rule, so this is a legal blue head for a mage
+          and it beats a green. Make 4368 Flying Tiger Goggles first (skill
+          100, spell 3934) because they are the reagent.
+     4390 Iron Grenade, skill 175, 132-218 Fire and a 3 sec stun in 3
+          yards. A mage adds a stun to a class that has none.
+     4394 Big Iron Bomb, skill 190, the 5 yard version.
+     4388 Discombobulator Ray, skill 160, spell 3959. Turns the target
+          into a leper gnome for 12 sec: -40 melee and spell damage, -20%
+          movement, forces a dismount. The strongest item debuff a 29 can
+          apply, and it answers the melee that closes on a mage.
+     4397 Gnomish Cloaking Device, skill 200, spell 3971. 10 sec of
+          invisibility on a 1 hour cooldown, and it needs no
+          specialisation. A second escape on top of Blink.
+     10518 Parachute Cloak, skill 225. Item level 45, so outside the item
+          rule and worth nothing to a caster's stats, but the slow fall
+          crosses battleground gaps. A toy, not gear.
+     10720 Gnomish Net-o-Matic Projector, skill 210 and Gnomish
+          Engineering, so a 29 cannot make one. ALT - buy it from a
+          higher-level engineer. It roots a target, which is the one thing
+          a mage's kit lacks against a runner.
+     109076 Goblin Glider Kit is auction house only; the recipes behind it
+          are Draconic-to-Legion engineering. ALT
+   Second slot:
+     Tailoring - bags, and the bandages a mana class actually uses. The
+       cloth crafts inside the classic tier are not gear a 29 wants, so
+       this is a utility slot.
+     Alchemy - 3385 and 2459 for a whole bot roster, and the elixirs.
+     Enchanting - disenchanting and the service; no self-only perk.
+     Not worth it: Jewelcrafting has nothing to socket at 29, Inscription
+     has nothing wearable inside the cap, Blacksmithing is stones for
+     weapons a mage should not be swinging, and the three gathering trades
+     are for supplier characters.
+
+7. RACES THAT CAN BE A MAGE
+   Alliance: human, dwarf, gnome, night elf, draenei, worgen, void elf,
+   dark iron dwarf, kul tiran, mechagnome, lightforged draenei. Horde:
+   orc, troll, undead, blood elf, tauren, goblin, nightborne, zandalari
+   troll, mag'har orc, highmountain tauren, vulpera. Pandaren on either
+   side. Every allied race starts at level 20, so all of them are legal 29
+   twinks. The Horde and Alliance full lists beyond the classic races are
+   from memory of the race roster, not from a page opened this turn -
+   unverified.
+   GNOME - the Alliance pick for a mage.
+     20589 Escape Artist, removes movement-impairing effects. A root break
+           that is not the PvP trinket, which matters because the one PvP
+           slot a 29 has is spent on a trinket talent anyway.
+     20591 Expansive Mind, maximum mana increased. The only racial in the
+           game that gives a caster a bigger mana pool.
+     20593 Engineering Specialization, 20592 Arcane Resistance, 92680
+           Nimble Fingers. 154744, 154746, 154747 and 227057 are other
+           versions of Expansive Mind - read which one the spellbook has.
+   HUMAN - the other Alliance pick, and the better one in a stun-heavy
+     bracket.
+     59752 Will to Survive, the human crowd-control break. It does not
+           share a cooldown with the PvP trinket talent, so a human mage
+           effectively carries two breaks. The exact 8.3.7 effect text was
+           not read - unverified whether it clears stuns only or more.
+     20598 The Human Spirit, a Spirit passive. Worth little if Spirit does
+           nothing for mana, which is the open question above.
+   BLOOD ELF - the Horde pick.
+     50613 Arcane Torrent, the mage version: silence nearby enemies and
+           restore mana. A silence and a mana refill on one button, on the
+           class that wants both.
+           The other ids in that family - 25046, 28730, 69179, 80483,
+           129597, 155145, 202719, 232633 - are one per class version;
+           which one a hunter or a mage receives is unverified.
+     154742 Arcane Acuity, 28877 Arcane Affinity, 822 Arcane Resistance.
+   UNDEAD - 7744 Will of the Forsaken breaks fear, charm and sleep, and a
+     feared mage is a dead mage. 5227 Touch of the Grave, 20577
+     Cannibalize, 20579 Shadow Resistance.
+   TROLL - 26297 Berserking, a haste cooldown that stacks with everything
+     a caster does. 20557 Beast Slaying, 20555 Regeneration, 58943 Da
+     Voodoo Shuffle. Ids for the last three unverified.
+   NIGHT ELF - 58984 Shadowmeld drops a mage out of combat standing still,
+     which cancels a cast and can reset a fight. 20582 Quickness, 21009
+     Elusiveness, 20583 Nature Resistance, 154748 Touch of Elune (+1%
+     haste at night or +1% crit by day).
+   WORGEN - 68992 Darkflight, +40% movement for 10 sec; 68975 Viciousness,
+     +1% crit; 68976 Aberration. A second escape next to Blink.
+   DWARF - 20594 Stoneform removes bleed, poison and disease and reduces
+     damage taken. 59224, 20596, 92682. Nothing caster-specific.
+   DRAENEI - 28880 Gift of the Naaru heals over time, the only racial heal
+     a mage can get. 6562 Heroic Presence, 28875 Gemcutting, 59221 Shadow
+     Resistance - ids unverified.
+   TAUREN - 20549 War Stomp, 20550 Endurance, 154743 Brawn, 20552
+     Cultivation, 20551 Nature Resistance. The stun has a 0.5 sec cast and
+     a mage under pressure cannot afford it.
+   ORC - 21563 Command, 20572 Blood Fury, 20573 Hardiness: stun duration
+     reduced. The one orc racial a cloth wearer keeps, and it is a decent
+     one.
+   Everything else - void elf, dark iron dwarf, kul tiran, mechagnome,
+     lightforged draenei, nightborne, zandalari troll, mag'har orc,
+     highmountain tauren, vulpera, goblin, pandaren - can be a mage and
+     none of their racial ids was opened for this file. Unverified.
+
+8. SPECS AT LEVEL 29
+   All three are open and one is chosen at level 10.
+     Arcane    the burst spec, and the one whose level 15 row is passive.
+     Fire      the crit spec. Firestarter covers the opening of every
+               engagement, which is most of what a battleground bot sees.
+     Frost     the control spec, and the spec that best uses Ice Nova from
+               the level 15 row.
+   No forms, stances or pets except the Frost mage's Water Elemental,
+   whose level requirement at 29 is unverified.
+
+9. THE SHORT VERSION
+   Gnome or human on the Alliance, blood elf or undead on the Horde. Put
+   Minor Speed on the boots, Greater Health on the chest, Minor Wizard Oil
+   on the staff, Hidden Satyr on the neck and Haste on both rings. Carry
+   Swiftness Potions, Lesser Mana Potions, Greater Healing Potions and
+   Mageweave Bandages, and drink your own conjured water between fights.
+   Take Engineering for the goggles, the grenades and the ray.
