@@ -1,0 +1,259 @@
+=== WARSONG GULCH COORDINATES - BFA 8.3.7 (TRINITYCORE) - COMPLETED ===
+
+Prompt 8 of 8 (Warsong Gulch, maps 489 and 2106).
+All coordinates are map id, x, y, z. Facing is "o <value>" where the
+source gives it. Every number below is copied from a source that was
+read; nothing is estimated. If a coordinate is not in a source I could
+read, the line says "unverified" - no guesses anywhere in this file.
+This file makes NO compass claims (no reliable oriented map source for
+map 489) and no walkability claims: it does NOT give walkable-path
+measurements, because no pathing/navmesh source for map 489 or 2106 is
+readable. Distances are 2-D straight-line recomputes from the raw
+source coordinates above. Which graveyard belongs to which point is
+covered in section 6.
+
+1. MAPS AND SOURCES
+   489 = Warsong Gulch (classic), 2106 = Warsong Gulch variant added in
+   Legion ("(New)"/"(Uprez)" rows in the dump, section 2).
+   Script source: Titans-Project/LegionCore-Reforged
+   BattlegroundWarsongGulch.cpp/.h (Zones directory). Every flag, door,
+   buff, timer and graveyard rule below is from that file. The script
+   contains no "489" or "2106" literal at all (checked), so it is
+   map-agnostic; which map id your server queues (489 or 2106) is
+   unverified. The script's graveyard code references only ids 769-772
+   (section 6); it contains zero references to the map-2106 rows
+   7050-7053 (checked) - whether your core rewires them for a 2106
+   instance is unverified.
+   The readable world dump has exactly 12 rows for maps 489 and 2106
+   together (8 on 489, 4 on 2106), all
+   listed in section 2. AzerothCore (WotLK) does ship Warsong Gulch:
+   battleground_template row (2,...,769,3.14159,770,0.151581,75,...,
+   'Warsong Gulch (battleground)') - StartLoc 769/770 (the same
+   FLAGROOM ids the LegionCore script uses) and value 75 in the
+   MaxTeamScore column (raw value 75; its retail meaning is
+   unverified).
+
+2. WORLD-SAFE LOCATION ROWS - ALL 12 (dump, map id,x,y,z,o 'name')
+   Map 489:
+  id 769  (489, 1523.81, 1481.76, 352.008)  o 180      "Warsong Gulch - Alliance Enter Loc"
+  id 770  (489, 933.331, 1433.72, 345.536)  o 0        "Warsong Gulch - Horde Enter Loc"
+  id 771  (489, 1406.65, 1564.74, 328.326)  o 203.635  "Warsong Gulch - Alliance Rez Loc"
+  id 772  (489, 1061.6, 1377.09, 328.558)  o 337        "Warsong Gulch - Horde Rez Loc"
+  id 3698 (489, 1018.47, 1297.47, 342.959)  o 360      "Barrens - Warsong Gulch Target (Horde)"
+  id 3699 (489, 1018.47, 1297.47, 342.959)  o 360      "Barrens - Warsong Gulch Target (Horde)"  (exact duplicate of 3698)
+  id 3784 (489, 1528.2, 1481.45, 351.992)  o 180       "CTF - Alliance - Anti-Cheat Teleport Target"
+  id 3785 (489, 930.716, 1435.44, 345.536)  o 360      "CTF - Horde - Anti-Cheat Teleport Target"
+   Map 2106:
+  id 7050 (2106, 933.66, 1434.7, 345.536)  o 0         "Warsong Gulch - Horde Enter Loc (New)"
+  id 7051 (2106, 1523.81, 1481.76, 352.008)  o 180     "Warsong Gulch - Alliance Enter Loc (New)"  (same xyz as id 769)
+  id 7052 (2106, 1407.48, 1561.21, 328.351)  o 196.435 "Warsong Gulch (Uprez) - Alliance Rez Loc"
+  id 7053 (2106, 1058.21, 1375.86, 328.597)  o 7.15001 "Warsong Gulch (Uprez) - Horde Rez Loc"
+   The LegionCore script references none of 3698, 3699, 3784, 3785,
+   7050, 7051, 7052 or 7053 by id (checked); it uses 769-772 only.
+   Which of the paired rows (769 vs 7051 etc.) your server uses per map
+   is unverified.
+
+3. TEAM STARTS AND BASE BUILDING DOORS
+   Starts = the two Enter Locs (flag-room entrances behind the base
+   doors; the script calls its in-match graveyard set FLAGROOM indices,
+   which are exactly ids 769/770):
+  Alliance start (489, 1523.81, 1481.76, 352.008)   [id 769; map-2106
+    twin id 7051 is the identical xyz]
+  Horde start    (489, 933.331, 1433.72, 345.536)   [id 770; map-2106
+    twin id 7050 (933.66, 1434.7, 345.536) - 0.33 xd / 0.98 yd apart]
+   Ten gate doors spawn in SetupBattleground (entry, map,x,y,z):
+  Alliance door 1 gameobject 179918 (489, 1503.335, 1493.466, 352.1888)
+  Alliance door 2 gameobject 179919 (489, 1492.478, 1457.912, 342.9689)
+  Alliance door 3 gameobject 179920 (489, 1468.503, 1494.357, 351.8618)
+  Alliance door 4 gameobject 179921 (489, 1471.555, 1458.778, 362.6332)
+  Alliance door 5 gameobject 180322 (489, 1492.347, 1458.34, 342.3712)
+  Alliance door 6 gameobject 180322 (489, 1503.466, 1493.367, 351.7352)
+  Horde door 1 gameobject 179916 (489, 949.1663, 1423.772, 345.6241)
+  Horde door 2 gameobject 179917 (489, 953.0507, 1459.842, 340.6526)
+  Horde door 3 gameobject 180322 (489, 949.9523, 1422.751, 344.9273)
+  Horde door 4 gameobject 180322 (489, 950.7952, 1459.583, 342.1523)
+   The six doors nearest each spawn line are opened at match start;
+   doors A5, A6, H3, H4 are then re-closed for the match
+   (SpawnBGObject(..., RESPAWN_ONE_DAY) in StartingEventOpenDoors), i.e.
+   they are the side exits that stay shut - script fact. Door face
+   orientations: raw o values are 3.115414 (A1-A4), -0.03490669 (A5,
+   A6), 0 (H3), 0.05235988 (H4); H1/H2 use raw quaternion components
+   (-0.01673368, -0.004956111, -0.2839723, 0.9586737) and
+   (-0.1971825, 0.1575096, -0.8239487, 0.5073641). Doors on the
+   map-2106 instance are unverified (the script does not branch on map
+   id; the entrances of 2106 are near-identical to 489's).
+   Script match-start timer: world state set to GameTime + Minutes(15)
+   (15-minute match, script fact).
+
+4. FLAGS (script + gameobject entries; classic mode)
+   WSG has flags only - no orbs, carts, mines or nodes exist in this
+   battleground (script has none).
+  Alliance flag gameobject 227741 (489, 1540.423, 1481.325, 351.8284)
+    o 3.089233   [normal mode spawn, in the Alliance flag room]
+  Horde flag gameobject 227740 (489, 916.0226, 1434.405, 345.413)
+    o 0.01745329 [normal mode spawn, in the Horde flag room]
+  Alliance ground (dropped) flag gameobject 227745 - spawns AT THE
+    CARRIER'S DROP POSITION (EventPlayerDroppedFlag); no fixed source
+    coordinate exists: unverified as a fixed point.
+  Horde ground (dropped) flag gameobject 227744 - same rule:
+    unverified as a fixed point.
+  Timers (BattlegroundWarsongGulch.h): BG_WS_FLAG_RESPAWN_TIME = 10000
+    ms, BG_WS_FLAG_DROP_TIME = 10000 ms. Flag respawn parameter passed
+    to AddObject = BG_WS_FLAG_RESPAWN_TIME / 1000 = 10 s.
+  Score: BG_WS_MAX_TEAM_SCORE = 3 (GetMaxScore() returns 3); brawl
+    Warsong Scramble uses BG_WS_MAX_TEAM_SCORE_BRAWL = 10. Capture
+    increments m_TeamScores[team] and checks the limit (script).
+  The map-2106 flag positions are unverified as separate values: the
+    script has one set of spawn coordinates and does not branch on map
+    id; the 2106 entrance rows being near-identical to 489's suggests
+    the same geometry but does not prove identical object placement.
+
+5. ROUTES - STRAIGHT-LINE LEGS THROUGH SCRIPTED OBJECTS (recomputed)
+   These are ordered legs a walker can follow via the scripted door and
+   flag positions (each leg endpoint is a verifiable object/row). They
+   are NOT walkable-path measurements (no navmesh source); actual
+   walkability, ramps, tunnels and the in-base staircase are
+   unverified, as is a named-chokepoint list per route (no readable
+   annotated map source). Distances: 2-D, rounded to the yard.
+  A. Alliance start -> own flag (defend): legs: 17 yd    direct 17 yd
+     (flag stands in front of spawn; both points section 3/4).
+  B. Alliance start -> Horde flag (steal), exiting through the nearest
+     still-open side of the base (nearest script door to the spawn is
+     Alliance door 6, 23 yd; door 1 is 24 yd; doors 5/2 are 39 yd,
+     doors 3/4 are 57 yd - recompute):
+     legs: 23 yd (start to Alliance door 6), 590 yd (door 6 to Horde
+     flag)   direct 610 yd
+     The base-exit door choice (6 vs 1 vs 2) cannot be resolved to a
+     walkable door without pathing: unverified which door a player
+     actually uses.
+  C. Horde start -> own flag (defend): legs: 17 yd    direct 17 yd
+  D. Horde start -> Alliance flag (steal), via nearest script door to
+     the spawn (Horde door 1, 19 yd; door 3 is 20 yd, door 4 is 31 yd,
+     door 2 is 33 yd - recompute):
+     legs: 19 yd (start to Horde door 1), 594 yd (door 1 to Alliance
+     flag)   direct 626 yd
+     Which walkable door a player uses: unverified (same reason as B).
+  E. Flag-to-flag cross distance (recomputed): 626 yd.
+  F. GY context distances (recomputed, section 6 rows):
+     Alliance Rez (771) to Alliance flag: 158 yd; Horde Rez (772) to
+     Horde flag: 156 yd; Alliance Rez to Horde flag: 508 yd; Horde Rez
+     to Alliance flag: 490 yd; Alliance Enter to Alliance Rez: 144 yd;
+     Horde Enter to Horde Rez: 140 yd; Enter pair (769-770): 592 yd;
+     Rez pair (771-772): 393 yd.
+
+6. GRAVEYARDS - WHICH ONE BELONGS TO WHICH POINT
+   Four graveyard rows exist (section 2 ids 769-772), and the script's
+   graveyard enum is literally those ids: WS_GRAVEYARD_FLAGROOM_
+   ALLIANCE = 769, WS_GRAVEYARD_FLAGROOM_HORDE = 770,
+   WS_GRAVEYARD_MAIN_ALLIANCE = 771, WS_GRAVEYARD_MAIN_HORDE = 772.
+   Rule (GetClosestGraveYard, script):
+  - Before the match starts (status not IN_PROGRESS): you respawn at
+    your team's FLAGROOM row = the Enter Loc behind your base doors
+    (Alliance 769, Horde 770).
+  - During the match: you respawn at your team's MAIN row = the Rez
+    Loc next to your own base flag room (Alliance 771, Horde 772).
+  - No neutral/midfield graveyard exists (only these four ids in the
+    enum; the map has no center GY row).
+   Which graveyard belongs to which point: points are flags only, and
+   dying anywhere in the match sends you to your own base's Rez row
+   (771 Alliance, 772 Horde); only pre-match deaths use 769/770.
+   The Anti-Cheat/Barrens rows (3698/3699/3784/3785) are teleport
+   targets, not respawn points - their exact trigger rule (which fall
+   or position teleports you there) is unverified: the LegionCore
+   script does not reference them (checked).
+   Map-2106 graveyard rows 7050-7053 (section 2): whether a 2106
+   instance spawns spirits at them instead of 769-772 is unverified
+   (script references only 769-772).
+   Spirit guides: SetupBattleground spawns exactly two, at the MAIN
+   rows' locations: AddSpiritGuide(WS_SPIRIT_MAIN_ALLIANCE, 771's loc)
+   and AddSpiritGuide(WS_SPIRIT_MAIN_HORDE, 772's loc). The script
+   passes no creature entry - the base Battleground::AddSpiritGuide
+   default applies (same base-class convention as the Eye of the Storm
+   source, which shows 13116 (Alliance) / 13117 (Horde) from
+   Battleground.h). No spirit guide is spawned at the FLAGROOM rows.
+
+7. BUFF SPAWNS (SetupBattleground; entries are the shared
+   Battleground.h object ids: speed 179871, regeneration 179904,
+   berserking 179905 - same ids verified in the Eye of the Storm and
+   Twin Peaks sources; respawn parameter BUFF_RESPAWN_TIME from
+   Battleground.h = 180 s)
+  Speed gameobject 179871 (489, 1449.93, 1470.71, 342.6346)
+    o -1.64061
+  Speed gameobject 179871 (489, 1005.171, 1447.946, 335.9032)
+    o 1.64061
+  Regeneration gameobject 179904 (489, 1317.506, 1550.851, 313.2344)
+    o -0.2617996
+  Regeneration gameobject 179904 (489, 1110.451, 1353.656, 316.5181)
+    o -0.6806787
+  Berserking gameobject 179905 (489, 1320.09, 1378.79, 314.7532)
+    o 1.186824
+  Berserking gameobject 179905 (489, 1139.688, 1560.288, 306.8432)
+    o -2.443461
+  Spawn band (recomputed from the six): x 1005.171 - 1449.93,
+    y 1353.656 - 1560.288. Two per type, one per map half (raw values).
+  Buff positions on a map-2106 instance: unverified (script does not
+    branch on map id; entrances are near-identical - suggestive, not
+    proven).
+  Retail parity of these six spawns is unverified (no buff section on
+    the readable wiki page family for WSG was fetched for this step).
+
+8. BRAWL VARIANTS (same script; recorded for completeness)
+  BrawlAllSix mode flag spawns: Alliance 227741 (489, 1357.948,
+    1462.004, 325.2907) o 3.064396; Horde 227740 (489, 1119.123,
+    1462.448, 316.926) o 0.01745246.
+  Warsong Scramble mode: keeps the normal flag spawns (section 4) and
+    adds, per brawlObjects (BattlegroundWarsongGulch.h):
+    extra flag objects at (489, 1529.36, 1474.93, 351.987) o 2.65 and
+    (489, 1530.17, 1487.84, 351.961) o 2.22625 for entry 227741, and
+    (489, 923.747, 1441.55, 345.65) o 0 and (489, 924.083, 1428.02,
+    345.69) o 0 for entry 227740; Alliance postaments gameobject
+    269358 at those first two Alliance positions; Horde postaments
+    gameobject 227038 at those two Horde positions; and five brawl
+    buffs gameobject 268652 at (489, 1529.67, 1456.66, 352.054),
+    (489, 924.41, 1460.33, 346.192), (489, 1309.27, 1433.74,
+    314.984), (489, 1519.48, 1466.16, 373.688), (489, 1310.81,
+    1509.97, 317.845), each spawned with respawn parameter
+    BG_WS_FLAG_RESPAWN_TIME / 1000 = 10 s. Scramble max score = 10.
+    Brawl spells (BattlegroundWarsongGulch.h): 238485, 239223, 239224,
+    239227, apply-get 239221. Brawl object positions on map 2106 or
+    retail parity: unverified.
+
+9. SOURCES
+  - TrinityCore world dump 2019_10_26_01_world.sql: exactly 12 rows
+    for maps 489 + 2106, all printed in section 2 (counts checked).
+  - Titans-Project/LegionCore-Reforged BattlegroundWarsongGulch.cpp
+    and .h (Zones): doors, flags, timers, score, buff spawns, graveyard
+    enum and rule, spirit-guide call, brawl tables, 15-minute timer.
+  - Battleground.h base-class ids (speed/regen/berserk entries and
+    BUFF_RESPAWN_TIME) as verified in the Eye of the Storm source file.
+  - AzerothCore battleground_template.sql: row 2 with StartLoc
+    769/770 and MaxTeamScore column value 75 (raw values quoted).
+
+10. EXPLICIT UNVERIFIED LIST (nothing below is estimated)
+  - Whether your server queues map 489 or 2106 for Warsong Gulch.
+  - Whether a 2106 instance uses rows 7050-7053 or 769-772 for
+    spawns/spirits (the script references only 769-772).
+  - Flag, buff and door placement on map 2106 as distinct values.
+  - Ground-flag (227745/227744) coordinates: dynamic drop positions,
+    no fixed source coordinate.
+  - Which door a walking player actually uses to leave each base
+    (A6/A1/A2 vs A3/A4; H1/H3 vs H2/H4) - no walkability source.
+  - Named chokepoints, ramps, tunnels and stairs per route.
+  - Walkability of every distance in section 5 (straight-line only).
+  - The exact trigger rule for rows 3698/3699/3784/3785 (absent from
+    the readable script).
+  - Spirit-guide creature entries on your specific core build
+    (script passes only locations; 13116/13117 is the base-class
+    default convention, not read in this script).
+  - Retail parity of the six buff spawns.
+  - Whether brawl (AllSix/Scramble) modes are enabled in your queue.
+  - Whether the two Barrens rows (3698/3699) differ in use - they are
+    byte-identical in the dump.
+  - Door orientation on map 2106 (script has one door set).
+  - Buff respawn timing on retail versus BUFF_RESPAWN_TIME.
+  - The AzerothCore 75 value's exact retail meaning (raw column only).
+  - Per-flag-room object ids on retail (the readable sources give
+    gameobject template ids only, no per-spawn object guids).
+
+=== DONE ===
+DONE - step 8 of 8 complete.
