@@ -18,16 +18,16 @@ EXTRA BRACKET FACTS: experience-off characters queue only against other experien
 - Resource rates on the legacy 8.3.7 implementation: the tick interval and the points paid depend on how many nodes the team holds. 1 node: 10 points every 12000 ms. 2 nodes: 10 points every 6000 ms. 3 nodes: 30 points every 1000 ms. That is 0.83, 1.67 and 30 points per second, so time to 1500 at a constant hold is about 30 min with one node, about 15 min with two, and about 50 s with all three.
 - DIFFERENT SOURCE: TrinityCore's Cataclysm-Classic rewrite uses TICK_POINTS {0,1,3,30} on a 1 s tick (1, 3 and 30 per second), which gives 25 min, 8.3 min and 50 s. Both agree on the all-three case (30/s) and on the cap; they disagree on one and two nodes. Which table the real 8.3.7 client used is unverified; check which one your core implements before you tune bot pacing.
 - Near-victory warning: broadcast when a team passes BG_BFG_WARNING_NEAR_VICTORY_SCORE = 1400 (the cata_classic rewrite uses 1200; texts 10598 Alliance / 10599 Horde in that rewrite).
-- Honour: points earned also fill an honour counter, 330 points per bonus kill normally and 200 on a Battleground weekend (BG_BFG_NotBGBGWeekendHonorTicks / BG_BFG_BGBGWeekendHonorTicks). With two nodes at 1.67 points per second that is a bonus kill roughly every 3.3 min. The EndBattleground path pays every team GetBonusHonorFromKill(1).
+- Honour: points earned also fill an honour counter, and the fork sets the payout threshold to 330 points normally and 200 on a Battleground weekend (BG_BFG_NotBGBGWeekendHonorTicks / BG_BFG_BGBGWeekendHonorTicks). The code that spends the counter is not in this file, so whether your build actually pays the bonus kill is unverified; if it does, two nodes at 1.67 points per second would pay about every 3.3 min. The EndBattleground path pays every team GetBonusHonorFromKill(1).
 - No time limit. Nothing in the legacy implementation sets a match timer; the match ends only at 1500 or through the generic premature-end rules when a side drops under its minimum players.
 - Preparation is the standard TrinityCore countdown (2 min, 1 min, 30 s, "has begun"); the gates stay closed until it ends.
-- Scoreboard columns: bases assaulted 370, bases defended 371 (Lasko73 stub header, which matches the 8.3.7 client column ids). The legacy fork instead updates criteria 122 and 123, which are criteria ids, not scoreboard columns.
+- Scoreboard columns: the Lasko73 8.3.7 header defines 370 and 371 for bases assaulted and defended; whether those are the client's column ids on this build is unverified. The legacy fork instead updates criteria 122 and 123, which are criteria ids, not scoreboard columns.
 - Honour-aura: the team that owns a node gets SPELL_HONORABLE_DEFENDER_25Y (68652, +50% honour within 25 yards of the node) from a trigger creature at the node; it is removed when the node is lost. Killing and dying at a node you own is worth more honour for you.
 
 
 2. THE MAP
 Map id 761 (client Map row: directory "Gilneas_BG_2", name "The Battle for Gilneas", MapType 1, InstanceType 3 PVPBattlefield, client description "As the Greymane wall collapses ... a 10 vs 10 domination battleground, where each side attempts to control the Mine, Lighthouse, and Waterworks for as long as possible", short description "Capture the objectives"). All coordinates are map 761, x, y, z.
-Layout: Alliance starts in the south-west (around 908, 1338) and Horde in the north-east (around 1401, 977). The Lighthouse is the Alliance-side point (163 yards from the Alliance start), the Mine is the Horde-side point (151 yards from the Horde start), and the Waterworks is the contested point (397 yards from the Alliance start, 422 from the Horde start). The Overlook is the high ground in the middle of all three, and a river with one bridge divides the map (bridge position unverified).
+Layout: Alliance starts in the north-west (around 908, 1338; +x is east and +y is north) and Horde in the south-east (around 1401, 977). The Lighthouse is the Alliance-side point (163 yards from the Alliance start), the Mine is the Horde-side point (151 yards from the Horde start), and the Waterworks is the contested point (397 yards from the Alliance start, 422 from the Horde start). The Overlook is the high ground in the middle of all three, and a river with one bridge divides the map (bridge position unverified).
 
 THE THREE OBJECTIVES (node/trigger position, then its graveyard)
 - Lighthouse: 1057.78, 1278.26, 3.1924. Graveyard safe loc 1736 at 1034.82, 1335.58, 12.0095, spirit guide 1036.32, 1341.61, 11.55. 62.4 yards from the point.
@@ -40,7 +40,7 @@ START POSITIONS, GATES
 - Horde start graveyard 1739 at 1401.38, 977.125, 7.44215 (spirit guide 1408.16, 977.34, 7.44); spawn point safe loc 1799 at 1430.44, 983.861.
 - Keep gates, closed during the countdown and opened at the start: 207177 Alliance at 918.876, 1336.56, 27.6195 and 207178 Horde at 1396.15, 977.014, 7.43169. They are the only doors; nothing else in the battleground is gated.
 - Anti-cheat teleport rows: 3968 Alliance 901.106, 1341.41, 27.6449 and 3969 Horde 1403.13, 977.137, 7.44215 (world_safe_locs).
-- Gates are 597.9 yards apart; that is a 50-55 s run at mounted speed before any fight.
+- Gates are 597.9 yards apart; at a 60% ground mount (11.2 yards per second) that is about 53 s of riding before the first fight, about 43 s at 100%.
 
 GRAVEYARDS AND OWNERSHIP
 - Three capturable graveyards, one per node: 1736 Lighthouse, 1738 Waterworks, 1735 Mines (the legacy table orders them by node: {1736, 1738, 1735} for Lighthouse, Waterworks, Mines).
@@ -60,7 +60,7 @@ ROUTES, CHOKEPOINTS
 - The Waterworks is the swing point: 271 yards from the Mines, 339 from the Lighthouse, and roughly 400 from either start, so whoever wins it holds the centre of the triangle.
 - The Overlook is the central high ground between the three points; holding it lets you see and rotate to any of them, and losing it means every rotation is contested.
 - Hills on both sides form the chokepoints, with narrow paths through them as the alternate routes, and a river with a single bridge is the main crossing (the wiki describes this; the bridge and ramp coordinates are unverified).
-- There are no tunnels, no vehicles and no doors other than the two start gates. Fall damage and knockbacks at the Overlook and at the bridge are the only terrain hazards a bot has to path around.
+- There are no vehicles and no doors other than the two start gates. Whether the terrain has tunnels of its own is unverified; the layout elements this file can source are the two hills, the narrow paths through them, and the single bridge. Fall damage and knockbacks at the Overlook and at the bridge are the terrain hazards a bot has to path around.
 
 
 3. ROLES, OPENING 30 SECONDS, HOLDING MID, PUSH TIMING
