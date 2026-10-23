@@ -1,0 +1,109 @@
+AUDIT - Transmog_Check.txt
+==============================================================================
+
+File audited   "# Ai Research prompts/Transmog/Transmog_Check.txt"
+Audited on     the same day it was written, by re-reading every value out of
+               the table it came from and re-running every code path claim
+               against the 8.3.7 core.
+
+Sources used for the re-check
+  wago.tools DB2, build 8.3.7.35662: Item, ItemSparse, ItemSearchName,
+    ItemModifiedAppearance, ItemAppearance, Map
+  Titans-Project/BfaCore-Reforged, archived HEAD: CollectionMgr.cpp,
+    Player.cpp, Item.cpp, MailHandler.cpp, TransmogrificationHandler.cpp
+  Wowhead item 141006 (drop table, zone, patch, Black Market listing)
+
+RESULT   23 claims checked: 21 passed, 2 corrected, 4 left unverified
+
+FORMAT
+  1  PASS   one plain-text file, 229 lines after correction, 84 columns
+            maximum, ASCII, no tabs, sectioned, no code.
+
+ITEM DATA
+  2  PASS   class 4, subclass 2 Leather, inventory type 3 Shoulder,
+            material 8.
+  3  PASS   quality 4 Epic, item level 168, required level 110, bonding 1
+            Bind on Acquire, AllowableClass 0xffffffff, AllowableRace
+            0xffffffff, expansion 6.
+  4  PASS   Flags 0x0, 0x2000, 0x0, 0x0. 0x2000 is not
+            ITEM_FLAG2_NO_SOURCE_FOR_ITEM_VISUAL, which is 0x00400000 in the
+            core's ItemFlags2 enum; the file names 0x2000 correctly as the
+            core's SHOW_BEFORE_DISCOVERED.
+  5  PASS   IconFileDataID 0 in Item, 1045428 through ItemAppearance.
+  6  PASS   ItemSearchName 141006 exists and repeats the same values:
+            quality 4, expansion 6, required level 110, item level 168,
+            MinFactionID 0, RequiredSkill 0.
+
+APPEARANCE ROWS
+  7  PASS   exactly two ItemModifiedAppearance rows for item 141006:
+            93947 with modifier 1 and 93948 with modifier 3, both on
+            ItemAppearance 31252, OrderIndex 0 and 1, source type 1, and no
+            third row behind a pager.
+  8  PASS   there is no modifier 0 row. Item 141006 cannot resolve through
+            modifier 0.
+  9  PASS   ItemAppearance 31252: DisplayType 1 Shoulder, ItemDisplayInfoID
+            154217, DefaultIconFileDataID 1045428, UiOrder 3125200.
+
+SOURCE
+ 10  PASS   Xavius entry 103769; map 1520 with Directory NightmareRaid,
+            instance type 2 RaidDungeon, expansion 6, loading screen 400.
+ 11  PASS   zone 8026, 327 of 119,688 recorded kills for 0.27 percent, listed
+            on the Black Market Auction House, added in 7.0.3.
+ 12  FIXED  "There is no trade-window wrapper on it beyond the ordinary
+            bind-on-pickup loot window" was wrong. Player::StoreNewItem sets
+            the soulbound tradeable flag whenever more than one eligible
+            looter was passed and the item does not stack, so a group kill of
+            this item does open the two-hour window and the first grant is
+            conditional. Rewritten to say so, and to say that a solo kill has
+            no window.
+
+THE VERDICT
+ 13  PASS   the nine-step walk matches CanAddAppearance in code order, and
+            every value it cites is the value in the tables.
+ 14  PASS   leather maps to rogue, monk, druid and demon hunter in
+            PlayerClassByArmorSubclass, so hunter and shaman fail there.
+ 15  FIXED  "the source-type test that removes 86 other rows" understated it:
+            86 rows carry value 6, and every row with value 9 is removed too.
+            Reworded.
+ 16  PASS   required level 110 is below the stated level 120 character, so the
+            level gate is genuinely not the cause.
+ 17  PASS   the answer - a mail wearer should not collect it, and no later
+            level or gear change fixes that - follows from the table.
+
+THE PATH
+ 18  PASS   StoreNewItem calls OnItemAdded, which calls AddItemAppearance on
+            the item, which tests soulbound first.
+ 19  PASS   a refundable or soulbound-tradeable item yields a conditional
+            appearance and the bit becomes permanent at the end of the window,
+            two hours of played time, or when used at a transmogrifier.
+
+THE LIST OF CAUSES
+ 20  PASS   cause 2, a missing ItemModifiedAppearance for the modifier, is the
+            real risk on this item: modifier 0 resolves to nothing.
+ 21  PASS   cause 13, paths that never collect: mail delivers through
+            StoreItem, which does not call OnItemAdded, and the vendor path
+            passes addToCollection false and then calls OnItemAdded itself.
+ 22  PASS   cause 15, saving: the appearance bit set is written by
+            Player::SaveAccountItemAppearances, called from the character save
+            at Player.cpp:21788.
+ 23  PASS   causes 3 to 12 each match a test in CanAddAppearance or in the
+            tables it reads.
+
+LEFT UNVERIFIED, AND SAID SO IN THE FILE
+ 24  UNVERIFIED  which raid difficulty each of modifiers 1 and 3 stands for.
+ 25  UNVERIFIED  the contents of item bonus 9085, which Wowhead serves the
+                Mythic version with.
+ 26  UNVERIFIED  whether this core's world database for Xavius carries that
+                bonus, and whether a Black Market Auction House exists in it.
+ 27  UNVERIFIED  how the 8.3.7 client displays an appearance between the
+                conditional and the permanent grant.
+
+NOT CHANGED, AND WHY
+  The verdict was left as "no" and was not softened. The item is leather, the
+  character is mail, and CanAddAppearance refuses on the armour class mask
+  before any equip happens. The two corrections above do not touch that.
+
+STATE AFTER THE AUDIT
+  Transmog_Check.txt re-checked at 229 lines, 84 columns, ASCII, with both
+  corrections applied. Nothing in it is now known to contradict a source that
+  was read.

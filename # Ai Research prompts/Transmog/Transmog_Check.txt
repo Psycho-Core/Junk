@@ -53,7 +53,8 @@ ItemModifiedAppearance holds exactly two rows for item 141006, and no others:
 
 Source type 1 is Dungeon Journal Encounter, which matches the drop below. It is
 neither 6 (Can't Collect) nor 9 (Not Valid for Transmog), so the item passes the
-source-type test that removes 86 other rows from the collection.
+source-type test that removes the 86 rows with value 6, and every row with value
+9, from the collection.
 
 There is no row with modifier 0. Both rows point at the same ItemAppearance, so
 either modifier fills the same wardrobe entry, but an item object that carries
@@ -75,8 +76,11 @@ Coordinates: the item is an instance boss drop, and no map coordinates apply to
 a boss kill. No world position was verified for this check.
 
 It is a bind-on-pickup drop, so the character that wins it is the character that
-binds it. There is no trade-window wrapper on it beyond the ordinary
-bind-on-pickup loot window.
+binds it. When the item is created for a group of more than one eligible looter
+as a single non-stacking item, the core also opens the ordinary bind-on-pickup
+trade window on it, two hours of played time, and the first grant is then only
+conditional. A solo kill carries no such window and the appearance is permanent
+at once.
 
 
 ------------------------------------------------------------------------------
