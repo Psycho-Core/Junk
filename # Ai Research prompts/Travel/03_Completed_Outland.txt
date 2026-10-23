@@ -448,7 +448,7 @@ WHAT IS VERIFIED AND WHAT IS NOT
   Creature entries: all 38 resolved. 23 come from the research pass whose Wowhead lookup returned the exact master name for
   8.3.7, and 15 were matched on the exact NPC name against the creature_template exports (the 4.3.4 TDB update pack and the 8.x
   creature_template dump from the same server repository). No Outland master name in this file has more than one creature row, so
-  there is no entry written unverified here; the only names that could not be matched would have been printed as unverified.
+  no entry here is written unverified.
   Two of the 23 Wowhead-verified entries are 8.3.7 versions that the 4.3.4 dump does not carry under that name: Skymaster Sunwing
   is 238480 (the dump has the older 16189) and Skymaster Skyles is 239639 (the dump has 44244). Both are printed as the 8.3.7
   lookup returned them, because the row that spawns in 8.3.7 is the one a server needs.
