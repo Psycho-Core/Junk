@@ -45,10 +45,14 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
         ALT twice over: level and a Northrend reputation.
    83006 Greater Tiger Fang Inscription - Mists of Pandaria, item level
         90, requires level 85, +200 Strength and +100 critical strike,
-        skill 570 in the Pandaria tier. Sold in the Vale of Eternal
-        Blossoms (zone 5840) and Orgrimmar.
+        skill 570 in the Pandaria tier on the item page; the same
+        recipe's spell entry gives 75 in the Pandaria band, so the two
+        pages disagree - either way it is far above 225. Sold in the Vale
+        of Eternal Blossoms (zone 5840) and Orgrimmar.
    87580 Tiger Fang Inscription - the cheaper Pandaria version, level
-        85, +120 Strength and +80 critical strike, skill 540.
+        85, +120 Strength and +80 critical strike, skill 540 on the
+        item page against 25 on the spell entry - the same disagreement
+        as the Greater version. Both are ALT.
    The bind-on-account heirloom idea therefore buys a 29 nothing. The
    consumable is account-bound, but the level 80 or 85 requirement is on
    the character who uses it, so heirloom shoulders on a 29 twink carry
@@ -81,8 +85,9 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
    off the item pages, so the +values are unverified.
    Rank III and up, all ALT on the level requirement: Stamina III 4422,
    Intellect III 4419, Strength III 4426 and Agility III 4425 all
-   require level 30, and Agility III is only +8 - one level and three
-   points better than the rank a 29 already has. Rank IV requires level
+   require level 30. The jump at that one level is uneven: Agility III
+   is only +8, but Stamina III is +16. A 29 is exactly one level short of
+   both. Rank IV requires level
    40 (Agility IV 10309, +10; Strength IV 10310; Intellect IV 10308;
    Stamina IV 10307). Rank VII, the last one before the Northrend
    breakdown, is +25 at level 70.
@@ -123,7 +128,9 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
    Parchment, effect "create random scrolls in an effort to discover new
    minor glyph recipes". Difficulty 75/125/137/150, so it is worth
    running from 75 onwards; it costs skill nothing and pays in recipes
-   and scrolls.
+   and scrolls. The 3.x entry carries an Obsolete flag, so whether the
+   spell still exists in 8.3.7 is unverified - check the spellbook before
+   counting on it.
 
 4. GLYPHS - WHY THEY ARE NOT A COMBAT OPTION AT 8.3.7
    In the 3.x data the other half of the profession is glyphs: major and
@@ -168,11 +175,11 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
    double the pigment count.
 
    Ink          Item   Skill  Recipe
-   Ivory        37101    1    1x Alabaster Pigment
+   Ivory        37101   15    1x Alabaster Pigment
    Moonglow     39469   35    2x Alabaster Pigment
    Midnight     39774   75    2x Dusky Pigment
    Lion's       43116  100    2x Golden Pigment
-   Dawnstar     43117  125    2x Burnt Pigment
+   Dawnstar     43117  125    1x Burnt Pigment
    Jadefire     43118  150    2x Emerald Pigment
    Celestial    43120  200    2x Violet Pigment
    The skill figures are the start of each range in the 3.x levelling
@@ -189,8 +196,10 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
    Undercity, Poshken Hardbinder 30709 in Thunder Bluff, Zantasia 30710
    in Silvermoon.
    Coordinates were not read for any of them, so all eight are
-   unverified; each stands beside an inscription supplies vendor who
-   sells the Virtuoso Inking Set 39505 and all three parchment grades.
+   unverified. The Virtuoso Inking Set 39505 and the parchment grades
+   are inscription-supply vendor stock, and the usual arrangement is one
+   such vendor beside each trainer, but that pairing was not checked for
+   this file - unverified.
    The Outland trainers - Michael Schwan 30721 and Neferatti 30722 in
    Hellfire Peninsula, Recorder Lidio 33679 and Scribe Lanloer 33638 in
    Shattrath - teach the Outland tier only, which is ALT.
@@ -224,10 +233,10 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
                                                     (save these)
    105-125 any glyph, Lion's Ink             20    1x Lion's Ink + 1x
                                                     Common Parchment 10648
-   125-130 Dawnstar Ink              57706    10    2x Burnt Pigment
+   125-130 Dawnstar Ink              57706    10    1x Burnt Pigment
    130-145 any glyph, Lion's Ink             15    1x Lion's Ink + 1x
                                                     Common Parchment
-   145-150 Strange Tarot             59480     5    2x Dawnstar Ink + 2x
+   145-150 Strange Tarot (44142)     59480     5    2x Dawnstar Ink + 1x
                                                     Lion's Ink + 1x Common
                                                     Parchment
    150-155 Jadefire Ink              57707    47    2x Emerald Pigment
@@ -239,10 +248,12 @@ Scope: what Inscription gives a level 29 battleground twink, skill line
    205-225 any glyph, Celestial Ink          20    1x Celestial Ink + 1x
                                                     Heavy Parchment 39501
 
-   One warning on the second row: the Scroll of Stamina recipe page gives
-   a 35 minimum while the levelling route uses it from 18. If your core
-   refuses it below 35, stay on Ivory Ink until 35 - it costs the same
-   pigments and the parchment saved is trivial.
+   Two warnings on the first rows. Scroll of Stamina's recipe page gives
+   a 35 minimum while the route uses it from 18, and Ivory Ink's page
+   gives a 15 minimum while the route uses it from 1. If your core
+   enforces either number, spend the first points on whatever the trainer
+   still allows and pick the route up at 35 - the pigments are the same
+   and the parchment saved is trivial.
    Pigment bill for 1-225, exact:
      61 Alabaster, 40 Dusky, 80 Golden, 10 Burnt, 94 Emerald,
      110 Violet. Total 395 pigments.
