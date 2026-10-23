@@ -1,0 +1,264 @@
+TWINK29 - DRUID - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, PROFESSIONS, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
+
+1. ENCHANTS - ONE PER SLOT, ALL INSIDE THE CLASSIC CAP
+   The wearer needs no profession. Skill numbers are the enchanter's; every
+   one is 225 or below, so no higher-level crafter is needed. No classic
+   enchant carries a character level requirement, and none carries an item
+   level limit except the weapon oils in section 3.
+   CLOAK    Enchant Cloak - Lesser Agility, spell/enchant 13882, +3 Agility
+            Skill 225. Formula 11206 (drops, the enchanter must own it).
+            2x Lesser Nether Essence 11174. Rod: Runed Truesilver 11145.
+   CLOAK    Enchant Cloak - Greater Defense, spell/enchant 13746, +50 armor
+            Skill 205, trainer-taught. 3x Vision Dust 11137. Same rod.
+            The choice: this on a bear, the agility one on everything else,
+            or carry both cloaks and swap.
+   CHEST    Enchant Chest - Greater Health, spell/enchant 13640, +35 health
+            Skill 160, trainer-taught. 3x Soul Dust 11083. Rod: Runed
+            Golden 11130. The only chest enchant inside the cap.
+   BRACERS  Enchant Bracer - Strength, spell/enchant 13661, +5 Strength
+            Skill 180, trainer-taught. 1x Vision Dust 11137. Melee only.
+            The caster bracer enchant inside the cap: unverified.
+   GLOVES   Enchant Gloves - Agility, spell/enchant 13815, +5 Agility
+            Skill 210, trainer-taught. 1x Lesser Nether Essence 11174 +
+            1x Vision Dust 11137. Rod: Runed Truesilver 11145.
+   BOOTS    Enchant Boots - Minor Speed, spell/enchant 13890, "a slight
+            movement speed increase" (tooltip's own words, the percentage is
+            unverified). Skill 225, trainer-taught. 1x Small Radiant Shard
+            11177, 1x Aquamarine 7909, 1x Lesser Nether Essence 11174.
+            The most valuable enchant in the bracket.
+   WEAPON   Enchant Weapon - Striking, spell/enchant 13693, +3 weapon damage
+            Skill 195, trainer-taught. 2x Greater Mystic Essence 11135 +
+            1x Large Glowing Shard 11139. Rod: Runed Golden 11130.
+            Flat damage on every swing.
+   HEAD     Nothing. No head enchant inside the 225 cap was found; every
+            classic arcanum needs a higher skill. Treat the slot as empty.
+   Scroll versions of these enchants: not verified. Assume a crafter.
+
+1a. NECK AND RING - TWO SLOTS THAT NEED A HIGHER-LEVEL ENCHANTER
+   Both slots take a Legion recipe, so both are ALT: a character above 29
+   with Legion Enchanting applies it, the 29 only wears the result. Each
+   carries an item level cap, and a level 29 item at item level 33 or less
+   is inside every one of them.
+   NECK - one enchant, the Mark of the ... family, a proc.
+     190894 Mark of the Hidden Satyr, enchant id 5439. Sometimes summons a
+            satyr that fires a nightmare bolt at the enemy. Cap: "cannot be
+            applied to items above level 120". 15x Chaos Crystal 124442 and
+            12x Leylight Shard 124441, Runed Enchanting Rod. The damage
+            pick, so Balance and Feral.
+     190892 Mark of the Claw. Sometimes increases critical strike and haste
+            for 6 sec. The sustained-stat pick; the one for a healer.
+     228405 Mark of the Trained Soldier. Mastery, which a level 29 does not
+            have, so the proc does nothing. Do not buy it.
+     Mark of the Heavy Hide, the armor proc, is the Guardian option; Mark
+     of the Ancient Priestess is the heal proc. Ids unverified.
+   RING - one enchant per ring, so two in total, and this is the largest
+   stat gain on the page.
+     190871 Binding of Haste rank 1, 191014 rank 3; item form 128542.
+            Permanently enchants a ring with flat Haste. The 8.x page caps
+            it at "items above level 60", so a level 29 ring qualifies; the
+            scaled value reads as 3 Haste, against much larger Legion-era
+            figures, and which one the server uses is unverified.
+     The same family covers Critical Strike, Versatility and Mastery rings;
+     their spell ids are unverified. Mastery is dead at 29 anyway.
+
+2. SHOULDERS AND LEGS - THE TWO SLOTS THAT NEED A WARNING
+   SHOULDERS - the bind-on-account heirloom idea does not work. The Mists
+   of Pandaria shoulder inscriptions are account-bound, but the level
+   requirement is on the character who applies them:
+     83006 Greater Tiger Fang Inscription - item level 90, requires 85. ALT
+     87580 Tiger Fang Inscription - requires 85. ALT
+     44133 Greater Inscription of the Axe - requires 80. ALT
+     50335 Greater Inscription of the Axe - requires 80, needs Sons of
+           Hodir Exalted. ALT twice over.
+   So an heirloom shoulder on a 29 carries no inscription. Nothing in the
+   1-225 Inscription band is a shoulder item.
+   LEGS - no separate leg armor exists in the classic tier. The slot takes
+   the same armor kit as the chest.
+   ARMOR KITS - permanent, one per item, chest, legs, hands or feet. The
+   item level limit is the kit's, not the wearer's:
+     2304 Light Armor Kit    +8 armor,  no item level limit
+     2313 Medium Armor Kit   +16 armor, no item level limit stated
+     4265 Heavy Armor Kit    +24 armor, item level 15 and up. The best a 29
+            can apply; four of them are +96 armor. Skill 150, 5x Heavy
+            Leather 4234 per kit, crafted by spell 3780.
+     8173 Thick Armor Kit    +32 armor, item level 25 and up, but usable
+            only at level 30. ALT
+     15564 Rugged Armor Kit  +40 armor, item level 35 and up, level 40. ALT
+   Arms and shoulders take nothing at this level.
+
+3. CONSUMABLES A 29 CAN USE - WITH IDS AND REQUIRED LEVELS
+   POTIONS - one shared cooldown group, so assume one per fight.
+     2459  Swiftness Potion       req 5   +50% speed 15 sec, 2 min cd
+     5634  Free Action Potion     req 20  stun and root immunity 30 sec
+     1710  Greater Healing Potion req 21  restores 455-585, 2 min cd
+     3385  Lesser Mana Potion     req 14  the only mana potion at 29;
+                                         Greater Mana 6149 needs 31. ALT
+   ELIXIRS - one hour, lost on death, one battle and one guardian elixir.
+     3389  Elixir of Defense         req 16
+     8951  Elixir of Greater Defense req 29  +250 armor
+     3825  Elixir of Fortitude       req 25  +120 health
+     8949  Elixir of Agility         req 27  +15 Agility
+     6373  Elixir of Firepower       req 18  +10 fire spell damage, 30 min
+   PROTECTION POTIONS - one hour, one school each.
+     6051  Holy    req 10    6048  Shadow req 17
+     6049  Fire    req 23    6050  Frost  req 28    6052  Nature req 28
+   SCROLLS - 30 minutes, can be used on another character.
+     2289  Scroll of Strength II  req 15  +5 Strength
+     1477  Scroll of Agility II   req 15  +5 Agility
+     The other scroll tiers were not verified, including whether a scroll
+     stacks with an elixir of the same stat. Assume it does not.
+   WEAPON OILS AND STONES - temporary, 30 to 60 minutes, weapon only.
+     20744 Minor Wizard Oil, req 5, +8 spell power for 1 hour, 5 charges,
+           Enchanting 45 (spell 25124), cannot be applied to an item above
+           item level 165. The caster weapon buff at 29.
+     20750 Wizard Oil, req 40. ALT
+     A Minor Mana Oil exists in the same tier; id and required level were
+     not verified.
+     Sharpening stones and weightstones, from Blacksmithing, +2 to +6
+     damage: 2862 Rough, 2863 Coarse (req 5), 2871 Heavy (req 15),
+     7964 Solid (req 25). Weightstones, for the maces and staves a druid
+     carries: 3239, 3240, 3241, 7965. Dense versions 12404 and 12643 need
+     level 35. ALT
+     Whether a stone or oil affects cat form attacks: unverified. Test it,
+     because a feral spends the fight in cat form.
+   FOOD - well fed, 15 minutes, needs ten seconds seated.
+     5479  Crispy Lizard Tail  req 12  +6 Stamina, +6 Spirit
+     12209 Lean Wolf Steak     req 15  +6 Stamina, +6 Spirit
+     12210 Roast Raptor        req 25  +8 Stamina, +8 Spirit. The best a
+           29 can eat; Cooking 175, spell 15855, recipe 12228.
+   BANDAGES - no profession and no level to use, 60 second cooldown,
+   usable in arenas.
+     6451  Heavy Silk Bandage  heals 1280 over 8 sec. Made at Tailoring 210.
+     8544  Mageweave Bandage   heals 1600 over 8 sec. Made at Tailoring 240,
+           so buy it rather than make it. ALT for the crafting only.
+   FLASKS - out of reach. 13510, 13511, 13512, 13513 all require about
+   level 50 and 300 skill. ALT
+   Everything with a required level of 30 or more is out: that includes the
+   entire Battle for Azeroth consumable list, drums and feast foods.
+
+4. THE TWO PROFESSIONS TO TAKE
+   Engineering first, unconditionally. It is the only profession whose
+   output a 29 uses every fight, and nothing on the list needs the Gnomish
+   or Goblin specialisation, which needs level 30 and is ALT.
+     4390  Iron Grenade        skill 175, spell 3962. 132-218 Fire and a
+           3 sec stun in 3 yards, 1 min cooldown.
+     4394  Big Iron Bomb       skill 190, spell 3967. 149-201 Fire and a
+           3 sec stun in 5 yards.
+     10507 Solid Dynamite      skill 200.
+     4384  Explosive Sheep      skill 150, a pet that charges and explodes.
+     4381  Minor Recombobulator trinket, 10 charges, no level requirement.
+     4388  Discombobulator Ray  5 charges, disorients and slows.
+     10518 Parachute Cloak     back slot, +8 Agility, binds on equip.
+     4385  Green Tinted Goggles ilvl 30, cloth head, 35 armor, +8 Stamina,
+           +7 Spirit. Head armor type does not gate a 29.
+     4368  Flying Tiger Goggles ilvl 20, 27 armor, +4 Stamina, +4 Spirit.
+     109076 Goblin Glider Kit   bought, not crafted; a slow fall on demand.
+   Second slot, in order of value to a druid:
+     Leatherworking - the Heavy Armor Kits 4265 above, four of them, plus
+       the leather pieces in the items file.
+     Alchemy - it supplies the twink's own potions and elixirs, and it is
+       the only way to keep a roster stocked with 2459 and 5634.
+     Tailoring - Heavy Silk Bandage 6451 at 210 and bags.
+     Enchanting - no self-only perk at classic tier; it is a service
+       profession and a disenchanting mule.
+     Blacksmithing - Solid Sharpening Stones 7964 and Solid Weightstones
+       7965 at skill 200, if the twink swings a staff or mace and the stone
+       is confirmed to work.
+     Jewelcrafting - nothing. No item at or below item level 29 has a gem
+       socket, and the gem cuts start at 300.
+     Inscription - nothing wearable inside the cap. Herbalism, Mining and
+       Skinning - supplier characters only.
+   Caveat carried from the professions set: the 225 ceiling comes from 3.x
+   pages. Since 8.0.1 the four ranks were rolled into one Classic bar with
+   a 300 cap, so a 29 may be able to go higher. Read the trainer window.
+
+5. RACES - SIX LEGAL DRUIDS, RACIAL SPELL IDS
+   Alliance: night elf, worgen, Kul Tiran. Horde: tauren, Highmountain
+   tauren, Zandalari troll. The three allied races start at level 20, which
+   makes them legal 29 twinks.
+   TAUREN - the best pick for anything that expects to be hit.
+     20549 War Stomp, 0.5 sec cast, stuns up to 5 enemies within 8 yards
+           for 2 sec. The only hard crowd-control a 29 druid has. Cooldown
+           is 1.5 min on the current page and 2 min in the classic entry;
+           the 8.3.7 value is the one to read in the spellbook. The classic
+           entry also carries "cannot be used while shapeshifted" - check
+           that in bear form before planning around it, because it decides
+           the whole racial.
+     20550 Endurance, passive Stamina scaling with level.
+     154743 Brawn, +2% critical strike bonus damage and healing.
+     20552 Cultivation, Herbalism bonus and faster gathering. The 8.3.7
+           magnitude is unverified.
+     20551 Nature Resistance, Nature damage taken -1%.
+   NIGHT ELF - the base sitter and flag watcher.
+     58984 Shadowmeld, drop into stealth while standing still.
+     20582 Quickness, avoidance. 21009 Elusiveness, stealth detection.
+     20583 Nature Resistance, -1% Nature damage.
+     20585 Wisp Spirit, faster movement as a ghost.
+     154748 Touch of Elune, +1% Haste at night or +1% Critical Strike by
+           day, added patch 6.0.2, so it is live in 8.3.7.
+   WORGEN - the flag runner.
+     68992 Darkflight, +40% movement for 10 sec.
+     68975 Viciousness, +1% critical strike.
+     68976 Aberration, -1% Shadow and Nature damage taken.
+     68978 Flayer, Skinning only. 68996 Two Forms, 87840 Running Wild.
+   KUL TIRAN (Alliance allied) - 287712 Haymaker, 291628 Brush It Off,
+     291622 Child of the Sea, 291442 Jack of All Trades, 291417 Rime of
+     the Ancient Mariner. Numbers and whether Haymaker's knockback stun
+     works at 29: unverified.
+   HIGHMOUNTAIN TAUREN (Horde allied) - 255654 Bull Rush (charge and
+     knockback), 255659 Rugged Tenacity (Stamina), 255658 Mountaineer (fall
+     damage), 255656 Waste Not Want Not, 255655 Pride of Ironhorn. Has no
+     stun to replace War Stomp; the tauren War Stomp is not inherited.
+   ZANDALARI TROLL (Horde allied) - 291944 Regeneratin', a channelled heal
+     that breaks when the caster takes damage; 292752 Embrace of the Loa,
+     the passive 292751 one of four loa blessings; 291619 City of Gold;
+     281954 Pterrordax Swoop, slow fall. If a whole channel of Regeneratin'
+     can be got off it is the strongest heal in the bracket; the 29 numbers
+     are unverified.
+   RACES TO AVOID - none are illegal, but do not pick a race whose racial
+   you cannot test at 29. That rules out Kul Tiran and Highmountain tauren
+   for a first roster, and it rules out Zandalari unless Regeneratin' is
+   confirmed, because their value is a single unverified ability each.
+   Everything else is a neutral stat package.
+
+6. SPECS AND FORMS AT LEVEL 29
+   Specs: all four are open - Balance, Feral, Guardian, Restoration. The
+   spec is chosen at level 10 and can be changed at the class trainer in a
+   capital. Only one spec is active; the other three are inaccessible
+   abilities, not a second spec.
+   Forms in the 8.3.7 spellbook at 29 - the learned levels are not verified
+   here, the spellbook decides:
+     5487  Bear Form      tank form, armor and health multiplier, rage
+     768   Cat Form       melee form, energy, combo points
+     5215  Prowl          stealth, from Cat Form
+     1850  Dash           sprint, from Cat Form
+     783   Travel Form    ground speed outdoors, and a shapeshift that
+                          breaks roots
+     1066  Aquatic Form   swim speed
+     24858 Moonkin Form   Balance only; caster armor and spell damage
+   Not available: 33943 Flight Form and the flight it needs, and every
+   form-granting talent past the level 15 row.
+   Guardian and Feral cannot be played simultaneously: a bear that wants to
+   damage is in the wrong spec, not the wrong form.
+   One PvP talent slot exists at 29, opened at level 20, and it holds a
+   trinket-type talent - see the talents file.
+
+7. WHAT THIS MEANS PER SPEC
+   BALANCE - night elf or tauren. Cloak Lesser Agility 13882 or Greater
+     Defense 13746, gloves 13815, boots 13890, chest 13640, weapon 20744
+     Minor Wizard Oil. Elixir of Firepower 6373, Lesser Mana Potion 3385,
+     Roast Raptor 12210. Bracer enchant: unverified for casters.
+   FERAL - worgen or tauren. Everything Agility: 13882, 13815, 13890,
+     Scroll of Agility II 1477, Elixir of Agility 8949. Bracer Strength
+     13661 is a small add. Swiftness 2459 and Free Action 5634 for the
+     opener and the escape.
+   GUARDIAN - tauren. Cloak Greater Defense 13746, Elixir of Greater
+     Defense 8951, four Heavy Armor Kits 4265, chest 13640, boots 13890.
+     Fortitude 3825 on top of the bear health pool.
+   RESTORATION - night elf or tauren. Caster enchants, Lesser Mana Potion
+     3385, Minor Mana Oil (unverified id), Roast Raptor 12210 and the
+     Spirit scroll tier if it is confirmed. Bandages 8544 for a free 1600.
+   All four: Engineering for 4390 Iron Grenades, because a 3 sec stun on a
+   shared 1 min cooldown is worth more than any stat on this page.
