@@ -1,0 +1,558 @@
+
+=== OPERATION MECHAGON WORKSHOP - MAP 2097 ===
+
+Instance script: RegisterInstanceScript(instance_operation_mechagon, 2097)
+EncounterCount = 8 (full Operation Mechagon)
+DataHeader = "OM"
+EncounterData (1-based in header, Workshop uses DATA 4-8):
+  4 = DATA_HK8
+  5 = DATA_TUSSLE_TONKS
+  6 = DATA_KUJO
+  7 = DATA_HEAD_MACHINIST_SPARKFLUX
+  8 = DATA_KING_MECHAGON
+OnPlayerEnter: starts intro conversation
+(CONVERSATION_OPERATION_MECHAGON_INTRO = 11775).
+OnCreatureCreate: scales creature HP by difficulty (Mythic 6x, Heroic 5x,
+Normal 4x for faction 16).
+Transport Mechagon (500521): after Sparkflux dies, teleports players to King
+Mechagon area.
+
+=== 1. BOSS ANCHORS (MDT map units + script positions, sublevel) ===
+
+Sublevels: 3 (junkyard interior), 4 (workshop). MDT provides positions for
+Kujo (sub3) and Sparkflux (sub4).
+Script provides positions for HK-8, Tussle Tonks, King Mechagon. All z from
+script = verified map units.
+
+WORKSHOP BOSSES (second wing, DATA 4-8):
+  HK-8 Aerial Oppression Unit (DATA 4, NPC 150190)
+    Script spawn: (632.534, -43.874, 92.058, 5.39) sub4 (flying)
+    Tank Buster MK1 spawn: (607.170, -20.907, 71.112, 5.478)
+    Annihilation position: (615.586, -22.346, 87.0, 5.43)
+    Center Arena Stalker: (NPC 152272) used for reinforcements/annihilation
+    Overcharge Station: (NPC 152138) - click to hack HK-8 down
+
+  Tussle Tonks (DATA 5, NPC 144244 Platinum Pummeler + 145185 Gnomercy)
+    Buzz Saw spawn: (461.845, 260.902, 72.406, 4.5)
+Buzz Saw charge target: Stalker Robodrome Arena (500520) at (454.811, 224.149,
+72.0, 1.5)
+    Both bosses share home position, sub4
+
+  K.U.-J.0. / Kujo (DATA 6, NPC 144246)
+MDT anchor: (420.54, -238.70, sub3) - only Workshop boss with MDT pos in sub3
+Script middle_of_the_room: (583.771, 245.203, -333.555, 1.05) - likely sub4
+arena
+    z = unverified (MDT has no z)
+
+  Head Machinist Sparkflux (DATA 7, NPC 144248)
+    MDT anchor: (549.94, -270.03, sub4)
+    z = unverified (MDT has no z)
+
+  King Mechagon (DATA 8, NPC 150397)
+    Phase 1: Aerial Unit R-21/X (150396) - vehicle, King enters on engage
+Phase 2: Omega Buster (144249) - vehicle, King enters after Aerial Unit dies
+Phase 3: King Mechagon on foot - jump pos: (699.518, 623.309, -238.285, 5.25)
+    Vehicle escort pos (transport): (633.195, 551.366, -266.912, 5.25)
+
+=== 2. HEALTH PERCENTAGES / PHASE TRIGGERS ===
+
+HK-8 (DATA 4):
+Phase 1: Tank Buster MK1 active. HK-8 flies overhead, casts Cannon Blast,
+Reinforcements.
+Phase 2 trigger: MK1 at <2% HP -> MK1 despawns, HK-8 lands at Annihilation
+pos,
+    channels Annihilation Ray (295939, 3min), Force Shield (300011) active.
+    Overcharge Station (152138) becomes clickable - click to Hack (296260).
+Phase 3: Hacked -> HK-8 loses Force Shield, gains Haywire (296080, 30s),
+falls,
+    becomes attackable. After 31s -> Lift Off (301177), returns to Phase 1.
+  Hard Mode: Tank Buster MK2 (155760) spawns instead of MK1.
+
+Tussle Tonks (DATA 5):
+  Two bosses share HP: Platinum Pummeler (144244) + Gnomercy 4.U. (145185).
+No health-based phases. Platinum Plating (282801) at 100 Energy (35s gain), 3
+stacks.
+  When one dies, other continues. Electrical Storm (1216443) when second dies.
+
+K.U.-J.0. / Kujo (DATA 6):
+  No health-based phases. Single phase throughout.
+  Wendy Cogsworth (150694) provides voice lines.
+
+Head Machinist Sparkflux (DATA 7):
+  Energy-based: gains energy via PERIODIC_ENERGY_GAIN (295065).
+  At 100 Energy -> Hidden Flame Cannon (285440), energy resets to 0.
+Script has placeholder events for Plants, Discom, Hedge but no initial
+ScheduleEvent.
+DBM/LW show: Self-Trimming Hedge 3.4s, Plant 5.9s, Discom Bomb 8.3s, Flame
+Cannon 11.9s.
+
+King Mechagon (DATA 8):
+  Phase 1 (Aerial Unit R-21/X, NPC 150396): King in vehicle.
+    Recalibrate, Mega-Zap, Take Off, Cutting Beam.
+Phase 2 trigger: Aerial Unit dies -> King exits, enters Omega Buster (144249).
+Phase 2 (Omega Buster): Recalibrate (8s repeater), Mega-Zap (3-cast pattern),
+    Magneto Arm (30s), Protocol: Ninety-Nine (292290) if no melee in range.
+Hard Mode: H.A.R.D.M.O.D.E. (292750) starts ~32s, repeats ~42.5s (mythic
+only).
+Phase 3 trigger: Omega Buster dies -> King exits, jumps to (699.518, 623.309,
+-238.285).
+Phase 3: King on foot (script incomplete - no Phase 3 abilities implemented).
+
+=== 3. TIMERS - SCRIPT vs LITTLEWIGS vs DBM (seconds) ===
+
+Format: SpellID | Spell Name | Script Initial->Repeat | LW | DBM
+
+HK-8 / Tank Buster MK1 (DATA 4):
+  Stage 1 (MK1):
+302279 Wreck               | 3 -> 3 (MK1)         | 12 (Wreck) | 15/24.3
+(Wreck)
+302274 Fulminating Zap     | 8 -> 15 (MK1)        | -          | 7.4/9.2/16.7
+(Zap)
+301351 Reinforcement Relay | 13 -> 30 (MK1)       | 21.4 (Relay)| 18.8/29.1
+(Relay)
+295536 Cannon Blast        | - (HK-8 casts)       | -          | 7.7-13.4
+(varies)
+  Stage 2 (Annihilation):
+    295939 Annihilation Ray    | 3min channel         | -          | -
+    303206 Annihilation Blast  | at 3min end          | -          | -
+    300011 Force Shield        | active during P2     | -          | -
+  Stage 3 (Haywire):
+296080 Haywire             | 30s buff             | 30 (Haywire)| 30 (Haywire)
+301177 Lift Off            | 31s after Haywire    | -          |
+16.7/22.5/29.1 (post-Lift)
+  Hard Mode (MK2):
+303885 Fulminating Burst   | -                    | -          | 7.4/8.4/23.3
+(Burst)
+
+Tussle Tonks (DATA 5):
+  Platinum Pummeler (144244):
+282801 Platinum Plating    | 35s energy gain      | 38.5 (Plating)| 37.2/35.2
+(Plating)
+1215065 Platinum Pummel    | -                    | 7.2 (Pummel) | 7.0/12.8
+(Pummel)
+1215102 Ground Pound       | -                    | 13.1 (G.Pound)| 13.1/15.2
+(G.Pound)
+  Gnomercy 4.U. (145185):
+283422 Maximum Thrust      | 1 -> 20              | 35.1 (Thrust)| 35.2
+(Thrust)
+1216431 B.4.T.T.L.3. Mine  | 10 -> 30             | 12.0 (Mine)  |
+12.1/17.0/27.5/35.2 (Mine)
+285152 Foe Flipper         | -                    | 5.8 (Flipper)|
+5.2/28.0/15.8/19.4 (Flipper)
+    285388 Vent Jets           | 6 -> 30 (nearest)    | -          | -
+
+K.U.-J.0. / Kujo (DATA 6):
+291930 Air Drop            | 5 -> 30              | 5.1 (AirDrop)|
+5-9.2/26.3/32.7 (AirDrop)
+294929 Blazing Chomp       | 3 -> 60              | 10.8 (Chomp) |
+10.6/15.4-34 (Chomp)
+291946 Venting Flames      | 15 -> 35             | 15.7 (Flames)|
+15.5/33.9/34.0 (Flames)
+291973 Explosive Leap      | 38 -> 20             | 37.9 (Leap)  | 36.6/34.0
+(Leap)
+
+Head Machinist Sparkflux (DATA 7):
+    295065 Periodic Energy Gain| continuous           | -          | -
+285440 Hidden Flame Cannon | at 100 Energy        | 12.1 (Cannon)| 11.9/47.4
+(Cannon)
+285454 Discom-BOMB-ulator  | -                    | 8.5 (Discom) | 8.3/20.6
+(Discom)
+292332 Self-Trimming Hedge | -                    | 3.5 (Hedge)  | 3.4/25.5
+(Hedge)
+294853 Activate Plant      | -                    | 6.1 (Plant)  |
+5.9/46.1-49.7 (Plant)
+    294855 Blossom Blast       | (from plants)        | -          | -
+
+King Mechagon (DATA 8):
+  Phase 1 (Aerial Unit 150396):
+291865 Recalibrate         | 7 -> 20              | 5.8 (Recal)  | 4.8/6.7
+(Recal)
+291928 Mega-Zap            | -                    | 9.5 (MegaZap)|
+8.3/3.5/15.4/12.0/11.2 (MegaZap)
+291613 Take Off            | 12 -> 30             | 30.0 (TakeOff)| 30.2-36.4
+(TakeOff)
+    291626 Cutting Beam        | 11s after Take Off   | -          | 6s cast
+  Phase 2 (Omega Buster 144249):
+291865 Recalibrate         | 8s repeater (after)  | 6.75/8.0     | 6.7/8.0
+(Recal)
+292264 Mega-Zap (P2)       | 3-cast: 14.8/3.5/3.5 | 17.7/10.9/30.3|
+11.2/3.5/3.5/28.6/3.5...
+283143 Magneto Arm         | 20 -> 30             | 36.9 (Magneto)| 30.4/61.1
+(Magneto)
+292750 H.A.R.D.M.O.D.E.    | 32s (mythic only)    | 32.1 (HARD)  | 32.2/42.5
+(HARD)
+  Phase 3 (King on foot):
+    No abilities implemented in script.
+
+=== 4. ASSIGNED-PLAYER MECHANICS & EXACT TRIGGERS ===
+
+HK-8 (DATA 4):
+  Stage 1 (MK1 active):
+    - Wreck (302279): On current tank every 3s. Tank: use defensive.
+    - Fulminating Zap (302274): Random player, spreads. Healer: spot heal.
+- Reinforcement Relay (301351): Every 30s, summons Walkie Shockie X1 (163746).
+Assigned: DPS kill adds. Shockies cast Area Denial Bot (296517) ->
+Self-Destruct (296522, 10s).
+- Cannon Blast (295536): HK-8 targets all players with missile. Dodge line.
+  Stage 2 (Annihilation):
+- Annihilation Ray (295939): HK-8 channels 3min at center stalker. Entire
+raid: stack in Anti-Trespass Field (303252) when available.
+- Force Shield (300011): HK-8 immune. Click Overcharge Station to Hack
+(296260).
+      Assigned: 1 player clicks station -> HK-8 falls.
+  Stage 3 (Haywire):
+    - Haywire (296080): HK-8 takes 100% increased damage for 30s. Burn phase.
+    - After 31s -> Lift Off, returns to Stage 1 (repeat).
+Hard Mode (MK2): Fulminating Burst (303885) - targeted player must stack with
+allies to share damage.
+
+Tussle Tonks (DATA 5):
+  Platinum Pummeler:
+- Platinum Plating (282801): At 100 Energy (35s gain), 3 stacks, 1s cast.
+Interruptible.
+      If stunned during cast, recasts after 5s. Assigned: Interrupt / stun.
+- Platinum Pummel (1215065): Frontal cone on tank. Tank: dodge or use
+defensive.
+    - Ground Pound (1215102): AoE on tank/melee. Move out or heal through.
+  Gnomercy 4.U.:
+- Maximum Thrust (283422): Charges farthest player. Assigned: targeted player
+run out.
+- B.4.T.T.L.3. Mine (1216431): Places mines. Dodge. Timer varies: 17s, 27.5s,
+then 35.2s.
+- Foe Flipper (285152): Throws targeted player. Assigned: targeted player move
+away.
+    - Vent Jets (285388): Chases nearest player. Kite.
+Shared: When one boss dies, other continues. When both dead -> Electrical
+Storm.
+
+K.U.-J.0. / Kujo (DATA 6):
+- Air Drop (291930): Summons Flying Claw (150442) at random pos in
+middle_of_room.
+      Claw falls, deals damage/knockback on impact. Dodge circles.
+- Venting Flames (291946): Cast at Kujo's position, creates shelter. Assigned:
+all players move to Kujo (findshelter).
+- Explosive Leap (291973): Leaps to farthest player, leaves fire. Assigned:
+farthest player run out (runout).
+- Blazing Chomp (294929): Tank debuff, stacks. Tank swap at ~2-3 stacks.
+Dispellable? (magic).
+    - Junk Bomb (291953): From Flying Claw. Avoid.
+
+Head Machinist Sparkflux (DATA 7):
+- Hidden Flame Cannon (285440): At 100 Energy, 14.5s cast, targets random
+area. Dodge.
+- Discom-BOMB-ulator (285454): Random player, magic debuff. Assigned: dispel
+(RemoveMagic).
+- Activate Plant (294853): Summons Inconspicuous Plant (152033). Plant casts
+Blossom Blast (294855).
+    - Self-Trimming Hedge (294954): AoE damage. Spread.
+    - Electrified Floor (1213154): Ground damage. Move out.
+
+King Mechagon (DATA 8):
+  Phase 1 (Aerial Unit):
+- Recalibrate (291865): Plasma Orbs (150485) charge farthest player. Dodge.
+    - Mega-Zap (291928): Random player, spreads. Assigned: run out from group.
+- Take Off (291613): Aerial Unit flies up, then Cutting Beam (291626) sweeps
+arena. Run from beam.
+- Cutting Beam (291626): 6s channel, line AoE. Assigned: targeted player run,
+others avoid.
+  Phase 2 (Omega Buster):
+    - Recalibrate: Now 8s repeater (was 20s). More frequent orb charges.
+- Mega-Zap: 3-cast sequence (14.8s gap, then 3.5s, 3.5s, then 28.6s gap...).
+- Magneto Arm (283143): Pulls all Plasma Orbs to Omega Buster, then pulls
+players. Run away.
+- Protocol: Ninety-Nine (292290): If no player in melee range, casts deadly
+AoE. Tank stay in melee.
+- Hard Mode (mythic): H.A.R.D.M.O.D.E. (292750) - button sequence. Assigned:
+click buttons in order.
+  Phase 3 (King on foot): Script incomplete - no abilities.
+
+=== 5. SAFE SPOTS / POSITIONING (z = map units from script) ===
+
+HK-8:
+  Stage 1: Tank on MK1. Melee behind MK1. Ranged spread for Fulminating Zap.
+  Cannon Blast: Move perpendicular to missile line (farfromline).
+  Reinforcements: Kill Walkie Shockies before Self-Destruct (10s).
+  Stage 2: Stack at Overcharge Station for Hack -> HK-8 falls.
+  Annihilation Ray: Stack in Anti-Trespass Field (303252) when available.
+  Stage 3 (Haywire): Stack on HK-8 for burn. Spread for Lift Off.
+
+Tussle Tonks:
+  Platinum Pummeler: Tank front, melee behind. Dodge Pummel frontal.
+  Ground Pound: Move >8yd from Pummeler.
+  Platinum Plating: Interrupt 1s cast. Stun delays recast by 5s.
+  Gnomercy: Maximum Thrust targeted player runs to edge.
+  Foe Flipper: Targeted player runs away from group.
+  B.4.T.T.L.3. Mine: Watch ground, avoid mines.
+  Vent Jets: Kite Gnomercy around arena.
+
+K.U.-J.0. / Kujo:
+  Tank on Kujo. Melee behind.
+  Air Drop: Dodge Flying Claw impact circles (random in middle_of_room).
+  Venting Flames: Stack ON Kujo (findshelter) - creates safe zone.
+  Explosive Leap: Farthest player runs out (runout), Kujo leaps to them.
+  Blazing Chomp: Tank swap at 2-3 stacks. Dispel magic if possible.
+
+Head Machinist Sparkflux:
+  Spread for Discom-BOMB-ulator (magic dispel).
+  Hidden Flame Cannon: Dodge targeted area (14.5s cast bar).
+  Plants: Kill Inconspicuous Plant quickly (Blossom Blast targets random).
+  Self-Trimming Hedge: Spread 8yd.
+  Electrified Floor: Move off electrified tiles.
+
+King Mechagon:
+  Phase 1: Spread for Mega-Zap. Dodge Recalibrate orb charges (farthest).
+  Take Off -> Cutting Beam: Run perpendicular to beam sweep.
+  Phase 2: Same but faster Recalibrate (8s). Mega-Zap 3-cast pattern.
+  Magneto Arm: Run away from Omega Buster (pulls players + orbs).
+  Protocol: Ninety-Nine: Tank MUST stay in melee range.
+  Hard Mode: Click buttons in sequence shown on Annihilo-tron 5000.
+
+=== 6. TRASH - PULL POSITIONS, ROUTE, LINE OF SIGHT (MDT units, sublevel) ===
+
+Workshop = sublevel 4 (mostly). Some trash in sub3 (Kujo area).
+From MDT roster (force > 0, sub4):
+Blastatron X-80                     151476  f= 8  hp= 1,921,238  lv=121  n=1 
+subs=[4]
+Defense Bot Mk III                  144298  f= 6  hp= 1,229,592  lv=121  n=5 
+subs=[4]
+Spider Tank                         144296  f= 5  hp= 1,229,592  lv=121  n=3 
+subs=[4]
+Urg'roth, Breaker of Heroes         161124  f= 4  hp= 2,305,485  lv=122  n=2 
+subs=[4]
+Blood of the Corruptor              161244  f= 4  hp= 2,151,786  lv=122  n=1 
+subs=[4]
+Mechagon Tinkerer                   144294  f= 4  hp=   768,495  lv=120  n=6 
+subs=[4]
+Workshop Defender                   144299  f= 4  hp=   768,495  lv=120  n=5 
+subs=[4]
+Mechagon Mechanic                   144295  f= 4  hp=   768,495  lv=120  n=3 
+subs=[4]
+Voidweaver Mal'thir                 161241  f= 4  hp= 1,998,087  lv=122  n=2 
+subs=[4]
+G.U.A.R.D.                          144303  f= 4  hp=   768,495  lv=120  n=2 
+subs=[4]
+Defense Bot Mk I                    151649  f= 4  hp=   806,920  lv=120  n=4 
+subs=[4]
+
+Sub3 trash (Kujo area):
+Waste Processing Unit               144293  f= 6  hp= 1,229,592  lv=121  n=4 
+subs=[3]
+Samh'rek, Beckoner of Chaos         161243  f= 4  hp= 2,151,786  lv=122  n=1 
+subs=[3]
+Junkyard D.0.G.                     151773  f= 4  hp=   768,495  lv=120  n=3 
+subs=[3]
+Living Waste                        144301  f= 1  hp=    76,850  lv=120  n=14 
+subs=[3]
+
+Route (Workshop wing):
+After Trixie/Naeno -> enter Workshop (sub4) via mapLink (518.06,-434.64 sub3
+<-> sub4).
+  HK-8 arena (sub4): Clear trash -> HK-8.
+  Tussle Tonks arena (sub4): Clear Robodrome trash -> Tussle Tonks.
+  Kujo (sub3): Drop down to sub3 arena -> Kujo.
+  Sparkflux (sub4): Return to sub4 garden -> Sparkflux.
+King Mechagon: Transport Mechagon (500521) after Sparkflux -> King Mechagon
+arena.
+
+Line-of-sight spots (from MDT mapPOIs):
+  Sub 3 mapLinks: (400.23,-153.56) <-> sub4, (518.06,-434.64) <-> sub4
+  These are LOS corners / doorway positions. No z.
+
+=== 7. NY'LOTHA SPIRES (Workshop area) ===
+
+  Sub 4: (583.95, -196.79)  npcId=161244  Defiled Spire of Ny'alotha
+  Sub 4: (518.79, -316.05)  npcId=161241  Cursed Spire of Ny'alotha
+  Sub 4: (261.46, -482.70)  npcId=161124  Brutal Spire of Ny'alotha
+  Sub 4: (521.12, -314.42)  npcId=161124  Brutal Spire of Ny'alotha
+  Sub 4: (263.05, -482.77)  npcId=161241  Cursed Spire of Ny'alotha
+  Sub 3: (427.30, -387.01)  npcId=161243  Entropic Spire of Ny'alotha
+
+=== 8. SMART_AI (vSLDB Operation Mechagon.sql + Mechagon.sql) ===
+
+Combined entries: 263 | Rows: 492
+Notable Workshop boss entries:
+150396 Aerial Unit R-21/X             id=  0  ev=0  spell= 291626  tgt=1  Cast
+Cutting Beam
+150396 Aerial Unit R-21/X             id=  1  ev=0  spell= 291928  tgt=2  Cast
+Giga-Zap
+150396 Aerial Unit R-21/X             id=  2  ev=9  spell= 291878  tgt=2  Cast
+Pulse Blast on Close
+150396 Aerial Unit R-21/X             id=  3  ev=2  spell= 291613  tgt=1  Cast
+Take Off! at 40% HP
+145185 Gnomercy 4.U.                  id=  0  ev=0  spell= 285388  tgt=1  Cast
+Vent Jets
+145185 Gnomercy 4.U.                  id=  1  ev=0  spell= 283422  tgt=4  Cast
+Maximum Thrust
+150190 HK-8 Aerial Oppression Unit    id=  0  ev=0  spell= 295939  tgt=2  Cast
+Annihilation Ray
+150190 HK-8 Aerial Oppression Unit    id=  1  ev=0  spell= 302098  tgt=2  Cast
+Cannon Blast
+150190 HK-8 Aerial Oppression Unit    id=  2  ev=2  spell= 296080  tgt=1  Cast
+Haywire at 30% HP
+150397 King Mechagon                  id=  0  ev=0  spell= 291974  tgt=1  Cast
+Obnoxious Monologue
+144249 Omega Buster                   id=  0  ev=0  spell= 283551  tgt=1  Cast
+Magneto-Arm
+144249 Omega Buster                   id=  1  ev=0  spell= 292264  tgt=2  Cast
+Giga-Zap
+150295 Tank Buster MK1                id=  0  ev=0  spell= 302274  tgt=2  Cast
+Fulminating Zap
+150295 Tank Buster MK1                id=  1  ev=2  spell= 302279  tgt=1  Cast
+Wreck at 40% HP
+155760 Tank Buster MK2                id=  0  ev=0  spell= 302274  tgt=2  Cast
+Fulminating Zap
+155760 Tank Buster MK2                id=  1  ev=2  spell= 302279  tgt=1  Cast
+Wreck at 40% HP
+163746 Walkie Shockie X1              id=  0  ev=0  spell= 302384  tgt=2  Cast
+Static Discharge
+  NPC 145185: MDT=yes  SAI=yes
+  NPC 163746: MDT=no  SAI=yes
+  NPC 150442: MDT=no  SAI=no
+  NPC 152138: MDT=no  SAI=no
+  NPC 150190: MDT=no  SAI=yes
+  NPC 155760: MDT=no  SAI=yes
+  NPC 144244: MDT=yes  SAI=no
+  NPC 150485: MDT=no  SAI=no
+  NPC 144246: MDT=yes  SAI=no
+  NPC 150295: MDT=no  SAI=yes
+  NPC 144248: MDT=yes  SAI=no
+  NPC 144249: MDT=yes  SAI=yes
+  NPC 150396: MDT=yes  SAI=yes
+  NPC 150397: MDT=no  SAI=yes
+
+=== 9. SPELL ID INDEX (from scripts) ===
+
+Key Workshop spells:
+   282801  SPELL_PLATINUM_PLATING
+   282898  SPELL_BUZZ_SAW_CREATE_AT_VISUAL
+   282945  SPELL_BUZZ_SAW_DAMAGE_KNOCK
+   283143  SPELL_MAGNETO_ARM_CREATE_AT
+   283422  SPELL_MAXIMUM_THRUST_DAMAGE
+   285020  SPELL_WHIRLING_EDGE
+   285344  SPELL_LAY_MINE_MISSILE
+   285351  SPELL_LAY_MINE_CREATE_AREATRIGGER
+   285388  SPELL_AURA_VENT_JETS
+   285437  SPELL_HIDDEN_FLAME_CANNON_APPLY_AT
+   285443  SPELL_HIDDEN_FLAME_CANNON_PERIODIC
+   285454  SPELL_DISCOM_MISSILE
+   291613  SPELL_TAKE_OFF
+   291626  SPELL_CUTTING_BEAM_CREATE_AT
+   291835  SPELL_PLASMA_ORB_APPLY_AT_VISUAL
+   291845  SPELL_RECALIBRATE_TAR_DEST_VISUAL
+   291856  SPELL_RECALIBRATE_DAMAGE_KNOCK
+   291878  SPELL_PULSE_BLAST
+   291915  SPELL_PLASMA_ORB_DAMAGE_KNOCK
+   291928  SPELL_GIGA_ZAP_MAIN
+   291930  SPELL_AIR_DROP_DAMAGE_KNOCK
+   291939  SPELL_GIGA_ZAP_DAMAGE
+   291946  SPELL_VENTING_FLAMES
+   291949  SPELL_VENTING_FLAMES_DAMAGE
+   291953  SPELL_JUNK_BOMB_DAMAGE
+   291973  SPELL_EXPLOSIVE_LEAP_TRIGGER
+   291974  SPELL_OBNOXIOUS_MONOLOQUE
+   292035  SPELL_EXPLOSIVE_LEAP_DAMAGE
+   294867  SPELL_ROARING_FLAME_MISSILE
+   294929  SPELL_BLAZING_CHOMP
+   294954  SPELL_SELF_TRIMMING_HEDGE_DAMAGE
+   295065  SPELL_PERIODIC_ENERGY_GAIN
+   295445  SPELLW_WRECK_DAMAGE
+   295536  SPELL_CANNON_BLAST_TRIGGER
+   295939  SPELL_ANNIHILATION_RAY_CHANNEL
+   296080  SPELL_HAYWIRE
+   296260  SPELL_HACK
+   296517  SPELL_AREA_DENIAL_BOT
+   296518  SPELL_STATIC_DISCHARGE_CREATE_AT
+   296522  SPELL_SELF_DESTRUCT
+   296560  SPELL_CLINGING_STATIC_DAMAGE
+   300011  SPELL_FORCE_SHIELD
+   301177  SPELL_LIFT_OFF
+   301351  SPELL_REINFORCEMENT_RELAY_TRIGGER_SUMMON
+   302098  SPELL_CANNON_BLAST_MISSILE
+   302274  SPELL_FULMINATING_ZAP
+   302279  SPELL_WRECK
+   302384  SPELL_STATIC_DISCHARGE
+   303206  SPELL_ANNIHILATION_BLAST
+
+=== 10. CREATURE / MAP / GAMEOBJECT IDs ===
+
+Map: 2097
+Workshop Bosses & Key NPCs:
+  150190  HK-8 Aerial Oppression Unit
+  150295  Tank Buster MK1
+  155760  Tank Buster MK2 (HM)
+  163746  Walkie Shockie X1
+  152272  HK8 Center Arena Stalker
+  152138  Overcharge Station
+  144244  Platinum Pummeler
+  145185  Gnomercy 4.U.
+  145312  Buzz Saw
+  500520  Stalker Robodrome Arena
+  144246  K.U.-J.0.
+  150442  Flying Claw
+  150694  Wendy Cogsworth
+  144248  Head Machinist Sparkflux
+  152033  Inconspicuous Plant
+  150397  King Mechagon
+  150396  Aerial Unit R-21/X
+  144249  Omega Buster
+  150485  Plasma Orb
+  500521  Transport Mechagon
+Key Trash (force > 0, sub4):
+  151476  Blastatron X-80                     f= 8  hp= 1,921,238
+  144298  Defense Bot Mk III                  f= 6  hp= 1,229,592
+  144296  Spider Tank                         f= 5  hp= 1,229,592
+  161124  Urg'roth, Breaker of Heroes         f= 4  hp= 2,305,485
+  161244  Blood of the Corruptor              f= 4  hp= 2,151,786
+  144294  Mechagon Tinkerer                   f= 4  hp=   768,495
+  144299  Workshop Defender                   f= 4  hp=   768,495
+  144295  Mechagon Mechanic                   f= 4  hp=   768,495
+  161241  Voidweaver Mal'thir                 f= 4  hp= 1,998,087
+  144303  G.U.A.R.D.                          f= 4  hp=   768,495
+  151649  Defense Bot Mk I                    f= 4  hp=   806,920
+
+=== 11. DISCREPANCIES & UNVERIFIED NOTES ===
+
+1. No creature spawn table (world coordinates with z) exists in any readable
+source for map 2097.
+All z = unverified except where script provides explicit Position constants
+(HK-8, Tussle Tonks, King Mechagon).
+2. MDT provides anchors only for Kujo (sub3) and Sparkflux (sub4). No MDT
+positions for HK-8, Tussle Tonks, King Mechagon.
+3. Sparkflux script has placeholder events (EVENT_PLANTS, EVENT_DISCOM,
+EVENT_HEDGE) with no initial ScheduleEvent.
+   DBM/LW timers are the only source for Sparkflux ability cadences.
+4. King Mechagon Phase 3 (on foot) has no abilities implemented in script -
+incomplete.
+5. Hard Mode mechanics (MK2 for HK-8, H.A.R.D.M.O.D.E. for King Mechagon) only
+active on Mythic.
+6. Tussle Tonks: two bosses share encounter, DBM tracks both GUIDs. Platinum
+Plating at 100 Energy (35s gain).
+7. HK-8: Three-stage loop (MK1 -> Annihilation -> Haywire -> Lift Off ->
+repeat). Hard Mode uses MK2.
+8. Transport Mechagon (500521) teleports players after Sparkflux dies - not a
+boss encounter.
+9. N'Zoth spires in sub 3-4 only, no SAI creature rows for spire NPCs.
+10. Instance HP scaling: Mythic 6x, Heroic 5x, Normal 4x for faction 16 (all
+Mechagon creatures).
+
+=== 12. SOURCES & LIMITS ===
+
+1. Psycho-Core/Psycho-Core-8.3.7_Scripts scripts/KulTiras/Operation Mechagon/
+(11 files)
+- Primary: 5 Workshop boss scripts, instance script, header. All timers,
+spells, mechanics, positions.
+- Limits: Sparkflux timers incomplete; King Mechagon P3 incomplete; no z for
+Kujo/Sparkflux.
+2. LetsTimeIt/DungeonTools BattleForAzeroth/MechagonCity.lua (MDT)
+   - dungeonIndex=26, 26 enemy records, 86 clones, 10 POIs, sublevels 1,3,4
+- Limits: Map space only, no z, only Kujo/Sparkflux have Workshop boss
+positions.
+3. BigWigsMods/LittleWigs BfA/Mechagon/ (9 modules)
+- Full timer sets for all 5 Workshop bosses. Good for Sparkflux (only source).
+4. DeadlyBossMods/DBM-Dungeons DBM-Party-BfA/Mechagon/ (9 modules)
+- Full timer sets for all 5 Workshop bosses. Per-boss-GUID tracking. Hard mode
+timers.
+5. zTerragor/vSLDB sql/updates/world/Operation Mechagon.sql + Mechagon.sql
+   - 263 SmartAI entries, 492 rows. All x,y,z,o=0. No creature table.
+6. TrinityCore mythic SQL: creature difficulty scaling only.
+All values marked 'unverified' where no readable source carries the value.

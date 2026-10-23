@@ -1,0 +1,1163 @@
+================================================================================
+ SHRINE OF THE STORM - POSITIONS AND NUMBERS, BFA 8.3.7 BUILD 35662
+ Map id 1864. Four encounters: Aqu'sirr, the Tidesage Council (Brother
+ Ironhull and Galecaller Faye), Lord Stormsong, Vol'zith the Whisperer.
+ Companion file to the tactics document. Every number is tagged with the
+ source it came from. Anything I could not read is written "unverified".
+================================================================================
+
+0. HOW TO READ THIS FILE
+
+  Tags, used on every claim:
+    [DB]    a row in a world SQL for this instance: creature spawn, game
+            object, areatrigger, instance_template, or a smart_scripts row.
+    [SRV]   a line in the 8.3.7 script: shrine_of_the_storm.h,
+            instance_shrine_of_the_storm.cpp, shrine_of_the_storm.cpp, or
+            one of the four boss files.
+    [MDT]   Method Dungeon Tools, BattleForAzeroth/ShrineoftheStorm.lua:
+            the name, the per-kill force value, the health pool, the level.
+    [DBM]   DBM-Party-BfA/ShrineoftheStorm/*.lua: a stopwatch value.
+    [LW]    LittleWigs BfA/ShrineOfTheStorm/*.lua: a second stopwatch value.
+    [CALC]  arithmetic I did on the numbers above. The inputs are always
+            given so you can redo it.
+    unverified   no readable source carries the value. It is never a guess.
+
+  Two of those tags need a qualifier, stated here so that no number in this
+  file is mistaken for something it is not.
+    [DB] on a creature spawn is the TrinityCore master world DB for map
+    1864: sql/old/11.x/world/24051_2024_09_03/2024_05_27_00_world.sql, 398
+    rows, plus one row for Aqu'sirr in the 24091_2024_09_23 file. It is NOT
+    the 8.3.7 database; it is used because no 8.3.7 spawn dump for this map
+    is public. The map is the same map, and where the 8.3.7 script carries
+    its own constant the two agree to the last digit - Aqu'sirr's row lands
+    exactly on the script's centerPlatform (4.3) and Vol'zith's floor z
+    agrees with the script's add spawn points to 0.5 yd (7.3). Read every
+    trash coordinate here as "this spot on this map", not "your DB row".
+    [DB] on smart_scripts is the Shrine block of the LatincoreBfa line:
+    vSLDB sql/updates/world/Shrine of the Storm.sql, 52 rows over 31
+    entries. It is the same lineage as the King's Rest SQL used in step 08.
+
+  Coordinates are (x, y, z) in world yards on map 1864. Orientation is
+  radians and is quoted only where the row carries one.
+
+  The structural fact that shapes this whole file: every trash mob that
+  spawns from the world table is SmartAI, and its timers are readable out
+  of the SQL, which is why section 8 can give them at all. The four
+  bosses are hand-written. The five summoned helpers - Aqualing, Grasping
+  Tentacle, Forgotten Denizen, Sunken Denizen and Manifestation of the
+  Deep - are also hand-written, in the boss files, and they also have
+  SmartAI rows in the DB that the script AI outranks. A different world DB
+  will therefore run different trash, and the helpers are the part to
+  check first.
+
+1. SOURCES AND THEIR LIMITS
+
+  1.1 The scripts are Psycho-Core-8.3.7_Scripts, scripts/KulTiras/
+      ShrineOfTheStorm: four boss files, instance_shrine_of_the_storm.cpp,
+      shrine_of_the_storm.cpp and shrine_of_the_storm.h, 89 KB in total.
+      The four bosses run 22 scheduled events between them. Two mechanics
+      live outside the boss files: the Stormsong intro and the Slicing
+      Hurricane area trigger are both in shrine_of_the_storm.cpp (8.3).
+  1.2 No client table was read. Radii, durations and damage below are
+      unverified unless the script, DBM or LittleWigs states them.
+  1.3 MDT clone positions were not used. They are stored in MDT's own map
+      space, not in world coordinates, so only MDT's names, forces, health
+      and levels are cited here.
+  1.4 The 8.3 Awakened lieutenants (161124, 161241, 161243, 161244) and the
+      season-4 emissaries (155432, 155433, 155434) are in MDT with force
+      values and have no spawn row for this map, so they are not counted.
+
+2. INSTANCE GEOMETRY AND THE ROUTE
+
+2.1 FLOOR LEVELS [DB]. Four bands over all 295 combat spawn rows.
+    band        rows   x range            y range           what is there
+    150-190   92   3545.8.. 4174.5  -1511.3.. -1203.5
+                     upper temple, entry hall, Stormsong road
+    120-150   70   3912.1.. 4069.7  -1353.5.. -1169.9
+                     Aqu'sirr sanctum and the drowned stair
+    100-120   80   3771.8.. 4085.7  -1196.6.. -1001.5
+                     Council hall and the west corridor
+     55-100   53   3495.1.. 3952.6  -1761.4.. -1084.2
+                     the sunken city under Vol'zith
+    The bands are effectively rooms. z 180 is the entry hall, z 128 is
+    Aqu'sirr's platform, z 109 is the Council hall on the same tier as the
+    west corridor, z 155 is the road to Lord Stormsong, and z 61 to 100 is
+    the flooded city you swim through to reach Vol'zith.
+    The map spans x 3495.1 to 4174.5 and y -1761.4 to -1001.5,
+    a box 679 by 760 yd.
+
+2.2 THE ENTRY POINT
+    game_tele 1875 'shrineofthestormdungeon' is the row that drops a
+    player into this instance. It carries no map column; its coordinates
+    are (4167.202, -1238.528, 186.894) o 4.730950, on map 1864 [DB]. Areatrigger
+    100007 sits 18.10 yd from it at
+    (4167.646484, -1220.450928, 187.704132) [DB].
+    areatrigger_teleport -57 sends the player out through PortLoc 6574
+    'Shrine of the storm - Exit Target'; -58 sends them in through PortLoc
+    6524 'Shrine of the storm - Entrance Target' [DB]. Neither PortLoc row
+    is in the SQL I read.
+    The nearest pack is 21.8 yd from the tele point and the route below
+    starts there.
+
+2.3 THE FORTY-NINE PULL CLUSTERS [DB], WITH z AND FORCES [MDT]
+
+  Clustering rule: every spawn row links to another row inside 16.0 yd and
+  inside 8.0 yd of z. Nothing else is merged or split. 295 rows give 49
+  groups. Bosses are included and marked. Neutral and decorative NPCs are
+  excluded: Bound Soul 136188, Jellyfish 136363, Rune 136505, Waken the
+  Void 136961, Murky Water 139572, Queen Azshara 139963, Shrine of the
+  Storm 139986, the three Shrine's Breath entries, Sea Louse 141585, Rat
+  141587, Cove Seagull 121028, Stalker 82347 and Global Affix Stalker
+  120652. All of them spawn and none of them fights.
+
+  Columns: pack, creatures, force summed from MDT per-kill counts, centroid
+  (x, y, z), the z range of the members, the members.
+  Abbreviations: Aqu Aqu'sirr, Irn Brother Ironhull, Fay Galecaller Faye,
+  Sto Lord Stormsong, Vol Vol'zith, TI Tidesage Initiate, AD Animated
+  Droplet, ABY Abyss Dweller, AEL Abyssal Eel, TA Temple Attendant, DS
+  Dredged Sailor, TS Tidesage Spiritualist, GA Galecaller Apprentice, IA
+  Ironhull Apprentice, DD Drowned Depthbringer, AC Abyssal Cultist, TE
+  Tidesage Enforcer, ST Shrine Templar, DR Deepsea Ritualist, LC Living
+  Current, FD Forgotten Denizen, SD Sunken Denizen, RS Runecarver Sorn, GE
+  Guardian Elemental, WH Windspeaker Heldis, BP Brother Pike, LS Lord
+  Stormsong. A trailing digit is a repeat count, and BOSS marks an
+  encounter.
+
+  pack  n   f  centroid (x, y, z)                 z range      members
+  P01  15  24 ( 4163.142,-1291.912, 180.331) 179.82-181.08 ST TI14
+  P02  14  30 ( 4094.065,-1290.390, 177.338) 177.20-177.48 TA2 AD12
+  P03   1   0 ( 4171.817,-1259.208, 181.575) 181.57-181.57 BP
+  P04   1  18 ( 4069.736,-1291.609, 148.600) 148.60-148.60 LC
+  P05   1   9 ( 4065.482,-1257.493, 163.752) 163.75-163.75 TS
+  P06   5  45 ( 4054.900,-1212.684, 168.521) 168.30-168.80 TA3 TS2
+  P07  11  52 ( 4039.392,-1284.094, 149.161) 148.85-149.44 TA4 ST AD6
+  P08   4  36 ( 4083.693,-1150.982, 109.282) 108.99-109.53 TA IA2 GA
+  P09   1   9 ( 4069.911,-1324.385, 166.531) 166.53-166.53 TS
+  P10   1   9 ( 4029.045,-1207.526, 168.799) 168.80-168.80 TS
+  P11   1   9 ( 4033.772,-1227.436, 168.799) 168.80-168.80 TS
+  P12   5  40 ( 4060.194,-1140.784, 109.183) 108.90-109.62 RS TI4
+  P13   6   6 ( 4015.976,-1222.057, 152.616) 152.62-152.62 TI6
+  P14   2  18 ( 4034.995,-1315.786, 149.066) 148.97-149.16 TS2
+  P15   2  18 ( 4051.973,-1361.947, 184.643) 184.64-184.64 TS2
+  P16   3  27 ( 4050.487,-1181.600, 110.094) 109.98-110.32 TA IA GA
+  P17   1   9 ( 4030.501,-1363.330, 184.646) 184.65-184.65 TS
+  P18  17 116 ( 3982.359,-1291.012, 140.482) 140.36-141.09 TA5 ST2 LC TS3 AD6
+  P19   6  22 ( 4005.462,-1171.820, 121.481) 117.73-124.37 IA2 TI4
+  P20  15  39 ( 3977.471,-1234.153, 132.809) 132.72-133.08 TA TS2 AD12
+  P21   1   9 ( 4013.123,-1355.309, 184.241) 184.24-184.24 TS
+  P22   2  18 ( 3979.994,-1353.372, 143.368) 143.37-143.37 TA2
+  P23   4  36 ( 4012.612,-1108.775, 105.715) 105.71-105.71 IA2 GA2
+  P24   1  36 ( 3995.303,-1095.894, 107.639) 107.64-107.64 GE
+  P25  12  12 ( 3948.718,-1240.094, 128.081) 127.87-128.31 AD12
+  P26   7  58 ( 3941.426,-1191.163, 120.314) 119.98-120.45 WH GA2 TI4
+  P27  28  42 ( 3947.632,-1035.129, 106.281) 101.04-109.57
+                 Fay BOSS Irn BOSS IA GA TI24
+  P28   3  27 ( 3980.093,-1057.480, 100.439) 100.28-100.60 TA2 GA
+  P29   5  45 ( 3943.897,-1088.467,  99.709)  99.50- 99.90 IA2 GA3
+  P30   1   0 ( 3912.141,-1247.880, 130.683) 130.68-130.68 LS
+  P31   5  16 ( 3895.513,-1101.888, 110.721) 110.21-110.85 DR DS4
+  P32  11  38 ( 3856.670,-1076.491, 109.794) 109.67-109.95 TE2 DR DS8
+  P33   8  27 ( 3840.549,-1119.803, 106.398) 106.34-106.48 TE DR DS6
+  P34   2  18 ( 3776.441,-1104.266, 109.128) 109.12-109.13 DD2
+  P35   2  18 ( 3686.351,-1253.142, 155.387) 155.39-155.39 AC2
+  P36   6  54 ( 3666.303,-1285.434, 156.467) 156.38-156.54 DD4 AC2
+  P37   2  18 ( 3817.865,-1114.010, 110.063) 110.06-110.06 TE2
+  P38   2  18 ( 3655.920,-1322.964, 156.573) 156.42-156.73 AC2
+  P39   1   0 ( 3655.050,-1749.061,  85.589)  85.59- 85.59 Vol BOSS
+  P40  16  16 ( 3610.939,-1423.753, 159.383) 159.28-159.54 ABY16
+  P41  16  16 ( 3583.769,-1410.144, 159.386) 159.30-159.68 ABY16
+  P42   8  16 ( 3659.512,-1652.242,  66.950)  64.57- 72.96 AEL8
+  P43  12  12 ( 3505.473,-1407.018,  77.590)  77.59- 77.59 ABY12
+  P44   1   0 ( 3545.822,-1511.342, 154.316) 154.32-154.32 Sto BOSS
+  P45   3  31 ( 3621.628,-1712.964,  85.874)  85.74- 86.15 SD FD2
+  P46   7  14 ( 3600.503,-1648.972,  71.600)  70.30- 73.95 AEL7
+  P47   8  16 ( 3544.837,-1748.680,  78.581)  75.39- 81.85 AEL8
+  P48   8  16 ( 3553.549,-1681.047,  73.502)  66.12- 76.47 AEL8
+  P49   1   2 ( 3585.337,-1656.794,  61.410)  61.41- 61.41 AEL
+  The 295 rows carry 1165 force by MDT's per-kill counts. MDT's own
+  dungeonTotalCount for this dungeon is 695 [MDT]. The two do not
+  reconcile: 1165 is 1.68 times 695, and the reason is visible in the spawn
+  list. The swarms are individually spawned here (56 Tidesage Initiate, 48
+  Animated Droplet, 44 Abyss Dweller, 32 Abyssal Eel) while MDT counts the
+  same enemies per pack. Use MDT's 695 as a route budget, use the f column
+  above for what one pull is worth, and do not add the column up.
+
+2.4 THE ROUTE: 49 LEGS, EACH WITH ITS DISTANCE AND ITS dz
+
+  This is a distance bookkeeping walk, not a walked route. It was built in
+  two passes - every pack whose centroid z is 90 or above, then every pack
+  below that - and each pass is a nearest-neighbour tour from the previous
+  end point, improved by 2-opt and single-node relocation until neither
+  helped. That split is the flood line: the upper temple is one walk and
+  the sunken city is entered once. It is the shortest order I could find,
+  not the order a group walks, and the map has no stairs data, no mesh and
+  no door list to check it against.
+
+  leg  pack    yd     dz        leg  pack    yd     dz
+  ----------------------------------------
+    1  P03   21.8   -5.32   26  P23   57.5   -3.47
+    2  P01   33.9   -1.24   27  P24   21.7   +1.92
+    3  P02   69.2   -2.99   28  P28   41.9   -7.20
+    4  P09   43.1  -10.81   29  P27   39.8   +5.84
+    5  P15   45.4  +18.11   30  P29   53.9   -6.57
+    6  P17   21.5   +0.00   31  P31   51.4  +11.01
+    7  P21   19.1   -0.41   32  P32   46.4   -0.93
+    8  P22   52.6  -40.87   33  P33   46.3   -3.40
+    9  P18   62.5   -2.89   34  P37   23.7   +3.67
+   10  P14   58.8   +8.58   35  P34   42.6   -0.94
+   11  P07   32.0   +0.10   36  P35  180.1  +46.26
+   12  P04   31.3   -0.56   37  P36   38.0   +1.08
+   13  P05   37.6  +15.15   38  P38   38.9   +0.11
+   14  P06   46.3   +4.77   39  P40  110.4   +2.81
+   15  P10   26.4   +0.28   40  P41   30.4   +0.00
+   16  P11   20.5   -0.00   41  P44  108.2   -5.07
+   17  P13   24.6  -16.18   42  P43  135.6  -76.73
+   18  P20   45.0  -19.81   43  P42  289.8  -10.64
+   19  P25   29.7   -4.73   44  P46   59.3   +4.65
+   20  P30   37.5   +2.60   45  P49   19.9  -10.19
+   21  P26   64.7  -10.37   46  P48   41.8  +12.09
+   22  P19   66.9   +1.17   47  P47   68.4   +5.08
+   23  P16   47.5  -11.39   48  P45   85.0   +7.29
+   24  P08   45.2   -0.81   49  P39   49.2   -0.29
+   25  P12   25.6   -0.10
+
+  Total straight-line distance 2689 yd over 49 legs.
+  5 legs are over 100 yd, and every one of them is a floor change:
+    P35 180 yd (leg 36)   P40 110 yd (leg 39)   P44 108 yd (leg 41)
+    P43 136 yd (leg 42)   P42 290 yd (leg 43)
+  The longest is 290 yd, the leg that lands on P42, and it drops
+  10.6 yd.
+  The first pull is 21.8 yd from the entry point and the last pull is
+  Vol'zith himself (P39), so the route ends on the fourth boss.
+
+2.5 WHAT THE GEOMETRY DOES NOT GIVE
+  There is no mesh and no collision extent in any source I could read.
+  The only blockers the data names are the 39 gameobject positions in
+  3.4 - collision walls, arcane barriers, invisible doors - and those
+  rows carry a point, not a width. Apart from them the physical facts are
+  the rows themselves: the upper temple is flat to 0.28 yd across the 92
+  rows above z 150, and the Council tier is flat to 1.7 yd across the 80
+  rows between z 100 and z 120.
+  Water is the one terrain feature the data proves: z 61.4 to 86.1 is
+  below every other level, 53 rows stand in it, and the route crosses
+  that line once. Leg 42 is a 135.6 yd walk that drops 76.7 yd onto
+  P43 at z 77.59. Leg 43 then loses another 10.6 yd to P42 at z 66.95,
+  the lowest ground in the instance.
+
+3. LANDMARK TABLE - EVERY STATIC COORDINATE THE INSTANCE HAS
+
+3.1 THE BOSS SPAWN ROWS [DB]
+  Aqu'sirr             134056  ( 3931.728, -1244.490,  128.451) o 0.06971
+  Brother Ironhull     134063  ( 3930.023, -1002.766,  109.306) o 4.97556
+  Galecaller Faye      134058  ( 3945.272, -1001.462,  109.402) o 4.44486
+  Lord Stormsong       134060  ( 3545.822, -1511.342,  154.316) o 4.21274
+  Vol'zith             134069  ( 3655.050, -1749.061,   85.589) o 5.55015
+  A sixth row, 139737 Lord Stormsong, also spawns, at
+  (3912.141, -1247.880, 130.683) [DB]. It stands 20.0 yd from Aqu'sirr's
+  centerPlatform, so it is 10.0 yd inside the 30 yd kill edge, and it runs
+  the instance intro: a player within 40 yd triggers it, it faces
+  0.1939797, yells at 0 s and 6 s, casts Water Ritual and Requiem of the
+  Abyss at 13 s, makes Aqu'sirr visible and aggressive at 18 s, and casts
+  Splashing Water at 20 s before despawning 2.5 s later [SRV].
+  It is NOT the boss: BOSS_LORD_STORMSONG is 134060, the y -1511.342 row.
+  Brother Pike 139970 spawns at (4171.817, -1259.208, 181.575) [DB]; the
+  instance script swaps him for Rexxar 139971 on Horde (1.2). He is the
+  intro NPC, not a boss.
+
+3.2 THE SCRIPT CONSTANTS, VERBATIM [SRV]
+  Aqu'sirr  centerPlatform = { 3931.72f, -1244.48f, 128.45f }  30 yd check
+  Council   centerPos      = { 3939.35f, -1007.21f, 109.22f }  30 yd check
+  Stormsong cheatersCheck  = { 3560.75f, -1484.49f, 153.31f }  35 yd check
+  Vol'zith  centerPos      = { 3631.75f, -1728.81f, 105.55f }  80 yd check
+  Vol'zith  spawnPoints[3] for the sunken-phase adds:
+    (3658.58, -1715.67, 85.89)  (3603.31, -1742.71, 85.82)
+    (3619.73, -1709.18, 86.14)
+  Vol'zith  manifestSpawnPoints[15] for Call the Abyss, all between
+    x 3570.48 and 3675.83, y -1788.61 and -1673.33, z 82.85 and 84.66.
+    That is a ring 106 yd across; the first and last are given in 7.3.
+  Aqu'sirr  five Surging Rush destinations:
+    (3929.14, -1262.38)  (3931.14, -1224.62)  (3953.22, -1239.37)
+    (3939.73, -1261.44)  (3915.98, -1236.37)   all at the boss's own z
+  Aqu'sirr  three Aqualing summon points:
+    (3939.58, -1221.45, 128.424)  (3954.12, -1250.46, 127.809)
+    (3920.58, -1258.02, 128.144)
+  That is the complete list. There is no tank constant, no arena polygon
+  and no safe-spot constant in any of the seven script files.
+
+3.3 THE GEOMETRY THOSE CONSTANTS DESCRIBE [CALC]
+  Aqu'sirr's spawn row and centerPlatform are the same point to 0.01 yd,
+  which is the cross-check that ties the 8.3.7 script to the spawn table.
+  The five rush points are 17.7 to 22.1 yd from centerPlatform, and the
+  three Aqualing points 17.5 to 24.3 yd from it. All eight are inside the
+  30 yd kill radius the script enforces.
+  Ironhull and Faye are 15.30 yd apart, and both are inside 11 yd of
+  centerPos (10.33 and 8.25 yd). Lord Stormsong is 30.74 yd from
+  cheatersCheck, and Vol'zith is 36.76 yd from his centerPos - which is
+  the only one of the four check points that is not on the boss (his is
+  19.96 yd above the arena floor).
+
+3.4 GAME OBJECTS [DB]. 39 rows for map 1864 in the 11.x spawn file, all
+    of them printed. These are the only blockers the data names:
+    collision walls, arcane barriers, invisible doors, the instance
+    portal. One of the thirty-nine carries no name and is shown as
+    (unnamed).
+
+    guid      id        x           y          z     orient  object
+      0  252248  ( 4167.827, -1222.188, 187.686)  4.7398  Instance Portal
+      1  277358  ( 3987.502, -1362.656, 157.932)  4.6808  Collision Wall
+      2  249386  ( 3972.826, -1134.970, 141.921)  4.4900  Arcane Barrier
+      3  249386  ( 3971.479, -1132.118, 141.921)  5.6471  Arcane Barrier
+      4  249386  ( 3971.479, -1132.118, 117.647)  5.6471  Arcane Barrier
+      5  249386  ( 3972.826, -1134.970, 117.647)  4.4900  Arcane Barrier
+      6  230537  ( 4003.588, -1109.880, 106.322)  0.0000  Invisible Door
+      7  230537  ( 4010.760, -1100.936, 106.670)  0.0000  Invisible Door
+      8  249386  ( 3945.213, -1145.293, 141.921)  4.9037  Arcane Barrier
+      9  249386  ( 3945.213, -1145.293, 117.647)  4.9037  Arcane Barrier
+     10  266885  ( 3965.431, -1358.073, 157.932)  1.5783  Ghost Gate
+     11  249386  ( 3917.106, -1149.257, 141.921)  4.9037  Arcane Barrier
+     12  216056  ( 3965.354, -1355.384, 154.468)  0.0000  Collision PC Size
+     13  249386  ( 3917.106, -1149.257, 117.647)  4.9037  Arcane Barrier
+     14  230537  ( 3976.628, -1088.927, 106.322)  0.0000  Invisible Door
+     15  249386  ( 3876.359, -1158.981, 117.647)  4.9037  Arcane Barrier
+     16  249386  ( 3876.359, -1158.981, 141.921)  4.9037  Arcane Barrier
+     17  230537  ( 3983.800, -1079.983, 106.670)  0.0000  Invisible Door
+     18  249386  ( 3838.003, -1167.283, 141.921)  4.9037  Arcane Barrier
+     19  249386  ( 3838.003, -1167.283, 117.647)  4.9037  Arcane Barrier
+     20  292654  ( 3847.957, -1819.368,  98.255)  3.2893  Void
+     21  292654  ( 3839.275, -1820.535,  85.370)  3.2893  Void
+     22  292654  ( 3833.564, -1825.491, 104.834)  0.3793  Void
+     23  292653  ( 3829.494, -1823.286,  71.475)  4.8408  Barrier
+     24  292653  ( 3811.345, -1830.708,  72.182)  5.1903  Barrier
+     25  292654  ( 3813.206, -1835.024,  95.527)  5.7798  Void
+     26  292653  ( 3794.488, -1840.436,  72.474)  5.1903  Barrier
+     27  293699  ( 3784.748, -1071.545, 112.214)  4.2737  Scroll of Safe Passage
+     28  292653  ( 3778.197, -1851.797,  72.324)  5.4494  Barrier
+     29  292653  ( 3764.600, -1863.905,  73.167)  5.4494  Barrier
+     30  292654  ( 3793.178, -1872.976, 107.110)  0.3793  Void
+     31  292653  ( 3752.632, -1879.630,  72.236)  5.8445  Barrier
+     32  292654  ( 3776.976, -1876.538,  89.064)  0.3793  Void
+     33  292654  ( 3794.198, -1872.984,  95.292)  5.0655  Void
+     34  292653  ( 3741.944, -1895.962,  71.924)  5.8445  Barrier
+     35  292654  ( 3748.606, -1895.785,  93.150)  0.3793  Void
+     36  292654  ( 3742.043, -1909.877,  96.994)  0.3793  Void
+     37  292654  ( 3745.106, -1907.382,  87.674)  5.0013  Void
+     38  292654  ( 3744.187, -1915.203,  85.075)  5.3035  (unnamed)
+
+  What the table says, family by family:
+    Instance Portal 252248 at the entry (4167.83, -1222.19, 187.69): 1.75
+      yd from areatrigger 100007 and 16.37 yd from the tele target.
+    Arcane Barrier 249386, twelve rows, six points each duplicated at
+      z 141.92 and z 117.65. Those levels are 24.27 yd apart, so the six
+      pairs look like the two ends of six wall segments rather than
+      twelve separate walls. They run from (3972.83, -1134.97) to
+      (3838.00, -1167.28): the corridor from the entry hall to the
+      council tier at z 109.
+    Invisible Door 230537, four rows at z 106.3 and 106.7, from
+      (4003.59, -1109.88) to (3976.63, -1088.93), 2.6 yd below the
+      council tier and on its entrance side.
+    Collision Wall 277358 (3987.50, -1362.66, 157.93) and Ghost Gate
+      266885 (3965.43, -1358.07, 157.93), with Collision PC Size 216056
+      4.39 yd from the gate at z 154.47 - the door between the upper
+      temple and the Stormsong road, at that road's own height.
+    Void 292654 and Barrier 292653, eleven and seven rows, x 3741.9 to
+      3847.9 and y -1915.2 to -1819.4, z 71.5 to 107.1: the flooded
+      Tidewater Sanctum approach to Vol'zith. They are 159.2 to 205.7 yd
+      from Vol'zith's arena, so they are the tunnel, not the arena.
+    Scroll of Safe Passage 293699 (3784.75, -1071.55, 112.21): the only
+      interactable object on the map.
+
+  A line-of-sight question can now be answered halfway. A straight line
+  either crosses one of these 39 positions or it does not; what the data
+  does NOT give is any object's extent or rotation volume, so how wide a
+  barrier is remains unknown. Every LoS statement in this file stays
+  unverified, and 2.5 says the same for the route.
+
+3.5 AREATRIGGERS AND TELEPORTS [DB]
+  areatrigger 100007 sits at (4167.646, -1220.451, 187.704) on map 1864,
+   18.10 yd from the game_tele point and 0.2 yd from the instance portal.
+  areatrigger_teleport -57 -> PortLoc 6574 (exit), -58 -> PortLoc 6524
+   (entrance). Neither PortLoc row is in any SQL I could read, so the
+   landing coordinates outside are unverified.
+  No other map-placed areatrigger exists. The boss areatriggers (Undertow
+   17427, Swiftness Ward 17766, Reinforcing Ward 17771, Slicing Hurricane
+   19019) are templates created by spells, not placements.
+
+================================================================================
+4. BOSS 1 - AQU'SIRR  (entry 134056, MDT hp 6,147,954, level 122)
+================================================================================
+4.1 SPAWN AND TANK POSITION
+  Boss  134056  (3931.728, -1244.490, 128.451) o 0.06971   [DB]
+  The spawn row and the script's centerPlatform = { 3931.72f, -1244.48f,
+  128.45f } are the same point to 0.01 yd, which is how the 8.3.7 script
+  and the spawn table were tied together [SRV][DB].
+  TANK: unverified. No constant, no MovePoint and no facing rule anywhere
+  in boss_aqusirr.cpp. The boss is rooted at spawn (ROOT in the AI
+  constructor and again in EnterCombat) and never moves except on Surging
+  Rush (4.3).
+  THE ARENA HAS A HARD EDGE. CheckCheaters runs on every update while in
+  combat and kills any non-GM player 30.0 yd or more from centerPlatform,
+  and also kills the group if the BOSS is 30.0 yd out [SRV]. The platform
+  is therefore a 60 yd circle and nothing else.
+
+4.2 PHASES AND INTERMISSION [SRV] - one gate, at 50%
+  100% to 50%: phase 1. Sea Blast, Choking Brine, Undertow and Surging
+  Rush run on their own clocks.
+  At 50% (HealthBelowPct(50), first time only): splitPhase2 = true, the
+  boss gains UNIT_FLAG_NOT_SELECTABLE, cannotAttack is set so it stops
+  meleeing, events.Reset() clears every timer, and three Aqualings 134828
+  are summoned at the fixed points in 4.5.
+  The intermission ends when the third Aqualing dies (SummonedCreatureDies
+  counts them). ReturnCombat then removes the Erupting Waters aura 264903,
+  clears NOT_SELECTABLE, reschedules all four phase-1 events from zero and
+  SETS THE BOSS HEALTH TO 15% OF MAX. The last step is not a typo in this
+  file: the script calls SetHealth(CountPctFromMaxHealth(15)).
+  There is no third phase, no berserk and no enrage in the file.
+
+4.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                    script [SRV]        DBM [DBM]    LW [LW]
+  Sea Blast 265001           every 2.0, cast only  -            -
+                             if the victim is out
+                             of melee range
+  Choking Brine 264560       11.0 ONCE            10.5         10.2
+  Surging Rush 264101        17.0, repeats        17.0         15.5
+  Undertow 264144            30.0, repeats        30.0         32.0
+  Grasping Tentacles 264477  15.0 but gated on     -            24.0
+                             IsHeroic() && IsMythic()
+  Erupting Waters 264903     at 50%               -            -
+  post-intermission restarts:
+  Choking Brine             11.0 again           13.5         10.5
+  Surging Rush              17.0 again           19.0         18.5
+  Undertow                  30.0 again           26.0         28.5
+  Three things in that table need saying plainly.
+  - Sea Blast is not on a cooldown, it is a 2 s proximity check: the event
+    fires every 2.0 s and casts 265001 at the current victim ONLY if
+    !IsWithinMeleeRange(victim). A tank glued to the boss never sees it;
+    the moment the tank steps out it lands every 2 s.
+  - Grasping Tentacles can never fire. The condition is
+    IsHeroic() && IsMythic(), which no map is, so 264477 and its root
+    264526 are dead on this core even though LittleWigs still bars them.
+  - Choking Brine is scheduled once and never re-armed by its own case.
+    It only comes back after the intermission, from ReturnCombat.
+
+4.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) CHOKING BRINE 264560 - ONE RANDOM PLAYER IN 50 YD, and it is a
+     magic debuff. Trigger: EVENT_CHOKING_BRINE at 11.0 s,
+     SelectTarget(SELECT_TARGET_RANDOM, 0, 50.0f). When the aura is
+     removed by an enemy spell (i.e. dispelled) the aura script casts
+     264703 five times, so a dispel leaves five swirls. DBM marks it
+     HEALER and MAGIC; LittleWigs marks it dispel = magic.
+  b) UNDERTOW 264144 - ONE RANDOM PLAYER IN 50 YD, every 30.0 s. It is a
+     movement force: the aura script calls ApplyMovementForce with a force
+     of -5.0 toward the caster's position and removes it when the aura
+     ends. This is the pull-in; the answer is to swim against it.
+  c) SURGING RUSH 264101 - SELF, every 17.0 s. Trigger: EVENT_SURGING_RUSH
+     calls SelectRushPoint(), which delays every other event by 5.0 s,
+     casts 264101, and 4.0 s later charges to one of the five fixed
+     points in 4.5. Nobody is assigned; everybody moves out of the line.
+  d) GRASP FROM THE DEPTHS 264477 - one random target, then the tentacle
+     NPC 134612 is what has to die; killing it removes 264526 from every
+     player. On this core the ability never fires (4.3).
+  e) SOAK LISTS, KICK ORDER AND TANK SWAPS: none. There is no interruptible
+     cast, no stacking tank debuff and no soak in this encounter.
+
+4.5 SAFE SPOTS, WITH z
+  centerPlatform is the whole safe area: (3931.72, -1244.48, 128.45),
+  radius 30.0 yd, enforced by the kill check in 4.1 [SRV].
+  The five Surging Rush destinations, all at the boss's own z [SRV]:
+    (3929.14, -1262.38)  18.1 yd from centre
+    (3931.14, -1224.62)  19.9 yd from centre
+    (3953.22, -1239.37)  22.1 yd from centre
+    (3939.73, -1261.44)  18.8 yd from centre
+    (3915.98, -1236.37)  17.7 yd from centre
+  The three Aqualing summon points for the 50% intermission [SRV]:
+    (3939.58, -1221.45, 128.424)  24.3 yd from centre
+    (3954.12, -1250.46, 127.809)  23.2 yd from centre
+    (3920.58, -1258.02, 128.144)  17.5 yd from centre
+  Every one of the eight is 17.5 to 24.3 yd out, so the outer third of the
+  platform is where the mechanics put things and the middle 17 yd is clear.
+  The intermission floor is the same z: all three Aqualing z values are
+  127.809 to 128.424, a 0.62 yd spread [SRV].
+  Radii for Choking Brine's swirls and Undertow's pull are unverified.
+
+================================================================================
+5. BOSS 2 - THE TIDESAGE COUNCIL  (Ironhull 134063, Faye 134058;
+   MDT hp 4,034,599 and 4,034,595, level 122)
+================================================================================
+5.1 SPAWN AND TANK POSITION
+  Brother Ironhull 134063  (3930.023, -1002.766, 109.306) o 4.97556 [DB]
+  Galecaller Faye  134058  (3945.272, -1001.462, 109.402) o 4.44486 [DB]
+  Both spawn and both are pulled at once: Ironhull's EnterCombat calls
+  SetInCombatWithZone on Faye and Faye's does the same on Ironhull [SRV].
+  They are 15.30 yd apart and the tier is flat - z 109.306 and 109.402, a
+  0.10 yd spread.
+  TANK: unverified. Both are casters with a melee auto-attack; no constant,
+  no MovePoint and no taunt rule exists in boss_tidesage_council.cpp.
+  ARENA EDGE: centerPos (3939.35, -1007.21, 109.22) with the same 30.0 yd
+  kill check, run by BOTH bosses on every update [SRV]. Ironhull is 10.33
+  yd from it and Faye 8.25 yd, so the pair stands almost on the check
+  point and the usable floor is a 30 yd radius around them.
+
+5.2 PHASES [SRV] - no health percentage anywhere
+  There is no HealthBelowPct in the file. The encounter is two bosses
+  alive at once, and it ends when CouncilActive() counts zero: each
+  JustDied calls it, finds the other alive, and does nothing; the second
+  death disengages the frame. There is no intermission, no shared health
+  and no berserk.
+  The real clock is MANA, not health. Both bosses run SetMaxPower 10000 and
+  a 2.0 s regen event that adds 1000 power. The bar fills on the tenth
+  tick, 20.0 s after the regen is armed; the script then zeroes it and
+  schedules the ward 1.0 s later, so the first ward lands at 21.0 s and
+  every 20.0 s after that. The two wards are cross-cast on the other boss:
+    Ironhull -> Faye: Reinforcing Ward 267905 (damage reduction)
+    Faye -> Ironhull: Swiftness Ward 267891 (speed + area trigger 17766)
+  The Swiftness Ward area trigger applies 267888 to anyone inside and
+  removes it on exit [SRV].
+
+5.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                    script [SRV]   DBM [DBM]    LW [LW]
+  Hindering Cleave 267899    18.0 repeat    5.4          8.5
+  Slicing Blast 267818        5.0 repeat     -            -
+  Blessing of Ironsides      32.0 repeat    5.0          6.1
+   267901 (heroic/mythic)
+  Blessing of the Tempest    20.0 repeat    -            26.7 then
+   267830 (heroic/mythic)                                 20.0
+  Reinforcing Ward 267905    21.0 first,    21.3         30.0
+                             then 20.0
+  Swiftness Ward 267891      21.0 first,    10.9         17.0
+                             then 20.0
+  Blowback NPC 136314        2.5 s scan      -             -
+  The LittleWigs column is its OnEngage bars plus the 20.0 s Tempest
+  cooldown it re-arms. The DBM column is that module's OnCombatStart
+  values: 5.4 cleave, 5.0 Ironsides, 21.3 reinforcing, 10.9 swiftness.
+  The same DBM file also ships CD timers of 17.6, 32.4, 30.2 and 36.4 s,
+  which are the numbers a bot should use if it follows DBM.
+  The script's 18.0 and 32.0 are its repeat intervals, and the sources
+  disagree by a factor of three on the first cleave. The script is the
+  authority here: 18.0 s between cleaves, 32.0 s between Ironsides.
+
+5.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) HINDERING CLEAVE 267899 - THE TANK. Trigger: every 18.0 s,
+     CastSpell(me->GetVictim()). It is the only victim-targeted cast in
+     the encounter and the only reason a tank swap could exist; no swap
+     timer or stack limit is in any file, so the swap point is unverified.
+  b) SLICING BLAST 267818 - THE TANK, every 5.0 s, also on the victim.
+  c) BLESSING OF THE TEMPEST 267830 - FAYE, and it is the interrupt.
+     Trigger: 20.0 s after pull, then every 20.0 s, self-cast, only when
+     the map IsHeroic() or IsMythic(). While the aura is up, ANY
+     successful interrupt on Faye fires OnSpellCastInterrupt: she yells,
+     locks the NATURE school and casts 267842 Blowback with no cooldown.
+     So the assigned kick is on Faye, and the trigger to kick is the
+     267830 cast, not her health.
+  d) BLOWBACK NPC 136314 - NOBODY. It is passive, unselectable, wanders
+     within 10 yd, scans every 2.5 s and hits any player within 2.0 yd of
+     it with 267838. It is the thing the group walks out of.
+  e) SOAK LISTS: none. No soak mechanic exists in this encounter.
+
+5.5 SAFE SPOTS, WITH z
+  - centerPos (3939.35, -1007.21, 109.22): the 30 yd kill boundary, and
+    the flat tier around it is z 109.306 to 109.402 [SRV].
+  - the two ward area triggers are created on the boss that receives them,
+    so their position is a boss position, not a fixed point [SRV].
+  - the Blowback NPC spawns where Faye stands and drifts up to 10 yd
+    (MoveRandom(10.0f)), so its position is unverified beyond that.
+  Radii for Slicing Blast and Hindering Cleave are unverified.
+
+================================================================================
+6. BOSS 3 - LORD STORMSONG  (entry 134060, MDT hp 5,379,459, level 122)
+================================================================================
+6.1 SPAWN AND TANK POSITION
+  Boss  134060  (3545.822, -1511.342, 154.316) o 4.21274   [DB]
+  TANK: unverified. No constant, no MovePoint and no facing rule in
+  boss_lord_stormsong.cpp. Void Bolt is cast at the current victim, which
+  is the only thing that makes the tank matter.
+  ARENA EDGE: cheatersCheck = { 3560.75f, -1484.49f, 153.31f } with a 35.0
+  yd test. Read the check before you build a bot: it tests the BOSS's
+  distance to that point, not the player's, so it can only ever kill the
+  group when the boss is dragged 35 yd from a fixed point 30.74 yd from
+  its own spawn. The script is asking for a player check and testing the
+  wrong unit - a real edge at 35 yd around (3560.75, -1484.49, 153.31) is
+  the sane reading.
+
+6.2 PHASES [SRV] - none, no health gate anywhere
+  There is no HealthBelowPct and no intermission. Four events are
+  scheduled once, on EnterCombat, and each re-arms itself. The only
+  health-related code is on the mind-controlled PLAYER (6.4b).
+
+6.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                     script [SRV]   DBM [DBM]   LW [LW]
+  Void Bolt 268347            5.0 repeat     7.3         -
+  Waken the Void 269097       30.0 repeat    -           13.5
+  Ancient Mindbender 269131   40.0 repeat    18.3        22.0
+  Mind Rend 268896            22.0 repeat    16.0        -
+                               (heroic/mythic)
+  The Mind Rend gate is written as `IsHeroic() || IsHeroic()` - the same
+  call twice. It is not a bug that changes behaviour (it is true on
+  heroic and mythic, false on normal), but it is why the ability has no
+  normal-difficulty timer anywhere.
+  DBM's commented-out line for Waken the Void reads "IFFY, could be health
+  based" and its Ancient Mindbender line reads "Health based?" - on this
+  core both are pure timers, 30.0 s and 40.0 s, with no health gate.
+
+6.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) VOID BOLT 268347 - THE TANK. Trigger: every 5.0 s,
+     CastSpell(me->GetVictim()). DBM flags it "HasInterrupt" and puts an
+     INTERRUPT icon on it, so it is also the kick target for whoever is
+     assigned to the boss.
+  b) ANCIENT MINDBENDER 269131 - ONE RANDOM PLAYER, every 40.0 s.
+     Trigger: SelectTargetList(1, SELECT_TARGET_RANDOM, 500.0f), then
+     CastSpell(target, 269131, true) and an emote naming the target.
+     The aura does three things: it applies Disciple of Vol'zith 269289,
+     it casts Surrender to the Void 269242 on the player, and that spell's
+     AfterCast handler KILLS THE CASTER - i.e. the mind-controlled player
+     kills themselves. While the aura is on, its periodic tick casts Void
+     Bolt Volley 269282 from that player. The aura removes itself when the
+     player is at or below 50% health, which is the only counter-play the
+     script implements. LittleWigs bars it at 22.0 s and DBM at 18.3 s.
+  c) WAKEN THE VOID 269097 - NOBODY, self-cast every 30.0 s. It summons
+     Awoken Void 137036 (npc_awoken_void in the same file):
+       not selectable, not attackable, cannot be killed
+       SetSpeed walk/flight/run 0.8, SetWalk(true), so it cannot be outrun
+       EnterCombat casts 269094 and schedules fixate at 1.5 s
+       fixate: AddThreat 9,999,999,999.9 on one random target, then
+         MoveFollow that target, re-issued every 1.0 s
+       distance scan every 2.0 s (first at 3.0 s): any player within
+         3.0 yd takes 269104 Explosive Void and the add despawns
+     The assigned answer is: the fixate target runs, everybody else never
+     touches it. There is no soak and no kill.
+  d) MIND REND 268896 - ONE RANDOM PLAYER IN 50 YD, every 22.0 s, on
+     heroic and mythic only. No assignment exists in the script.
+  e) SOAK LISTS AND TANK SWAPS: none. There is no soak, no stacking debuff
+     and no taunt mechanic in this file.
+
+6.5 SAFE SPOTS, WITH z
+  There is no safe-spot coordinate in any source. What the data fixes:
+  - the arena floor is the boss's own z, 154.316, and the nearest other
+    row at that height is the water above the sunken city 87.4 yd below.
+  - 269104 Explosive Void detonates inside 3.0 yd of the Awoken Void, so
+    the safe distance from a fixated add is anything over 3.0 yd.
+  - the 35.0 yd cheatersCheck edge in 6.1 is the only other boundary.
+  Radii for Void Bolt Volley and Mind Rend are unverified.
+
+================================================================================
+7. BOSS 4 - VOL'ZITH THE WHISPERER  (entry 134069, MDT hp 4,918,363,
+   level 122)
+================================================================================
+7.1 SPAWN AND TANK POSITION
+  Boss  134069  (3655.050, -1749.061, 85.589) o 5.55015   [DB]
+  TANK: unverified. No constant, no MovePoint, no facing rule. The boss
+  never moves in the file.
+  ARENA EDGE: centerPos = { 3631.75f, -1728.81f, 105.55f } with an 80.0 yd
+  check [SRV]. The same mistake as Stormsong: the check tests the BOSS's
+  distance to that point, not the player's. The point itself is 19.96 yd
+  above the boss's own z, so it is a mid-air reference, and an 80 yd
+  radius around it is the intended arena. The boss is 36.76 yd from it.
+
+7.2 PHASES [SRV] - an ENERGY gate, not a health gate
+  There is no HealthBelowPct. The phase is the energy bar:
+  - Reset and EnterEvadeMode set POWER_ENERGY, max 100, start 60.
+  - EVENT_ADD_POWER fires every 3.0 s and adds urand(2, 5) energy.
+  - At exactly 100 the script zeroes the bar and schedules
+    EVENT_GRASP_OF_THE_SUNKEN_CITY 1.0 s later.
+  - Grasp casts 267444 (channel), calls HandleSunkenPhase() and summons
+    two Forgotten Denizen 136297 and one Sunken Denizen 136295 at the
+    three fixed points in 7.5.
+  - While 267444 is on the boss, DamageTaken is zeroed, so the boss cannot
+    be damaged during the phase.
+  - The phase ends when three denizens die (endPhaseCheck >= 3): every
+    player loses both phase auras and CastStop() is called.
+  From 60 to 100 energy at 2 to 5 per 3.0 s tick is 8 to 20 ticks, i.e. a
+  Grasp every 24.0 to 60.0 s [CALC] - a wide, honest range, and the only
+  one the script supports.
+  There is a second, invisible phase rule: checkSunkenPhase() runs every
+  update and if the channel aura is up and the last non-GM player checked
+  has neither phase aura, the boss EnterEvadeModes. It is a bug (the loop
+  overwrites checkAlive per player) but it means the encounter can reset
+  itself out of the blue.
+
+7.3 MAIN ABILITY TIMERS, seconds from pull
+  ability                     script [SRV]   DBM [DBM]   LW [LW]
+  Yawning Gate 269399         15.0 repeat    12.1        12.5
+  Tentacle Slam summon 267382 12.0 repeat    -           -
+  Whispers of Power 267034    30.0 repeat    -           12.5
+  Call the Abyss 267299       45.0 repeat    -           -
+                               (heroic/mythic)
+  Grasp of the Sunken City    energy 100     20.5        20.5
+  Tentacle Slam 267385 (the tentacle's own cast) 8.0 repeat, nearest
+  target within 100 yd.
+  Yawning Gate is self-cast and creates area trigger 13312 on the boss;
+  anyone inside gets 269419 and loses it on exit. Call the Abyss summons a
+  Manifestation of the Deep at a random point of the 15-entry
+  manifestSpawnPoints table (first (3675.83, -1688.60, 83.435), last
+  (3635.22, -1786.49, 84.660)); the manifestation walks at the boss and
+  at 1.0 yd casts 267310 Abyssal Eruption and gives the boss +1 energy.
+  The index is picked with urand(0, 15) on a 15-element array, so one draw
+  in sixteen is out of bounds - a real bug, and a reason not to rely on a
+  fixed spawn point for it.
+
+7.4 ASSIGNED-PLAYER MECHANICS AND EXACT TRIGGERS
+  a) WHISPERS OF POWER 267034 - ONE PLAYER, every 30.0 s. Trigger:
+     SelectHealerOrOther() applies 267037 to a random player (the
+     implementation labels every player valid and then resizes the list to
+     one, so it is random). LittleWigs announces the target.
+  b) THE SUNKEN PHASE IS A ROLE SPLIT, and it is the one real assignment
+     in this dungeon. HandleSunkenPhase walks the player list and gives
+       274556 to tanks and healers  (TANK_PHASE)
+       278209 to everyone else     (DPS_PHASE)
+     and sets both to 10 minutes. The split is decided by class and
+     specialisation, and the list it treats as "tank or healer" is:
+       Priest Discipline, Priest Holy, Druid Restoration, Monk Mistweaver,
+       Shaman Restoration, Warrior Protection, Death Knight Blood,
+       Paladin Protection, Monk Brewmaster, Demon Hunter Vengeance,
+       Druid Guardian.
+     Damage gating is exact: a Forgotten Denizen only takes damage from a
+     player carrying the DPS aura, and a Sunken Denizen only from a player
+     carrying the TANK aura; anything else is zeroed and the health is
+     nudged by 1 so the hit still registers.
+     The phase flips itself: when every Forgotten Denizen is gone,
+     CheckDpsRoom moves EVERY player to the tank aura, and each Sunken
+     Denizen death moves every player back to the DPS aura.
+  c) TENTACLE 135987 - rooted, 8.0 s slam on the nearest target within
+     100 yd. Kill it or heal through it; no assignment exists.
+  d) SOAK LISTS, KICK ORDER AND TANK SWAPS: none. There is no interruptible
+     cast and no tank debuff in this encounter.
+
+7.5 SAFE SPOTS, WITH z
+  - the arena floor is z 85.589 at the boss and 85.74 to 86.15 at the
+    three add spawn points: flat to 0.56 yd [SRV].
+  - the three sunken-phase positions. They are both the script's summon
+    points [SRV] and standing rows in the spawn table [DB], which is worth
+    knowing before you walk up to them:
+    (3658.58, -1715.67, 85.89)  33.6 yd from the boss, static 136297
+    (3603.31, -1742.71, 85.82)  52.1 yd from the boss, static 136297
+    (3619.73, -1709.18, 86.14)  53.3 yd from the boss, static 136295
+    The first two take Forgotten Denizens (the dps room), the third takes
+    the Sunken Denizen (the tank/healer room). The script summons 136297
+    twice and 136100 once at the same three points, so on a fresh pull
+    there are two of each: the static row and the summon. A static 136297
+    is damage-immune until a player carries the dps-phase aura (7.4b).
+  - the 15 Call the Abyss points are a ring around the boss at z 82.85 to
+    84.66, i.e. 1 to 3 yd below the floor, so the manifestations land at
+    the arena edge and walk in.
+  - Yawning Gate's area trigger is created on the boss, radius unverified.
+  Every radius in the file is unverified: none of the four boss scripts
+  carries one.
+
+================================================================================
+8. TRASH - EVERY ABILITY, WHO OWNS IT, AND WHAT FIRES IT
+================================================================================
+8.1 THE MOBS. Every creature entry that spawns on this map and fights,
+    with per-kill forces and health [MDT] and the number of spawn rows
+    [DB]. Three of them are single-spawn minibosses and carry 36 force.
+    Name                       entry    force        hp    lvl  rows
+    Runecarver Sorn            134150     36 2,459,184    121     1
+    Windspeaker Heldis         136214     36 2,766,582    121     1
+    Guardian Elemental         136249     36 2,305,485    121     1
+    Living Current             134144     18 1,229,592    121     2
+    Sunken Denizen             136295     13 1,229,590    121     1
+    Deepsea Ritualist          134417     12 1,690,689    121     3
+    Shrine Templar             134139     10   922,194    120     4
+    Temple Attendant           134137      9   768,495    120    21
+    Tidesage Spiritualist      136186      9   922,194    120    17
+    Galecaller Apprentice      139800      9   768,495    120    11
+    Ironhull Apprentice        139799      9   768,495    120    10
+    Drowned Depthbringer       134418      9   768,495    120     6
+    Abyssal Cultist            134514      9   768,494    120     6
+    Tidesage Enforcer          134338      9   768,495    120     5
+    Forgotten Denizen          136297      9   768,494    121     2
+    Abyssal Eel                140038      2   307,397    120    32
+    Tidesage Initiate          136347      1   153,699    120    56
+    Animated Droplet           134173      1   107,589    120    48
+    Abyss Dweller              134423      1   107,589    120    44
+    Dredged Sailor             139626      1    38,425    120    18
+    Galecaller Faye            134058      0 4,034,595    122     1
+    Lord Stormsong             134060      0 5,379,459    122     1
+    Brother Ironhull           134063      0 4,034,599    122     1
+    Vol'zith the Whisperer     134069      0 4,918,363    122     1
+    Brother Pike               139970      0         0      ?     1
+    Lord Stormsong             139737      0         0      ?     1
+    That is 26 entries and 295 spawn rows. The f column is per kill, so the
+    Windspeaker Heldis 136214, Runecarver Sorn 134150 and Guardian
+    Elemental 136249: one spawn each, each worth a full pack.
+    Multiplying f by the row count gives 1165, which is the number under
+    the pack table in 2.3. The four encounter bosses carry 0 because MDT
+    keeps them out of its trash budget; 139970 Brother Pike and 139737
+    the intro Stormsong actor have no MDT row at all, hence 0 and '?'.
+
+8.2 THE SMART SCRIPT TABLE, VERBATIM [DB]. 52 rows over 31 entries.
+
+    For timer rows 'first' is event_param1-2, seconds after the creature
+    enters combat, and 'then every' is event_param3-4; a row with both
+    repeats at 0 fires once. Health rows use param1-2 as the percentage
+    band, and all five here are 0 to 40, i.e. they fire on crossing 40%
+    and, where the repeats are set, re-fire every 22 to 25 s afterwards.
+    Events: timer x38, on death x6, health below 40% x5, on spawn x3.
+    Target types: victim x29, self x16, no target x6, random player x1.
+    Every action is a plain spell cast, so there is no summon, no
+    interrupt and no phase line hidden in the table. Five blocks do not
+    belong to this dungeon and are printed for completeness only - see
+    10.6.
+
+  Runecarver Sorn 134150
+    Cast Carve Flesh             268214
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Minor Reinforcing Ward  268211
+      10.0 s, spell, then every 20.0-22.0 s -> victim
+  Windspeaker Heldis 136214
+    Cast Gale Winds              268187
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+    Cast Windblast               268177
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+  Guardian Elemental 136249
+    Cast Electrifying Shock      268233
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Shipbreaker Storm       268239
+      10.0 s, spell, then every 20.0-22.0 s -> self
+  Living Current 134144
+    Cast Crushing Waters         268028
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+  Sunken Denizen 136295
+    Cast Leviathan's Wake on Spawn 267548
+      on spawn, spell -> self
+  Deepsea Ritualist 134417
+    Cast Unending Darkness       268309
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+  Shrine Templar 134139
+    Cast Heaving Blow            276268
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+  Temple Attendant 134137
+    Cast Water Blast             267969
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+    Cast Wash Away               267973
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Tidesage Spiritualist 136186
+    Cast Anchor of Binding       268050
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+    Cast Mending Rapids at 40% HP 268030
+      below 40% hp, spell, then every 22.0-25.0 s -> self
+  Galecaller Apprentice 139800
+    Cast Gale Shear              274434
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Slicing Hurricane       276282
+      10.0 s, spell, then every 18.0-22.0 s -> victim
+    Cast Tempest at 40% HP       274437
+      below 40% hp, spell, then every 22.0-25.0 s -> random player
+  Ironhull Apprentice 139799
+    Cast Sundering Blow          274633
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Lesser Blessing of Ironsides at 40% HP 274631
+      below 40% hp, spell -> self
+  Drowned Depthbringer 134418
+    Cast Void Bolt               274703
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+    Cast Rip Mind                268317
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Touch of the Drowned    268322
+      10.0 s, spell, then every 20.0-22.0 s -> victim
+    Cast Reveal Darkness on Death 274212
+      on death, spell -> no target
+  Abyssal Cultist 134514
+    Cast Mental Assault          268391
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+    Cast Detect Thoughts at 40% HP 268375
+      below 40% hp, spell, then every 22.0-25.0 s -> self
+    Cast Reveal Darkness on Death 274212
+      on death, spell -> no target
+  Tidesage Enforcer 134338
+    Cast Deep Smash              268273
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Forgotten Denizen 136297
+    Cast Consume Essence         267459
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+  Abyssal Eel 140038
+    Cast Abyssal Strike          274720
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Tidesage Initiate 136347
+    Cast Necrotic Wound          209858
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Burst on Death          240443
+      on death, spell -> no target
+  Animated Droplet 134173
+    Cast Necrotic Wound          209858
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Burst on Death          240443
+      on death, spell -> no target
+  Abyss Dweller 134423
+    Cast Lash                    268315
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Reveal Darkness on Death 274212
+      on death, spell -> no target
+  Dredged Sailor 139626
+    Cast Reanimated Bones on Spawn 274210
+      on spawn, spell -> self
+  Grasping Tentacles 134612
+    Cast Grasp from the Depths   264526
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Aqualing 134828
+    Cast Sea Blast               265001
+      0.0 s, spell, then every 3.0-3.5 s -> victim
+    Cast Undertow                264144
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Surging Rush            264101
+      10.0 s, spell, then every 12.0-15.0 s -> victim
+    Cast Choking Brine           264560
+      5.0-15.0 s, spell, then every 5.0-15.0 s -> victim
+  Manifestation of the Deep 135903
+    Cast Abyssal Eruption on Death 267310
+      on death, spell -> no target
+  Forgotten Denizen 136083  [NOT THIS DUNGEON]
+    Cast Consume Essence         267459
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+  Sunken Denizen 136100  [not spawned]
+    Cast Leviathan's Wake on Spawn 267548
+      on spawn, spell -> self
+  Colossal Tentacle 136353  [not spawned]
+    Cast Colossal Slam           268348
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+  Black Blood 137805  [NOT THIS DUNGEON]
+    Cast Corrupting Spray        271172
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> self
+  Risen Ravasaur 139842  [NOT THIS DUNGEON]
+    Cast Skeletal Raptor         274480
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Released Crawg 140149  [NOT THIS DUNGEON]
+    Cast Bite                    274792
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Vanquished Tendril of G'huun 143520  [NOT THIS DUNGEON]
+    Cast Bloody Bile             279664
+      3.0-5.0 s, spell, then every 12.0-15.0 s -> victim
+  Lord Stormsong 268347  [not spawned]
+    Cast Void Bolt               268347
+      0.0 s, spell, then every 2.0-2.5 s -> victim
+    Cast Ancient Mindbender      269131
+      5.0-8.0 s, spell, then every 15.0-25.0 s -> self
+    Cast Waken the Void at 40% HP 269097
+      below 40% hp, spell, then every 22.0-25.0 s -> self
+  Twenty of the thirty-one entries are world spawn rows. The other eleven
+  split five ways. Four are summons that a boss script creates, not the
+  world table: Grasping Tentacle 134612, Aqualing 134828, Manifestation
+  of the Deep 135903 and Sunken Denizen 136100 (the form Vol'zith's
+  channel summons; 136295 is the static id, see 8.3). One is a second id
+  for a mob that spawns as another: Forgotten Denizen 136083, where this
+  map spawns 136297. One is in MDT but has no row in the spawn dump:
+  Colossal Tentacle 136353, force 10, hp 845,343, one Colossal Slam
+  every 12 to 15 s on itself. Four belong to other instances: Black Blood
+  137805, Released Crawg 140149, Risen Ravasaur 139842 and Vanquished
+  Tendril of G'huun 143520. The last block is labelled 'Lord Stormsong'
+  but the file itself sets @ENTRY := 268347, which is the spell id of
+  Void Bolt, not a creature id - so those three rows script nothing.
+
+8.3 THE TRASH THAT IS NOT SMART SCRIPTED
+  Five summoned types run hand-written AI in the boss files. Their DB
+  blocks are printed in 8.2 for completeness, but on TrinityCore a
+  creature_template ScriptName outranks AIName='SmartAI', so the C++ is
+  what runs. That precedence is taken from TrinityCore's own AI init;
+  whether the 8.3.7 core orders it the same way is unverified.
+  Aqualing 134828 (Aqu'sirr's intermission adds) - bfa_npc_aqualing:
+    rooted on creation, applies 268899 Diminish, and casts Sea Blast
+    265001 every 2.0 s on its victim if the victim is out of melee range.
+    The DB block for it (8.2) reads Sea Blast 0 s then every 3.0-3.5 s,
+    Undertow 264144 every 12-15 s, Surging Rush 264101 at 10 s then every
+    12-15 s and Choking Brine 264560 every 5-15 s - so if the precedence
+    is the other way round on your core, the intermission adds do a very
+    different fight.
+  Grasping Tentacle 134612 - rooted; its only code is that on death it
+    strips 264526 from every player.
+  Forgotten Denizen 136297 and Sunken Denizen 136100/136295:
+    display 68244, damage gating per 7.4b. Forgotten Denizens are rooted,
+    hit for melee and cast Consume Essence 267809 on the victim at 3.0 s
+    then every 11.0 s. Both denizen ids carry one on-spawn SmartAI row
+    that applies Leviathan's Wake 267548 to themselves; 136295 also gets
+    it from its creature_template_addon, and the C++ sunken denizen AI
+    applies it again in its constructor.
+  Manifestation of the Deep 135903 - chases Vol'zith and erupts at 1 yd;
+    its DB row is Abyssal Eruption 267310 on death.
+  Awoken Void 137036 - see 6.4c.
+
+8.4 PACK NOTES, tied to the numbering in 2.3
+  P18 is the biggest pull in the dungeon on both counts - 17 rows and 116
+  force: five Temple Attendant, three Tidesage Spiritualist, two Shrine
+  Templar, six Animated Droplet and one Living Current, all inside a 30 yd
+  box at z 140.36 to 141.09.
+  P27 is the council hall: 28 rows, 42 force, and the only pack holding
+  both council bosses plus 24 Tidesage Initiate and both apprentices.
+  P01 and P02 are the entry hall, 29 rows between them at z 177.20 to
+  181.08: P01 is fourteen Tidesage Initiate and one Shrine Templar, P02
+  is twelve Animated Droplet and two Temple Attendant.
+  The flooded stretch is P43 and P45 to P49, 39 rows between z 61.41 and
+  86.15, 24 of them Abyssal Eel 140038. P44 sits inside that range in the
+  numbering but is the Lord Stormsong row alone at z 154.32, so read the
+  route table, not the pack numbers, before you plan a swim.
+  Thirteen packs are a single row. Six rows in the whole set carry no
+  force - the four bosses plus 139970 Brother Pike and 139737 the intro
+  actor - so four of the singles are force-free (P03, P30, P39, P44) and
+  the other two bosses sit in P27 with the trash.
+
+8.5 DISPEL AND INTERRUPT DUTY, AS THE ADDONS SEE IT [LW][DBM]
+  LittleWigs' Shrine Trash module marks these as dispels:
+    267888 Swiftness Ward buff        magic (gained by standing in it)
+    268233 Electrifying Shock (136249) magic
+    268322 Touch of the Drowned (134418) magic, and it skips players
+                                           holding Warlock Unending Breath
+  It also announces but does not dispel: 268050 Anchor of Binding
+  (136186), 268030 Mending Rapids (136186), 268187 Gale Winds (136214),
+  268184 Minor Swiftness Ward (136214), 268239 Shipbreaker Storm (136249),
+  274437 Tempest (139800), 268309 Unending Darkness (134417).
+  DBM's Shrine trash module ships no countdown timers at all, so every
+  trash timer in this file is either the script's own or LittleWigs'.
+  Interrupt duty on trash: the only interruptible-by-design casts the two
+  addons watch are 267830 Blessing of the Tempest on Faye (5.4c) and
+  268347 Void Bolt on Stormsong (6.4a). Every other trash cast is marked
+  with a cast bar and no interrupt flag, so kick order on trash is
+  unverified.
+
+================================================================================
+9. ID INDEX
+================================================================================
+  Creatures
+    134056 Aqu'sirr            134058 Galecaller Faye
+    134060 Lord Stormsong      134063 Brother Ironhull
+    134069 Vol'zith the Whisperer
+    134137 Temple Attendant    134139 Shrine Templar
+    134144 Living Current      134150 Runecarver Sorn
+    134173 Animated Droplet    134338 Tidesage Enforcer
+    134417 Deepsea Ritualist   134418 Drowned Depthbringer
+    134423 Abyss Dweller       134514 Abyssal Cultist
+    134612 Grasping Tentacle   134828 Aqualing
+    135903 Manifestation of the Deep    135987 Tentacle
+    136100 Summoned Denizen    136186 Tidesage Spiritualist
+    136214 Windspeaker Heldis  136249 Guardian Elemental
+    136295 Sunken Denizen      136297 Forgotten Denizen
+    136314 Blowback            136347 Tidesage Initiate
+    136353 Colossal Tentacle   137036 Awoken Void
+    139626 Dredged Sailor
+    139737 Lord Stormsong (intro actor) 139799 Ironhull Apprentice
+    139800 Galecaller Apprentice 139970 Brother Pike
+    139971 Rexxar              140038 Abyssal Eel
+  Spells - Aqu'sirr
+    264101 Surging Rush  264144 Undertow  264166 Undertow aura
+    264477 Grasp from the Depths  264522 summon  264526 root
+    264560 Choking Brine  264703/264714 missiles  264899 Diminish
+    264903 Erupting Waters  265001 Sea Blast
+  Spells - Tidesage Council
+    266... none  267818 Slicing Blast  267830 Blessing of the Tempest
+    267836/267838 Blowback visual/hit  267842 Blowback
+    267888 Swiftness Ward buff  267891 Swiftness Ward
+    267899 Hindering Cleave  267901 Blessing of Ironsides
+    267904/267905 Reinforcing Ward  267952 ward negate  274689/274690
+    cosmetic wards
+  Spells - Lord Stormsong
+    268347 Void Bolt  268896 Mind Rend  269094 Awakened Void aura
+    269097 Waken the Void  269103 Fixate  269104 Explosive Void
+    269131 Ancient Mindbender  269242 Surrender to the Void
+    269282 Void Bolt Volley  269289 Disciple of Vol'zith
+  Spells - Vol'zith
+    267034 Whispers of Power  267037 its aura  267255/267260 energy
+    267299 Call the Abyss  267306 summon  267310 Abyssal Eruption
+    267360/267444 Grasp of the Sunken City  267364/267382 Tentacle Slam
+    267459 Consume Essence  267524 The Sunken City  267548 Leviathan's
+    Wake  267809 Consume Essence  269399 Yawning Gate  269419 its aura
+    274556 tank-phase aura  278209 dps-phase aura
+  Instance
+    map 1864  areatrigger 100007  teleport -57 -> PortLoc 6574,
+    -58 -> PortLoc 6524  game_tele 1875
+
+================================================================================
+10. DISCREPANCIES AND TRAPS
+================================================================================
+10.1 ALL FOUR ARENA EDGE CHECKS TEST THE BOSS, NOT THE PLAYER. Aqu'sirr
+     checks both (4.1) and is the only one that works. Stormsong (6.1),
+     both council bosses (5.1) and Vol'zith (7.1) compare the BOSS's
+     distance to the anchor point and then kill the player. A group can
+     stand outside the intended arena forever unless the boss is kited out.
+10.2 AQU'SIRR IS SET TO 15% HEALTH WHEN THE INTERMISSION ENDS. ReturnCombat
+     calls SetHealth(CountPctFromMaxHealth(15)), so the last 15% is all
+     that is left after the adds die regardless of what the boss was on at
+     50%. A bot that has a burn phase planned at 20% should know the
+     floor is 15%.
+10.3 GRASPING TENTACLES IS DEAD CODE. EVENT_GRASPING_TENTACLES is gated on
+     IsHeroic() && IsMythic(), which is impossible; 264477 and 264526 are
+     never cast by Aqu'sirr. LittleWigs still bars 264526 at 24.0 s.
+10.4 CHOKING BRINE IS A ONE-SHOT. It is scheduled at 11.0 s and the case
+     does not re-arm itself; only the post-intermission ReturnCombat does.
+     DBM and LittleWigs both treat it as a repeating cooldown.
+10.5 SURGING RUSH DELAYS EVERY OTHER EVENT BY 5.0 s each cast. A companion
+     that models Undertow as a fixed 30.0 s clock will be 5 s late per
+     rush after the second one.
+10.6 FIVE SMART_SCRIPTS BLOCKS ARE NOT THIS DUNGEON'S. 137805 Black Blood,
+     140149 Released Crawg, 139842 Risen Ravasaur and 143520 Vanquished
+     Tendril of G'huun have rows for creatures that do not spawn on map
+     1864. The fifth is labelled Lord Stormsong and sets @ENTRY := 268347,
+     the spell id of Void Bolt, so it scripts no creature at all - the
+     rows a reader would want for the 139737 intro actor (Void Bolt,
+     Ancient Mindbender, Waken the Void) are sitting under a spell id.
+10.7 VOL'ZITH'S CALL THE ABYSS PICKS urand(0, 15) FROM A 15-ELEMENT ARRAY.
+     One draw in sixteen reads past the end of manifestSpawnPoints.
+10.8 VOL'ZITH'S PHASE RESET CHECK IS BROKEN. checkSunkenPhase overwrites its
+     own alive flag for every player and reacts to the last one, so a
+     group can be evaded out of a live phase.
+10.9 STORMSONG HAS NO HEALTH PHASES AND NO INTERMISSION despite DBM's
+     commented-out "could be health based" notes; on this core Waken the
+     Void is a flat 30.0 s timer.
+10.10 THE COUNCIL'S WARDS ARE MANA-DRIVEN, NOT TIMED. Two bosses at +1000
+     power per 2.0 s means one ward each, first at 21.0 s and every 20.0 s
+     after, but any change to the regen rate moves every ward, while DBM's
+     21.3, 10.9, 30.2 and 36.4 come from the live client.
+10.11 THE INSTANCE BINDS BY MAP ID, NOT BY NAME. instance_template carries
+     'instance_shrine_of_the_storm' for map 1864, but the C++ binds with
+     RegisterInstanceScript(instance_shrine_of_the_storm, 1864), so the
+     name string only has to exist for a human reader.
+10.12 THIS IS NOT THE 8.3.7 SPAWN DB. See the note under section 0: the
+     creature rows are TrinityCore master for map 1864, and the force
+     column does not sum to MDT's 695.
+10.13 THE SCRIPT NAMES IN THE 8.x SQL DO NOT CARRY THE bfa_ PREFIX. The
+     C++ registers 'bfa_boss_aqusirr', 'bfa_boss_volzith_the_whisperer',
+     'bfa_npc_aqualing' and the rest. The 8.x world file I could read sets
+     'boss_aquasirr' (note also the misspelling), 'boss_volzith',
+     'npc_aqualing'. If that is what your creature_template holds, no boss
+     AI in this file runs at all. Which spelling the 8.3.7 database uses
+     is unverified and it is the first thing to check before trusting any
+     timer here.
+10.14 VOL'ZITH HAS SIX DENIZENS, NOT THREE. The three phase positions are
+     also standing spawn rows: 136297 twice and 136295 once. The script
+     then summons 136297 twice and 136100 once at the same three points,
+     so a Grasp produces two mobs on the first two points and a third plus
+     a static on the third. The phase counter needs three deaths.
+10.15 THE DB AND THE C++ DISAGREE ON CONSUME ESSENCE. The SmartAI row for
+     136297 casts 267459 on itself every 12-15 s; the C++ casts 267809 on
+     the victim at 3.0 s then every 11.0 s. Only one of the two runs,
+     depending on the ScriptName precedence in 10.13.
+10.16 THE THIRD POINT'S STATIC MOB IS NOT THE SCRIPTED ONE. The 8.x world
+     file gives ScriptName 'npc_sunken_denizen' to 136100 only; 136295
+     gets no ScriptName, so a static row there is an ordinary SmartAI mob
+     with Leviathan's Wake, while the summoned 136100 is the damage-gated
+     tank-phase add.
+
+================================================================================
+11. WHAT IS NOT IN THIS FILE, AND WHY
+================================================================================
+11.1 No radius, duration, cooldown or damage figure is quoted from a client
+     table. Every number is a script literal, a DB value, an addon timer
+     or arithmetic on those.
+11.2 Tank positions are unverified for all four encounters. No script in
+     the instance carries a tank constant, a facing requirement or a taunt
+     swap.
+11.3 Line of sight is unverified everywhere. The 39 gameobject rows in
+     3.4 give collision walls, barriers and doors as POINTS, with no
+     extent, so they narrow the question without answering it, and 2.4 is
+     distance bookkeeping and not a walk.
+11.4 The route order is a shortest-path heuristic, not the path a group
+     walks; the five legs over 100 yd are floor changes, not corridors.
+11.5 Whether the 8.3.7 world DB spawns the same 295 combat rows as the
+     TrinityCore master DB is unverified. Re-run the clustering against
+     your own creature table before trusting a pull centroid.
+11.6 The Tidesage Council's tank-swap point is unverified: Hindering Cleave
+     has no stack limit in the script.
+11.7 The Awoken Void's and the Aqualing's movement speeds are script
+     literals (0.8 and rooted) but whether the client honours them is
+     unverified.
+11.8 No item id is quoted. The only loot SQL I found for this instance
+     (2020_08_24_ShrineoftheStormCreatureLoot.sql) covers four entries
+     and no boss.
+11.9 Nothing here was taken from a video, a guide site or a forum post.
+
+END OF FILE
