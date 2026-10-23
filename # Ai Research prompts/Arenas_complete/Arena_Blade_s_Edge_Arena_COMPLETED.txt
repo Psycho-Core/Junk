@@ -1,4 +1,4 @@
-=== BLADE'S EDGE ARENA (Circle of Blood Arena) - MAP 562 / 1672 ===
+=== BLADE'S EDGE ARENA (Circle of Blood) - MAP 562/1672 - COMPLETED ===
 
 Map ID: 562 (Map.dbc, instanced arena)
 Instance ID: 1672 (modern client)
