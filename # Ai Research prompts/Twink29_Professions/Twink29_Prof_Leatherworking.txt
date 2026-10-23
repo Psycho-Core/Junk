@@ -1,0 +1,261 @@
+TWINK29 - PROFESSIONS - STEP 04 - LEATHERWORKING
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Scope: what Leatherworking gives a level 29 battleground twink, Classic
+skill line 165, capped at 225 for a character of that level.
+
+1. WHAT THE PROFESSION IS AT 29
+   The whole value is one item type: armour kits. They are permanent, they
+   work on any armour class, and four of them fit on one character. There
+   are no bombs, no flasks, no scrolls and no gems here, and every wearable
+   piece the profession makes below 225 is levelling gear with no stats.
+   Rank gates, same as the other Classic professions: apprentice at level 5,
+   journeyman at level 10 and skill 50, expert at level 20 and skill 125,
+   artisan at level 35 and skill 200. A 29 therefore reaches 225 but never
+   the artisan rank, and never the Dragonscale, Elemental or Tribal
+   specialisation (225 plus level 40).
+   8.3.7 caveat, same as the other profession files: the Classic
+   SkillLineAbility rows carry a minimum rank of 1, so the quoted skill is
+   the Classic orange value. Named trainers and their stock are Classic.
+
+2. THE ARMOUR KITS - THE REASON TO TAKE IT
+   All five are used, not crafted, and all five go on chest, legs, hands
+   or feet. One kit per item. Stack of 10, one second cooldown, consumed.
+
+   2304 Light Armor Kit - +8 armour, no item level restriction.
+        Use spell 2831. Craft spell 2152, Leatherworking 1.
+        Reagents 1x Light Leather 2318 (= 3x Ruined Leather Scraps 2934).
+        Item level 5, no level requirement, sells for 15 copper.
+
+   2313 Medium Armor Kit - +16 armour, no item level restriction stated.
+        Use spell 2832. Craft spell 2165, Leatherworking 100, training
+        cost 250, difficulty 100/115/122/130.
+        Reagents 4x Medium Leather 2319 + 1x Coarse Thread 2320.
+        Item level 15, requires level 5 to use, sells for 2 copper.
+
+   4265 Heavy Armor Kit - +24 armour, only on items level 15 and above.
+        Use spell 2833. Craft spell 3780, Leatherworking 150, training
+        cost 750, difficulty 150/170/180/190.
+        Reagents 5x Heavy Leather 4234 + 1x Fine Thread 2321.
+        Item level 30, requires level 20 to use, sells for 6 silver 50.
+        This is the best kit a 29 can apply. Four of them are +96 armour
+        on a character whose whole gear set is around a thousand.
+
+   8173 Thick Armor Kit - +32 armour, only on items level 25 and above.
+        Use spell 10344. Craft spell 10487, Leatherworking 200.
+        Reagents 5x Thick Leather 4304 + 1x Silken Thread 4291.
+        Item level 40, requires level 30 to use. ALT - craftable at 29,
+        unusable at 29, one level short.
+
+   15564 Rugged Armor Kit - +40 armour, only on items level 35 and above.
+        Use spell 19057. Craft spell 19058, Leatherworking 250.
+        Reagent count unverified, the guide quotes 5x Rugged Leather 8170.
+        Item level 50, requires level 40 to use. ALT on both counts,
+        the skill is past the 225 cap and the level is past 29.
+
+   Practical note: kits are ordinary trade goods, not soulbound. A twink
+   buys four Heavy Armor Kits on the auction house for a few gold and never
+   trains the profession. Levelling Leatherworking is for the crafter who
+   wants to supply a whole roster, not for the twink itself.
+
+3. LEG ARMOUR
+   The leg slot takes the same armour kit as the chest, so the honest
+   answer is +24 on the legs from a Heavy Armor Kit 4265, and that is the
+   entire leg armour market at this tier.
+   There is no separate leg-armour kit in Classic Leatherworking that a 29
+   can use. The leg armour items people remember - the ones that add attack
+   power or spell power to a leg slot - are Outland and Northrend patterns.
+   Their skill requirement is far past 225 and their item level requirement
+   is 60 or above, so they are ALT: they need a higher-level crafter and a
+   higher-level wearer. Treat any such item as out of scope for this
+   server's 29 bracket, and note that this file did not open their pages.
+
+4. WHAT ELSE A 29 CAN WEAR, AND WHAT IT IS WORTH
+   Two crafted pieces carry a stat a 29 can actually wear.
+
+   5961 Dark Leather Pants - legs, leather, 72 armour, +8 Agility,
+        item level 23, requires level 18, binds when equipped.
+        Spell 7135, Leatherworking 115, difficulty 115/140/152/165,
+        25 second cast.
+        12x Medium Leather 2319 + 1x Gray Dye 4340 + 1x Fine Thread 2321.
+        The best thing this profession makes for a 29, and still a green.
+   2312 Fine Leather Gloves - hands, leather, 43 armour, +2 Intellect,
+        +2 Spirit, item level 15, requires level 10, binds when equipped.
+        Spell 2164, Leatherworking 75, difficulty 75/105/120/135.
+        4x Light Leather 2318 + 2x Coarse Thread 2320 + 1x Cured Light
+        Hide 4231. Pattern 2408 is a drop or a pickpocket, not trainer
+        taught, so it is ALT for anyone without the pattern.
+
+   Everything else the route makes that fits a 29 is statless levelling
+   gear:
+   7276 Handstitched Leather Cloak - spell 9058, skill 1. Item level 9,
+        back, 8 armour, requires level 4. 2x Light Leather + 1x Coarse
+        Thread.
+   4239 Embossed Leather Gloves - spell 3756, skill 55. Item level 13,
+        hands, leather, 39 armour, requires level 8. 3x Light Leather +
+        2x Coarse Thread.
+   4246 Fine Leather Belt - spell 3763, skill 80, difficulty 80/110/125/140.
+        Item level 16, waist, leather, 38 armour, requires level 11.
+        6x Light Leather + 2x Coarse Thread.
+   2315 Dark Leather Boots - spell 2167, skill 100, difficulty
+        100/125/137/150. Item level 20, feet, leather, 51 armour,
+        requires level 15. 4x Medium Leather + 2x Fine Thread + 1x Gray
+        Dye. Craftable but off the route below: a medium armour kit is
+        cheaper per point of skill.
+   2310 Embossed Leather Cloak - spell 2162, skill 60. Item level 13,
+        back, 12 armour, requires level 8.
+   2314 Toughened Leather Armor - spell 2166, skill 120, difficulty
+        120/145/157/170, 14 trainers teach it. Item level 24, chest,
+        leather, 80 armour, requires level 19, no stats.
+        10x Medium Leather + 2x Cured Light Hide + 2x Fine Thread.
+
+   Two crafted pieces have stats and are out of reach:
+   5964 Barbaric Shoulders - shoulder, leather, 76 armour, +5 Agility,
+        +6 Stamina, +5 Spirit, item level 35, requires level 30, binds
+        when equipped. Spell 7151, Leatherworking 175, difficulty
+        175/195/205/215. 8x Heavy Leather 4234 + 1x Cured Heavy Hide 4236
+        + 2x Fine Thread. ALT.
+   5966 Guardian Gloves - hands, leather, 63 armour, no stats, item level
+        38, requires level 33. Spell 7156, Leatherworking 190, difficulty
+        190/210/220/230. 4x Heavy Leather + 1x Cured Heavy Hide + 1x
+        Silken Thread 4291. ALT.
+   No crafted quiver, ammo pouch or bag was checked for this file.
+
+5. TRAINERS
+   Apprentice, skill 1, level 5. Creature entries and coordinates were not
+   checked; cities are from the Classic trainer lists.
+   Horde: Kamari in Orgrimmar (1637), Dan Golthas in Undercity (1497),
+     Mak in Thunder Bluff (1638), Chaw Stronghide in Mulgore (215),
+     Shelene Rhobart in Tirisfal Glades (85).
+   Alliance: Randal Worth in Stormwind (1519), Gretta Finespindle in
+     Ironforge (1537), Darianna in Darnassus (1657), Nadyia Maneweaver in
+     Teldrassil (141), Adele Fielder in Elwynn Forest (12).
+
+   Journeyman rank, level 10. Verified from the trainer lists on the spell
+   pages of 3780 and 2166:
+     Arthur Moore 4588, Undercity (1497), Horde.
+     Karolek 3365, Orgrimmar (1637), Horde.
+     Tarn 11084, Thunder Bluff (1638), Horde.
+     Simon Tanner 5564, Stormwind City (1519), Alliance.
+     Faldron 11081, Darnassus (1657), Alliance.
+     Fimble Finespindle 5127, Ironforge (1537), Alliance.
+
+   Expert rank, level 20 and skill 125. These two teach the rank itself:
+     Telonis 4212, Darnassus (1657), Alliance.
+     Una 3007, Thunder Bluff (1638), Horde.
+   Four more are expert-ranked and teach the 150-175 recipes above:
+     Aayndia Floralwind 3967, Ashenvale (331), Alliance.
+     Brawn 1385, Stranglethorn Vale (33), Horde.
+     Krulmoo Fullmoon 3703, The Barrens (17), Horde.
+     Narv Hidecrafter 8153, Desolace (405), Horde.
+
+   Artisan rank, level 35 and skill 200 - ALT for a 29, this is the gate
+   that keeps him at 225 and not 300:
+     Drakk Stonehand 11097, The Hinterlands (47), Alliance.
+     Hahrana Ironhide 11098, Feralas (357), Horde.
+
+   Coordinates for all of the above: unverified, they are world data and
+   were not opened in 8.3.7.
+
+6. THE CHEAPEST ROUTE TO THE SKILL A 29 ACTUALLY NEEDS
+   A 29 needs 150. That is the Heavy Armor Kit. Everything past 150 buys
+   him nothing he can use, so the route below is split at that line.
+
+   Refining, all trainer-taught and free:
+     spell 2881  Light Leather  1x  = 3x Ruined Leather Scraps 2934
+     spell 20648 Medium Leather 1x  = 4x Light Leather 2318
+     spell 20649 Heavy Leather  1x  = 5x Medium Leather 2319
+     spell 20650 Thick Leather  1x  = 6x Heavy Leather 4234
+     Cured Light Hide 4231: 1x Light Hide 783 + 1x Salt 4289, spell 3816.
+     Cured Heavy Hide 4236: spell 3818, 1x Heavy Hide 4235 + 3x Salt 4289.
+       The ratio is taken from the Classic guide's shopping list, not from
+       the spell page.
+
+   Step   Recipe                     Spell  Min  Crafts  Reagents each
+   ------------------------------------------------------------------
+   1-20   2881 Light Leather          2881    1     19    3 scraps
+   20-45  2304 Light Armor Kit         2152    1     40    1 light leather
+   45-55  7276 Handstitched Cloak      9058    1     10    2 LL, 1 coarse
+   55-80  4239 Embossed Gloves          3756   55     25    3 LL, 2 coarse
+   80-100 4246 Fine Leather Belt        3763   80     20    6 LL, 2 coarse
+   100-130 2313 Medium Armor Kit        2165  100     30    4 medium, 1 coarse
+   130-150 5961 Dark Leather Pants      7135  115     20    12 medium, 1 dye
+                                                        and 1 fine thread
+   150-175 4265 Heavy Armor Kit         3780  150     25    5 heavy, 1 fine
+   175-190 5964 Barbaric Shoulders      7151  175     15    8 heavy, 1 cured
+                                                        heavy, 2 fine
+   190-200 5966 Guardian Gloves         7156  190     10    4 heavy, 1 cured
+                                                        heavy, 1 silken
+   200-225 8173 Thick Armor Kit        10487  200     25    5 thick, 1 silken
+
+   Every step is trainer-taught. The 100-130 medium kits are yellow from
+   115 and the 130-150 pants are yellow from 140, so the last few points
+   of each block may need extra crafts; the counts assume average luck.
+
+   Shopping list to 150, which is the twink stop:
+     57x Ruined Leather Scraps 2934  (makes 19 Light Leather)
+     255x Light Leather 2318
+     130x Coarse Thread 2320
+     360x Medium Leather 2319
+     20x Fine Thread 2321
+     20x Gray Dye 4340
+   To go on to 175 add 125x Heavy Leather 4234 and 25x Fine Thread.
+   To reach 225 add, cumulatively, 285x Heavy Leather 4234, 25x Heavy Hide
+   4235 and 75x Salt 4289 for the curing, 55 more Fine Thread, 35x Silken
+   Thread 4291, and 125x Thick Leather 4304 - which is 750 Heavy Leather
+   once refined, the single most expensive stretch in the profession.
+
+   Where the materials come from: everything from 2934 up to 4304 is
+   skinning loot off beasts of the matching band - scraps and light leather
+   from levels 1-20 beasts, medium 15-30, heavy 30-40, thick 40-50 - or the
+   auction house. Light Hide 783 and Medium Hide 4232 are skinning as well
+   and drop far less often than leather; Heavy Hide 4235 is the rarest of
+   the four and is the bottleneck in the 175-200 stretch. Coarse Thread
+   2320, Fine Thread 2321, Silken Thread 4291, Gray Dye 4340 and Salt 4289
+   are sold by the trade supply vendors that stand next to every trainer,
+   a few silver each. Leatherworking pairs with Skinning for exactly this
+   reason; a 29 who skins his own mobs pays nothing for the leather.
+
+   If the goal is only four Heavy Armor Kits for his own gear, he needs
+   skill 150, five Heavy Leather per kit, and no recipe hunting at all -
+   every step above is trainer-taught except the Fine Leather Gloves
+   pattern 2408, which this route does not use.
+
+7. ALT - WHAT A 29 CANNOT DO ALONE
+   8173 Thick Armor Kit - craftable at 200, usable only at level 30.
+   15564 Rugged Armor Kit - skill 250, past the cap; usable only at level 40.
+   2408 Pattern: Fine Leather Gloves - a drop or a pickpocket, so the
+     gloves at 2312 are ALT for a self-sufficient 29 without the pattern.
+   5964 Barbaric Shoulders - wearable only at level 30.
+   5966 Guardian Gloves - wearable only at level 33.
+   Telonis 4212 and Una 3007 teach to 225; anything past that, including
+     the dragonscale, elemental and tribal specialisations, needs the
+     artisan rank at level 35, so it is ALT by definition.
+   The Outland and Northrend leg-armour kits, and every mail piece the
+     profession makes for a level 40 or better wearer, are ALT as well.
+   A higher-level crafter is also the answer for the Thick and Rugged kits
+     if a 29 roster wants them on 39s and 49s on the same account.
+
+8. WHICH CLASSES SHOULD TAKE IT
+   Armour kits are the only item in the game's crafting professions at this
+   tier that work on cloth, leather and mail alike, so this is the one
+   profession whose product every class can use. That does not make it a
+   good profession for every class - it makes it a good purchase.
+
+   1. Rogue. Leather, melee, takes the most physical hits of the leather
+      wearers, and four Heavy Kits are the cheapest armour he will ever
+      buy. Still second choice behind engineering for the damage, first
+      choice if the server's bracket is melee-heavy.
+   2. Druid. Same kits, and a bear-form armour multiplier turns flat item
+      armour into more than 96 - the multiplier value unverified, the
+      mechanic is standard.
+   3. Warrior and paladin. Both wear leather at 29, so all four kit slots
+      work; the profession gives them nothing else at this level, and
+      blacksmithing covers the weapon side.
+   4. Hunter and shaman. Leather at 29, mail at 40. Kits now, nothing later
+      that this skill band can make.
+   5. Priest, mage, warlock. Kits work on cloth, but armour is the wrong
+      stat to spend a profession slot on. Tailoring and enchanting beat it
+      outright.
+   Last line: nobody should level Leatherworking for a 29. Buy four Heavy
+   Armor Kits 4265 off the auction house, put them on chest, legs, hands
+   and feet, and spend the profession slot on engineering.

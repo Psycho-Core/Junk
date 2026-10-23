@@ -1,0 +1,349 @@
+================================================================================
+TWINK29 PROFESSIONS - 03 BLACKSMITHING
+Patch 8.3.7 (build 35662), level 29 battleground twink
+================================================================================
+
+Ids checked against 8.3.7 client tables (ItemSparse, SpellName, SpellReagents,
+SkillLine, SkillLineAbility) and Wowhead Classic item and spell pages. Where a
+number could not be checked it says "unverified".
+
+
+================================================================================
+1. WHAT A LEVEL 29 CAN ACTUALLY REACH
+================================================================================
+
+Blacksmithing is skill line 164 in 8.3.7 (SpellBookSpellID 2018). The classic
+recipe tier is still 2485, so the whole Classic 1-300 list is present.
+
+Rank gates (Classic table, restated by the 1-300 guides; costs undiscounted):
+  Apprentice  1-75    level 5   10 copper
+  Journeyman  1-150   level 10  5 silver      (needs 50 skill)
+  Expert      1-225   level 20  50 silver     (needs 125 skill)
+  Artisan     1-300   level 35  5 gold        (needs 200 skill)
+
+=> At level 29 the ceiling is 225. Artisan is 6 levels out of reach.
+
+Caveat: the level gate on the ranks is trainer and world data, not something
+the 8.3.7 DB2 tables expose, so it could not be re-verified inside the client.
+225 is the working cap.
+
+Specialisation is out of reach twice over: Armorsmithing and Weaponsmithing
+both need skill 200 AND character level 40. A 29 cannot take either, so every
+specialisation-only plan is ALT.
+
+Three things decide what blacksmithing is worth at 29:
+
+  1. Plate is not wearable. Warriors and paladins get the plate skill at level
+     40, so every blacksmithing plate piece in this file is ALT regardless of
+     its item level. The wearable output is mail: the Green Iron set.
+  2. The armour recipes need a Blacksmith Hammer 5956 in the bag and an anvil
+     (confirmed on spell 3502, which lists both). The sharpening stones and
+     weightstones need neither - spell 9921 lists no tools at all. Anvils are
+     world objects in every city and most starting towns; no anvil could be
+     listed with an entry number here, so treat anvil placement as unverified.
+  3. Blacksmithing's real product for a twink is not armour. It is the
+     consumable weapon buffs - sharpening stones, weightstones and the iron
+     counterweight - plus shield spikes. Those work at any level the item
+     allows, and they are made in bulk and carried.
+
+
+================================================================================
+2. USABLE AT 29 - WEAPON BUFFS
+================================================================================
+
+Sharpening stones (sharp weapons: swords, daggers, axes with an edge)
+  Rough Sharpening Stone 2862. Item level 5, no required level.
+    Use: +2 weapon damage for 30 min, spell 2828.
+    Recipe: spell 2660, skill 1. Materials: 1x Rough Stone 2835.
+  Coarse Sharpening Stone 2863. Item level 15, requires level 5.
+    Use: +3 weapon damage for 30 min, spell 2829.
+    Recipe: spell 2665, skill 65 (trivial 72-80).
+    Materials: 1x Coarse Stone 2836.
+  Heavy Sharpening Stone 2871. Item level 25, requires level 15.
+    Use: +4 weapon damage for 30 min, spell 2830.
+    Recipe: spell 2674, skill 125 (trivial 132-140).
+    Materials: 1x Heavy Stone 2838.
+  Solid Sharpening Stone 7964. Item level 35, requires level 25.
+    Use: +6 weapon damage for 30 min, spell 9900.
+    Recipe: spell 9918, skill 200 (trivial 200-210).
+    Materials: 1x Solid Stone 7912.
+  Dense Sharpening Stone 12404 requires level 35 and skill 250: ALT.
+
+Weightstones (blunt weapons: maces, staves, fists)
+  Rough Weightstone 3239. Item level 5, no required level.
+    Use: +2 blunt damage for 30 min, spell 3112. Recipe spell 3115, skill 1.
+  Coarse Weightstone 3240. Item level 15, requires level 5.
+    Use: +3, spell 3113. Recipe spell 3116, skill 25 (unverified).
+  Heavy Weightstone 3241. Item level 25, requires level 15.
+    Use: +4 blunt damage for 30 min, spell 3114. Recipe spell 3117,
+    skill 125 (trivial 125-140).
+  Solid Weightstone 7965. Item level 35, requires level 25.
+    Use: +6 blunt damage for 30 min, spell 9903.
+    Recipe: spell 9921, skill 200 (trivial 200-210).
+    Materials: 1x Solid Stone 7912, 1x Silk Cloth 4306.
+  Dense Weightstone 12643 requires level 35 and skill 250: ALT.
+
+Neither stone stacks with the other, and each is consumed when applied. A 29
+carries Solid Sharpening Stone 7964 or Solid Weightstone 7965 - +6 for 30
+minutes, at skill 200, which is inside the cap.
+
+Iron Counterweight 6043. Item level 33. Requires Blacksmithing 165 to APPLY.
+  Use: makes a two-handed sword, mace, axe or polearm 3% faster, spell 7218.
+  Recipe: spell 7222, skill 165 (trivial 190-215).
+  Materials: 4x Iron Bar 3575, 2x Coarse Grinding Stone 3478,
+  1x Lesser Moonstone 1705. Requires an anvil.
+  Learned from Plans: Iron Counterweight 6045, a world drop, not a trainer.
+  This is the one blacksmithing item a 29 should not skip. 3% haste on a
+  two-hander is a permanent weapon enhancement, not a 30-minute buff, and 165
+  is well inside the cap. Note there is no weapon chain in the Classic recipe
+  list that could be found: the "chain" of later expansions has no Classic
+  equivalent, and item 6040 is Golden Scale Bracers, not a chain.
+
+Shield spikes - shield users only
+  Iron Shield Spike 6042. Item level 30. Requires Blacksmithing 150 to APPLY.
+    Use: damages anyone who blocks, spell 7216. Stack 5.
+    Recipe: spell 7221, skill 150 (trivial 180-210), anvil.
+    Materials: 6x Iron Bar 3575, 4x Coarse Grinding Stone 3478.
+    Learned from Plans: Iron Shield Spike 6044, a world drop.
+  Mithril Shield Spike 7967. Item level 43. Requires Blacksmithing 215.
+    Use: same, bigger, spell 9781.
+    Recipe: spell 9939, skill 215 (trivial 235-255), anvil.
+    Materials: 4x Mithril Bar 3860, 2x Truesilver Bar 6037,
+    4x Solid Grinding Stone 7966.
+    Learned from Plans: Mithril Shield Spike 7976, a world drop.
+  Both are inside the 225 cap and both are permanent until overwritten. The
+  Iron spike needs only 150, so a 29 can make and fit it from the start.
+
+
+================================================================================
+3. USABLE AT 29 - THE MAIL ARMOUR
+================================================================================
+
+These are the only wearable pieces blacksmithing makes that a 29 can both
+craft and equip. They are leveling greens, not twink gear: an instance drop of
+the same level beats every one of them. They are listed because the prompt
+asks, not because they are worth wearing.
+
+Green Iron Boots 3484. Item level 29, feet, mail, binds when equipped.
+  134 armour, +3 Strength, +7 Stamina, requires level 24.
+  Recipe: spell 3334, skill 145 (trivial 175-205), anvil.
+  Materials: 4x Iron Bar 3575, 2x Lesser Moonstone 1705,
+  2x Coarse Grinding Stone 3478, 1x Green Dye 2605.
+  NOT a trainer spell: learned from Plans: Green Iron Boots 3611, a world drop.
+
+Green Iron Leggings 3842. Item level 31, legs, mail, binds when equipped.
+  176 armour, +8 Strength, +8 Stamina, requires level 26.
+  Recipe: spell 3506, skill 155 (trivial 180-205).
+  Materials: 8x Iron Bar 3575, 1x Heavy Grinding Stone 3486, 1x Green Dye 2605.
+
+Green Iron Bracers 3835. Item level 33, wrist, mail, requires level 28.
+  86 armour, no stats.
+  Recipe: spell 3501, skill 165 (trivial 190-215). Binding unverified.
+  Materials: 6x Iron Bar 3575, 1x Green Dye 2605.
+
+Green Iron Helm 3836. Item level 34, head, mail, binds when equipped.
+  171 armour, +5 Strength, +11 Stamina, requires level 29.
+  Recipe: spell 3502, skill 170 (trivial 195-220).
+  Materials: 12x Iron Bar 3575, 1x Citrine 3864, 1x Green Dye 2605.
+  The best of the four and the only one that lands exactly on 29.
+
+Green Iron Hauberk 3844. Item level 36, chest, mail, binds when equipped.
+  358 armour, +7 Strength, +11 Stamina, requires level 31: ALT by two levels.
+  Recipe: spell 3508, skill 180.
+
+Tools and reagents: Blacksmith Hammer 5956 is required for all of the above
+and is itself a blacksmithing item (skill 1). Green Dye 2605 comes from
+tailoring and leatherworking supply vendors, not from a gatherer.
+
+
+================================================================================
+4. ALT - OUT OF REACH
+================================================================================
+
+By item level requirement
+  Green Iron Hauberk 3844        level 31
+  Dense Sharpening Stone 12404   level 35, skill 250
+  Dense Weightstone 12643        level 35, skill 250
+  Golden Scale Bracers 6040      level 32 (skill 185, so craftable, not
+                                 wearable)
+
+By skill above 225
+  Steel Plate Helm 7922 (spell 9935)  skill 215, so it is craftable at 29,
+                                 but it is plate and needs character level 40:
+                                 blocked twice over
+  Mithril Spurs (plans 7989)     mount speed item, no use without a mount
+  Everything thorium: skill 250-300
+
+By armour type
+  Every plate recipe, at any skill level. A 29 warrior or paladin wears mail;
+  the plate skill arrives at character level 40.
+
+By specialisation
+  Armorsmithing and Weaponsmithing both need skill 200 and character level 40.
+  All their patterns are ALT. Nothing they make is wearable at 29 anyway.
+
+By profession
+  Blacksmithing makes no weapon that is competitive at 29. Its Classic weapons
+  are white and green items a few levels below the bracket's instance drops.
+  Do not level the profession for a weapon.
+
+
+================================================================================
+5. CHEAPEST ROUTE TO 225
+================================================================================
+
+Only two stopping points matter:
+  170 - Green Iron Helm 3836, the last wearable piece.
+  200 - Solid Sharpening Stone 7964 and Solid Weightstone 7965, the +6
+        weapon buffs, which is what the profession is actually for.
+If the goal is the stones, stop at 200 and do not pay for the last 25 points.
+
+Route, cheapest classic path (step, recipe, craft spell, skill band):
+   1-30    40x Rough Sharpening Stone     2660   skill 1
+   30-65   55x Rough Grinding Stone       3320   min skill 25
+   65-75   25x Coarse Sharpening Stone    2665   min skill 65
+   75-90   35x Coarse Grinding Stone      3326   min skill 75
+   90-100  10x Runed Copper Belt          2666   min skill 70
+   100-105 5x  Silver Rod                 7818   min skill 100
+   105-110 5x  Runed Copper Belt          2666
+   110-125 15x Rough Bronze Leggings      2668   min skill 105
+   125-140 35x Heavy Grinding Stone       3337   min skill 125
+   140-150 10x Patterned Bronze Bracers   2672   min skill 120
+   150-155 5x  Golden Rod                 14379  min skill 150
+   155-165 10x Green Iron Leggings        3506   min skill 155
+   165-190 25x Green Iron Bracers         3501   min skill 165
+   190-200 10x Golden Scale Bracers       7223   min skill 185
+   200-210 30x Solid Grinding Stone       9920   min skill 200
+   210-225 15x Heavy Mithril Gauntlet     9928   min skill 205
+
+Materials for 1-225, tallied from the steps above (the guides add 10-20% on
+the yellow steps; this is the raw count):
+  150x Rough Stone 2835
+   95x Coarse Stone 2836
+  150x Copper Bar 2840
+    5x Silver Bar 2842
+  140x Bronze Bar 2841        (smelted 2 at a time from 1 Copper Bar 2840
+                              plus 1 Tin Bar 3576: 70 + 70 to make 140)
+  105x Heavy Stone 2838
+    5x Gold Bar 3577
+  230x Iron Bar 3575
+   35x Green Dye 2605
+   50x Steel Bar 3859         (1 Iron Bar 3575 + 1 Coal per bar, Mining)
+  120x Solid Stone 7912
+   90x Mithril Bar 3860
+   60x Mageweave Cloth 4338
+
+Where the materials come from
+  Rough Stone 2835, Coarse Stone 2836   mining Copper and Tin deposits,
+    every starting zone: Elwynn, Dun Morogh, Durotar, Mulgore, Tirisfal
+  Heavy Stone 2838, Solid Stone 7912   mining Iron and Mithril deposits,
+    25-50 zones: Arathi Highlands, Badlands, Stranglethorn Vale, Tanaris
+  Copper Bar 2840   smelted from Copper Ore 2770
+  Bronze Bar 2841   smelted from 1 Copper Bar 2840 plus 1 Tin Bar 3576,
+                    which yields 2 Bronze Bar
+  Silver Bar 2842, Gold Bar 3577   rare veins inside copper and iron nodes
+  Iron Bar 3575     smelted from Iron Ore 2772
+  Steel Bar 3859    Iron Bar plus Coal 3857; Coal is sold by trade supply
+                    vendors in every capital, needs Mining to smelt
+  Mithril Bar 3860  smelted from Mithril Ore 3858
+  Mageweave Cloth 4338   level 40-50 humanoids
+  Green Dye 2605    tailoring and leatherworking supply vendors
+
+Practical note: Mining is skill line 186. Every bar above except the bought
+Green Dye and Coal comes out of Mining, and the stone counts are the real
+bottleneck - a 1-225 run eats 150 Rough Stone and 120 Solid Stone. An alt
+miner is cheaper than the auction house for everything except Silver and Gold,
+which are rare-vein drops.
+
+
+================================================================================
+6. TRAINERS AND WHERE THEY ARE
+================================================================================
+
+Creature entries and coordinates are world-DB data and were not verified
+except where a number is given; the names and cities are from the
+wow-professions Classic trainer list and the Wowhead "taught by" tables.
+
+Horde
+  Ug'thok                Orgrimmar
+  Basil Frye             Undercity
+  Thrag Stonehoof        Thunder Bluff
+  Dwukk                  Durotar
+
+Alliance
+  Groum Stonebeard       Ironforge
+  Dane Lindgren          Stormwind City
+  Delfrum Flintbeard     Darkshore
+  Smith Argus            Elwynn Forest
+  Tognus Flintfire       Dun Morogh
+
+Journeyman (level 10, skill 50) - only these teach the rank-up
+  Horde:     Snarl (Orgrimmar), James Van Brunt (Undercity),
+             Karn Stonehoof (Thunder Bluff)
+  Alliance:  Rotgath Stonebeard (Ironforge), Therum Deepforge (Stormwind)
+
+Expert (level 20, skill 125)
+  Horde:     Saru Steelfury, Orgrimmar, creature 3355
+  Alliance:  Bengus Deepforge, Ironforge, creature 4258
+
+Artisan (level 35, skill 200) - ALT, out of reach at 29
+  Brikk Keencraft, Booty Bay, Stranglethorn Vale, creature 2836
+
+Recipe sources are mixed and this matters before spending gold:
+  trainer spells   Green Iron Helm 3502, Green Iron Leggings 3506,
+                   Green Iron Bracers 3501, Golden Scale Bracers 7223
+  drop plans       Green Iron Boots 3611, Iron Counterweight 6045,
+                   Iron Shield Spike 6044, Mithril Shield Spike 7976
+All three Expert and Artisan trainers above (Bengus 4258, Brikk 2836,
+Saru 3355) appear on the "taught by" list for the four trainer spells.
+
+
+================================================================================
+7. WHAT A 29 ACTUALLY CARRIES
+================================================================================
+
+In the bag
+  20x Solid Sharpening Stone 7964     or 20x Solid Weightstone 7965
+  20x Iron Shield Spike 6042          if the character uses a shield
+  1x  Iron Counterweight 6043         applied once to a two-hander
+
+Fitted
+  Iron Shield Spike 6042 on the shield (permanent until replaced)
+  Iron Counterweight 6043 on the weapon (permanent)
+
+The stones are the whole point: +6 weapon damage for 30 minutes, stackable in
+bags of 20, made at skill 200 for one Solid Stone each. One stack per
+battleground is enough, and a 29 blacksmith can supply the whole account.
+
+
+================================================================================
+8. WHICH CLASSES SHOULD TAKE BLACKSMITHING
+================================================================================
+
+Be blunt: blacksmithing is the weakest of the four gear professions for a 29.
+It makes no item a twink would want to wear, it cannot touch plate, and its
+one good permanent item (Iron Counterweight 6043) is a single two-handed
+weapon enhancement. Take it for the stones and the spikes, not for gear.
+
+1. Warrior. The counterweight on a two-hander, Solid Sharpening Stones 7964,
+   and the Iron Shield Spike 6042 if the build uses a shield. The Green Iron
+   Helm 3836 is the only wearable piece that lands on 29 and it is a leveling
+   green - useful only if nothing better dropped.
+
+2. Paladin. Shield spike plus stones. The Green Iron set fits, but a paladin
+   at 29 is a healer or a mail-wearing retribution build, and tailoring or
+   engineering serve both better.
+
+3. Rogue. Sharpening stones only. No shield, no two-hander, no mail. Alchemy
+   or engineering is a better use of the profession slot.
+
+4. Hunter. Weightstones on a two-handed axe or a staff, if the build uses one.
+   Otherwise nothing here.
+
+5. Everyone else. None. Casters get nothing at all from blacksmithing - no
+   sharpening stone, no weightstone, no spike, no wearable mail.
+
+Ranking inside this file, best first: the Solid stones, the Iron Counterweight,
+the shield spikes, then the Green Iron set. If a 29 must pick one profession
+for damage, engineering wins on every count; blacksmithing is a supplier
+profession for a warrior or a paladin and a waste for everyone else.

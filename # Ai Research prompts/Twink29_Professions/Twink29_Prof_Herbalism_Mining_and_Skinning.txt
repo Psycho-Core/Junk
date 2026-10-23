@@ -1,0 +1,266 @@
+TWINK29 - PROFESSIONS - STEP 10 - HERBALISM, MINING AND SKINNING
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Scope: what the three gathering professions give a level 29 twink.
+
+1. THE SHORT ANSWER
+   Nothing. Of the ten steps in this set this is the only one where the
+   honest answer to "what does it give a 29" is "no item, no buff, no
+   stat, and no ability". Gathering in 8.3.7 is a money and materials
+   profession: it feeds Alchemy, Inscription, Blacksmithing, Engineering,
+   Jewelcrafting and Leatherworking, and it sells on the auction house.
+   A twink takes one of these three only if he wants to be his own
+   supplier, and he pays for it with one of his two primary slots.
+   Everything that made gathering interesting in Wrath is gone, and the
+   next section says when and why.
+
+2. THE THREE PERKS THAT USED TO EXIST
+   Wrath-era gathering gave a combat ability per profession. All three
+   were deleted in patch 6.0.2 (2014-10-14). Verified on warcraft.wiki.gg,
+   where each page carries a "removed in patch 6.0.2" banner.
+   Herbalism - Lifeblood: instant, no global cooldown, 3 minute cooldown,
+     haste plus a heal over 5 seconds, usable in arenas, undispellable,
+     and it did not break Stealth or Prowl. Ranks at skill 1/75/150/225/
+     300/375 gave 5/15/35/50/70/120 haste. In a 29 bracket this was the
+     single best reason to take a gathering profession.
+   Mining - Toughness: passive stamina, 3/5/7/10/30/60 at skill 75/150/
+     225/300/375/450.
+   Skinning - Master of Anatomy: passive critical strike rating, 3/6/9/
+     12/20/40 at the same skill steps.
+   None of the three exists in 8.3.7. There is no gathering ability to
+   press and no passive line on the character sheet, so any guide that
+   still recommends Herbalism to a twink for Lifeblood is describing
+   Wrath or Mists, not this server.
+
+3. THE SKILL BAR - AND A CORRECTION THAT AFFECTS STEPS 01 TO 09
+   Since patch 8.0.1 each expansion has its own profession bar and the
+   four old ranks were merged. warcraft.wiki.gg, Classic proficiency:
+   "formerly known as Apprentice, Journeyman, Expert and Artisan ... the
+   beginning stage of a profession learned at the appropriate profession
+   trainer when a character has reached at least level 5 ... allows skill
+   ups to a maximum of 300 points". The Profession page adds that
+   "Apprentice, Journeyman, Expert and Artisan no longer appear in game
+   and are rolled up under Classic".
+   The old ladder, kept here only as reference, was:
+     apprentice  level 5,   cap 75
+     journeyman  level 10 and 50 skill,  cap 150
+     expert      level 20 and 125 skill, cap 225
+     artisan     level 35 and 200 skill, cap 300
+   If 8.3.7 uses the current rule, a level 29 can carry Classic Herbalism,
+   Mining or Skinning to 300, and the same is true of the crafting
+   professions. That contradicts the 225 ceilings quoted in steps 01 to
+   09, which were read off 3.x data (the wotlk pages still show the rank
+   ladder). The correction is worth resolving set-wide, because it is the
+   difference between "a 29 tailor stops at silk" and "a 29 tailor can
+   reach 300 and make Runecloth".
+   Two caveats before anyone rewrites the other files:
+   - Check the live trainer window first. If the trainer offers one
+     "Classic Tailoring" skill and the skill bar reads /300, the new rule
+     is in force. If it offers Apprentice, Journeyman, Expert, Artisan as
+     separate purchases, the core kept the old ladder and 225 is right.
+   - Even at 300 skill the item requirements do not move. A pattern that
+     produces a level 40 item still produces a level 40 item, and the
+     recipes above 225 often need materials from 40+ zones. Skill is a
+     gate, not a licence.
+   Gathering specifically is almost unaffected by this argument, which
+   is why it is settled here and not in an audit: the zones a 29 can
+   survive in are the binding limit, not the profession rank.
+
+4. HERBALISM - SKILL LINE 182
+   No tool is needed, ever. Since patch 6.0.2 "most classic herb nodes
+   are accessible to anyone even with a skill of 1. However, low-skilled
+   players will acquire petals, stems, leaves or brambles instead of the
+   full item" (warcraft.wiki.gg, Herb). Ten fragments combine into one
+   herb, so a low-skill pick is worth a tenth of a node, not nothing.
+   Nodes stay orange/yellow/green/grey for skill-ups, so skill still has
+   to be earned, just not gated.
+   The classic herbs, with item ids and the zones the wiki gives:
+   2447  Peacebloom - level 1-20 zones, open ground.
+   765   Silverleaf - level 1-20 zones, near trees.
+   2449  Earthroot - level 1-20 zones, hills.
+   785   Mageroyal - level 10+ zones; also drops Swiftthistle 2452, 20%.
+   2450  Briarthorn - level 10+ zones, near trees; Swiftthistle 40%.
+   3820  Stranglekelp - water; the leveling guide says skill 85.
+   2453  Bruiseweed - level 10+ zones, near houses.
+   3355  Wild Steelbloom - level 20+ zones, hills.
+   3369  Grave Moss - Duskwood, Wetlands, Hillsbrad, Arathi; graves.
+   3356  Kingsblood - level 20+ zones.
+   3357  Liferoot - level 20+ zones, river and pond shores.
+   3818  Fadeleaf - level 25+ zones, near bushes.
+   3821  Goldthorn - level 25+ zones, hills.
+   3358  Khadgar's Whisker - level 25+ zones.
+   3819  Wintersbite - Western Plaguelands and the like, 40+.
+   4625  Firebloom - Badlands, Burning Steppes, Searing Gorge, Tanaris.
+   8831  Purple Lotus - Felwood; also drops Wildvine about 10%.
+   8836  Arthas' Tears - Western and Eastern Plaguelands.
+   8838  Sungrass - level 40+ zones, open ground.
+   8839  Blindweed - Swamp of Sorrows and the like.
+   8845  Ghost Mushroom - caves, 40+ zones.
+   8846  Gromsblood - Felwood, Blasted Lands.
+   13463 Dreamfoil, 13464 Golden Sansam - Un'Goro, Silithus, Felwood.
+   13465 Mountain Silversage - Un'Goro, Winterspring.
+   13466 Plaguebloom - the Plaguelands.
+   13467 Icecap - Winterspring.
+   13468 Black Lotus - rare, high-level zones only.
+   A 29 who stays in zones he can fight in (10 to 35) reaches roughly
+   Khadgar's Whisker and Goldthorn. Everything from Wintersbite up needs
+   a 40+ zone, which for a 29 means corpse runs, not farming.
+   What the herbs are for: Alchemy (step 02) and Inscription (step 08),
+   which mills five herbs at a time into pigments. The milling ability's
+   spell id was not read for this file, so it is unverified here, but
+   every herb above is flagged "Millable" on its wowhead page.
+
+5. MINING - SKILL LINE 186
+   Tools: Mining Pick 2901. The classic guide is explicit that it "does
+   not have to be equipped, but you have to have one in your inventory".
+   The current wiki says "a mining pick is not necessary but can help".
+   The pick requirement was dropped somewhere between the two, so treat
+   it as unverified for 8.3.7 and carry one anyway: it costs silver from
+   the mining supply vendor next to the trainer.
+   Ore nodes lost their hard skill gate the same way herbs did. A node
+   page carries both readings: Mithril Deposit is Mining (1) in retail and
+   Mining (175) in Classic, and it only guarantees a full Mithril Ore at
+   Mining 150 or higher - below that the client hands out a nugget
+   instead. So on 8.3.7 the gate is gone and the price is yield, not
+   access. The classic ladder below is what the leveling guide and the
+   Classic servers use, and it is still the best guide to what each node
+   pays out:
+   1-65     Copper Vein - Copper Ore 2770.
+   65-125   Tin Vein - Tin Ore 2771; Silver Vein - Silver Ore 2775 at 75.
+   125-175  Iron Deposit - Iron Ore 2772.
+   155      Gold Vein - Gold Ore 2776.
+   175-245  Mithril Deposit - Mithril Ore 3858.
+   230      Truesilver Deposit - Truesilver Ore 7911; Dark Iron Ore 11370.
+   245-300  Small and Rich Thorium Vein - Thorium Ore 10620.
+   Two thresholds matter instead of one: 150 for full ore rather than
+   nuggets, and the zone level for whether a 29 can stand there at all.
+   Thorium means Burning Steppes, Winterspring or the Plaguelands, which
+   a 29 cannot farm; Mithril means Badlands and Tanaris, which is already
+   a corpse run.
+   Smelting is a Mining ability and needs a forge. Verified example:
+   Smelt Mithril, spell 10097, requires Mining 175, 1x Mithril Ore 3858
+   gives 1x Mithril Bar 3860, difficulty 175/175/202/230, taught by every
+   mining trainer. Copper starts at Copper Bar 2840. The higher smelts
+   were not read individually and are unverified.
+   Find Minerals is the tracking ability that comes with the profession;
+   its spell id was not read. It has no combat value.
+   What the ore is for: Engineering (step 01), Blacksmithing (step 03)
+   and Jewelcrafting (step 07), plus Prospecting for Jewelcrafting.
+
+6. SKINNING - SKILL LINE 393
+   Tools: Skinning Knife 7005. Since patch 5.0.4 (2012-08-28) it is "no
+   longer required to skin" and it "provides +10 Skinning while equipped
+   or in inventory" (warcraft.wiki.gg, Skinning Knife). So a 29 skinner
+   carries one for the +10, not because skinning fails without it.
+   Skinning is the one gathering profession whose skill requirement is a
+   formula rather than a node list, and this is the version players use:
+   up to skill 100, the highest skinnable mob is (skill / 10) + 10; from
+   skill 100 up it is skill / 5.
+   225 skill skins level 45 mobs; 235 with the knife in the bag skins 47;
+   300 skill skins level 60.
+   The leathers, with ids and the mob levels the wiki gives:
+   2934  Ruined Leather Scraps - level 5-17 mobs.
+   2318  Light Leather - level 5-27 mobs.
+   2319  Medium Leather - level 15-38 mobs.
+   4234  Heavy Leather - level 26-46 mobs.
+   4304  Thick Leather - level 35-58 mobs.
+   8170  Rugged Leather - level 45-60 mobs.
+   Hides drop alongside: 783 Light Hide, 4232 Medium Hide, 4235 Heavy
+   Hide, and Thick and Rugged hides above those (ids 8169 and 8171,
+   unverified here). Hides are the bottleneck for Leatherworking (step
+   04), not the leather.
+   What the leather is for: Leatherworking, plus a handful of Tailoring,
+   Blacksmithing and Engineering recipes.
+
+7. THE CHEAPEST ROUTE AT 29
+   Gathering has no combines and no materials, so "cheapest" means the
+   fewest zones and the least danger. All three use the same shape: a
+   starter zone to about 70, a level 20-30 zone to about 150, and then
+   the 40+ zones the class guides use, which a 29 cannot work in.
+   Herbalism, from the classic route: 1-70 starter zone; 70-115 The
+   Barrens, Silverpine, Loch Modan or Darkshore; 115-170 the same zones
+   plus Bruiseweed and Wild Steelbloom country; 170-205 Arathi, Alterac,
+   Stranglethorn; 205+ Tanaris, Feralas, the Plaguelands, Un'Goro.
+   Mining: 1-65 starter zone; 65-125 Hillsbrad, Redridge, Ashenvale or
+   The Barrens; 125-175 the same plus Arathi; 175-245 Badlands and
+   Tanaris for Mithril; 245+ Burning Steppes, Un'Goro, Winterspring.
+   Skinning: 1-75 Durotar or Dun Morogh; 75-155 The Barrens, Loch Modan,
+   Wetlands; 155-205 Thousand Needles and Arathi; 205+ Un'Goro, Feralas.
+   For a 29 the realistic stopping point is the third stage in each
+   case: around 150 to 175 skill earned in 20-35 zones. Past that the
+   character is farming mobs 10 levels above himself for a profession
+   that gives him nothing, and the auction house sells the same herbs and
+   ore for a few gold a stack.
+   One route a 29 does own: skinning. He kills beasts anyway while
+   leveling or in battleground corpse runs, and a dead beast is a free
+   skill-up. If a companion character is going to carry any gathering
+   profession, it should be this one.
+
+8. TRAINERS
+   One visit each, at skill 1, plus whichever rank the core uses (see
+   section 3). Every trainer below is in a capital or a starting zone
+   except the skinning expert and artisan trainers, who sit in the field.
+   Herbalism, Horde: Jandi in Orgrimmar, Martha Alliestar in Undercity,
+   Komin Winterhoof in Thunder Bluff, Faruza in Tirisfal Glades, Mishiki
+   in Durotar, Angrun in Stranglethorn Vale, Aranae Venomblood in
+   Hillsbrad Foothills.
+   Herbalism, Alliance: Reyna Stonebranch in Ironforge, Tannysa in
+   Stormwind, Firodren Mooncaller in Darnassus, Herbalist Pomeroy in
+   Elwynn Forest, Malorne Bladeleaf in Teldrassil, Kali Healtouch in Loch
+   Modan, Cylania Rootstalker in Ashenvale, Telurinon Moonshadow in
+   Wetlands, Brant Jasperbloom in Dustwallow Marsh, Alma Jainrose in
+   Redridge Mountains.
+   Mining, Horde, with creature entries: Makaru 3357 in Orgrimmar, Brom
+   Killian 4598 in Undercity, Brek Stonehoof 3001 in Thunder Bluff,
+   Krunn 3175 in Durotar, Johan Focht 3555 in Silverpine Forest.
+   Mining, Alliance, with creature entries: Gelman Stonehand 5513 in
+   Stormwind, Geofram Bouldertoe 4254 in Ironforge, Kurdram Stonehammer
+   6297 in Darkshore, Matt Johnson 3137 in Duskwood, Brock Stoneseeker
+   1681 in Loch Modan, Muaat 16752 in the Exodar, Belil 16663 in
+   Silvermoon City. Pikkle 8128 in Tanaris sells to both sides.
+   Skinning: Balthus Stoneflayer in Ironforge and Thuwd in Orgrimmar
+   teach the first ranks; Dranh at Camp Taurajo in the Barrens teaches
+   expert and Kulleg Stonehorn at Camp Mojache in Feralas teaches
+   artisan, which is the field-trainer arrangement. Creature entries and
+   coordinates were not read for the skinning trainers, so those are
+   unverified. No coordinates were read for any trainer in this file.
+
+9. ALT - WHAT A 29 CANNOT DO
+   The old artisan rank, if the core still uses the ladder: level 35 and
+   200 skill. That is the same level-35 wall as Cooking and every
+     crafting file in this set.
+   Full-yield thorium and rich thorium at a 225 cap: the nodes open to
+     any skill, the ore does not. Same for everything in the Outland,
+     Northrend, Cataclysm, Pandaria, Draenor and Battle for Azeroth
+     tiers, and the BfA gathering tiers (Kul Tiran and Zandalari) are
+     level 110+ content.
+   Mobs above level 45 to skin at 225, or above 47 with the knife.
+   Every herb from Wintersbite upward, in practice: the nodes are open
+     since 6.0.2 but the zones are 40+.
+   Any recipe that consumes these materials at a skill above the cap -
+     that is a crafting-file problem, not a gathering one, and steps 01
+     to 08 listed them.
+
+10. WHICH CLASSES SHOULD TAKE IT
+   1. Nobody, on combat grounds. There is no stat, no ability and no
+      item here. In a 29 bracket two profession slots hold Engineering
+      and one of Blacksmithing, Leatherworking, Tailoring or Alchemy.
+      A gathering profession in one of those slots is a 25% loss of
+      gear, every time.
+   2. The self-supplier. Herbalism pairs with Alchemy (step 02) and
+      Inscription (step 08), Mining with Engineering (step 01),
+      Blacksmithing (step 03) and Jewelcrafting (step 07), Skinning with
+      Leatherworking (step 04). If the plan is to level the crafting
+      profession on the same character, the matching gathering
+      profession saves gold and nothing else.
+   3. The gold character. A 29 herbalist or miner in a 20-30 zone earns
+      more per hour than a 29 crafter, because the crafting files all
+      need materials a 29 cannot make cheaply. If one character in a set
+      of companions exists to fund the others, this is its job.
+   4. The skinner. Skinning is the only gathering profession a 29 can
+      level without leaving the content he already fights in, and the
+      only one that pays out for something he was going to kill anyway.
+      If a companion must have a gathering profession, take Skinning.
+   Last line: no twink takes Herbalism, Mining or Skinning for power in
+   8.3.7 - the perks died in 6.0.2. Take one only as the supplier for a
+   crafting file, take Skinning if the character kills beasts anyway, and
+   spend the second slot on gear.

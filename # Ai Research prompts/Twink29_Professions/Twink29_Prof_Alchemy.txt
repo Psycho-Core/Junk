@@ -1,0 +1,410 @@
+================================================================================
+TWINK29 PROFESSIONS - 02 ALCHEMY
+Patch 8.3.7 (build 35662), level 29 battleground twink
+================================================================================
+
+Ids checked against 8.3.7 client tables (SpellName, SpellReagents,
+SkillLineAbility) and Wowhead Classic item pages for the tooltips, required
+levels and cooldowns. Where a number could not be checked it says "unverified".
+
+
+================================================================================
+1. WHAT A LEVEL 29 CAN ACTUALLY REACH
+================================================================================
+
+Classic Alchemy is skill line 171 in 8.3.7, and every classic recipe still
+carries the classic tier id 2485 in SkillLineAbility.SkillupSkillLineID. Both
+are live in 8.3.7, so the whole Classic 1-300 recipe list is present.
+
+Rank gates (Classic table, restated by the 1-300 guides; costs undiscounted):
+  Apprentice  1-75    level 5   10 copper
+  Journeyman  1-150   level 10  5 silver      (needs 50 skill)
+  Expert      1-225   level 20  50 silver     (needs 125 skill)
+  Artisan     1-300   level 35  5 gold        (needs 200 skill)
+
+=> At level 29 the ceiling is 225. Artisan is 6 levels out of reach, so every
+recipe with a 226+ requirement is ALT.
+
+The level gate on the ranks is trainer/world data and is not in the 8.3.7 DB2
+tables, so it could not be re-verified inside the client. 225 is the working
+cap; confirm on the trainer before spending gold.
+
+Alchemy has no specialisation. Unlike Engineering there is no quest chain, no
+Goblin/Gnomish split and no membership card, so nothing here is gated the way
+the engineering specialisation recipes are gated.
+
+BfA-tier Alchemy (the Kul Tiran/Zandalari recipes) is out of reach at 29; exact
+character-level requirement for those trainers is unverified, but every BfA
+recipe needs materials from level 110+ zones regardless.
+
+Recipe skill requirements: in 8.3.7 SkillLineAbility carries MinSkillLineRank 1
+for most of the classic recipes (11449, 11450 and the transmute 17187 were
+checked and all read 1), while TrivialSkillLineRankLow/High still hold the
+Classic yellow and grey values. The per-recipe skill numbers in this file are
+the Classic orange values from Wowhead's created-by tables, so they are the
+safe upper bound: a recipe may be learnable earlier on this build. Check the
+trainer before buying materials.
+
+Consequences that shape the whole list:
+  - A 29 can craft anything with skill 225 or less, and can use anything whose
+    "requires level" is 29 or less. Those are two different filters and the
+    second one is the harsher of the two: most of the famous elixirs are
+    craftable in principle but unuseable at 29.
+  - Alchemy makes no armour, no weapon and no trinket with stats in Classic.
+    There is nothing to wear, so nothing to buy from a level 60 alchemist the
+    way a twink buys engineering boots and goggles.
+  - Everything alchemy gives a 29 is a consumable: one-hour elixirs, one-hour
+    absorb potions, instant potions. Elixir buffs are removed on death.
+  - Potion use is limited by a shared cooldown. Wowhead Classic files every
+    potion in this file under shared cooldown group 65, and every elixir under
+    group 81. The 8.3.7 SpellCooldowns table was not queried, so treat both
+    groups as unverified in-client.
+
+
+================================================================================
+2. USABLE AT 29 - CRAFTABLE AT 225 OR LESS, USABLE AT LEVEL 29 OR LESS
+================================================================================
+
+Every entry: item id, item level, required level, effect, use spell, craft
+spell, skill needed, materials. All material ids and counts come from the 8.3.7
+SpellReagents table.
+
+--- Instant potions ---------------------------------------------------------
+
+Swiftness Potion 2459. Item level 15, requires level 5.
+  Use: +50% run speed for 15 sec, spell 2379, 2 min cooldown, stack 5.
+  Recipe: spell 2335, Alchemy 60 (SkillLineAbility 1385, trivial 90-130).
+  Materials: 1x Swiftthistle 2452, 1x Briarthorn 2450, 1x Empty Vial 3371.
+  The cheapest escape a 29 has. Flag carrier item.
+
+Free Action Potion 5634. Item level 30, requires level 20.
+  Use: immune to stun and movement-impairing effects for 30 sec, spell 6615,
+  2 min cooldown, stack 5. Does not clear effects already on you.
+  Recipe: spell 6624, Alchemy 150 (trivial 175-215).
+  Materials: 2x Blackmouth Oil 6370, 1x Stranglekelp 3820, 1x Empty Vial 3371.
+  Blackmouth Oil 6370 is itself made by alchemy from Oily Blackmouth 6358
+  (fish); its recipe spell was not queried.
+
+Greater Healing Potion 1710. Item level 31, requires level 21.
+  Use: restores 455 to 585 health, spell 2024, 2 min cooldown, stack 5.
+  Recipe: spell 7181, Alchemy 155 (the 1-300 guides use it 155-185).
+  Materials: 1x Liferoot 3357, 1x Kingsblood 3356, 1x Empty Vial 3371.
+
+Lesser Mana Potion 3385. Item level 24, requires level 14.
+  Recipe: spell 3173, Alchemy 140 (the 1-300 guides use it 140-155).
+  Materials: 1x Mageroyal 785, 1x Stranglekelp 3820, 1x Empty Vial 3371.
+  Restore amount: unverified; the required level 14 is from ItemSparse.
+
+--- One-hour elixirs (the reason to take alchemy at 29) ---------------------
+
+Elixir of Defense 3389. Item level 26, requires level 16.
+  Use: +150 armour for 1 hour, spell 3220, 3 sec cooldown, stack 5.
+  Recipe: spell 3177, Alchemy 130 (trivial 155-195). Trainer-taught.
+  Materials: 1x Wild Steelbloom 3355, 1x Stranglekelp 3820, 1x Empty Vial 3371.
+
+Elixir of Fortitude 3825. Item level 35, requires level 25.
+  Use: +120 maximum health for 1 hour, spell 3593, 3 sec cooldown.
+  Recipe: spell 3450, Alchemy 175 (trivial 195-235). Trainer-taught.
+  Materials: 1x Wild Steelbloom 3355, 1x Goldthorn 3821, 1x Empty Vial 3371.
+
+Elixir of Agility 8949. Item level 37, requires level 27.
+  Use: +15 Agility for 1 hour, spell 11328, 3 sec cooldown.
+  Recipe: spell 11449, Alchemy 185 (trivial 205-245). Trainer-taught.
+  Materials: 1x Stranglekelp 3820, 1x Goldthorn 3821, 1x Empty Vial 3371.
+
+Elixir of Greater Defense 8951. Item level 39, requires level 29.
+  Use: +250 armour for 1 hour, spell 11349, 3 sec cooldown.
+  Recipe: spell 11450, Alchemy 195 (trivial 215-255). Trainer-taught.
+  Materials: 1x Wild Steelbloom 3355, 1x Goldthorn 3821, 1x Empty Vial 3371.
+  The single best thing alchemy puts on a 29, and it is usable at exactly 29.
+
+Elixir of Firepower 6373. Item level 28, requires level 18.
+  Use: +10 fire spell damage for 30 min, spell 7844, 3 sec cooldown.
+  Recipe: spell 7845, Alchemy 140 (trivial 165-205). Trainer-taught.
+  Materials: 2x Fire Oil 6371, 1x Kingsblood 3356, 1x Empty Vial 3371.
+  Fire Oil 6371 comes from Firefin Snapper 6359 (fish) by alchemy.
+
+--- One-hour absorb potions (all also usable at 29) ------------------------
+
+Holy Protection Potion 6051. Item level 20, requires level 10.
+  Use: absorbs 300 to 500 holy damage, lasts 1 hour, spell 7245,
+  2 min cooldown, stack 5.
+  Recipe: spell 7255, Alchemy 100 (trivial 130-170).
+  Materials: 1x Bruiseweed 2453, 1x Swiftthistle 2452, 1x Empty Vial 3371.
+
+Shadow Protection Potion 6048. Item level 27, requires level 17.
+  Use: absorbs 675 to 1125 shadow damage, 1 hour, spell 7242, stack 5.
+  Recipe: spell 7256, Alchemy 135 (trivial 160-200).
+  Materials: 1x Grave Moss 3369, 1x Kingsblood 3356, 1x Empty Vial 3371.
+  The anti-warlock, anti-priest potion, and it works at 17.
+
+Fire Protection Potion 6049. Item level 33, requires level 23.
+  Use: absorbs 975 to 1625 fire damage, 1 hour, spell 7233, stack 5.
+  Recipe: spell 7257, Alchemy 165 (trivial 210-250).
+  Materials: 1x Small Flame Sac 4402, 1x Fire Oil 6371, 1x Empty Vial 3371.
+
+Frost Protection Potion 6050. Item level 38, requires level 28.
+  Use: absorbs 1350 to 2250 frost damage, 1 hour, spell 7239, stack 5.
+  Recipe: spell 7258, Alchemy 190 (trivial 205-245).
+  Materials: 1x Wintersbite 3819, 1x Goldthorn 3821, 1x Empty Vial 3371.
+
+Nature Protection Potion 6052. Item level 38, requires level 28.
+  Use: absorbs 1350 to 2250 nature damage, 1 hour, spell 7254, stack 5.
+  Recipe: spell 7259, Alchemy 190 (trivial 210-250).
+  Materials: 1x Liferoot 3357, 1x Stranglekelp 3820, 1x Empty Vial 3371.
+  Recipe is a vendor item, not a trainer spell: Recipe: Nature Protection
+  Potion 6057, limited supply from Bronk (Feralas), Logannas (Feralas),
+  Glyx Brewright (Stranglethorn Vale) and Alchemist Pestlezugg (Tanaris).
+
+Recipe sources: Wowhead Classic lists a "taught by" section only for 3389,
+3825, 6373, 8949 and 8951. Those five are trainer-taught. For the protection
+potions and for Free Action Potion the same pages list no trainer, so their
+recipes are recipe items, not trainer spells; the item ids are unverified
+except 6057.
+
+
+================================================================================
+3. CRAFTABLE AT 225, BLOCKED BY THE CHARACTER'S LEVEL
+================================================================================
+
+These are within reach of the skill but the potion itself says "requires
+level" above 29, so a 29 cannot drink them. Buy nothing here.
+
+Restorative Potion 9030. Item level 42, requires level 32.
+  Use: removes 1 magic, curse, poison or disease every 5 sec for 30 sec,
+  spell 11359, 2 min cooldown. Recipe spell 11452, skill 215.
+  Nineteen levels of value locked behind three levels.
+
+Greater Mana Potion 6149. Item level 41, requires level 31.
+  Recipe spell 11448, skill 160. Materials: 1x Khadgar's Whisker 3358,
+  1x Goldthorn 3821, 1x Empty Vial 3371.
+  Two levels out of reach, and it is the best mana potion a 29 can make.
+
+Superior Healing Potion 3928. Item level 45, requires level 35.
+  Recipe spell 11457, skill 215. Materials: 1x Sungrass 8838,
+  1x Khadgar's Whisker 3358, 1x Empty Vial 3371.
+
+Elixir of Giants 9206. Item level 48, requires level 38.
+  Use: +25 Strength for 1 hour, spell 11405. This is the primary-stat elixir
+  a warrior would want and a 29 cannot drink it. Craft spell and materials
+  unverified.
+
+Elixir of the Mongoose 13452. Item level 56, requires level 46.
+  Use: +25 Agility and +2% critical strike for 1 hour, spell 17538.
+  Recipe spell 17571, skill unverified (Classic 280).
+  Materials: 2x Mountain Silversage 13465, 2x Sorrowmoss 13466,
+  1x Empty Vial 3371.
+
+Limited Invulnerability Potion 3387. Item level 50, requires level 45.
+  Use: immune to physical attacks for 6 sec, spell 3169, 2 min cooldown.
+  Recipe spell 3175, skill 250. Blocked twice over.
+
+Pattern: alchemy's power curve sits at level 35-50. Everything that would
+decide a fight at 29 is a level 30+ potion.
+
+
+================================================================================
+4. ALT - WHAT NEEDS A HIGHER-LEVEL CHARACTER
+================================================================================
+
+ALT here means: a level 60 alchemist, the auction house, or nothing at all.
+Nothing in this section can be made or used by the 29.
+
+Flasks - the long buffs that survive death
+  Flask of the Titans 13510, Flask of Distilled Wisdom 13511, Flask of
+  Supreme Power 13512, Flask of Chromatic Resistance 13513. All four require
+  level 50 (individually unverified) and 300 skill. A flask is the only
+  alchemy buff that persists through death, which is exactly what a twink
+  wants and exactly what a level 29 cannot have.
+
+Skill above 225
+  Transmute: Arcanite, spell 17187, skill 275: reagents confirmed in 8.3.7
+  SpellReagents as 1x Thorium Bar 12359 and 1x Arcane Crystal 12363, into
+  1x Arcanite Bar 12360. ALT, and worthless to a twink anyway - it is a gold
+  maker for a level 60.
+  Major Healing Potion 13446 and Major Mana Potion 13444, skill 275-300.
+  Recipe: Major Healing Potion is sold by Evie Whirlbrew, Everlook,
+  Winterspring (limited supply).
+  Superior Mana Potion 13443, skill 260: recipe 13477 from Ulthir (Darnassus)
+  or Algernon (Undercity), limited supply.
+
+Buying instead of crafting
+  A 29 can use every item in section 2 bought from the auction house. If the
+  only goal is the buff, buying the elixirs is cheaper than levelling alchemy
+  - see section 6 for what levelling actually costs.
+
+
+================================================================================
+5. THE ONE PERMANENT CRAFT - AND WHY IT IS NOT A TWINK ITEM
+================================================================================
+
+Philosopher's Stone 9149. Item level 45, binds when picked up, no stats,
+"Required for Alchemical Transmutation". No required level.
+  Recipe: spell 11459, Alchemy 225 (trivial 240-280).
+  Materials: 4x Iron Bar 3575, 1x Black Vitriol 9262, 4x Purple Lotus 8831,
+  4x Firebloom 4625.
+  A 29 with 225 alchemy can make and hold it, and it is the only alchemy item
+  that is not consumed. It does nothing in combat: it is the tool that unlocks
+  the transmute recipes, and every transmute worth doing needs skill 250+.
+  Verdict: not a twink item. It is the last 30 points of the profession.
+
+Alchemy therefore gives a level 29 twink no gear at all. Compare Engineering,
+where a 29 can wear Goblin Rocket Boots 7189 and a Gnomish Harm Prevention
+Belt 10721 bought from a level 60.
+
+
+================================================================================
+6. CHEAPEST ROUTE TO THE SKILL YOU NEED
+================================================================================
+
+Two stopping points matter:
+  195 - the last genuinely useful recipe for a 29 (Elixir of Greater Defense).
+  225 - adds only the Philosopher's Stone. Nothing usable at 29 is learned
+        between 196 and 225.
+Stop at 195 unless the plan is transmutes for a level 60.
+
+Route to 225, cheapest classic path (recipe, craft spell, skill band):
+  1-60     65x Minor Healing Potion        2330    skill 1
+  60-110   65x Lesser Healing Potion       2337    skill 80
+  110-140  35x Healing Potion              3447    skill 135 (guide uses 110)
+  140-155  20x Lesser Mana Potion          3173    skill 140
+  155-185  35x Greater Healing Potion      7181    skill 155
+  185-210  30x Elixir of Agility           11449   skill 185
+  210-215  5x  Elixir of Greater Defense   11450   skill 195
+  215-225  15x Superior Healing Potion     11457   skill 215
+            (craft-only: Superior Healing needs character level 35, so the
+            twink makes these for a level 35+ alt or for sale)
+
+Materials for the full 1-225 run, at the counts the guides use (they add
+10-20% because several of these steps are yellow, not orange):
+  65x Peacebloom 2447
+  65x Silverleaf 765
+  170x Empty Vial 3371
+  65x Minor Healing Potion 118 (made in step 1, keep them)
+  100x Briarthorn 2450
+  35x Bruiseweed 2453
+  35x Leaded Vial 3372
+  20x Mageroyal 785
+  50x Stranglekelp 3820
+  35x Liferoot 3357
+  35x Kingsblood 3356
+  35x Goldthorn 3821
+  5x Wild Steelbloom 3355
+  15x Sungrass 8838
+  15x Khadgar's Whisker 3358
+
+Where the herbs come from (Classic zones; the 8.3.7 spawn tables were not
+queried, so treat the zone lists as the Classic answer):
+  Peacebloom 2447, Silverleaf 765   starting zones: Elwynn, Dun Morogh,
+                                    Teldrassil, Durotar, Mulgore, Tirisfal
+  Mageroyal 785, Briarthorn 2450    5-25 zones: Westfall, Barrens, Silverpine
+  Bruiseweed 2453                   20-35: Duskwood, Wetlands, Ashenvale
+  Stranglekelp 3820                 coastal water, 10-35, any coast
+  Wild Steelbloom 3355, Kingsblood 3356, Goldthorn 3821   25-45 inland zones
+  Liferoot 3357                     30-45, river and lake banks
+  Sungrass 8838, Khadgar's Whisker 3358   40-55: Tanaris, Feralas, Hinterlands
+  Empty Vial 3371, Leaded Vial 3372  any alchemy or trade supplier vendor
+  Blackmouth Oil 6370 and Fire Oil 6371 come from fishing, not herbalism:
+  Oily Blackmouth 6358 and Firefin Snapper 6359, cooked at a campfire.
+
+Practical note: Herbalism is skill line 182 and gathers everything above
+except the fish. An alt with Herbalism plus one flight path beats the auction
+house for the first 150 points.
+
+
+================================================================================
+7. TRAINERS AND WHERE THEY ARE
+================================================================================
+
+Creature entries and coordinates are world-DB data and were not verified; the
+names and cities are from the wow-professions Classic trainer list.
+
+Horde
+  Whuut                      Orgrimmar
+  Doctor Martin Felben       Undercity
+  Kray                       Thunder Bluff
+  Carolai Anise              Tirisfal Glades
+  Miao'zan                   Durotar
+
+Alliance
+  Vosur Brakthel             Ironforge
+  Tel'Athir                  Stormwind City
+  Milla Fairancora           Darnassus
+  Alchemist Mallory          Elwynn Forest
+  Cyndra Kindwhisper         Teldrassil
+
+Journeyman (level 10, skill 50) - only these teach the rank-up
+  Horde:     Yelmak (Orgrimmar), Doctor Marsh (Undercity),
+             Bena Winterhoof (Thunder Bluff)
+  Alliance:  Lilyssia Nightbreeze (Stormwind), Sylvanna Forestmoon (Darnassus),
+             Tally Berryfizz (Ironforge)
+
+Expert (level 20, skill 125)
+  Horde:     Doctor Herbert Halsey, Undercity
+  Alliance:  Ainethil, Darnassus
+
+Artisan (level 35, skill 200) - ALT, out of reach at 29
+  Horde:     Rogvar, Stonard, Swamp of Sorrows
+  Alliance:  Kylanna Windwhisper, Feathermoon Stronghold, Feralas
+
+
+================================================================================
+8. WHAT A 29 ACTUALLY CARRIES
+================================================================================
+
+Per battleground, from section 2 only:
+  5x Elixir of Greater Defense 8951      +250 armour for an hour
+  5x Elixir of Fortitude 3825            +120 health for an hour
+  5x Elixir of Agility 8949              +15 Agility for an hour (melee)
+  5x Swiftness Potion 2459               the flag-run button
+  5x Free Action Potion 5634             anti-stun and anti-snare
+  5x Greater Healing Potion 1710         455-585 health
+  5x Shadow Protection Potion 6048       vs warlock and priest
+  5x Frost Protection Potion 6050        vs mage
+  5x Nature Protection Potion 6052       vs druid and shaman
+
+Elixirs die with you. Protection potions last an hour whether you use them or
+not, so they are the better buy when the fight is long and the deaths are
+frequent. The Engineering file's shared-potion-cooldown caveat applies here
+too: assume one potion per fight until the cooldown groups are checked.
+
+
+================================================================================
+9. WHICH CLASSES SHOULD TAKE ALCHEMY
+================================================================================
+
+1. Warrior. Elixir of Fortitude 3825 plus Elixir of Greater Defense 8951 is
+   the largest survivability swing any profession gives a 29 - 120 health and
+   250 armour, both one-hour, both cheap. Free Action 5634 covers the class's
+   worst matchup. The only thing missing is a rage potion, and rage potions
+   are level-gated.
+
+2. Rogue. Elixir of Agility 8949 is the primary-stat buff the class wants, and
+   Swiftness 2459 plus Free Action 5634 make the opener and the escape
+   reliable. Cheapest profession to level of any in this set.
+
+3. Hunter. Same agility elixir, plus Swiftness for kiting and Free Action for
+   the melee that closes on you. Fire Protection 6049 is the anti-mage buy.
+
+4. Mage. Elixir of Firepower 6373 is small (+10 fire damage for 30 min) but it
+   is the only spell-power buff available at 29 from any profession. The mana
+   potion is Lesser Mana 3385 (level 14); Greater Mana 6149 needs level 31, so
+   a 29 mage drinks the small one. Frost Protection 6050 is the rest of the
+   reason.
+
+5. Warlock and Priest. Shadow Protection 6048 for the mirror match, Fortitude
+   3825 for the health pool, mana potions for everything else. Alchemy is a
+   defensive pick for both.
+
+6. Paladin and Shaman. Greater Defense 8951, Fortitude 3825, and the school
+   protection potion that matches the bracket's dominant caster.
+
+7. Druid. Agility for cat, Nature Protection 6052 for the mirror, Fortitude
+   for bear. Fine, not exciting.
+
+Last: if the character is a pure damage twink with Engineering already
+levelled, alchemy is the second profession only as a supplier. Two
+professions at 29 means one of them is a crafting profession and the other is
+Herbalism, and Engineering's bombs are worth more per slot than alchemy's
+elixirs are - unless the twink is a warrior or a rogue, where the armour and
+agility elixirs are the stronger pick.
