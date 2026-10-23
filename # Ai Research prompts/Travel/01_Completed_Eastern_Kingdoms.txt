@@ -1312,13 +1312,14 @@ TAXI NODE 681  FORSAKEN REAR GUARD, SILVERPINE FOREST
                     class, race or quest)
   links           : 10 The Sepulcher 872 yd = 0.45 min; 645 Forsaken High Command 705 yd = 0.37 min
 
-NODES IN THE EASTERN KINGDOMS TABLE THAT ARE NOT FLIGHT POINTS
+NODES IN THE EASTERN KINGDOMS TABLE THAT ARE NOT USABLE FLIGHT POINTS
   node 24  Generic, World Target 002, faction -, map 0, -6666.0, -2222.3, 278.6, CharacterBitNumber 24.
            The node name is the taxi table's own generic placeholder; no flight master stands there and no NPC name exists for it
            in the flight-master tables, so it is not listed above. Its roost sits about 211 yards from node 21 (New Kargath).
-  node 14  Southshore, Hillsbrad Foothills, faction -, ConditionID 5793 (MinLevel 999 / MaxLevel 999). The node still has a roost
-           and links, but the condition can never be met, so the point is closed in 8.3.7; the former Alliance master Darla Harris
-           now stands at node 667 (Ruins of Southshore) as the Horde bat handler.
+  node 14  Southshore, Hillsbrad Foothills, faction -, ConditionID 5793 (MinLevel 999 / MaxLevel 999). The node still has a roost,
+           a master name and links, so it is listed above, but the condition can never be met: the point is closed in 8.3.7 and no
+           character can use it. The former Alliance master Darla Harris now stands at node 667 (Ruins of Southshore) as the Horde
+           bat handler.
 
 WHAT IS VERIFIED AND WHAT IS NOT
   Positions are TaxiNodes.Pos from Map 0 of the 8.3.7.35662 export: they are where the taxi mount sits, which is also where the
