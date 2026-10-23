@@ -1,0 +1,195 @@
+TWINK29 - PRIEST - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, PROFESSIONS, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+Sources for this file: the nine profession files in
+Twink29_Professions-completed (Enchanting, Alchemy, Inscription, Cooking and
+First Aid, Tailoring, Leatherworking, Engineering), the priest item and
+talent steps, and item/spell tooltips read for this file. V = read.
+Where a number was not read it says unverified rather than being filled in.
+
+0. THE SHAPE OF THIS FILE
+   A priest at 29 is the class whose consumables and enchants are the
+   cheapest in the whole set and whose weapon enchant is the weakest,
+   because the caster weapon enchants all sit above the Classic 225 cap.
+   The two things that make the class work at this tier are Spirit, which
+   the enchants and the food buff both give, and mana potions, which are
+   the only answer a 29 healer has to a long fight.
+
+1. ENCHANTS - ONE PER SLOT, ALL INSIDE SKILL 225
+CLOAK|Enchant Cloak - Greater Defense|13746|+50 armour|skill 205|V
+CLOAK|Enchant Cloak - Lesser Agility|13882|+3 Agility|skill 225|V
+   A priest wears 13746. Armour is not a healer stat, but it is the only
+   in-cap cloak enchant that is not Agility, and +50 armour is the largest
+   single defensive number any in-cap enchant gives. 13882 is listed only
+   so the file does not pretend there is a choice.
+CHEST|Enchant Chest - Greater Health|13640|+35 health|skill 160|V
+   3x Soul Dust 11083, Runed Golden Rod. The default chest enchant at this
+   tier - there is no Intellect chest enchant inside 225 at all.
+WRIST|Enchant Bracer - Spirit|13642|+5 Spirit|Runed Golden Rod|V
+WRIST|Enchant Bracer - Lesser Intellect|13622|+3 Intellect|Silver Rod|V
+   13642 is the priest's best in-cap enchant in this file: +5 Spirit, one
+   Lesser Mystic Essence. Note for the record: the Enchanting profession
+   file says the caster bracer enchant inside the cap "was not checked".
+   It exists and it is this one. 13622 is the fallback at +3 Intellect.
+HANDS|no caster glove enchant inside 225 - stated gap
+   The only in-cap glove enchant is 13815 Enchant Gloves - Agility
+   (+5 Agility, skill 210), which is the wrong stat on a priest. A priest
+   wears nothing on the gloves or wears the Agility line for the armour
+   value and admits it buys nothing.
+LEGS|Heavy Armor Kit|4265|+24 armour|item level 30, req 20|V
+   Not an enchant and not a caster item: 4265 permanently adds 24 armour to
+   a chest, legs, hands or feet item and works on anything item level 15 or
+   higher. There is no Intellect or Spirit leg enchant inside the cap, so
+   this is what the slot takes.
+FEET|Enchant Boots - Minor Speed|13890|movement speed|skill 225|V
+   The single most valuable enchant in the bracket for any class, and worth
+   more to a healer than to anyone: a priest that cannot reposition cannot
+   heal. Its exact percentage is unverified in this build, per the
+   Enchanting file. 13687 Enchant Boots - Lesser Spirit (+3 Spirit) exists
+   and is strictly worse than movement.
+WEAPON|no caster weapon enchant inside 225 - use an oil, section 2
+   13693 Enchant Weapon - Striking (+3 weapon damage, skill 195) is the
+   best in-cap weapon enchant and is melee-only; on a priest it is waste.
+   Every spell-power weapon enchant is above 225 and needs an ALT.
+OFF|nothing - the off-hand slot has no enchant in the Classic skill line
+NECK|190894 - BfA neck enchant, ALT, not a 29 craft|unverified effect
+RING|190871 and 191014 - BfA ring enchants, enchanter-only, ALT
+   Ring enchantments are the enchanter's self-only perk from later
+   expansions. A 29 with only the Classic skill line cannot apply one to
+   his own rings, so both ring rows are ALT or nothing at all.
+   ALT LIST, out of the 225 cap and needing a higher-level enchanter:
+   13939 Bracer - Greater Strength (240), 13943 Weapon - Greater Striking
+   (245), 13898 Weapon - Fiery (265), 20012 Gloves - Greater Agility (270),
+   20031 Weapon - Superior Striking (300), 25080 Gloves - Superior Agility
+   (300). All of them are melee enchants, which is the point: a caster's
+   upgrades are not "an ALT enchant", they are oils.
+
+2. CONSUMABLES
+   BATTLE ELIXIR
+     Elixir of Firepower 6373, +10 fire spell damage for 30 min, req 18 (V).
+       The only spell-damage elixir a 29 can drink, and it is fire only, so
+       a priest gets nothing from it except on Smite, which is holy. Honest
+       reading: it is the best in-window battle elixir and it is a poor fit.
+     No Intellect battle elixir in the window was found in the audited
+       Alchemy file. Treat "there is none" as "none was found", not as a
+       proof of absence.
+   GUARDIAN ELIXIR
+     Elixir of Greater Defense 8951, +250 armour for 1 hour, req 29 (V).
+       Usable at exactly 29 and the single best guardian elixir in the
+       bracket for a cloth class.
+     Elixir of Fortitude 3825, req 25 (V). Cheaper, weaker, same slot.
+   SCROLLS
+     Scroll of Intellect II 2290, +5 Int for 30 min, req 15, spell 50598 (V).
+     Scroll of Stamina II 1711, +5 Sta, req 15 (V).
+     Both are made by Inscription at skill 75 and cost one ink each.
+     A scroll does not stack with a class buff giving the same stat.
+   WEAPON OILS - the priest's real weapon "enchant"
+     Minor Wizard Oil 20744, +7 Intellect for 1 hour, req 5 (V).
+     Minor Mana Oil 20745, +7 Spirit for 1 hour, req 20 (V).
+     Lesser Wizard Oil 20746 is +15 Intellect but requires level 30, one
+     level past the bracket, so it is out and not listed as a row (V).
+     A priest picks one oil, not both, and 20745 is the one for a healer.
+   POTIONS
+     Lesser Mana Potion 3385, req 14 (V). The mana potion a 29 can drink;
+       every better one is level 31 or higher (6149 Greater Mana is 31).
+     Greater Healing Potion 1710, req 21 (V).
+     Free Action Potion 5634, req 20 (V). No root or slow, and it is the
+       potion that saves a flag carrier or a healer in a bad spot.
+     Shadow Protection Potion 6048, req 17 (V). The anti-priest, anti-
+       warlock potion, and the one a priest drinks before a mirror match.
+     Frost Protection Potion 6050, req 28 (V).
+     All potions share one cooldown, so a bag full of them is one potion.
+   FOOD
+     Roast Raptor 12210, +8 Stamina and +8 Spirit for 15 min, req 25 (V).
+       The best food buff a 29 can eat, and Spirit is the priest's stat:
+       this is the only place in the file where the class is favoured.
+     552-heal food at +6/+6 (V in the Cooking file) is the cheap version.
+   BANDAGES
+     8544 Mageweave Bandage, heals 1600 over 8 sec, Tailoring 240 (V).
+       240 is above a 29 tailor's 225, so this one is bought, not made.
+     6451 Heavy Silk Bandage, heals 1280, Tailoring 210 (V). The best a 29
+       tailor can actually make.
+     Bandages share one cooldown and apply a 60 second Recently Bandaged
+     debuff, so they are an emergency heal, not a rotation.
+
+3. PROFESSIONS
+   ENCHANTING  The self-supply choice. A 29 enchanter disenchants his own
+     quest greens, funds 13642 and 13640 himself, and can apply other
+     people's enchants. The profession gives the character nothing to wear
+     that a non-enchanter cannot buy, but at 29 the enchants are the point.
+   TAILORING  Cloth is this class's armour, and 225 Tailoring makes the
+     Heavy Silk Bandage 6451 and the cloth pieces in step 1's pool that are
+     crafted rather than dropped. The bags matter too: a battleground bot
+     with 16-slot bags carries the potions.
+   ALCHEMY  The alternative to Tailoring. Elixir of Greater Defense 8951
+     is the one elixir worth drinking and Alchemy makes it plus the mana
+     potions; the catch is that elixirs are cheaper to buy than to level
+     for, as the Alchemy file says.
+   INSCRIPTION  Skill 75 buys Scroll of Intellect II and Scroll of
+     Stamina II for one ink. It is the cheapest profession in the file and
+     the least valuable, because the scroll is +5 and does not stack.
+   RECOMMENDATION  Enchanting + Tailoring for a character that will be
+     played, Enchanting + Alchemy if the bots are expected to fight long.
+     Engineering and Blacksmithing give a priest nothing: no gun, no
+     counterweight on a staff, no shield spike without a shield.
+
+4. RACES
+   A priest could be, in 8.3.7, any of the races that had the class before
+   the Allied Race wave and the ones added with it. What follows lists the
+   racial that matters and the id where one was read. Racial ids are
+   Classic-era unless the spell was renumbered, and the whole race list is
+   the one place in this file where the membership itself is unverified
+   for 8.3.7 - the wiki page is a current-expansion page where every race
+   can be a priest, so it cannot confirm what the class list was in BfA.
+   ALLIANCE
+     Human     59752 Will to Survive, a self CC break (V, from step 1 of
+               the paladin set). The best racial a healer can have: the
+               thing that kills a 29 priest is a fear or a stun.
+     Dwarf     Stoneform, removes bleed, poison and disease and cuts damage
+               taken. id unverified.
+     Night elf 58984 Shadowmeld. Drops combat and hides; the best racial in
+               the bracket for not being focused at all.
+     Gnome     20589 Escape Artist, breaks a snare. Narrow but cheap.
+     Draenei   Gift of the Naaru, a heal over time. id unverified.
+     Void elf Spatial Rift, a teleport. id unverified.
+     Lightforged  Light's Judgment, a damage/heal bolt. id unverified.
+     Dark iron  Fireblood, removes debuffs and grants a stat. id unverified.
+   HORDE
+     Undead    7744 Will of the Forsaken, breaks fear, sleep and charm. The
+               Horde answer to the Human racial and the single best racial
+               for a priest in a bracket full of warlocks and priests.
+     Troll     26297 Berserking, haste on demand. The damage choice.
+     Blood elf 25046 Arcane Torrent, an area silence and mana return. The
+               only interrupt a 29 priest has access to at all, which makes
+               it worth more than its numbers.
+     Tauren    20549 War Stomp, an area stun. The only hard CC a priest can
+               carry.
+     Pandaren  Quaking Palm, an incapacitate. id unverified.
+     Nightborne  Arcane Pulse, a slow. id unverified.
+     Zandalari  Regeneratin', a full heal channel. id unverified.
+   PICKS  Human for Alliance and Undead for Horde, both because a priest's
+     death is usually a crowd-control death. Troll if the bot is a Shadow
+     priest that is expected to do damage, Blood elf if the bot needs the
+     silence, Tauren if the group needs a stun.
+
+5. WHAT TO BUY, IN ORDER
+   First  the two oils: 20745 Minor Mana Oil for the staff and a stack of
+          20744 Minor Wizard Oil for the swap. One hour each, five charges.
+   Second the food: 12210 Roast Raptor, +8 Stamina and +8 Spirit.
+   Third  8951 Elixir of Greater Defense, then 6048 Shadow Protection.
+   Fourth 3385 Lesser Mana Potions and 5634 Free Action Potions, a stack of
+          each. This is the whole mana plan of a 29 priest.
+   Fifth  2290 Scroll of Intellect II and 1711 Scroll of Stamina II.
+   Last   the enchants: 13642 bracers, 13640 chest, 13746 cloak, 13890
+          boots. The boots first among those four if gold is short.
+
+6. WHAT THIS FILE DOES NOT HAVE
+   A caster glove enchant inside 225 (none exists that was read).
+   A caster weapon enchant inside 225 (oils instead).
+   A leg enchant (an armour kit instead).
+   A neck or ring enchant a 29 can apply (enchanter-only, ALT).
+   An Intellect battle elixir (none found in the window).
+   A verified BfA priest race list (the wiki page is current-expansion).
+   Those six gaps are the honest shape of the class at 29: everything that
+   would make a caster strong is one expansion's worth of skill above him,
+   and what he has instead is Spirit, armour and mana potions.

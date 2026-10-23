@@ -290,3 +290,22 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   use, Blacksmithing's permanent counterweight, shield spike and stones, and
   the eight races that can be paladins at all.
   Deliverable: `Twink29_Paladin_3_Enchants_Consumables_Races.txt`.
+
+## Twink29/Priest-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 priest in 8.3.7, rare or
+  bind-on-account, item level 35 or less, required level 26-29. Cloth is the
+  best served armour type in the bracket - 19 rare rows, legs and back
+  included - and the pile is decided by the Spirit set: 19573/19569 staff,
+  19525/19521 Warsong Gulch ring, 19533/19529 cloak, 65914 hood, 7711 robe.
+  Deliverable: `Twink29_Priest_1_Items.txt`.
+- `2_Talents.txt`: one normal talent (level 15 row) and one PvP talent (level
+  20 slot) per spec, with the level traps that catch current guides - Psyfiend
+  was level 40 in BfA and Dome of Light level 70, and both only dropped to
+  20/44 in 9.0.1. Trinity is the only verified PvP pick.
+  Deliverable: `Twink29_Priest_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: the enchant list a priest can use, the
+  caster bracer enchant the Enchanting file left unchecked (13642, +5 Spirit),
+  the wizard and mana oils that stand in for a missing caster weapon enchant,
+  and the races and their crowd-control breaks.
+  Deliverable: `Twink29_Priest_3_Enchants_Consumables_Races.txt`.
