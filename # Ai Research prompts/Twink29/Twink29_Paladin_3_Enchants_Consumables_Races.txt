@@ -8,11 +8,13 @@ V = read off a page or an audited file in this set.
    class in this set that can use nearly all of it - the Strength bracers,
    the weapon enchant, the boots, the chest and the armour cloak. The one
    slot it wastes is the gloves.
-   THERE IS NO STRENGTH ELIXIR AT 29. Elixir of Giants 9206 is +25 Strength
-   and requires level 38 (V, from the audited Alchemy file), so the battle
+   NO STRENGTH ELIXIR WAS FOUND AT 29. Elixir of Giants 9206 is +25
+   Strength and requires level 38 (V, from the audited Alchemy file), and
+   that survey turned up no other Strength elixir at all, so the battle
    elixir slot is the one slot a paladin cannot fill with its own stat.
    Elixir of Agility 8949 is legal and wrong. This is the opposite of the
-   monk, who had the agility elixir and no plate.
+   monk, who had the agility elixir and no plate. If a low-level Strength
+   elixir exists that the survey missed, the file would want it.
    A paladin has mana in all three specs, not just Holy - Protection and
    Retribution spend it on Flash of Light - so a mana potion is not a
    Holy-only item for this class, unlike the monk.
@@ -97,7 +99,8 @@ OFF|a shield. NO SHIELD ENCHANT WAS VERIFIED in this set: the classic book
 
 3. CONSUMABLES
    ELIXIRS - one battle, one guardian, one hour each.
-     BATTLE: nothing. Elixir of Giants 9206 is +25 Strength at level 38 (V).
+     BATTLE: nothing found. Elixir of Giants 9206 is +25 Strength at level
+       38 (V) and is the only Strength elixir in the audited Alchemy survey.
        The nearest legal battle elixirs are 8949 Agility (+15, level 27) and
        6373 Firepower (+10 fire, level 18), both the wrong stat. A paladin
        that wants a battle elixir has to drink the wrong one.
@@ -157,8 +160,8 @@ OFF|a shield. NO SHIELD ENCHANT WAS VERIFIED in this set: the classic book
      ENGINEERING instead of Leatherworking, for a bot that fights players:
        4390 Iron Grenade (stun), 4388 Discombobulator Ray, 4397 Cloaking
        Device, 4381 Minor Recombobulator to break a polymorph on yourself.
-       A paladin has no ranged interrupt, so a grenade is worth more to it
-       than to a monk.
+       A paladin's only interrupt, Rebuke, is melee range, so a thrown stun
+       covers a gap the class has.
      ALCHEMY for a Holy paladin that wants to make its own mana potions and
        elixirs. Every consumable in section 3 can be bought, so this only
        saves money.
@@ -179,9 +182,9 @@ OFF|a shield. NO SHIELD ENCHANT WAS VERIFIED in this set: the classic book
      screen and is UNVERIFIED.
    THE PICKS, best first, with the racial that earns the slot:
    HUMAN      59752 Will to Survive - a crowd-control break on its own
-              cooldown, separate from the PvP trinket and from Blessing of
-              Sanctuary. Three breaks is the best defensive racial in the
-              bracket. 20598 The Human Spirit.
+              cooldown, separate from the PvP trinket. That is two breaks on
+              any human paladin, and three on a Retribution one that also
+              takes Blessing of Sanctuary. 20598 The Human Spirit.
    TAUREN     20549 War Stomp - an area stun on no cast time, which a
               Protection paladin uses to hold a group and a Retribution one
               uses to land a two-hander. 20550 Endurance for base health.

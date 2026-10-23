@@ -273,3 +273,20 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `3_Enchants_Consumables_Races.txt`: enchants including neck and ring, and
   the version of the classic enchant list that mostly fits a monk.
   Deliverable: `Twink29_Monk_3_Enchants_Consumables_Races.txt`.
+
+## Twink29/Paladin-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 paladin in 8.3.7, rare or
+  bind-on-account, item level 35 or less, required level 26-29. There is no
+  rare plate in the bracket at all - the four plate heirlooms are the only
+  plate a 29 can wear - so the set is mail, leather and the Paladin-locked
+  Arathi Basin lamellar pieces.
+  Deliverable: `Twink29_Paladin_1_Items.txt`.
+- `2_Talents.txt`: one normal talent (level 15 row) and one PvP talent (level
+  20 slot) per spec, with the level-40 Grapple-style traps - Cleanse the Weak
+  at 60, Denounce removed since 7.0.3.
+  Deliverable: `Twink29_Paladin_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: the enchant list a paladin can actually
+  use, Blacksmithing's permanent counterweight, shield spike and stones, and
+  the eight races that can be paladins at all.
+  Deliverable: `Twink29_Paladin_3_Enchants_Consumables_Races.txt`.
