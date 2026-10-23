@@ -8,7 +8,7 @@ Every coordinate below was read from a listed source. Nothing is estimated; anyt
 
 Direction convention: on the in-game Arathi Basin map, +y runs toward the top (north) edge and +x runs toward the left (west) edge. This was derived by anchoring source coordinates to the in-game map image (the Alliance start sits under the "Trollbane Hall" label in the top-left corner, the Horde start under "Defiler's Den" in the bottom-right) and cross-checked against warcraft.wiki "Arathi Basin strategy": "Alliance players will appear ... located in the northwest of the Basin. Horde players will appear in the southeast".
 
-Facing values from world_safe_locs are reproduced exactly as stored in the dump; the column's unit/format is not verified (values look like degrees, but the battleground_template orientation for the Horde start does not match that reading - see section 2).
+Facing values from world_safe_locs are reproduced exactly as stored in the dump; the column's unit/format is not verified (values behave like degrees - battleground_template stores 3.91571 rad / 0.813671 rad for the two starts, i.e. 224.4 / 46.6 degrees against the 220.05 / 46.1249 facing values - but no readable source documents the column format).
 
 === 1. MAP IDS ===
 
@@ -30,7 +30,7 @@ Horde,    map 529:  id 889  "Arathi Basin - Horde Entrance"                 (529
 Alliance, map 2107: id 7056 "Arathi Basin (Uprez) - Alliance Entrance"      (2107, 1315.21, 1305.74, -11.697)  facing 219.275
 Horde,    map 2107: id 7055 "Arathi Basin (Uprez) - Horde Entrance"         (2107, 684.014, 681.22, -12.9159)  facing 46.1249   (identical values to the 529 Horde row)
 
-Which ids your server's battleground_template uses is unverified. Retail-lineage precedent: AzerothCore's battleground_template row for Arathi Basin stores AllianceStartLoc = 890 with AllianceStartO = 3.91571 and HordeStartLoc = 889 with HordeStartO = 0.151581 (orientation in radians; retail 3.3.5 data), and a Legion (7.3.5) source comments that battleground_template still points both AB modes at WorldSafeLocs 889/890.
+Which ids your server's battleground_template uses is unverified. Retail-lineage precedent: AzerothCore's battleground_template row for Arathi Basin stores AllianceStartLoc = 890 with AllianceStartO = 3.91571 and HordeStartLoc = 889 with HordeStartO = 0.813671 (orientation in radians; retail 3.3.5 data), and a Legion (7.3.5) source comments that battleground_template still points both AB modes at WorldSafeLocs 889/890.
 
 Alternate start values (second source, conflicting): Titans-Project/LegionCore-Reforged hotfix SQL "arathi_start_positions" replaces 889/890 on map 529 with 889 (529, 695.3, 691.9, -11.6, LocO 0.87) and 890 (529, 1301.8, 1301.6, -7.7, LocO 3.92), marked VerifiedBuild 26972 (a patch 7.3.5 retail hotfix reproduction). Which of the two variants your world_safe_locs table serves is unverified.
 
@@ -171,7 +171,7 @@ Retail 8.3.7 parity of AB buffs is unverified: warcraft.wiki's Arathi Basin arti
 === 8. EXPLICIT UNVERIFIED LIST ===
 
 1. Which map id (529 or 2107) your server's battleground_template queues for AB, and thus which world_safe_locs entrance rows (890/889 vs 7056/7055) players actually spawn on - server DB not in the repository.
-2. Whether your world_safe_locs serves the base 889/890 coordinates or the VerifiedBuild 26972 moved values (695.3, 691.9, -11.6 / 1301.8, 1301.6, -7.7); which battleground_template orientation is applied (3.91571 / 0.151581 rad comes from retail 3.3.5 data only).
+2. Whether your world_safe_locs serves the base 889/890 coordinates or the VerifiedBuild 26972 moved values (695.3, 691.9, -11.6 / 1301.8, 1301.6, -7.7); which battleground_template orientation is applied (3.91571 / 0.813671 rad comes from retail 3.3.5 data only).
 3. Facing column unit/format of world_safe_locs (values reproduced as stored; degrees suggested but not confirmed).
 4. Exploit/AFK teleport rows for map 2107 (only 529 rows 3705/3706/3981/3982 exist in the dump).
 5. Whether your DB repointed the script's hardcoded base-graveyard ids 898/899 (and exploit ids 3705/3706) to 2107 rows; on a 2107 instance with unrepointed ids, rule 2 of section 5 would target map 529 coordinates.
