@@ -1,0 +1,291 @@
+=== THE TIGER'S PEAK - MAP 1134 - COMPLETED ===
+
+8.3.7 build 35662.
+
+Arena map ID: 1134
+  Map.dbc directory: ShadoPanArena
+  InstanceType: 4 (arena)
+  Client instance list: 1134 "The Tiger's Peak"
+  AreaTable zone: 6732
+  ExpansionID field in the map row: 4
+  WDT FileDataID: 848418
+  No legacy duplicate: the 8.3.7 map dump has a single
+  ShadoPanArena entry, so unlike Nagrand (1505 vs 559) and
+  Blade's Edge (1672 vs 562) there is no older map to reconcile
+
+Battleground entry: 757 "The Tiger's Peak"
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 90, MaxLvl 120
+  AllianceStartLoc 4534, HordeStartLoc 4535, StartMaxDist 0
+  Weight 1
+
+Location: Shado-Pan Monastery, atop Kun-Lai Summit
+Added: patch 5.3.0 (2013-05-21). Seventh arena map
+Retail pool status: removed from the arena map pool on
+  2019-03-20 "until select bugs can be fixed in an upcoming
+  patch". It is back in the rotation by Dragonflight season 1
+  (December 2022). Whether it was back in the pool during 8.3.7
+  is unverified. On this server the template row above puts it in
+  the rotation regardless.
+
+=== 1. START POSITIONS (world_safe_locs, map 1134) ===
+
+Team 1 / Alliance (WorldSafeLoc 4534 = AllianceStartLoc):
+  X: 491.476
+  Y: 633.332
+  Z: 380.707
+  Facing: 0.00848389 deg = 0.000148 rad
+  Comment: "Arena - Shado-Pan - Teleport Target - Team 1"
+
+Team 2 / Horde (WorldSafeLoc 4535 = HordeStartLoc):
+  X: 642.367
+  Y: 633.406
+  Z: 380.705
+  Facing: 180.283 deg = 3.14653 rad
+  Comment: "Arena - Shado-Pan - Teleport Target - Team 2"
+
+Game On target (WorldSafeLoc 4536):
+  X: 565.578
+  Y: 631.54
+  Z: 380.704
+  Facing: 0.00848389 deg
+  Comment: "Arena - Shado-Pan - Teleport Target - Game On"
+
+No arena graveyard row exists on map 1134 in this dump. The map
+has exactly three targets: the two starts and Game On. Where the
+dead respawn is unverified; the core resolves graveyards from
+game_graveyard_zone, which is not part of this dump.
+
+Derived from those points (arithmetic on verified values):
+  Distance start to start: 150.89 units
+  Arena centre: about 566.921, 633.369
+  Each start is 75.45 units from that centre, dead even
+  Start axis is X: 150.89 apart on X, only 0.07 apart on Y
+  The two facings point down that axis at each other
+  180.283 deg is 180 deg plus 0.283, not exactly opposite 0
+  Game On target is 2.27 units from the centre
+
+=== 2. GATES ===
+
+Both doors use the same game object entry, 212921.
+
+Team 1 gate:
+  X: 501.932
+  Y: 633.429
+  Z: 380.708
+  Orientation: 0.0262353 rad
+  Quaternion: 0, 0, 0, 0
+  Team 1 start stands 10.46 units behind it
+
+Team 2 gate:
+  X: 632.101
+  Y: 633.791
+  Z: 380.704
+  Orientation: 3.20989 rad
+  Quaternion: 0, 0, 0, 0
+  Team 2 start stands 10.27 units behind it
+
+Distance between the two gates: 130.17 units
+Both gates open at match start. Each gate sits level with its
+spawn, within 0.001 units, so there is no drop on entry.
+The quaternion handed to AddObject is 0, 0, 0, 0 for both doors,
+which is not a unit quaternion; orientation comes from the field
+before it. Other arena zones in the same core pass real
+quaternions: Tol'viron team 2 uses 0, 0, 0, 1 and Ruins of
+Lordaeron uses -0.6658813, 0.7460576. So the all-zero pair is
+specific to this zone file, not a core-wide convention.
+Area triggers 4536 and 4537 are handled as no-ops on this map.
+Caution: trigger 4536 carries the same number as the Game On
+world safe location 4536. They are different tables.
+
+=== 3. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+Two tiger statues and two raised platforms. Both wiki and press
+agree on the count and on where they sit:
+
+  "The map features two statues that function as pillars, as
+   well as two raised platforms that can be reached by a set of
+   stairs on the outer side of each platform."   (Liquipedia)
+
+  "an open circle, with two smaller half circles that will allow
+   some LoS on each side ... two raised platforms on the left and
+   right side of the arena that can only be climbed via a set of
+   stairs on the side facing the wall ... a fence around the side
+   of the platform facing the center ... too high to jump from
+   the arena to the platform ... the fence does not block line of
+   sight"   (MMO-Champion preview, 2013-05-11)
+
+  "two tiger statues, facing each other ... the run from the
+   door to the tiger statue is very short ... at the other two
+   corners of the map, are two raised platforms"   (Engadget
+   patch 5.3 PTR preview)
+
+Reading that against the server coordinates:
+  The two gates sit at opposite ends of the X axis, so the two
+  statues stand near those gates, close to each start.
+  The two platforms therefore sit on the Y axis, at the other
+  two corners, and that is where the two Shadow Sight orbs are
+  placed (section 6).
+
+  Statues: narrow but deep front to back, so they block LoS
+  along their depth. They are good cover on the opening run and
+  they are close enough to the spawn doors that both teams reach
+  their own statue at the same time.
+  Platforms: circular, fenced on the arena side, stairs on the
+  outer side against the wall. The fence stops knockbacks toward
+  the arena but does not block casting, so the platform is a
+  one-way LoS advantage: you can cast down into the centre and
+  cannot be walked up to except by the outer stairs.
+
+Statue positions: unverified (no readable source with x, y, z)
+Platform centres: unverified (the orbs sit on them; see below)
+Statue count: 2. Platform count: 2. Both verified by two sources
+No other pillar, crate or wall object is spawned in server data:
+the map spawns exactly four objects, two gates and two orbs.
+
+=== 4. HEIGHT LEVELS AND RAMPS ===
+
+Two levels.
+
+  Floor (gates and both starts): 380.704 to 380.708
+  Platforms (orb Z):            383.6809 to 383.6813
+
+Orb Z sits 2.97 units above the floor: 2.9733 above gate 1's
+380.708 and 2.9769 above gate 2's 380.704. The raised platforms
+are the only higher ground on the map, so this is consistent with
+both orbs standing on the two platforms. Treat it as the step
+height that falls out of the orb data, not as a measured platform
+height; the platform floor height itself is unverified.
+
+Access:
+  Up: stairs on the outer side of each platform, against the
+    wall. There is no way up from the arena side.
+  Down: jump the arena-side fence. The fence is too high to jump
+    from the floor onto the platform but easy to drop over.
+  A Demon Hunter can double jump up over the fence.
+
+The map has no bridge and no second floor: the two platforms are
+the only elevation. One recent guide describes an open pit, but
+no source with coordinates shows one and the server spawns
+nothing there, so treat that description as unsupported.
+
+=== 5. USUAL FIRST POSITIONS BY ROLE ===
+
+The opening run is 75.45 units to the centre for both teams, but
+each team's own tiger statue is only a short run from its gate,
+so the statue is the first contact point, not the centre.
+
+Melee DPS:
+  Take your own statue, not the centre. The run from the door to
+  the statue is very short and the statue's depth gives real LoS
+  cover, which the centre does not
+  Expect to be pulled toward the enemy platform all game: the
+  stairs are on the wall side, so a caster up top forces you to
+  run the long way around
+
+Ranged DPS:
+  Climb the platform early. The fence does not block LoS, so you
+  can cast on the centre and on the far statue from up there,
+  and nothing can walk up to you except by the outer stairs
+  Rotate between the platform edge and the statue rather than
+  standing in the open centre
+
+Healers:
+  The platform is the safest ground on the map: the fence blocks
+  knockbacks toward the arena, and melee must take the stairs
+  to reach you
+  Keep your partner in range of the platform edge, because the
+  centre is a long cast from up there on a 150.89-unit map
+
+General opener notes:
+  Both teams spawn 75.45 from the centre, so the centre is a
+  coin flip; the statues near each gate are the reliable choice
+  Both Shadow Sight orbs sit on the two platforms, so a stealth
+  comp that wants orbs has to climb the stairs first
+
+=== 6. BUFF PICKUPS ===
+
+Only Shadow Sight exists on this map.
+
+Shadow Sight A (GO 184663):
+  X: 566.6805
+  Y: 602.2274
+  Z: 383.6813
+  Orientation: 3.316144 rad
+  About 31.14 units from the arena centre
+
+Shadow Sight B (GO 184664):
+  X: 566.6563
+  Y: 664.566
+  Z: 383.6809
+  Orientation: 2.460913 rad
+  About 31.20 units from the arena centre
+
+The two orbs are 62.34 units apart, both on the Y axis, and only
+0.024 units apart on X. Both sit about 2.97 above the arena
+floor, which is the platform level described above.
+
+Spawn: 60 s after the gates open (core spawn call)
+Respawn after pickup: 120 s (object spawn parameter)
+Spell: 34709 Shadow Sight - 15 s, stealth and invisibility
+  detection, +5% damage taken while active
+The wiki quotes 90 s as the arena appearance time, the BfA core
+spawns them at 60 s; the exact retail 8.3.7 delay is unverified
+
+No health, mana, haste or berserking pickups are spawned here.
+The core spawns exactly four objects on this map - two gates and
+two orbs - so any other pickup would have to be placed by the
+map itself, and none is.
+
+=== 7. MATCH FLOW NOTES ===
+
+Gates close before the start and open together.
+Worldstate 0xE1A is set to 1 on this map.
+Dampening applies like every other arena.
+Arena Preparation is applied on zone-in.
+No out-of-bounds or under-map return points are wired in the BfA
+core for this map: the core handles only triggers 4536 and 4537
+and sends everything else to the default handler.
+Known retail defects behind the 2019 removal, as reported by
+players: blinking into the stair geometry and getting under the
+platform, being feared through the statue pillars, and LoS
+casting through the platform walls. Not verified against the
+server source; listed because they explain the removal.
+
+=== 8. SOURCES AND CONFIDENCE ===
+
+Sources:
+- world_safe_locs (TrinityCore 8.x dump): ids 4534, 4535, 4536
+  on map 1134
+- battleground_template: id 757 "The Tiger's Peak",
+  AllianceStartLoc 4534, HordeStartLoc 4535, StartMaxDist 0,
+  max 5 per team, level 90-120
+- HavenWoW/BFA-HavenCore BattlegroundTTP.cpp and .h: door entry
+  212921, buffs 184663/184664, coordinates, worldstate, triggers
+- Ghostopheles/Datamine Map_ShadoPanArena.lua: map 1134,
+  directory ShadoPanArena, InstanceType 4, ExpansionID 4,
+  WDT 848418
+- Warcraft Wiki "Tiger's Peak": Shado-Pan Monastery, Kun-Lai,
+  patch 5.3.0, seventh arena, zone 6732, 2019-03-20 removal
+- Liquipedia "The Tiger's Peak": two statues as pillars, two
+  raised platforms, stairs on the outer side
+- MMO-Champion preview 2013-05-11: open circle with two half
+  circles, stairs on the wall side, fence does not block LoS,
+  too high to jump up
+- Engadget patch 5.3 PTR preview: statues facing each other,
+  short run from the door, platforms at the other two corners
+- Ministry of Defense arena guide (2020-01-10): two pillars
+  close to spawn, two raised platforms to the side, stairs on the
+  far side, demon hunters can double jump over
+- Blizzard forum thread "Tiger's Peak Temporarily Closing"
+  (2019-03-20) and its replies: the removal notice and the player
+  bug reports listed in section 7
+- Wowhead zone 6732; Warcraft Wiki "Shadow Sight"
+
+Unverified:
+- Statue positions, size and height
+- Platform centres, radius and exact floor height
+- Arena boundary and wall shape
+- Graveyard location (no row on map 1134 in the 8.x dump)
+- What area triggers 4536 and 4537 do
+- Whether the map was back in the retail arena pool by 8.3.7
+- Exact retail 8.3.7 Shadow Sight spawn delay
