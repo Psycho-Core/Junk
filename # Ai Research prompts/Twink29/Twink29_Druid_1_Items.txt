@@ -19,6 +19,10 @@ HOW TO READ THIS
    are the cheap filler in almost every slot, and the suffix decides the
    spec. Re-read the level 29 row in the client; the pattern is stable
    even where the numbers are not.
+   Boots: the Arathi Basin leather boots come in one version per level
+   bracket. 20052 Highlander's Leather Boots and 20186 Defiler's Leather
+   Boots are the level 58 versions and a 29 cannot wear either (V). The
+   29-bracket ids are unverified - check the supply officer in Arathi.
    Heirlooms scale with the character, so they never go stale. At level 29
    Stained Shadowcraft Spaulders 42952 read: 82 armour, +7 Stamina, +6 hit
    rating, +20 attack power, item level shown as 1 (V).
@@ -34,10 +38,10 @@ SHOULDER|Cutthroat's Mantle (of the Owl)|15140|34|29|world drop|RNG V
 SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom|ALT V
 BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
 BACK|cloak, of Intellect|-|unv.|29|drop|SOLO
-CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+CHEST|Raptor Hunter Tunic|4119|43|none|quest 197, STV|SOLO V
 CHEST|Preened Ironfeather Breastplate|48677|scales|1|heirloom|ALT
 CHEST|leather green, of the Owl|-|unv.|29|drop|SOLO
-WRIST|Emissary Cuffs (of the Owl)|9455|unv.|unv.|Gnomeregan|RNG
+WRIST|Emissary Cuffs (of the Owl)|9455|33|28|Gnomeregan|RNG V
 WRIST|leather green, of Intellect|-|unv.|29|drop|SOLO
 HANDS|Chimeric Gloves|15074|unv.|unv.|Leatherworking|ALT
 HANDS|leather green, of the Owl|-|unv.|29|drop|SOLO
@@ -45,8 +49,8 @@ WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
 WAIST|leather green, of Intellect|-|unv.|29|drop|SOLO
 LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
 LEGS|leather green, of the Owl|-|unv.|29|drop|SOLO
-FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
-FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+FEET|Highlander's Leather Boots (A)|unv.|unv.|unv.|AB, 29 ver.|ALT
+FEET|Defiler's Leather Boots (H)|unv.|unv.|unv.|AB, 29 ver.|ALT
 FEET|leather green, of Intellect|-|unv.|29|drop|SOLO
 RING 1|ring, of Intellect/Stamina|-|unv.|29|drop|SOLO
 RING 2|ring, of Intellect/Spirit|-|unv.|29|drop|SOLO
@@ -68,16 +72,16 @@ NECK|green necklace, of Agility/Stamina|-|unv.|29|drop|SOLO
 SHOULDER|Cutthroat's Mantle (of the Tiger)|15140|34|29|world drop|RNG V
 SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom|ALT V
 BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
-CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+CHEST|Raptor Hunter Tunic|4119|43|none|quest 197, STV|SOLO V
 CHEST|leather green, of the Tiger|-|unv.|29|drop|SOLO
-WRIST|Emissary Cuffs (of the Monkey)|9455|unv.|unv.|Gnomeregan|RNG
+WRIST|Emissary Cuffs (of the Monkey)|9455|33|28|Gnomeregan|RNG V
 HANDS|Razzeric's Racing Grips|6727|unv.|unv.|quest (guide's step)|SOLO
 HANDS|leather green, of the Monkey|-|unv.|29|drop|SOLO
 WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
 LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
 LEGS|leather green, of Agility|-|unv.|29|drop|SOLO
-FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
-FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+FEET|Highlander's Leather Boots (A)|unv.|unv.|unv.|AB, 29 ver.|ALT
+FEET|Defiler's Leather Boots (H)|unv.|unv.|unv.|AB, 29 ver.|ALT
 RING 1|Thunderbrow Ring|13097|29|24|world drop|RNG V
          Unique. +8 Strength, +3 Agility - the best stat ring for feral.
 RING 2|ring, of Agility/Stamina|-|unv.|29|drop|SOLO
@@ -101,14 +105,14 @@ NECK|River Pride Choker|13087|33|28|world drop|RNG V
 SHOULDER|Cutthroat's Mantle (of the Bear)|15140|34|29|world drop|RNG V
 SHOULDER|Bloodsoaked Pauldrons|19878|unv.|unv.|world drop|RNG
 BACK|Tigerstrike Mantle|13108|unv.|unv.|world drop|RNG
-CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
+CHEST|Raptor Hunter Tunic|4119|43|none|quest 197, STV|SOLO V
 CHEST|leather green, of the Bear|-|unv.|29|drop|SOLO
-WRIST|Emissary Cuffs (of Stamina)|9455|unv.|unv.|Gnomeregan|RNG
+WRIST|Emissary Cuffs (of Stamina)|9455|33|28|Gnomeregan|RNG V
 HANDS|Stonebark Gauntlets|18344|unv.|unv.|world drop|RNG
 WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
 LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
-FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
-FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+FEET|Highlander's Leather Boots (A)|unv.|unv.|unv.|AB, 29 ver.|ALT
+FEET|Defiler's Leather Boots (H)|unv.|unv.|unv.|AB, 29 ver.|ALT
 RING 1|Thunderbrow Ring|13097|29|24|world drop|RNG V
 RING 2|ring, of Stamina|-|unv.|29|drop|SOLO
 TRINKET|Arena Grand Master|19024|unv.|none|STV Arena, q7838|SOLO
@@ -125,13 +129,13 @@ NECK|green necklace, of Intellect/Spirit|-|unv.|29|drop|SOLO
 SHOULDER|Cutthroat's Mantle (of the Owl)|15140|34|29|world drop|RNG V
 SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom|ALT V
 BACK|cloak, of Intellect/Spirit|-|unv.|29|drop|SOLO
-CHEST|Raptor Hunter Tunic|4119|unv.|unv.|quest, STV|SOLO
-WRIST|Emissary Cuffs (of the Owl)|9455|unv.|unv.|Gnomeregan|RNG
+CHEST|Raptor Hunter Tunic|4119|43|none|quest 197, STV|SOLO V
+WRIST|Emissary Cuffs (of the Owl)|9455|33|28|Gnomeregan|RNG V
 HANDS|Chimeric Gloves|15074|unv.|unv.|Leatherworking|ALT
 WAIST|Moss Cinch|6911|unv.|unv.|Blackfathom Deeps|SOLO
 LEGS|Triprunner Dungarees|9624|unv.|unv.|quest, Gnomeregan|SOLO
-FEET|Highlander's Leather Boots (A)|20052|unv.|unv.|AB vendor|ALT
-FEET|Defiler's Leather Boots (H)|20186|unv.|unv.|AB vendor|ALT
+FEET|Highlander's Leather Boots (A)|unv.|unv.|unv.|AB, 29 ver.|ALT
+FEET|Defiler's Leather Boots (H)|unv.|unv.|unv.|AB, 29 ver.|ALT
 RING 1|ring, of Intellect/Spirit|-|unv.|29|drop|SOLO
 TRINKET|Arena Grand Master|19024|unv.|none|STV Arena, q7838|SOLO
 TRINKET|Insignia of the Alliance/Horde|unv.|unv.|unv.|honour vendor|SOLO
@@ -143,8 +147,9 @@ OFF|Furbolg Medicine Pouch|16768|unv.|unv.|Timbermaw honoured|ALT
 RANGED|none|-|-|-|-|-
 
 6. THE THREE THINGS THAT DECIDE A 29 DRUID SET
-   1. The weapon is a stat stick. Cat and bear damage does not scale with
-      weapon damage, so Crowd Pummeler 9449 is worn for +16 Strength and
+   1. The weapon is a stat stick. The usual explanation is that cat and
+      bear damage does not scale with weapon damage (not verified in the
+      8.3.7 tables), so Crowd Pummeler 9449 is worn for +16 Strength and
       its 30 second haste button, not for the 29.0 dps. Caster specs take
       a staff for Intellect instead.
    2. Three world drops carry every list: Pathfinder Hat 15339, Cutthroat's
@@ -153,3 +158,7 @@ RANGED|none|-|-|-|-|-
       why the second option in each slot is a random-enchant green.
    3. Heirlooms fill shoulders and chest without a farm, and the shoulder
       alone is 82 armour, +7 Stamina, +6 hit, +20 attack power at 29 (V).
+   2. Correction from the audit of this file: Raptor Hunter Tunic 4119
+      was the strongest chest all along - item level 43, +16 Stamina, and
+      no required level - and the two Arathi Basin boot ids the first
+      draft gave are the level 58 versions.
