@@ -118,7 +118,7 @@ Playfield extent (out-of-bounds return points, inside the walls):
   South: 1290.44, 744.96, 3.16
   North: 1292.6, 837.07, 3.161
   West:  1250.68, 790.86, 3.16
-  East:  1332.50, 790.9, 3.14
+  East:  1332.50, 790.9, 3.16
   Approximate size: 81.8 units on X by 92.1 units on Y
   Centre from those bounds: 1291.6, 791.0
   The waterfall sits at 1291.56, 790.837, i.e. dead centre

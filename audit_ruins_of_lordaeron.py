@@ -362,6 +362,45 @@ def derived_stage(text):
     return ok, lines
 
 
+def no_invented_coords(text, corpora):
+    """Every coordinate triple in the document must exist upstream.
+
+    This is the direct test of the project rule "no invented numbers":
+    a triple that appears in no source file, and is not inside a block the
+    document labels unverified, is an invention and fails the audit.
+    """
+    R = lambda v: round(float(v), 3)
+
+    def triples(corpus):
+        found = set()
+        for m in re.finditer(
+                r"(-?\d+\.\d+)f?, ?(-?\d+\.\d+)f?, ?(-?\d+\.\d+)",
+                corpus):
+            found.add(tuple(R(m.group(i)) for i in (1, 2, 3)))
+        return found
+
+    upstream = set()
+    for corpus in corpora.values():
+        upstream |= triples(corpus)
+
+    doc_triples = set()
+    for m in re.finditer(
+            r"(-?\d+\.\d+), ?(-?\d+\.\d+), ?(-?\d+\.\d+)", text):
+        doc_triples.add(tuple(R(m.group(i)) for i in (1, 2, 3)))
+
+    lines = []
+    ok = True
+    for t in sorted(doc_triples):
+        hit = t in upstream
+        if not hit:
+            ok = False
+        lines.append("    %-46s %s"
+                     % ("%g, %g, %g" % t, "in source" if hit else "NOT IN ANY SOURCE"))
+    lines.append("    %d/%d coordinate triples traced to a source file"
+                 % (len(doc_triples) - (0 if ok else 1), len(doc_triples)))
+    return ok, lines
+
+
 def run_checks(text):
     passed, failed = 0, []
     for name, fn in STATIC_CHECKS:
@@ -447,6 +486,22 @@ def main():
     if not ok:
         print("    DERIVED VALUES DO NOT MATCH")
         return 1
+
+    print("\n[5] No-invented-coordinates trace")
+    ok, lines = no_invented_coords(original, corpora)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    INVENTED COORDINATES FOUND")
+        return 1
+
+    fake = original.replace("1275.63, 1744.73, 31.6037",
+                            "1275.63, 1744.73, 31.7777")
+    ok, _ = no_invented_coords(fake, corpora)
+    if ok:
+        print("    trace did not react to an invented coordinate")
+        return 1
+    print("    trace reacts to an invented coordinate (verified)")
 
     probes = {
         "distance changed": original.replace("159.4 units", "169.4 units"),

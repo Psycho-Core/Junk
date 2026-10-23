@@ -5,7 +5,8 @@ import sys
 import os
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from audit_common import gh_content, source_stage, mutation_probe
+from audit_common import (gh_content, gh_gist, source_stage,
+                          mutation_probe, coord_trace)
 
 SQL_REPO = "TrinityCore/TrinityCore"
 SQL_PATH = ("sql/old/8.x/world/19071_2020_06_17/"
@@ -28,6 +29,15 @@ SOURCE_TOKENS = {
     ],
     "SharedDefines.h": [
         ("bg 844", "BATTLEGROUND_BEG            = 844"),
+    ],
+    "gist 4772221": [
+        ("se pillar pt 1", "6236.567836f, 258.049106f, 11.500018f"),
+        ("se pillar pt 2", "6235.567836f, 258.049106f, 11.500018f"),
+        ("se pillar pt 3", "6230.818836f, 252.049106f, 11.500018f"),
+        ("nw pillar pt 1", "6246.324219f, 271.570000f, 11.300000f"),
+        ("nw pillar pt 2", "6242.942484f, 267.210030f, 11.280000f"),
+        ("nw pillar pt 3", "6241.539484f, 265.441030f, 11.280000f"),
+        ("map gate", "GetMapId() == 562"),
     ],
     "BattlegroundBEG.cpp": [
         ("door 265571", "265571"),
@@ -113,7 +123,9 @@ STATIC_CHECKS = [
     ("legacy_939", lambda t: "WorldSafeLoc 939" in t and "6292.66" in t),
     ("legacy_940", lambda t: "WorldSafeLoc 940" in t and "6184.98" in t),
     ("legacy_971", lambda t: "WorldSafeLoc 971" in t and "6236.97" in t),
-    ("legacy_rope", lambda t: "6236.57, 258.05, 11.50" in t),
+    ("legacy_rope", lambda t: "6236.567836, 258.049106, 11.500018" in t),
+    ("legacy_rope2", lambda t: "6230.818836, 252.049106, 11.500018" in t),
+    ("legacy_rope3", lambda t: "6242.942484, 267.210030, 11.280000" in t),
     ("legacy_bridge_z", lambda t: "11.3-11.5" in t),
     ("legacy_warning", lambda t: "Do not use these numbers on map 1672" in t),
 
@@ -179,8 +191,8 @@ MUTATIONS = [
     ("legacy_939", lambda t: t.replace("6292.66", "6293.66")),
     ("legacy_940", lambda t: t.replace("6184.98", "6185.98")),
     ("legacy_971", lambda t: t.replace("6236.97", "6237.97")),
-    ("legacy_rope", lambda t: t.replace("6236.57, 258.05, 11.50",
-                                        "6236.57, 259.05, 11.50")),
+    ("legacy_rope", lambda t: t.replace("6230.818836, 252.049106, 11.500018",
+                                        "6230.818836, 253.049106, 11.500018")),
     ("legacy_bridge", lambda t: t.replace("11.3-11.5", "12.3-12.5")),
     ("legacy_warning_removed", lambda t: t.replace(
         "Do not use these numbers on map 1672", "Reference data")),
@@ -247,6 +259,7 @@ def main():
         "world_safe_locs (8.x)": gh_content(SQL_REPO, SQL_PATH),
         "BattlegroundBEG.cpp": gh_content(BEG_REPO, BEG_PATH),
         "SharedDefines.h": gh_content(SD_REPO, SD_PATH),
+        "gist 4772221": gh_gist("4772221", "gistfile1.diff"),
     }
     ok, lines = source_stage(corpora, SOURCE_TOKENS)
     for line in lines:
@@ -268,6 +281,20 @@ def main():
               % undetected)
         return 1
     print("    cross-check reacts to tampered source (verified)")
+
+    print("\n[4] No-invented-coordinates trace")
+    ok, lines, _ = coord_trace(original, corpora)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    INVENTED COORDINATES FOUND")
+        return 1
+    if coord_trace(original.replace("6236.567836, 258.049106, 11.500018",
+                                    "6237.567836, 258.049106, 11.500018"),
+                   corpora)[0]:
+        print("    trace did not react to an invented coordinate")
+        return 1
+    print("    trace reacts to an invented coordinate (verified)")
 
     print("\n" + "=" * 62)
     print("AUDIT RESULT: PASS")

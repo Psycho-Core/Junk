@@ -5,7 +5,8 @@ import sys
 import os
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from audit_common import gh_content, source_stage, mutation_probe
+from audit_common import (gh_content, source_stage,
+                          mutation_probe, coord_trace)
 
 SQL_REPO = "TrinityCore/TrinityCore"
 SQL_PATH = ("sql/old/8.x/world/19071_2020_06_17/"
@@ -15,6 +16,9 @@ DS_PATH = ("src/server/game/Battlegrounds/Zones/"
            "BattlegroundDS.cpp")
 DS_H_PATH = ("src/server/game/Battlegrounds/Zones/"
              "BattlegroundDS.h")
+AC_REPO = "azerothcore/azerothcore-wotlk"
+AC_PATH = ("src/server/game/Battlegrounds/Zones/"
+           "BattlegroundDS.cpp")
 
 SOURCE_TOKENS = {
     "world_safe_locs (8.x)": [
@@ -105,7 +109,7 @@ STATIC_CHECKS = [
     ("bound_south", lambda t: "1290.44, 744.96" in t),
     ("bound_north", lambda t: "1292.6, 837.07" in t),
     ("bound_west", lambda t: "1250.68, 790.86" in t),
-    ("bound_east", lambda t: "1332.50, 790.9" in t),
+    ("bound_east", lambda t: "1332.50, 790.9, 3.16" in t),
     ("size_x", lambda t: "81.8" in t),
     ("size_y", lambda t: "92.1" in t),
 
@@ -262,6 +266,20 @@ def main():
               % undetected)
         return 1
     print("    cross-check reacts to tampered source (verified)")
+
+    print("\n[4] No-invented-coordinates trace")
+    corpora["BattlegroundDS.cpp (3.3.5)"] = gh_content(AC_REPO, AC_PATH)
+    ok, lines, _ = coord_trace(original, corpora)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    INVENTED COORDINATES FOUND")
+        return 1
+    if coord_trace(original.replace("1332.50, 790.9, 3.16",
+                                    "1337.50, 790.9, 3.16"), corpora)[0]:
+        print("    trace did not react to an invented coordinate")
+        return 1
+    print("    trace reacts to an invented coordinate (verified)")
 
     print("\n" + "=" * 62)
     print("AUDIT RESULT: PASS")

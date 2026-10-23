@@ -7,7 +7,8 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from audit_common import gh_content, source_stage, mutation_probe
+from audit_common import (gh_content, source_stage,
+                          mutation_probe, coord_trace)
 
 DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Arenas_complete/"
                "Arena_Nagrand_Arena_COMPLETED.txt")
@@ -428,6 +429,19 @@ def main():
         print("    derived stage did not react: %s" % survived)
         return 1
     print("    derived stage reacts to wrong values (verified)")
+
+    print("\n[5] No-invented-coordinates trace")
+    ok, lines, _ = coord_trace(original, corpora)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    INVENTED COORDINATES FOUND")
+        return 1
+    if coord_trace(original.replace("4031.854, 2966.833, 12.0462",
+                                    "4037.854, 2966.833, 12.0462"), corpora)[0]:
+        print("    trace did not react to an invented coordinate")
+        return 1
+    print("    trace reacts to an invented coordinate (verified)")
 
     print("\n" + "=" * 62)
     print("AUDIT RESULT: PASS")

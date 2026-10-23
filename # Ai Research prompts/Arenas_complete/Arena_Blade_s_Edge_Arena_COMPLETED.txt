@@ -190,9 +190,19 @@ Graveyard (WorldSafeLoc 971): 6236.97, 262.649, 2.73055,
 Note: the 8.3.7 battleground_template has no orientation column;
   spawn facing comes from these world_safe_locs rows (DegToRad)
 Battleground entry 5, start locs 939/940, max 5 per team
-Rope walkway path points recorded for map 562 in the mmaps
-  generator: 6236.57, 258.05, 11.50 / 6246.32, 271.57, 11.30 /
-  6242.94, 267.21, 11.28 / 6241.54, 265.44, 11.28
+Pillar approach waypoints for map 562, hard-coded in a
+  third-party PathGenerator patch (gist, not Blizzard data):
+    southeast pillar: 6236.567836, 258.049106, 11.500018
+                      6235.567836, 258.049106, 11.500018
+                      6230.818836, 252.049106, 11.500018
+    northwest pillar: 6246.324219, 271.570000, 11.300000
+                      6242.942484, 267.210030, 11.280000
+                      6241.539484, 265.441030, 11.280000
+  The patch triggers on map id 562 and on a Z of 9.0 or higher,
+  i.e. it exists because the pillar tops are reachable but the
+  normal mmaps path does not route onto them. That is evidence
+  the pillar decks are at Z ~11.3-11.5, not proof the rope
+  walkways are walkable on retail.
 Bridge deck on 562 about Z 11.3-11.5, ground about Z 5,
   difference about 6.5 units
 Do not use these numbers on map 1672.
@@ -222,7 +232,9 @@ Sources:
 - Ghostopheles/Datamine Map_bladesedgearena2b.lua:
   map 1672, directory bladesedgearena2b, InstanceType 4,
   ExpansionID 6
-- WorldSafeLocs.dbc / mmaps generator (map 562 rope walkways)
+- world_safe_locs 8.x dump: map 562 rows
+- Gist saqirmdev/4772221, gistfile1.diff: PathGenerator
+  patch with the map 562 pillar waypoints above
 - Warcraft Wiki "Blade's Edge Arena", Liquipedia "Blade's Edge
   Arena": bridge, pillars, ramps, pit
 - Wowhead spell 34709; Warcraft Wiki "Shadow Sight"
@@ -235,3 +247,5 @@ Unverified:
 - Shadow Sight respawn interval on map 1672
 - Exact retail 8.3.7 Shadow Sight spawn delay
 - Whether Arena Preparation is the exact aura name in 8.3.7
+- Whether the map 562 rope walkways are actually walkable
+  on retail; only a third-party path workaround was found
