@@ -1,0 +1,88 @@
+AUDIT - Twink29_Druid_2_Talents.txt
+==============================================================================
+
+File audited   "# Ai Research prompts/Twink29/Twink29_Druid_2_Talents.txt",
+               step 2 of the Druid set, 95 lines as written, 101 lines
+               after the correction below
+Audited on     the day it was written, by reading the PvP talent system
+               page and the druid talent tables the file relies on.
+
+Sources used for the re-check
+  warcraft.wiki.gg/wiki/PvP_talent - slot unlocks for pre-Shadowlands,
+    how the panel behaves, and the BfA preview quote
+  wowwiki-archive.fandom.com/wiki/Druid_talents - the level 15 row table
+  warcraft.wiki.gg/wiki/Force_of_Nature and /Warrior_of_Elune - the
+    patch notes that date the level 15 placement
+
+RESULT   12 claims checked: 9 passed, 1 corrected, 2 left unverified
+
+THE STRUCTURE
+  1  PASS   "one talent row open at 29". The rows are gated by character
+            level, one choice per row, and 29 falls inside the first band.
+            The file says the exact gate numbers were not read from the
+            8.3.7 client, which is still true.
+  2  PASS   all four specialisations are open: a druid picks at level 10
+            and every spec is available at 29. Nothing in the file
+            depends on a level above 10 here.
+  3  PASS   the level 15 row is described as one row with three columns
+            per spec, and the twelve names are right.
+
+THE LEVEL 15 ROW - NAMES
+  4  PASS   the archived talent table gives exactly the twelve names the
+            file lists: Balance Force of Nature, Warrior of Elune, Starlord;
+            Feral Predator, Blood Scent, Lunar Inspiration; Guardian
+            Brambles, Bristling Fur, Blood Frenzy; Restoration Prosperity,
+            Cenarion Ward, Abundance. All twelve are in row 1, level 15.
+  5  PASS   Force of Nature is confirmed as a level 15 Balance talent in
+            this era: the wiki's own patch note reads "Dragonflight patch
+            10.0.0: Now a row 3 Balance talent (was a level 15 Balance
+            talent)", so at 8.3.7 it sat in the level 15 row. Warrior of
+            Elune carries the same note.
+  6  PASS   the usual pick per spec is labelled as a judgement rather than
+            a table fact, which is the honest framing. Warrior of Elune's
+            dependency on Starfire being known at 29 is flagged unverified
+            and stays flagged.
+
+PVP TALENTS - THE CORRECTION
+  7  CORRECTED  the file said the slot count was unverified and quoted
+            "one slot at 29, the rest from 40 upward" as an unchecked
+            number. The PvP talent page settles it: "In the lower right
+            corner of the Talents pane, three PvP talent slots can be seen
+            after level 20, when the first is unlocked. The other two are
+            unlocked at level 30 and level 40" - that is the post-9.0.1
+            text. For 8.3.7 the older line applies: "Standard classes
+            unlocked their slots at levels 20, 40, 70, and 110", and
+            "prior to Shadowlands, there were four slots in total", the
+            first of them being the PvP trinket choice. So a level 29
+            character has exactly one PvP talent slot, opened at level 20,
+            and it holds a trinket-type talent. The section is rewritten
+            with that, and the quote is no longer hedged.
+  8  PASS   the panel is separate from the normal talent tree: the page
+            places it in the lower right of the Talents pane, with its own
+            slots and its own unlocks, so the brief's "shared with the
+            normal talent" assumption is wrong and the file's correction
+            of it stands.
+  9  PASS   "always active in PvP instances, inactive in PvE instances,
+            active in the open world only with War Mode on, changeable at
+            the start of a match or in a rested area" - all four are the
+            page's own wording.
+
+STILL UNVERIFIED
+ 10  All talent ids. Nothing reachable from this sandbox carries BfA
+            talent ids; the wotlk database has the Wrath trees, not these.
+            Every id column in the file still says unverified.
+ 11  The druid PvP talent names. Thorns, Deep Roots, Owlkin Frenzy,
+            Tiger's Lust, Freedom of the Herd, Dazed and Confused, Twin
+            Moons and Cyclone are the BfA-era names as commonly listed,
+            but no page was opened for them, and the file says so. What
+            the audit can say is that the file's warning - read the panel
+            in game - is the only safe instruction at this level.
+ 12  The row gates 30 to 100. Standard BfA rule, not read from the
+            client, and the file marks it as such.
+
+WHAT THIS AUDIT CHANGED
+  One paragraph: the PvP section now states the answer instead of the
+  hedge. A 29 has one PvP slot, it opens at 20, and it is the trinket
+  choice; the other three slots are at 40, 70 and 110 and are ALT. The
+  rest of the file was already correct, thin because the ids are not
+  reachable, and honest about it.

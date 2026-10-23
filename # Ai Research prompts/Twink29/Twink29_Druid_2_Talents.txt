@@ -69,13 +69,19 @@ Bracket: level 29 (20-29).
    specialisation tree takes one point at 15, 30 and so on, and the PvP
    panel has its own slots and its own unlocks. Taking a level 15 talent
    does not cost a PvP slot and does not block one.
-   How many slots a 29 has, and the level each opens at: unverified. The
-   number that is quoted for BfA is one slot at 29 with the rest opening
-   from 40 upward, but no page was found to confirm it, and this file
-   will not invent it.
-   What can be said without a page: the PvP panel only accepts talents
-   while the character is in PvP mode, so a bot's PvP talent has to be
-   part of the battleground build and is simply inactive outdoors.
+   How many slots a 29 has: one. warcraft.wiki.gg, PvP talent, on the
+   pre-Shadowlands system this build uses: "Standard classes unlocked
+   their slots at levels 20, 40, 70, and 110", and "prior to
+   Shadowlands, there were four slots in total", the first being a choice
+   of PvP trinket talents. So a 29 has the slot that opened at 20 - the
+   trinket - and nothing else. The other three are level 40, 70 and 110
+   and are ALT at this bracket.
+   Where it lives: the lower right corner of the Talents pane, not inside
+   the specialisation tree, which is why taking a level 15 talent neither
+   spends nor blocks a PvP slot.
+   When it applies: always on in battlegrounds and arenas, always off in
+   dungeons and raids, and in the open world only with War Mode on. It can
+   be changed at the start of a match or in a rested area.
    The Druid PvP talents that exist for these four specs (names and ids
    both unverified here): Thorns, Deep Roots, Owlkin Frenzy, Tiger's
    Lust, Freedom of the Herd, Dazed and Confused, Twin Moons, Cyclone.
@@ -88,7 +94,6 @@ Bracket: level 29 (20-29).
 6. WHAT THIS FILE DOES NOT COVER
    Talent ids: unverified, all of them. Spell ids for the abilities the
    talents modify: not read, and they belong to step 3.
-   The exact PvP slot count and its unlock levels: unverified.
    The row gates 30 to 100: standard BfA rule, not read from the 8.3.7
    client.
    Anyone building the bots should read the level 15 row and the PvP
