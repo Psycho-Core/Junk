@@ -18,24 +18,30 @@ staves 5 and on weapons 37. What follows is every row a mage can use.
    OFF HAND  no off-hand frill and no held-in-off-hand item came back in
           the window. A one-hand mage has an empty off-hand unless a
           verified item is found elsewhere.
-   BACK   no rare cloth back exists - back items are their own class. The
-          only verified back piece at this tier is 10518 Parachute Cloak,
-          which needs Engineering 225 to make: ALT.
+   BACK   no Back row appears in the rare cloth search at this tier, so
+          there is no blue cloak in the window. Whether cloaks are filed
+          under cloth in the database at all is unverified, so read this as
+          "none found", not as "none exists". 10518 Parachute Cloak is item
+          level 45: outside this file's item level rule and useless to a
+          caster anyway (+8 Agility). Do not wear it for the stats; it is an
+          engineering toy for a flag carrier, and the engineering file has
+          it.
    Everything else has at least one blue item, and most slots have two or
    three. Cloth is by far the best-served armour type at 29.
+   One exception to the item level rule is called out rather than listed:
+   10518 Parachute Cloak sits at item level 45 and is not in the table.
 
 1. CLOTH - THE SAME FOR ALL THREE SPECS
    A mage's three specs wear the same gear at this level. The stat line a
    spec wants differs, but the items available do not, so the list is
    given once and the spec notes come after.
 HEAD|Holy Shroud|2721|32|27|world drop|RNG V
-HEAD|Moonsoul Crown|20832|31|26|Jewelcrafting, spell 25321|ALT V
+HEAD|Moonsoul Crown|20832|31|26|Jewelcrafting, spell 25321, Outland|ALT V
 NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
 SHOULDER|Exquisite Sunderseer Mantle|44107|scales|1|heirloom, Wintergrasp|ALT V
 SHOULDER|Tattered Dreadmist Mantle|42985|scales|1|heirloom vendor|ALT V
 SHOULDER|Batwing Mantle|6697|32|27|Blind Hunter 4425, RFK|SOLO V
-BACK|Parachute Cloak|10518|45|none|Engineering 225, spell 12616|ALT V
-BACK|no rare cloth back in the window - a green cloak
+BACK|no rare cloth back in the window - a green cloak, of Intellect
 CHEST|Beguiler Robes|7728|34|29|Scarlet Monastery zone drop|RNG V
 CHEST|Death Speaker Robes|6682|31|26|Death Speaker Jargba 4428, RFK|SOLO V
 CHEST|Mechbuilder's Overalls|9508|31|26|world drop|RNG V
@@ -110,8 +116,8 @@ OFF|no verified off-hand item at this tier - unverified, not absent
    NECK      13087 River Pride Choker - the only verified neck, and its
              +4 Strength is wasted on a mage.
    SHOULDER  44107 or 42985 heirloom, then 6697 Batwing Mantle.
-   BACK      10518 Parachute Cloak if an engineer is available, else a
-             green cloak. No blue cloth back exists.
+   BACK      a green cloak. No blue back came back in the cloth search,
+             and 10518 Parachute Cloak is item level 45 - outside the rule.
    CHEST     7728 Beguiler Robes, or 48691 heirloom, or 6682 Death Speaker
              Robes for an easy one.
    WRIST     9448 Spidertank Oilrag, then 13106 Glowing Magical Bracelets.
