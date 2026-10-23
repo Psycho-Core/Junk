@@ -4,6 +4,39 @@
 import sys
 import os
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from audit_common import gh_content, source_stage, mutation_probe
+
+SQL_REPO = "TrinityCore/TrinityCore"
+SQL_PATH = ("sql/old/8.x/world/19071_2020_06_17/"
+            "2019_10_26_01_world.sql")
+DS_REPO = "HavenWoW/BFA-HavenCore"
+DS_PATH = ("src/server/game/Battlegrounds/Zones/"
+           "BattlegroundDS.cpp")
+DS_H_PATH = ("src/server/game/Battlegrounds/Zones/"
+             "BattlegroundDS.h")
+
+SOURCE_TOKENS = {
+    "world_safe_locs (8.x)": [
+        ("ws 1362", "(1362,617,1218.01,764.795,14.7297"),
+        ("ws 1363", "(1363,617,1361.76,817.337,14.8449"),
+        ("ws 1361", "(1361,617,1292.14,790.993,8.11463"),
+    ],
+    "BattlegroundDS.h": [
+        ("door 192642", "192642"),
+        ("door 192643", "192643"),
+    ],
+    "BattlegroundDS.cpp": [
+        ("door 1 pos", "1350.95f, 817.2f, 20.8096f, 3.15f"),
+        ("door 2 pos", "1232.65f, 764.913f, 20.0729f, 6.3f"),
+        ("water pos", "1291.56f, 790.837f, 7.1f"),
+        ("buff 1 pos", "1291.7f, 813.424f, 7.11472f"),
+        ("buff 2 pos", "1291.7f, 768.911f, 7.11472f"),
+        ("spout low", "1212.833f, 765.3871f, 16.09484f"),
+        ("spout high", "1369.977f, 817.2882f, 16.08718f"),
+    ],
+}
+
 DELIVERABLE = ("/home/user/Junk/# Ai Research prompts/Arenas_complete/"
                "Arena_Dalaran_Arena_COMPLETED.txt")
 
@@ -33,17 +66,18 @@ STATIC_CHECKS = [
     ("ws1362", lambda t: "WorldSafeLoc 1362" in t),
     ("ws1363", lambda t: "WorldSafeLoc 1363" in t),
     ("ws1361", lambda t: "WorldSafeLoc 1361" in t),
-    ("ally_x", lambda t: "1218.007" in t),
-    ("ally_y", lambda t: "764.7952" in t),
-    ("ally_z", lambda t: "14.72972" in t),
+    ("ally_x", lambda t: "X: 1218.01" in t),
+    ("ally_y", lambda t: "Y: 764.795" in t),
+    ("ally_z", lambda t: "Z: 14.7297" in t),
     ("horde_x", lambda t: "1361.76" in t),
-    ("horde_y", lambda t: "817.3368" in t),
-    ("horde_z", lambda t: "14.84489" in t),
-    ("orient_team1", lambda t: "Orientation: 0.0" in t),
-    ("orient_team2", lambda t: "Orientation: 3.14159" in t),
-    ("grave_x", lambda t: "1292.135" in t),
+    ("horde_y", lambda t: "Y: 817.337" in t),
+    ("horde_z", lambda t: "Z: 14.8449" in t),
+    ("facing_team1", lambda t: "10.001 deg = 0.1746 rad" in t),
+    ("facing_team2", lambda t: "190.001 deg = 3.3161 rad" in t),
+    ("grave_x", lambda t: "X: 1292.14" in t),
     ("grave_y", lambda t: "790.993" in t),
-    ("grave_z", lambda t: "8.114627" in t),
+    ("grave_z", lambda t: "Z: 8.11463" in t),
+    ("grave_facing", lambda t: "279.001 deg = 4.8695 rad" in t),
     ("grave_name", lambda t: "Dalaran Arena - PvP Graveyard" in t),
 
     ("door_low", lambda t: "192643" in t and "1232.65" in t and "20.0729" in t),
@@ -96,7 +130,7 @@ STATIC_CHECKS = [
     ("dampening", lambda t: "Dampening" in t),
     ("uninstanced_copy", lambda t: "map 571" in t),
 
-    ("src_dbc", lambda t: "WorldSafeLocs.dbc" in t),
+    ("src_dbc", lambda t: "world_safe_locs" in t),
     ("src_template", lambda t: "battleground_template" in t),
     ("src_core", lambda t: "BattlegroundDS" in t),
     ("src_wiki", lambda t: "Warcraft Wiki" in t),
@@ -109,13 +143,13 @@ MUTATIONS = [
     ("ws_1362_wrong", lambda t: t.replace("WorldSafeLoc 1362", "WorldSafeLoc 1364")),
     ("ws_1363_wrong", lambda t: t.replace("WorldSafeLoc 1363", "WorldSafeLoc 1365")),
     ("ws_1361_wrong", lambda t: t.replace("WorldSafeLoc 1361", "WorldSafeLoc 1360")),
-    ("ally_x_wrong", lambda t: t.replace("1218.007", "1219.007")),
-    ("ally_z_wrong", lambda t: t.replace("14.72972", "14.73972")),
+    ("ally_x_wrong", lambda t: t.replace("X: 1218.01", "X: 1219.01")),
+    ("ally_z_wrong", lambda t: t.replace("Z: 14.7297", "Z: 14.7397")),
     ("horde_x_wrong", lambda t: t.replace("1361.76", "1362.76")),
-    ("horde_z_wrong", lambda t: t.replace("14.84489", "14.84589")),
-    ("orient_wrong", lambda t: t.replace("Orientation: 0.0", "Orientation: 1.57")),
-    ("grave_x_wrong", lambda t: t.replace("1292.135", "1293.135")),
-    ("grave_z_wrong", lambda t: t.replace("8.114627", "9.114627")),
+    ("horde_z_wrong", lambda t: t.replace("Z: 14.8449", "Z: 14.8459")),
+    ("facing_wrong", lambda t: t.replace("10.001 deg = 0.1746 rad", "10.001 deg = 1.1746 rad")),
+    ("grave_x_wrong", lambda t: t.replace("X: 1292.14", "X: 1293.14")),
+    ("grave_z_wrong", lambda t: t.replace("Z: 8.11463", "Z: 9.11463")),
     ("door_id_swap", lambda t: t.replace("192643", "192644").replace("192642", "192645")),
     ("door_x_wrong", lambda t: t.replace("1232.65", "1233.65")),
     ("door_z_wrong", lambda t: t.replace("20.8096", "21.8096")),
@@ -201,6 +235,33 @@ def main():
     if missed:
         print("    UNDETECTED: %s" % missed)
         return 1
+
+    print("\n[3] Source cross-check (upstream files)")
+    corpora = {
+        "world_safe_locs (8.x)": gh_content(SQL_REPO, SQL_PATH),
+        "BattlegroundDS.cpp": gh_content(DS_REPO, DS_PATH),
+        "BattlegroundDS.h": gh_content(DS_REPO, DS_H_PATH),
+    }
+    ok, lines = source_stage(corpora, SOURCE_TOKENS)
+    for line in lines:
+        print(line)
+    if not ok:
+        print("    SOURCE CROSS-CHECK FAILED")
+        return 1
+
+    def break_literals(text):
+        for _, lit in [t for v in SOURCE_TOKENS.values() for t in v]:
+            if lit in text:
+                text = text.replace(
+                    lit, lit[:-1] + ("9" if not lit.endswith("9") else "8"))
+        return text
+
+    undetected = mutation_probe(corpora, SOURCE_TOKENS, break_literals)
+    if undetected:
+        print("    cross-check did not react to tampered source: %s"
+              % undetected)
+        return 1
+    print("    cross-check reacts to tampered source (verified)")
 
     print("\n" + "=" * 62)
     print("AUDIT RESULT: PASS")

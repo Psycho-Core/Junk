@@ -10,25 +10,26 @@ Available in 8.3.7: yes
 === 1. START POSITIONS (WorldSafeLocs, map 617) ===
 
 Alliance / Team 1 (WorldSafeLoc 1362):
-  X: 1218.007
-  Y: 764.7952
-  Z: 14.72972
-  Orientation: 0.0
+  X: 1218.01
+  Y: 764.795
+  Z: 14.7297
+  Facing: 10.001 deg = 0.1746 rad
   DBC name: "Dalaran Arena - Team 1 Spawn"
   Inside the low-X entrance pipe, behind door GO 192643
 
 Horde / Team 2 (WorldSafeLoc 1363):
   X: 1361.76
-  Y: 817.3368
-  Z: 14.84489
-  Orientation: 3.14159
+  Y: 817.337
+  Z: 14.8449
+  Facing: 190.001 deg = 3.3161 rad
   DBC name: "Dalaran Arena - Team 2 Spawn"
   Inside the high-X entrance pipe, behind door GO 192642
 
 Arena graveyard (WorldSafeLoc 1361):
-  X: 1292.135
+  X: 1292.14
   Y: 790.993
-  Z: 8.114627
+  Z: 8.11463
+  Facing: 279.001 deg = 4.8695 rad
   DBC name: "Dalaran Arena - PvP Graveyard"
   Sits on the raised centre platform, 1 unit above its floor
 
@@ -36,6 +37,11 @@ Note: the two pipes are diagonal to each other, not on opposite
 walls. Team 1 is south-west of centre, Team 2 is north-east.
 Both spawns are 11.5-11.7 units above the lower arena floor and
 are launched out of the pipes by the flush (see section 2).
+
+Facing: the 8.3.7 world_safe_locs rows carry 10.001 and 190.001
+degrees; TrinityCore converts the column with DegToRad at load.
+The 8.3.7 battleground_template has no orientation column, so
+these rows are what the server applies.
 
 === 2. ENTRANCE PIPES AND DOORS ===
 
@@ -181,9 +187,11 @@ Wills in Dalaran (map 571) and is not reachable normally
 
 Sources:
 - Map.dbc (map 617 "DalaranArena"); client instance list 617
-- WorldSafeLocs.dbc entries 1361, 1362, 1363 (map 617)
+- world_safe_locs (8.x dump): ids 1361, 1362, 1363 on map 617,
+  facings 279.001 / 10.001 / 190.001 degrees
+- TrinityCore ObjectMgr::LoadWorldSafeLocs: DegToRad on Facing
 - battleground_template id 10 (start locs 1362/1363,
-  orientations 0 and 3.14159)
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 10, MaxLvl 120)
 - TrinityCore / AzerothCore BattlegroundDS.cpp and .h
   (doors, water objects, spouts, flush spells, timers)
 - Warcraft Wiki "Dalaran Arena" (layout, patch history)
