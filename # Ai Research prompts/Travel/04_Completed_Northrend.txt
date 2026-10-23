@@ -190,12 +190,15 @@ TAXI NODE 251  FORDRAGON HOLD, DRAGONBLIGHT
 
 TAXI NODE 252  WYRMREST TEMPLE, DRAGONBLIGHT
   flight master   : Nethestrasz
-  creature entry  : 57287
+  creature entry  : 26851
   faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 252
   position        : map 571 (Northrend), 3653.2, 247.6, 52.3  - TaxiNodes.Pos, the roost the taxi mount uses
   walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
   unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
                     class, race or quest)
+  master note     : Wowhead's Dragonblight <Flight Master> Nethestrasz is 26851 (faction The Wyrmrest Accord, added in
+                    3.0.1); the name is shared with 57287, a Dragon Soul encounter NPC added in 4.3.0, which is not this
+                    master and is not printed here
   links           : 244 Wintergarde Keep 1522 yd = 0.79 min; 247 Stars' Rest 1997 yd = 1.04 min;
                     251 Fordragon Hold 1727 yd = 0.90 min; 254 Venomspite 1500 yd = 0.78 min;
                     256 Agmar's Hammer 2082 yd = 1.08 min;
@@ -685,8 +688,11 @@ WHAT IS VERIFIED AND WHAT IS NOT
   so every "walk-to position" line says unverified rather than a guessed offset.
   Creature entries: all 52 resolved. 43 come from the research pass whose Wowhead lookup returned the exact master name for
   8.3.7, and 9 were matched on the exact NPC name against the creature_template exports (the 4.3.4 TDB update pack and the 8.x
-  creature_template dump from the same server repository). No Northrend master name in this file has more than one creature row,
-  so no entry here is written unverified.
+  creature_template dump from the same server repository). Every entry here is a digit string. Two of the 52 names carry a
+  second creature_template row: Penumbrius (31069 printed, 30227 also present) and Nethestrasz (26851 printed, 57287 also
+  present). Nethestrasz needed a real decision because both ids are live Wowhead NPCs with that name: 26851 is the
+  Dragonblight <Flight Master> and 57287 is a Dragon Soul encounter added in 4.3.0, so the block prints 26851 and says so.
+  Penumbrius 31069 is the one Wowhead shows as the Icecrown <Flight Master>.
   One of the 43 Wowhead-verified entries, Adeline Chambers at Vengeance Landing, is not in either creature_template export under
   that name at all; 27344 is what the 8.3.7 lookup returns, and Wowhead files that NPC as <Bat Handler>, Howling Fjord, faction
   The Hand of Vengeance. The block prints the entry and says all of this under the master note.
@@ -702,5 +708,6 @@ WHAT IS VERIFIED AND WHAT IS NOT
   1277 yd while the row 309 -> 308 reads 1519 yd, and each block prints its own direction rather than reusing the other one.
   Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of ConditionID 7376, the Warcraft Wiki
   subzone page that places the River's Heart master at Lakeside Landing, Wowhead pages for Adeline Chambers (27344), Aludane
-  Whitecloud (28674), Helidan Lightwing (33849) and quest 12523, and the creature_template exports named above. Everything read
-  from a source is printed; nothing was estimated.
+  Whitecloud (28674), Helidan Lightwing (33849), Nethestrasz (26851 and 57287), Penumbrius (31069), Derek Rammel (26877), The
+  Spirit of Gnomeregan (28037) and quest 12523, and the creature_template exports named above. Everything read from a source is
+  printed; nothing was estimated.
