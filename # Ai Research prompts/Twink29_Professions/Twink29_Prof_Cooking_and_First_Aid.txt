@@ -1,0 +1,206 @@
+TWINK29 - PROFESSIONS - STEP 09 - COOKING AND FIRST AID
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Scope: what Cooking and First Aid give a level 29 battleground twink.
+
+1. THE FIRST THING THAT HAS TO BE SAID
+   Half of this step is a removal notice. First Aid was deleted from the
+   game in patch 8.0.1, the Battle for Azeroth pre-patch, which is the
+   same build family as 8.3.7. Bandage crafting moved to Tailoring and
+   the anti-venoms moved to Alchemy, and the trainers were renamed
+   "Bandage Trainer". There is no First Aid skill to level on a 8.3.7
+   character, so the question is not which bandages a 29 can make but
+   which ones he can pick up.
+   Cooking survives, as a secondary profession on skill line 185, and
+   it caps at 225 for a 29 for a documented reason: the artisan rank is
+   not sold by a trainer at all, it comes from the "Clamlette
+   Surprise" quest (quest 6610, Dirge Quikcleave in Gadgetzan, Tanaris),
+   which needs level 35 and 225 skill. So 225 is a hard ceiling at 29,
+   and it is the cleanest ceiling in this whole set.
+   The short version of both halves: Cooking is worth about +6 Stamina
+   and +6 Spirit to a 29, and First Aid is worth a stack of bandages
+   bought from the auction house. Neither is a reason to spend a
+   profession slot.
+
+2. FIRST AID - WHAT REPLACED IT, AND WHAT A 29 CAN CARRY
+   In 8.3.7 every classic bandage is a "Classic Tailoring" recipe
+   (profession tier spell 2540) and the items themselves no longer ask
+   for First Aid skill. The live database shows the rework plainly:
+
+   Item   Bandage                  Heals (8 s)  Made at
+   8544   Mageweave Bandage          1600       10840, Tailoring 240
+   14529  Runecloth Bandage          1200       18629, Tailoring 290
+   14530  Heavy Runecloth Bandage    1360       18630, Tailoring 300
+   6450   Heavy Silk Bandage        unverified   unverified
+   Those heal figures are the current live values, which is the 8.x
+   re-itemisation, not the 3.x ones; the old 3.x tooltips read 640, 800,
+   1200 and 2000 for the same items. Treat the numbers as live-data
+   values and re-check one in game before trusting the ordering - the
+   rework flattened them and Mageweave now heals more than Runecloth,
+   which is not what a 3.x player expects.
+   The practical consequences for a 29:
+   - Using a bandage needs no profession and no character level any
+     more; the item tooltip in the live database has no requirement
+     line at all. A 29 can use a Heavy Runecloth Bandage he bought.
+   - Making one is a Tailoring job with a 240-300 skill floor, above the
+     225 ceiling a 29 has in Tailoring (step 05), so a 29 tailor makes
+     at most the silk bandages and should not bother.
+   - Bandages share one cooldown and apply a 60 second "Recently
+     Bandaged" debuff on the user, and they are flagged usable in
+     arenas. That makes them a real battleground item: one free 1200 to
+     1600 heal per minute, for anyone, at level 29, for a few silver on
+     the auction house.
+   - Anti-venoms are Alchemy recipes now, not first aid. See step 02.
+   Note for the set: step 05 (Tailoring) was written before this was
+   found and does not list bandages. They belong in the Tailoring file
+   whenever that file is revised.
+   Table the shopping list, not the profession: buy 20 Mageweave
+   Bandages 8544, keep a stack of the cheapest healing bandage on the
+   realm's auction house, and spend the profession slot elsewhere.
+
+3. COOKING AT 29 - THE HONEST ANSWER
+   Cooked food gives a "well fed" buff only if you eat for at least ten
+   seconds while seated, and the buff lasts 15 minutes. The foods that
+   carry a primary stat are the ones twinks want, and every one of them
+   is level-gated above 29. The foods a 29 can actually eat give
+   Stamina and Spirit:
+
+   5479  Crispy Lizard Tail - item level 22, requires level 12.
+         Restores 552 health over 24 sec; well fed for 10 sec gives
+         +6 Stamina and +6 Spirit for 15 minutes.
+         Spell 6418, Cooking 100, difficulty 100/140/160/180.
+         Recipe 5488 is sold by Tari'qa in the Barrens.
+   12209 Lean Wolf Steak - item level 25, requires level 15.
+         Restores 552 health over 24 sec; +6 Stamina and +6 Spirit for
+         15 minutes. Spell 15853, Cooking 125, difficulty 125/165/185/205.
+   Both give the same buff, so the cheap one wins: level Cooking to 100,
+   cook Crispy Lizard Tail from lizard meat, and eat that.
+   That is the whole combat value of the profession at 29 - six
+   stamina and six spirit for fifteen minutes. For a companion
+   character this is still worth modelling, because it is a buff a
+   non-caster can hand out for almost nothing.
+
+4. THE BUFF FOOD A 29 CANNOT EAT - ALL ALT
+   Level requirements are the gate, not cooking skill. The profession
+   list sorts out like this, and every entry below was read off its
+   item page:
+   17222 Spider Sausage - requires 35.
+   13932 Poached Sunscale Salmon - requires 35.
+   6887  Spotted Yellowtail - requires 35.
+   12216 Spiced Chili Crab - requires 40.
+   18254 Runn Tum Tuber Surprise - requires 45; +10 Intellect for
+         10 minutes; spell 22761, Cooking 275.
+   20452 Smoked Desert Dumplings - requires 45; well fed gives +20
+         Strength for 15 minutes; spell 24801, Cooking 285.
+   35563 Charred Bear Kabobs - requires 45.
+   So the Strength, Intellect and the bigger Stamina foods are all 15
+   or 30 levels away. Cooking at 29 is a +6/+6 profession and nothing
+   more; anything above 125 skill in Cooking is for selling food to
+   other people, not for wearing.
+
+5. TRAINERS AND THE FOUR RANKS
+   The rank gates are level gates as well as skill gates, and the first
+   three are open to a 29:
+   apprentice - level 5, trainer taught.
+   journeyman - level 10 and Cooking 50, trainer taught.
+   expert - level 20 and Cooking 125. Not trainer taught: it is the
+     Expert Cookbook 16072, sold by Wulan at Shadowprey Village in
+     Desolace (Horde) and by Shandrina in Ashenvale (Alliance).
+   artisan - level 35 and Cooking 225, "Clamlette Surprise" quest 6610
+     from Dirge Quikcleave in Gadgetzan, Tanaris. Needs 12x Giant Egg
+     12207, 10x Zesty Clam Meat 7974 and 20x Alterac Swiss 8932. ALT.
+   Cooking trainers, from the classic trainer list (creature entries not
+   read for this file, so all of them are unverified):
+   Horde - Zamja in Orgrimmar, Eunice Burch in Undercity, Aska
+     Mistrunner in Thunder Bluff, Pyall Silentstride in Mulgore, Duhng
+     in the Barrens, Mudduk in Stranglethorn Vale.
+   Alliance - Stephen Ryback in Stormwind, Daryl Riknussun in Ironforge,
+     Alegorn in Darnassus, Gremlock Pilsnor in Dun Morogh, Tomas in
+     Elwynn Forest, Zarrin in Teldrassil.
+   Every recipe in the route below except two is trainer-taught. The
+   exceptions are Curiously Tasty Omelet (Kendor Kabonka in Stormwind,
+   Keena in the Arathi Highlands) and Roast Raptor (Hammon Karwn in the
+   Arathi Highlands, Keena again).
+   A cooking fire is required: the first recipe in the route carries
+   "Requires Cooking Fire", and Basic Campfire 818 is the Cooking and
+   Survival ability that drops one. In a capital you can cook at any
+   brazier; in the field you carry the campfire.
+
+6. THE CHEAPEST ROUTE TO 225
+   Everything in the table is meat, fish or eggs except the water, so
+   the cost is whatever the auction house wants for cooking mats. The
+   counts are the classic guide's, which assumes roughly one skill point
+   per craft; add a few extra of everything.
+   Skill    Recipe                         Spell  Crafts  Materials
+   ---------------------------------------------------------------------
+   1-50     Charred Wolf Meat              2538     55    1x Stringy Wolf
+            (or Roasted Boar Meat 2540,                   Meat 2672 (or
+            or Brilliant Smallfish 7751,                  Chunk of Boar
+            or Slitherskin Mackerel 7752)                 Meat 769, etc.)
+   50-100   Boiled Clams                   6499     55    1x Clam Meat 5503
+            (or Coyote Steak 2541, Smoked                 + 1x Refreshing
+            Bear Meat 8607, Longjaw Mud                   Spring Water 159
+            Snapper 7753, Rainbow Fin                     (vendor)
+            Albacore 7827)
+   100-130  Crab Cake                      2544     40    1x Crawler Meat
+            (or Dry Pork Ribs 2546, Cooked                2674
+            Crab Claw 2545, Bristle Whisker
+            Catfish 7755)
+   130-175  Curiously Tasty Omelet         3376     50    1x Raptor Egg 3685
+   175-225  Roast Raptor                   15855    50    1x Raptor Flesh 12184
+
+   That is about 250 combines and 250 pieces of meat, fish or egg, one
+   vendor water and nothing else. Two alternatives worth knowing: at
+   175-225 Soothing Turtle Bisque 3400 uses Turtle Meat 3712 and its
+   recipe is a quest reward from Chef Jessen or Christoph Jeffcoat in
+   the Hillsbrad Foothills, and Mithril Headed Trout 20916 uses Raw
+   Mithril Head Trout 8365.
+   For a twink the honest stop is 100, not 225. Skill 100 buys Crispy
+   Lizard Tail, which is the best food a 29 can eat; 125 buys Lean Wolf
+   Steak, which gives exactly the same buff; 225 buys nothing a 29 can
+   use.
+   One warning about the first row: wowhead's own difficulty line for
+   Charred Wolf Meat reads 45/65/85, while the classic route cooks it
+   from skill 1. The route is what players actually did, but if your
+   core enforces 45, cook whatever the trainer allows until that opens.
+   Vendor reagents: Soothing Spices 3713, Hot Spices 2692 and
+   Refreshing Spring Water 159 come from the cooking supply vendors next
+   to the trainers. Do not buy them on the auction house.
+
+7. ALT - WHAT A 29 CANNOT DO
+   35563 Charred Bear Kabobs, 12216 Spiced Chili Crab, 17222 Spider
+     Sausage, 13932 Poached Sunscale Salmon, 6887 Spotted Yellowtail -
+     level 35 and 40 requirements.
+   18254 Runn Tum Tuber Surprise and 20452 Smoked Desert Dumplings -
+     level 45, and the dumplings are the +20 Strength food.
+   Artisan Cooking - the Clamlette Surprise quest needs level 35.
+   Everything in the Outland, Northrend and Battle for Azeroth cooking
+     tiers, including feasts and the BfA "Kul Tiran and Zandalari
+     Cooking" recipes - those need level 110 and a separate skill bar.
+   Any bandage above the silk tier as a crafting project: 240 to 300
+     Tailoring, past the 225 ceiling. Buying them is fine and is the
+     whole point of section 2.
+   Anti-venoms - they left First Aid for Alchemy in 8.0.1.
+   A higher-level cook can make the two foods a 29 can eat, and both are
+     tradeable, so cooking at 29 is optional in a way bandages are not.
+
+8. WHICH CLASSES SHOULD TAKE IT
+   1. Nobody, on combat grounds. Cooking gives +6 Stamina and Spirit,
+      First Aid gives a 1200-1600 heal per minute that anyone can use
+      from a vendor stack. Neither is worth one of the two profession
+      slots against Engineering or Blacksmithing.
+   2. A companion character meant to support a group. Cooking is worth
+      exactly one thing here: a 29 cook can hand a +6 Stamina and
+      Spirit food buff to the party, which costs a stack of food and
+      no skill to receive. Model it as a one-line buff, not a
+      profession.
+   3. A twink with a free slot and no gold problem. Take Cooking to 100
+      for the food buff and stop; take Tailoring only if the same
+      character wants bags and cloth, and buy his bandages rather than
+      make them.
+   4. Everyone: carry bandages. Mageweave Bandage 8544 at 1600 healing
+      over 8 seconds, one per minute, usable in arenas, no level or
+      profession requirement, is the cheapest survivability a 29 can
+      buy, and it does not cost a profession slot at all.
+   Last line: First Aid does not exist at 8.3.7, Cooking does and gives
+   +6 Stamina and +6 Spirit. Level Cooking to 100, buy bandages, spend
+   the real profession slots on the files that give gear.
