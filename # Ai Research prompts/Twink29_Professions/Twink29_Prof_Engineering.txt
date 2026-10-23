@@ -1,0 +1,416 @@
+================================================================================
+TWINK29 PROFESSIONS - 01 ENGINEERING
+Patch 8.3.7 (build 35662), level 29 battleground twink
+================================================================================
+
+All ids checked against 8.3.7 client tables (Item, ItemSparse, ItemSearchName,
+SpellEffect, SpellReagents, SpellCooldowns, SkillLine, SkillLineAbility) and the
+current warcraft.wiki.gg Engineering / Goblin Engineering / Gnome Engineering
+pages. Classic-era stats that BfA never changed were cross-checked on Wowhead
+Classic; anything I could not check is marked "unverified".
+
+
+================================================================================
+1. WHAT A LEVEL 29 CAN ACTUALLY REACH
+================================================================================
+
+Classic Engineering is skill line 202 in 8.3.7, with the classic tier as skill
+line 2506 (ParentSkillLineID 202, ParentTierIndex 4). Both are live in 8.3.7.
+
+Rank gates (Classic table, re-stated by every 1-300 guide; costs undiscounted):
+  Apprentice  1-75    level 5   10 copper
+  Journeyman  1-150   level 10  5 silver      (needs 50 skill)
+  Expert      1-225   level 20  50 silver     (needs 125 skill)
+  Artisan     1-300   level 35  5 gold        (needs 200 skill)
+
+=> At level 29 the ceiling is 225. Artisan (300) is 6 levels out of reach.
+
+Caveat: the level gate on the ranks is trainer/world data, not something the
+8.3.7 client DB2 tables expose, so it could not be re-verified inside 8.3.7
+itself. Classic guides plus the 20-29 twink guide on xpoff all give 225 as the
+level-29 cap and level 35 for Artisan. Treat 225 as the working cap; confirm on
+the trainer before spending gold.
+
+Specialisation is worse: Goblin and Gnomish Engineering both need level 30 and
+200 skill (quest chain: "Gnomish Engineering" / "Goblin Engineering" -> "The
+Pledge of Secrecy" -> "Show Your Work"; Show Your Work is quest 3639 for Goblin
+at Nixx Sprocketspring, creature 8126, Gadgetzan, Tanaris, required level 30).
+A level 29 cannot take it.  ALL specialisation recipes are therefore ALT.
+
+Consequences that shape the whole shopping list:
+  - Anything with RequiredSkillRank 226+ on skill line 2506 is unusable: Artisan
+    only.
+  - Anything with a specialisation requirement cannot be crafted by the twink,
+    but many of those items are Bind on Equip and only ask for Engineering skill
+    to USE. Buy them from an alt/level 60 engineer and wear them at 225.
+  - Every engineering explosive sits on one shared-cooldown group, so grenades,
+    dynamite and bombs cannot be chained: Wowhead Classic files Iron Grenade
+    4068, Big Iron Bomb 4069, Solid Dynamite 12419 and Explosive Sheep 4074 all
+    under shared cooldown 65. The 8.3.7 SpellCooldowns table was not queried,
+    so treat the grouping as unverified in-client.
+  - Recipes are learned from the trainer unless noted; no reputation gate applies
+    to anything in this file.
+
+
+================================================================================
+2. CRAFTABLE AT LEVEL 29 (skill 225 or less, no specialisation)
+================================================================================
+
+--- Iron Grenade -------------------------------------------------------------
+Item 4390. Item level 35, stack 20, not bound, no level requirement.
+Use (spell 4068): 132-218 Fire damage and 3 sec stun in a 3 yard radius, any
+damage breaks the stun. 1 minute cooldown.
+Recipe: spell 3962. Engineering 175.
+Materials: 1x Iron Bar 3575, 1x Heavy Blasting Powder 4377, 1x Silk Cloth 4306.
+  Iron Bar: Mining, smelted from Iron Ore 2772.
+  Heavy Blasting Powder (4377): made from Heavy Stone 2838, 1:1 (trainer
+  recipe, Engineering 135).
+  Silk Cloth 4306: humanoid drops, roughly level 25-40 mobs.
+This is the workhorse: cheapest stun in the game and the stun is what wins
+mid-field fights, not the damage.
+
+--- Big Iron Bomb ------------------------------------------------------------
+Item 4394. Item level 43, stack 10, not bound.
+Use (spell 4069): 149-201 Fire damage and 3 sec stun in a 5 yard radius, any
+damage breaks the stun. 1 minute cooldown.
+Recipe: spell 3967. Engineering 190.
+Materials: 3x Iron Bar 3575, 3x Heavy Blasting Powder 4377, 1x Silver Contact
+4404.
+  Silver Contact 4404: 1x Silver Bar 2842 + 1x Copper Bar 2840 (Classic
+  recipe; craft spell id unverified).
+Bigger radius than the Iron Grenade, slightly less damage. Position it on a
+flag/node, not on a single target.
+
+--- Solid Dynamite -----------------------------------------------------------
+Item 10507. Item level 35, stack 20, not bound.
+Use (spell 12419): 213-287 Fire damage in a 5 yard radius, no stun. 1 minute
+cooldown.
+Recipe: spell 12586. Engineering 175.
+Materials: 1x Solid Blasting Powder 10505, 1x Silk Cloth 4306.
+  Solid Blasting Powder 10505: made from Solid Stone 7912, 1:1.
+Highest raw damage a 29 can craft, but it is on the same shared cooldown as the
+stuns, so pick one per fight.
+
+--- Explosive Sheep ----------------------------------------------------------
+Item 4384. Item level 30, stack 5, not bound.
+Use (spell 4074): summons a sheep that charges a nearby enemy and explodes for
+135-165 damage. 1 minute cooldown.
+Recipe: spell 3955. Engineering 150.
+Materials: 1x Bronze Framework 4382, 1x Whirring Bronze Gizmo 4375, 2x Heavy
+Blasting Powder 4377, 2x Wool Cloth 2592.
+  Bronze Framework 4382: Classic recipe 2x Bronze Bar 2841 + 1x Medium Leather
+  2319 + 1x Wool Cloth 2592 (not re-checked in 8.3.7 SpellReagents).
+  Whirring Bronze Gizmo 4375: Classic recipe 2x Bronze Bar 2841 + 1x Wool Cloth
+  2592.
+Only use is interrupting a drink or a resurrect; the damage is small at 29.
+
+--- Minor Recombobulator -----------------------------------------------------
+Item 4381. Item level 28, trinket, 10 charges, not bound, no level requirement.
+Use (spell 18805): dispels Polymorph on a friendly target and restores 150-250
+health and mana. 5 minute cooldown.
+Recipe: spell 3952. Engineering 140.
+Materials: 1x Bronze Tube 4371, 2x Whirring Bronze Gizmo 4375, 2x Medium Leather
+2319, 1x Moss Agate 1206.
+  Bronze Tube 4371: 2x Bronze Bar 2841 + 1x Weak Flux 2880 (vendor).
+  Moss Agate 1206: Mining, low-level veins.
+Charge-limited but keeps working after a mage sheeps your healer or your FC.
+
+--- Discombobulator Ray ------------------------------------------------------
+Item 4388. Item level 32, 5 charges, not bound.
+Use (spell 4060): turns the target into a Leper Gnome: -40 melee and spell
+damage, -20% movement speed, 12 sec. 1 minute cooldown.
+Recipe: spell 3959. Engineering 160.
+Materials: 3x Whirring Bronze Gizmo 4375, 2x Silk Cloth 4306, 1x Jade 1529,
+1x Bronze Tube 4371.
+Strongest debuff a 29 can apply with an item, and it also forces a dismount.
+Twelve seconds of a rogue doing 40 less damage per hit is usually the fight.
+
+--- Gnomish Cloaking Device --------------------------------------------------
+Item 4397. Item level 40, trinket, binds when equipped.
+Use (spell 4079): invisibility for 10 sec. 1 hour cooldown.
+Recipe: spell 3971. Engineering 200.  No Gnomish specialisation needed to craft
+or to use (the wiki names this item as its counter-example).
+Materials: 4x Gyrochronatom 4389, 2x Jade 1529, 2x Lesser Moonstone 1705,
+2x Citrine 3864, 1x Fused Wiring 7191.
+  Gyrochronatom 4389: crafted part, Engineering 175; made from Iron Bar 3575
+  plus a Gold Power Core. Exact sub-recipe not verified here.
+  Fused Wiring 7191: crafted part, Engineering 185; recipe not verified here.
+One use per battleground at most, but 10 sec of invisibility resets a fight or
+walks a flag out of a stacked defence.
+
+--- Parachute Cloak ----------------------------------------------------------
+Item 10518. Item level 45, back slot, +8 Agility, binds when equipped.
+Use (spell 12438): reduces fall speed for 10 sec. 30 minute cooldown.
+Recipe: spell 12616. Engineering 225.
+Materials: 4x Bolt of Mageweave 4339, 2x Shadow Silk 10285, 1x Unstable Trigger
+10560, 4x Solid Blasting Powder 10505.
+  Bolt of Mageweave 4339: 2x Mageweave Cloth 4338 (tailoring) or bought.
+  Shadow Silk 10285: drop from higher-level spiders, auction house.
+  Unstable Trigger 10560: Classic recipe 1x Mithril Bar 3860 + 1x Mageweave
+  Cloth 4338.
+The single best engineering item for a 29 flag carrier: 10 sec of slow fall
+crosses the Warsong Gulch roof gaps and the Arathi Basin lumber-mill drop
+without taking the fall damage that normally kills a 29.
+
+--- Green Tinted Goggles -----------------------------------------------------
+Item 4385. Item level 30, cloth head, 35 armour, +8 Stamina, +7 Spirit, binds
+when equipped, no level requirement.
+Recipe: spell 3956. Engineering 150.
+Materials: 4x Medium Leather 2319, 2x Moss Agate 1206, 1x Flying Tiger Goggles
+4368.
+Best head slot a 29 engineer can make for a caster or a spirit-stacking class,
+and it upgrades the level-20 goggles instead of replacing them.
+
+--- Flying Tiger Goggles -----------------------------------------------------
+Item 4368. Item level 20, cloth head, 27 armour, +4 Stamina, +4 Spirit, binds
+when equipped, no level requirement.
+Recipe: spell 3934. Engineering 100.
+Materials: 8x Bronze Bar 2841, 2x Tigerseye 818.
+Cheap filler head slot while levelling; it is also the reagent for the Green
+Tinted Goggles, so make two.
+
+--- Goblin Glider Kit (buy, do not craft) ------------------------------------
+Item 109076. Item level 1, stack 20, not bound, RequiredLevel 1, no Engineering
+skill required to use.
+Created by spell 162204 (Draenor Engineering) and spell 221234 (Legion
+Engineering). A 29 cannot learn either tier, so this is auction house only.
+Puts a glider on your back: forward movement with slow fall, the same role as
+the Parachute Cloak but usable by any class and without spending Engineering.
+Whether it is still permitted inside battlegrounds in 8.3.7: unverified.
+
+--- Tools you must carry -----------------------------------------------------
+Arclight Spanner 6219. Craft spell 7430, Engineering 50, 6x Copper Bar 2840.
+  Required in the bag for most early recipes; every engineer ends up with one.
+Gyromatic Micro-Adjustor 10498. Craft spell 12590, Engineering 194, 4x Steel Bar
+3859.
+  Required for the scope and later recipes.
+Blacksmith Hammer 5956: vendor trash item, needed for the anvil recipes.
+An anvil is required for the metal-part recipes; every capital city has one.
+
+
+================================================================================
+3. USABLE AT 29, CRAFTED BY SOMEBODY ELSE (Bind on Equip, specialisation recipes)
+================================================================================
+A 29 cannot learn Goblin or Gnomish Engineering, but these items only require
+Engineering skill to USE. Have an alt or a level 60 engineer craft them and mail
+them over. Bind on Equip confirmed in 8.3.7 ItemSparse for 7189, 10720, 10721 and
+10726; 10724 and 10716 rest on Wowhead only; 10646 is unbound.
+
+--- Goblin Rocket Boots ------------------------------------------------------
+Item 7189. Item level 45, cloth feet, binds when equipped.
+Use (spell 8892): +run speed for 20 sec, can backfire and explode. 5 minute
+cooldown.
+Recipe: spell 8895, Goblin Engineering, Engineering 225 (SkillLineAbility 4927,
+TrivialSkillLineID 2506).
+Materials: 1x 10026 (name not resolvable in 8.3.7 tables, unverified), 2x
+Mithril Tube 10559, 4x Heavy Leather 4234, 2x Goblin Rocket Fuel 9061,
+1x Unstable Trigger 10560.
+
+--- Gnomish Rocket Boots -----------------------------------------------------
+Item 10724. Item level 45, cloth feet, binds when equipped.
+Recipe: spell 12905, Gnomish Engineering, Engineering 225.
+Material list not queried; unverified.
+Use: speed burst plus the Gnomish backfire table, 30 minute cooldown.
+
+--- Gnomish Net-o-Matic Projector --------------------------------------------
+Item 10720. Item level 42, trinket, binds when equipped.
+Use: nets the target in place (root), 10 minute cooldown.
+Recipe: spell 12902, Gnomish Engineering, Engineering 210.
+Materials: 1x Mithril Tube 10559, 2x Shadow Silk 10285, 4x Thick Spider's Silk
+4337, 2x Solid Blasting Powder 10505, 4x Mithril Bar 3860.
+The only ranged root a 29 can get from a profession. It can also backfire and
+net the user.
+
+--- Gnomish Shrink Ray -------------------------------------------------------
+Item 10716. Item level 41, trinket, binds when equipped.
+Use (spell 13006): shrinks the target, -250 attack power. 5 minute cooldown.
+Recipe: spell 12899, Gnomish Engineering, Engineering 205.
+
+--- Gnomish Mind Control Cap -------------------------------------------------
+Item 10726. Item level 47, head, +Versatility, binds when equipped.
+Use: mind controls a humanoid target for a short duration, 30 minute cooldown.
+Recipe: spell 12907, Gnomish Engineering, Engineering 215.
+Materials: 10x Mithril Bar 3860, 4x Truesilver Bar 6037, 1x 10558 (Essence of
+Fire per Classic), 2x Star Ruby 7910, 4x Mageweave Cloth 4338.
+
+--- Gnomish Harm Prevention Belt --------------------------------------------
+Item 10721. Item level 43, waist, +Stamina, binds when equipped.
+Use: absorbs incoming damage, 1 hour cooldown.
+Recipe: spell 12903, Gnomish Engineering, Engineering 215.
+Materials: 1x 7387 (unverified name), 4x Mithril Bar 3860, 2x Truesilver Bar
+6037, 1x Unstable Trigger 10560, 2x Aquamarine 7909.
+
+--- Goblin Sapper Charge -----------------------------------------------------
+Item 10646. Item level 41, stack 20, not bound.
+Use: large Fire damage in a radius, also hits the user. 5 minute cooldown.
+Recipe: Goblin Engineering, Engineering 205.
+The classic "one-shot the group on the flag" bomb; a 29 can use it at 205 but
+must buy it.
+
+
+================================================================================
+4. ALT - THINGS A LEVEL 29 CANNOT DO
+================================================================================
+ALT = needs a higher-level crafter, a higher-level character, or the auction
+house. Nothing in this list can be made by the twink.
+
+4a. Blocked by the Artisan (300) rank - RequiredSkillRank above 225:
+  Hi-Explosive Bomb 10562      skill 235  255-345 Fire + 3 sec stun, 3 yd
+  Goblin Rocket Helmet 10588   skill 235  cloth head, +Stamina, on-use
+  Thorium Grenade 15993        skill 260  300 Fire + 3 sec stun, 5 yd
+  Arcane Bomb 16040            skill 300  Fire damage + 5 sec silence
+  Sniper Scope 10548           skill 240  +7 gun/bow damage, also requires
+                                          character level 40
+  Field Repair Bot 74A 18232   skill 300  (unverified rank, Classic 300)
+  World Enlarger 18660         skill 250  (unverified rank, Classic 250)
+  Ultrasafe Transporter: Gadgetzan 18986  skill 260 (unverified rank)
+  Dimensional Ripper - Everlook 18984     skill 260 (unverified rank)
+
+4b. Blocked by the specialisation quest (level 30 requirement):
+  Gnomish Death Ray 10645   skill 240, Bind on Pickup, Gnomish
+  Gnomish Battle Chicken 10725  skill 230, Bind on Pickup, Gnomish (id and
+      rank unverified)
+  Any further Goblin/Gnomish trainer recipe that is Bind on Pickup.
+  BoP + specialisation = permanently unavailable to a level 29, no workaround.
+
+4c. Recipes that are drops or vendor-limited (reachable, just not from the
+trainer):
+  Schematic: Thorium Widget 16047 - Xizzer Fizzbolt, Everlook, Winterspring.
+  Everything else in this file is trainer-taught.
+
+4d. Not blocked but pointless at 29:
+  Target dummies (Target Dummy 4366, Advanced Target Dummy 4392) taunt NPCs
+  only, so they do nothing in a battleground. Skip them.
+  Jumper Cables 7148 (resurrection, 30 minute cooldown; item id is Classic and
+  has no 8.3.7 ItemSearchName row, unverified) - whether resurrection items are
+  allowed inside a 8.3.7 battleground is unverified; do not buy on faith.
+
+
+================================================================================
+5. CHEAPEST 1-225 ROUTE (stop at 225, do not buy Thorium)
+================================================================================
+Costs: 10c + 5s + 50s for the three ranks = 55s 10c total. The materials below
+are the classic 1-300 route cut off at 225, so the Thorium Bar 12359, Dense
+Stone 12365 and Runecloth 14047 blocks of the full guide are not needed.
+Step materials and craft counts come from the Classic 1-300 guide; only the
+finished-item recipes in section 2 were re-checked against 8.3.7 SpellReagents.
+
+  1-30    Rough Blasting Powder 4357      x60  60x Rough Stone 2835
+  30-50   Handful of Copper Bolts 4359    x30  30x Copper Bar 2840
+  50-51   Arclight Spanner 6219           x1   6x Copper Bar 2840
+  51-75   Rough Copper Bomb 4360          x30  Copper Bolts + Copper Bar +
+                                              Linen Cloth 2589
+  75-90   Coarse Blasting Powder 4364     x60  60x Coarse Stone 2836
+  90-100  Coarse Dynamite 4365            x20  Coarse Blasting Powder +
+                                              Linen Cloth 2589
+  100-105 Silver Contact 4404             x5   5x Silver Bar 2842 + 5x Copper
+                                              Bar 2840
+  105-125 Bronze Tube 4371                x25  50x Bronze Bar 2841 + 25x Weak
+                                              Flux 2880
+  125-135 Standard Scope 4406             x10  Bronze Tube + Moss Agate 1206
+  135-150 Heavy Blasting Powder 4377      x30  30x Heavy Stone 2838
+          Whirring Bronze Gizmo 4375      x15  2x Bronze Bar 2841 + Wool Cloth
+                                              2592 each
+  150-160 Bronze Framework 4382           x15  2x Bronze Bar + Medium Leather
+                                              2319 + Wool Cloth 2592 each
+  160-175 Explosive Sheep 4384            x15  Framework + Gizmo + 2x Heavy
+                                              Blasting Powder + 2x Wool Cloth
+  175-195 Iron Grenade 4390               x20-26  Iron Bar 3575 + Heavy Blasting
+                                              Powder 4377 + Silk Cloth 4306 each
+  195-200 Mithril Tube 10559              x5   15x Mithril Bar 3860 + 5x Weak
+                                              Flux 2880
+  200-215 Unstable Trigger 10560          x15  15x Mithril Bar 3860 + 15x
+                                              Mageweave Cloth 4338
+  215-225 Mithril Casing 10561            x10-12  3x Mithril Bar 3860 each
+
+Notes on the route:
+  - Craft counts are the guide's targets, not guarantees; bank ~10% extra of
+    every material, especially Mithril Bar 3860.
+  - Do not make the 20x Explosive Sheep 4384 the level-30 Goblin quest wants;
+    that quest is unreachable at 29 anyway.
+  - The last 10 points (215-225) are the expensive ones; if gold is tight, stop
+    at 215 and skip the Parachute Cloak, which needs the full 225.
+  - Approximate 1-225 ore: 66x Copper Bar 2840, 110x Bronze Bar 2841, 5x Silver
+    Bar 2842, 4x Steel Bar 3859 (for the Micro-Adjustor), 20x Iron Bar 3575,
+    50x Mithril Bar 3860. Stone: 60x Rough 2835, 60x Coarse 2836, 30x Heavy
+    2838, 10x Solid 7912. Cloth: 45x Linen 2589, 15x Wool 2592, 20x Silk 4306,
+    15x Mageweave 4338. Leather: 15x Medium 2319. Gems: 10x Moss Agate 1206,
+    2x Tigerseye 818. Vendor: 30x Weak Flux 2880, 1x Blacksmith Hammer 5956.
+  - Mining on the same character cuts the ore cost roughly in half; the stone
+    and gem parts only come from mining, so without a miner expect auction
+    house prices on 2835, 2836, 2838, 7912, 1206, 818.
+
+
+================================================================================
+6. TRAINERS AND WHERE THEY ARE
+================================================================================
+Costs are undiscounted. All of these are capital-city or starter-zone trainers
+except the Artisan one.
+
+Apprentice (level 5):
+  Horde    Thund, Valley of Honor, Orgrimmar
+           Graham Van Talen, Rogues' Quarter, Undercity
+           Mukdrak, Razor Hill, Durotar
+           Twizwick Sprocketgrind, Mulgore (plateau behind the Venture Co. mine)
+           Tinkerwiz, Ratchet, The Barrens
+  Alliance Jemma Quikswitch, Tinker Town, Ironforge
+           Sprite Jumpsprocket, Dwarven District, Stormwind City
+           Jenna Lemkenilli, Auberdine, Darkshore
+           Bronk Guzzlegear, Steelgrill's Depot, Dun Morogh
+           Deek Fizzlebizz, Stonewrought Dam, Loch Modan
+           Tinkerwiz, Ratchet, The Barrens (neutral)
+
+Journeyman (skill 50, level 10):
+  Horde    Nogg, Valley of Honor, Orgrimmar
+           Franklin Lloyd, Undercity
+  Alliance Trixie Quikswitch, Ironforge
+           Lilliam Sparkspindle, Stormwind City
+
+Expert (skill 125, level 20):
+  Horde    Roxxik, Orgrimmar
+  Alliance Springspindle Fizzlegear, Ironforge
+
+Artisan (skill 200, level 35) - ALT, unreachable at 29:
+  Buzzek Bracketswing, outside the inn near the mailbox, Gadgetzan, Tanaris.
+  Both factions. 5 gold.
+
+Specialisation trainers - ALT, unreachable at 29 (level 30):
+  Goblin: Nixx Sprocketspring (creature 8126), Gadgetzan, Tanaris;
+          Vazario Linkgrease, Ratchet, The Barrens.
+  Gnomish: Oglethorpe Obnoticus, Booty Bay, Stranglethorn Vale;
+           Tinkmaster Overspark, Ironforge; Lilliam Sparkspindle, Stormwind City.
+  Both chains need 200 skill, level 30, and the "Show Your Work" turn-in
+  (20x Big Iron Bomb 4394, 20x Solid Dynamite 10507, 5x Explosive Sheep 4384 for
+  Goblin; 6x Mithril Tube 10559, 2x Advanced Target Dummy 4392, 1x Accurate
+  Scope for Gnomish).
+
+Creature entries and exact coordinates for these trainers: not in the 8.3.7
+client tables (they are world-DB data), so only 8126 is verified here; treat the
+rest as city-and-district directions, unverified for 8.3.7.
+
+
+================================================================================
+7. WHICH CLASSES SHOULD TAKE ENGINEERING AT 29
+================================================================================
+Take it on every class that can afford it - it is the only profession that adds
+new buttons rather than stats. Ranked by how much it changes the class:
+
+  Druid (flag carrier)  Parachute Cloak 10518 plus Rocket Boots 7189 is the
+                        best escape kit in Warsong Gulch at 29.
+  Warrior               Iron Grenade 4390 / Big Iron Bomb 4394 give the stun
+                        the class otherwise lacks at 29; boots close gaps.
+  Rogue                 Grenade stun into an opener, Discombobulator Ray 4388
+                        to cut a target's damage and speed while you reposition,
+                        Gnomish Cloaking Device 4397 for a second vanish.
+  Hunter                Grenade into Freezing Trap is the strongest 29
+                        lockdown; scopes are dead for a 29 (Sniper Scope is
+                        level 40 / skill 240), so the value is the stun only.
+  Mage / Warlock / Priest  Peel tools: Explosive Sheep 4384 to interrupt,
+                        Shrink Ray 10716 and Mind Control Cap 10726 to remove a
+                        melee, Minor Recombobulator 4381 to undo a polymorph on
+                        yourself or a healer.
+  Shaman / Paladin      Least dependent on it; still worth it for the stun bomb
+                        and the cloak, but Alchemy or Blacksmithing compete.
+
+Second profession: Mining on the twink itself (halves the 1-225 bill) or
+Herbalism/Alchemy on an alt to fund the auction-house parts.
