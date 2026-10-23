@@ -86,3 +86,49 @@ WHAT THIS AUDIT CHANGED
   choice; the other three slots are at 40, 70 and 110 and are ALT. The
   rest of the file was already correct, thin because the ids are not
   reachable, and honest about it.
+
+================================================================================
+SECOND PASS - the audit above was written against the 95-line draft; the file
+was patched afterwards and now runs 100 lines. This pass re-checks the five
+things that could have moved, and finds one defect the first pass missed.
+================================================================================
+13 PASS  The PvP paragraph as it now stands. warcraft.wiki.gg, PvP talent,
+         "Gaining PvP talents": "In the lower right corner of the Talents
+         pane, three PvP talent slots can be seen after level 20, when the
+         first is unlocked. The other two are unlocked at level 30 and level
+         40." That is the post-9.0.1 text. The same page's Notes carry the
+         pre-Shadowlands rule the file uses: four slots in total, the first a
+         PvP trinket choice, standard classes at 20, 40, 70 and 110. So both
+         halves of the file's claim - the pane it lives in, and the count and
+         the levels - are confirmed, and the Shadowlands three-slot text is
+         correctly not applied to an 8.3.7 server.
+14 PASS  "The PvP panel is separate from the specialisation tree." The same
+         page: the slots sit in the Talents pane but outside the tree, and the
+         official BfA preview quoted there says all options are available
+         within the Talent pane (N) by level 110, switchable in a rested
+         area. Consistent.
+15 CORRECTED  Section 4 gave the row gates as "level 30, 45, 60, 75, 90" -
+         five levels for six rows, with 100 missing - while section 1 lists
+         the full 15/30/45/60/75/90/100. Fixed in the file: the Balance line
+         now reads 30, 45, 60, 75, 90, 100.
+16 UNVERIFIED, AND PROBABLY WRONG IN PLACES  The one-line talent
+         descriptions were never checked against ability pages and are the
+         weakest part of the file. "Brambles - damage back while barkskin-ed"
+         is the clearest case: as the ability has always been described it
+         reflects and absorbs on being hit, not while Barkskin is up. The
+         Feral pair, Predator and Blood Scent, are summaries of the same
+         quality. The picks themselves do not depend on these lines, but a
+         reader should not trust the wording.
+17 PASS  The row-gate claim is still unverified, and still hedged in the
+         file. The wiki's Talent page is a navigation shell with no BfA table
+         in the first chunk, so nothing was gained this pass. Section 1 says
+         so in as many words.
+18 PASS  Nothing else moved: the four specs at level 10, the single level 15
+         row, the four level-15 columns per spec, the ALT marking on rows 2-7,
+         and the "talent ids unverified" line are all unchanged and all stand.
+
+WHAT THE SECOND PASS CHANGED
+  One line in the file: the row list in section 4 now ends at 100. One new
+  warning in this audit: the talent descriptions in section 3 should be
+  read as labels, not as rules. The PvP section is now the strongest part of
+  the file, because it is the only part with a page behind it.

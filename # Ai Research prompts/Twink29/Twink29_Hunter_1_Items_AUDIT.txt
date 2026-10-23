@@ -105,3 +105,48 @@ rows carried from the druid set.
    Put the two verified mail heirlooms in with their ids. Keep the weapon
    and jewellery sections as they are, and downgrade the dual-wield row to
    unverified.
+
+================================================================================
+NOTE ON THE REQUEST - "audit 2 hunter"
+There is no Hunter step 2 deliverable. The Hunter prompt file is
+Twink29/Hunter/2_Talents.txt, but Twink29_Hunter_2_Talents.txt has never been
+written: steps 2 and 3 of the Hunter set are still to do. Per the standing
+rule this audit therefore covers the newest Hunter file that does exist, the
+rebuilt item list, as a second pass.
+================================================================================
+
+SECOND PASS - Twink29_Hunter_1_Items.txt AFTER THE MAIL-ONLY REBUILD
+21 PASS  The leather purge. A text search of the rebuilt file returns three
+         hits and none is a gear row: the rule statement in the header, the
+         wrist line that offers leather only as a fallback, and the Arathi
+         Basin caveat. Every armour row in the file is mail or bind-to-account
+         except 20090, 20093, 20152 and 20157, which are flagged.
+22 PASS  The seven-piece claim. The rows are 6686, 5819, 13127 (head), 1488
+         (chest), 9445 (hands), 9405 (waist), 9510 (feet) - seven, all mail,
+         all read off the mail search.
+23 PASS  The empty-slot claim. The 15-row mail search at rare quality,
+         required 26-29 and item level 35 or less contains no shoulder, no
+         wrist and no back, so "no rare mail shoulder, wrist or leg" is
+         right, and the rebuilt file now says it for all three.
+24 PASS  Heirlooms. 44101 Prized Beastmaster's Mantle and 48677 Champion's
+         Deathdealer Breastplate, both mail, both item level 1, both vendors;
+         42950 and 42951 identified as the Strength and Intellect mail
+         shoulders and correctly not offered to a hunter.
+25 CORRECTED  Two counting slips inside the rebuilt file. Section 0 said
+         "five" class-locked rows and then listed eight ids - corrected to
+         eight. Section 4 said "two head pieces" against three head rows -
+         corrected to three. Both were caught here and fixed in the file.
+26 PASS  Weapons and jewellery are unchanged by the rebuild and still read
+         off the weapon search page: guns 13137 and 7729, battleground bows
+         19561 and 19565, bows 6696 and 13019, crossbow 13037, and the
+         Survival melee list.
+27 UNVERIFIED, UNCHANGED  The dual-wield off-hand, the 8.3.7 Survival
+         ranged-slot statement, 13108 Tigerstrike Mantle, 19024's item level
+         and the Insignia's. None of them was fixed by this pass.
+
+WHAT IS STILL MISSING FROM THE HUNTER SET
+  Step 2 (talents) and step 3 (enchants, consumables, races) are not written
+  yet. The talents file is the natural next one: it needs the BfA level 15
+  row for Beast Mastery, Marksmanship and Survival, and the same single PvP
+  slot a 29 has in any class. Everything the druid talents file says about
+  that slot applies here unchanged.

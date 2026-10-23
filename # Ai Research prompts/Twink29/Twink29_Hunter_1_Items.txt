@@ -12,10 +12,10 @@ page. Rows marked unverified carry a number that was not opened.
 
 0. THE POOL IS SEVEN PIECES, AND THREE SLOTS ARE EMPTY
    The filtered mail search at rare quality, required level 26-29 and item
-   level 35 or less returns 15 rows. Five of them are class-locked to
+   level 35 or less returns 15 rows. Eight of them are class-locked to
    Paladin or Warrior (20108, 20111, 20126, 20129, 20178, 20182, 20207,
-   20210), three more are the druid and rogue battleground pieces already
-   filtered out, and what is left for a hunter is seven items.
+   20210), the rest are the Hunter/Shaman battleground belt and boots and
+   one more, and what is left for a hunter is seven items.
    There is no rare mail shoulder, wrist or leg in that window at all.
    Those three slots take an heirloom, a green, or nothing. That is the
    single most important fact about gearing a 29 hunter in this rule set.
@@ -83,7 +83,7 @@ RANGED|none - Survival has no ranged weapon slot in 8.3.7 (unverified)
    a hole in the list.
 
 4. WHAT THE RULE COSTS, IN ONE BREATH
-   Two head pieces and three weapon slots are healthy; the armour is not.
+   Three head pieces and the weapon slots are healthy; the armour is not.
    Seven wearable mail pieces at this tier means the average bot hunter is
    an heirloom shoulder, an heirloom chest or Avenger's Armor, one of two
    helms, Grubbis Paws, one of two belts, one of two boots, and greens in
