@@ -55,7 +55,10 @@ TAXI NODE 1956  FORLORN RUINS, NAZMIR
 
 TAXI NODE 1957  PORT OF ZANDALAR, ZULDAZAR
   flight master   : Ripa the Wind Ripper
-  creature entry  : 146507
+  creature entry  : 121252
+  entry note      : section 3.1 prints 146507, whose Wowhead page says "the location of this NPC is unknown" and dates
+                    it to 8.1.0; 121252 is the Ripa the Wind Ripper that Wowhead places in Dazar'alor as "<Flight
+                    Master>", level 90 elite, so the Dazar'alor roost takes that one
   faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 489
   position        : map 1642 (Zandalar), -1950.8, 744.3, 53.8  - TaxiNodes.Pos, the roost the taxi mount uses
   walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
@@ -587,12 +590,15 @@ WHAT IS VERIFIED AND WHAT IS NOT
   Positions are TaxiNodes.Pos from Map 1642 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
   flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
   so every "walk-to position" line says unverified rather than a guessed offset.
-  Creature entries: 37 of the 44 nodes print one and 7 print "unverified". 33 entries come from section 3.1 of the research
-  document unchanged, and 4 were read this run - Zabar 121828, Du'ba 122191, Scroll of Flight 135387 and Paku'ai Chal 148157. The
+  Creature entries: 37 of the 44 nodes print one and 7 print "unverified". 32 entries come from section 3.1 of the research
+  document unchanged, and 5 were read or corrected this run - Zabar 121828, Du'ba 122191, Ripa the Wind Ripper 121252, Scroll of
+  Flight 135387 and Paku'ai Chal 148157. The
   four Scroll of Flight nodes of Zuldazar are the ones section 3.1 gets wrong: it prints 137318 for all four, but 137318 is a
   Scroll of Flight standing in Stormsong Valley on Kul Tiras, and Wowhead lists three separate titled Scroll of Flight ids in
   Zuldazar (134008, 134011, 136331) with no page tying any of them to a single node, so 2066 Atal'Gral, 2075 Seeker's Outpost,
-  2076 Atal'Gral and 2126 Scaletrader Post print "unverified" instead of a near match. The Vol'dun scroll at 2120 Tortaka Refuge
+  2076 Atal'Gral and 2126 Scaletrader Post print "unverified" instead of a near match. Section 3.1 also prints 146507 for 1957
+  Port of Zandalar, but that id has no location on Wowhead and was added in 8.1.0, while 121252 is the Ripa the Wind Ripper
+  standing in Dazar'alor, so the block prints 121252 and says why. The Vol'dun scroll at 2120 Tortaka Refuge
   does print an entry, because 135387 is the only Scroll of Flight flight master Wowhead places in Vol'dun.
   Three nodes print no master at all: 2071 Dreadpearl, 2073 Throne Room and 2162 Devoted Sanctuary. All three start no TaxiPath
   row. 2071 sits on exactly the same coordinates as 2066 Atal'Gral and 2162 on exactly the same coordinates as 2119 Sanctuary of
