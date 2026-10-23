@@ -1,0 +1,1174 @@
+TAXI NODE 1381  EMBAARI VILLAGE, SHADOWMOON VALLEY
+  flight master   : Eonor
+  creature entry  : 76840
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 299
+  position        : map 1116 (Draenor), 918.3, -792.4, -28.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1382 Twilight Glade 847 yd = 0.44 min; 1383 Path of the Light 1278 yd = 0.67 min;
+                    1384 Exile's Rise 791 yd = 0.41 min; 1467 The Draakorium 1291 yd = 0.67 min;
+                    1468 Elodor (Alliance) 1146 yd = 0.60 min;
+                    1476 Lunarfall (Alliance) 1659 yd = 0.86 min;
+                    1529 Darktide Roost 2276 yd = 1.19 min
+
+TAXI NODE 1382  TWILIGHT GLADE, SHADOWMOON VALLEY
+  flight master   : Gotuun
+  creature entry  : 76839
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 300
+  position        : map 1116 (Draenor), 195.2, -459.2, -4.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 1046 yd = 0.54 min; 1383 Path of the Light 1487 yd = 0.77 min;
+                    1467 The Draakorium 1189 yd = 0.62 min;
+                    1475 Socrethar's Rise 1228 yd = 0.64 min;
+                    1476 Lunarfall (Alliance) 2070 yd = 1.08 min;
+                    1509 Talon Watch 1760 yd = 0.92 min
+
+TAXI NODE 1383  PATH OF THE LIGHT, SHADOWMOON VALLEY
+  flight master   : Paaya
+  creature entry  : 76851
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 301
+  position        : map 1116 (Draenor), 602.7, -1710.4, 26.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 1044 yd = 0.54 min; 1382 Twilight Glade 1434 yd = 0.75 min;
+                    1467 The Draakorium 607 yd = 0.32 min;
+                    1468 Elodor (Alliance) 684 yd = 0.36 min;
+                    1556 Tranquil Court 969 yd = 0.50 min
+
+TAXI NODE 1384  EXILE'S RISE, SHADOWMOON VALLEY
+  flight master   : Wargra
+  creature entry  : 76850
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 302
+  position        : map 1116 (Draenor), 1526.4, -788.9, 43.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 795 yd = 0.41 min; 1408 Warspear 5567 yd = 2.90 min;
+                    1451 Anchorite's Sojourn 2436 yd = 1.27 min;
+                    1453 Exarch's Refuge 3894 yd = 2.03 min;
+                    1454 Exarch's Refuge 4059 yd = 2.11 min;
+                    1462 Terokkar Refuge 2836 yd = 1.48 min;
+                    1468 Elodor (Alliance) 1106 yd = 0.58 min;
+                    1475 Socrethar's Rise 2715 yd = 1.41 min;
+                    1476 Lunarfall (Alliance) 1579 yd = 0.82 min;
+                    1509 Talon Watch 3057 yd = 1.59 min; 1529 Darktide Roost 2914 yd = 1.52 min;
+                    1569 Akeeta's Hovel 2160 yd = 1.12 min;
+                    1646 Vault of the Earth 2709 yd = 1.41 min
+
+TAXI NODE 1386  WOR'GOL, FROSTFIRE RIDGE
+  flight master   : Pul Windcarver
+  creature entry  : 76782
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 312
+  position        : map 1116 (Draenor), 5988.7, 6180.9, 71.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1387 Bladespire Citadel 1417 yd = 0.74 min; 1390 Stonefang Outpost 1720 yd = 0.90 min;
+                    1432 Frostwall Garrison 2313 yd = 1.20 min
+
+TAXI NODE 1387  BLADESPIRE CITADEL, FROSTFIRE RIDGE
+  flight master   : Roark the Airwolf
+  creature entry  : 76781
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 313
+  position        : map 1116 (Draenor), 6754.6, 6012.5, 250.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1386 Wor'gol 966 yd = 0.50 min; 1388 Throm'Var 1752 yd = 0.91 min;
+                    1389 Bloodmaul Slag Mines 2702 yd = 1.41 min;
+                    1390 Stonefang Outpost 1194 yd = 0.62 min;
+                    1432 Frostwall Garrison 2032 yd = 1.06 min
+
+TAXI NODE 1388  THROM'VAR, FROSTFIRE RIDGE
+  flight master   : Jonnock Hewndawn
+  creature entry  : 76783
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 314
+  position        : map 1116 (Draenor), 7879.6, 5560.2, 111.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1387 Bladespire Citadel 1340 yd = 0.70 min; 1389 Bloodmaul Slag Mines 1707 yd = 0.89 min;
+                    1396 Darkspear's Edge 1985 yd = 1.03 min
+
+TAXI NODE 1389  BLOODMAUL SLAG MINES, FROSTFIRE RIDGE
+  flight master   : Brenna Skymoor
+  creature entry  : 76787
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 316
+  position        : map 1116 (Draenor), 7399.5, 4358.4, 126.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1387 Bladespire Citadel 2232 yd = 1.16 min; 1388 Throm'Var 1618 yd = 0.84 min;
+                    1395 Thunder Pass 2862 yd = 1.49 min;
+                    1396 Darkspear's Edge 1071 yd = 0.56 min;
+                    1432 Frostwall Garrison 2053 yd = 1.07 min;
+                    1450 Shattrath City 5376 yd = 2.80 min;
+                    1503 Throne of the Elements 3851 yd = 2.01 min;
+                    1528 Iron Siegeworks 3204 yd = 1.67 min;
+                    1539 Skysea Ridge 2945 yd = 1.53 min;
+                    1572 Rilzit's Holdfast 4708 yd = 2.45 min
+
+TAXI NODE 1390  STONEFANG OUTPOST, FROSTFIRE RIDGE
+  flight master   : Skyhunter Donmor'gan
+  creature entry  : 76879
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 317
+  position        : map 1116 (Draenor), 6157.6, 5052.4, 134.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1386 Wor'gol 1732 yd = 0.90 min; 1387 Bladespire Citadel 1490 yd = 0.78 min;
+                    1395 Thunder Pass 3270 yd = 1.70 min;
+                    1396 Darkspear's Edge 1201 yd = 0.63 min;
+                    1432 Frostwall Garrison 1303 yd = 0.68 min
+
+TAXI NODE 1395  THUNDER PASS, FROSTFIRE RIDGE
+  flight master   : Bile Warneck
+  creature entry  : 76784
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 330
+  position        : map 1116 (Draenor), 5789.6, 2394.9, 201.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1389 Bloodmaul Slag Mines 2745 yd = 1.43 min; 1390 Stonefang Outpost 3234 yd = 1.68 min;
+                    1432 Frostwall Garrison 2489 yd = 1.30 min;
+                    1442 Beastwatch 1504 yd = 0.78 min; 1443 Vol'jin's Pride 3074 yd = 1.60 min;
+                    1450 Shattrath City 3246 yd = 1.69 min;
+                    1514 Evermorn Springs 2047 yd = 1.07 min;
+                    1520 Breaker's Crown 1530 yd = 0.80 min;
+                    1539 Skysea Ridge 2167 yd = 1.13 min; 1559 Wolf's Stand 848 yd = 0.44 min
+
+TAXI NODE 1396  DARKSPEAR'S EDGE, FROSTFIRE RIDGE
+  flight master   : Ja'kana
+  creature entry  : 78699
+  entry note      : Ja'kana is 78699 on his wiki NPC page (Horde, Darkspear's Edge)
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 319
+  position        : map 1116 (Draenor), 6600.0, 4342.5, 91.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1388 Throm'Var 2164 yd = 1.13 min; 1389 Bloodmaul Slag Mines 1130 yd = 0.59 min;
+                    1390 Stonefang Outpost 1182 yd = 0.62 min;
+                    1432 Frostwall Garrison 1110 yd = 0.58 min;
+                    1559 Wolf's Stand 1657 yd = 0.86 min
+
+TAXI NODE 1408  WARSPEAR, ASHRAN
+  flight master   : Ilalu
+  creature entry  : 86049
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 328
+  position        : map 1116 (Draenor), 5356.2, -3942.2, 32.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki lists this master at Warspear in Ashran
+  links           : 1384 Exile's Rise 5904 yd = 3.08 min; 1432 Frostwall Garrison 8835 yd = 4.60 min;
+                    1442 Beastwatch 5838 yd = 3.04 min; 1443 Vol'jin's Pride 7374 yd = 3.84 min;
+                    1450 Shattrath City 8117 yd = 4.23 min;
+                    1475 Socrethar's Rise 7786 yd = 4.06 min;
+                    1512 Bastion Rise 5746 yd = 2.99 min;
+                    1514 Evermorn Springs 6027 yd = 3.14 min;
+                    1529 Darktide Roost 7807 yd = 4.07 min; 1539 Skysea Ridge 6448 yd = 3.36 min;
+                    1568 Everbloom Wilds 5350 yd = 2.79 min;
+                    1569 Akeeta's Hovel 7598 yd = 3.96 min; 1621 Vol'mar 3062 yd = 1.59 min
+
+TAXI NODE 1420  STORMSHIELD (ALLIANCE), ASHRAN
+  flight master   : Ernst ten Bosch
+  creature entry  : 85959
+  entry note      : Ernst ten Bosch is 85959 on his wiki NPC page (Alliance, Stormshield)
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 329
+  position        : map 1116 (Draenor), 3685.1, -3840.5, 45.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki lists this master at Stormshield in Ashran
+  links           : 1450 Shattrath City 7026 yd = 3.66 min; 1468 Elodor (Alliance) 3650 yd = 1.90 min;
+                    1475 Socrethar's Rise 5769 yd = 3.00 min;
+                    1476 Lunarfall (Alliance) 4730 yd = 2.46 min;
+                    1518 Wildwood Wash 4966 yd = 2.59 min;
+                    1529 Darktide Roost 5657 yd = 2.95 min;
+                    1569 Akeeta's Hovel 6123 yd = 3.19 min; 1620 Lion's Watch 2841 yd = 1.48 min
+
+TAXI NODE 1432  FROSTWALL GARRISON, FROSTFIRE RIDGE
+  flight master   : Bron Skyhorn
+  creature entry  : 79407
+  entry note      : Bron Skyhorn is 79407 on his wiki NPC page; the wiki calls the place Frostwall, the node is named
+                    Frostwall Garrison
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 342
+  position        : map 1116 (Draenor), 5578.9, 4564.8, 136.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki calls this place Frostwall; the export names the node Frostwall Garrison, which is the
+                    Horde garrison inside it
+  links           : 1386 Wor'gol 2191 yd = 1.14 min; 1387 Bladespire Citadel 2678 yd = 1.39 min;
+                    1389 Bloodmaul Slag Mines 2040 yd = 1.06 min;
+                    1390 Stonefang Outpost 1379 yd = 0.72 min;
+                    1395 Thunder Pass 2424 yd = 1.26 min;
+                    1396 Darkspear's Edge 1325 yd = 0.69 min; 1408 Warspear 8689 yd = 4.53 min;
+                    1441 Frostwolf Overlook 3019 yd = 1.57 min;
+                    1442 Beastwatch 3599 yd = 1.87 min; 1443 Vol'jin's Pride 4208 yd = 2.19 min;
+                    1450 Shattrath City 3650 yd = 1.90 min; 1487 Axefall 6920 yd = 3.60 min;
+                    1503 Throne of the Elements 2093 yd = 1.09 min;
+                    1504 Wor'var 2724 yd = 1.42 min; 1505 Riverside Post 3760 yd = 1.96 min;
+                    1510 Pinchwhistle Gearworks 8470 yd = 4.41 min;
+                    1513 Apexis Excavation 6101 yd = 3.18 min;
+                    1559 Wolf's Stand 1688 yd = 0.88 min;
+                    1572 Rilzit's Holdfast 3439 yd = 1.79 min;
+                    1574 Joz's Rylaks 2678 yd = 1.39 min
+
+TAXI NODE 1440  ZANGARRA, TALADOR
+  flight master   : Dominic Arlington
+  creature entry  : 80932
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 343
+  position        : map 1116 (Draenor), 3418.8, 1040.2, 178.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1443 Vol'jin's Pride 1106 yd = 0.58 min; 1447 Fort Wrynn (Alliance) 1503 yd = 0.78 min;
+                    1451 Anchorite's Sojourn 1708 yd = 0.89 min;
+                    1462 Terokkar Refuge 1697 yd = 0.88 min;
+                    1476 Lunarfall (Alliance) 2126 yd = 1.11 min;
+                    1643 Aktar's Post 1732 yd = 0.90 min; 1644 The Iron Front 1409 yd = 0.73 min;
+                    1645 The Iron Front 1414 yd = 0.74 min;
+                    1646 Vault of the Earth 2322 yd = 1.21 min;
+                    1648 Sha'naari Refuge 1355 yd = 0.71 min
+
+TAXI NODE 1441  FROSTWOLF OVERLOOK, TALADOR
+  flight master   : Mok'ra
+  creature entry  : 81053
+  entry note      : Mok'ra is 81053 on his wiki NPC page (Horde, Frostwolf Overlook)
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 344
+  position        : map 1116 (Draenor), 4008.9, 2166.9, 119.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1432 Frostwall Garrison 3474 yd = 1.81 min; 1443 Vol'jin's Pride 1742 yd = 0.91 min;
+                    1445 Durotan's Grasp 1342 yd = 0.70 min; 1504 Wor'var 2654 yd = 1.38 min;
+                    1512 Bastion Rise 1453 yd = 0.76 min;
+                    1514 Evermorn Springs 1467 yd = 0.76 min;
+                    1644 The Iron Front 1201 yd = 0.63 min
+
+TAXI NODE 1442  BEASTWATCH, GORGROND
+  flight master   : Grinslicer
+  creature entry  : 81055
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 345
+  position        : map 1116 (Draenor), 5815.5, 1304.3, 109.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1395 Thunder Pass 1557 yd = 0.81 min; 1408 Warspear 5735 yd = 2.99 min;
+                    1432 Frostwall Garrison 3710 yd = 1.93 min;
+                    1443 Vol'jin's Pride 2957 yd = 1.54 min; 1504 Wor'var 5130 yd = 2.67 min;
+                    1512 Bastion Rise 1448 yd = 0.75 min;
+                    1514 Evermorn Springs 1697 yd = 0.88 min;
+                    1520 Breaker's Crown 1194 yd = 0.62 min; 1524 Iron Docks 3092 yd = 1.61 min;
+                    1539 Skysea Ridge 2200 yd = 1.15 min;
+                    1568 Everbloom Wilds 2011 yd = 1.05 min
+
+TAXI NODE 1443  VOL'JIN'S PRIDE, TALADOR
+  flight master   : Mo'jimba
+  creature entry  : 81057
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 346
+  position        : map 1116 (Draenor), 3258.8, 1609.3, 162.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1395 Thunder Pass 2881 yd = 1.50 min; 1408 Warspear 7312 yd = 3.81 min;
+                    1432 Frostwall Garrison 4387 yd = 2.28 min; 1440 Zangarra 1043 yd = 0.54 min;
+                    1441 Frostwolf Overlook 1246 yd = 0.65 min;
+                    1442 Beastwatch 2986 yd = 1.56 min; 1445 Durotan's Grasp 1255 yd = 0.65 min;
+                    1450 Shattrath City 1664 yd = 0.87 min;
+                    1462 Terokkar Refuge 1323 yd = 0.69 min;
+                    1475 Socrethar's Rise 5348 yd = 2.79 min; 1487 Axefall 3914 yd = 2.04 min;
+                    1504 Wor'var 3278 yd = 1.71 min; 1512 Bastion Rise 1968 yd = 1.02 min;
+                    1514 Evermorn Springs 1934 yd = 1.01 min;
+                    1515 Crow's Crook 3578 yd = 1.86 min; 1529 Darktide Roost 5666 yd = 2.95 min;
+                    1569 Akeeta's Hovel 3260 yd = 1.70 min;
+                    1644 The Iron Front 1330 yd = 0.69 min
+
+TAXI NODE 1445  DUROTAN'S GRASP, TALADOR
+  flight master   : Tega Skyblade
+  creature entry  : 81058
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 347
+  position        : map 1116 (Draenor), 2808.8, 2525.7, 120.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1441 Frostwolf Overlook 1801 yd = 0.94 min; 1443 Vol'jin's Pride 2268 yd = 1.18 min;
+                    1450 Shattrath City 391 yd = 0.20 min;
+                    1454 Exarch's Refuge 1350 yd = 0.70 min;
+                    1462 Terokkar Refuge 1946 yd = 1.01 min; 1504 Wor'var 2638 yd = 1.37 min
+
+TAXI NODE 1447  FORT WRYNN (ALLIANCE), TALADOR
+  flight master   : Skyguard Amelia
+  creature entry  : 81060
+  entry note      : Skyguard Amelia is 81060 on her wiki NPC page (Alliance, Fort Wrynn)
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 349
+  position        : map 1116 (Draenor), 3576.8, 1669.4, 172.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1440 Zangarra 999 yd = 0.52 min; 1448 Redemption Rise 615 yd = 0.32 min;
+                    1450 Shattrath City 1575 yd = 0.82 min;
+                    1451 Anchorite's Sojourn 2283 yd = 1.19 min;
+                    1476 Lunarfall (Alliance) 3335 yd = 1.74 min;
+                    1493 Southport 5099 yd = 2.66 min; 1506 Telaari Station 5469 yd = 2.85 min;
+                    1511 Bastion Rise 1712 yd = 0.89 min; 1519 Highpass 3272 yd = 1.70 min;
+                    1523 Deeproot 2594 yd = 1.35 min; 1528 Iron Siegeworks 2854 yd = 1.49 min;
+                    1569 Akeeta's Hovel 3490 yd = 1.82 min;
+                    1645 The Iron Front 1173 yd = 0.61 min
+
+TAXI NODE 1448  REDEMPTION RISE, TALADOR
+  flight master   : Nomaeaa
+  creature entry  : 81061
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 352
+  position        : map 1116 (Draenor), 3407.7, 2062.0, 160.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1447 Fort Wrynn (Alliance) 1248 yd = 0.65 min; 1450 Shattrath City 1134 yd = 0.59 min;
+                    1453 Exarch's Refuge 2348 yd = 1.22 min;
+                    1462 Terokkar Refuge 1746 yd = 0.91 min
+
+TAXI NODE 1450  SHATTRATH CITY, TALADOR
+  flight master   : Zamara
+  creature entry  : 81064
+  entry note      : Zamara is 81064 on her wiki NPC page at the Spire of Light; the page files her as Alliance while
+                    the flight-master table lists her with the neutral masters, and this node is A+H
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 355
+  position        : map 1116 (Draenor), 2727.2, 2777.0, 242.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1389 Bloodmaul Slag Mines 5299 yd = 2.76 min; 1395 Thunder Pass 3312 yd = 1.73 min;
+                    1408 Warspear 8280 yd = 4.31 min;
+                    1420 Stormshield (Alliance) 7025 yd = 3.66 min;
+                    1432 Frostwall Garrison 3806 yd = 1.98 min;
+                    1443 Vol'jin's Pride 2040 yd = 1.06 min;
+                    1445 Durotan's Grasp 663 yd = 0.35 min;
+                    1447 Fort Wrynn (Alliance) 1913 yd = 1.00 min;
+                    1448 Redemption Rise 1374 yd = 0.72 min;
+                    1452 Retribution Point 1776 yd = 0.93 min;
+                    1453 Exarch's Refuge 1607 yd = 0.84 min;
+                    1454 Exarch's Refuge 1196 yd = 0.62 min;
+                    1462 Terokkar Refuge 2120 yd = 1.10 min;
+                    1476 Lunarfall (Alliance) 3580 yd = 1.86 min;
+                    1487 Axefall 3723 yd = 1.94 min; 1493 Southport 4485 yd = 2.34 min;
+                    1502 The Ring of Trials 2389 yd = 1.24 min; 1504 Wor'var 1938 yd = 1.01 min;
+                    1506 Telaari Station 3276 yd = 1.71 min;
+                    1513 Apexis Excavation 2906 yd = 1.51 min;
+                    1528 Iron Siegeworks 3514 yd = 1.83 min;
+                    1569 Akeeta's Hovel 3282 yd = 1.71 min
+
+TAXI NODE 1451  ANCHORITE'S SOJOURN, TALADOR
+  flight master   : Zaari
+  creature entry  : 81067
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 357
+  position        : map 1116 (Draenor), 2171.8, 1059.2, 112.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1384 Exile's Rise 2479 yd = 1.29 min; 1440 Zangarra 1585 yd = 0.83 min;
+                    1447 Fort Wrynn (Alliance) 1812 yd = 0.94 min;
+                    1453 Exarch's Refuge 1893 yd = 0.99 min;
+                    1462 Terokkar Refuge 607 yd = 0.32 min;
+                    1476 Lunarfall (Alliance) 1652 yd = 0.86 min;
+                    1509 Talon Watch 3603 yd = 1.88 min
+
+TAXI NODE 1452  RETRIBUTION POINT, TALADOR
+  flight master   : Beldos
+  creature entry  : 76000
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 358
+  position        : map 1116 (Draenor), 1378.4, 3318.5, 138.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1450 Shattrath City 2176 yd = 1.13 min; 1453 Exarch's Refuge 966 yd = 0.50 min;
+                    1454 Exarch's Refuge 1044 yd = 0.54 min;
+                    1502 The Ring of Trials 2685 yd = 1.40 min;
+                    1513 Apexis Excavation 1512 yd = 0.79 min
+
+TAXI NODE 1453  EXARCH'S REFUGE, TALADOR
+  flight master   : Niaa
+  creature entry  : 81077
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 359
+  position        : map 1116 (Draenor), 1696.5, 2561.4, 133.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1384 Exile's Rise 3703 yd = 1.93 min; 1448 Redemption Rise 1930 yd = 1.01 min;
+                    1450 Shattrath City 1197 yd = 0.62 min;
+                    1451 Anchorite's Sojourn 2308 yd = 1.20 min;
+                    1452 Retribution Point 996 yd = 0.52 min;
+                    1462 Terokkar Refuge 1537 yd = 0.80 min;
+                    1475 Socrethar's Rise 4777 yd = 2.49 min;
+                    1513 Apexis Excavation 1799 yd = 0.94 min;
+                    1569 Akeeta's Hovel 2653 yd = 1.38 min
+
+TAXI NODE 1454  EXARCH'S REFUGE, TALADOR
+  flight master   : Roka
+  creature entry  : 81078
+  entry note      : Roka is 81078 (Wowhead search, "<Flight Master>"); section 3.1 of the research document gives this
+                    Horde node Niaa, the Alliance master of 1453
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 371
+  position        : map 1116 (Draenor), 1731.1, 2581.5, 133.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : this is the Horde copy of Exarch's Refuge: the wiki gives it Roka, while 1453, the Alliance copy
+                    at the same camp, is Niaa
+  links           : 1384 Exile's Rise 3533 yd = 1.84 min; 1445 Durotan's Grasp 1688 yd = 0.88 min;
+                    1450 Shattrath City 1157 yd = 0.60 min;
+                    1452 Retribution Point 1069 yd = 0.56 min;
+                    1462 Terokkar Refuge 1347 yd = 0.70 min;
+                    1475 Socrethar's Rise 4733 yd = 2.47 min;
+                    1513 Apexis Excavation 1730 yd = 0.90 min;
+                    1569 Akeeta's Hovel 2586 yd = 1.35 min
+
+TAXI NODE 1462  TEROKKAR REFUGE, TALADOR
+  flight master   : Skytalon Inuz
+  creature entry  : 81354
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 373
+  position        : map 1116 (Draenor), 2158.6, 1634.5, 131.8  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1384 Exile's Rise 2930 yd = 1.53 min; 1440 Zangarra 1591 yd = 0.83 min;
+                    1443 Vol'jin's Pride 1498 yd = 0.78 min;
+                    1445 Durotan's Grasp 1244 yd = 0.65 min;
+                    1448 Redemption Rise 1464 yd = 0.76 min;
+                    1450 Shattrath City 1394 yd = 0.73 min;
+                    1451 Anchorite's Sojourn 1302 yd = 0.68 min;
+                    1453 Exarch's Refuge 1278 yd = 0.67 min;
+                    1454 Exarch's Refuge 1384 yd = 0.72 min;
+                    1515 Crow's Crook 2383 yd = 1.24 min; 1569 Akeeta's Hovel 2112 yd = 1.10 min
+
+TAXI NODE 1467  THE DRAAKORIUM, SHADOWMOON VALLEY
+  flight master   : Morfax
+  creature entry  : 81284
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 318
+  position        : map 1116 (Draenor), 128.6, -1555.8, 31.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 1192 yd = 0.62 min; 1382 Twilight Glade 1355 yd = 0.71 min;
+                    1383 Path of the Light 530 yd = 0.28 min;
+                    1475 Socrethar's Rise 1587 yd = 0.83 min;
+                    1529 Darktide Roost 1637 yd = 0.85 min;
+                    1556 Tranquil Court 1012 yd = 0.53 min
+
+TAXI NODE 1468  ELODOR (ALLIANCE), SHADOWMOON VALLEY
+  flight master   : Vamuun
+  creature entry  : 81289
+  entry note      : Vamuun is 81289 on his wiki NPC page (Alliance, Elodor)
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 341
+  position        : map 1116 (Draenor), 1240.2, -1666.4, 44.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 1022 yd = 0.53 min; 1383 Path of the Light 979 yd = 0.51 min;
+                    1384 Exile's Rise 1215 yd = 0.63 min;
+                    1420 Stormshield (Alliance) 3514 yd = 1.83 min;
+                    1476 Lunarfall (Alliance) 2312 yd = 1.20 min;
+                    1556 Tranquil Court 1410 yd = 0.73 min;
+                    1646 Vault of the Earth 2984 yd = 1.55 min
+
+TAXI NODE 1475  SOCRETHAR'S RISE, SHADOWMOON VALLEY
+  flight master   : Azara Goldenwing
+  creature entry  : 81285
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 374
+  position        : map 1116 (Draenor), -799.7, -671.4, 107.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1382 Twilight Glade 1353 yd = 0.70 min; 1384 Exile's Rise 2723 yd = 1.42 min;
+                    1408 Warspear 7570 yd = 3.94 min;
+                    1420 Stormshield (Alliance) 5686 yd = 2.96 min;
+                    1443 Vol'jin's Pride 5083 yd = 2.65 min;
+                    1453 Exarch's Refuge 4300 yd = 2.24 min;
+                    1454 Exarch's Refuge 4472 yd = 2.33 min;
+                    1467 The Draakorium 1431 yd = 0.75 min;
+                    1476 Lunarfall (Alliance) 3144 yd = 1.64 min;
+                    1487 Axefall 3212 yd = 1.67 min; 1493 Southport 3322 yd = 1.73 min;
+                    1509 Talon Watch 1777 yd = 0.93 min; 1529 Darktide Roost 1438 yd = 0.75 min;
+                    1569 Akeeta's Hovel 2086 yd = 1.09 min
+
+TAXI NODE 1476  LUNARFALL (ALLIANCE), SHADOWMOON VALLEY
+  flight master   : Dungar Longdrink
+  creature entry  : 81103
+  entry note      : Dungar Longdrink has two ids: 352 in Stormwind City and 81103 at Lunarfall; 81103 is the one at
+                    this roost
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 376
+  position        : map 1116 (Draenor), 1866.6, 219.5, 77.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 1821 yd = 0.95 min; 1382 Twilight Glade 1938 yd = 1.01 min;
+                    1384 Exile's Rise 1780 yd = 0.93 min;
+                    1420 Stormshield (Alliance) 5193 yd = 2.70 min;
+                    1440 Zangarra 3053 yd = 1.59 min;
+                    1447 Fort Wrynn (Alliance) 3118 yd = 1.62 min;
+                    1450 Shattrath City 3229 yd = 1.68 min;
+                    1451 Anchorite's Sojourn 1290 yd = 0.67 min;
+                    1468 Elodor (Alliance) 2659 yd = 1.38 min;
+                    1475 Socrethar's Rise 3275 yd = 1.71 min; 1493 Southport 4566 yd = 2.38 min;
+                    1506 Telaari Station 6160 yd = 3.21 min;
+                    1511 Bastion Rise 3697 yd = 1.93 min; 1515 Crow's Crook 2674 yd = 1.39 min;
+                    1518 Wildwood Wash 6388 yd = 3.33 min; 1519 Highpass 5797 yd = 3.02 min;
+                    1529 Darktide Roost 3790 yd = 1.97 min;
+                    1569 Akeeta's Hovel 1646 yd = 0.86 min;
+                    1646 Vault of the Earth 2848 yd = 1.48 min
+
+TAXI NODE 1487  AXEFALL, SPIRES OF ARAK
+  flight master   : Hutou Featherwind
+  creature entry  : 82612
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 375
+  position        : map 1116 (Draenor), -368.2, 2285.6, 34.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1432 Frostwall Garrison 6903 yd = 3.60 min; 1443 Vol'jin's Pride 4398 yd = 2.29 min;
+                    1450 Shattrath City 3645 yd = 1.90 min;
+                    1475 Socrethar's Rise 3646 yd = 1.90 min; 1504 Wor'var 4930 yd = 2.57 min;
+                    1505 Riverside Post 6238 yd = 3.25 min; 1508 Veil Terokk 1018 yd = 0.53 min;
+                    1513 Apexis Excavation 1062 yd = 0.55 min;
+                    1515 Crow's Crook 1244 yd = 0.65 min; 1569 Akeeta's Hovel 2223 yd = 1.16 min;
+                    1573 Nivek's Overlook 5146 yd = 2.68 min
+
+TAXI NODE 1493  SOUTHPORT, SPIRES OF ARAK
+  flight master   : Firn Swiftbreeze
+  creature entry  : 83567
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 311
+  position        : map 1116 (Draenor), -1117.4, 2317.0, 2.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1447 Fort Wrynn (Alliance) 5381 yd = 2.80 min; 1450 Shattrath City 4556 yd = 2.37 min;
+                    1475 Socrethar's Rise 3792 yd = 1.98 min;
+                    1476 Lunarfall (Alliance) 4712 yd = 2.45 min;
+                    1506 Telaari Station 5758 yd = 3.00 min; 1508 Veil Terokk 1506 yd = 0.78 min;
+                    1510 Pinchwhistle Gearworks 1890 yd = 0.98 min;
+                    1513 Apexis Excavation 1701 yd = 0.89 min;
+                    1569 Akeeta's Hovel 2773 yd = 1.44 min;
+                    1573 Nivek's Overlook 5640 yd = 2.94 min
+
+TAXI NODE 1502  THE RING OF TRIALS, NAGRAND
+  flight master   : Biggy Warprofits
+  creature entry  : 83924
+  entry note      : Biggy Warprofits is 83924 on his wiki NPC page
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 372
+  position        : map 1116 (Draenor), 3040.8, 4783.1, 128.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1450 Shattrath City 2496 yd = 1.30 min; 1452 Retribution Point 2676 yd = 1.39 min;
+                    1503 Throne of the Elements 1138 yd = 0.59 min;
+                    1504 Wor'var 601 yd = 0.31 min; 1505 Riverside Post 2157 yd = 1.12 min;
+                    1506 Telaari Station 1347 yd = 0.70 min;
+                    1507 Yrel's Watch 1291 yd = 0.67 min;
+                    1573 Nivek's Overlook 2155 yd = 1.12 min;
+                    1574 Joz's Rylaks 1738 yd = 0.91 min (reverse row only)
+
+TAXI NODE 1503  THRONE OF THE ELEMENTS, NAGRAND
+  flight master   : Gixmo Moneycash
+  creature entry  : 82844
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 377
+  position        : map 1116 (Draenor), 3918.8, 5131.5, 62.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1389 Bloodmaul Slag Mines 4074 yd = 2.12 min; 1432 Frostwall Garrison 2075 yd = 1.08 min;
+                    1502 The Ring of Trials 1122 yd = 0.58 min; 1504 Wor'var 1239 yd = 0.65 min;
+                    1505 Riverside Post 1844 yd = 0.96 min;
+                    1506 Telaari Station 1573 yd = 0.82 min; 1507 Yrel's Watch 989 yd = 0.52 min;
+                    1528 Iron Siegeworks 4512 yd = 2.35 min; 1574 Joz's Rylaks 813 yd = 0.42 min
+
+TAXI NODE 1504  WOR'VAR, NAGRAND
+  flight master   : Tal
+  creature entry  : 82346
+  entry note      : Tal has two ids: 2995 in Thunder Bluff and 82346 at Wor'var; 82346 is the one in Nagrand
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 378
+  position        : map 1116 (Draenor), 3235.7, 4584.5, 144.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : the wiki puts Tal at Wor'var in Nagrand as well as at Thunder Bluff, on the same NPC name
+  links           : 1432 Frostwall Garrison 2610 yd = 1.36 min; 1441 Frostwolf Overlook 2940 yd = 1.53 min;
+                    1442 Beastwatch 5016 yd = 2.61 min; 1443 Vol'jin's Pride 3664 yd = 1.91 min;
+                    1445 Durotan's Grasp 2758 yd = 1.44 min;
+                    1450 Shattrath City 2664 yd = 1.39 min; 1487 Axefall 5364 yd = 2.79 min;
+                    1502 The Ring of Trials 371 yd = 0.19 min;
+                    1503 Throne of the Elements 1171 yd = 0.61 min;
+                    1505 Riverside Post 2081 yd = 1.08 min
+
+TAXI NODE 1505  RIVERSIDE POST, NAGRAND
+  flight master   : Omu Spiritbreeze
+  creature entry  : 26847
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 379
+  position        : map 1116 (Draenor), 3102.8, 6500.4, 17.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1432 Frostwall Garrison 3563 yd = 1.86 min; 1487 Axefall 6750 yd = 3.52 min;
+                    1502 The Ring of Trials 2627 yd = 1.37 min;
+                    1503 Throne of the Elements 1939 yd = 1.01 min;
+                    1504 Wor'var 2640 yd = 1.38 min; 1572 Rilzit's Holdfast 870 yd = 0.45 min;
+                    1573 Nivek's Overlook 1329 yd = 0.69 min;
+                    1574 Joz's Rylaks 1169 yd = 0.61 min
+
+TAXI NODE 1506  TELAARI STATION, NAGRAND
+  flight master   : John Shelby
+  creature entry  : 43697
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 380
+  position        : map 1116 (Draenor), 2594.2, 5700.6, 100.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1447 Fort Wrynn (Alliance) 5483 yd = 2.86 min; 1450 Shattrath City 3446 yd = 1.79 min;
+                    1476 Lunarfall (Alliance) 6574 yd = 3.42 min;
+                    1493 Southport 5688 yd = 2.96 min;
+                    1502 The Ring of Trials 1269 yd = 0.66 min;
+                    1503 Throne of the Elements 1859 yd = 0.97 min;
+                    1507 Yrel's Watch 1176 yd = 0.61 min; 1519 Highpass 7362 yd = 3.83 min;
+                    1572 Rilzit's Holdfast 1824 yd = 0.95 min;
+                    1573 Nivek's Overlook 1133 yd = 0.59 min
+
+TAXI NODE 1507  YREL'S WATCH, NAGRAND
+  flight master   : Felicia Maline
+  creature entry  : 2409
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 381
+  position        : map 1116 (Draenor), 3384.2, 5755.6, 39.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1502 The Ring of Trials 1160 yd = 0.60 min; 1503 Throne of the Elements 960 yd = 0.50 min;
+                    1506 Telaari Station 923 yd = 0.48 min;
+                    1572 Rilzit's Holdfast 1287 yd = 0.67 min;
+                    1574 Joz's Rylaks 577 yd = 0.30 min
+
+TAXI NODE 1508  VEIL TEROKK, SPIRES OF ARAK
+  flight master   : Skytalon Meshaal
+  creature entry  : 84498
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 382
+  position        : map 1116 (Draenor), -399.0, 1880.1, 51.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1487 Axefall 613 yd = 0.32 min; 1493 Southport 917 yd = 0.48 min;
+                    1509 Talon Watch 1337 yd = 0.70 min;
+                    1510 Pinchwhistle Gearworks 1628 yd = 0.85 min;
+                    1513 Apexis Excavation 1459 yd = 0.76 min;
+                    1515 Crow's Crook 1631 yd = 0.85 min
+
+TAXI NODE 1509  TALON WATCH, SPIRES OF ARAK
+  flight master   : Skytalon Karaz
+  creature entry  : 84504
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 385
+  position        : map 1116 (Draenor), -335.5, 926.6, 75.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1382 Twilight Glade 1657 yd = 0.86 min; 1384 Exile's Rise 2603 yd = 1.36 min;
+                    1451 Anchorite's Sojourn 2807 yd = 1.46 min;
+                    1475 Socrethar's Rise 2222 yd = 1.16 min;
+                    1508 Veil Terokk 1208 yd = 0.63 min;
+                    1510 Pinchwhistle Gearworks 1604 yd = 0.84 min;
+                    1515 Crow's Crook 1359 yd = 0.71 min; 1569 Akeeta's Hovel 1096 yd = 0.57 min
+
+TAXI NODE 1510  PINCHWHISTLE GEARWORKS, SPIRES OF ARAK
+  flight master   : Kwiven Quickcog
+  creature entry  : 82511
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 386
+  position        : map 1116 (Draenor), -1579.1, 993.1, 8.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1432 Frostwall Garrison 8942 yd = 4.66 min; 1493 Southport 1713 yd = 0.89 min;
+                    1508 Veil Terokk 1976 yd = 1.03 min; 1509 Talon Watch 1483 yd = 0.77 min;
+                    1515 Crow's Crook 2285 yd = 1.19 min; 1569 Akeeta's Hovel 3113 yd = 1.62 min
+
+TAXI NODE 1511  BASTION RISE, GORGROND
+  flight master   : Rangari Yaval
+  creature entry  : 84507
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 387
+  position        : map 1116 (Draenor), 4552.3, 1274.6, 144.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1447 Fort Wrynn (Alliance) 1515 yd = 0.79 min; 1476 Lunarfall (Alliance) 3941 yd = 2.05 min;
+                    1518 Wildwood Wash 2573 yd = 1.34 min; 1523 Deeproot 1303 yd = 0.68 min;
+                    1528 Iron Siegeworks 1733 yd = 0.90 min;
+                    1643 Aktar's Post 1110 yd = 0.58 min; 1645 The Iron Front 777 yd = 0.40 min
+
+TAXI NODE 1512  BASTION RISE, GORGROND
+  flight master   : Windscreamer
+  creature entry  : 84508
+  entry note      : Windscreamer is 84508 on her wiki NPC page; section 3.1 gives this Horde node Rangari Yaval, the
+                    Alliance master of 1511
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 388
+  position        : map 1116 (Draenor), 4641.6, 1188.1, 137.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : this is the Horde copy of Bastion Rise; the Alliance copy, 1511, is Rangari Yaval
+  links           : 1408 Warspear 5567 yd = 2.90 min; 1441 Frostwolf Overlook 1292 yd = 0.67 min;
+                    1442 Beastwatch 1312 yd = 0.68 min; 1443 Vol'jin's Pride 2078 yd = 1.08 min;
+                    1514 Evermorn Springs 641 yd = 0.33 min;
+                    1643 Aktar's Post 1183 yd = 0.62 min; 1644 The Iron Front 918 yd = 0.48 min
+
+TAXI NODE 1513  APEXIS EXCAVATION, SPIRES OF ARAK
+  flight master   : Skytalon Kuris
+  creature entry  : 84509
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 389
+  position        : map 1116 (Draenor), 387.5, 2442.7, 19.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1432 Frostwall Garrison 6916 yd = 3.60 min; 1450 Shattrath City 2818 yd = 1.47 min;
+                    1452 Retribution Point 2081 yd = 1.08 min;
+                    1453 Exarch's Refuge 1670 yd = 0.87 min;
+                    1454 Exarch's Refuge 1886 yd = 0.98 min; 1487 Axefall 1065 yd = 0.55 min;
+                    1493 Southport 1774 yd = 0.92 min; 1508 Veil Terokk 1100 yd = 0.57 min;
+                    1515 Crow's Crook 981 yd = 0.51 min
+
+TAXI NODE 1514  EVERMORN SPRINGS, GORGROND
+  flight master   : Chucklespine
+  creature entry  : 84495
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 390
+  position        : map 1116 (Draenor), 4837.6, 1687.6, 149.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1395 Thunder Pass 1283 yd = 0.67 min; 1408 Warspear 6089 yd = 3.17 min;
+                    1441 Frostwolf Overlook 1729 yd = 0.90 min;
+                    1442 Beastwatch 1181 yd = 0.62 min; 1443 Vol'jin's Pride 2187 yd = 1.14 min;
+                    1512 Bastion Rise 836 yd = 0.44 min; 1539 Skysea Ridge 3024 yd = 1.57 min
+
+TAXI NODE 1515  CROW'S CROOK, SPIRES OF ARAK
+  flight master   : Darkscreech
+  creature entry  : 84515
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 391
+  position        : map 1116 (Draenor), 128.6, 1544.6, -1.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1443 Vol'jin's Pride 3770 yd = 1.96 min; 1462 Terokkar Refuge 2556 yd = 1.33 min;
+                    1476 Lunarfall (Alliance) 3009 yd = 1.57 min;
+                    1487 Axefall 1232 yd = 0.64 min; 1508 Veil Terokk 738 yd = 0.38 min;
+                    1509 Talon Watch 1046 yd = 0.54 min;
+                    1510 Pinchwhistle Gearworks 1927 yd = 1.00 min;
+                    1513 Apexis Excavation 1675 yd = 0.87 min;
+                    1569 Akeeta's Hovel 1764 yd = 0.92 min
+
+TAXI NODE 1518  WILDWOOD WASH, GORGROND
+  flight master   : Rangari Thewe
+  creature entry  : 81884
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 393
+  position        : map 1116 (Draenor), 6456.1, -174.8, 120.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1420 Stormshield (Alliance) 5185 yd = 2.70 min; 1476 Lunarfall (Alliance) 6591 yd = 3.43 min;
+                    1511 Bastion Rise 2886 yd = 1.50 min; 1519 Highpass 1459 yd = 0.76 min;
+                    1523 Deeproot 2145 yd = 1.12 min; 1524 Iron Docks 2758 yd = 1.44 min;
+                    1539 Skysea Ridge 2386 yd = 1.24 min;
+                    1568 Everbloom Wilds 1064 yd = 0.55 min;
+                    1620 Lion's Watch 3374 yd = 1.76 min; 1643 Aktar's Post 2347 yd = 1.22 min
+
+TAXI NODE 1519  HIGHPASS, GORGROND
+  flight master   : Rangari Rajess
+  creature entry  : 81074
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 394
+  position        : map 1116 (Draenor), 6352.6, 746.2, 116.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1447 Fort Wrynn (Alliance) 3196 yd = 1.66 min; 1476 Lunarfall (Alliance) 6042 yd = 3.15 min;
+                    1506 Telaari Station 7173 yd = 3.74 min;
+                    1518 Wildwood Wash 1112 yd = 0.58 min;
+                    1520 Breaker's Crown 834 yd = 0.43 min; 1523 Deeproot 1294 yd = 0.67 min;
+                    1524 Iron Docks 2615 yd = 1.36 min; 1528 Iron Siegeworks 1844 yd = 0.96 min;
+                    1539 Skysea Ridge 1959 yd = 1.02 min;
+                    1568 Everbloom Wilds 1297 yd = 0.68 min
+
+TAXI NODE 1520  BREAKER'S CROWN, GORGROND
+  flight master   : Nisha
+  creature entry  : 81677
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 396
+  position        : map 1116 (Draenor), 6593.4, 1316.0, 64.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 29229 - PlayerCondition PrevQuest: after quest 35730, 35049 or 34992
+  master note     : the gate is a quest chain (35730, 35049 or 34992); the wiki gives no further condition for this
+                    flight point
+  links           : 1395 Thunder Pass 1447 yd = 0.75 min; 1442 Beastwatch 1367 yd = 0.71 min;
+                    1519 Highpass 929 yd = 0.48 min; 1523 Deeproot 1423 yd = 0.74 min;
+                    1524 Iron Docks 2109 yd = 1.10 min; 1528 Iron Siegeworks 1449 yd = 0.75 min;
+                    1539 Skysea Ridge 1310 yd = 0.68 min;
+                    1568 Everbloom Wilds 1223 yd = 0.64 min
+
+TAXI NODE 1523  DEEPROOT, GORGROND
+  flight master   : Rangari Nogo
+  creature entry  : 81888
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 392
+  position        : map 1116 (Draenor), 5412.9, 1271.1, 101.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1447 Fort Wrynn (Alliance) 2267 yd = 1.18 min; 1511 Bastion Rise 1095 yd = 0.57 min;
+                    1518 Wildwood Wash 2465 yd = 1.28 min; 1519 Highpass 1385 yd = 0.72 min;
+                    1520 Breaker's Crown 1433 yd = 0.75 min;
+                    1528 Iron Siegeworks 1583 yd = 0.82 min;
+                    1568 Everbloom Wilds 2213 yd = 1.15 min
+
+TAXI NODE 1524  IRON DOCKS, GORGROND
+  flight master   : Nisha
+  creature entry  : 81677
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 395
+  position        : map 1116 (Draenor), 8486.2, 1544.2, 78.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1442 Beastwatch 3395 yd = 1.77 min; 1518 Wildwood Wash 3125 yd = 1.63 min;
+                    1519 Highpass 2553 yd = 1.33 min; 1520 Breaker's Crown 2267 yd = 1.18 min;
+                    1539 Skysea Ridge 1166 yd = 0.61 min;
+                    1568 Everbloom Wilds 2144 yd = 1.12 min
+
+TAXI NODE 1528  IRON SIEGEWORKS, FROSTFIRE RIDGE
+  flight master   : Rangari Veera
+  creature entry  : 84993
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 397
+  position        : map 1116 (Draenor), 5724.3, 2163.6, 157.6  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1389 Bloodmaul Slag Mines 2890 yd = 1.51 min; 1447 Fort Wrynn (Alliance) 2675 yd = 1.39 min;
+                    1450 Shattrath City 3361 yd = 1.75 min;
+                    1503 Throne of the Elements 4289 yd = 2.23 min;
+                    1511 Bastion Rise 1944 yd = 1.01 min; 1519 Highpass 1938 yd = 1.01 min;
+                    1520 Breaker's Crown 1648 yd = 0.86 min; 1523 Deeproot 1646 yd = 0.86 min;
+                    1539 Skysea Ridge 2244 yd = 1.17 min
+
+TAXI NODE 1529  DARKTIDE ROOST, SHADOWMOON VALLEY
+  flight master   : Beasttamer Ladaak
+  creature entry  : 83427
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 398
+  position        : map 1116 (Draenor), -974.1, -1739.3, 3.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1381 Embaari Village 2322 yd = 1.21 min; 1384 Exile's Rise 2886 yd = 1.50 min;
+                    1408 Warspear 7727 yd = 4.02 min;
+                    1420 Stormshield (Alliance) 5418 yd = 2.82 min;
+                    1443 Vol'jin's Pride 5630 yd = 2.93 min;
+                    1467 The Draakorium 1308 yd = 0.68 min;
+                    1475 Socrethar's Rise 1265 yd = 0.66 min;
+                    1476 Lunarfall (Alliance) 3628 yd = 1.89 min
+
+TAXI NODE 1539  SKYSEA RIDGE, GORGROND
+  flight master   : Faronn Dustwalker
+  creature entry  : 85829
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 402
+  position        : map 1116 (Draenor), 7596.2, 1829.1, 79.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1389 Bloodmaul Slag Mines 2740 yd = 1.43 min; 1395 Thunder Pass 1959 yd = 1.02 min;
+                    1408 Warspear 6491 yd = 3.38 min; 1442 Beastwatch 2226 yd = 1.16 min;
+                    1514 Evermorn Springs 3308 yd = 1.72 min;
+                    1518 Wildwood Wash 2635 yd = 1.37 min; 1519 Highpass 1833 yd = 0.95 min;
+                    1520 Breaker's Crown 1440 yd = 0.75 min; 1524 Iron Docks 1250 yd = 0.65 min;
+                    1528 Iron Siegeworks 2129 yd = 1.11 min;
+                    1568 Everbloom Wilds 1683 yd = 0.88 min
+
+TAXI NODE 1556  TRANQUIL COURT, SHADOWMOON VALLEY
+  flight master   : Itara
+  creature entry  : 86685
+  entry note      : Itara is 86685 on her wiki NPC page (Alliance, Tranquil Court), and her three connections -
+                    Draakorium, Elodor, Path of the Light - are exactly this node's three links
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 404
+  position        : map 1116 (Draenor), 407.0, -2449.7, 99.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : Tranquil Court is the southern half of Karabor and is where the Karabor flight master stands
+  links           : 1383 Path of the Light 987 yd = 0.51 min; 1467 The Draakorium 1221 yd = 0.64 min;
+                    1468 Elodor (Alliance) 1326 yd = 0.69 min
+
+TAXI NODE 1559  WOLF'S STAND, FROSTFIRE RIDGE
+  flight master   : Windhunter
+  creature entry  : 87707
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 401
+  position        : map 1116 (Draenor), 5830.9, 3004.1, 183.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1395 Thunder Pass 1178 yd = 0.61 min; 1396 Darkspear's Edge 1651 yd = 0.86 min;
+                    1432 Frostwall Garrison 1879 yd = 0.98 min
+
+TAXI NODE 1567  TEMPLE OF KARABOR, SHADOWMOON VALLEY
+  flight master   : Itara
+  creature entry  : 86685
+  entry note      : this node sits 1.2 yards from 1556 Tranquil Court and has no TaxiPath row in either direction, so
+                    no row names its master; 86685 is Itara, the master of that shared roost
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 403
+  position        : map 1116 (Draenor), 405.8, -2448.8, 99.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  master note     : this node is 1.2 yards from 1556 and has no links at all, so nothing can be flown to or from it;
+                    it is kept because the export carries it
+  links           : none (no TaxiPath row touches this node)
+
+TAXI NODE 1568  EVERBLOOM WILDS, GORGROND
+  flight master   : Arcanist Windlebop
+  creature entry  : 84714
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 405
+  position        : map 1116 (Draenor), 7093.6, 404.7, 112.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1408 Warspear 5553 yd = 2.89 min; 1442 Beastwatch 2178 yd = 1.13 min;
+                    1518 Wildwood Wash 1577 yd = 0.82 min; 1519 Highpass 1739 yd = 0.91 min;
+                    1520 Breaker's Crown 1235 yd = 0.64 min; 1523 Deeproot 2278 yd = 1.19 min;
+                    1524 Iron Docks 1977 yd = 1.03 min; 1539 Skysea Ridge 1658 yd = 0.86 min;
+                    1580 Everbloom Overlook 1509 yd = 0.79 min;
+                    1647 Malo's Lookout 3057 yd = 1.59 min
+
+TAXI NODE 1569  AKEETA'S HOVEL, SHADOWMOON VALLEY
+  flight master   : Duskclaw
+  creature entry  : 88584
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 406
+  position        : map 1116 (Draenor), 676.4, 701.4, 114.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1384 Exile's Rise 2390 yd = 1.24 min; 1408 Warspear 7522 yd = 3.92 min;
+                    1420 Stormshield (Alliance) 6099 yd = 3.18 min;
+                    1443 Vol'jin's Pride 3280 yd = 1.71 min;
+                    1447 Fort Wrynn (Alliance) 3673 yd = 1.91 min;
+                    1450 Shattrath City 3112 yd = 1.62 min;
+                    1453 Exarch's Refuge 2626 yd = 1.37 min;
+                    1454 Exarch's Refuge 2774 yd = 1.44 min;
+                    1462 Terokkar Refuge 2040 yd = 1.06 min;
+                    1475 Socrethar's Rise 2367 yd = 1.23 min;
+                    1476 Lunarfall (Alliance) 1964 yd = 1.02 min;
+                    1487 Axefall 1959 yd = 1.02 min; 1493 Southport 2525 yd = 1.32 min;
+                    1509 Talon Watch 1471 yd = 0.77 min;
+                    1510 Pinchwhistle Gearworks 2829 yd = 1.47 min;
+                    1515 Crow's Crook 1417 yd = 0.74 min
+
+TAXI NODE 1572  RILZIT'S HOLDFAST, NAGRAND
+  flight master   : Rilzit Mugshot
+  creature entry  : 87395
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 408
+  position        : map 1116 (Draenor), 3761.3, 6430.1, 21.7  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1389 Bloodmaul Slag Mines 4875 yd = 2.54 min; 1432 Frostwall Garrison 3348 yd = 1.74 min;
+                    1505 Riverside Post 835 yd = 0.43 min;
+                    1506 Telaari Station 1648 yd = 0.86 min; 1507 Yrel's Watch 932 yd = 0.49 min;
+                    1573 Nivek's Overlook 1838 yd = 0.96 min;
+                    1574 Joz's Rylaks 981 yd = 0.51 min
+
+TAXI NODE 1573  NIVEK'S OVERLOOK, NAGRAND
+  flight master   : Nivek Lee
+  creature entry  : 88653
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 407
+  position        : map 1116 (Draenor), 2053.7, 6507.4, 32.3  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1487 Axefall 5366 yd = 2.79 min; 1493 Southport 5769 yd = 3.00 min;
+                    1502 The Ring of Trials 2348 yd = 1.22 min;
+                    1505 Riverside Post 1211 yd = 0.63 min;
+                    1506 Telaari Station 1268 yd = 0.66 min;
+                    1572 Rilzit's Holdfast 1988 yd = 1.04 min;
+                    1574 Joz's Rylaks 1940 yd = 1.01 min
+
+TAXI NODE 1574  JOZ'S RYLAKS, NAGRAND
+  flight master   : Joz Navarix
+  creature entry  : 88668
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 409
+  position        : map 1116 (Draenor), 3676.0, 5776.2, 45.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1432 Frostwall Garrison 2519 yd = 1.31 min; 1502 The Ring of Trials 1738 yd = 0.91 min;
+                    1503 Throne of the Elements 749 yd = 0.39 min;
+                    1505 Riverside Post 1292 yd = 0.67 min; 1507 Yrel's Watch 516 yd = 0.27 min;
+                    1572 Rilzit's Holdfast 1315 yd = 0.68 min;
+                    1573 Nivek's Overlook 2208 yd = 1.15 min
+
+TAXI NODE 1580  EVERBLOOM OVERLOOK, GORGROND
+  flight master   : Researcher Sarix
+  creature entry  : 88757
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 410
+  position        : map 1116 (Draenor), 8018.1, -560.5, 155.0  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1568 Everbloom Wilds 1796 yd = 0.94 min
+
+TAXI NODE 1620  LION'S WATCH, TANAAN JUNGLE
+  flight master   : Skyguard Thann
+  creature entry  : 90960
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 413
+  position        : map 1116 (Draenor), 3875.2, -1311.7, 90.5  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 33173 - PlayerCondition race mask: Human, Dwarf, Night Elf, Gnome, Draenei, Worgen,
+                    Pandaren-Alliance
+  master note     : the gate is a race mask rather than a quest: this is the Alliance copy of the Iron Front pair, and
+                    the wiki dates it to 6.2.0
+  links           : 1420 Stormshield (Alliance) 2982 yd = 1.55 min; 1518 Wildwood Wash 3080 yd = 1.60 min;
+                    1643 Aktar's Post 1865 yd = 0.97 min; 1645 The Iron Front 2820 yd = 1.47 min;
+                    1646 Vault of the Earth 775 yd = 0.40 min;
+                    1647 Malo's Lookout 1029 yd = 0.54 min
+
+TAXI NODE 1621  VOL'MAR, TANAAN JUNGLE
+  flight master   : Gargash the Diver
+  creature entry  : 90550
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 414
+  position        : map 1116 (Draenor), 4307.9, -1465.3, 78.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 33174 - PlayerCondition race mask: Orc, Undead, Tauren, Troll, Goblin, Blood Elf,
+                    Pandaren-Horde, Nightborne
+  master note     : the gate is a race mask rather than a quest: this is the Horde copy, and the wiki dates it to
+                    6.2.0
+  links           : 1408 Warspear 2799 yd = 1.46 min; 1643 Aktar's Post 1879 yd = 0.98 min;
+                    1644 The Iron Front 2887 yd = 1.50 min;
+                    1646 Vault of the Earth 1218 yd = 0.63 min;
+                    1647 Malo's Lookout 1077 yd = 0.56 min
+
+TAXI NODE 1643  AKTAR'S POST, TANAAN JUNGLE
+  flight master   : Skytalon Kariz
+  creature entry  : 90560
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 422
+  position        : map 1116 (Draenor), 4569.4, 335.1, 221.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1440 Zangarra 1685 yd = 0.88 min; 1511 Bastion Rise 1062 yd = 0.55 min;
+                    1512 Bastion Rise 1000 yd = 0.52 min; 1518 Wildwood Wash 2237 yd = 1.17 min;
+                    1620 Lion's Watch 2185 yd = 1.14 min; 1621 Vol'mar 2380 yd = 1.24 min;
+                    1644 The Iron Front 1262 yd = 0.66 min;
+                    1645 The Iron Front 1307 yd = 0.68 min;
+                    1646 Vault of the Earth 2115 yd = 1.10 min;
+                    1647 Malo's Lookout 1262 yd = 0.66 min;
+                    1648 Sha'naari Refuge 1104 yd = 0.57 min
+
+TAXI NODE 1644  THE IRON FRONT, TANAAN JUNGLE
+  flight master   : Nasher
+  creature entry  : 90552
+  entry note      : Nasher is 90552 on his wiki NPC page; section 3.1 gives this Horde node Skyguard Blann, the
+                    Alliance master of 1645
+  faction         : Horde - TaxiNodes.Flags has bit 2 (Horde) set, bit 1 (Alliance) clear; CharacterBitNumber 421
+  position        : map 1116 (Draenor), 3979.3, 1216.6, 164.2  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 923 - PlayerCondition race mask: Orc, Undead, Tauren, Troll, Goblin, Blood Elf,
+                    Pandaren-Horde, Nightborne
+  master note     : this is the Horde copy of the Iron Front; the Alliance copy is 1645
+  links           : 1440 Zangarra 1370 yd = 0.71 min; 1441 Frostwolf Overlook 1143 yd = 0.60 min;
+                    1443 Vol'jin's Pride 1386 yd = 0.72 min;
+                    1512 Bastion Rise 1077 yd = 0.56 min; 1621 Vol'mar 2977 yd = 1.55 min;
+                    1643 Aktar's Post 1373 yd = 0.72 min;
+                    1646 Vault of the Earth 2262 yd = 1.18 min;
+                    1648 Sha'naari Refuge 1298 yd = 0.68 min
+
+TAXI NODE 1645  THE IRON FRONT, TANAAN JUNGLE
+  flight master   : Skyguard Blann
+  creature entry  : 91940
+  faction         : Alliance - TaxiNodes.Flags has bit 1 (Alliance) set, bit 2 (Horde) clear; CharacterBitNumber 420
+  position        : map 1116 (Draenor), 4075.0, 1183.8, 160.9  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : ConditionID 924 - PlayerCondition race mask: Human, Dwarf, Night Elf, Gnome, Draenei, Worgen,
+                    Pandaren-Alliance
+  master note     : this is the Alliance copy of the Iron Front; the Horde copy is 1644
+  links           : 1440 Zangarra 1332 yd = 0.69 min; 1447 Fort Wrynn (Alliance) 911 yd = 0.47 min;
+                    1511 Bastion Rise 828 yd = 0.43 min; 1620 Lion's Watch 2884 yd = 1.50 min;
+                    1643 Aktar's Post 1423 yd = 0.74 min;
+                    1646 Vault of the Earth 2302 yd = 1.20 min;
+                    1648 Sha'naari Refuge 1324 yd = 0.69 min
+
+TAXI NODE 1646  VAULT OF THE EARTH, TANAAN JUNGLE
+  flight master   : Urtol Skyshear
+  creature entry  : 90562
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 417
+  position        : map 1116 (Draenor), 3475.3, -762.6, 41.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1384 Exile's Rise 2182 yd = 1.14 min; 1440 Zangarra 2200 yd = 1.15 min;
+                    1468 Elodor (Alliance) 2746 yd = 1.43 min;
+                    1476 Lunarfall (Alliance) 2080 yd = 1.08 min;
+                    1620 Lion's Watch 1011 yd = 0.53 min; 1621 Vol'mar 1326 yd = 0.69 min;
+                    1643 Aktar's Post 1909 yd = 0.99 min; 1644 The Iron Front 2181 yd = 1.14 min;
+                    1645 The Iron Front 2199 yd = 1.15 min;
+                    1647 Malo's Lookout 1169 yd = 0.61 min;
+                    1648 Sha'naari Refuge 1098 yd = 0.57 min
+
+TAXI NODE 1647  MALO'S LOOKOUT, TANAAN JUNGLE
+  flight master   : Rocketmaster Malo
+  creature entry  : 92808
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 423
+  position        : map 1116 (Draenor), 4457.5, -574.7, 49.4  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1568 Everbloom Wilds 2915 yd = 1.52 min; 1620 Lion's Watch 1144 yd = 0.60 min;
+                    1621 Vol'mar 1265 yd = 0.66 min; 1643 Aktar's Post 975 yd = 0.51 min;
+                    1646 Vault of the Earth 1179 yd = 0.61 min;
+                    1648 Sha'naari Refuge 1129 yd = 0.59 min
+
+TAXI NODE 1648  SHA'NAARI REFUGE, TANAAN JUNGLE
+  flight master   : Rangari Sha'ana
+  creature entry  : 92809
+  faction         : Alliance and Horde - TaxiNodes.Flags has bits 1 and 2 both set; CharacterBitNumber 424
+  position        : map 1116 (Draenor), 3728.4, 157.9, 56.1  - TaxiNodes.Pos, the roost the taxi mount uses
+  walk-to position: unverified - no readable source in the repo supplies a player-standing spot for this master
+  unlock          : no ConditionID, so no PlayerCondition gate at all (nothing in PlayerCondition restricts level,
+                    class, race or quest)
+  links           : 1440 Zangarra 1435 yd = 0.75 min; 1643 Aktar's Post 962 yd = 0.50 min;
+                    1644 The Iron Front 1320 yd = 0.69 min;
+                    1645 The Iron Front 1341 yd = 0.70 min;
+                    1646 Vault of the Earth 1296 yd = 0.68 min;
+                    1647 Malo's Lookout 1094 yd = 0.57 min
+
+WHAT IS VERIFIED AND WHAT IS NOT
+  Positions are TaxiNodes.Pos from Map 1116 of the 8.3.7.35662 export: the roost the taxi mount sits on, which is also where the
+  flight master has to be spawned for the node to open. They are not a player walk-up spot, and no file in this repo carries one,
+  so every "walk-to position" line says unverified rather than a guessed offset.
+  Creature entries: all 72 resolved, and again none from creature_template - all 72 master names were run against both
+  creature_template exports in the repo and none matches a row, so those exports stop before Warlords of Draenor. 57 entries come
+  from section 3.1 of the research document and 15 were read this run from wiki NPC pages, where the Elinks-NPC id is the Wowhead
+  id: Ja'kana 78699, Ernst ten Bosch 85959, Bron Skyhorn 79407, Mok'ra 81053, Skyguard Amelia 81060, Roka 81078, Zamara 81064,
+  Vamuun 81289, Dungar Longdrink 81103 (Lunarfall, not his Stormwind id 352), Biggy Warprofits 83924, Tal 82346 (Wor'var, not his
+  Thunder Bluff id 2995), Windscreamer 84508, Itara 86685, Nasher 90552.
+  Three of the 57 section-3.1 rows were wrong, in the same way: where the export carries an Alliance node and a Horde node at the
+  same named place, that table gave both nodes the Alliance master and the Alliance entry. 1454 Exarch's Refuge was printed with
+  Niaa 81077 instead of Roka 81078, 1512 Bastion Rise with Rangari Yaval 84507 instead of Windscreamer 84508, and 1644 the Horde
+  Iron Front with Skyguard Blann 91940 instead of Nasher 90552. All three are corrected here and each block says so.
+  Gate evidence: five of the 72 nodes are gated and 67 are not. Only one of the five is a quest gate - 29229 on 1520 Breaker's
+  Crown, after quest 35730, 35049 or 34992. The other four are race masks, which is how the export keeps a faction's copy of a
+  shared place out of the other faction's list: 33173 on 1620 Lion's Watch and 924 on 1645 the Alliance Iron Front carry the
+  Alliance mask, 33174 on 1621 Vol'mar and 923 on 1644 the Horde Iron Front carry the Horde mask. No Draenor taxi node is gated on
+  level, class, achievement or reputation.
+  Two flight master names serve two nodes each, and both cases are real rather than a copy error: Nisha holds Breaker's Crown
+  (1520) and Iron Docks (1524), and Itara holds Tranquil Court (1556) and the Temple of Karabor node (1567). The second of those
+  pairs is a quirk of the export - 1567 sits 1.2 yards from 1556 and has no TaxiPath row in either direction, so it is a node
+  nothing can fly to or from, and its master is read from the shared roost.
+  Faction: TaxiNodes.Flags gives 23 Alliance-only roosts, 21 Horde-only roosts and 28 with both bits set; each block prints the
+  bits it actually found rather than inferring a side from the name.
+  Travel time is derived, not read: TaxiPath.Cost is copper and TaxiPathNode.Delay is 0 on 86,384 of 86,627 rows, so neither is a
+  clock. Minutes here are yards / 1920, i.e. 32 yards per second. Every one of the 603 directed rows in section 1116 targets
+  another node of this same set, so no leg in this file carries an off-map tag, not even the two Ashran nodes. Distances are per
+  direction: the row 1520 -> 1524 reads 2109 yd while 1524 -> 1520 reads 2267 yd. One pair has a row in only one direction -
+  1574 Joz's Rylaks -> 1502 for 1738 yd, with no row back - so the 1502 block prints that leg as a reverse row only. Every other
+  pair in this section has a row each way.
+  Sources: TaxiNodes and TaxiPath exports for build 8.3.7.35662, the PlayerCondition decode of ConditionIDs 29229, 33173, 33174,
+  923 and 924, the Warcraft Wiki flight-master tables by location and zone plus fifteen NPC pages read from it this run, a Wowhead
+  search for Roka's entry, and the creature_template check that found no Draenor rows. Everything read from a source is printed;
+  nothing was estimated.
