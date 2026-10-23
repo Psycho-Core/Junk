@@ -1,0 +1,462 @@
+TRANSMOG COLLECTION - THE DATA AND THE SERVER CODE, 8.3.7 (BUILD 35662)
+==============================================================================
+
+Scope: the tables that decide whether an appearance can be collected, the
+fields inside them that decide it, and the code paths that grant it, in patch
+8.3.7. Two sources are used and kept apart throughout:
+
+  the client   the DB2 tables of build 8.3.7.35662, read row by row;
+  the server   Titans-Project/BfaCore-Reforged, a TrinityCore-derived C++
+               server for 8.3.7.35662. It is a community core, not a Blizzard
+               or TrinityCore release; no official TrinityCore 8.3.7 branch
+               exists, so nothing here is quoted from TrinityCore master except
+               in the one section that compares the two.
+
+File and line numbers refer to that core at its archived HEAD.
+
+
+------------------------------------------------------------------------------
+THE CHAIN OF TABLES
+------------------------------------------------------------------------------
+One collectible appearance is one row of ItemModifiedAppearance. Everything
+else is reached from it:
+
+  ItemModifiedAppearance.ID                 the number the collection stores
+    .ItemID            -> Item               Class, Subclass, InventoryType
+                       -> ItemSparse         OverallQualityID, Flags[4],
+                                             AllowableClass, AllowableRace,
+                                             RequiredLevel, RequiredSkill,
+                                             RequiredSkillRank, MinFactionID,
+                                             MinReputation, RequiredHoliday
+                       -> ItemSearchName     must exist, nothing else is read
+    .ItemAppearanceID  -> ItemAppearance     ItemDisplayInfoID, icon, display
+                                             type
+    .OrderIndex                              sort order among variants
+
+  ItemModifiedAppearance.ItemAppearanceID  <-  TransmogSetItem
+                                                 .ItemModifiedAppearanceID
+                                                 .TransmogSetID -> TransmogSet
+
+So: the collection stores ItemModifiedAppearance ids, the wardrobe shows the
+ItemAppearance those rows point at, and a set is a list of
+ItemModifiedAppearance ids. Several items may share one ItemAppearance; in the
+8.3.7 data, item 4797 (ItemModifiedAppearance 1865) and item 4816
+(ItemModifiedAppearance 1870) both point at ItemAppearance 765. Collecting
+either fills the same wardrobe entry, while the collection bit for the other
+stays unset.
+
+
+------------------------------------------------------------------------------
+THE TABLES, FIELD BY FIELD
+------------------------------------------------------------------------------
+ItemModifiedAppearance - six columns, typed as the 8.3.7 core declares them:
+
+  uint32 ID
+  int32  ItemID
+  uint8  ItemAppearanceModifierID
+  uint16 ItemAppearanceID
+  uint8  OrderIndex
+  int8   TransmogSourceTypeEnum
+
+98,056 rows at build 35662. The column set matches the client table exactly -
+six columns, and no Flags column; see DIFFERENCES FROM RETAIL below.
+
+ItemAppearance - five columns:
+
+  uint32 ID
+  uint8  DisplayType
+  int32  ItemDisplayInfoID
+  int32  DefaultIconFileDataID
+  int32  UiOrder
+
+ItemAppearance 153, for example, has DisplayType 2 (body or shirt),
+ItemDisplayInfoID 5661 and icon file data id 132759. The collection code reads
+only ItemDisplayInfoID and the icon, through the DB2 helpers; DisplayType is
+left to the client.
+
+Item, the small table, not ItemSparse - nine columns:
+
+  uint32 ID
+  uint8  ClassID
+  uint8  SubclassID
+  uint8  Material
+  int8   InventoryType
+  uint8  SheatheType
+  int8   SoundOverrideSubclassID
+  int32  IconFileDataID
+  uint8  ItemGroupSoundsID
+
+Only ClassID, SubclassID and InventoryType matter to collection: they pick the
+reject branch in CanAddAppearance and the transmogrification slot used for the
+achievement criteria.
+
+ItemSparse - the fields the collection reads, by the core's names:
+  OverallQualityID, Flags[4] (Flags2 and Flags3 are tested), AllowableClass,
+  AllowableRace, RequiredLevel, RequiredSkill, RequiredSkillRank, ItemLevel,
+  MinFactionID, MinReputation, RequiredHoliday, Bonding.
+These feed ItemTemplate, which is what CanAddAppearance tests. ItemSparse does
+not have to exist for a row to be processed in theory, but the core bails out
+when sObjectMgr->GetItemTemplate returns null, so in practice it does.
+ItemSparse also carries RequiredTransmogHoliday, which the 8.3.7 core never
+reads.
+
+ItemSearchName - read only for existence. If the item id has no row there, the
+appearance is refused before any other test.
+
+TransmogSet - thirteen columns:
+
+  LocalizedString* Name  (pointer in this build)
+  uint32 ID
+  int32  ClassMask
+  uint32 TrackingQuestID
+  int32  Flags
+  uint32 TransmogSetGroupID
+  int32  ItemNameDescriptionID
+  uint16 ParentTransmogSetID
+  uint8  Unknown810
+  uint8  ExpansionID
+  int32  PatchID
+  int16  UiOrder
+  int32  PlayerConditionID
+
+The public DB2 browser prints this table with slightly different labels for the
+same columns (ConditionID for PlayerConditionID, PatchIntroduced for PatchID).
+
+TransmogSetItem - four columns:
+
+  uint32 ID
+  uint32 TransmogSetID
+  uint32 ItemModifiedAppearanceID
+  int32  Flags
+
+Sets are small. TransmogSet 13, "Wild Combatant's Chain Armor", has ClassMask 4,
+TrackingQuestID 42975, Flags 0x14, TransmogSetGroupID 12,
+ParentTransmogSetID 80, ExpansionID 5, PatchIntroduced 60100, and 68 rows in
+TransmogSetItem with Flags 0x0, 0x1 and 0x3.
+
+QuestPackageItem - five columns, reached from the quest reward path:
+
+  uint32 ID
+  uint16 PackageID
+  int32  ItemID
+  uint32 ItemQuantity
+  uint8  DisplayType
+
+
+------------------------------------------------------------------------------
+THE TRANSMOGSOURCE TYPE COLUMN
+------------------------------------------------------------------------------
+TransmogSourceTypeEnum is one signed byte per row and is the first test in the
+server's filter. The values read out of build 35662:
+
+  0  Unknown                       7 rows - 104339 (item 168279), 105561
+                                   (170478), 105565 (170495), 105566 (170496),
+                                   108780 (174831), 108782 (174833), 105225
+                                   (169762, whose ItemAppearanceID is 0)
+  1  Dungeon Journal Encounter    15,434 rows - 136 (item 872), 142 (888),
+                                   181 (1155), 225 (1292), 496 (1929) ...
+  2  Quest                        - 7545 is item 19019
+  3  Vendor                       14,851 rows - 1253 (item 3426), 1254 (3427),
+                                   1255 (3428), 1845 (4765), 1846 (4766) ...
+  5  Hidden Until Collected       - 19 (item 38), 24 (45), 27 (49), 30 (53)
+  6  Can't Collect                86 rows - 9261 (item 23421), 15167 (32912),
+                                   15238 (33016), 18084 (37892), 20156 (41755),
+                                   27941 (56836), 38985 (77279), 45845 (88535),
+                                   48552 (93145) ...
+  9  Not Valid for Transmog       - 14 (item 17, "Martin Fury"), 15 to 18
+                                   (items 25, 35, 36, 37), 20 to 23 (39, 40,
+                                   43, 44)
+
+Only values 6 and 9 are refused by the server. Value 5 is accepted: the name
+describes what the client does with the row before it is collected, and the
+8.3.7 server has no branch for it. Values 1, 2 and 3 are labels on where the
+appearance comes from; value 2 does not by itself make a quest reward
+collectible, the quest path in the server is a separate mechanism.
+
+Whether values 4, 7 and 8 also occur in this build was not checked.
+
+
+------------------------------------------------------------------------------
+WHAT MAKES AN APPEARANCE UNCOLLECTIBLE
+------------------------------------------------------------------------------
+CollectionMgr::CanAddAppearance, CollectionMgr.cpp:694-775, is the whole test.
+It runs in this order and returns false at the first failure:
+
+  1  the ItemModifiedAppearance pointer is null - the item has no appearance
+     row for the requested modifier;
+  2  TransmogSourceTypeEnum is 6 or 9;
+  3  there is no ItemSearchName row for the item id;
+  4  there is no ItemTemplate (so no ItemSparse / Item row);
+  5  the owning session has no Player - a login-time edge case;
+  6  Player::CanUseItem(ItemTemplate) is not EQUIP_ERR_OK. This single call
+     brings in: internal item flag, Horde-only and Alliance-only flags,
+     AllowableClass, AllowableRace, RequiredSkill and its rank, RequiredSpell,
+     BaseRequiredLevel, holiday, required reputation, an artifact row whose
+     ChrSpecializationID differs from the player's specialisation, and the
+     learn-a-recipe shape where effect 0 is spell 483 or 55884 and effect 1 is
+     already known;
+  7  Flags2 has ITEM_FLAG2_NO_SOURCE_FOR_ITEM_VISUAL, or quality is
+     ITEM_QUALITY_ARTIFACT;
+  8  class is ITEM_CLASS_WEAPON and either the player lacks the proficiency bit
+     (GetWeaponProficiency() & (1 << Subclass)) or the subclass is EXOTIC,
+     EXOTIC2, MISCELLANEOUS, THROWN, SPEAR or FISHING_POLE;
+  9  class is ITEM_CLASS_ARMOR and InventoryType is outside BODY, SHIELD,
+     CLOAK, TABARD, HOLDABLE, HEAD, SHOULDERS, CHEST, WAIST, LEGS, FEET,
+     WRISTS, HANDS, ROBE - or is one of the nine gear slots and the subclass is
+     ARMOR_MISCELLANEOUS;
+ 10  class is ITEM_CLASS_ARMOR, the item is not a cloak, and
+     PlayerClassByArmorSubclass[Subclass] does not contain the player's class.
+     That table, at CollectionMgr.cpp:604-616, is: cloth priest mage warlock,
+     leather rogue monk druid demon hunter, mail hunter shaman, plate warrior
+     paladin death knight; miscellaneous and buckler are all classes, shield
+     warrior paladin shaman, libram paladin, idol druid, totem shaman, sigil
+     death knight. Cloaks skip this test entirely, which is why any class can
+     collect a cloak of any armour type;
+ 11  class is neither weapon nor armour - this is what stops necklaces, rings,
+     trinkets, bags, reagents and the like;
+ 12  quality is below ITEM_QUALITY_UNCOMMON, unless the item has both
+     ITEM_FLAG2_IGNORE_QUALITY_FOR_ITEM_VISUAL_SOURCE and
+     ITEM_FLAG3_ACTS_AS_TRANSMOG_HIDDEN_VISUAL_OPTION. Both flags are required;
+     either one alone still fails the test;
+ 13  the bit for this ItemModifiedAppearance id is already set.
+
+Note what is not in that list: the item's own binding, level, or price. Binding
+is tested one level up, in AddItemAppearance(Item*), and not tested at all for
+the (itemId, modId) entry point, which is how quest rewards, void storage and
+the shop are granted.
+
+Two rows in the build show two of these gates in isolation.
+ItemModifiedAppearance 14 for item 17 "Martin Fury" is refused by test 2 before
+anything about the item is read: the row exists, the item exists as a plate
+shirt (Class 4, Subclass 4, InventoryType 4), and ItemSearchName 17 reads
+quality 0, item level 1, expansion 0. ItemModifiedAppearance 9261 for item
+23421 is refused by the same test from the other list, value 6.
+
+
+------------------------------------------------------------------------------
+WHERE THE BIND IS TESTED
+------------------------------------------------------------------------------
+CollectionMgr::AddItemAppearance(Item*), CollectionMgr.cpp:620, runs four steps
+in order and stops at the first that fails:
+
+  1  the item is not soulbound - stop;
+  2  resolve its ItemModifiedAppearance from item entry and bonus modifier -
+     stop if there is none or if CanAddAppearance refuses it;
+  3  the item carries ITEM_FIELD_FLAG_BOP_TRADEABLE or
+     ITEM_FIELD_FLAG_REFUNDABLE - remember a temporary appearance under the
+     item's GUID and stop;
+  4  otherwise set the permanent appearance.
+
+Item::GetItemModifiedAppearance (Item.cpp:2318) does nothing more than
+sDB2Manager.GetItemModifiedAppearance(GetEntry(), _bonusData.AppearanceModID).
+AppearanceModID comes from the item bonus ITEM_BONUS_APPEARANCE, and when an
+item carries several such bonuses the one with the lowest priority value wins
+(Item.cpp:2787-2793). DB2Manager::GetItemModifiedAppearance (DB2Stores.cpp:2432)
+looks the pair up in a map keyed by ItemID | (ItemAppearanceModifierID << 24),
+and if that fails and a modifier was requested it retries with modifier 0. The
+core asserts ItemID <= 0xFFFFFF when it builds that map (DB2Stores.cpp:1166).
+
+
+------------------------------------------------------------------------------
+EVERY SERVER PATH THAT GRANTS AN APPEARANCE
+------------------------------------------------------------------------------
+OnItemAdded(Item*, Player*) - CollectionMgr.cpp:167. Two lines: heirloom
+handling, then AddItemAppearance(item). It is the general-purpose hook.
+
+The call sites in this core, by file and line:
+
+  Player.cpp:12804    Player::StoreNewItem, the tail of every item creation
+                      that asked for it. The signature carries
+                      addToCollection = true by default; callers that pass
+                      false take over the duty themselves. Child items created
+                      by StoreNewItem inherit the same flag.
+  Player.cpp:24072    Player::_StoreOrEquipNewItem, the vendor purchase. It
+                      stores or equips with addToCollection = false and then
+                      calls OnItemAdded(it) itself, after the refundable flag
+                      has already been attached if the item qualifies.
+  Player.cpp:13234    Player::VisualizeItem - the bind-on-equip,
+                      bind-on-acquire and bind-on-quest item is bound here and
+                      the appearance granted at the same moment.
+  Player.cpp:19910    Player::_LoadInventory - every soulbound item in the
+                      bags is re-offered at login. This is how a character
+                      that bound an item before a fix, or on another core,
+                      catches up.
+  Player.cpp:20089    Player::_LoadVoidStorage - same idea for void storage,
+                      using the stored AppearanceModID.
+  Player.cpp:20681    Player::_LoadQuestStatusRewarded - every choice reward
+                      id of every already-completed quest.
+  Player.cpp:20684    same function - every fixed reward id.
+  Player.cpp:20690    same function - every QuestPackageItem whose
+                      ItemSpecClassMask contains the player's class.
+  Player.cpp:30705    Player::UpdateShop, product type 4 (APPEARANCE):
+                      AddItemAppearance(itemId, uint32(itemCount)). The second
+                      parameter is the appearance modifier id, so the product's
+                      itemCount column is being read as a modifier. A wrong
+                      modifier falls back to modifier 0 in the DB2 lookup.
+  SpellHandler.cpp:118  item use on a BIND_ON_USE, BIND_ON_ACQUIRE or
+                      BIND_QUEST item that is not yet soulbound: bind, then
+                      grant.
+  VoidStorageHandler.cpp:199  withdrawal from void storage: store, bind,
+                      grant.
+  TransmogrificationHandler.cpp:282  the transmogrifier. Item and illusion
+                      changes first call SetNotRefundable and
+                      ClearSoulboundTradeable, then grant the appearance of the
+                      item that was just made non-refundable.
+  Item.cpp:1764       Item::SetNotRefundable, only when the caller left
+                      addToCollection true. This is the refund clock running
+                      out, and also the trade, auction, mail and guild bank
+                      path via MoveItemFromInventory, which passes false.
+  Item.cpp:1819       Item::ClearSoulboundTradeable, only when allowedGUIDs is
+                      not empty. This is the bind-on-pickup trade window
+                      closing.
+  SpellEffects.cpp:6420  SPELL_EFFECT_LEARN_TRANSMOG_SET (effect 255,
+                      SharedDefines.h:1340) -> CollectionMgr::AddTransmogSet
+                      (CollectionMgr.cpp:647), which walks TransmogSetItem for
+                      the set id in the effect's MiscValue and calls the
+                      item-modified-appearance grant for each row. No class,
+                      quality, condition or tracking-quest test is applied on
+                      this path beyond CanAddAppearance itself.
+
+Two removal sites, both for temporary appearances:
+
+  Player.cpp:13342    Player::MoveItemFromInventory - trade, auction, guild
+                      bank, mail: the item leaves the bags and its temporary
+                      appearance stops applying.
+  Player.cpp:29178    Player::HandleItemRefund - refund accepted, appearance
+                      withdrawn with the item.
+
+Nothing grants an appearance on loot assignment, on mail receipt or on trade
+receipt by itself. Those arrive as item creation (StoreNewItem) or not at all.
+
+
+------------------------------------------------------------------------------
+TEMPORARY VERSUS PERMANENT, AND THE TWO CLOCKS
+------------------------------------------------------------------------------
+AddTemporaryAppearance (CollectionMgr.cpp:812) keys an unordered_set of item
+GUIDs by ItemModifiedAppearance id and, for the first item of that id, calls
+Player::AddConditionalTransmog. The wardrobe shows the appearance while the
+item exists; the account-wide bit stays clear. HasItemAppearance
+(CollectionMgr.cpp:837) returns (true, false) for permanent and (true, true) for
+temporary, and IsSetCompleted (CollectionMgr.cpp:664) only counts a piece when
+the appearance is permanent.
+
+The permanent grant (CollectionMgr.cpp:777) does four things: grows the bitset
+and appends zero blocks to the player's Transmog dynamic field, sets the bit,
+clears both the bit's temporary entry and the player's ConditionalTransmog row,
+and then updates criteria - CRITERIA_TYPE_APPEARANCE_UNLOCKED_BY_SLOT for the
+transmogrification slot of the item's InventoryType, and
+CRITERIA_TYPE_TRANSMOG_SET_UNLOCKED for each set the appearance belongs to,
+passed as the set's TransmogSetGroupID rather than its ID.
+
+Both clocks are two hours of played time, not real time:
+
+  refund       Item::UpdatePlayedTime (Item.cpp:1767) accumulates wall-clock
+               seconds into CreatePlayedTime and calls SetNotRefundable once it
+               passes 2*HOUR; Item::IsRefundExpired is the same comparison.
+               The flag itself is ITEM_FIELD_FLAG_REFUNDABLE, set at purchase
+               only when the item template has ITEM_FLAG_ITEM_PURCHASE_RECORD,
+               the purchase had an extended cost and the stack size is 1.
+  tradeable    Item::CheckSoulboundTradeExpire (Item.cpp:1828) compares
+               CreatePlayedTime + 2*HOUR against the owner's total played time
+               and calls ClearSoulboundTradeable. The flag is
+               ITEM_FIELD_FLAG_BOP_TRADEABLE, with the allowed looters kept in
+               allowedGUIDs.
+
+
+------------------------------------------------------------------------------
+HOW IT IS STORED AND SENT
+------------------------------------------------------------------------------
+Per Battle.net account, not per character.
+CollectionMgr::LoadAccountItemAppearances (CollectionMgr.cpp:507) builds a
+boost::dynamic_bitset from login database rows and
+CollectionMgr::SaveAccountItemAppearances (CollectionMgr.cpp:560) writes it
+back, one row per 32-bit block:
+
+  table battlenet_item_appearances, columns battlenetAccountId, blobIndex,
+  appearanceMask. The write is an upsert that ORs the new mask into the stored
+  one.
+
+which makes the collection append-only: the server never clears a bit, and a
+second character on the same account sees the same bitset. Favourites live in
+battlenet_item_favorite_appearances and are the only content of the
+AccountTransmogUpdate packet.
+
+The client sees the bitset as the dynamic field ActivePlayerData::Transmog, one
+uint32 per 32 ItemModifiedAppearance ids, plus a list field
+ActivePlayerData::ConditionalTransmog for the temporary ones. With 98,056 rows
+in the table the bitset is at most 3,065 blocks.
+
+Ten rows are set for every character before any item is seen - the hidden
+options, CollectionMgr.cpp:535-557:
+
+  134110 hidden helm      134111 hidden cloak     134112 hidden shoulder
+  168659 hidden chest     142503 hidden shirt     142504 hidden tabard
+  168665 hidden bracers   158329 hidden gloves    143539 hidden belt
+  168664 hidden boots
+
+
+------------------------------------------------------------------------------
+WHAT THE SERVER IGNORES
+------------------------------------------------------------------------------
+TransmogSet.PlayerConditionID and TransmogSet.TrackingQuestID are read nowhere
+in the core: both are declared in DB2Structure.h and loaded, and neither has a
+reader. A set granted by spell effect 255 goes in regardless of
+its condition, and the tracking quest is never completed by the grant.
+
+ItemAppearance.DisplayType is never read. The transmogrification slot comes
+from ItemTransmogrificationSlots (Item.cpp:1928), a table indexed by
+InventoryType: head, shoulders, body, chest, waist, legs, feet, wrists, hands,
+mainhand, offhand, back, tabard and robe map to the obvious equipment slots;
+non-equip, neck, finger, trinket, bag, ammo, thrown, quiver and relic map to
+-1. Slot -1 means no criteria credit, nothing else.
+
+An ItemModifiedAppearance row whose ItemAppearanceID is 0, such as 105225 for
+item 169762, passes the tests and sets a bit that points at nothing. Nothing in
+the server rejects it.
+
+
+------------------------------------------------------------------------------
+DIFFERENCES FROM RETAIL AND FROM TRINITYCORE MASTER
+------------------------------------------------------------------------------
+Five differences matter to a project that has to run 8.3.7:
+
+The Flags column. Build 35662 has no Flags column in ItemModifiedAppearance.
+TrinityCore master has one, int32, last in the struct. Any export written for
+one layout fails to load into the other.
+
+CanAddAppearance got shorter. The master version (CollectionMgr.cpp:680) keeps
+the null, source-type, ItemSearchName, ItemTemplate, no-source and artifact
+tests, keeps the weapon-subclass and armour-inventory-type screens, and drops
+the Player null check, CanUseItem, the weapon proficiency bit, the
+PlayerClassByArmorSubclass test and the quality floor. A private server built on
+master's rules would collect items the 8.3.7 client expects to refuse.
+
+Criteria changed. 8.3.7 fires CRITERIA_TYPE_APPEARANCE_UNLOCKED_BY_SLOT and
+CRITERIA_TYPE_TRANSMOG_SET_UNLOCKED with the set group id. Master fires
+CriteriaType::LearnAnyTransmog on every grant and LearnAnyTransmogInSlot with
+the appearance id as misc value. Achievements keyed to the 8.3.7 criteria do not
+fire on the same events.
+
+The lookup moved. 8.3.7 resolves (itemId, modId) through
+DB2Manager::GetItemModifiedAppearance against a packed map. Master routes it
+through a separate Transmog/TransmogMgr module.
+
+ItemAppearance gained a PlayerConditionID field after 8.3.7 and its DisplayType
+changed from uint8 to int8. TransmogSet kept the same fields but changed the
+width or signedness of several of them: TrackingQuestID, TransmogSetGroupID,
+ParentTransmogSetID, ExpansionID and UiOrder are int32 in master.
+
+The temporary mechanism is the same in both: bind-on-pickup tradeable and
+refundable items produce a conditional appearance and the 2*HOUR played-time
+refund window is unchanged from 8.3.7 to master.
+
+
+------------------------------------------------------------------------------
+LIMITS OF THIS FILE
+------------------------------------------------------------------------------
+The server quoted here is a community core. Where it and the client disagree the
+client wins, because the client decides what the wardrobe accepts; the core only
+decides what it tells the client. Nothing in this file was checked against a
+Blizzard server, and no claim is made about how the 8.3.7 client itself chooses
+to filter a row whose TransmogSourceTypeEnum is 5.
+Counts for enum values 2, 5, 9 and for values 4, 7, 8 were not read.
