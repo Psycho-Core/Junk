@@ -1,0 +1,264 @@
+=== RUINS OF LORDAERON ARENA - MAP 572 - COMPLETED ===
+
+8.3.7 build 35662. Same map id as every earlier expansion.
+
+Arena map ID: 572
+  Map.dbc directory: PVPLordaeron
+  InstanceType: 4 (arena)
+  Expansion of this map row: 0
+  Client instance list: 572 "Ruins of Lordaeron"
+  AreaTable zone: 3968
+  BattlemasterList id 6 "All Arenas" column 5 carries map 572,
+  so the 8.3.7 arena queue can land on this map; pooled band 10-120
+
+Battleground entry: 8 "Ruins of Lordaeron"
+  MinPlayersPerTeam 0, MaxPlayersPerTeam 5, MinLvl 10, MaxLvl 120
+  AllianceStartLoc 1258, HordeStartLoc 1259
+
+Added: patch 2.1.0 (2007-05-22), the first arena added by patch
+Available in 8.3.7: yes
+
+=== 1. START POSITIONS (world_safe_locs, map 572) ===
+
+Alliance / Team 1 (WorldSafeLoc 1258 = AllianceStartLoc):
+  X: 1277.87
+  Y: 1744.9
+  Z: 32.5
+  Facing: 280 deg = 4.8869 rad
+  Comment: "Lordaeron, PVP - Team 1 Start"
+
+Horde / Team 2 (WorldSafeLoc 1259 = HordeStartLoc):
+  X: 1295.13
+  Y: 1586.44
+  Z: 32.5
+  Facing: 100 deg = 1.7453 rad
+  Comment: "Lordaeron, PVP - Team 2 Start"
+
+Arena graveyard (WorldSafeLoc 1260):
+  X: 1285.81
+  Y: 1667.9
+  Z: 39.9576
+  Facing: 0 deg
+  Comment: "Lordaeron, PVP - Graveyard"
+
+Pre-match staging targets ("Game Off"):
+  Team 1: 1275.63, 1744.73, 31.6037  (WorldSafeLoc 3831)
+  Team 2: 1296.76, 1583.99, 31.6051  (WorldSafeLoc 3832)
+  These sit just outside the gate: Team 1 target is 2.25 units
+  from the Alliance spawn, Team 2 target is 2.94 units from the
+  Horde spawn
+
+Derived from those points (arithmetic on verified values):
+  Distance start to start: 159.4 units
+  Arena centre: about 1286.5, 1665.67
+  Each start is 79.7 units from that centre
+  The long axis is nearly north-south: the two starts differ by
+  158.5 units in Y and only 17.3 units in X
+  Graveyard is 2.3 units from the centre
+
+Facing: the 8.3.7 world_safe_locs rows carry 280 and 100 degrees;
+TrinityCore converts the column with DegToRad at load. The two
+values point inward along the long axis.
+
+=== 2. GATES ===
+
+South gate (GO 185918):
+  X: 1293.561
+  Y: 1601.938
+  Z: 31.60557
+  Orientation: -1.457349 rad (= 4.8258 rad normalised)
+  Quaternion: 0, 0, -0.6658813, 0.7460576
+  Horde start stands 15.6 units behind it
+
+North gate (GO 185917):
+  X: 1278.648
+  Y: 1730.557
+  Z: 31.60557
+  Orientation: 1.684245 rad
+  Quaternion: 0, 0, 0.7460582, 0.6658807
+  Alliance start stands 14.4 units behind it
+
+Distance between the two gates: 129.5 units
+Gate naming note: the core calls the south object DOOR_1 and the
+north object DOOR_2, which is the reverse of the team numbering.
+Both gates open at match start.
+Area triggers 4696 and 4697 are handled as no-ops (the core
+comments them "buff trigger?" - purpose unverified).
+
+=== 3. PILLARS AND LINE OF SIGHT OBJECTS ===
+
+There is no pillar set on this map. The LoS objects are a central
+tomb and a scatter of tombstones.
+
+Verified from the core: the server spawns no LoS object at all.
+Only the two gates and the two Shadow Sight orbs are game objects,
+so the tomb and the tombstones are world model geometry and carry
+no coordinates in server data.
+
+What the layout sources state:
+  "In the middle of the arena, there is a tomb that can be used
+   to block LoS and to get high ground advantage. There are also
+   various tombstones that can be used to LoS as well."
+  The arena is "basically flat" - no bridge, no stairs, both ends
+  are symmetrical staging areas
+  Patch 3.2.0 removed the alcoves from the starting chambers,
+  smoothed the collision round the central tomb, and added two
+  line-of-sight tombstones to the slime pool on the southern side
+  The southern side of the map has a slime pool
+
+Central tomb, verified height only:
+  Graveyard row 1260 sits at 1285.81, 1667.9, Z 39.9576
+  The twelve "Game On" teleport targets (WorldSafeLoc 3806-3816
+  plus 3817) all sit at 1286.57, 1667.4, Z 39.602
+  Those two Z values are the only evidence of the tomb's top
+  height; the tomb footprint is unverified
+
+Tomb and tombstone coordinates: unverified (no readable source
+with x, y, z for any of them)
+Tombstone count: unverified beyond "various", plus the two added
+to the southern slime pool in 3.2.0
+
+=== 4. HEIGHT LEVELS AND RAMPS ===
+
+The arena is one open level with a raised central tomb. No ramps
+and no stairs lead anywhere; the patch notes say the stairs and
+the bridge of the outdoor version were removed for the arena.
+
+Verified Z ladder on map 572:
+  Gates:                      31.60557
+  Game Off staging targets:   31.6037 to 31.6051
+  Team 1 and Team 2 starts:   32.5
+  Out-of-bounds return spots: 33.58 to 34.56
+  Shadow Sight B:             34.872601
+  Shadow Sight A:             36.7304
+  Game On targets:            39.602
+  Arena graveyard:            39.9576
+
+Derived from that ladder:
+  Starting chambers and gate line: about 31.6
+  Floor where a player is put back after leaving the arena:
+    about 34.4-34.6
+  Tomb top: about 39.6-39.96
+  Tomb rise above floor level: 5.04 to 5.40 units
+    (39.602-34.56 and 39.9576-34.56)
+  Tomb rise above the gate line: 8.00 to 8.35 units
+    (39.602-31.60557 and 39.9576-31.60557)
+
+Out-of-bounds return points (all inside the walls, so they mark
+the usable area):
+  West:  1230.77, 1662.42, 34.56
+  East:  1341.16, 1673.52, 34.43
+  South: 1294.74, 1584.5, 31.62
+  North: 1277.5, 1751.07, 31.61
+  plus 1269.14, 1713.85, 34.46 / 1298.14, 1713.8, 33.58 /
+       1306.32, 1620.75, 34.25 / 1277.97, 1615.51, 34.56
+  Those four extra points are the north-west, north-east,
+  south-east and south-west quadrants
+
+  Playfield extent from those bounds: about 110 units on X and
+  167 units on Y. The long axis is Y, matching the start line.
+
+=== 5. USUAL FIRST POSITIONS BY ROLE ===
+
+Melee DPS:
+  The standard opener documented for this map is to stay in the
+  starting area and let the enemy team come to you; the staging
+  chamber and the gate line give a free first hit to melee
+  Otherwise close along the long axis and use a tombstone to
+  break the first cast
+
+Ranged DPS:
+  Climb the central tomb and cast from the top
+  The tomb both blocks LoS and gives height, so it is the
+  strongest single spot on the map
+  The tombstones are the fallback when the tomb is contested
+
+Healers:
+  Top of the central tomb is the documented healer perch, for
+  the same two reasons
+  Standing behind a tombstone at range is the alternative
+  Do not stand in the open on the long axis; the map is flat, so
+  there is nothing else to break LoS
+
+General opener notes:
+  Both teams start equidistant (79.7 units) from the centre, so
+  the first contest is always the tomb
+  The slime pool on the southern half is the only asymmetric
+  feature on the map; the two LoS tombstones added there in
+  3.2.0 make that side defensible
+
+=== 6. BUFF PICKUPS ===
+
+Only Shadow Sight exists on this map.
+
+Shadow Sight A (GO 184663):
+  X: 1328.719971
+  Y: 1632.719971
+  Z: 36.7304
+  Orientation: -1.448624 rad
+  About 53.6 units from the arena centre
+
+Shadow Sight B (GO 184664):
+  X: 1243.300049
+  Y: 1699.170044
+  Z: 34.872601
+  Orientation: -0.06981307 rad
+  About 54.7 units from the arena centre
+
+The two orbs are 108.2 units apart, on opposite sides of the
+centre, so each team is roughly equidistant from one of them.
+Note the Z difference: orb A sits about 1.86 units higher than
+orb B, so the two are not on identical ground.
+
+Spawn: 60 s after the gates open (core spawn call)
+Respawn after pickup: 120 s (object spawn parameter)
+Spell: 34709 Shadow Sight - 15 s, stealth and invisibility
+  detection, +5% damage taken while active
+The general arena rule quoted by the wikis is five minutes; the
+core uses 60 s and the exact retail 8.3.7 delay is unverified
+
+No health, mana, haste or berserking pickups are spawned here.
+The generic battleground pickup objects 179871 (speed),
+179904 (regeneration) and 179905 (berserking) are not used on
+arena maps.
+
+=== 7. MATCH FLOW AND RECOVERY NOTES ===
+
+Gates close before the start and open together.
+Worldstate 0xbba (3002) is set to 1 on this map.
+Dampening ("The Crowd Chose You") begins as on every arena.
+Arena Preparation is applied on zone-in.
+Recovery: falling under the map, or entering the under-arena
+area triggers 4941, 5041 and 5042, teleports the player to
+1285.810547, 1667.896851, 39.957642 - the same point as the
+graveyard row. That is the tomb top, not the floor.
+Eight out-of-bounds triggers (4927-4936) teleport back to the
+four quadrant points listed in section 4.
+Three "Lordaeron Citizen (Jesse)" NPCs stand in the arena.
+
+=== 8. SOURCES AND CONFIDENCE ===
+
+Sources:
+- world_safe_locs (TrinityCore 8.x dump): ids 1258, 1259, 1260,
+  3831, 3832 and 3806-3817 on map 572
+- battleground_template: id 8 "Ruins of Lordaeron",
+  AllianceStartLoc 1258, HordeStartLoc 1259, max 5 per team
+- HavenWoW/BFA-HavenCore BattlegroundRL.cpp and .h: gates
+  185918/185917, buffs 184663/184664, coordinates, worldstate
+- AzerothCore BattlegroundRL.cpp: area triggers 4927-4936 and
+  4941/5041/5042 with their return points, HandlePlayerUnderMap
+- Ghostopheles/Datamine Map_PVPLordaeron.lua: map 572,
+  directory PVPLordaeron, InstanceType 4
+- Warcraft Wiki "Ruins of Lordaeron (arena)": flat arena, central
+  tomb, tombstones, slime pool, 3.2.0 patch notes
+- Wowhead zone 3968
+- Wowhead spell 34709; Warcraft Wiki "Shadow Sight"
+
+Unverified:
+- Coordinates of the central tomb footprint
+- Coordinates and count of the tombstones
+- Extent and depth of the southern slime pool
+- What area triggers 4696 and 4697 actually do
+- Exact retail 8.3.7 Shadow Sight spawn delay
+- Whether the 8.3.7 core uses the same out-of-bounds trigger set
+  as the 3.3.5 core the points above were read from
