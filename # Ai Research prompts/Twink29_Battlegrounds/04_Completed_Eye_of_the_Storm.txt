@@ -12,9 +12,9 @@ EXTRA BRACKET FACTS: experience-off characters queue only against other experien
 - Flag capture is worth 75, 85, 100 or 500 resources depending on how many bases the capturing team holds at that moment (BG_EY_FlagPoints = {75,85,100,500}, indexed by bases owned). With four bases a single flag cap is 500 of the 1600 needed.
 - Flag timers: 8 seconds (BG_EY_FLAG_RESPAWN_TIME = 8*IN_MILLISECONDS). After a capture the flag respawns on its stand after 8 s; after a drop it also returns in 8 s (EventPlayerDroppedFlag sets m_FlagsTimer = BG_EY_FLAG_RESPAWN_TIME).
 - Re-picking a dropped flag: the core casts 42792 Recently Dropped Flag on the dropper but EventPlayerClickedOnFlag performs no lockout check, so the 3 s style of lockout is not enforced here: unverified whether the client blocks the click.
-- Base capture: a bar per base, range 0 to 100 (BG_EY_PROGRESS_BAR_HORDE_CONTROLLED = 0, BG_EY_PROGRESS_BAR_ALI_CONTROLLED = 100, neutral band 30 to 70, start value 50). Every 2 s the bar moves by (alliance players near) minus (horde players near), clamped to plus or minus 5 (BG_EY_POINT_MAX_CAPTURERS_COUNT = 5). Owned at 100 or above for the Alliance, 30 or below for the Horde.
-- What that means in time: from neutral 50 to an Alliance-controlled 100 needs 50 bar points, so 10 ticks at full 5-player advantage = 20 s, or 25 s from the 70 threshold; a 1-player advantage takes 50 ticks = 100 s. Taking a fully Alliance base (100) down to Horde control (30) is 70 bar points = 14 ticks at maximum = 28 s.
-- Capture radius: a player counts for a base only within 70 yards of its tower-cap object (BG_EY_POINT_RADIUS = 70) and only if CanCaptureTowerPoint() is true (the core's own gate, which excludes dead and ghost players).
+- Base capture: a bar per base, range 0 to 100 (BG_EY_PROGRESS_BAR_HORDE_CONTROLLED = 0, BG_EY_PROGRESS_BAR_ALI_CONTROLLED = 100, neutral band 30 to 70, start value 50). Every 2 s the bar moves by (alliance players near) minus (horde players near), clamped to plus or minus 5 (BG_EY_POINT_MAX_CAPTURERS_COUNT = 5). Owned by the Alliance at 70 or above, by the Horde at 30 or below, and neutral in between (the bar itself still runs 0 to 100).
+- What that means in time: a base flips to the Alliance the moment the bar reaches 70, so a neutral base (50) needs only 20 bar points - 4 ticks at a full 5-player advantage = 8 s, 20 s at a 2-player advantage, 40 s at a 1-player advantage. Taking a fully Alliance base (100) down to Horde control (30) is 70 bar points: 28 s at a 5-player advantage, 70 s at 2, 140 s at 1.
+- Capture radius: a player counts for a base only within 70 yards of its tower-cap object (BG_EY_POINT_RADIUS = 70) and only if the core's own CanCaptureTowerPoint() gate passes (its exact conditions are in the player class and were not read in this pass, so which states it excludes is unverified).
 - Honour: accumulates with the same points as resources, and pays GetBonusHonorFromKill(1) every 260 points (m_HonorTics, normal) or every 160 points (holiday weekend, BG_EY_EYWeekendHonorTicks). With three bases that is a bonus kill about every 104 s.
 - Capturing the flag also counts personally: UpdatePlayerScore(player, SCORE_FLAG_CAPTURES, 1).
 - There is no time limit in this battleground; the match ends at the cap or through the generic premature-end rules when a team drops below its minimum player count (GetPrematureWinner falls back to comparing scores).
@@ -58,7 +58,7 @@ DISTANCES (measured from the coordinates above; exact yard values, travel times 
 
 HIGH GROUND, RAMPS AND CHOKEPOINTS
 - The map is four raised bases around a sunken middle, joined by bridges and ramps; the flag stand is on the low central platform. The exact ramp and bridge waypoints are not in the data read here: unverified (use your map's pathfinding data).
-- Chokepoint 1: the ramp or bridge up to each base - a small group can hold a base against a larger one for the 20-28 s capture time.
+- Chokepoint 1: the ramp or bridge up to each base - a small group can hold a base against a larger one for the 8-28 s it takes the enemy to flip it at full advantage.
 - Chokepoint 2: the centre platform where the flag spawns - open ground, no cover, the most exposed spot on the map.
 - Chokepoint 3: the two "side" crossings between the Horde pair and the Alliance pair (Blood Elf-Draenei 237.9 yd and Mage Tower-Fel Reaver 240.2 yd) - the short rotations that decide who reinforces faster.
 - Chokepoint 4: each base's graveyard building interior, which is where defenders respawn 61-85 yd from the point.
@@ -85,17 +85,17 @@ Holding the middle:
 - Defence is inside the 70 yd capture radius, because a defender outside it does not slow the enemy bar at all.
 
 When a team pushes:
-- Push a base when you can put 5 more players inside its 70 yd radius than the enemy has there, which is the cap on capture speed; with fewer than 3 extra the flip takes 50-100 s and the defenders' respawns (61-85 yd away) will beat you.
+- Push a base when you can put 5 more players inside its 70 yd radius than the enemy has there, which is the cap on capture speed; with only 1-2 extra the flip takes 70-140 s on an enemy base and the defenders' respawns (61-85 yd away) will beat you.
 - Push the enemy's near pair when they are committed to the middle or to your side of the map.
-- A team that is behind stops defending its third base and stacks a single enemy base with 8+ to flip it in 20-28 s.
-- Late game (about 2-3 minutes from the cap at 3 bases) the leading team stops pushing and stacks the flag stand; the trailing team has to take a base and cap a flag in the same window, which is 20-28 s plus an 18-19 s flag run.
+- A team that is behind stops defending its third base and stacks a single enemy base with 5+ to flip it in about 28 s.
+- Late game (about 2-3 minutes from the cap at 3 bases) the leading team stops pushing and stacks the flag stand; the trailing team has to take a base and cap a flag in the same window, which is 28 s plus an 18-19 s flag run.
 
 
 4. WHAT DECIDES A TWINK FIGHT IN EYE OF THE STORM
-- Numbers inside 70 yards: the capture bar only counts players in the radius and only up to 5 per side, so five attackers against zero defenders is a 20 s flip, and five against five is a stalemate that never flips until someone dies.
+- Numbers inside 70 yards: the capture bar only counts players in the radius and only up to 5 per side, so five attackers against zero defenders is an 8 s flip, and five against five is a stalemate that never flips until someone dies.
 - Flag carrier handoffs: the flag cannot be passed; the carrier either reaches a controlled base or dies and drops it, and the dropped flag returns to its stand in 8 s. A planned death next to a teammate is the only real handoff, so escorts matter more than the runner's gear.
 - Crowd control on the carrier: a root or a fear 50 yards from the base trigger is worth more than any damage, because the carrier only scores on entering the trigger.
-- Interrupts and healing: at 29 one interrupted heal decides a 2v2 on a base; a healer standing on the bar with the defenders is what turns a 20 s flip into a 100 s one.
+- Interrupts and healing: at 29 one interrupted heal decides a 2v2 on a base; a healer standing on the bar with the defenders is what turns an 8 s flip into 40-140 s.
 - Burst: with an 8-30 s window before a base flips or a flag returns, burst on the player standing in the radius is the whole fight.
 - Kiting: the open centre platform and the bridges favour hunters, frost mages and shamans; melee wants the base interiors.
 - Stealth: a stealthed defender inside the radius is invisible to the bar and can stall a capture alone; a stealthed attacker on a base with one defender flips it before help arrives.
@@ -104,7 +104,7 @@ When a team pushes:
 
 
 5. HOW A HUMAN BEHAVES INSTEAD OF A SCRIPT (all frequencies and times in this section are estimate)
-- Time stopped to fight near an objective: a base fight lasts 10-40 s; after a flip players stand in the radius 5-20 s before moving. A player watching a bar often stands still for the full 20-100 s of a capture.
+- Time stopped to fight near an objective: a base fight lasts 10-40 s; after a flip players stand in the radius 5-20 s before moving. A player watching a bar often stands still for the full 8-140 s of a capture.
 - Chasing off the route: about 1 in 3 players chases 30-60 yd off a base; on the bridges this is fatal because the bridge is the only way in.
 - Going the wrong way: 1-2 players per team per match take a 20-40 s detour, most often after respawning at a base that was just lost, or by running to the flag with no base to cap it at.
 - Leaving an objective undefended: in random play a base is often held by nobody - estimate: in 40-70% of matches one team has a held base with no player inside the radius for 15 s or more, and the "defender" is usually the first to leave when a fight starts elsewhere.
@@ -114,13 +114,13 @@ When a team pushes:
 - Reaction to a flag being taken: most players take 3-8 s to notice, and only 1-2 go for the carrier; the rest keep fighting at a base, which is why flag caps in random games usually succeed.
 - Holding still on defence: a human defender does not stand in the radius for a whole game; the pattern is 20-60 s inside, a short walk to the ramp or the graveyard, then back, plus 1-2 absences of 10-20 s per match to help a nearby fight.
 - Rotations: players switch bases 2-4 times per match on average, usually after a death rather than on a call.
-- Flag behaviour: a human runner caps at the nearest controlled base rather than the best one, and drops the flag only by dying or by mounting, stealthing, Vanishing, Divine Shield, Blessing of Protection or Ice Block (all of which drop it).
+- Flag behaviour: a human runner caps at the nearest controlled base rather than the best one. In this core the flag (aura 34976) is dropped when the carrier dies, leaves the battleground, or loses the aura to a spell that carries the StealthOrInvis interrupt flag (mounting, stealthing and similar); the exact list of such spells is unverified, so bots should assume any of them drops it.
 - Reading the score: players check the resource bar around 800-1000 and again near the cap; a team 200+ behind starts stacking one base and stops defending the third (estimate).
 
 
 6. COMMON MISTAKES OF AVERAGE PLAYERS HERE
 - Standing outside the 70 yd capture radius and calling it defence: the bar does not move.
-- Fighting for a base with fewer than 3 extra players inside the radius, so the flip takes 50-100 s and the defenders respawn back into it.
+- Fighting for a base with only 1-2 extra players inside the radius, so an enemy base takes 70-140 s and the defenders respawn back into it.
 - Ignoring the flag entirely while holding two bases, or fighting for the flag while holding four (a 4-base flag cap is 500, which is a third of the game).
 - Carrying the flag to a base that is being contested, so the capture trigger never fires.
 - Dying with the flag 20 yards short of the base instead of dropping it to a teammate, and letting it return in 8 s.

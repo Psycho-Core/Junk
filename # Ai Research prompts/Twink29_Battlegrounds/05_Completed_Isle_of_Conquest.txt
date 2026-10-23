@@ -1,0 +1,157 @@
+OPEN. Isle of Conquest is in the 20-29 bracket in 8.3.7 (build 35662): BattlemasterList 30 "Isle of Conquest" (GameType "Epic Battleground", InstanceType 3, MinLevel 20, MaxLevel 120, MinPlayers 10, MaxPlayers 40, RatedPlayers 25, GroupsAllowed 1, MaxGroupSize 5, HolidayWorldState 4273, MapID_0 628). MaxPlayers and MinPlayers are per team in this table (the same table gives WSG 10, AB 15, EotS 15, AV 40 for 10v10, 15v15, 15v15, 40v40), so Isle of Conquest caps at 40 vs 40 and starts at 10 vs 10. The 20-29 range is PVPDifficulty 1340 (MapID 628, RangeIndex 0, MinLevel 20, MaxLevel 29); the higher ranges are 1341 30-39, 1342 40-49, 106 50-59, 869 60-69, 870 70-79, 107 80-89, 877 90-99, 672 100-109, 999 110, 905 111-119, 1182 120. It is a normal (unrated) queue; rated play is a separate list (BattlemasterList 102, MinLevel 100), so a level 29 can never be rated.
+
+SOURCE CONFLICT: the warcraft.wiki.gg article on Isle of Conquest still carries a Wrath-era line "Players can queue for Isle of Conquest from level 75" and an infobox "Level: 20-80". That contradicts the 8.3.7 client data above (MinLevel 20 plus a live 20-29 range index), so the client data is used here and the wiki line is treated as stale. Which of the two your server enforces is decided by your BattlemasterList row.
+
+EXTRA BRACKET FACTS: experience-off characters queue only against other experience-off characters (rule from patch 3.2.0), so a 29 twink meets twinks. Per the 5.2.0 rule a character is scaled up to the top of the bracket; whether your core implements that is unverified. How many players actually turn up for a 20-29 Isle of Conquest is unverified (it needs 10 per side to start).
+
+
+1. OBJECTIVE AND WIN CONDITION, WITH THE NUMBERS
+- Two win conditions. Either kill the enemy general, or take the enemy team's reinforcements to 0.
+- Reinforcements: each team starts with 300 (MAX_REINFORCEMENTS 300). Every player death costs that player's own team 1 reinforcement (HandleKillPlayer: factionReinforcements[team] -= 1). If it drops below 1 the battleground ends immediately in favour of the other team.
+- Generals: Overlord Agmar, creature 34922, at 1295.44, -765.733, 70.0541 (Horde general; killing him ends the match for the Alliance). High Commander Halford Wyrmbane, creature 34924, at 224.983, -831.573, 60.9034 (Alliance general; killing him ends it for the Horde). The kill pays the team WINNER_HONOR_AMOUNT = 500 honour and calls EndBattleground. The core does not check gate state in HandleKillUnit, so a general can be killed by any route that reaches him: through a destroyed gate, by catapult launch over the wall, or by parachuting from the gunship.
+- Five capturable node points, each a banner click: Refinery, Quarry, Docks, Hangar, Workshop.
+- Node capture: clicking an enemy or neutral banner puts a contested (grey) banner up for 60 seconds (BANNER_STATE_CHANGE_TIME = 60000), after which it becomes the capturing team's banner. Taking a node back therefore also takes 60 s. While contested the node is not controlled and produces nothing. The core checks only the banner's entry when a player clicks it (EventPlayerClickedOnFlag iterates the node table); it applies no distance check of its own, the interaction range is client-side (unverified what that range is).
+- Passive reinforcements: every 45 seconds (IC_RESOURCE_TIME = 45000, with the core's own comment "not sure, need more research") each CONTROLLED node in the loop gives its owner +1 reinforcement and 12 honour to the whole team (RESOURCE_HONOR_AMOUNT = 12). The loop runs i < NODE_TYPE_DOCKS, i.e. only the first three enum entries: Refinery, Quarry and Docks. Hangar and Workshop give no reinforcements at all. So one held node cancels one death every 45 s (1.33 deaths per minute), three held nodes cancel four deaths per minute. If your build differs, that constant is the first thing to check.
+- SOURCE CONFLICT: the wiki describes Docks as a vehicle node and only Refinery and Quarry as reinforcement nodes; the TrinityCore code ticks reinforcements for Docks as well. The code is what your server runs; the client may show different text.
+- Refinery and Quarry also apply a +15% siege damage buff to their owner, spells 68719 (Oil Refinery) and 68720 (Quarry), cast on each player as he joins if his team already holds the node (BattlegroundIC::AddPlayer). The wiki describes the buff as 15%; the exact percentage is not in this source file and is unverified.
+- Gates: three destructible gates per keep. Destroying any one of them (DestroyGate) opens that keep's portcullis, makes the keep's graveyard banner selectable (RemoveFlag GO_FLAG_NOT_SELECTABLE) and flips gate worldstates. Until a gate falls the enemy keep's graveyard cannot be captured at all.
+- First 20 seconds: the six starting gate door objects (the visual tunnel doors, GO_DOODAD_ND_HUMAN_GATE_CLOSEDFX_DOOR01-03 and the three Horde wall gate doors) are opened at the start and removed from the world after CLOSE_DOORS_TIME = 20000 ms; at the same moment all six keep gates are switched from OK to DAMAGED, i.e. they only become damageable 20 s into the match. After that the gates behave normally and stay destroyed once destroyed.
+- Vehicles, and their 3-minute respawn (WORKSHOP_UPDATE_TIME / DOCKS_UPDATE_TIME = 180000, the core comments the docks value "not sure if it is 3 minutes"):
+  CORE QUIRK: the respawn loops use an exclusive upper bound (u < BG_IC_NPC_DEMOLISHER_4_x, u < BG_IC_NPC_CATAPULT_4_x, u < BG_IC_NPC_GLAIVE_THROWER_2_x), so on this code the fourth demolisher of each side, the fourth catapult of each side and the second glaive thrower of each side are never auto-respawned by the 180 s timer. Only the ones inside the loop come back.
+  Workshop, for the owner only: 4 Demolishers, creature 34775, and 1 Siege Engine, 34776 Alliance / 35069 Horde. The Siege Engine spawns locked (UNIT_FLAG_NOT_SELECTABLE, UNIT_FLAG_CANNOT_SWIM, immune to players) and is only unlocked, or healed back to full if already unlocked, when the 3-minute workshop timer fires; the 4 demolishers spawn usable on capture.
+  Docks, for the owner only: 2 Glaive Throwers, 34802 Alliance / 35273 Horde, and 4 Catapults, 34793.
+  Hangar, for the owner only: no ground vehicles, three gunship portals at the hangar (195320 Alliance / 195326 Horde) plus portal effects; the gunship itself (195121 Alliance / 195276 Horde) carries gunship cannons (34929 Alliance / 34935 Horde) and its crew gets the parachute (spells 66656 / 66657) so they can drop into the enemy keep. Catapult launch uses 66251 (no falling damage).
+- Honour: 12 per controlled Refinery/Quarry/Docks per 45 s tick per team member, 500 team honour for the win. Personal score objectives are 245 (bases assaulted) and 246 (bases defended), incremented on the contested flip and on the defended flip respectively, the same split Arathi Basin uses.
+- No time limit. The match ends only on reinforcements, on a general's death, or through the generic premature-end rules when a side falls under its minimum player count.
+
+
+2. THE MAP
+Map id 628 (client Map row directory "IsleofConquest", name "Isle of Conquest", MapType 1, InstanceType 3 PVPBattlefield, ExpansionID 2 WotLK; the client's short description is "Slay the enemy's leader" and the long description is "Capture the vehicle spawn points / Siege the enemy fortress / Slay the enemy's leader"). All coordinates below are map 628, x, y, z, from the TrinityCore 8.3.7 spawn tables. The island is one open field: Alliance keep in the west (x about 220-430), Horde keep in the east (x about 1130-1300), and the five node points spread between and around them.
+
+THE TWO KEEPS
+- Alliance keep: graveyard banner object 195396 at 299.153, -784.589, 48.9162; general Wyrmbane 34924 at 224.983, -831.573, 60.9034; 4 x 7th Legion Infantry, creature 34919, around 223-224, -822 to -838, z 60.8; 12 keep cannons, creature 34944, on the two towers at x 402-431, y -755 to -911, z 87.8-88.0.
+- Horde keep: graveyard banner 195393 at 1284.76, -705.668, 48.9163; general Agmar 34922 at 1295.44, -765.733, 70.0541; 4 x Kor'kron Guard, creature 34918, around 1295-1296, -757 to -773, z 69.95; 12 keep cannons at x 1135-1167, y -660 to -866, z 87.9-88.4.
+- The two keeps are 988.8 yards apart.
+
+GATES AND DOORS (all destructible by siege damage)
+- Alliance gates: 195699 at 351.615, -762.75, 48.9162 (left/west); 195698 at 351.024, -903.326, 48.9247 (right/east); 195700 at 413.479, -833.95, 48.5238 (front).
+- Horde gates: 195494 at 1150.9, -762.606, 47.5077 (front); 195496 at 1218.74, -851.155, 48.2533 (left/west); 195495 at 1217.9, -676.948, 47.6341 (right/east).
+- Inner portcullis that opens when a gate falls: 195223 Horde keep, 195451 Alliance side (Doodad_PortcullisActive02 at 273.033, -832.199, 51.4109).
+- Starting tunnel doors, opened at the start and deleted from the world 20 s later: Alliance doodad 195703 (three copies at 413.479,-833.95 / 351.615,-762.75 / 351.024,-903.33); Horde wall gates use the same visual door object at the three Horde gate points.
+- There is no other ground entry into a keep. The only ways past the wall are siege damage to a gate, a catapult launch (66251), or the gunship parachute.
+
+THE FIVE NODES (banner coordinates, then graveyard)
+- Workshop: banner 195133 at 776.229, -804.283, 6.45052, neutral in the centre of the island. Workshop graveyard 1482 at 774.839, -660.219, 8.88468, spirit guide at 775.74, -652.77, 9.31. This is the central node and the only one with siege vehicles.
+- Docks: banner 195157 at 726.385, -360.205, 17.8153, north-west shore. Docks graveyard 1480 at 635.385, -279.658, 11.3836, spirit guide at 629.57, -279.83, 11.33.
+- Hangar: banner 195158 at 807.78, -1000.07, 132.381, high plateau in the south-east. Hangar graveyard 1481 at 774.179, -1094.28, 135.413, spirit guide at 780.729, -1103.08, 135.51. Gunship portals at 827.9219, -993.3249, 134.1972 / 739.0226, -1106.661, 134.7551 / 672.0799, -1156.776, 133.7057.
+- Quarry: banner 195338 at 251.016, -1159.32, 17.2376, far south-west. No graveyard, no spirit guide (the core skips spirit guides for Refinery and Quarry).
+- Refinery: banner 195343 at 1269.5, -400.809, 37.6253, far north-east. No graveyard, no spirit guide.
+- Banner gameobject variants per node: neutral banner, then Alliance banner 195334/195339/195153/195132/195149 and Horde banner 195336/195341/195155/195130/195151, plus a contested grey banner per side per node (195335/195340/195154/195144/195150 Alliance-contested and 195337/195342/195156/195145/195152 Horde-contested).
+
+VEHICLE SPAWN POINTS (owner only)
+- Workshop demolishers: 751.8281, -852.732666, 12.5250978 / 761.809, -854.2274, 12.5263 / 783.4722, -853.9601, 12.54775 / 793.055542, -852.71875, 12.5671. Siege engine: 773.680542, -884.092041, 16.8090363.
+- Docks catapults: 757.283, -341.7795, 12.2114 / 766.947937, -342.053833, 12.201 / 800.3785, -342.607635, 12.167 / 810.7257, -342.083344, 12.1676. Glaive throwers: 779.3125, -342.972229, 12.2105 / 790.029541, -342.899323, 12.2129.
+- Gunship cannons: 5 per gunship (wiki), creature entries 34929 Alliance / 34935 Horde; gunship captains 34960 / 35003. Where the gunship flies and how long a lap takes is unverified.
+
+GRAVEYARDS AND OWNERSHIP
+- Five primary graveyards, one per capturable node that has one, plus the two keep graveyards: Docks 1480, Hangar 1481, Workshop 1482, Alliance keep 1485 (277.722, -879.365, 48.964), Horde keep 1486 (1301.46, -830.49, 48.9162). Refinery and Quarry have no graveyard.
+- Two last-resort graveyards that cannot be captured: 1483 Alliance at 455.207, -314.594, 50.991 (spirit guide 438.86, -310.04, 51.81) and 1484 Horde at 1141.49, -1226.22, 14.9473 (spirit guide 1148.65, -1250.98, 16.60).
+- Resurrection rule (GetClosestGraveyard): a dead player goes to the nearest graveyard of a node his own team CONTROLS; if his team controls none, he goes to his last-resort graveyard. A contested node's graveyard is not used. Since the keep graveyards count as nodes, holding your own keep always gives you a usable graveyard.
+- Spirit guides spawn at Docks, Hangar, Workshop and both keeps when captured, and are removed when the node is lost; capture also relocates the dead players waiting there.
+- Exploit teleport rows exist for both keeps: 3986 Alliance 310.224, -832.547, 48.9163 and 3983 Horde 1253.79, -767.483, 48.9162 (world_safe_locs).
+
+DISTANCES THAT MATTER (straight line, yards; the real walk is longer)
+- Node to its own graveyard: Docks 121.7, Hangar 100.1, Workshop 144.1, Alliance keep 97.2, Horde keep 125.9.
+- Refinery is 305.4 from the Horde keep (it is the Horde-side resource node); Quarry is 379.1 from the Alliance keep.
+- Workshop to the front gates: 366.4 to the Alliance front gate, 379.2 to the Horde front gate. Refinery to the Horde front gate 380.9; Quarry to the Alliance front gate 365.0.
+- Workshop to Docks 447.0; Workshop to Hangar 234.9; Docks to Hangar 655.1; Quarry to Refinery 1270.1 (the two resource nodes are on opposite corners and cannot be held by one squad).
+- Last-resort graveyards to Workshop: Alliance 587.2, Horde 558.1. Last-resort Alliance to Docks 277.0; last-resort Horde to Hangar 419.9.
+- Keeps to the nearest node: Alliance keep-Docks 603.0, Horde keep-Docks 657.3, Alliance keep-Hangar 558.7, Horde keep-Hangar 566.7.
+
+ROUTES, CHOKEPOINTS, RAMPS
+- The only ground route between the keeps runs through the Workshop bowl in the middle: from the Alliance front gate east to the Workshop, then east to the Horde front gate. The Workshop is therefore the map's main chokepoint, and its banner sits in the middle of it.
+- Docks is reached from the Alliance side along the north shore; from the Horde side it is a long run around the north edge (Horde last-resort to Docks is 960 yards).
+- Hangar is a plateau reached by ramps up from the Workshop side and from the south shore; the banner sits on top and the graveyard is behind it. Exact ramp coordinates are not in the spawn tables: unverified.
+- Quarry is reached by the south-west road from the Alliance keep side; Refinery by the north-east road from the Horde keep side. Both are single-road approaches, so a small group can be cut off there.
+- Inside each keep the three gates are the only doors; the courtyard holds the general, the graveyard banner and the cannons on two towers. Catapults can throw players over the wall (66251) and the gunship can drop them in (66656/66657), which is how keeps are taken without breaking a gate.
+
+
+3. ROLES, OPENING 30 SECONDS, HOLDING MID, PUSH TIMING
+Typical split, written for a 20-man side (a 40-man side doubles the second and third groups; all counts are estimate):
+- 2 defenders at the Workshop (keep the banner, crew one demolisher, call incoming), 2 more hovering between Workshop and own keep to recap the keep graveyard if it is taken.
+- 4-6 attackers on the Workshop: the fight that decides the first three minutes happens here.
+- 2-3 on Docks, because glaive throwers outrange the keep cannons and are the cheapest way to break a gate.
+- 2-3 on the Hangar for the gunship and the parachute drop.
+- 1-2 on Refinery or Quarry (usually the one on your own side of the map, Refinery for Horde, Quarry for Alliance): free reinforcements, and the 15% siege buff.
+- 2-3 healers spread across the Workshop group and the Docks group; 1-2 stealth players (druid, rogue) roving to recap.
+- 1 driver/siege player who does nothing but drive a demolisher or siege engine at a gate.
+
+Opening, first 30 seconds (estimate): everyone lands from the gunship at their keep; the first move is the Workshop, because it is 560-590 yards from either last-resort graveyard and holds the only siege vehicles. Expect 8-12 of a 20-man side to run Workshop straight away, 3-4 to split to Docks, 3-4 to Hangar, one or two to the own-side resource node. The first banner click usually lands 20-40 s after the doors, the first real Workshop fight 30-60 s in, and the first contested-to-owned flip at 60-100 s (60 s of contested time on top of the arrival time).
+
+Holding the middle: the Workshop is held by owning the banner and keeping at least one demolisher alive inside the bowl, not by standing on the flag. A team that owns the Workshop but loses both demolishers has nothing to show for it. The standard hold is 2 on the banner, 3-4 in the bowl fighting, 1 driving. The banner is re-clicked the moment it goes grey; a 60 s grey banner is a 60 s window where no vehicles spawn for the previous owner.
+
+When a team pushes: (a) when it holds Workshop and Docks, it has demolishers plus glaives, both outranging or out-damaging the gate, and it pushes the enemy front gate; (b) when it holds Hangar, it pushes with the gunship: gunners hit the gate, everyone else parachutes into the courtyard, uses the enemy's own huge seaforium bombs on the inside of the gate and kills the cannons; (c) when a gate is down and the enemy graveyard banner is taken, the push converts into a general kill. A team that holds only its own keep and one resource node does not push; it farms reinforcements and waits.
+- The enemy keep graveyard can only be captured after one of that keep's gates is destroyed, so "push the keep" always means gate first, banner second, general third (estimate for the order humans actually follow).
+
+
+4. WHAT DECIDES A TWINK FIGHT HERE
+- Numbers and respawn distance, more than individual skill. Isle of Conquest kills cost reinforcements, so a fight that trades 5 deaths for 4 is a loss even when you "win" the ground. The team that is closer to its graveyard wins the attrition: Workshop is 144 yards from its own graveyard, so the owner reinforces in seconds while the attacker runs 550-600 yards from a last-resort graveyard.
+- Burst: the fight is decided in the first 2-3 seconds of a stun or a Fear, before the healers react. A 29 twink kills a non-twink in one burst window; against another twink the winner is whoever forces the trinket first.
+- CC chains: roots and slows decide vehicle fights far more than damage. A rooted demolisher is a dead demolisher. Polymorph, Fear, Hammer of Justice, Frost Nova and Kidney Shot are the tools that stop a driver or a healer; diminishing returns mean the second chain in a row is worth less than the first.
+- Interrupts on the healers: with 2-3 healers per side, a fight is lost when the healers are locked out, not when the damage dealers die. Kick, Pummel, Counterspell, Earth Shock, Mind Freeze are the value plays.
+- Healing: a single healer free-casting behind 4 players beats 6 players without one; killing the healer is the whole plan.
+- Vehicle handoffs: a driver swap (demolisher or siege engine) is the mechanic equivalent of a flag handoff. The dangerous pattern is a demolisher at 10% health driven by a player with a trinket down; the good pattern is a fresh driver taking over before the vehicle dies, because a destroyed vehicle is a 180 s respawn.
+- Node handoffs: banners cannot be "carried", so the equivalent decision is who clicks the grey banner. Clicking it while three enemies are alive is a free kill for them; the correct play is to clear first, click second.
+- Kiting: melee cannot catch a hunter, mage or druid in the open bowl, and vehicles cannot catch anything. The kite that matters is pulling the enemy fight away from the banner while a stealth player clicks it behind them.
+- Stealth: rogue and druid are the recap class. One stealth player taking back Hangar or Docks forces 2-3 defenders to go and retake it, which is worth more than the kill he could get.
+- Everything above is consistent with the rules in section 1; the weighting between them is estimate.
+
+
+5. HUMAN BEHAVIOUR VERSUS A SCRIPT
+All times and frequencies here are estimate, from how the battleground plays; none of it is data.
+- Time stopped to fight near an objective: a human fighting at a banner stays 10-30 s if he is winning, 3-8 s if he is losing and can run. He rarely leaves a fight he thinks he can win, even when the objective is already lost.
+- Chasing: after a kill or a winning trade, 40-60% of players chase the runner 30-80 yards before turning back. Chases over 100 yards are common at Docks and Hangar, where the loser runs downhill or off the plateau.
+- Wrong way: a first-minute wrong turn (running to the wrong node, or to Quarry/Refinery instead of Workshop) happens in maybe 1 player in 8-10. Late joiners are the main source.
+- Leaving an objective undefended: after a capture, most groups leave 0-1 players on the banner within 30 s, because the fight moves to the next node. A held node with no defender is the normal state, not the exception.
+- Arriving late: a player who dies at the Workshop and has to run back from a last-resort graveyard (550-600 yards) arrives 45-70 s later; from the Workshop graveyard, 10-20 s. The second wave of any fight is therefore always smaller than the first.
+- Running into a group: players arriving one at a time into a 4-5 man group do it constantly, especially on the Workshop road and at the Docks ramp. Expect solo arrivals every 10-20 s during a sustained fight.
+- Vehicle behaviour: the average player takes a vehicle once, drives it straight at the gate, and dies in it. Fewer than 1 in 5 will back a damaged vehicle out and let it repair.
+- Awareness of the score: almost nobody watches reinforcements. Players push the enemy general long after their own side is at 60-80 reinforcements and losing the attrition war.
+- Clicking the banner: humans click a grey banner with enemies nearby maybe half the time, and they almost never wait for the group to be clear.
+- Group cohesion: a 20-man side usually splits into 3-5 ad hoc groups within the first minute and stays split; re-forming happens only after a wipe at a gate.
+
+
+6. COMMON MISTAKES OF AVERAGE PLAYERS
+- Treating Isle of Conquest as a deathmatch. Every death is 1 of 300 reinforcements; a team that trades evenly at the Workshop and never takes a resource node loses on the tick.
+- Ignoring Refinery and Quarry. They are 305-380 yards from the owning keep and give reinforcements and the siege buff; no one defends them because they are far from the fight.
+- Leaving the Workshop banner grey. A 60 s contested banner means no vehicles for either side; the team that clicks it first gets the demolishers.
+- Driving a demolisher alone into a gate with no support, then losing it for 180 s.
+- Standing in the keep cannons' line while hitting a gate instead of killing the cannons or coming over the wall.
+- Not taking the enemy keep graveyard after a gate falls, so the push has no respawn and dies on the second wave.
+- Pushing the general while the enemy still holds Workshop and Docks and is regenerating reinforcements.
+- Chasing a single runner 100 yards off the node he just took, instead of clicking the banner back.
+- Splitting 2-3 players to Hangar at the start and never using the gunship, so the node pays nothing.
+- Ignoring the +15% siege buff and hitting gates with unbuffed demolishers while the enemy holds both resource nodes.
+- Fighting in the open bowl at the Workshop against a team that respawns 144 yards away.
+- Going to Quarry or Refinery as a lone player from the far side of the map (655-1270 yards of travel) and arriving after the fight is over.
+- Standing at a gate in the first 20 seconds: the keep gates are not damageable yet (they are switched to DAMAGED only after CLOSE_DOORS_TIME), so early siege damage is wasted.
+- Assuming all four demolishers and both glaive throwers respawn. On this core one demolisher, one catapult and one glaive thrower per side never come back through the 180 s timer.
+
+
+VERIFIED AGAINST
+- TrinityCore 8.3.7 (build 35662) BattlegroundIC.cpp / BattlegroundIC.h: MAX_REINFORCEMENTS, IC_RESOURCE_TIME, WORKSHOP_UPDATE_TIME, DOCKS_UPDATE_TIME, BANNER_STATE_CHANGE_TIME, CLOSE_DOORS_TIME, RESOURCE_HONOR_AMOUNT, WINNER_HONOR_AMOUNT, node enum and node table, HandleKillPlayer, HandleKillUnit, DestroyGate, EventPlayerClickedOnFlag, UpdateMap/ressource tick, GetClosestGraveyard, AddPlayer, all spawn tables (BG_IC_ObjSpawnlocs, BG_IC_NpcSpawnlocs, BG_IC_WorkshopVehicles, BG_IC_DocksVehiclesGlaives, BG_IC_DocksVehiclesCatapults, BG_IC_HangarTeleporters, BG_IC_SpiritGuidePos, BG_IC_GraveyardIds).
+- world_safe_locs rows 1480-1486, 3983, 3986 on map 628.
+- wago.tools DB2, build 8.3.7.35662: BattlemasterList 30 (and 102 for rated), PVPDifficulty rows 106, 107, 672, 869, 870, 877, 905, 999, 1182, 1340, 1341, 1342 on MapID 628.
+- warcraft.wiki.gg/wiki/Isle_of_Conquest: 40v40, 300 reinforcements and 1 per death, node list and vehicle counts (2 glaive throwers, 4 catapults, 4 demolishers, 1 siege engine, 5 gunship cannons), Refinery/Quarry 15% siege damage, graveyard layout, gate and bomb behaviour, seaforium bomb mechanics.
+- Distances recomputed from the coordinates above.
+
+UNVERIFIED IN THIS FILE
+- Whether your server's BattlemasterList actually queues level 29 into Isle of Conquest (client data says MinLevel 20 and a 20-29 range index; the wiki text says level 75).
+- The 45 s resource tick (the core itself comments "not sure, need more research") and the 180 s docks vehicle respawn ("not sure if it is 3 minutes").
+- The exact 15% figure of spells 68719 / 68720.
+- The client-side interaction range for clicking a node banner (the core applies no distance check).
+- Ramp and path coordinates to the Hangar plateau and the shore routes to Docks.
+- The exact first spawn point of a player after entering (the core creates the two gunship transports and teleports nothing itself).
+- Gunship waypoints, lap time and cannon range.
+- Spirit guide creature entries for this battleground in this build.
+- Whether the 5.2.0 bracket-scaling rule is implemented in your core.
