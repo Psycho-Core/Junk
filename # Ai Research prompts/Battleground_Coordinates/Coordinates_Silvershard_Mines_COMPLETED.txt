@@ -1,0 +1,219 @@
+=== SILVERSHARD MINES COORDINATES - BFA 8.3.7 (TRINITYCORE) - COMPLETED ===
+Battleground_Coordinates - prompt 5 of 8 (Silvershard Mines, map 727).
+Every coordinate is written as: map id, x, y, z. Values are reproduced
+exactly from the named source; nothing is estimated. Where no readable
+source exists the entry says "unverified".
+
+=== 0. HOW TO READ / ORIENTATION ===
+Facing values are reproduced exactly as stored (world_safe_locs rows:
+same degrees-like convention as the other files; script floats: as
+written). None of them was converted.
+No readable source assigns north/south/east/west to map 727's axes; this
+file therefore makes NO coordinate-compass claims. The words "East" and
+"North" below are entity names used by the script itself (East switch,
+North switch) - they are quoted as names, not derived directions.
+Depot cluster band (recomputed from the four script BgSSMDepotPos
+positions): x 564.8048 - 896.7936, y 25.29027 - 502.3111,
+z 298.2867 - 364.1431.
+Relative position note (raw, no compass): the Alliance start row has a
+higher x than the Horde start row (851.575 vs 630.17).
+Route legs are straight-line distances between sourced landmarks. They
+are NOT walkable-path measurements: no pathing/navmesh source for map 727
+could be read (unverified), and the minecart rail waypoints are not in
+any readable source either.
+
+=== 1. MAP ID ===
+727 = Silvershard Mines (the prompt's id; all six dump rows below are map
+  727 with comments starting "STV Diamond Mine - BG"; warcraft.wiki:
+  introduced in Mists of Pandaria). No second map id appears in any
+  readable source; which id/template your server queues is unverified
+  (the server database is not in the repository).
+Neither HavenWoW/BFA-HavenCore nor Titans-Project/BfaCore-Reforged ships
+  a Silvershard Mines script (both Zones directory listings checked);
+  Titans-Project/LegionCore-Reforged does
+  (BattlegroundSilvershardMines.cpp/.h) and is the script source below.
+  Whether your server runs an equivalent script is unverified.
+
+=== 2. TEAM STARTS AND BASE POSITIONS ===
+Starts (TrinityCore 8.x dump, world_safe_locs, map 727) - the SAME two
+  rows are each faction's only graveyard (section 5):
+  Horde, map 727: id 4061 "STV Diamond Mine - BG - Start - Horde (Start)"
+    (727, 630.17, 230.174, 328.838)  o 310.329
+  Alliance, map 727: id 4062 "STV Diamond Mine - BG - Start - Alliance (Start)"
+    (727, 851.575, 135.141, 328.838)  o 125.768
+Start doors (script BgSSMDoorPos array, spawned at setup with
+  RESPAWN_IMMEDIATELY; opening is handled by StartingEventOpenDoors):
+  gameobject 212939 (Alliance door 1) (727, 852.02, 158.21, 328.76)
+    o 0.15
+  gameobject 212940 (Alliance door 2) (727, 830.09, 143.92, 328.50)
+    o 3.13
+  gameobject 212941 (Horde door 1) (727, 652.17, 228.49, 328.91)
+    o 0.16
+  gameobject 212942 (Horde door 2) (727, 636.50, 208.12, 328.64)
+    o 3.51
+  Straight-line distances (recomputed): Alliance start to 212939 = 23 yd,
+  to 212940 = 23 yd; Horde start to 212941 = 22 yd, to 212942 = 23 yd.
+warcraft.wiki: each faction's single graveyard sits "safely within that
+  faction's raised starting area".
+
+=== 3. OBJECTIVES (MINE CARTS + DEPOTS; NO FLAGS/ORBS/NODES) ===
+No flags, no orbs and no capture nodes exist here - the objectives are
+  three mine carts racing along rails to four depot drop-offs
+  (warcraft.wiki: resource race, escort-style; script: 10v10 era data).
+Four depots - dump row (safe location), script gameobject entry, and the
+  script's BgSSMDepotPos spawn position (SetupBattleground binds them in
+  this order, verified against the source):
+  Diamond depot "Depot - Diamond": row id 4074
+    (727, 894.528, 30.7066, 363.927)  o 115.242
+    gameobject 212082 (THE_DESPOSITS_OF_DIAMONDS)
+    script GO position (727, 896.7936, 25.29027, 364.1431)  o 3.539994
+  Waterfall depot "Depot - Waterfall": row id 4072
+    (727, 571.024, 336.894, 346.593)  o 2.6878
+    gameobject 212080 (RESERVOIR)
+    script GO position (727, 564.8048, 337.0873, 347.1427)  o 1.571254
+  Lava depot "Depot - Lava": row id 4073
+    (727, 620.889, 79.6562, 298.326)  o 9.01141
+    gameobject 212081 (THE_DESPOSITION_OF_LAVA)
+    script GO position (727, 615.5099, 79.41812, 298.2867)  o 1.654058
+  Troll depot "Depot - Troll": row id 4075
+    (727, 783.064, 495.927, 359.336)  o 314.661
+    gameobject 212083 (BACKLOG_TROLLS)
+    script GO position (727, 777.7377, 502.3111, 359.4537)  o 0.719448
+  (warcraft.wiki's Carts section says "three diamond drop-off points"
+  while the dump and script both carry four - the discrepancy is
+  recorded as-is; which retail used: unverified.)
+Three mine carts (script): NPC creature entry 60140, spawn positions
+  (script SummonMineCart, summoned by the cart trigger creature):
+  cart 1 (727, 744.542053, 183.545883, 319.658203)  o 4.356342
+    - control aura for its track: spell 125695 (NORTH capture point)
+  cart 2 (727, 739.400330, 203.598511, 319.603333)  o 2.308198
+    - control aura: spell 125696 (SOUTH capture point)
+  cart 3 (727, 760.184509, 198.844742, 319.446655)  o 0.351249
+    - control aura: spell 125620 (EAST capture point)
+  Maximum three carts active, one per track (warcraft.wiki + script
+  MaxCarts 3); first cart 10 s after start (script spawn timer), then
+  respawned as carts reach depots. Cart rail waypoints: unverified (no
+  waypoint source readable); script sets cart walk speed 1.2 (with an
+  in-source comment that it is "not blizzlike").
+Two track switches (script NPC entry 60283, spawned at setup):
+  East switch (727, 715.585388, 101.272034, 319.994690)  o 4.647377
+    (spawned with BG_SSM_TRACK_SWITCH_OPENED spell 120228 active)
+  North switch (727, 847.481689, 308.032562, 346.573242)  o 0.587086
+    (spawned with BG_SSM_TRACK_SWITCH_CLOSED spell 120229 active)
+  Switches take ~3 s between uses (script cooldown 3000 ms) and need no
+  cart control to flip (warcraft.wiki); both also carry the feign-death
+  stun visual 135781.
+Control/scoring (script + warcraft.wiki): control = more of your players
+  in the cart's circle; controlling cart(s) trickle resources every 2
+  seconds - 3 carts = 5 points, 2 carts = 3 points, 1 cart = 2 points
+  (script MineCartAddPoints); delivering a cart to its depot scores
+  150 points (script PointsPerMineCart) plus honor; defending aura spell
+  128646, control visuals 116086 (Alliance) / 116085 (Horde) / 118001
+  (neutral). Cap: script SSM_MAX_TEAM_POINTS = 1500, warcraft.wiki says
+  first to 1600 - the conflict is recorded as-is (which your server
+  uses: unverified).
+
+=== 4. WALKING ROUTES ===
+Reading rule as in the other files: "legs" = straight-line start -> own
+gate door -> objective; "direct" = straight-line start -> objective.
+NOT walkable-path measurements; actual walkability is unverified (tunnel
+layout exists per wiki images - "Mine cart tracks inside the tunnels" -
+but no navmesh or rail waypoint source was readable).
+From Alliance start (4062), via door 212939 (23 yd):
+  -> Diamond depot:   legs: 23 yd, 140 yd   direct 119 yd
+  -> Waterfall depot: legs: 23 yd, 338 yd   direct 351 yd
+  -> Lava depot:      legs: 23 yd, 249 yd   direct 243 yd
+  -> Troll depot:     legs: 23 yd, 352 yd   direct 375 yd
+  -> East switch:     legs: 23 yd, 148 yd   direct 140 yd
+  -> North switch:    legs: 23 yd, 150 yd   direct 173 yd
+From Horde start (4061), via door 212941 (22 yd):
+  -> Diamond depot:   legs: 22 yd, 318 yd   direct 336 yd
+  -> Waterfall depot: legs: 22 yd, 139 yd   direct 125 yd
+  -> Lava depot:      legs: 22 yd, 154 yd   direct 151 yd
+  -> Troll depot:     legs: 22 yd, 301 yd   direct 310 yd
+  -> East switch:     legs: 22 yd, 142 yd   direct 155 yd
+  -> North switch:    legs: 22 yd, 211 yd   direct 231 yd
+Depot-to-depot distances (recomputed): Diamond-Waterfall 455 yd,
+  Diamond-Lava 286 yd, Diamond-Troll 492 yd, Waterfall-Lava 263 yd,
+  Waterfall-Troll 270 yd, Lava-Troll 453 yd.
+Track sets (warcraft.wiki achievement "Mine Cart Courier"): East to
+  South, North to West, South, East to North, North to East - mapping
+  each set to specific coordinates: unverified.
+
+=== 5. GRAVEYARDS ===
+Two rows only - each faction's start row doubles as its graveyard
+  (script enum SSM_GRAVEYARD_MAIN_ALLIANCE = 4062,
+  SSM_GRAVEYARD_MAIN_HORDE = 4061; verbatim rows in section 2).
+The graveyard rule (script GetClosestGraveYard, exact logic): always the
+  player's own team's main row - there is no third party, no nearest-
+  pair choice and no per-point graveyard. warcraft.wiki confirms:
+  "only a single graveyard for each faction, located safely within that
+  faction's raised starting area".
+Which graveyard belongs to which point: none - carts and depots own no
+  graveyards in either readable source.
+Spirit guides are spawned at both rows at setup (script AddSpiritGuide),
+  using the Battleground base-class spirit creatures 13116 (Alliance) /
+  13117 (Horde). Start-to-own-graveyard distance: 0 yd (same row).
+Respawn walk to the depots equals the start routes in section 4.
+
+=== 6. BUFF / POWER-UP SPAWNS ===
+Four buffs (script BgSSMBuffPos array, spawned at setup with
+  RESPAWN_IMMEDIATELY; entries from the shared Battleground.h
+  Buff_Entries already verified in steps 2-4):
+  Berserking (gameobject entry 179905) at
+    (727, 749.444153, 64.338188, 369.535797)  o 6.058259  [script name:
+    "Berserking buff East"]
+  Berserking (gameobject entry 179905) at
+    (727, 789.979431, 281.883575, 355.389984)  o 0.652173  ["West"]
+  Restoration (gameobject entry 179904) at
+    (727, 539.873596, 396.386749, 345.722412)  o 3.994188  ["Waterfall"]
+  Restoration (gameobject entry 179904) at
+    (727, 614.202698, 120.924660, 294.430908)  o 4.241807  ["Lava"]
+Respawn: visible from setup; after a pickup the shared base-class
+  BUFF_RESPAWN_TIME = 180 s respawns the same object (no Silvershard
+  override exists in the script).
+Retail parity: warcraft.wiki achievement "Greed is Good" - "Gain both
+  the Berserking and Restoration buffs at the same time in Silvershard
+  Mines" - confirms both buff types exist in retail. Which spell each
+  gameobject casts in your own gameobject_template: unverified.
+
+=== 7. SOURCES ===
+1. TrinityCore 8.x world dump: sql/old/8.x/world/19071_2020_06_17/
+   2019_10_26_01_world.sql - world_safe_locs rows 4061, 4062 (starts =
+   graveyards) and 4072-4075 (depots); the only map-727 rows in the dump
+   (checked: exactly 6) and no rows commented "Silvershard" (none).
+2. Titans-Project/LegionCore-Reforged:
+   src/server/game/Battlegrounds/Zones/BattlegroundSilvershardMines.h/.cpp
+   - entries, positions, timers, scoring, graveyard rule, cart spawns.
+3. warcraft.wiki.gg: Silvershard Mines (10v10, three tracks/two
+   switches, control circle, single graveyard per faction in the raised
+   start area, 1600 target, achievements incl. "Greed is Good" and
+   "Mine Cart Courier").
+4. Negative results recorded: no Silvershard script in HavenWoW or
+   Titans-Project BfaCore-Reforged (Zones listings checked); no rail
+   waypoint data in any readable source; no pathing/navmesh source;
+   AzerothCore's battleground_template has no Silvershard row (WotLK
+   core - checked, none).
+
+=== 8. EXPLICIT UNVERIFIED LIST ===
+1. Which map id and battleground_template row your server queues for
+   Silvershard Mines (server DB not in the repository) and whether your
+   server runs the LegionCore script or an equivalent.
+2. Mine cart rail waypoint lists and the exact carts' routes through the
+   tunnels (only spawn positions and the walk-speed constant are
+   readable); track-set names to coordinate mapping.
+3. The compass direction of every axis of map 727 (deliberately not
+   used; "East/North" switch words are source names, not derived
+   directions).
+4. Walkability of the distances in section 4 (straight-line only).
+5. The winning target your server uses (script 1500 vs wiki/retail
+   1600) and retail's true depot count (wiki prose says three drop-off
+   points; dump+script carry four).
+6. Which spell each buff gameobject (179905/179904) casts in your
+   gameobject_template, and the exact buff respawn timing if your core
+   diverges from BUFF_RESPAWN_TIME = 180 s.
+7. Door-opening timing beyond StartingEventOpenDoors being present in
+   the script (the exact delay was not traced).
+8. Face/orientation units for the script floats (reproduced as stored,
+   not converted).
+DONE - step 5 of 8 complete
