@@ -37,6 +37,14 @@ BfA-tier Alchemy (the Kul Tiran/Zandalari recipes) is out of reach at 29; exact
 character-level requirement for those trainers is unverified, but every BfA
 recipe needs materials from level 110+ zones regardless.
 
+Recipe skill requirements: in 8.3.7 SkillLineAbility carries MinSkillLineRank 1
+for most of the classic recipes (11449, 11450 and the transmute 17187 were
+checked and all read 1), while TrivialSkillLineRankLow/High still hold the
+Classic yellow and grey values. The per-recipe skill numbers in this file are
+the Classic orange values from Wowhead's created-by tables, so they are the
+safe upper bound: a recipe may be learnable earlier on this build. Check the
+trainer before buying materials.
+
 Consequences that shape the whole list:
   - A 29 can craft anything with skill 225 or less, and can use anything whose
     "requires level" is 29 or less. Those are two different filters and the
@@ -82,15 +90,10 @@ Greater Healing Potion 1710. Item level 31, requires level 21.
   Recipe: spell 7181, Alchemy 155 (the 1-300 guides use it 155-185).
   Materials: 1x Liferoot 3357, 1x Kingsblood 3356, 1x Empty Vial 3371.
 
-Lesser Mana Potion 3385.
+Lesser Mana Potion 3385. Item level 24, requires level 14.
   Recipe: spell 3173, Alchemy 140 (the 1-300 guides use it 140-155).
   Materials: 1x Mageroyal 785, 1x Stranglekelp 3820, 1x Empty Vial 3371.
-  Restore amount and required level: unverified.
-
-Greater Mana Potion 6149.
-  Recipe: spell 11448, Alchemy 160 (the 1-300 guides use it 160-185).
-  Materials: 1x Khadgar's Whisker 3358, 1x Goldthorn 3821, 1x Empty Vial 3371.
-  Restore amount and required level: unverified.
+  Restore amount: unverified; the required level 14 is from ItemSparse.
 
 --- One-hour elixirs (the reason to take alchemy at 29) ---------------------
 
@@ -172,7 +175,12 @@ Restorative Potion 9030. Item level 42, requires level 32.
   spell 11359, 2 min cooldown. Recipe spell 11452, skill 215.
   Nineteen levels of value locked behind three levels.
 
-Superior Healing Potion 3928. Required level unverified but above 29.
+Greater Mana Potion 6149. Item level 41, requires level 31.
+  Recipe spell 11448, skill 160. Materials: 1x Khadgar's Whisker 3358,
+  1x Goldthorn 3821, 1x Empty Vial 3371.
+  Two levels out of reach, and it is the best mana potion a 29 can make.
+
+Superior Healing Potion 3928. Item level 45, requires level 35.
   Recipe spell 11457, skill 215. Materials: 1x Sungrass 8838,
   1x Khadgar's Whisker 3358, 1x Empty Vial 3371.
 
@@ -184,8 +192,8 @@ Elixir of Giants 9206. Item level 48, requires level 38.
 Elixir of the Mongoose 13452. Item level 56, requires level 46.
   Use: +25 Agility and +2% critical strike for 1 hour, spell 17538.
   Recipe spell 17571, skill unverified (Classic 280).
-  Materials: 2x Mountain Silversage 13465, 2x 13466 (name unverified,
-  a high-level herb), 1x Empty Vial 3371.
+  Materials: 2x Mountain Silversage 13465, 2x Sorrowmoss 13466,
+  1x Empty Vial 3371.
 
 Limited Invulnerability Potion 3387. Item level 50, requires level 45.
   Use: immune to physical attacks for 6 sec, spell 3169, 2 min cooldown.
@@ -210,9 +218,10 @@ Flasks - the long buffs that survive death
   wants and exactly what a level 29 cannot have.
 
 Skill above 225
-  Transmute: Arcanite, spell 17187, skill 275: 1x Thorium Bar 12359 and
-  1x Arcane Crystal 12363 into 1x Arcanite Bar 12360. ALT, and worthless to a
-  twink anyway - it is a gold maker for a level 60.
+  Transmute: Arcanite, spell 17187, skill 275: reagents confirmed in 8.3.7
+  SpellReagents as 1x Thorium Bar 12359 and 1x Arcane Crystal 12363, into
+  1x Arcanite Bar 12360. ALT, and worthless to a twink anyway - it is a gold
+  maker for a level 60.
   Major Healing Potion 13446 and Major Mana Potion 13444, skill 275-300.
   Recipe: Major Healing Potion is sold by Evie Whirlbrew, Everlook,
   Winterspring (limited supply).
@@ -263,6 +272,8 @@ Route to 225, cheapest classic path (recipe, craft spell, skill band):
   185-210  30x Elixir of Agility           11449   skill 185
   210-215  5x  Elixir of Greater Defense   11450   skill 195
   215-225  15x Superior Healing Potion     11457   skill 215
+            (craft-only: Superior Healing needs character level 35, so the
+            twink makes these for a level 35+ alt or for sale)
 
 Materials for the full 1-225 run, at the counts the guides use (they add
 10-20% because several of these steps are yellow, not orange):
@@ -376,8 +387,10 @@ too: assume one potion per fight until the cooldown groups are checked.
    the melee that closes on you. Fire Protection 6049 is the anti-mage buy.
 
 4. Mage. Elixir of Firepower 6373 is small (+10 fire damage for 30 min) but it
-   is the only spell-power buff available at 29 from any profession. Mana
-   potions and Frost Protection 6050 are the rest of the reason.
+   is the only spell-power buff available at 29 from any profession. The mana
+   potion is Lesser Mana 3385 (level 14); Greater Mana 6149 needs level 31, so
+   a 29 mage drinks the small one. Frost Protection 6050 is the rest of the
+   reason.
 
 5. Warlock and Priest. Shadow Protection 6048 for the mirror match, Fortitude
    3825 for the health pool, mana potions for everything else. Alchemy is a
