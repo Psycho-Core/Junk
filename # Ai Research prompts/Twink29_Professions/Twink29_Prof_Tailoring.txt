@@ -1,0 +1,212 @@
+TWINK29 - PROFESSIONS - STEP 05 - TAILORING
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Scope: what Tailoring gives a level 29 battleground twink, Classic skill
+line 197, capped at 225 for a character of that level.
+
+1. WHAT TAILORING IS AT 29
+   Tailoring is the weakest of the ten professions for this bracket. It
+   makes cloth gear, bags and cloth itself, and at Classic tier it has no
+   permanent item enhancement at all - no armour kit, no leg armour, no
+   spellthread. What it does have is one genuinely good caster item and the
+   cheapest bag line in the game.
+   Ranks, from the Classic guide and the trainer pages: apprentice at level
+   5, journeyman at skill 75 (level 10), expert at skill 150 (level 20),
+   artisan at skill 225 (level 35). Note the shape of that last gate: the
+   artisan trainer is only needed to pass 225, and he wants level 35, so
+   225 is the hard ceiling for a 29 - the same ceiling as the other
+   professions, by a different route.
+   Tailoring needs no gathering profession. Cloth drops off humanoids, so
+   the profession can be paired with anything, and enchanting is the usual
+   partner because tailored greens can be disenchanting fodder.
+
+2. THE ONE PIECE WORTH WEARING
+   4320 Spidersilk Boots
+        Feet, cloth, 29 armour, +4 Stamina, +4 Intellect, +7 Spirit.
+        Item level 25, requires level 20, binds when equipped.
+        Spell 3855, Tailoring 125, difficulty 125/150/167/185, 45 second
+        cast, training cost 750.
+        Reagents: 2x Bolt of Silk Cloth 4305 (= 8x Silk Cloth 4306),
+        4x Medium Leather 2319, 4x Spider's Silk 3182, 2x Iridescent
+        Pearl 5500.
+        Taught by 15 trainers, so it is on every trainer's list from the
+        expert rank up.
+        Fifteen stat points on a foot slot at level 20 is the best single
+        item tailoring produces for this bracket, and it is the only
+        tailoring piece in the 1-225 band that a 29 can wear and would
+        actually want. For a cloth caster it is a real boot. Everyone else
+        cannot wear cloth.
+
+   7048 Azure Silk Hood - the next thing people ask about, and it is not
+        worth it. Head, cloth, 33 armour, no stats, item level 29, requires
+        level 24. Spell 8760, Tailoring 145, difficulty 145/155/160/165,
+        2x Bolt of Silk Cloth + 2x blue dye + 1x Fine Thread 2321. It is a
+        levelling step, not a twink item.
+
+   Higher mageweave and runecloth pieces: Black Mageweave Gloves 10003 at
+   skill 220 and Black Mageweave Headband 10024 at skill 230, Runecloth
+   Belt 13856 and Runecloth Bag 14046 at 260, Runecloth Gloves 13863 at
+   290. The gloves are craftable at the 225 cap; their wear level was not
+   checked and is above 29. The rest are past the cap or need the artisan
+   rank. ALT.
+
+3. BAGS - WHAT A 29 ACTUALLY BUYS FROM A TAILOR
+   10050 Mageweave Bag - 12 slots, item level 35.
+        Spell 12065, Tailoring 225, difficulty 225/240/255/270, one minute
+        cast, training cost 45.
+        4x Bolt of Mageweave 4339 (= 20x Mageweave Cloth 4338) + 2x Silken
+        Thread 4291.
+        This sits exactly on the cap, so a 29 tailor can make the largest
+        bag he will ever make. Sells for 25 copper, which is why tailors
+        sell bags rather than vendor them.
+   4245 Small Silk Pack - 10 slots, item level 25.
+        Spell 3813, Tailoring 150, difficulty 150/170/185/200.
+        Three reagents by the recipe page's count; their names were not
+        read, so the list is unverified.
+   4238 Linen Bag, 4240 Woolen Bag, 4241 Green Woolen Bag - the early bag
+        line, 6 to 8 slots by memory. Slot counts and spell ids unverified;
+        they are not worth a twink's gold.
+   14046 Runecloth Bag - 14 slots at skill 260, past the cap. ALT.
+   Practical note: if the point of the profession is storage for a twink
+   roster, this is the only reason to level tailoring at all, and a 225
+   tailor covering five alts pays for the cloth several times over.
+
+4. THE CLOTH ECONOMY
+   The bolts, which are also the leveling backbone:
+        2963  Bolt of Linen Cloth 2996     skill 1    2x Linen Cloth 2589
+        2964  Bolt of Woolen Cloth 2997    skill 75   3x Wool Cloth 2592
+        3839  Bolt of Silk Cloth 4305      skill 125  4x Silk Cloth 4306
+        3865  Bolt of Mageweave 4339       skill 175  5x Mageweave Cloth 4338
+   Cloth comes off humanoid mobs, banded roughly by level: linen from the
+   starting zones, wool from the teens, silk from the twenties and thirties,
+   mageweave from the forties, runecloth from the fifties. All four are
+   common auction house goods, which is the cheap way to level this
+   profession; a twink who farms his own cloth is paying in time instead.
+   Threads, dyes and bleach are tailoring supply vendor stock next to every
+   trainer: Coarse Thread 2320, Fine Thread 2321, Silken Thread 4291,
+   Heavy Silken Thread 8343 (item level 40, vendor trash thread), and the
+   dyes. Gray Dye is 4340; the blue, red, orange and bleach item ids were
+   not opened and are unverified.
+   Two negatives worth writing down. Bolt-making is not a first aid step -
+   bandages use raw cloth, so a tailor's bolts are useless to a medic.
+   And tailoring has no permanent enhancement at this tier, so unlike
+   leatherworking it cannot improve gear a 29 already owns.
+
+5. TRAINERS
+   Creature entries below come from the trainer lists on the Spidersilk
+   Boots and Mageweave Bag pages; coordinates were not checked.
+
+   Apprentice, level 5:
+     Horde: Snang, Orgrimmar (1637); Victor Ward, Undercity (1497);
+       Vhan, Thunder Bluff (1638); Bowen Brisboise, Tirisfal Glades (85).
+     Alliance: Uthrar Threx, Ironforge (1537); Lawrence Schneider 1300,
+       Stormwind City (1519); Trianna 11050, Darnassus (1657).
+
+   Journeyman rank, skill 75, level 10:
+     Magar 3363, Orgrimmar (1637), Horde.
+     Rhiannon Davis 11049, Undercity (1497), Horde.
+     Tepa 3004, Thunder Bluff (1638), Horde.
+     Jormund Stonebrow 5153, Ironforge (1537), Alliance.
+     Sellandus 5567, Stormwind City (1519), Alliance.
+     Me'lynn 4159, Darnassus (1657), Alliance.
+
+   Expert rank, skill 150, level 20:
+     Josef Gregorian 4576, Undercity (1497), Horde.
+     Georgio Bolero 1346, Stormwind City (1519), Alliance.
+     Three more carry the expert rank and stock the same recipes:
+     Grarnik Goodstitch 2627, Stranglethorn Vale (33), neutral.
+     Mahani 3704, The Barrens (17), Horde.
+     Meilosh 11557, Felwood (361), neutral.
+
+   Artisan rank, skill 225, level 35 - ALT, this is the gate a 29 cannot
+   pass:
+     Daryl Stack 2399, Hillsbrad Foothills (267), Horde.
+     Timothy Worthington 11052, Dustwallow Marsh (15), Alliance.
+
+6. THE CHEAPEST ROUTE TO 225
+   Every step below is trainer-taught; tailoring has no drop patterns in
+   this range.
+
+   Skill   Recipe                        Spell  Crafts  Reagents each
+   ---------------------------------------------------------------------
+   1-45    2996 Bolt of Linen Cloth       2963     102   2 Linen Cloth 2589
+                                                        (about 45 give the
+                                                        skill, the rest are
+                                                        stock for below)
+   40-70   Linen Belt                    8776      40   1 linen bolt, 1
+                                                        Coarse Thread 2320
+   70-75   2580 Reinforced Linen Cape    unv.       5   2 linen bolts, 3
+                                                        coarse thread
+   75-100  2997 Bolt of Woolen Cloth      2964      45   3 Wool Cloth 2592
+   100-110 10047 Simple Kilt              unv.      13   4 linen bolts, 1
+                                                        Fine Thread 2321
+   110-125 4314 Double-stitched Woolen    unv.      15   3 woolen bolts, 2
+           Shoulders                                    fine thread
+   125-145 4305 Bolt of Silk Cloth        3839     ~20   4 Silk Cloth 4306
+   145-160 7048 Azure Silk Hood           8760      18   2 silk bolts, 2 blue
+                                                        dye, 1 fine thread
+   160-225 the guide's steps, in order:
+           7050 Silk Headband                      10   3 silk bolts, 2 fine
+           4334 Formal White Shirt                  5   3 silk bolts, 2
+                                                        bleach, 1 fine
+           4339 Bolt of Mageweave (3865)          ~10   5 Mageweave Cloth 4338
+           7058 Crimson Silk Vest                  20   4 silk bolts, 2 fine,
+                                                        2 red dye
+           7062 Crimson Silk Pantaloons            10   4 silk bolts, 2 red
+                                                        dye, 2 silken thread
+           10056 Orange Mageweave Shirt              5   1 mageweave bolt, 1
+                                                        orange dye, 1 heavy
+                                                        silken thread
+           10003 Black Mageweave Gloves              7   2 mageweave bolts, 2
+                                                        heavy silken thread
+
+   "unv." means the spell id was not opened; those seven 160-225 recipes
+   were left as the guide gives them, so their spell ids and exact minimum
+   skills are unverified. The counts assume average luck on the yellow and
+   green phases.
+
+   Shopping list to 225, approximately:
+     204x Linen Cloth 2589         (102 bolts)
+     135x Wool Cloth 2592          (45 bolts)
+     804x Silk Cloth 4306          (201 bolts, all consumed by the silk
+                                    recipes between 145 and 215)
+     about 95x Mageweave Cloth 4338 (19 bolts)
+     about 55x Coarse Thread 2320, 126x Fine Thread 2321, 36x blue dye,
+       60x red dye, 5x orange dye, 20x Silken Thread 4291, 24x Heavy
+       Silken Thread 8343
+   Stop points that matter:
+     125 - Spidersilk Boots. This is the whole reason a caster twink
+           touches the profession.
+     150 - Small Silk Pack, 10 slots, and the expert rank itself.
+     225 - Mageweave Bag, 12 slots, and the cap.
+   Nothing between 125 and 225 improves on the boots for a 29, so the
+   honest advice is to stop at 125 unless the character is a bag maker.
+
+7. ALT - WHAT A 29 CANNOT DO
+   The artisan rank at skill 225 needs level 35, so 225 is the ceiling and
+     nothing above it is reachable: Mooncloth, the Runecloth line, the
+     14-slot Runecloth Bag 14046, Runecloth Gloves 13863, the Brightcloth
+     patterns and everything the mageweave endgame builds on.
+   Black Mageweave Headband 10024 at skill 230 is past the cap.
+   Black Mageweave Gloves 10003 at skill 220 is craftable, but the wear
+     level was not checked and is above 29 - treat the item as ALT.
+   Outland and Northrend tailoring - spellthreads, the leg and shoulder
+     enhancements, the flying-carpet mounts - needs higher skill and a
+     level 60 or better character. ALT, and their pages were not opened
+     here.
+   The blue, red and orange dyes and the bleach are bought, not made; their
+     item ids are unverified above.
+
+8. WHICH CLASSES SHOULD TAKE IT
+   1. Priest, mage, warlock. Only for Spidersilk Boots 4320 - +4 Stamina,
+      +4 Intellect, +7 Spirit at level 20 - and only if the boots are not
+      already on the auction house, which they usually are. After that the
+      profession gives a caster nothing that enchanting, engineering or
+      alchemy does not give better.
+   2. The roster's bag maker and enchanter feeder. A 225 tailor producing
+      12-slot Mageweave Bags for every alt, and green cloth items to
+      disenchant, is the one place tailoring pays.
+   3. Everyone else. No. Leatherworking kits work on cloth and are a better
+      spend of the slot; engineering beats both.
+   Last line: tailoring is a utility profession at 29, not a combat one.
+   One pair of boots and a bag line, and no permanent upgrade anywhere in
+   the tier.

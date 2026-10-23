@@ -27,10 +27,10 @@ skill line 165, capped at 225 for a character of that level.
         Item level 5, no level requirement, sells for 15 copper.
 
    2313 Medium Armor Kit - +16 armour, no item level restriction stated.
-        Use spell 2832. Craft spell 2165, minimum skill unverified - the
-        Classic guide never uses it, it goes from light kits straight to
-        light leather items. Reagents unverified.
-        Item level 15, requires level 5 to use.
+        Use spell 2832. Craft spell 2165, Leatherworking 100, training
+        cost 250, difficulty 100/115/122/130.
+        Reagents 4x Medium Leather 2319 + 1x Coarse Thread 2320.
+        Item level 15, requires level 5 to use, sells for 2 copper.
 
    4265 Heavy Armor Kit - +24 armour, only on items level 15 and above.
         Use spell 2833. Craft spell 3780, Leatherworking 150, training
@@ -69,43 +69,55 @@ skill line 165, capped at 225 for a character of that level.
    higher-level wearer. Treat any such item as out of scope for this
    server's 29 bracket, and note that this file did not open their pages.
 
-4. WHAT ELSE A 29 CAN WEAR, AND WHY IT DOES NOT MATTER
-   Everything the route below crafts that fits a 29 is statless levelling
-   gear:
+4. WHAT ELSE A 29 CAN WEAR, AND WHAT IT IS WORTH
+   Two crafted pieces carry a stat a 29 can actually wear.
 
-   7276 Handstitched Leather Cloak - spell 9058, skill 1.
-        Item level 9, back, 8 armour, requires level 4.
-        2x Light Leather + 1x Coarse Thread 2320.
-   4239 Embossed Leather Gloves - spell 3756, skill 55.
-        Item level 13, hands, leather, 39 armour, requires level 8.
-        3x Light Leather + 2x Coarse Thread.
+   5961 Dark Leather Pants - legs, leather, 72 armour, +8 Agility,
+        item level 23, requires level 18, binds when equipped.
+        Spell 7135, Leatherworking 115, difficulty 115/140/152/165,
+        25 second cast.
+        12x Medium Leather 2319 + 1x Gray Dye 4340 + 1x Fine Thread 2321.
+        The best thing this profession makes for a 29, and still a green.
+   2312 Fine Leather Gloves - hands, leather, 43 armour, +2 Intellect,
+        +2 Spirit, item level 15, requires level 10, binds when equipped.
+        Spell 2164, Leatherworking 75, difficulty 75/105/120/135.
+        4x Light Leather 2318 + 2x Coarse Thread 2320 + 1x Cured Light
+        Hide 4231. Pattern 2408 is a drop or a pickpocket, not trainer
+        taught, so it is ALT for anyone without the pattern.
+
+   Everything else the route makes that fits a 29 is statless levelling
+   gear:
+   7276 Handstitched Leather Cloak - spell 9058, skill 1. Item level 9,
+        back, 8 armour, requires level 4. 2x Light Leather + 1x Coarse
+        Thread.
+   4239 Embossed Leather Gloves - spell 3756, skill 55. Item level 13,
+        hands, leather, 39 armour, requires level 8. 3x Light Leather +
+        2x Coarse Thread.
    4246 Fine Leather Belt - spell 3763, skill 80, difficulty 80/110/125/140.
         Item level 16, waist, leather, 38 armour, requires level 11.
         6x Light Leather + 2x Coarse Thread.
-   2315 Dark Leather Boots - spell 2167, skill 100, difficulty 100/125/137/150.
-        Item level 20, feet, leather, 51 armour, requires level 15.
-        4x Medium Leather 2319 + 2x Fine Thread 2321 + 1x Gray Dye 4340.
-   2312 Fine Leather Gloves - spell 2164, skill 75, difficulty 75/105/120/135.
-        Item level 15, hands, leather, 43 armour, +2 Intellect, +2 Spirit,
-        requires level 10, binds when equipped.
-        4x Light Leather + 2x Coarse Thread + 1x Cured Light Hide 4231.
-        Pattern 2408 is a drop or a pickpocket, not trainer-taught, so this
-        is ALT for a self-sufficient 29 without the pattern.
-   2310 Embossed Leather Cloak - spell 2162, skill 60.
-        Item level 13, back, 12 armour, requires level 8.
+   2315 Dark Leather Boots - spell 2167, skill 100, difficulty
+        100/125/137/150. Item level 20, feet, leather, 51 armour,
+        requires level 15. 4x Medium Leather + 2x Fine Thread + 1x Gray
+        Dye. Craftable but off the route below: a medium armour kit is
+        cheaper per point of skill.
+   2310 Embossed Leather Cloak - spell 2162, skill 60. Item level 13,
+        back, 12 armour, requires level 8.
    2314 Toughened Leather Armor - spell 2166, skill 120, difficulty
-        120/145/157/170, 14 trainers teach it.
-        Item level 24, chest, leather, 80 armour, requires level 19, no stats.
+        120/145/157/170, 14 trainers teach it. Item level 24, chest,
+        leather, 80 armour, requires level 19, no stats.
         10x Medium Leather + 2x Cured Light Hide + 2x Fine Thread.
 
-   The only two pieces on the route with stats are out of reach:
+   Two crafted pieces have stats and are out of reach:
    5964 Barbaric Shoulders - shoulder, leather, 76 armour, +5 Agility,
-        +6 Stamina, +5 Spirit, item level 35, requires level 30, binds when
-        equipped. Spell 7151, Leatherworking 175, difficulty 175/195/205/215.
-        8x Heavy Leather + 1x Cured Heavy Hide 4236 + 2x Fine Thread. ALT.
-   5966 Guardian Gloves - hands, leather, 63 armour, no stats, item level 38,
-        requires level 33. Spell 7156, Leatherworking 190.
-        4x Heavy Leather + 1x Cured Heavy Hide + 1x Silken Thread. ALT.
+        +6 Stamina, +5 Spirit, item level 35, requires level 30, binds
+        when equipped. Spell 7151, Leatherworking 175, difficulty
+        175/195/205/215. 8x Heavy Leather 4234 + 1x Cured Heavy Hide 4236
+        + 2x Fine Thread. ALT.
+   5966 Guardian Gloves - hands, leather, 63 armour, no stats, item level
+        38, requires level 33. Spell 7156, Leatherworking 190, difficulty
+        190/210/220/230. 4x Heavy Leather + 1x Cured Heavy Hide + 1x
+        Silken Thread 4291. ALT.
    No crafted quiver, ammo pouch or bag was checked for this file.
 
 5. TRAINERS
@@ -154,8 +166,9 @@ skill line 165, capped at 225 for a character of that level.
      spell 20649 Heavy Leather  1x  = 5x Medium Leather 2319
      spell 20650 Thick Leather  1x  = 6x Heavy Leather 4234
      Cured Light Hide 4231: 1x Light Hide 783 + 1x Salt 4289, spell 3816.
-     Cured Heavy Hide 4236: 1x Heavy Hide 4235 + 3x Salt 4289, spell id
-       unverified, ratio taken from the Classic guide's shopping list.
+     Cured Heavy Hide 4236: spell 3818, 1x Heavy Hide 4235 + 3x Salt 4289.
+       The ratio is taken from the Classic guide's shopping list, not from
+       the spell page.
 
    Step   Recipe                     Spell  Min  Crafts  Reagents each
    ------------------------------------------------------------------
@@ -163,10 +176,9 @@ skill line 165, capped at 225 for a character of that level.
    20-45  2304 Light Armor Kit         2152    1     40    1 light leather
    45-55  7276 Handstitched Cloak      9058    1     10    2 LL, 1 coarse
    55-80  4239 Embossed Gloves          3756   55     25    3 LL, 2 coarse
-   80-110 4246 Fine Leather Belt        3763   80     30    6 LL, 2 coarse
-   110-137 2315 Dark Leather Boots      2167  100     37    4 medium, 2 fine
-                                                        and 1 gray dye
-   137-150 Dark Leather Pants           7135  n/v     13    12 medium, 1 dye
+   80-100 4246 Fine Leather Belt        3763   80     20    6 LL, 2 coarse
+   100-130 2313 Medium Armor Kit        2165  100     30    4 medium, 1 coarse
+   130-150 5961 Dark Leather Pants      7135  115     20    12 medium, 1 dye
                                                         and 1 fine thread
    150-175 4265 Heavy Armor Kit         3780  150     25    5 heavy, 1 fine
    175-190 5964 Barbaric Shoulders      7151  175     15    8 heavy, 1 cured
@@ -175,18 +187,17 @@ skill line 165, capped at 225 for a character of that level.
                                                         heavy, 1 silken
    200-225 8173 Thick Armor Kit        10487  200     25    5 thick, 1 silken
 
-   n/v means the minimum skill was not verified. For the pants, 137 is the
-   guide's band start; for the medium kit no page was opened at all. The
-   55-80 gloves step is yellow from 85 and the last few points there may
-   need extra crafts; counts assume average luck.
+   Every step is trainer-taught. The 100-130 medium kits are yellow from
+   115 and the 130-150 pants are yellow from 140, so the last few points
+   of each block may need extra crafts; the counts assume average luck.
 
    Shopping list to 150, which is the twink stop:
      57x Ruined Leather Scraps 2934  (makes 19 Light Leather)
-     315x Light Leather 2318
-     120x Coarse Thread 2320
-     304x Medium Leather 2319
-     87x Fine Thread 2321
-     50x Gray Dye 4340
+     255x Light Leather 2318
+     130x Coarse Thread 2320
+     360x Medium Leather 2319
+     20x Fine Thread 2321
+     20x Gray Dye 4340
    To go on to 175 add 125x Heavy Leather 4234 and 25x Fine Thread.
    To reach 225 add, cumulatively, 285x Heavy Leather 4234, 25x Heavy Hide
    4235 and 75x Salt 4289 for the curing, 55 more Fine Thread, 35x Silken
@@ -212,8 +223,8 @@ skill line 165, capped at 225 for a character of that level.
 7. ALT - WHAT A 29 CANNOT DO ALONE
    8173 Thick Armor Kit - craftable at 200, usable only at level 30.
    15564 Rugged Armor Kit - skill 250, past the cap; usable only at level 40.
-   4236 Cured Heavy Hide - spell id unverified, but it is craftable at 29
-     once the salt is bought; only the recipe id is missing here.
+   2408 Pattern: Fine Leather Gloves - a drop or a pickpocket, so the
+     gloves at 2312 are ALT for a self-sufficient 29 without the pattern.
    5964 Barbaric Shoulders - wearable only at level 30.
    5966 Guardian Gloves - wearable only at level 33.
    Telonis 4212 and Una 3007 teach to 225; anything past that, including
