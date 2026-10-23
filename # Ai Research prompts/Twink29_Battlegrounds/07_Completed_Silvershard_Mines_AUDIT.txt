@@ -1,0 +1,68 @@
+AUDIT OF 07_Completed_Silvershard_Mines.txt - ONE CLAIM PER LINE
+==============================================================================
+
+Run 2026-10-23. The file is a single line, as the prompt requires when a
+battleground is closed to the bracket, so the audit is short.
+
+  PASS        the source still holds the value the file prints
+  FIXED       the file was wrong or imprecise; the correction is described
+
+Sources used:
+  [DB2]     wago.tools DB2 build 8.3.7.35662 (BattlemasterList, PVPDifficulty)
+  [PROMPT]  07_Silvershard_Mines.txt, the "if it is not, write only that line
+            and stop" rule
+
+
+------------------------------------------------------------------------------
+CLAIMS
+------------------------------------------------------------------------------
+001  PASS  the battleground is map 727 [DB2]
+002  PASS  BattlemasterList 708 "Silvershard Mines", GameType "Payload",
+           InstanceType 3 [DB2]
+003  PASS  MinLevel 35, MaxLevel 120 in that row [DB2]
+004  PASS  MinPlayers 5 and MaxPlayers 10 per team, so 10v10 cap with a 5v5
+           minimum; the per-team reading is the one the same table uses for WSG
+           10, AB 15, EotS 15, AV 40 and IoC 40 [DB2]
+005  PASS  RatedPlayers 10 [DB2]
+006  PASS  MinLevel 35 means a level 29 cannot queue it at all [DB2]
+007  PASS  PVPDifficulty 650 is MapID 727, RangeIndex 0, MinLevel 35, MaxLevel
+           39 - the lowest bracket for the map [DB2]
+008  PASS  the higher rows quoted (852 40-49, 853 50-59, 854 60-69, 855 70-79,
+           856 80-89, 880 90-99, 800 100-109, 1008 110, 909 111-119, 1176 120)
+           all match their MinLevel/MaxLevel pairs [DB2]
+009  PASS  there is no 20-29 range row for map 727 in PVPDifficulty; RangeIndex
+           0 is already 35-39 [DB2]
+010  PASS  the only other BattlemasterList rows that reference map 727 are the
+           Rated Battleground list 102 (MinLevel 100, MaxLevel 100, RatedPlayers
+           6, MaxPlayers 6, and 727 is one of its five maps) and the Brawl list
+           883 (MinLevel 110, MaxLevel 120, 6v6). Neither is open to a level 29
+           [DB2]
+011  PASS  format: the deliverable is one line and contains no sections, which
+           is exactly what the prompt asks for when the answer is "not open"
+           [PROMPT]
+012  PASS  no number in the line is invented; every figure is either the DB2
+           value or arithmetic derived from two of them (10v10 / 5v5 from
+           MinPlayers and MaxPlayers)
+
+
+------------------------------------------------------------------------------
+RESULT
+------------------------------------------------------------------------------
+  claims checked ...................................... 12
+  PASS ................................................ 12
+  FIXED ............................................... 0
+  claims found wrong in substance and withdrawn ...... 0
+
+  Nothing to correct. The interesting part of this step is the level gate
+  itself: Silvershard Mines is a level 35 battleground in 8.3.7 (lowest bracket
+  35-39), so it cannot appear in a 20-29 game no matter how the queue is
+  configured, and the file correctly stops at that line instead of writing five
+  sections about a map no level 29 can enter.
+
+
+------------------------------------------------------------------------------
+WHAT WAS RE-READ FOR THIS AUDIT
+------------------------------------------------------------------------------
+  DB2 build 35662   BattlemasterList 708, 883 and 102; PVPDifficulty 650, 800,
+                    852-856, 880, 909, 1008, 1176 on MapID 727
+  prompt 07         the "not open" output rule
