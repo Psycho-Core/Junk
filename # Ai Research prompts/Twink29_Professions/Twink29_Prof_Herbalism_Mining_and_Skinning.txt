@@ -116,8 +116,14 @@ Scope: what the three gathering professions give a level 29 twink.
    The pick requirement was dropped somewhere between the two, so treat
    it as unverified for 8.3.7 and carry one anyway: it costs silver from
    the mining supply vendor next to the trainer.
-   Nodes are still skill-gated, unlike herbs. The classic ladder, in the
-   order the leveling guide lays it out:
+   Ore nodes lost their hard skill gate the same way herbs did. A node
+   page carries both readings: Mithril Deposit is Mining (1) in retail and
+   Mining (175) in Classic, and it only guarantees a full Mithril Ore at
+   Mining 150 or higher - below that the client hands out a nugget
+   instead. So on 8.3.7 the gate is gone and the price is yield, not
+   access. The classic ladder below is what the leveling guide and the
+   Classic servers use, and it is still the best guide to what each node
+   pays out:
    1-65     Copper Vein - Copper Ore 2770.
    65-125   Tin Vein - Tin Ore 2771; Silver Vein - Silver Ore 2775 at 75.
    125-175  Iron Deposit - Iron Ore 2772.
@@ -125,9 +131,11 @@ Scope: what the three gathering professions give a level 29 twink.
    175-245  Mithril Deposit - Mithril Ore 3858.
    230      Truesilver Deposit - Truesilver Ore 7911; Dark Iron Ore 11370.
    245-300  Small and Rich Thorium Vein - Thorium Ore 10620.
-   At a 225 ceiling the last row that is comfortably open is Mithril; at
-   300 the miner reaches Thorium but has to survive Burning Steppes,
-   Winterspring or the Plaguelands to use it.
+   Two thresholds matter instead of one: 150 for full ore rather than
+   nuggets, and the zone level for whether a 29 can stand there at all.
+   Thorium means Burning Steppes, Winterspring or the Plaguelands, which
+   a 29 cannot farm; Mithril means Badlands and Tanaris, which is already
+   a corpse run.
    Smelting is a Mining ability and needs a forge. Verified example:
    Smelt Mithril, spell 10097, requires Mining 175, 1x Mithril Ore 3858
    gives 1x Mithril Bar 3860, difficulty 175/175/202/230, taught by every
@@ -220,10 +228,11 @@ Scope: what the three gathering professions give a level 29 twink.
    The old artisan rank, if the core still uses the ladder: level 35 and
    200 skill. That is the same level-35 wall as Cooking and every
      crafting file in this set.
-   Thorium and rich thorium nodes at a 225 ceiling, and everything in the
-     Outland, Northrend, Cataclysm, Pandaria, Draenor and Battle for
-     Azeroth tiers. The BfA gathering tiers (Kul Tiran and Zandalari)
-     are level 110+ content.
+   Full-yield thorium and rich thorium at a 225 cap: the nodes open to
+     any skill, the ore does not. Same for everything in the Outland,
+     Northrend, Cataclysm, Pandaria, Draenor and Battle for Azeroth
+     tiers, and the BfA gathering tiers (Kul Tiran and Zandalari) are
+     level 110+ content.
    Mobs above level 45 to skin at 225, or above 47 with the knife.
    Every herb from Wintersbite upward, in practice: the nodes are open
      since 6.0.2 but the zones are 40+.
