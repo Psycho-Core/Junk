@@ -60,11 +60,15 @@ line 197, capped at 225 for a character of that level.
         sell bags rather than vendor them.
    4245 Small Silk Pack - 10 slots, item level 25.
         Spell 3813, Tailoring 150, difficulty 150/170/185/200.
-        Three reagents by the recipe page's count; their names were not
-        read, so the list is unverified.
-   4238 Linen Bag, 4240 Woolen Bag, 4241 Green Woolen Bag - the early bag
-        line, 6 to 8 slots by memory. Slot counts and spell ids unverified;
-        they are not worth a twink's gold.
+        3x Bolt of Silk Cloth 4305, 2x Heavy Leather 4234, 3x Fine Thread
+        2321.
+   4238 Linen Bag - 6 slots, item level 5. Spell 3755, Tailoring 45,
+        difficulty 45/70/87/105. 3x Bolt of Linen Cloth + 3x Coarse
+        Thread 2320.
+   4241 Green Woolen Bag - 8 slots, item level 15. Spell 3758, Tailoring
+        95, difficulty 95/120/137/155.
+   4240 Woolen Bag - 8 slots by its place in the guide, spell id
+        unverified. None of the three small bags is worth a twink's gold.
    14046 Runecloth Bag - 14 slots at skill 260, past the cap. ALT.
    Practical note: if the point of the profession is storage for a twink
    roster, this is the only reason to level tailoring at all, and a 225

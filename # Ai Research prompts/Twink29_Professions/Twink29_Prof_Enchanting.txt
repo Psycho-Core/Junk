@@ -1,0 +1,238 @@
+TWINK29 - PROFESSIONS - STEP 06 - ENCHANTING
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Scope: what Enchanting gives a level 29 battleground twink, Classic skill
+line 333, capped at 225 for a character of that level.
+
+1. WHAT ENCHANTING IS AT 29
+   Enchanting is the only profession in this set whose product the twink can
+   wear without having the profession. An enchant is a service: hand the
+   item, the materials and a tip to any enchanter and the stats are yours.
+   So this file has two halves - what a 29's gear can take at this tier
+   (section 2), and what levelling the profession buys the character
+   (disenchanting, self-supply, and selling the service).
+   Ranks: apprentice at level 5, journeyman at skill 75 (level 10), expert
+   at skill 125 (level 20), artisan at skill 200 (level 35), and the only
+   artisan trainer in the game is Annora 11073 inside Uldaman. A 29 reaches
+   225 and stops there; 226 to 300 is closed to him.
+   There is no self-only perk at Classic tier. Unlike the current expansion's
+   enchanting, a Classic-skill enchanter has no exclusive ring or glove
+   enchant to wear; what he gets is the ability to disenchant and the rods.
+   The one thing worth saying plainly: the enchants below are the same for
+   every class and every player, enchanter or not.
+
+2. THE ENCHANTS A 29 SHOULD ACTUALLY HAVE
+   Six enchants, one per slot, all of them inside the 225 cap. Materials in
+   brackets are the item ids. Every one of them needs a rod, listed in
+   section 4, and an enchanter who owns that rod tier.
+
+   Cloak - Enchant Cloak - Lesser Agility, spell 13882
+        +3 Agility. Enchanting 225, difficulty 225/245/265/285.
+        2x Lesser Nether Essence (11174). Tool: Runed Truesilver Rod.
+        Not trainer-taught: the formula is item 11206 and it drops, so the
+        enchanter has to own it. Cheapest agility point-per-slot on the
+        whole list.
+
+   Chest - Enchant Chest - Greater Health, spell 13640
+        +35 health. Enchanting 160, difficulty 160/180/200/220.
+        3x Soul Dust (11083). Tool: Runed Golden Rod. Trainer-taught.
+        The default chest enchant at this tier; there is no stat version
+        inside the cap.
+
+   Bracers - Enchant Bracer - Strength, spell 13661
+        +5 Strength. Enchanting 180, difficulty 180/200/220/240.
+        1x Vision Dust (11137). Tool: Runed Golden Rod. Trainer-taught.
+        Melee only; the caster bracer enchant inside the cap was not
+        checked, so treat that as unverified.
+
+   Gloves - Enchant Gloves - Agility, spell 13815
+        +5 Agility. Enchanting 210, difficulty 210/230/250/270.
+        1x Lesser Nether Essence (11174) + 1x Vision Dust (11137).
+        Tool: Runed Truesilver Rod. Trainer-taught.
+
+   Boots - Enchant Boots - Minor Speed, spell 13890
+        "a slight movement speed increase" - the tooltip's own words; the
+        exact percentage is unverified in this build.
+        Enchanting 225, difficulty 225/245/265/285.
+        1x Small Radiant Shard (11177), 1x Aquamarine (7909), 1x Lesser
+        Nether Essence (11174). Tool: Runed Truesilver Rod.
+        Trainer-taught. This is the single most valuable enchant in the
+        bracket: movement speed is worth more in a battleground than any
+        stat on the list.
+
+   Weapon - Enchant Weapon - Striking, spell 13693
+        +3 weapon damage. Enchanting 195, difficulty 195/215/235/255.
+        2x Greater Mystic Essence (11135) + 1x Large Glowing Shard (11139).
+        Tool: Runed Golden Rod. Trainer-taught.
+        Flat damage on every swing, which is why it beats the stat
+        enchants for a fast-hitting melee class at this level.
+
+   The full set - cloak, chest, bracers, gloves, boots, weapon - is what a
+   29 should be aiming at. Six enchants, all applicable at 225 or below,
+   and none of them needs a higher-level crafter.
+
+3. WHAT IS OUT OF REACH - ALT
+   Every enchant with a proc or a big number sits above the cap. Skill
+   values below are from the Classic spell lists.
+     Enchant Bracer - Greater Strength, spell 13939, skill 240. 2 reagents.
+     Enchant Weapon - Greater Striking, spell 13943, skill 245. 2+2.
+     Enchant Weapon - Fiery Weapon, spell 13898, skill 265. 4+1.
+     Enchant Gloves - Greater Agility, spell 20012, skill 270. 3+3.
+     Enchant Weapon - Superior Striking, spell 20031, skill 300. 2+10.
+     Enchant Gloves - Superior Agility, spell 25080, skill 300. 3+8+4.
+   Anything from skill 226 up needs the artisan rank, which needs level 35,
+   which for a 29 means a higher-level crafter applying it - ALT by
+   definition. The same goes for every Outland, Northrend and later
+   enchant, and for the current-expansion ring enchants, which a character
+   with only the Classic skill line cannot use at all.
+   Formulas are a separate gate from skill. The cloak formula above drops;
+   many others are vendor stock or world drops. A formula the enchanter
+   does not own is as good as a skill he does not have.
+
+4. RODS - THE TOOLS THAT ACTUALLY GATE THE LIST
+   An enchanter cannot apply anything without the rod tier for it. All four
+   are crafts; the plain rod is the base item.
+     Runed Copper Rod 6218 - skill 1.
+       1x Copper Rod (6217), 1x Strange Dust (10940), 1x Lesser Magic
+       Essence (10938). Copper Rod is trade supply vendor stock.
+     Runed Silver Rod 6339 - skill 100.
+       1x Silver Rod (6338), 6x Strange Dust (10940), 3x Greater Magic
+       Essence (10939), 1x Shadowgem (1210).
+     Runed Golden Rod 11130 - skill 155.
+       1x Golden Rod (11128), 1x Iridescent Pearl (5500), 2x Greater Astral
+       Essence (11082), 2x Soul Dust (11083).
+     Runed Truesilver Rod 11145 - skill 200.
+       1x Truesilver Rod (11144), 1x Black Pearl (7971), 2x Greater Mystic
+       Essence (11135), 2x Vision Dust (11137).
+   Practical note: the Truesilver rod is the last one a 29 needs, and it
+   unlocks every enchant in section 2. Where the plain Silver, Golden and
+   Truesilver rods come from - vendor or another profession - was not
+   checked, so treat their sources as unverified.
+
+5. DISENCHANTING - THE REAL RETURN ON THE PROFESSION
+   Only an enchanter can disenchant, and disenchanting is the only way to
+   make the materials in this file. The Classic ladder, by item level:
+     Strange Dust (10940), Lesser Magic Essence (10938), Greater Magic
+       Essence (10939), Small Glimmering Shard - low level greens.
+     Soul Dust (11083), Lesser Astral Essence (10998), Greater Astral
+       Essence (11082) - the twenties.
+     Vision Dust (11137), Lesser Mystic Essence (11134), Greater Mystic
+       Essence (11135), Large Glowing Shard (11139) - the thirties.
+     Dream Dust (11176), Lesser Nether Essence (11174), Small Radiant Shard
+       (11177), Large Radiant Shard (11175) - the forties.
+     Illusion Dust (16204), Greater Eternal Essence (16203), Small and
+       Large Brilliant Shard (14343, 14344) - the fifties.
+   Which item level an enchanter of a given skill can disenchant was not
+   checked in this build, so the exact thresholds are unverified; the tier
+   ladder above is from the Classic material list, not from a table.
+   For a 29 this is the actual business case. He disenchants his own quest
+   greens, sells the dust and essences, and funds his own enchants. It is
+   also the reason enchanting is expensive to level: there is no gathering
+   profession that feeds it, every material comes from destroying gear.
+
+6. TRAINERS
+   Creature entries marked below come from the trainer lists on the
+   enchanting spell pages; the rest are names and cities from the Classic
+   trainer lists, with entries unverified. Coordinates are unverified for
+   all of them.
+
+   Apprentice, level 5:
+     Horde: Jhag, Orgrimmar (1637); Malcomb Wynn, Undercity (1497); Mot
+       Dawnstrider, Thunder Bluff (1638); Vance Undergloom, Tirisfal
+       Glades (85).
+     Alliance: Betty Quin, Stormwind City (1519); Thonys Pillarstone,
+       Ironforge (1537); Lalina Summermoon, Darnassus (1657).
+
+   Journeyman rank, skill 75, level 10:
+     Horde: Godan, Orgrimmar (1637); Lavinia Crowe, Undercity (1497); Teg
+       Dawnstrider, Thunder Bluff (1638).
+     Alliance: Gimble Thistlefuzz, Ironforge (1537); Lucan Cordell,
+       Stormwind City (1519); Taladan, Darnassus (1657).
+
+   Expert rank, skill 125, level 20 - the only two who teach it:
+     Kitta Firewind 11072, Elwynn Forest (12), Alliance. Tower of Azora.
+     Hgarth 11074, Stonetalon Mountains (406), Horde. Sun Rock Retreat.
+
+   Artisan rank, skill 200, level 35 - ALT:
+     Annora 11073, Uldaman (1337), neutral, and she is inside the instance
+     behind a room clear. She is the only artisan trainer in the game, so
+     nothing above 225 is reachable by a 29 at all.
+
+7. THE CHEAPEST ROUTE TO 225
+   Every step is trainer-taught and the route is the standard Classic one:
+   bracer enchants make the cheapest skill points in the profession.
+
+   Skill   Recipe                          Spell  Crafts  Reagents each
+   ---------------------------------------------------------------------
+   1-2     Runed Copper Rod (6218)         -          1   1 Copper Rod 6217,
+                                                          1 Strange Dust, 1
+                                                          Lesser Magic Essence
+   2-90    Enchant Bracer - Minor Health   7418      88   1 Strange Dust 10940
+   90-100  Enchant Bracer - Minor Stamina  7457      10   3 Strange Dust
+   100-101 Runed Silver Rod (6339)         -          1   1 Silver Rod 6338,
+                                                          6 Strange Dust, 3
+                                                          Greater Magic
+                                                          Essence, 1 Shadowgem
+   101-110 Greater Magic Wand (11288)      -          9   1 Simple Wood, 1
+                                                          Greater Magic
+                                                          Essence 10939
+   110-135 Enchant Cloak - Minor Agility   13419     25   1 Lesser Astral
+                                                          Essence 10998
+   135-155 Enchant Bracer - Lesser Stamina 13501     20   2 Soul Dust 11083
+   155-156 Runed Golden Rod (11130)         -         1   1 Golden Rod 11128,
+                                                          1 Iridescent Pearl,
+                                                          2 Greater Astral
+                                                          Essence, 2 Soul Dust
+   156-185 Enchant Bracer - Lesser Strength 13536    40   2 Soul Dust
+   185-220 Enchant Bracer - Strength       13661     50   1 Vision Dust 11137
+   200-201 Runed Truesilver Rod (11145)     -         1   1 Truesilver Rod,
+                                                          1 Black Pearl, 2
+                                                          Greater Mystic
+                                                          Essence, 2 Vision
+                                                          Dust
+   220-225 Enchant Cloak - Greater Defense  13746      5   3 Vision Dust
+
+   Materials to 225, approximately, and they reconcile with the guide's
+   own shopping list once the 226-300 stretch is removed:
+     125x Strange Dust 10940          1x Lesser Magic Essence 10938
+     12x Greater Magic Essence 10939  25x Lesser Astral Essence 10998
+     about 122x Soul Dust 11083       2x Greater Astral Essence 11082
+     about 67x Vision Dust 11137      2x Greater Mystic Essence 11135
+     1x Shadowgem 1210                1x Iridescent Pearl 5500
+     1x Black Pearl 7971              9x Simple Wood (item id unverified)
+   No gathering profession feeds this. Every one of those materials comes
+   from disenchanting, so the honest cost of levelling enchanting is the
+   cost of the greens and blues you destroy, or the auction house price of
+   the dust, which is why it is the most expensive profession per point in
+   the set.
+   Stop points worth knowing:
+     160 - chest +35 health.
+     180 - bracers +5 Strength.
+     195 - weapon +3 damage.
+     210 - gloves +5 Agility.
+     225 - boots Minor Speed and the +3 Agility cloak, and the cap.
+
+8. WHICH CLASSES SHOULD TAKE IT
+   Enchanting is the one profession in the set that is equally useful to
+   all nine classes and required by none - because the enchants are sold as
+   a service. Take it for the disenchanting, not for the enchants.
+
+   1. Rogue and warrior. The enchants they want are the expensive ones -
+      gloves, bracers, weapon - and an enchanter who owns those formulas and
+      the Truesilver rod can supply his own roster. Between them, weapon
+      Striking and the two agility enchants are the best damage per gold in
+      the bracket.
+   2. Hunter. Minor Speed and the agility pieces, and a class that benefits
+      least from the caster-side enchants this tier does not really have.
+   3. Druid, shaman, paladin. All three use the strength, agility and health
+      enchants depending on spec, so the same six apply.
+   4. Priest, mage, warlock. The +35 health chest and Minor Speed are worth
+      having, but the intellect and spell-power enchants at this tier were
+      not found inside the cap, so casters get the least out of an enchanter
+      at 29.
+   5. Everyone, as a second profession. Enchanting plus tailoring is the
+      classic pair - tailor the greens, disenchant them, sell the dust - and
+      both need no gathering.
+   Last line: enchanting is the only profession here that a 29 should
+   consider for the economy rather than the character. Buy the six enchants
+   from an enchanter; level the profession only if the twink is meant to
+   supply his own account.
