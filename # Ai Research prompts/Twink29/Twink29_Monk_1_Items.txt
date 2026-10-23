@@ -10,7 +10,7 @@ V = name, item level, required level and source read off a search or item
 page.
 Pool: rare leather, required 26-29, item level 35 or less returns 25 rows,
 and most of them are class-locked to other classes. What is left for a
-monk is nine pieces. The leather heirloom list has six items, the fist
+monk is eleven pieces. The leather heirloom list has six items, the fist
 weapon list has one, and the general weapon list has 37.
 
 0. THE TWO THINGS THAT MAKE MONK GEARING DIFFERENT
@@ -29,9 +29,11 @@ weapon list has one, and the general weapon list has 37.
    A monk's three specs wear the same items at this level; only the
    heirloom choice differs, because Mistweaver wants Intellect and the
    other two want Agility.
+HEAD|Pathfinder Hat|15339|34|29|world drop|RNG V
 HEAD|Enduring Cap|3020|33|28|world drop|RNG V
 HEAD|Whisperwind Headdress|6688|32|27|Earthcaller Halmgar 4842, BFD|SOLO V
 NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
+SHOULDER|Cutthroat's Mantle|15140|34|29|world drop|RNG V
 SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom, Agility|ALT V
 SHOULDER|Preened Ironfeather Shoulders|42984|scales|1|heirloom, Intellect|ALT V
 SHOULDER|Watchman Pauldrons|7727|32|27|world drop|RNG V
@@ -49,15 +51,18 @@ LEGS|Ferine Leggings|6690|34|29|Agathelos the Raging 4422, RFK|SOLO V
 FEET|Gnomebot Operating Boots|9450|33|28|Crowd Pummeler 9-60 6229, Gnomer|SOLO V
 FEET|no battleground boots - 20102, 20114, 20169 and 20188 are Druid and
       Rogue only
-RING 1|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
-RING 1|no caster or agility ring verified at 26-29
-RING 2|second ring, of the Monkey|-|unv.|29|green drop|SOLO
+RING 1|green ring, of the Monkey or of Agility|-|unv.|29|green drop|SOLO
+RING 2|second ring, same two suffixes|-|unv.|29|green drop|SOLO
+      no rare ring a monk wants is verified at 26-29; 13097 Thunderbrow
+      Ring is item level 29 but required level 24 and is a note, not a row
 TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO
 TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
 TRINKET 2|Minor Recombobulator|4381|28|none|Engineering, 10 charges|ALT
-   On 13097 Thunderbrow Ring: its +8 Strength does nothing for a monk,
-   whose attack power comes from Agility. It is on the list as the only
-   verified ring in the window, not because it is good.
+   On 13097 Thunderbrow Ring: required level 24 sits below this file's
+   26-29 floor, so it is out on the same rule that removed it from the
+   druid list. Its +8 Strength is dead weight for a monk anyway, whose
+   attack power comes from Agility, and its +3 Agility is not worth the
+   rule break.
 
 2. WEAPONS - WHAT A MONK CAN HOLD
    Monk weapon skills in 8.3.7: fist weapons, one-hand axes, one-hand
@@ -129,17 +134,17 @@ RANGED|none - a monk has no ranged, wand or thrown slot
    LEGS      6690 Ferine Leggings - the only rare legs in the pool.
    FEET      9450 Gnomebot Operating Boots. No battleground boots for a
              monk at this tier.
-   RINGS     13097 on paper and a green otherwise.
+   RINGS     two greens. Nothing rare in the window fits a monk.
    TRINKETS  19024 and the Insignia, 4381 as the third.
    WEAPON    7683 for Windwalker and Brewmaster, 19569 or 19573 for a
              caster or a two-hand build, 13033 as the cheap one-hand.
 
 7. HONEST SUMMARY OF THE POOL
-   Nine rare leather pieces in the window, of which two are hands and legs
-   and the rest are head, wrist, shoulder and feet. Four slots - back,
-   chest, waist and the rings - have no blue item a monk can wear, and the
-   chest is the one that matters most because it is where the heirlooms
-   live. A 29 monk is therefore the most heirloom-dependent class in this
+   Eleven rare leather pieces in the window: three head, three shoulder,
+   two wrist, one hands, one legs and one feet. Four slots - back, chest,
+   waist and the rings - have no blue item a monk can wear, and the chest
+   is the one that matters most because it is where the heirlooms live.
+   A 29 monk is therefore the most heirloom-dependent class in this
    set: two heirlooms are the best item in two slots and the only item in
    the chest, while the belt, boots and cloak stay green.
    Every number above is the WotLK-era item page; where 8.3.7 re-itemised

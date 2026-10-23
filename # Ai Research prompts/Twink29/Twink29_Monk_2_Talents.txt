@@ -1,0 +1,147 @@
+TWINK29 - MONK - STEP 2 OF 3 - TALENTS, NORMAL AND PVP
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+V = read off a wiki or database page this turn. Everything marked unverified
+was not opened.
+
+0. THE SHORT ANSWER
+   A level 29 monk has ONE normal talent and ONE PvP talent.
+   One normal talent because the second row opens at 30: Tiger's Lust's own
+   patch notes say 9.0.1 "now available at level 25 (was 30)", so in BfA
+   that row sat at 30 and a 29 is one level short of it.
+   One PvP talent because the PvP pane gives its first slot at 20 and its
+   second at 40.
+   So the whole file comes down to one row, and that row is per spec.
+
+1. WHICH SPECIALIZATIONS ARE OPEN AT 29
+   All three. Brewmaster, Mistweaver and Windwalker are chosen at level 10
+   and every one of them is legal at 29. A monk has no forms or stances to
+   worry about, unlike the druid, and no spec is locked out by armour or
+   weapon type, because all three wear leather.
+   Each spec has its own talent row, so "the level 15 row" is three
+   different rows, not one shared row.
+
+2. THE NORMAL TALENT TREE AT 29
+   BfA rows open at 15, 30, 45, 60, 75, 90 and 100 - one point per row, and
+   you must finish the row above before the next one opens. At 29 that is
+   row 1 only.
+   ROW 1, level 15 - OPEN, one pick, three options for Brewmaster and
+   Windwalker, two for Mistweaver.
+   ROW 2, level 30 - CLOSED, one level away, and it is the movement row:
+   Chi Torpedo, Tiger's Lust 116841 (V), Celerity.
+   ROWS 3 to 7, levels 45 to 100 - CLOSED, nine or more levels away.
+   Nothing in rows 2 to 7 can be bought, enchanted or cheated into a 29.
+   The only thing a twink gains from them is knowing what it does not have.
+
+3. ROW 1 - BREWMASTER (three options)
+   EYE OF THE TIGER, spell 196607 (V)
+     Tiger Palm also applies a bleed that deals Nature damage and heals the
+     monk over 8 sec, one target at a time.
+   CHI WAVE, spell 115098 (V)
+     15 sec cooldown, sends a wave that bounces up to 7 times, damaging
+     enemies and healing whoever it lands on next.
+   CHI BURST, spell 123986 (V)
+     30 sec cooldown, 40 yd line, Nature damage to everything in its path
+     and healing to the monk and allies in the same line.
+   PICK: EYE OF THE TIGER.
+     Brewmaster is the spec that holds aggro, so it is the one taking hits;
+     a free bleed that heals on every Tiger Palm is worth more to a tanking
+     bot than a 15-second wave. The wiki confirms it was a level 15
+     "Brewmaster and Windwalker" talent in this era (V), so it is legal
+     here.
+
+4. ROW 1 - WINDWALKER (three options)
+   The same three: 196607, 115098, 123986.
+   PICK: CHI BURST.
+     In BfA Chi Burst generated one Chi for each enemy it hit, which made it
+     the strongest talent in the row for a damage spec (peakofserenity's
+     2018 Windwalker write-up calls it the undisputed king of the row for
+     exactly that reason). For a bot that fights packs, more Chi means more
+     Blackout Kicks.
+   SECOND CHOICE: CHI WAVE, when the bot is expected to be alone, because a
+     wave that heals the monk for 150% of attack power on a 15 sec cooldown
+     is the only self-healing this row offers a Windwalker.
+
+5. ROW 1 - MISTWEAVER (two options, and that is not a typo)
+   CHI WAVE, spell 115098 (V)
+   CHI BURST, spell 123986 (V)
+   PICK: CHI WAVE.
+     A Mistweaver bot heals parties, not packs, and Chi Wave bounces to
+     allies on its own without a positional read. Chi Burst needs the group
+     to be lined up in front of the caster, which is the one thing a bot
+     cannot be trusted to arrange.
+   WHY ONLY TWO: Zen Pulse used to be the third option in this row. It was
+     removed on 8.0.1, the patch that opened BfA (V, from the spell's own
+     patch notes), four patches before 8.3.7. If a private server has not
+     taken that removal, Zen Pulse would be the third option; on a stock
+     8.3.7 core the row is two.
+
+6. PVP TALENTS - HOW MANY SLOTS AND WHEN
+   The PvP pane is SEPARATE from the normal talent tree. It is not one slot
+   shared with the normal tree - that belief is wrong, and it is worth
+   stating plainly because it changes what a 29 can do: the normal row and
+   the PvP slot are two independent picks.
+   A character has four PvP talent slots in BfA, opening at levels
+   20, 40, 70 and 110 (V, from the PvP talent page, which describes the
+   pre-Shadowlands four-slot system).
+   At 29 that means ONE PvP talent slot, opened at level 20.
+   Individual PvP talents also carry their own level requirement inside the
+   pane, and this is where a 29 gets caught out - see section 8.
+
+7. PVP TALENTS A LEVEL 29 CAN ACTUALLY TAKE
+   Only talents whose own level requirement is 29 or lower count. Three are
+   verified, one is likely, and the rest of the monk list sits above 29.
+   WINDWALKER
+     TURBO FISTS, spell 287681 (V)
+       Fists of Fury slows everything it hits by 90% and the monk parries
+       all attacks while channelling it. Level 20, and it was added in
+       8.1.0 (V), so it exists in 8.3.7.
+     RIDE THE WIND, spell 201372 (V)
+       Flying Serpent Kick clears all snares and leaves a wind path that
+       gives allies 30% movement speed and snare immunity. Level 21 on the
+       page; the BfA requirement is unverified but cannot be far off.
+   BREWMASTER
+     DOUBLE BARREL, spell 202335 (V)
+       Next Keg Smash deals 50% more damage and stuns everything it hits
+       for 3 sec, on a 45 sec cooldown. Level 21 on the page; a rank 28
+       honour talent converted to a PvP talent in 8.0.1 (V).
+   MISTWEAVER
+     ZEN FOCUS TEA (V)
+       Thunder Focus Tea grants 5 sec of immunity to silence and interrupt.
+       Level 20 on the page. The spell id is unverified for 8.3.7 - the
+       current page links 468430, which is a modern id.
+   PICK PER SPEC, since there is only one slot:
+     BREWMASTER  202335 Double Barrel - the only stun in reach.
+     MISTWEAVER  Zen Focus Tea - the only thing that keeps a heal landing.
+     WINDWALKER  287681 Turbo Fists - a 90% slow on the button a Windwalker
+                 presses most, plus parry while it channels.
+
+8. PVP TALENTS THAT LOOK AVAILABLE AND ARE NOT
+   GRAPPLE WEAPON, spell 233759 (V)
+     A 45 sec disarm. The live page says level 20, and that is a trap: the
+     same page's patch notes say 8.0.1 converted it "from a rank 28 honor
+     talent to a level 40 PvP talent", and 9.0.1 was the patch that lowered
+     it to 20 for Windwalker. On 8.3.7 it is a level 40 talent and a 29
+     cannot take it. It also belonged to Windwalker only in this era.
+   COUNTERACT MAGIC, spell 353502 (V)
+     Currently level 30, so it misses a 29 by one level. Its BfA
+     requirement is unverified, but nothing on the page suggests it was
+     ever lower.
+   Everything else in the monk PvP category - Avert Harm, Microbrew, Hot
+   Trub, Niuzao's Essence, Mighty Ox Kick, Disabling Reach, Eminence,
+   Refreshing Breeze, Wind Waker, Peaceweaver, Nimble Brew, Perpetual
+   Paralysis, Predestination - has no level requirement read for this file,
+   and none of their ids are quoted here. Assume they are gated until the
+   server says otherwise.
+
+9. WHAT THIS MEANS FOR THE BOTS
+   One normal talent, one PvP talent, chosen per spec:
+     Brewmaster  196607 Eye of the Tiger + 202335 Double Barrel
+     Mistweaver  115098 Chi Wave        + Zen Focus Tea
+     Windwalker  123986 Chi Burst       + 287681 Turbo Fists
+   There is no second decision to make and no alternate build at 29. The
+   spec choice is the build.
+   UNVERIFIED, and worth checking on the server itself before the roster is
+   written: whether the core gives a 29 one PvP slot or none, whether
+   Zen Pulse is still in the Mistweaver row, and whether the BfA-era level
+   requirements on the PvP talents match the current pages.
