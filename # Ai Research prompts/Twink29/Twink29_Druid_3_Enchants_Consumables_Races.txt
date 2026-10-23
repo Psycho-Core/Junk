@@ -36,6 +36,33 @@ Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
             classic arcanum needs a higher skill. Treat the slot as empty.
    Scroll versions of these enchants: not verified. Assume a crafter.
 
+1a. NECK AND RING - TWO SLOTS THAT NEED A HIGHER-LEVEL ENCHANTER
+   Both slots take a Legion recipe, so both are ALT: a character above 29
+   with Legion Enchanting applies it, the 29 only wears the result. Each
+   carries an item level cap, and a level 29 item at item level 33 or less
+   is inside every one of them.
+   NECK - one enchant, the Mark of the ... family, a proc.
+     190894 Mark of the Hidden Satyr, enchant id 5439. Sometimes summons a
+            satyr that fires a nightmare bolt at the enemy. Cap: "cannot be
+            applied to items above level 120". 15x Chaos Crystal 124442 and
+            12x Leylight Shard 124441, Runed Enchanting Rod. The damage
+            pick, so Balance and Feral.
+     190892 Mark of the Claw. Sometimes increases critical strike and haste
+            for 6 sec. The sustained-stat pick; the one for a healer.
+     228405 Mark of the Trained Soldier. Mastery, which a level 29 does not
+            have, so the proc does nothing. Do not buy it.
+     Mark of the Heavy Hide, the armor proc, is the Guardian option; Mark
+     of the Ancient Priestess is the heal proc. Ids unverified.
+   RING - one enchant per ring, so two in total, and this is the largest
+   stat gain on the page.
+     190871 Binding of Haste rank 1, 191014 rank 3; item form 128542.
+            Permanently enchants a ring with flat Haste. The 8.x page caps
+            it at "items above level 60", so a level 29 ring qualifies; the
+            scaled value reads as 3 Haste, against much larger Legion-era
+            figures, and which one the server uses is unverified.
+     The same family covers Critical Strike, Versatility and Mastery rings;
+     their spell ids are unverified. Mastery is dead at 29 anyway.
+
 2. SHOULDERS AND LEGS - THE TWO SLOTS THAT NEED A WARNING
    SHOULDERS - the bind-on-account heirloom idea does not work. The Mists
    of Pandaria shoulder inscriptions are account-bound, but the level
