@@ -64,7 +64,7 @@ SOURCES (every section below names which one it came from):
    Boulder and Ram; Siege Engine Ram, Fire Cannon and Steam Rush;
    Glaive Throw (the Glaive's primary gate role per C); Airship
    Cannon; Seaforium Bombs and Huge Seaforium Bombs. Tower guns,
-   catapults, players' normal attacks: not listed as gate damageers
+   catapults, players' normal attacks: not listed as gate-damaging
    in C (catapult is personnel delivery). AzerothCore ships no
    per-spell gate-damage row readable here; the exact damage-to-health
    arithmetic of your core is unverified.
@@ -303,7 +303,7 @@ SOURCES (every section below names which one it came from):
           for 15 s (wiki approx) (C; the activities section also
           states the 15 s / 30 s numbers).
        Damage: vs players and vehicles (C: tower guns useful against
-       siege engines and players); NOT listed as gate damageers (C).
+       siege engines and players); NOT listed as gate-damaging (C).
        Destroy/repair: guns can be destroyed, then any player
        repairs them through a short channel (C); respawn/repair
        timing numbers: unverified. Script AI name for them
