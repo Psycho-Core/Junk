@@ -24,11 +24,15 @@ could be read (unverified).
   Warsong Gulch). No second map id appears in any readable source; which
   id/template your server queues is unverified (the server database is
   not in the repository).
-Neither HavenWoW/BFA-HavenCore nor Titans-Project/BfaCore-Reforged ships
-  a Twin Peaks script (both Zones directory listings checked);
-  Titans-Project/LegionCore-Reforged does (BattlegroundTwinPeaks.cpp/.h)
-  and is the script source below. Whether your server runs an equivalent
-  script is unverified.
+Both HavenWoW/BFA-HavenCore and Titans-Project/BfaCore-Reforged DO ship
+  a Twin Peaks script named BattlegroundTP.cpp (both Zones directory
+  listings checked; Haven's copy verified to be a Twin Peaks script with
+  its own object entries, and it does NOT use the 227741/227740 flag
+  entries of the LegionCore file) - different files, and whether your
+  server runs either is unverified. (The listings'
+  BattlegroundTTP files are arenas - they include Arena.h - not Twin
+  Peaks.) Titans-Project/LegionCore-Reforged's BattlegroundTwinPeaks
+  .cpp/.h is the script source for every script fact in this file.
 
 === 2. TEAM STARTS AND BASE POSITIONS ===
 Starts/waiting spawns (script GetClosestGraveYard returns these while the
@@ -172,11 +176,12 @@ Six buffs (script SetupBattleground; shared entries; spawn parameter
    flag/door/buff spawns, graveyard rule, timers, max score.
 3. warcraft.wiki.gg: Twin Peaks (10v10 CTF, first to three captures,
    identical to Warsong Gulch, subregions, Twilight Highlands).
-4. Negative results recorded: no Twin Peaks script in HavenWoW or
-   Titans-Project BfaCore-Reforged (Zones listings checked); the
-   Sploit/Anti-Exploit rows are referenced nowhere in the readable
-   script; AzerothCore (WotLK) has no Twin Peaks row (checked - it
-   predates the map); no pathing/navmesh source.
+4. Negative results recorded: the cores' BattlegroundTP.cpp differs from
+   the LegionCore file cited above (Haven's copy verified to lack the
+   227741/227740 flag entries; BattlegroundTTP files are arenas); the Sploit/Anti-
+   Exploit rows are referenced nowhere in the LegionCore script;
+   AzerothCore (WotLK) has no Twin Peaks row (checked - it predates the
+   map); no pathing/navmesh source.
 
 === 8. EXPLICIT UNVERIFIED LIST ===
 1. Which map id and battleground_template row your server queues for
