@@ -131,7 +131,7 @@ covered in section 6.
      the spawn (Horde door 1, 19 yd; door 3 is 20 yd, door 4 is 31 yd,
      door 2 is 33 yd - recompute):
      legs: 19 yd (start to Horde door 1), 594 yd (door 1 to Alliance
-     flag)   direct 626 yd
+     flag)   direct 609 yd
      Which walkable door a player uses: unverified (same reason as B).
   E. Flag-to-flag cross distance (recomputed): 626 yd.
   F. GY context distances (recomputed, section 6 rows):
