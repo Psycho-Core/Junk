@@ -184,12 +184,12 @@ Bracket: level 29 (20-29). ALT = needs a higher-level crafter or content.
      knockback), 255659 Rugged Tenacity (Stamina), 255658 Mountaineer (fall
      damage), 255656 Waste Not Want Not, 255655 Pride of Ironhorn. Has no
      stun to replace War Stomp; the tauren War Stomp is not inherited.
-   ZANDALARI TROLL (Horde allied) - 291944 Regeneratin' (a channelled heal
-     that breaks when the caster takes damage), 292752 Embrace of the Loa
-     (passive 292751:
-     one of four loa blessings), 291619 City of Gold, 281954 Pterrordax
-     Swoop (slow fall). If Regeneratin' is unbroken for its full channel it
-     is the strongest heal in the bracket; the 29 numbers are unverified.
+   ZANDALARI TROLL (Horde allied) - 291944 Regeneratin', a channelled heal
+     that breaks when the caster takes damage; 292752 Embrace of the Loa,
+     the passive 292751 one of four loa blessings; 291619 City of Gold;
+     281954 Pterrordax Swoop, slow fall. If a whole channel of Regeneratin'
+     can be got off it is the strongest heal in the bracket; the 29 numbers
+     are unverified.
    RACES TO AVOID - none are illegal, but do not pick a race whose racial
    you cannot test at 29. That rules out Kul Tiran and Highmountain tauren
    for a first roster, and it rules out Zandalari unless Regeneratin' is
