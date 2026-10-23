@@ -48,10 +48,11 @@ BIND ON EQUIP, LOOTED
 
 BIND ON PICKUP, WON ON A ROLL
   8.3.7 has no need-or-greed roll for dungeon and raid loot: patch 8.0.1 removed
-  the loot-mode setting and personal loot is the only mode left. A personal-loot
-  drop assigned to the character is bind-on-pickup, so it is learned at once.
-  Where a group runs its own /roll, the roll only decides who is handed the
-  item; the winner learns it when it binds, the losers never see it.
+  the loot-mode setting and personal loot is the only mode left. Most
+  personal-loot drops are bind-on-pickup, so they are learned the moment they are
+  assigned; a personal-loot drop that is bind-on-equip still waits for the equip.
+  Where a group runs its own /roll, the roll only decides who is handed the item;
+  the winner learns it when it binds, the losers never see it.
 
 BIND ON PICKUP, BOUGHT FROM A VENDOR
   Learned at the purchase, because the purchase is the bind. This is the normal
@@ -170,9 +171,12 @@ PROFESSION
   crafted it.
 
 REPUTATION
-  Not a collection gate in 8.3.7. Patch 8.1.0 states that items with reputation
-  requirements to acquire no longer need that reputation to be used as a
-  transmog appearance once acquired. Reputation still gates the vendor sale.
+  Not checked by the collection itself. Reputation gates the vendor sale, and it
+  gates learning only where the item carries its own required reputation, because
+  that becomes an equip requirement like any other (the 8.3.7 core turns
+  ItemSparse MinFactionID and MinReputation into exactly that). Patch 8.1.0
+  removed the reputation requirement from the other end: once an appearance is
+  acquired, no reputation is needed to apply it.
 
 QUALITY
   Must pass: Uncommon or better. Poor (grey) and Common (white) items could not
@@ -194,8 +198,9 @@ gives four different outcomes:
     The bind happened, the appearance was not learned. Nothing is stored and
     nothing is pending. If the same soulbound item is still in the bags or bank
     when the character reaches the required level, equipping it then re-runs
-    question 1 and the appearance is learned at that moment. Levelling up alone
-    does nothing; the item has to be equipped while the character qualifies.
+    question 1 and the appearance is learned at that moment. No source read here
+    describes a level-up trigger of its own; every path listed on the wiki runs
+    through earning (binding) or equipping the item.
 
   BLOCKED BY LEVEL, ITEM GONE
     Same bind, but the item was sold, disenchanted or destroyed before the
