@@ -1,0 +1,111 @@
+AUDIT - Twink29_Rogue_3_Enchants_Consumables_Races.txt
+File under audit: step 3 of 3, 208 lines after this audit's correction.
+21 claims checked: 17 pass, 1 corrected, 3 unverified.
+Sources used: the Enchanting, Alchemy, Inscription, Cooking and First Aid,
+Engineering and Leatherworking entries in Twink29_Professions-completed,
+plus the wiki pages for Deadly Poison, Wound Poison and Crippling Poison
+read for the file itself.
+
+1. ENCHANTS
+   1  PASS  13882 Cloak - Lesser Agility, +3 Agility, skill 225, formula
+      11206 a drop, 2x Lesser Nether Essence 11174 (V, Enchanting file).
+      The claim that a rogue, unlike every caster in the set, takes an
+      Agility cloak inside the cap is right.
+   2  PASS  13815 Gloves - Agility, +5 Agility, skill 210 (V), and 13693
+      Weapon - Striking, +3 weapon damage, skill 195 (V). The two-weapon
+      cost point follows: a rogue enchants both weapons, so Striking is
+      bought twice, and no other class in the set pays that. Correct.
+   3  PASS  13661 Bracer - Strength, +5 Strength, skill 180 (V) is the only
+      melee bracer enchant in the cap and it is the wrong stat for an
+      Agility class. No Agility bracer enchant at or below 225 appears in
+      the Enchanting file, so the gap statement is supported.
+   4  PASS  13746 Cloak - Greater Defense +50 armour (205), 13640 Chest -
+      Greater Health +35 (160), 13890 Boots - Minor Speed (225), 4265
+      Heavy Armor Kit +24 armour (V, all four carried from the audited
+      Enchanting file and the warlock audit).
+   5  PASS  The ALT list and its skill values (13939 240, 13943 245, 13898
+      265, 20012 270, 20031 300, 25080 300) match the Enchanting file, and
+      Fiery Weapon at 265 is correctly called the first proc enchant -
+      it is the lowest proc on the list.
+
+2. CONSUMABLES
+   6  PASS  8949 Elixir of Agility, +15 Agility for 1 hour, requires 27,
+      spell 11328 (V, Alchemy file). The file's note that its item level
+      37 does not break the step 1 cap is the right reading: that cap was
+      stated as a gear rule in every file in the set, and required level
+      is what gates drinking.
+   7  PASS  13452 Elixir of the Mongoose requires 46 (V), so it is out -
+      worth printing, because Mongoose is the elixir a current guide names
+      first for a rogue.
+   8  PASS  8951 Elixir of Greater Defense requires exactly 29, 3825
+      Elixir of Fortitude +120 health requires 25 (V). 2459 Swiftness
+      requires 5, 5634 Free Action requires 20, 1710 requires 21 (V).
+   9  CORRECTED  Scroll of Agility II was printed with "item id
+      unverified". The Inscription file's rank II table gives it: item
+      1477, requires 15, +5 Agility for 30 min, Inscription skill 85. The
+      id is now in the row. A small thing, but "unverified" should mean
+      nobody checked, not that the answer was sitting in the set's own
+      profession file.
+   10 PASS  12210 Roast Raptor +8 Stamina +8 Spirit requires 25 (V); the
+      file is honest that the Spirit is dead weight and no Agility food
+      was found in the Cooking file.
+   11 PASS  8544 Mageweave Bandage heals 1600, Tailoring 240, bought not
+      made; 6451 Heavy Silk Bandage heals 1280 at 210 (V). The Vanish-and-
+      bandage line is labelled as reasoning rather than a read mechanic,
+      which is the correct label.
+
+3. POISONS - THE SECTION THAT MATTERS MOST HERE
+   12 PASS  Poisons are spellbook abilities, not crafted items, since
+      5.0.4: "Poisons are now Spellbook abilities that affect both weapons
+      at once instead of crafted items" (V). So the prompt's "where to buy
+      the ingredients" has no answer in this build, and the file says so
+      instead of inventing a vendor.
+   13 PASS  Deadly Poison is an Assassination ability in BfA, lasts 1 hour,
+      30% application chance, and the 2018-08-10 hotfix (inside the 8.3.7
+      window) makes it deal 20% less damage against players (V). That
+      hotfix is dated after 8.0.1 and before the end of BfA, so it applies
+      to build 35662 - the file's reasoning is sound.
+   14 PASS  Wound Poison: Assassination only since 7.0.3 ("Now available
+      only to Assassination"), learned at 25, Lethal so it excludes Deadly
+      Poison, healing reduction 25% and 20% in PvP per the 2017-02-21
+      hotfix, 24% with Master Poisoner (V). The non-stacking claim is
+      supported by 9.0.1 describing stacking as the new behaviour
+      ("previously 25% and did not stack").
+   15 PASS  Crippling Poison at 29 is unavailable, and this is the audit's
+      most important confirmation: 7.0.3 made it Assassination only,
+      7.1.0 moved it to 24, and 7.1.5 moved it to 38 ("Now learned at
+      level 38 (was 24)"), after which no BfA patch touches it. It only
+      came back down in 9.0.1 (all rogues, 33) and 10.0.0 (10). A 29 rogue
+      of any spec cannot have it, and the file's warning about guides is
+      justified.
+   16 PASS  The 50% slow with 30% in PvP: 2017-01-31 hotfix, "now reduce
+      movement by 50% (was 30%). The reduction remains at 30% in PvP" (V).
+   17 PASS  Outlaw and Subtlety have no poisons in 8.3.7. Nothing in the
+      three poison pages gives either spec a poison before 9.0.1 returned
+      them to the class, so the disadvantage the file reports is real.
+
+4. PROFESSIONS AND RACES
+   18 PASS  Engineering: the profession file's own rogue line is "grenade
+      stun into an opener, Discombobulator Ray 4388", and 4388 itself is
+      item level 32, 5 charges, -40 melee and spell damage and -20%
+      movement for 12 sec, Engineering 160 (V). The file's summary of it
+      as a damage reduction is a fair compression.
+   19 PASS  18948 Barbaric Bracers are Leatherworking, spell 23399 (V,
+      step 1 tooltip), so Leatherworking as the self-supply second
+      profession is supported.
+   20 UNVERIFIED  Race membership in 8.3.7, stated as unverified in the
+      file. The racial effects (Will of the Forsaken, Will to Survive,
+      Blood Fury raising attack power for rogues, Arcane Torrent's purge)
+      were read in earlier files of this set; the energy return figure
+      for a rogue's Arcane Torrent was not read and the file doesn't claim
+      it.
+   21 UNVERIFIED  Boots Minor Speed stacking with the Arathi boots' run
+      speed bonus, and the poison coating surviving a resurrection. Both
+      are flagged in place, which is where the flags belong.
+
+5. WHAT TO CHANGE
+   Done: Scroll of Agility II now carries item 1477. The rest of the file
+   stands, including the section that answers a different question from
+   the one the prompt asked - there are no poison ingredients to buy in
+   8.3.7, two of the three specs have no poisons, and the third cannot
+   have Crippling Poison at 29.
