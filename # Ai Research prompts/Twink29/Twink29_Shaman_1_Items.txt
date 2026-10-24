@@ -72,7 +72,7 @@ TRINKET 2|Minor Recombobulator|4381|28|none|Engineering 140, charges|ALT
    Zealot Blade, the one caster sword the warlock file found. The rare
    one-hand axe search at required 26-29 returns nothing, exactly as it
    did for the rogue, so Enhancement has no axe at this tier either.
-STAFF|Advisor's Gnarled Staff [19573 Lorekeeper's]|19569|33|28|WSG|SOLO
+STAFF|Lorekeeper's Staff [19569 Advisor's Gnarled]|19573|33|28|WSG|SOLO
 STAFF|Wind Spirit Staff|6689|32|27|Earthcaller Halmgar 4842, BFD|SOLO
 STAFF|Hydrocane|9452|32|27|Viscous Fallout 7079, Gnomeregan|SOLO
 DAGGER|Hypnotic Blade|7714|34|29|Arcanist Doan 6487, SM|SOLO V
@@ -101,8 +101,8 @@ RANGED|none - a shaman has no ranged or wand slot; totems are abilities
    battleground belt and boots are Agility pieces; an Elemental shaman
    wears them for the Stamina if the greens are worse, and should know
    that is what it is doing.
-   Weapons: 7714 Hypnotic Blade + 7787 Resplendent Guardian, or 19569
-   [19573] staff. The staff is the simpler bot loadout: one item, no
+   Weapons: 7714 Hypnotic Blade + 7787 Resplendent Guardian, or 19573
+   [19569] staff. The staff is the simpler bot loadout: one item, no
    off-hand decision, and the Warsong staff is sold, not dropped.
    Trinkets: 19024 and the Insignia.
 
@@ -140,7 +140,7 @@ RANGED|none - a shaman has no ranged or wand slot; totems are abilities
    FEET      20093 [20157] for Enhancement, 9510 otherwise.
    RINGS     19525 [19521] for the casters, greens for Enhancement.
    TRINKETS  19024 and the Insignia, 4381 as the third.
-   WEAPON    19569 [19573] staff or 7714 + 7787 for the casters; 7682 +
+   WEAPON    19573 [19569] staff or 7714 + 7787 for the casters; 7682 +
              7683 for Enhancement.
 
 7. HONEST SUMMARY OF THE POOL
