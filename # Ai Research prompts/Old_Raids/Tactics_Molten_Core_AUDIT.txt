@@ -1,0 +1,60 @@
+AUDIT - Tactics_Molten_Core.txt (Old Raids step 1)
+Claims re-checked against warcraft.wiki.gg boss pages and the
+Wowhead Molten Core NPC list. Result: 16 pass, 3 corrected,
+4 unverified (file already marked most of these).
+
+PASS (spot-verified this audit):
+ - Boss entries 12118, 11982, 12259, 12057, 12056, 12264,
+   12098, 11988, 12018, 11502 and Protector 12119: Wowhead list.
+ - Lucifron 19702/19703/19460, Protector 20605/20604.
+ - Gehennas 19728/19717/19716, adds 20277/15502/19730.
+ - Garr 19492/19496, Firesworn 20294/19497 (8 adds).
+ - Geddon 19695/19659/20475/20478; Living Bomb 8 sec fuse.
+ - Shazzrah 19712/19713/19714/19715/21655; Blink threat wipe.
+ - Sulfuron 19778/19779/19780/19781, Priest 19775/19776/20294;
+   Dark Mending heal range 27750-32250.
+ - Golemagg 20553/13880/20228/19798, Rager 19820; Earthquake
+   below 10% (not a phase change, correctly filed as such).
+ - Majordomo 20620/21075/20619/20534, Elite 20623/20229,
+   Healer 20603; CC stops after 4 adds die; he submits, is
+   not killed.
+ - Ragnaros 20566/20564/20565/21388; submerge at 3 min, 8
+   Sons, 90 sec, banished Sons count as defeated.
+
+CORRECTED (applied to the file with this audit):
+ 1. Magmadar TANK line was wrong as written: "hold him facing
+    the group" puts Lava Breath 19272 on the raid. The page's
+    positioning is tank between boss and group with healers
+    at max range behind the tank. Now reads: boss facing
+    AWAY from the group, healers at max range behind tank.
+ 2. Lucifron ADD ORDER contradicted its own AI RULE ("boss
+    first at 120" vs "kill Protectors before the boss").
+    Now one rule: Protectors first, then Lucifron (a 120
+    kills them in seconds; a free Protector still mind-
+    controls a companion, which is the only real risk).
+ 3. Golemagg ADD ORDER claimed Core Ragers "cannot be killed
+    while Golemagg lives". The source says only "the dogs
+    can't die, so there is no reason to DPS them" - the
+    do-not-kill instruction stands, but the mechanism is now
+    stated as read (off-tank far, out of Trust range) with
+    the respawn/invulnerability mechanism marked unverified.
+
+UNVERIFIED (stand as marked in the file):
+ - Geddon Armageddon 20478 trigger point (id read, trigger
+   not read).
+ - Trash creature entries and pack spell lists (none read;
+   file gives none, correctly).
+ - Core Hound pack revive timer: the pack-must-die-together
+   behaviour is read for the hound type, the exact base-game
+   timer was not read. File now says so.
+ - 20294 Immolate and 19776 SW:P dispel tag D-Magic: correct
+   by spell family, not printed in the sources read.
+ - Instance map id and all coordinates: none read, file
+   says unverified throughout. This remains the file's
+   biggest gap for a companion implementation.
+
+Note for step 2 onward: the Magmadar error is the pattern to
+avoid - a strategy page's loose wording copied without
+checking it against the ability list in the same file. A
+frontal breath and "face the boss at the group" cannot both
+be true.

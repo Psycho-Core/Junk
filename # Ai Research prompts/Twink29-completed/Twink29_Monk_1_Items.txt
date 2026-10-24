@@ -29,11 +29,9 @@ weapon list has one, and the general weapon list has 37.
    A monk's three specs wear the same items at this level; only the
    heirloom choice differs, because Mistweaver wants Intellect and the
    other two want Agility.
-HEAD|Pathfinder Hat|15339|34|29|world drop|RNG V
 HEAD|Enduring Cap|3020|33|28|world drop|RNG V
 HEAD|Whisperwind Headdress|6688|32|27|Earthcaller Halmgar 4842, BFD|SOLO V
 NECK|River Pride Choker|13087|33|28|world drop, +9 Stam +4 Str|RNG V
-SHOULDER|Cutthroat's Mantle|15140|34|29|world drop|RNG V
 SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom, Agility|ALT V
 SHOULDER|Preened Ironfeather Shoulders|42984|scales|1|heirloom, Intellect|ALT V
 SHOULDER|Watchman Pauldrons|7727|32|27|world drop|RNG V
@@ -51,8 +49,8 @@ LEGS|Ferine Leggings|6690|34|29|Agathelos the Raging 4422, RFK|SOLO V
 FEET|Gnomebot Operating Boots|9450|33|28|Crowd Pummeler 9-60 6229, Gnomer|SOLO V
 FEET|no battleground boots - 20102, 20114, 20169 and 20188 are Druid and
       Rogue only
-RING 1|green ring, of the Monkey or of Agility|-|unv.|29|green drop|SOLO
-RING 2|second ring, same two suffixes|-|unv.|29|green drop|SOLO
+RING 1|none legal at 26-29 - green rings are OUT (Gear Audit 2)
+RING 2|none legal at 26-29 - heirloom/empty only (Gear Audit 2)
       no rare ring a monk wants is verified at 26-29; 13097 Thunderbrow
       Ring is item level 29 but required level 24 and is a note, not a row
 TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO

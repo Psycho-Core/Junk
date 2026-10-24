@@ -40,10 +40,8 @@ required level 26-29 and item level 35 or less, then read slot by slot.
    not opened, so they are unverified except where noted.
 HEAD|3020|Enduring Cap|33|28|world drop|RNG
 HEAD|6688|Whisperwind Headdress|32|27|Earthcaller Halmgar 4842, BFD|SOLO
-HEAD|15339|Pathfinder Hat|34|29|world drop|RNG V
 SHOULDER|7727|Watchman Pauldrons|32|27|world drop|RNG
 SHOULDER|2278|Forest Tracker Epaulets|31|26|world drop|RNG
-SHOULDER|15140|Cutthroat's Mantle|34|29|world drop|RNG V
 CHEST|none - see section 0
 WRIST|9455|Emissary Cuffs|33|28|Dark Iron Ambassador 6228|RNG V
         47 armor, +5 Arcane Resistance and a random suffix (V).
@@ -95,9 +93,8 @@ RANGED|none - a Druid has no wand, relic or thrown slot
 4. NECK, RINGS, TRINKETS
 NECK|13087|River Pride Choker|33|28|world drop|RNG V
         +9 Stamina, +4 Strength (V). The Strength is wasted on a caster.
-RING|13097|Thunderbrow Ring|29|24|world drop|RNG V
-        +8 Strength, +3 Agility, unique, required 24 - below this file's
-        floor, kept because nothing else in the slot is verified.
+RING|none verified at 26-29. 13097 Thunderbrow Ring is 29/24, below
+        the floor: OUT (Gear Audit 2). No legal ring row remains.
 RING|other rings|unv.|unv.|unv.|-|the blue ring pool at required 26-29 was
         not enumerated; the search category returned no jewellery at all,
         so treat the slot as an open question rather than an empty one.
@@ -105,9 +102,11 @@ TRINKET|19024|Arena Grand Master|unv.|none|STV arena chest, quest 7838|SOLO
 TRINKET|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
 
 5. WHAT TO WEAR, SLOT BY SLOT, INSIDE THE RULE
-   HEAD      15339 Pathfinder Hat, then 6688 or 3020.
-   SHOULDER  42952 heirloom, then 15140 Cutthroat's Mantle.
-   CHEST     48677 heirloom, or break the rule for 4119.
+   HEAD      6688 Whisperwind Headdress, then 3020 Enduring Cap.
+        (15339 Pathfinder Hat removed by Gear Audit 2: quality 2.)
+   SHOULDER  42952 heirloom, then 7727 Watchman Pauldrons.
+        (15140 Cutthroat's Mantle removed by Gear Audit 2: quality 2.)
+   CHEST     48677 heirloom only. 4119 is ilvl 43 and is OUT.
    WRIST     9455 Emissary Cuffs, suffix chosen for the spec.
    HANDS     7756 Dog Training Gloves.
    WAIST     20105 / 20172 for the caster line, 20117 / 20191 for agility.
