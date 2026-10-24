@@ -10,14 +10,17 @@ not re-verified values.
 
 FIRELANDS (map 720)
 1. BETH'TILAC: two levels: a team rides webs UP to her
-  (tank/healer/dps), ground team kills spiderlings
-  (broodlings run at players and explode - ranged kill
-  them), spinners (taunt them DOWN for ground team),
-  drones (tank, face away). At ~20% she descends:
-  everyone down, burn, Frenzy heal race (widows kiss
-  tank debuff - healers rotate).
-  AI RULE: upstairs is a shift, not a suicide - descend
-  when she does; broodlings never reach a player.
+  (tank/healer/dps); ground team: taunt Spinners down
+  (their threads are the lifts), tank Drones facing away
+  (99463 cone), kill Spiderlings BEFORE a Drone eats one
+  (100634 Consume heals it 20% - page) or they reach her.
+  She descends after her THIRD Smoldering Devastation
+  (not at a health % - page): everyone down, burn race
+  against stacking 99497 Frenzy; 99476 Widow's Kiss
+  reduces healing on the tank and pulses on allies.
+  (Exploding Engorged Broodlings are heroic-only.)
+  AI RULE: count devastations, not her health - the
+  third one brings her down; spiderlings are her food.
 2. LORD RHYOLITH: he walks toward lava; steering him is
   the fight: hitting ONE leg turns him that way - DPS
   calls: left leg = turn left, right leg = right.
@@ -27,15 +30,20 @@ FIRELANDS (map 720)
   armor gone: tank and burn, stomp heal.
   AI RULE: legs are steering, not targets of opportunity
   - hit the CALLED leg only.
-3. ALYSRAZOR: air team: flyers pass through her rings
-  (stacking haste/buff - miss 3 and you fall); ground:
-  hatchlings on two tanks (feed them worms or they
-  enrage - tantrum), initiates channel firestorms
-  (interrupt), her burnout phases (she crashes at 0
-  energy: BURN, she takes +damage; avoid her re-ignite
-  blast - run to edges). Feathers on ground grant speed
-  (3 = flight for the assigned flyer).
-  AI RULE: rings are fuel; a hatchling unfed is a wipe.
+3. ALYSRAZOR: air team: 3 Molten Feathers grant 98619
+  Wings of Flame (30 sec flight - page); her fire rings
+  REFRESH the wings and stack 99461 Blazing Power
+  (haste, to 25) - if wings expire mid-air you fall:
+  rings are fuel, there is no fixed miss count.
+  Ground: hatchlings imprint on the nearest player (that
+  player tanks and gains +1000% damage vs it - page);
+  drag them to Plump Lava Worms to keep them Satiated
+  (99359) or they Tantrum (99362). Initiates: interrupt
+  101223 Fieroblast (I; successes buff them). Burnout at
+  0 energy: she crashes - BURN window; run out for her
+  re-ignite blast, then the cycle restarts.
+  AI RULE: rings are fuel, worms are sedatives; both
+  run out on a timer nobody can extend.
 4. SHANNOK: his dogs: Rageface (fixates a player - if it
   sticks, DPS dog or player dies; traps: crystal prison
   traps to catch dogs - drag them over traps), Rip
@@ -45,26 +53,40 @@ FIRELANDS (map 720)
   killing dogs enrages him (stacking) - balanced burn.
   AI RULE: dogs are kited through traps, never tanked
   standing; traps are tools, not just hazards.
-5. BALEROC: crystal rotation: Torment shards spawn -
-  assigned players soak ticks (swap at called stacks,
-  ~12-15 era) gaining Vital Spark; healers heal the
-  TANK to convert sparks into tank-healing power (Vital
-  Flame window). Incendiary Soul tank swap; Decimation
-  Blade: tank must be healed above 90% or the decimate
-  hit kills (special heal call). Countdown link: linked
-  players run TOGETHER.
-  AI RULE: shard soaks are a roster, not volunteers;
-  decimate means top the tank, nothing else matters.
-6. MAJORDOMO STAGHELM: he swaps form on raid SPREAD/
-  STACK: stacked = scorpion (flame scythe splits among
-  stacked players - stay stacked), spread = cat (leaps
-  on players, leaving flame pools - stay spread). Each
-  swap grants him Concentration (energy resets by
-  forcing swaps before specials: force a swap before
-  his energy hits 100 to dodge the special). Burning
-  Orbs (heroic): soak rotation.
-  AI RULE: the raid's formation is his form - call the
-  swap before 100 energy, every time.
+5. BALEROC: shard rotation (page): Shards of Torment
+  (1 in 10, 2 in 25) - DPS soakers take Torment stacks
+  (2 soak ~12 each or 3 soak ~8), then rotate out under
+  Tormented (never re-soak until it falls). HEALERS gain
+  Vital Spark by healing the Tormented soakers (1 per 3
+  Torment stacks); a direct heal on the tank (Blaze of
+  Glory target) converts it to 99263 Vital Flame (15
+  sec boosted tank healing) - soakers never gain sparks.
+  Two tanks: one builds Blaze of Glory health, one is
+  the Decimation tank. 99353 Decimation Blade: strikes
+  do 90% of max health (min 250000), unmitigable but
+  dodgeable, slowed swing - heal him above 90% between
+  swings. Countdown links are HEROIC-only: linked pair
+  run together within 8 sec.
+  AI RULE: shard soaks are a roster, the spark economy
+  belongs to healers; decimate means top the tank.
+6. MAJORDOMO STAGHELM: form follows the raid (page):
+  7+ clustered (18+ in 25) = Scorpion 98379; spread =
+  Cat. In each form he builds energy; at 100 he casts
+  the special (Scorpion: 98474 Flame Scythe, frontal,
+  split among everyone in front - soak stacked; Cat:
+  Leaping Flames on a ranged player, leaves fire and a
+  Spirit of Flame add - melee kill it at once). Each
+  special gives Adrenaline (faster energy next time);
+  swapping form resets Adrenaline but adds Fury (+8%
+  special damage, permanent, stacking). Strategy is to
+  ENDURE as many specials as healing allows (era starts
+  5-7), THEN swap - swapping early does not dodge
+  anything, it only stacks Fury faster. Every third
+  shape-change: Searing Seeds (to Scorpion: run out
+  before your seed timer pops) or Burning Orbs (to Cat:
+  soak rotation - both normal mode, page).
+  AI RULE: the raid's formation is his form; swaps are
+  a healing budget, not a dodge - spend them late.
 7. RAGNAROS (page ids, stage 1): P1: 98708 Sulfuras
   Smash (he faces a player, smash point kills within
   5 yd - page; lava waves 98928 roll out - sidestep),

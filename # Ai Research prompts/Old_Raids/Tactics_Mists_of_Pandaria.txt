@@ -1,0 +1,163 @@
+TACTICS - MISTS OF PANDARIA A (OLD RAIDS STEP 12)
+Mogu'shan Vaults, Heart of Fear, Terrace of Endless
+Spring.
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Spell ids unverified unless stated as page-read;
+creature entries and coordinates unverified throughout.
+Map ids: Mogu'shan Vaults 1008, Heart of Fear 1009,
+Terrace of Endless Spring 996 (verify on server).
+
+MOGU'SHAN VAULTS (map 1008)
+1. THE STONE GUARD (2-4 guardians by size): petrification
+  rotation: the guardian casting Petrification must be
+  tanked WITH a partner (share its overload); tanks swap
+  guardians to equalise: keep the petrifying one beside
+  another guardian so its energy... rule: the petrifying
+  guardian is tanked next to a second one, and the pair
+  swaps at ~50 energy. Chains link two players (stay
+  close together if chained), pools (cobalt/jasper/
+  amethyst by week set) move out; overload of the WRONG
+  guardian = raid blast.
+  AI RULE: watch the petrification cast - energy and
+  pairing, not health, decide the tank swaps.
+2. Feng the Accursed: boss steals a player ability set
+  per phase (fists phases by statue): tank swap on his
+  boss debuffs; use the stolen-ability counters the raid
+  gains: Shroud of Reversal (copy his cast onto him),
+  Nullification Barrier (stack in bubble for the epicentre
+  quake), Wildfire Spark on a player (run out); draw
+  flame phases spread; lightning fists interrupt chain.
+  AI RULE: the bubble and the shroud are raid buttons -
+  stack for quake, shroud his big cast back at him.
+3. GARA'JAL THE SPIRITBINDER: tank banished to spirit
+  realm on swap (the banished tank + a healer + dps
+  cross via totems: kill the spirit adds inside, heal
+  the severed souls, exit before timer); voodoo dolls:
+  damage copies to linked players - heal all linked;
+  totems spawn continuously - a fresh crosser rotation.
+  AI RULE: crossing is a rotation with a clock - kill
+  inside, get out before the realm kills you.
+4. THE SPIRIT KINGS (4 in sequence): Qiang (tank swap,
+  massive attacks frontal), Subetai (volley - spread,
+  pillage (unverified); rain of arrows circles), Zian (shadow
+  shields - stop DPS on shielded, kill undying shadows
+  and pin them away - they fixate and explode),
+  Meng (cowardice reflect - STOP dps when he reflects;
+  maddening shout = MC players, break by damage).
+  AI RULE: Meng reflecting means hands off - reflected
+  damage has killed more raids than the bosses.
+5. ELEGON: two phases alternate: platform outer ring
+  falls away during vortex (do not stand on the edge
+  ring); energy charges (orbs) run to the pylons - kill
+  them BEFORE they reach a pylon (each success buffs
+  him) - orb teams by side; celestial adds tanked;
+  when pylons all die: burn phase (stack centre, he
+  takes +damage). AI RULE: an orb arriving is boss
+  damage forever - orbs outrank him.
+6. WILL OF THE EMPEROR: two bosses (Qin-xi/Jan-xi) +
+  add waves: rage adds (fixate players - kite/kill),
+  courage adds (they block their path to bosses -
+  they shield the bosses), strength adds (smash circles
+  dodge). Boss combo: devastating combo = 5 strikes:
+  dodge the arcs (watch his facing pattern) to gain
+  Opportunistic Strike (big free hit). Gas phases: adds
+  priority rises. Tank swap on boss debuff.
+  AI RULE: dance the combo - five dodges buy the
+  biggest hit in the fight.
+
+HEART OF FEAR (map 1009)
+7. IMPERIAL VIZIER ZOR'LOK: platforms rotate: Force and
+  Verve (stack in the shield bubbles on his platform),
+  Attenuation: dodge sonic rings spiralling out (run
+  the spiral gaps), Convert = MC player broken by
+  damage; final phase all abilities + echoes of him
+  copying casts (heroic). Tank swap on exhale stacks.
+  AI RULE: rings are a dance floor, bubbles are the
+  only stillness allowed.
+8. BLADE LORD TA'YAK: tank swap on Overwhelming Assault
+  stacks; Unseen Strike: marked player - everyone STACKS
+  behind them to split it; wind step teleport bleeds;
+  at 20%: tornado gauntlet - run the corridor dodging
+  tornadoes to reach him, then burn both sides.
+  AI RULE: unseen strike is soaked as a group standing
+  still, never run from the mark.
+9. GARALON: leg fight: 4 legs (kill a leg = he slows,
+  takes burst, leg regrows); tanks soak his frontal
+  Fury swipes with the pheromone carrier kiting him in
+  a big circle around the room (pheromone trail pools:
+  swap carrier at called stacks - passing leaves a
+  pool; never cross the trail). Crush: when a leg dies
+  he crushes - nobody under him.
+  AI RULE: the carrier draws a circle the raid never
+  crosses; legs on your side are your job.
+10. WIND LORD MEL'JARAK: adds (3x3 classes): CC a set
+  with the amber prisons (click spears - imprison one
+  of each type set), kill one TYPE at a time (killing
+  buffs the others); wind bombs on players (run out),
+  rain of blades heal phase; quickening dispel (D-Magic
+  on adds - steal/dispel or they out-heal).
+  AI RULE: one type dies at a time; prisons hold the
+  rest - break a prison early and you fight everything.
+11. AMBER-SHAPER UN'SOK: amber monstrosity tank swap;
+  players transformed (vehicle): mutated construct
+  players: interrupt his explosion cast (button), stack
+  amber pools... reshape life on tank (they become the
+  construct - keep boss+construct apart); amber scalpel
+  beam phases dodge; burn monstrosity in P2 while
+  constructs manage pools; P3 burn boss, transformed
+  players drink pools to stay alive (heroic details
+  unverified).
+  AI RULE: if you are the construct, your interrupt
+  button is the raid's life.
+12. GRAND EMPRESS SHEK'ZEER: dissonance fields: two
+  fields cry - players stand in fields to stop the
+  cries (standing in one drains it; never let both
+  fields cry unanswered or detonate together - era);
+  adds: reavers/earthshakers
+  (tank apart, interrupt); eyes of the empress: gaze
+  stacks on tanks swap; P3 fear/visions: sha energy -
+  spread, hearts of fear on players (run out, they
+  persist as zones).
+  AI RULE: fields are silenced by bodies, staggered -
+  never empty, never both at once.
+
+TERRACE OF ENDLESS SPRING (map 996)
+13. PROTECTORS OF THE ENDLESS (3): kill order decides
+  powers: standard Kaolan -> Regail -> Asani (each death
+  empowers rest): lightning prison on players (free by
+  killing prison? dispel - unverified), corrupted waters
+  orb (kill orb before it heals - Asani), defiled ground;
+  Asani last = fastest bolts. AI RULE: order is the
+  strategy; the water orb is a heal, kill it.
+14. TSULONG: night/day: night - DPS boss, shadow breath,
+  sunbeam safe circle shrinks (stand in beam to clear
+  debuff stacks); day - HEAL him: healers burn healing
+  into him (golden breath buff from his breath - healers
+  stand in front), adds (large sha tanked, small sha
+  run to him - kill/slow or they drain him), bathe in
+  light spots. Race: his corruption (night damage) vs
+  raid healing (day).
+  AI RULE: by day you heal the boss; small sha reaching
+  him undo your healing - they outrank everything.
+15. LEI SHI: tank swap-less: she hides (AoE to find her),
+  Get Away: she pushes the raid back - keep moving and
+  damaging her to end it (details unverified here);
+  protectors adds phases
+  (kill one, CC rest); spray stacks swap tanks.
+  AI RULE: when she hides, splash damage finds her.
+16. SHA OF FEAR: the tank is teleported to an outside
+  platform (kill the guardian archer there; the
+  survivor returns as champion of the light - stand in
+  the light or be feared); breath of fear: stand behind
+  the light wall; adds (terrors) run to the light wall -
+  kill before arrival; heroic P2: submerge adds and
+  huddle movement (unverified).
+  AI RULE: light is the only safe ground - fight from
+  it, kill what runs at it.
+
+TRASH NOTES (entries unverified): MSV: mogu/quilen
+packs, trapped halls (watch floor tiles); HoF: mantid
+packs - amber traps; Terrace: sha sprites/waters.
+No pack detail verified this step.
+
+END OF STEP 12. Next step is 13_Mists_of_Pandaria_B.txt.
