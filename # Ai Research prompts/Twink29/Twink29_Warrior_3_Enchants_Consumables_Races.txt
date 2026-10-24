@@ -1,0 +1,209 @@
+TWINK29 - WARRIOR - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, PROFESSIONS, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+Sources: the profession files in Twink29_Professions-completed (Enchanting,
+Blacksmithing, Alchemy, Inscription, Cooking and First Aid, Engineering),
+the warrior item and talent steps, and the racial notes carried from the
+earlier files in this set.
+V = read. Where a number was not read it says unverified.
+
+0. THE SHAPE OF THIS FILE
+   A warrior is the class the Classic profession files were written for.
+   It is the only class in this set that can use every melee enchant in
+   the cap on the right stat, the only one whose bracer enchant is its
+   primary stat, and the only one with a profession - Blacksmithing -
+   that gives it a permanent weapon enhancement and a shield enhancement
+   no enchanter can sell it. Nothing in this file is a substitute.
+
+1. ENCHANTS - ONE PER SLOT, ALL INSIDE SKILL 225
+CLOAK|Enchant Cloak - Greater Defense|13746|+50 armour|skill 205|V
+   3x Vision Dust 11137. The warrior cloak choice: 13882 Lesser Agility
+   (+3 Agility, skill 225) is the alternative, and Agility is a minor
+   stat for this class, so armour wins. The rogue takes the other one.
+CHEST|Enchant Chest - Greater Health|13640|+35 health|skill 160|V
+WRIST|Enchant Bracer - Strength|13661|+5 Strength|skill 180|V
+   1x Vision Dust 11137. In the rogue and shaman files this enchant is
+   the wrong stat and the weakest slot on the list. Here it is +5 of the
+   primary stat for 1 reagent, which makes it the best value enchant a
+   warrior owns. Same spell id, opposite conclusion.
+HANDS|Enchant Gloves - Agility|13815|+5 Agility|skill 210|V
+LEGS|Heavy Armor Kit|4265|+24 armour|item level 30, req 20|V
+   On chest, legs, hands or feet at item level 15 or higher. Not an
+   enchant and no Strength leg option exists inside the cap.
+FEET|Enchant Boots - Minor Speed|13890|movement speed|skill 225|V
+   A melee class that cannot stay in range does no damage, so this is
+   worth more to a warrior than the +5 Strength on the bracers.
+WEAPON|Enchant Weapon - Striking|13693|+3 weapon damage|skill 195|V
+   Both weapons for Fury, the one weapon for Arms, the main hand for
+   Protection. On top of this a warrior can carry a stone - section 2 -
+   because a stone and an enchant are different slots in this era; that
+   stacking was not read for this file and is stated as unverified.
+OFF|13693 on the Fury off hand; a shield spike for Protection, section 3
+NECK|190894 and RING|190871 / 191014 - current-expansion enchanter-only
+   enchants, ALT, effects unverified, unusable with only Classic skill.
+   ALT LIST, above the cap: 13939 Bracer - Greater Strength (240), 13943
+   Weapon - Greater Striking (245), 13898 Weapon - Fiery Weapon (265),
+   20012 Gloves - Greater Agility (270), 20031 Weapon - Superior
+   Striking (300), 25080 Gloves - Superior Agility (300). V.
+
+2. CONSUMABLES
+   BATTLE ELIXIR - there is no Strength battle elixir at 29
+     Elixir of Giants 9206, +25 Strength for 1 hour, requires level 38
+     (V). Nine levels out of reach, so a warrior's battle elixir slot is
+     empty where a rogue drinks +15 Agility. What it drinks instead is
+     the guardian elixir below and a scroll.
+   GUARDIAN ELIXIR
+     Elixir of Greater Defense 8951, +250 armour for 1 hour, requires
+     exactly 29 (V), plus Elixir of Fortitude 3825, +120 health for 1
+     hour, requires 25 (V). The Alchemy file's own warrior line calls
+     that pair "the largest survivability swing any profession gives a
+     29", and it is right: 120 health and 250 armour, both one hour.
+   WEAPON STONES - the warrior's second weapon buff
+     Solid Sharpening Stone 7964, +6 weapon damage for 30 min, requires
+     25, Blacksmithing skill 200 (V): for swords, daggers and edged axes.
+     Solid Weightstone 7965, +6 weapon damage for 30 min, requires 25,
+     skill 200 (V): for maces, staves and fists.
+     A warrior carries whichever matches its weapon - 7730 Cobalt
+     Crusher takes a weightstone, 6687 Corpsemaker a sharpening stone -
+     and an Arms bot needs one stack of one kind, while a Fury bot with
+     a mace and a sword needs both. Dense stones (12404, 12643) require
+     35 and skill 250: ALT. V, Blacksmithing file.
+   POTIONS
+     Free Action Potion 5634, requires 20 (V): the Alchemy file gives it
+       to this class by name. No root or slow - for a melee with no
+       ranged slot, this is the gap closer.
+     Greater Healing Potion 1710, requires 21 (V). Swiftness Potion
+       2459, requires 5 (V). Shadow Protection 6048, requires 17 (V),
+       Frost Protection 6050, requires 28 (V).
+     Rage potions exist in the wider game and are level-gated above 29
+       according to the Alchemy file's warrior note; no rage potion item
+       was read for this file, so none is listed.
+     All potions share one cooldown, so a bag of them is one potion.
+   SCROLLS
+     Scroll of Strength II - item id unverified, +5 Strength for 30 min
+     on the Inscription file's rank II pattern. Scroll of Stamina II
+     1711, +5 Sta, requires 15 (V). Scroll of Agility II 1477 (V).
+     A scroll does not stack with a class buff giving the same stat, and
+     a warrior has no Strength buff of its own at 29 that was read, so
+     the scroll is real value here rather than a duplicate.
+   FOOD
+     Roast Raptor 12210, +8 Stamina and +8 Spirit for 15 min, requires
+     25 (V). The Spirit is dead weight, as it is for four classes before
+     this one; the Stamina is the food.
+   BANDAGES
+     8544 Mageweave Bandage, heals 1600 over 8 sec, Tailoring 240 (V),
+     bought not made; 6451 Heavy Silk Bandage, heals 1280, skill 210 (V).
+     A warrior has no heal of its own that was read at 29, so a bandage
+     after a disengage is its only recovery - which is why this slot
+     matters more here than it did for the shaman.
+
+3. PROFESSIONS
+   BLACKSMITHING  The warrior's own profession, and the only one in this
+     set that gives a permanent weapon enhancement:
+     Iron Counterweight 6043, item level 33: makes a two-handed sword,
+       mace, axe or polearm 3% faster, spell 7218. Applying it needs
+       Blacksmithing 165, well inside the cap; Plans: Iron Counterweight
+       6045 is a world drop, not trainer-taught (V). Permanent, not a
+       30-minute buff, and an Arms bot's single best profession item.
+     Iron Shield Spike 6042, item level 30, Blacksmithing 150 to apply:
+       damage to anyone who blocks you, spell 7216 (V). Protection only,
+       and it is the only shield enhancement in the bracket - there is
+       no shield enchant in the Classic Enchanting list at all.
+     Mithril Shield Spike 7967, item level 43, skill 215 (V): the bigger
+       spike, still inside 225.
+     The stones above, at skill 200 (V).
+     What Blacksmithing does not give a 29: armour. Every plate recipe
+       produces plate a 29 cannot wear (the Blacksmithing file confirms
+       plate is not wearable before 40 on spell 3502), so the profession
+       is taken for enhancements, not gear - the same conclusion the
+       shaman file reached by the other road.
+   ENGINEERING  The second profession. Iron Grenade 4390 and Big Iron
+     Bomb 4394 give a 3 sec stun the Engineering file assigns to this
+     class by name, Discombobulator Ray 4388 cuts a target's damage for
+     12 sec, and Minor Recombobulator 4381 (Engineering 140, 10 charges)
+     restores health and mana to a friendly target and attempts to
+     dispel polymorph (V). Bombs share a cooldown. A warrior already has
+     gap closers, so the stun is a second interrupt rather than an
+     opener, which makes Engineering worth slightly less here than it
+     is to a rogue and still worth taking.
+   ENCHANTING  Self-supply for 13661, 13815, 13693 and 13746. A warrior
+     enchanter covers every slot it owns except legs.
+   ALCHEMY  The two guardian elixirs and Free Action. Usually bought.
+   RECOMMENDATION  Blacksmithing + Engineering for a played warrior -
+     the only pairing in the set where both professions hand the
+     character something permanent. Blacksmithing + Enchanting for
+     self-sufficient bots. Mining funds Blacksmithing.
+
+4. RACES
+   A warrior can be any race, which makes this the widest list in the
+   set and the least decisive: there is no race a warrior bot must be.
+   Which specific races were enabled on this server in 8.3.7 is not
+   verified, so the membership below is unverified and the racial
+   effects are the read part. Warriors also have the widest racial
+   coverage in the set because two of the four crowd-control racials
+   that other classes were denied are open to them: undead warriors
+   exist, so Will of the Forsaken is available to this class, unlike
+   the shaman.
+   READ EARLIER IN THIS SET
+     Undead    Will of the Forsaken, 2 min cooldown, removes charm, fear
+       and sleep (V, warlock file). For a class with no fear break of
+       its own at 29 that was read, this is the strongest racial here.
+     Orc       Blood Fury, 2 min cooldown, attack power for a warrior
+       (V, warlock file - the page lists warrior among the attack power
+       classes). The burst pick.
+     Human     59752 Will to Survive, a self crowd-control break (V,
+       paladin set). The Alliance answer to the undead pick.
+     Blood elf Arcane Torrent, 2 min cooldown, removes 1 beneficial
+       magic effect from enemies within 8 yards (V, warlock file). A
+       purge on a class with no other purge, though it costs the fear
+       break the undead gets.
+   NAMED, IDS AND FIGURES UNVERIFIED
+     Tauren    War Stomp, a short area stun - a second interrupt.
+     Night elf Shadowmeld, a stealth reset and a threat drop.
+     Troll     Berserking, haste on demand.
+     Dwarf     Stoneform, a debuff purge and damage reduction.
+     Gnome     Escape Artist, a snare break.
+     Goblin    Rocket Jump, a leap - another gap closer.
+     Draenei   Gift of the Naaru, a heal over time: the only self-heal
+       racial available to a class with none.
+     Pandaren  Quaking Palm, an incapacitate.
+     Dark iron Fireblood, a debuff purge and stat gain.
+     Mag'har   Ancestral Call, a stat gain.
+     Zandalari Regeneratin', a channelled heal.
+     Kul Tiran Haymaker, a knockback stun.
+     Void elf  Spatial Rift, a teleport.
+     Lightforged Light's Judgment, area damage.
+     Nightborne Arcane Pulse, an area slow.
+     Mechagnome and Vulpera - 8.3-era allied races; whether they are
+       enabled on build 35662 is unverified, as in the shaman file.
+   PICKS  Undead for Horde, Human for Alliance, Orc if the script
+     already handles trinket breaks and wants the burst. Avoid nothing
+     outright - a warrior is the one class where the passive-stat races
+     are merely uninteresting rather than wrong, because every active
+     racial on the list does something a warrior wants.
+
+5. WHAT TO BUY, IN ORDER
+   First  6043 Iron Counterweight on the two-hander (Arms) or 6042 Iron
+          Shield Spike on the shield (Protection) - permanent, once.
+   Second 7964 or 7965 stones to match the weapons carried.
+   Third  8951 Elixir of Greater Defense and 3825 Elixir of Fortitude.
+   Fourth 5634 Free Action Potions, 1710 Greater Healing Potions.
+   Fifth  12210 Roast Raptor, the Stamina scroll, 8544 bandages.
+   Last   the enchants: 13890 boots, 13661 bracers, 13693 weapons,
+          13815 gloves, 13746 cloak, 13640 chest.
+
+6. WHAT THIS FILE DOES NOT HAVE
+   A Strength battle elixir at 29 (Elixir of Giants needs 38).
+   A Strength leg enchant (an armour kit instead).
+   A shield enchant (a shield spike instead, from Blacksmithing).
+   A rage potion inside the bracket (level-gated, per the Alchemy file).
+   A ring or neck enchant a 29 can apply (enchanter-only, ALT).
+   A verified warrior race list for this server.
+   This is the shortest gap list of any class in the set, and it is
+   short because the Classic profession files were written around this
+   class: its bracer enchant is its primary stat, its profession gives
+   it a permanent weapon and shield enhancement, and its two guardian
+   elixirs are the largest survivability swing in the bracket. What a
+   warrior cannot fix with a profession is the thing step 1 found -
+   it still has no plate to wear - and no profession in the game makes
+   armour a 29 plate wearer can put on.
