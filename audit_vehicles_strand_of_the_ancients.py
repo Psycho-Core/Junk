@@ -8,7 +8,7 @@ sys.path.insert(0, ".")
 from audit_common import (gh_content, gh_raw, source_stage, mutation_probe,
                           coord_trace)
 
-DOC = ("# Ai Research prompts/Battleground_Vehicles/"
+DOC = ("# Ai Research prompts/Battleground_Vehicles_completed/"
        "Vehicles_Strand_of_the_Ancients_COMPLETED.txt")
 LC = "Titans-Project/LegionCore-Reforged"
 AC = "azerothcore/azerothcore-wotlk"
