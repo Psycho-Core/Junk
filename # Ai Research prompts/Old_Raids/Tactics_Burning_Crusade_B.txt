@@ -63,11 +63,18 @@ PHASES: council: kill advisors then the boss (he gains
   each dead advisor's key ability - kill order chooses
   what he inherits last/best avoided).
 TANK: one tank each; pull them apart to separate corners.
-GROUP: kill order standard: hunter advisor (pets), priest
-  (heals - interrupt), shaman (totems/Spitfire), boss.
-  Cataclysmic Bolt hits random players (healer watch).
-GROUND: shaman totem zone; tidal surge (unverified).
-ADD ORDER: P1 priest advisor heals interrupted, as above.
+GROUP: kill order (page): Tidalvess (shaman) first -
+  he deals the most raid damage; then Sharkkis (hunter);
+  Caribdis (priest) LAST: she is the easiest to control,
+  with a small assigned group interrupting every heal
+  (page: rogue/warlock slows help). Spitfire Totems die
+  on sight while advisors live. He inherits from each
+  corpse (page): shaman -> he drops Spitfire Totems,
+  hunter -> The Beast Within (permanent melee buff),
+  priest -> Tidal Surge (10-yd freeze, 15-20 sec).
+GROUND: Spitfire Totem (target, kill it, not a zone).
+ADD ORDER: P1 Tidalvess, P2 Sharkkis + his pet, P3
+  Caribdis (interrupt-controlled until her turn), P4 boss.
 ABILITY (unverified ids): advisor abilities per class,
   Cataclysmic Bolt, The Beast Within pet (enrage pet).
 AI RULE: a healing advisor alive means nothing else can
@@ -363,15 +370,23 @@ AI RULE: burning means leave - your damage output now is
   standing alone.
 
 27. FELMYST
-PHASES: ground (Gas Nova raid pulse - dispel mass,
-  D-Magic; Encapsulate player bomb - run out), air:
-  Corrosion breath strafes carve green lines - stand OFF
-  the lines; Fog of Corruption fills sections (move to
-  the clear third); skeleton waves after breaths.
-TANK: ground centre.
-GROUP: air phase positions by thirds; kill skeleton
-  adds between strafes.
-GROUND: breath lines + fog sections (air phase).
+PHASES: ground ~60 sec: Gas Nova raid pulse (mass dispel
+  instantly, D-Magic - page: it wipes even an 80 raid if
+  not dispelled), Encapsulate on a player (page's level-80
+  note: heal through it, do not run - earlier era guides
+  said run out; unverified which this server wants), she
+  is TAUNT-IMMUNE (page). Air phase: Demonic Vapor twice
+  (a beam chases a marked player for ~10 sec leaving a
+  lethal DoT trail that summons skeletons - kite it AWAY,
+  never step in the trail, more skeletons spawn if you
+  do), then Fog of Corruption three times, each covering
+  a third of the ground: anyone caught is mind-controlled
+  until killed - CC/kill them. Then she lands.
+TANK: ground centre, frontal Cleave/Corrosion away from
+  the raid (page); skeleton tank sweeps up vapor adds.
+GROUP: air phase: spot her line like a deep breath and
+  shift the whole raid north/south of it (page).
+GROUND: Demonic Vapor trails + Fog of Corruption thirds.
 ADD ORDER: P1 skeletons, boss on ground.
 AI RULE: in the air phase the floor is a map, not a
   floor - be on the safe third before the fog lands.
@@ -390,14 +405,21 @@ AI RULE: fire on you = out; threat drop = swap - call
   both, every time.
 
 29. M'URU
-PHASES: P1: add waves from two doors (Sentinels + casters)
-  while M'uru is untargetable-ish centre (darkness zones);
-  kill waves, DPS him between; P2 at death: ENTROPIUS -
-  burn with negative-energy adds spawning.
-TANK: door tanks hold waves; boss tank centre.
-GROUP: void zones move; caster adds interrupted (fell
-  spells), Sentinel AoE tanked away.
-GROUND: Darkness void zones.
+PHASES: P1: every 60 sec, 1 Shadowsword Fury Mage + 2
+  Shadowsword Berserkers run in from BOTH sides (6 adds a
+  minute, page); separately he summons Void Sentinels
+  (tanked, they pulse AoE); Darkness every 45 sec covers
+  the centre circle (~3000/sec, unhealable inside) and
+  spawns 8 Dark Fiends. He himself beams Negative Energy
+  at 4-5 random players all phase. P2 at his death:
+  ENTROPIUS - burn while Void Spawns trickle.
+TANK: side tanks catch each wave; Sentinel tank separate
+  (they hit 8-10k and slow attacks - page).
+GROUP: Fury Mages' Fel Fireball casts interrupted/CC'd
+  (they are controllable, page); kill Void Spawns fast
+  (each Sentinel death makes 8); move out for Darkness
+  and kill Dark Fiends before they detonate.
+GROUND: Darkness central void zone (45-sec cycle).
 ADD ORDER: P1 door waves (casters first), boss between,
   P2 boss burn over adds.
 AI RULE: doors first, centre second - waves that pile up
