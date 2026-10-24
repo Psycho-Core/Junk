@@ -80,8 +80,8 @@ NECK|190894 and RING|190871 / 191014 - current-expansion enchanter-only
        was read for this file, so none is listed.
      All potions share one cooldown, so a bag of them is one potion.
    SCROLLS
-     Scroll of Strength II - item id unverified, +5 Strength for 30 min
-     on the Inscription file's rank II pattern. Scroll of Stamina II
+     Scroll of Strength II 2289, +5 Strength for 30 min, requires 15,
+     Inscription skill 80 (V, Inscription file). Scroll of Stamina II
      1711, +5 Sta, requires 15 (V). Scroll of Agility II 1477 (V).
      A scroll does not stack with a class buff giving the same stat, and
      a warrior has no Strength buff of its own at 29 that was read, so
