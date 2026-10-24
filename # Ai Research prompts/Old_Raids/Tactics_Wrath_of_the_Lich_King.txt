@@ -22,10 +22,12 @@ filed in full; shared rules are repeated in short form.
   balcony phases clear skeleton waves.
 5. HEIGAN: the dance, unchanged: zones 1-2-3-4-3-2-1,
   move at your own pace, never follow another player.
-6. LOATHEB: heals are blocked (Necrotic Aura: healing
-  works only in 3-sec windows every 20 sec - unverified
-  numbers); spores give the crit buff in group order.
-  AI RULE: heal ONLY in the open window.
+6. LOATHEB: heals are blocked by 55593 Necrotic Aura
+  (page: -100% healing for 17 sec, recast every 20 sec =
+  exactly 3 seconds to heal per cycle); spores give the
+  crit buff in group order; 55601 Deathbloom ticks then
+  blooms; 55052 Inevitable Doom from 2 min (page).
+  AI RULE: heal ONLY in the 3-second window.
 7. PATCHWERK: Hateful Strike soaks: offtanks in melee
   kept topped; at 120 the era gear-check framing is
   historical - mechanic kept for script fidelity.
@@ -35,16 +37,19 @@ filed in full; shared rules are repeated in short form.
   before he eats one; tank wound swaps.
 10. THADDIUS: twins within 5 sec; charges: stand only
   with your own polarity sign; no combat-rez in P2.
-11. RAZUVIOUS: 25-player: priest-MC the 2 Understudies
-  (as step 5, count differs). 10-player: use the Orbs of
-  Domination instead - any class can control them.
+11. RAZUVIOUS: understudy count by size (page): TWO in
+  10-player, FOUR in 25-player. 25-player: priests MC
+  them and rotate (as step 5). 10-player: Orbs of
+  Domination let any class control them instead.
   AI RULE: the controller's job is Bone Barrier uptime.
 12. GOTHIK: as step 5 (living side feeds spectral side;
   pace your side to the other room).
-13. FOUR HORSEMEN: front pair (Mograine/Blaumeux) tanked
-  and swapped on mark stacks; back pair (Zeliek caster,
-  Korth'azz) handled at range; rotate before stacks kill.
-  AI RULE: count your mark, leave on the call.
+13. FOUR HORSEMEN: roster differs from step 5 (page):
+  Mograine is GONE - Baron Rivendare takes his corner.
+  front pair = Rivendare + Thane Korth'azz (melee, tanks
+  swap on mark stacks); back pair = Lady Blaumeux +
+  Sir Zeliek (casters, held at range). Rotate corners
+  before stacks kill. AI RULE: count your mark.
 14. SAPPHIRON: hide behind ice blocks for Frost Breath
   in air phase; blizzard move; decurse Life Drain team.
 15. KEL'THUZAD: P1 timed waves; P2 spread (Frost Blast
