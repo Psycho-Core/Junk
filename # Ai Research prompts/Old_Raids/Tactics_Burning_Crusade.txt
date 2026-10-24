@@ -84,19 +84,26 @@ AI RULE: in Oz kill in the printed order; as the little
   red girl, run and never stop.
 
 5. THE CURATOR
-PHASES: Flare phase (summons Astral Flares) alternating
-  with Evocation (he channels, takes +damage - burn
-  window); soft enrage when his mana is spent (page
-  structure; thresholds unverified here).
-TANK: hold him; a designated soaker stays second on his
-  Hateful Bolt target rule (unverified detail).
-GROUP: kill every Astral Flare before the next spawns -
-  flares are the DPS race; all-in on the boss ONLY
-  during Evocation.
+PHASES: 90-sec Flare phase (one Astral Flare every 10 sec,
+  10 per phase, each costing him 10% mana - page) then a
+  20-sec Evocation (inactive, refills mana, damage taken
+  +200% - burn window). At 15% health: soft enrage (no
+  more flares or Evocations, faster bolts). Hard enrage
+  at 10 min (page).
+TANK: hold him (he is taunt-immune, page); a designated
+  soaker (warlock/shadow priest) keeps the highest non-
+  tank threat on him - Hateful Bolt hits the non-tank
+  with the most threat built since the last Evocation
+  (page), so the soaker eats the bolts by design.
+GROUP: kill every Astral Flare within 10 seconds, before
+  the next spawns - flares are the DPS race; all cooldowns
+  into the boss ONLY during Evocation.
 GROUND: none read.
-ADD ORDER: P1 Astral Flares, boss during Evocation only.
-ABILITY (ids unverified): summon Astral Flare, Hateful
-  Bolt, Evocation.
+ADD ORDER: P1 Astral Flares (each before the next), boss
+  during Evocation only.
+ABILITY (ids unverified): Summon Astral Flare (10 sec),
+  Hateful Bolt, Evocation, Soft Enrage 15%, Hard Enrage
+  10:00; flare's Arcing Sear chains 10 yd (page).
 AI RULE: a living flare always outranks the boss.
 
 6. TERESTIAN ILLHOOF (optional)
@@ -114,9 +121,14 @@ AI RULE: the chained companion dies before the boss
   matters - free them first.
 
 7. SHADE OF ARAN
-PHASES: single phase in a locked round room; at ~40% he
-  polymorphs the raid, drinks, then Pyroblasts (page);
-  below that, Shadows of Aran adds (unverified here).
+PHASES: single phase in a locked round room. Three
+  separate triggers, do not conflate them (page): at 40%
+  HEALTH he summons 4 Conjured Water Elementals (despawn
+  after 90 sec); at 20% MANA he polymorphs the raid,
+  drinks ~10 sec, then Pyroblasts the raid; Shadows of
+  Aran come only with the 12-minute berserk. Interrupt
+  choices control how fast his mana burns, so the two
+  triggers can be kept apart (page strategy).
 TANK: no real tanking - he is a caster; interrupters are
   the front line (Frostbolt/Fireball/Arcane Missiles are
   interruptible, page; immune to Silence/Tongues, page).
@@ -129,10 +141,13 @@ GROUP: FLAME WREATH: three players get rings of fire -
   CC/kill them, they are timed.
 GROUND: Flame Wreath rings (on players), moving Blizzard
   ring, Arcane Explosion centre.
-ADD ORDER: Water Elementals/Shadows when up, then boss.
+ADD ORDER: the 4 Water Elementals when up, then boss.
 ABILITY (ids unverified): Frostbolt (I), Fireball (I),
-  Arcane Missiles (I), Flame Wreath, Blizzard, Magnetic
-  Pull/Slow/Arcane Explosion, Polymorph + Pyroblast.
+  Arcane Missiles (I), Flame Wreath (3 players, 20 sec -
+  moving in/out detonates 3000-4000 on the room, page),
+  Circular Blizzard, Magnetic Pull/Slow/Arcane Explosion
+  (10-sec cast, 9000-11000 in 20 yd - run to the wall),
+  Polymorph + Pyroblast, AoE Counterspell (10 yd).
 AI RULE: with Flame Wreath on you, freeze completely -
   your stillness is the whole raid's survival.
 
@@ -184,7 +199,9 @@ ADD ORDER: NEVER the Infernals (do not kill - move), axes
   P1 in P2, boss.
 ABILITY: 30843 Enfeeble, 30852 Shadow Nova, 30898 Shadow
   Word: Pain (D-Magic), 3391 Thrash, 30901 Sunder Armor,
-  Summon Infernal (id unverified).
+  39095 Amplify Damage (+100% damage taken - P3 spike,
+  from the page's ability list), Summon Infernal and
+  Flying Axes (ids unverified; axes ramp up over time).
 AI RULE: when an Infernal lands near you, the whole
   group's position changes - never DPS through Hellfire.
 

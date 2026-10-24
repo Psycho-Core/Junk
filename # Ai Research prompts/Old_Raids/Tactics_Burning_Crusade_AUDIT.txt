@@ -1,0 +1,62 @@
+AUDIT - Tactics_Burning_Crusade.txt (Old Raids step 6)
+Re-checked against warcraft.wiki.gg pages fetched for
+this audit (Curator, Shade of Aran, Prince Malchezaar,
+Nightbane). Result: 10 pass, 3 corrected, 3 unverified.
+
+PASS:
+ - Attumen: 95% / 25% joins, threat wipe on mounting,
+   8-yd minimum charge range, Disarm - all page-backed
+   as filed.
+ - Moroes: Garrote 1000/3 sec for 5 min, Gouge threat
+   swap, Blind on closest non-tank, 30% enrage.
+ - Maiden: pillar spread, Holy Fire instant dispel,
+   Repentance breaks, 10-min Berserk.
+ - Gruul: Growth to 30, Hurtful Strike #2-in-melee,
+   Slam/Grasp/Stoned/Shatter spacing rule.
+ - Maulgar council roles (mage-tank Krosh, Blindeye
+   shield-then-heal burst-down) as fetched last step.
+ - Magtheridon: cube rule, Mind Exhaustion rotation,
+   channeler buff stacking, Abyssal CC-only.
+ - Netherspite: 60/30 phases, beam buffs (red +31,000
+   health/tank aggro, green heal stacking), 90-sec
+   Exhaustion, 9-min enrage.
+ - Nightbane: air phase at 75% (page confirms the first
+   threshold in the chunk read), Charred Earth rule.
+ - Map ids 532/565/544 filed as verify-on-server.
+
+CORRECTED (applied with this audit):
+ 1. Curator phase structure was wrong: the "soft enrage
+    when his mana is spent" conflated two events. His
+    mana running out triggers Evocation (20 sec, +200%
+    damage taken); the SOFT enrage is at 15% health (no
+    more flares/Evocations, faster Hateful Bolts), plus
+    a hard enrage at 10 min. Also the Hateful Bolt target
+    rule is now known, not "unverified": it hits the
+    non-tank with the most threat built since the last
+    Evocation, which is exactly how a soaker is assigned.
+ 2. Shade of Aran: the file tied Polymorph/Pyroblast to
+    "~40%". It has nothing to do with 40%: Water
+    Elementals (4 of them, 90-sec despawn) trigger at 40%
+    HEALTH; Polymorph-drink-Pyroblast triggers at 20%
+    MANA. Shadows of Aran are only the 12-minute berserk,
+    not a low-health phase. Flame Wreath numbers (3
+    players, 3000-4000 room-wide if triggered) and the
+    Arcane Explosion cast (10 sec, run to the wall) added.
+ 3. Prince Malchezaar ability list was missing 39095
+    Amplify Damage (+100% damage taken - the P3 tank
+    spike) from the page's list; added, and Flying Axes
+    noted as ramping rather than left vague.
+
+UNVERIFIED (stand as marked):
+ - All creature entries and coordinates; the Opera
+   Event's spell data (no page fetched for it either
+   step); the Maulgar kill order beyond Blindeye-first;
+   Enfeeble's exact handling on this server.
+ - Illhoof and Chess Event sections: written from
+   encounter structure only, ids unverified as marked.
+ - Whether this core scripts Karazhan's 10-player
+   originals or the Legion-era versions anywhere.
+
+Pattern to watch in step 7: phase triggers stated as
+health % that are actually mana % or timer based (Aran)
+- check every threshold's trigger type, not just number.
