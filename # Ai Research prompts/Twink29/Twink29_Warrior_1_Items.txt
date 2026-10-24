@@ -33,7 +33,7 @@ HEAD|Tusken Helm|6686|33|27|Overlord Ramtusk 4420, RFK|SOLO
      reads required 30 (V): the tooltip-versus-search conflict flagged
      in the rogue and shaman files. Printed as searched, flagged here.
      The Agility is half-wasted on a warrior; the Stamina is not.
-HEAD|Sunblaze Coif|5819|33|28|world drop, +10 Sta, crit 10|RNG V
+HEAD|Sunblaze Coif|5819|33|28|SM drop, +10 Sta, crit 10|RNG V
 HEAD|Frostreaver Crown|13127|32|27|world drop|RNG
 NECK|River Pride Choker|13087|33|28|world drop, +9 Sta +4 Str|RNG V
      the one neck in the window, and for once its Strength is not dead
