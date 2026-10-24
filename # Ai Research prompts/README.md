@@ -331,3 +331,21 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   for Destruction. Also records that Arcane Torrent stopped being a silence
   in 8.0.1.
   Deliverable: `Twink29_Warlock_3_Enchants_Consumables_Races.txt`.
+
+## Twink29/Rogue-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 rogue in 8.3.7, rare or
+  bind-on-account, item level 35 or less, required level 26-29. The rogue
+  is the one leather class that can buy the Arathi Basin belt and boots,
+  and the audits caught that 15339/15140 (the head and shoulder the Druid
+  and Monk files lead with) read as green on the 8.3.7 tooltip.
+  Deliverable: `Twink29_Rogue_1_Items.txt`.
+- `2_Talents.txt`: one normal talent (level 15 row) and one PvP talent
+  (level 20 slot) per spec. Master Poisoner, Ghostly Strike (10% in BfA,
+  not 15%), Weaponmaster, and Dismantle at 20, Outlaw only in this build.
+  Deliverable: `Twink29_Rogue_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: the melee enchants that actually
+  exist inside the 225 cap, Elixir of Agility, and the poisons answer -
+  poisons are spellbook abilities, Assassination only, and Crippling
+  Poison is learned at 38, so a 29 rogue cannot have it.
+  Deliverable: `Twink29_Rogue_3_Enchants_Consumables_Races.txt`.
