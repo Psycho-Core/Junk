@@ -23,8 +23,8 @@ GROUP: ranged spread; nobody stands near the tank group or the
   west tunnel trash (chain-aggro risk read on the boss page).
 GROUND: none read. Impending Doom 19702 is a delayed blast, not
   a ground effect.
-ADD ORDER: P1/P2 Protectors (12119), then Lucifron - or boss
-  first at 120 damage; never leave a Protector free to cast.
+ADD ORDER: P1/P2 Protectors (12119), then Lucifron. Never
+  leave a Protector free to cast (see AI RULE).
 ABILITY LIST:
   19702 Impending Doom - 2000 Shadow after 10 sec, nearby.
   19703 Lucifron's Curse - D-Curse; +100% ability costs, 5 min.
@@ -37,9 +37,10 @@ AI RULE: dispel Lucifron's Curse (D-Curse) on cooldown, tank
 
 2. MAGMADAR (11982)
 PHASES: single phase; Frenzy 19451 is a timed buff, not a phase.
-TANK: hold him facing the group (strategy page: tank faces him
-  toward the healers), back to a wall where possible; tank must
-  not be feared into lava - fear break/ward is the tank's job.
+TANK: hold him facing AWAY from the group (corrected in audit:
+  Lava Breath is frontal); healers at max range behind the
+  tank. Tank must not be feared into lava - fear break/ward
+  is the tank's job.
 GROUP: healers at max range (outside Panic range, read on page);
   melee at his sides/behind, never in front (Lava Breath).
 GROUND: 19411 Lava Bomb leaves a burning target (4800 over
@@ -176,8 +177,9 @@ TANK: boss held in place; each Core Rager off-tanked FAR from
   when far enough, read on page).
 GROUP: ranged finish below 10%; melee leave before Earthquake.
 GROUND: 19798 Earthquake - 1388-1612 to nearby, end of fight.
-ADD ORDER: NEVER kill the Core Ragers - they cannot be killed
-  while Golemagg lives (do-not-kill adds; tank-and-ignore).
+ADD ORDER: NEVER kill the Core Ragers (do-not-kill adds;
+  source: "the dogs can't die, so there is no reason to DPS
+  them" - exact mechanism unverified). Tank-and-ignore.
   P1 Golemagg only.
 ABILITY LIST:
   20553 Golemagg's Trust - buff on Ragers in range: +500
@@ -252,11 +254,9 @@ for this file, so no entry numbers are given)
     at a time. Spells/interrupts: none verified - unverified.
   Core Hound packs (before Magmadar): the pack must die
     together - a hound revives if its packmates are not killed
-    within seconds of it (mechanic read in the Magmadar page's
-    Season of Mastery note for the same hound type; base-pack
-    behaviour stated from the Lucifron strategy page - treat
-    the exact revive timer as unverified). Kill order: all
-    together, AoE, lowest-health first to synchronise deaths.
+    within seconds of it (revive behaviour read for the hound
+    type; the exact base-game revive timer is unverified).
+    Kill order: all together, AoE, lowest-health first.
   Flame Imp packs: many small casters; interrupt priority and
     spell ids unverified - group them and AoE, do not pull
     two packs.
