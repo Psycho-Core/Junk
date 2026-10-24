@@ -1,272 +1,461 @@
-TACTICS - MOLTEN CORE (OLD RAIDS STEP 1 OF 16)
+TACTICS - MOLTEN CORE (OLD RAIDS STEP 1 OF 16, RESTART)
 Server: private BfA 8.3.7 build 35662, TrinityCore base.
 Context: level 60 raid entered by a level 120 character with
-computer-controlled companions. Damage numbers below are the
-original raid values read on warcraft.wiki.gg; at 120 they are
-mostly trivial, so the AI RULE per boss is the mechanic that can
-still kill, move, or stall a companion.
-Zone: Molten Core (Wowhead zone 2717). Instance map id and all
-coordinates (map, x, y, z): unverified - not read for this file.
-Boss order and creature entries verified on Wowhead NPC pages:
-Lucifron 12118, Magmadar 11982, Gehennas 12259, Garr 12057,
-Baron Geddon 12056, Shazzrah 12264, Sulfuron Harbinger 12098,
-Golemagg the Incinerator 11988, Majordomo Executus 12018,
-Ragnaros 11502. Add entries unverified unless stated.
-Dispel tags: D-Curse, D-Magic. I = interruptible (only where a
-cast bar was read; otherwise unverified).
+computer-controlled companions. Damage values are the values
+printed on the warcraft.wiki.gg boss/mob pages read for this
+file; exact 8.3.7 scaling on your core is unverified - check
+on server. Every boss and add below was page-read this pass.
+Sources: warcraft.wiki.gg boss pages (Lucifron, Magmadar,
+Gehennas, Garr, Baron Geddon, Shazzrah, Sulfuron Harbinger,
+Golemagg the Incinerator, Majordomo Executus, Ragnaros
+(tactics)), the matching mob pages for every add/trash type,
+and the AzerothCore map table for the instance map id.
+Zone: Molten Core, zone id 2717. Instance MAP ID: 409
+(verified: AzerothCore map table, row 409 = zone 2717).
+Coordinates (map 409, x, y, z) for every boss/trash spawn:
+unverified - no source read for this file prints spawn
+coordinates; read them from your core's creature table.
+Spell flags: I = interruptible (only where a page says the
+cast can be interrupted; otherwise "I unverified").
+D-Curse / D-Magic = dispel type. Dispel types are printed
+where the page names the effect a curse/magic effect; where
+inferred from spell family only, marked unverified.
 
-1. LUCIFRON (12118) + 2x Flamewaker Protector (12119, verified)
-PHASES: single phase.
-TANK: hold Lucifron away from the group, facing away; a second
-  tank holds both Protectors away from him (mind control range).
-GROUP: ranged spread; nobody stands near the tank group or the
-  west tunnel trash (chain-aggro risk read on the boss page).
-GROUND: none read. Impending Doom 19702 is a delayed blast, not
-  a ground effect.
-ADD ORDER: P1/P2 Protectors (12119), then Lucifron. Never
-  leave a Protector free to cast (see AI RULE).
-ABILITY LIST:
-  19702 Impending Doom - 2000 Shadow after 10 sec, nearby.
-  19703 Lucifron's Curse - D-Curse; +100% ability costs, 5 min.
+1. LUCIFRON (entry 12118)
+Add group: 2x Flamewaker Protector (entry 12119).
+PHASES: single phase. (Season of Mastery 4-Protector variant
+  is Classic-only content; not used - unverified for 8.3.7.)
+TANK: main tank pulls Lucifron to the east alcove, away from
+  the group and facing away; one off-tank per Protector in
+  the back cove. Keep him away from the raid: page warns he
+  can wipe the group if brought near it.
+GROUP: spread at range; nobody goes near the west tunnel
+  (imps/surgers inside chain-aggro, read on page). Dummy
+  targets ahead of the tanks soak Dominate Mind (page tactic).
+GROUND: none. 19702 Impending Doom is a delayed blast on
+  nearby players, not a placed ground zone.
+ADD ORDER: P1 Flamewaker Protector x2 (12119), P2 Lucifron.
+  A free Protector mind-controls a companion; that is the
+  only real risk at 120.
+ABILITY LIST (Lucifron):
+  19702 Impending Doom - 2000 Shadow to nearby after 10 sec.
+  19703 Lucifron's Curse - D-Curse; +100% spell/ability
+    costs (all resources) for 5 min.
   19460 Shadow Shock - instant Shadow on target.
-  20605 Cleave (Protector) - frontal, up to 3 targets.
-  20604 Dominate Mind (Protector) - mind control 15 sec,
-    humanoid up to level 100; I unverified.
-AI RULE: dispel Lucifron's Curse (D-Curse) on cooldown, tank
-  first; kill Protectors before the boss.
+ABILITY LIST (Flamewaker Protector 12119):
+  20605 Cleave - weapon +85, up to 3 targets, frontal.
+  20604 Dominate Mind - mind control, humanoid up to level
+    100, 15 sec; I unverified.
+AI RULE: kill the Protectors first; decurse (D-Curse) the
+  tank first, then anyone mind-control-adjacent; never let
+  Lucifron be tanked near the group.
 
-2. MAGMADAR (11982)
-PHASES: single phase; Frenzy 19451 is a timed buff, not a phase.
-TANK: hold him facing AWAY from the group (corrected in audit:
-  Lava Breath is frontal); healers at max range behind the
-  tank. Tank must not be feared into lava - fear break/ward
-  is the tank's job.
-GROUP: healers at max range (outside Panic range, read on page);
-  melee at his sides/behind, never in front (Lava Breath).
-GROUND: 19411 Lava Bomb leaves a burning target (4800 over
-  12 sec), not a placed ground zone.
-ADD ORDER: none (no adds in the base encounter).
-ABILITY LIST:
-  19450 Magma Spit - Fire + DoT on target.
-  19451 Frenzy - +150% attack speed; remove with Tranquilizing
-    Shot (hunter; tome drops from Lucifron, 100% per page).
-  19272 Lava Breath - frontal cone, 1157-1343 Fire.
-  19408 Panic - AoE fear 8 sec, nearby.
-  19411 Lava Bomb - see GROUND.
-AI RULE: dispel/remove Frenzy immediately; if Panic lands,
-  regroup behind the boss, never in his frontal cone.
-
-3. GEHENNAS (12259) + 2x Flamewaker (add entry unverified)
-PHASES: single phase.
-TANK: Gehennas in the centre of his area; adds tanked far from
-  him and apart from each other (their Fist of Ragnaros stuns
-  would chain-lock stacked melee, read on page).
-GROUP: only tank/healers/decursers stay near the boss; everyone
-  else kills adds first, out of Rain of Fire.
-GROUND: 19717 Rain of Fire - placed area, 368 Fire/2 sec, 6 sec.
-  Move out on cast.
-ADD ORDER: P1/P2 Flamewakers, then Gehennas.
-ABILITY LIST:
-  19728 Shadow Bolt - 2250-2750 Shadow.
-  19717 Rain of Fire - see GROUND.
-  19716 Gehennas' Curse - D-Curse; -75% healing taken, 5 min.
-  20277 Fist of Ragnaros (add) - AoE stun 4 sec.
-  15502 Sunder Armor (add) - stacking armour reduction.
-  19730 Strike (add) - melee +200.
-AI RULE: decurse the tank instantly (heals land at 25% while
-  cursed); never stack the two adds together.
-
-4. GARR (12057) + 8x Firesworn (add entry unverified)
-PHASES: single phase; the fight changes only as Firesworn die.
-TANK: Garr held apart from the Firesworn group; adds spread out
-  singly (tanked or banished), never clumped.
-GROUP: melee leave a dying Firesworn - Eruption 19497 on death
-  is 22194 Fire to nearby with knockback. At 120, kill Garr
-  first and the adds after is the page's second strategy.
-GROUND: 19496 Magma Shackles is a slow aura, not a zone;
-  Eruption point is the dying add's corpse position.
-ADD ORDER: Garr P1 at 120 (adds cannot out-damage the group);
-  at-level order is banished adds LAST, one at a time.
-  NEVER stack-kill Firesworn: each death erupts.
-ABILITY LIST:
-  19492 Antimagic Pulse - dispels 1 beneficial magic effect
-    from nearby enemies (offensive dispel; nothing to cure).
-  19496 Magma Shackles - -60% move speed 15 sec, nearby.
-  20294 Immolate (Firesworn) - D-Magic (dispel type read as a
-    standard DoT; tag unverified in source, treat as Magic).
-  19497 Eruption (Firesworn, on death) - see ADD ORDER.
-AI RULE: when a Firesworn is about to die, all companions move
-  away from it; never kill two Firesworn at the same moment.
-
-5. BARON GEDDON (12056)
-PHASES: single phase; at 5% approx. he casts Armageddon-type
-  finisher in some versions - id 20478 read on the page as
-  self-destruct 8000 Fire to all (trigger point unverified).
-TANK: hold him in the open area (Garr's room if pulled there);
-  during Inferno 19695 he is rooted and pulses - tank steps out
-  too, nobody melees through it.
-GROUP: spread in a wide arc; the Living Bomb target runs AWAY
-  from everyone alone and explodes clear (8 sec fuse read).
-  Low-ceiling spots remove the fall damage (page strategy 2).
-GROUND: 19695 Inferno - 8 sec pulsing Fire around the boss;
-  20475 Living Bomb explosion point = the target's position.
+2. MAGMADAR (entry 11982)
+Add group: none in the base encounter. (Core Hound adds are
+  a Season of Mastery variant; not used - unverified.)
+PHASES: single phase. 19451 Frenzy is a timed self-buff,
+  not a phase.
+TANK: hold him facing AWAY from the group (19272 Lava Breath
+  is frontal: "enemies in front of the caster"). Healers at
+  max heal range behind the tank - page: at max range they
+  are outside 19408 Panic. Tank must not be feared into
+  lava; Fear Ward / stance-dance is the tank's job (page).
+GROUP: melee on his sides/behind, never in front. Ranged at
+  max range with the healers.
+GROUND: none placed. 19411 Lava Bomb is a DoT on a target
+  (4800 Fire over 12 sec), not a ground zone.
 ADD ORDER: none.
 ABILITY LIST:
-  19695 Inferno - see GROUND; he cannot move while channelling.
-  19659 Ignite Mana - D-Magic; burns 400 mana/3 sec, damage per
-    mana burned; dispel from mana users, casters first.
-  20475 Living Bomb - 3200 Fire to target and nearby after 8s.
-  20478 Armageddon - see PHASES.
-AI RULE: if you are the Living Bomb, run away from the group
-  immediately; dispel Ignite Mana from healers/casters first.
+  19450 Magma Spit - Fire on target + Fire DoT every 3 sec.
+  19451 Frenzy - +150% attack speed; remove with
+    Tranquilizing Shot (hunter; tome 100% drop from
+    Lucifron, read on page).
+  19272 Lava Breath - 1157-1343 Fire, frontal cone.
+  19408 Panic - AoE fear 8 sec on nearby enemies.
+  19411 Lava Bomb - see GROUND.
+  Interrupt flags: all I unverified (no cast bars read).
+AI RULE: tranq/dispel 19451 Frenzy the moment it appears;
+  if 19408 Panic lands, regroup behind him - never run
+  through his frontal cone.
 
-6. SHAZZRAH (12264)
-PHASES: single phase; Blink resets threat (approx. every 45
-  sec read), which is a reposition event, not a phase.
-TANK: hold him centre-room; after every Blink the nearest tank
-  picks him up where he lands - he teleports to a random
-  target and then Arcane Explosions.
-GROUP: groups spread at range around him (35 yd spread read);
-  melee stay out until late - Arcane Explosion is 20 yd.
-GROUND: 19712 Arcane Explosion - 925-1075 Arcane, 20 yd around
-  the boss after Blink; the danger zone is wherever he lands.
+3. GEHENNAS (entry 12259)
+Add group: 2x Flamewaker (entry 11661).
+PHASES: single phase.
+TANK: Gehennas in the centre of his room; only the tank,
+  his healers and decursers in range of him (page). Each
+  Flamewaker tanked far from Gehennas and apart from the
+  other add - stacked adds chain-stun melee with 20277.
+GROUP: kill adds first, then move in. Stay out of 19717.
+GROUND: 19717 Rain of Fire - selected area, 368 Fire every
+  2 sec for 6 sec. Move out on cast.
+ADD ORDER: P1 Flamewaker (11661), P2 Flamewaker (11661),
+  P3 Gehennas.
+ABILITY LIST (Gehennas):
+  19728 Shadow Bolt - 2250-2750 Shadow.
+  19717 Rain of Fire - see GROUND.
+  19716 Gehennas' Curse - D-Curse; -75% healing received
+    for 5 min.
+ABILITY LIST (Flamewaker 11661):
+  20277 Fist of Ragnaros - AoE stun 4 sec, nearby.
+  15502 Sunder Armor - -10% armor per stack, max 5, 20 sec.
+  19730 Strike - melee +200 (mob page: +326; values differ
+    between the two pages read - use boss-page value,
+    exact 8.3.7 value unverified).
+AI RULE: decurse the tank instantly (heals land at 25%
+  while 19716 is up); never stack the two Flamewakers.
+
+4. GARR (entry 12057)
+Add group: 8x Firesworn (entry 12099).
+PHASES: single phase; fight changes only as Firesworn die.
+TANK: Garr held by the main tank from the pull. Firesworn
+  spread out singly - off-tanked or warlock-banished -
+  never clumped (death explosions, below). Note 23492:
+  a Firesworn moved too far from Garr enrages (+300% Fire
+  damage, patch note read on the mob page), so banish/
+  off-tank spots stay near Garr, not across the room.
+GROUP: melee leave any Firesworn that is about to die.
+  At 120 the page's strategy 2 (one tank holds all, burn
+  Garr, then AoE the Firesworn) is viable; the banish
+  order below is the at-level order and the safe default.
+GROUND: 19496 Magma Shackles is a slow aura, not a zone.
+  19497 Eruption point = the dying Firesworn's position.
+ADD ORDER: unbanished Firesworn first (one at a time),
+  Garr, then banished Firesworn one at a time. NEVER
+  stack-kill Firesworn: each death erupts (19497).
+ABILITY LIST (Garr):
+  19492 Antimagic Pulse - removes 1 beneficial magic
+    effect from nearby enemies (offensive dispel; nothing
+    for the group to cure).
+  19496 Magma Shackles - -60% move speed 15 sec, nearby.
+ABILITY LIST (Firesworn 12099):
+  19497 Eruption - 22194 Fire to nearby + knockback,
+    on death (listed on both pages read).
+  Immolate - CONFLICT: Garr boss page lists 20294 (760-840
+    + 380-420/3 sec, 21 sec); the Firesworn mob page lists
+    15732 (337 + 168/3 sec, 15 sec). Which id the 8.3.7
+    build uses: unverified - check on server. D-Magic
+    (dispel tag unverified on both pages).
+  20483 Massive Eruption - 2330 Fire to all within 30 yd
+    + knockback (mob page only; trigger unverified).
+  23492 Separation Anxiety - +300% Fire damage when too
+    far from Garr (mob page + patch 1.5.0 note).
+AI RULE: when a Firesworn is about to die, every companion
+  moves away from it; never kill two at the same moment;
+  keep banished/off-tanked Firesworn near Garr (23492).
+
+5. BARON GEDDON (entry 12056)
+PHASES: single phase. 20478 Armageddon (self-destruct,
+  8000 Fire to all players) is listed on the page with no
+  trigger condition; when/if he casts it in 8.3.7 is
+  unverified - do not plan around a 5% cast.
+TANK: pulled to Garr's room (page strategy). During 19695
+  Inferno he cannot move or act for 8 sec and pulses Fire
+  - tank and all melee step out; nobody melees through it.
+GROUP: wide semicircle/line spread (page setups). The 20475
+  Living Bomb target runs away alone, ideally to a
+  low-ceiling spot so the knock-up costs no fall damage
+  (page strategy). Dispellers/healers can stand outside
+  19659 Ignite Mana range (page stacking setup).
+GROUND: 19695 Inferno - pulsing Fire zone centred on the
+  boss, 8 sec. 20475 explosion point = the bomb target's
+  position after 8 sec.
+ADD ORDER: none.
+ABILITY LIST:
+  19695 Inferno - see GROUND/TANK.
+  19659 Ignite Mana - burns 400 mana/3 sec from nearby
+    enemies; damage per mana burned; page strategy treats
+    it as dispellable ("only mages need to be dispelled");
+    D-Magic tag itself unverified on the page.
+  20475 Living Bomb - after 8 sec, 3200 Fire to target
+    and nearby allies.
+  20478 Armageddon - see PHASES.
+  Interrupt flags: all I unverified.
+AI RULE: if you are the Living Bomb, run away from the
+  group immediately; dispel 19659 off healers/casters
+  first; all melee out for 19695 Inferno.
+
+6. SHAZZRAH (entry 12264)
+PHASES: single phase. 21655 Blink (about every 45 sec,
+  page) teleports him to a random target and wipes his
+  threat list - a reposition event, not a phase.
+TANK: centre-room; after every Blink the nearest tank
+  re-tags him where he lands (threat is wiped).
+GROUP: four groups spread at max range around him (page:
+  35 yd spread); only ranged DPS early - 19712 is 20 yd;
+  melee join at 5-10% (page strategy 1). Decursers in
+  every group; decurse the main tank first.
+GROUND: 19712 Arcane Explosion - 925-1075 Arcane, 20 yd
+  around wherever he lands after Blink. No placed zone.
 ADD ORDER: none.
 ABILITY LIST:
   19712 Arcane Explosion - see GROUND.
-  19713 Shazzrah's Curse - D-Curse; +100% magic damage taken,
-    5 min. Decurse tank first, then the Blink landing group.
-  19714 Magic Grounding - self-buff, -50% magic damage taken
-    30 sec; purge/dispel off him (offensive dispel).
-  19715 Counterspell - AoE school lockout 10 sec, ~35 yd.
-  21655 Blink - teleport + threat wipe (see PHASES).
-AI RULE: after Blink, stop, let a tank re-tag him, and move
-  away from his landing point before Arcane Explosion.
+  19713 Shazzrah's Curse - D-Curse; +100% magic damage
+    taken, 5 min. (Page text: decurse immediately.)
+  19714 Magic Grounding - self-buff, -50% magic damage
+    taken 30 sec; purge off him (offensive dispel; page
+    calls it Deaden Magic, same effect).
+  19715 Counterspell - AoE school lockout 10 sec, ~35 yd;
+    high threat. It is his own cast on the raid, not an
+    interrupt target; I unverified.
+  21655 Blink - see PHASES.
+AI RULE: after Blink, stop DPS, let a tank re-tag him,
+  and clear 20 yd from his landing point before 19712.
 
-7. SULFURON HARBINGER (12098) + 4x Flamewaker Priest
-   (add entry unverified)
-PHASES: single phase.
-TANK: boss and each Priest tanked apart (5 tanks at level);
-  Priests must be separated so Dark Mending cannot reach the
-  boss or another Priest's target.
-GROUP: interrupt rotation on every Priest; kill one Priest at
-  a time, boss after the Priests (heals make boss-first stall).
-GROUND: none read.
-ADD ORDER: P1-P4 Flamewaker Priests (one at a time), P5 boss.
-ABILITY LIST:
-  19778 Demoralizing Shout (boss) - -300 attack power 30 sec.
-  19779 Inspire (boss) - ally +25% physical, +100% attack
-    speed 10 sec; offensive dispel unverified - kill/priority
-    target is the inspired add.
-  19780 Hand of Ragnaros (boss) - 300-400 Fire, knockback,
-    stun 2 sec, nearby.
-  19781 Flame Spear (boss) - 850-1150 Fire + splash.
-  19775 Dark Mending (Priest) - heal 27750-32250; INTERRUPT -
-    the highest-priority interrupt in this raid.
-  19776 Shadow Word: Pain (Priest) - DoT 18 sec; D-Magic
-    (unverified tag, standard for the spell family).
-  20294 Immolate (Priest) - see Garr.
-AI RULE: interrupt Dark Mending every cast; never fight the
-  boss in range of a living Priest.
+7. SULFURON HARBINGER (entry 12098)
+Add group: 4x Flamewaker Priest (entry 11662).
+PHASES: single phase. (Shared-health-pool variant is
+  Season of Mastery only; not used - unverified.)
+TANK: one tank on Sulfuron, one per Priest, all separated
+  so 19775 Dark Mending cannot reach the boss or another
+  Priest's target (page: 5 tanks at level).
+GROUP: hard interrupt rotation on every Priest (page:
+  "the guards can have their spells interrupted").
+  Kill Priests one at a time; boss last - boss-first
+  stalls on heals.
+GROUND: none read on either page.
+ADD ORDER: P1-P4 Flamewaker Priest (11662, one at a time),
+  P5 Sulfuron Harbinger.
+ABILITY LIST (Sulfuron):
+  19778 Demoralizing Shout - -300 attack power 30 sec,
+    nearby enemies.
+  19779 Inspire - an ally gains +25% physical damage and
+    +100% attack speed 10 sec; kill/CC the inspired add;
+    offensive-dispel tag unverified.
+  19780 Hand of Ragnaros - 300-400 Fire to nearby,
+    knockback + 2 sec stun.
+  19781 Flame Spear - 850-1150 Fire + splash around the
+    target.
+ABILITY LIST (Flamewaker Priest 11662):
+  19775 Dark Mending - I (interruptible, per strategy
+    text above). Heal value CONFLICT: boss page prints
+    27750-32250; the mob page prints 1069. 8.3.7 value:
+    unverified - either way it out-heals companion DPS
+    at level and must never land; at 120 it is trivial.
+  19777 Dark Strike - next melee attack +436, all damage
+    Shadow (mob page only; missed by the old file).
+  19776 Shadow Word: Pain - Shadow DoT every 3 sec,
+    18 sec (boss page; mob page prints 15 sec - duration
+    unverified). D-Magic unverified.
+  20294 Immolate - 760-840 + 380-420/3 sec for 21 sec.
+    D-Magic unverified.
+AI RULE: interrupt 19775 Dark Mending on every cast;
+  never fight Sulfuron in range of a living Priest.
 
-8. GOLEMAGG THE INCINERATOR (11988) + 2x Core Rager
-   (add entry unverified)
-PHASES: single phase; Earthquake 19798 begins below 10%
-  health (page: ranged finish from there).
-TANK: boss held in place; each Core Rager off-tanked FAR from
-  him - out of Golemagg's Trust range (horns stop glowing red
-  when far enough, read on page).
-GROUP: ranged finish below 10%; melee leave before Earthquake.
-GROUND: 19798 Earthquake - 1388-1612 to nearby, end of fight.
-ADD ORDER: NEVER kill the Core Ragers (do-not-kill adds;
-  source: "the dogs can't die, so there is no reason to DPS
-  them" - exact mechanism unverified). Tank-and-ignore.
-  P1 Golemagg only.
-ABILITY LIST:
-  20553 Golemagg's Trust - buff on Ragers in range: +500
-    physical damage, +50% attack speed.
-  13880 Magma Splash - stacking Fire/armour-melt on tank.
-  20228 Pyroblast - 1009 Fire + DoT; I unverified.
+8. GOLEMAGG THE INCINERATOR (entry 11988)
+Add group: 2x Core Rager (entry 11672).
+PHASES: single phase. 19798 Earthquake is used below
+  10% health (boss page strategy; the Season of Mastery
+  all-fight variant is not used - unverified).
+TANK: Golemagg held in place (two tanks at level - 13880
+  stacks force a swap or a death, page). Each Core Rager
+  off-tanked FAR from him: out of 20553 Golemagg's Trust
+  range - the Ragers' horns stop glowing red when far
+  enough (page; that glow is the companion's range check).
+GROUP: melee leave below 10%; ranged finish (19798).
+GROUND: 19798 Earthquake - 1388-1612 to nearby enemies,
+  below 10% only (see PHASES).
+ADD ORDER: NEVER kill the Core Ragers - verified on the
+  Core Rager mob page: "They cannot be killed while
+  Golemagg still lives; once he dies, they will die too."
+  P1 Golemagg only; Ragers are tank-and-ignore.
+ABILITY LIST (Golemagg):
+  20553 Golemagg's Trust - buff on a Rager in range:
+    +500 physical damage, +50% attack speed.
+  13880 Magma Splash - stacking Fire DoT + armor melt
+    on the tank, 30 sec.
+  20228 Pyroblast - 1009 Fire + 84/3 sec for 12 sec;
+    I unverified.
   19798 Earthquake - see GROUND.
-  19820 Mangle (Rager) - bleed + 50% slow 20 sec.
-AI RULE: never target the Core Ragers; keep them away from
-  the boss and kill Golemagg, ranged only below 10%.
+ABILITY LIST (Core Rager 11672):
+  19820 Mangle - 300 damage every 2 sec (mob page: 252)
+    + 50% slow, 20 sec. Value conflict unverified.
+AI RULE: never target the Core Ragers; keep them out of
+  Trust range and kill Golemagg, ranged only below 10%.
 
-9. MAJORDOMO EXECUTUS (12018) + 4x Flamewaker Elite +
-   4x Flamewaker Healer (add entries unverified)
-PHASES: single phase; encounter ends when all 8 adds die -
-  Executus himself is NOT killed (he submits and summons
-  Ragnaros). Crowd control stops working after 4 adds die.
-TANK: one tank holds Executus away from the raid (he teleports
-  the nearest player into the burning coals, 20534); one tank
-  per Elite; Healers polymorphed/CC'd or tanked.
-GROUP: stand off during Magic Reflection 20619 (spell reflect);
-  melee pause during Damage Shield 21075 (damage returned).
-GROUND: the burning coals at the room's centre - the Teleport
-  destination; move out immediately if teleported.
-ADD ORDER: P1 one Elite, P2-P5 the four Healers, P6-P8 the
-  remaining Elites (page's "follow the leader" order).
-  NEVER kill Executus - he is a do-not-kill target; damage on
-  him is wasted (Aegis of Ragnaros 20620 absorbs 30000).
+9. MAJORDOMO EXECUTUS (entry 12018)
+Add group: 4x Flamewaker Elite (entry 11664) + 4x
+  Flamewaker Healer (entry 11663). He spawns only after
+  the runes of warding are deactivated (all bosses except
+  Ragnaros and, per the page, Lucifron must be dead).
+PHASES: single phase; the encounter ENDS when all 8 adds
+  die - Executus submits and summons Ragnaros. He is not
+  killed. Crowd control (polymorph) stops working after
+  4 adds die (boss page; patch note: also if Healers are
+  dragged too far from him).
+TANK: one tank holds Executus away from the raid; the
+  player closest to him eats 20534 Teleport into the
+  burning coals (page: assign a paladin/pet to stand
+  closest). One tank per Elite; Healers polymorphed/CC'd
+  or tanked.
+GROUP: white shield = 20619 Magic Reflection up (spells
+  reflect 50% - casters pause); purple shield = 21075
+  Damage Shield up (melee pause). Page colour call.
+GROUND: the burning coals at the room's centre - the
+  20534 Teleport destination. Leave them immediately.
+ADD ORDER: P1 one Elite, P2-P5 the four Healers, P6-P8
+  the remaining Elites (page "follow the leader" order).
+  NEVER kill Executus: 20620 Aegis of Ragnaros absorbs
+  30000 and he cannot be killed; damage on him is wasted.
+ABILITY LIST (Executus):
+  20620 Aegis of Ragnaros - absorb 30000, 250 damage to
+    melee attackers, 5 min.
+  21075 Damage Shield - nearby minions cause 100 Arcane
+    to attackers.
+  20619 Magic Reflection - nearby allies reflect 50% of
+    harmful spells, 10 sec.
+  20534 Teleport - nearest enemy into the burning coals.
+ABILITY LIST (Flamewaker Elite 11664):
+  20623 Fire Blast - 841 Fire.
+  20420 Fireball - 1262 Fire (mob page only; missed by
+    the old file).
+  20229 Blast Wave - 694-806 Fire to nearby + 50% slow
+    8 sec (mob page prints spell-power scaling; value
+    unverified for 8.3.7).
+ABILITY LIST (Flamewaker Healer 11663):
+  21077 Shadow Bolt - 2058 Shadow (retail mob page only;
+    missed by the old file).
+  20603 Shadow Shock - instant Shadow (boss page value
+    unprinted; mob page: 1098).
+  Dark Mending: listed for this mob ONLY under the mob
+    page's "Classic" heading (id 364908 Classic database)
+    and not on the retail boss page - whether the 8.3.7
+    build's Healers cast a heal: unverified. If a heal
+    cast bar appears, it is interrupt priority 1.
+  Interrupt flags for Healer casts: unverified.
+AI RULE: kill adds in the printed order, never Executus;
+  match your damage type to the shield colour (white =
+  no spells, purple = no melee) until the shield drops.
+
+10. RAGNAROS (entry 11502)
+Add group (Phase 2): 8x Son of Flame (entry 12143).
+  Summoned by Majordomo Executus after boss 9.
+PHASES: P1 surface. After 3 minutes he submerges and
+  summons 8 Sons of Flame for up to 90 sec; he resurfaces
+  when they are defeated or the 90 sec end; repeats every
+  3 minutes (page). Banished Sons count as defeated and
+  bring him back early (page). At 120 he should die in
+  P1; the submerge is written because a stalled group
+  hits it. (50%-health submerge is Season of Mastery;
+  not used - unverified.)
+TANK: hold him at his pool edge, positioned so 20566
+  knockback lands the melee on rock, not lava. Someone
+  must be in his melee range at all times - if he cannot
+  melee anyone he casts 20565 Magma Blast at random
+  targets (page). MT keeps fire resistance high (page
+  preparation note; era value, gearing unverified here).
+GROUP: ranged spread around the pool. Mana users spread
+  from each other: the second 20566 mode targets a random
+  mana user and knocks back everyone within ~20 yd of
+  that target, 20-30 sec cooldown (page).
+GROUND: the lava itself, and Lava Splash near lava flows
+  (page: no spell id printed - id unverified; trigger is
+  proximity to a flow). Learn the lava exit ramps before
+  the pull (page).
+ADD ORDER (P2 only): P1-P8 Son of Flame (12143), focus
+  one at a time; banish counts as a kill for resurface
+  timing (see PHASES) - at 120 simply kill them.
 ABILITY LIST:
-  20620 Aegis of Ragnaros (Executus) - absorb shield.
-  21075 Damage Shield - nearby minions reflect 100 Arcane.
-  20619 Magic Reflection - nearby allies reflect 50% spells
-    10 sec.
-  20534 Teleport - nearest enemy into the coals.
-  20623 Fire Blast (Elite) - 841 Fire.
-  20229 Blast Wave (Elite) - 694-806 Fire + 50% slow 8 sec.
-  20603 Shadow Shock (Healer) - instant Shadow.
-AI RULE: kill adds in order, never the boss; when a shield is
-  up (white/purple read on page) stop the reflected damage
-  type until it drops.
+  20566 Wrath of Ragnaros - 1000 Fire + 25 yd knockback;
+    two targeting modes (melee range, 3 sec CD; random
+    mana user, 20-30 sec CD) - same id both modes (page).
+  20564 Elemental Fire - primary target: 2160-2640 Fire
+    + 600 Fire/sec for 8 sec.
+  20565 Magma Blast - 6000 Fire, 1 sec cast; only when
+    nobody is in melee range (page).
+  21388 Melt Weapon - melee strikes on him randomly cost
+    1 weapon durability.
+  Lava Splash - see GROUND (id unverified).
+  Son of Flame abilities: none printed on its mob page -
+  unverified.
+AI RULE: someone must always be in melee range of
+  Ragnaros; if knocked into lava, exit by the nearest
+  ramp and run back - never stand and heal in the lava.
 
-10. RAGNAROS (11502)
-PHASES: Phase 1 surface; at 3 minutes he submerges and summons
-  8x Son of Flame (add entry unverified) for up to 90 sec;
-  repeats every 3 min. At level 120 he should die in Phase 1 -
-  the submerge is written here because a stalled group hits it.
-TANK: hold him at his pool edge; melee eat Wrath of Ragnaros
-  knockback 20566 into lava - tank positions so knockback
-  lands on rock, and the tank stays in melee range at all
-  times (if nobody is in melee he Magma Blasts the raid).
-GROUP: ranged spread around the pool; mana users spread from
-  each other (second Wrath 20566 targets a random mana user
-  and knocks back everyone around the target, 20-30 sec CD).
-GROUND: lava itself and Lava Splash near flows (spell id
-  unverified in source) - never stand at a flow edge; know the
-  exit ramps before the pull.
-ADD ORDER (Phase 2 only): P1-P8 Sons of Flame, all of them;
-  banished Sons count as defeated and bring him back early.
-ABILITY LIST:
-  20566 Wrath of Ragnaros - 1000 Fire + 25 yd knockback (two
-    targeting modes, read on page; ids same).
-  20564 Elemental Fire - main-target 2160-2640 + 600/sec 8s.
-  20565 Magma Blast - 6000 Fire, only when nobody is in melee.
-  21388 Melt Weapon - melee hits cost weapon durability.
-AI RULE: someone must always be in melee range of Ragnaros;
-  if knocked into lava, get out by the nearest ramp and run
-  back - do not heal in the lava.
+TRASH (all entries page-read this pass)
+T1. Molten Giant (11658) pairs at the entrance - the
+  first two mobs of the instance, always a pair, cannot
+  be pulled singly (page). Later pairs mix in T2.
+  Spells: 18944 Smash (1458-1782 to nearby), 18945 Knock
+  Away (normal +54, knockback, threat-reducing - page
+  tank note: taunt AFTER the knockback, back to a wall).
+  Interrupts: none (no casts read). Dispels: none read.
+  Kill order: one tank each, separated so the Smashes do
+  not overlap the same group; finish one, then the other.
+T2. Molten Destroyer (11659) - bigger Giant variant;
+  appears in pairs before Gehennas; mixed Giant+Destroyer
+  pairs occur (pages). Spells: 20276 Knockdown (damage +
+  2 sec stun, up to 5 targets), 19129 Massive Tremor
+  (nearby damage + interrupts casts 2 sec - it interrupts
+  YOU; nothing to interrupt back). Dispels: none read.
+  Kill order (page): in a mixed pair kill the Giant
+  first; keep the Destroyer away from the main group;
+  weak groups use ranged only.
+T3. Core Hound packs (11671) - 5 packs in Magmadar
+  Cavern (page). Each hound must die within 10 SECONDS
+  of its packmates or living hounds reignite the corpse
+  at full health; pulling a second pack revives a dead
+  first pack (page notes). Spell: 19771 Serrated Bite
+  (1521 Physical over 30 sec; frontal DoT, stacks to 10
+  per the page's text - exact stacking unverified).
+  Interrupts/dispels: none read. Kill order: bunch them,
+  heads facing out, AoE evenly, single-target DPS always
+  hits the highest-health hound; healers keep healing
+  after the pack dies (DoTs keep ticking).
+T4. Ancient Core Hound (11673) - solitary roamers.
+  Frontal 180-degree bite; long-range fire AoE (~800,
+  page text, id unverified); one of six random debuffs
+  per hound (page list, ids unverified): Ground Stomp
+  (5 sec stun), Ancient Dread (D-Curse; -50% cast/melee
+  speed), Ancient Despair (D-Magic; 3 sec confusion),
+  -200 fire resistance (D-Magic), Withering Heat
+  (D-Magic; -15% max HP, 15 min), -50% Int/Spi
+  (D-Magic). Dispel priority: the -200 FR debuff first
+  (page strategy), then Withering Heat. Kill order:
+  single target, tank front, everyone else behind; a
+  second tank ready (stun/confusion drops the tank).
+  Stops respawning once Magmadar is dead (page).
+T5. Flame Imp (11669) packs - large packs before
+  Magmadar Cavern; fast respawn (page). Spell: 20602
+  Fire Nova (Fire to nearby). Interrupts: none read
+  (instant nova; I unverified). Dispels: none read.
+  Kill order: group them and AoE; never pull two packs.
+T6. Lava Surger (12101) - solitary chargers. Spell:
+  19196 Surge - charges the FURTHEST enemy on its threat
+  list, damage + knockback to target and nearby (page).
+  Rule: stay within 40 yd of it (page); banishable.
+  Respawn behaviour differs by patch note read (28 min /
+  no respawn after Garr / 6.0 hotfix no respawn) - on
+  your 8.3.7 core: unverified.
+T7. Firelord (11668) + Lava Spawn (spawned adds; Lava
+  Spawn entry unverified - its page not read). Spells:
+  19393 Soul Burn (7158 Fire over 16 sec + silence +
+  -50% physical damage dealt; page strategy: dispel
+  ASAP - D-Magic tag unverified), 19392 Summon Lava
+  Spawn. A Lava Spawn left alive splits into two (page).
+  Firelord and spawns cannot be banished (page).
+  Kill order: Lava Spawn the instant it appears (all
+  melee), then back to the Firelord. Dispel 19393 first.
+T8. Lava packs ("pain packs", Geddon/Shazzrah room) -
+  always 1x Flameguard + 1x Firewalker + either 1x Lava
+  Reaver or 2x Lava Elemental (12076) (Lava pack page).
+  Lava Elemental spell: Pyroclast Barrage - 1500 Fire
+  over 6 sec + stun, frontal cone, not dispellable
+  (page; spell id unverified). Flameguard/Firewalker/
+  Lava Reaver entries and spell ids: unverified (their
+  pages not read this pass) - page descriptions:
+  Flameguard = continuous small AoE + armor debuff +
+  frontal flamethrower; Firewalker = fire-resist debuff
+  then rapid fireballs (most dangerous); Reaver = tough
+  melee + cleave. Only Reavers/Elementals are banishable.
+  Kill order (page): Firewalker P1, Flameguard P2, then
+  the banished Reaver/Elementals one at a time. Tanks
+  face pack members away; keep Flameguard and Firewalker
+  AoEs from overlapping; delay banish 5-8 sec after the
+  pull so their tanks hold aggro first.
+General trash AI RULE: never pull a second pack while a
+  caster/healer-type is alive in the current one; in
+  mixed packs the kill order printed per pack above is
+  the rule - health bars second, pack mechanic first.
 
-TRASH (pack breakdown; creature entries unverified - not read
-for this file, so no entry numbers are given)
-  Molten Giant / Molten Destroyer packs at the entrance:
-    frontal melee; tank facing away from the group, kill one
-    at a time. Spells/interrupts: none verified - unverified.
-  Core Hound packs (before Magmadar): the pack must die
-    together - a hound revives if its packmates are not killed
-    within seconds of it (revive behaviour read for the hound
-    type; the exact base-game revive timer is unverified).
-    Kill order: all together, AoE, lowest-health first.
-  Flame Imp packs: many small casters; interrupt priority and
-    spell ids unverified - group them and AoE, do not pull
-    two packs.
-  Lava elemental / surger packs (Golemagg bridge area):
-    chargers and AoE; spread, kill order unverified.
-  Flamewaker patrols (Sulfuron area): same ability family as
-    the Sulfuron/Gehennas adds (19775-type heals if a Priest
-    is present - interrupt first); exact pack lists unverified.
-  General trash AI RULE: never pull a second pack while a
-  healer-type (any Flamewaker that casts a heal) is alive;
-  interrupt cast heals before all other interrupts.
-
-END OF STEP 1. Next step is 02_Blackwing_Lair.txt, on request.
+END OF STEP 1 (RESTART). Next: 02_Blackwing_Lair.txt,
+on request.
