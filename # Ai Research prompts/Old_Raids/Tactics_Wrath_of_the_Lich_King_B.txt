@@ -1,0 +1,179 @@
+TACTICS - WRATH OF THE Lich King B (OLD RAIDS STEP 9)
+Trial of the Crusader, Onyxia's Lair, Icecrown Citadel,
+Ruby Sanctum.
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Spell ids unverified unless stated; creature entries
+and coordinates unverified throughout. Map ids (verify
+on server): Trial of the Crusader 649, Onyxia's Lair
+249, Icecrown Citadel 631, Ruby Sanctum 724.
+
+TRIAL OF THE CRUSADER (map 649)
+1. NORTHREND BEASTS (Gormok / Acidmaw+Dreadscale / Icehowl)
+GORMOK: tank swap on Impale stacks; snobolds on backs
+  (kill the snobold on a companion - it silences/pins);
+  fire bombs = move. ACIDMAW+DREADSCALE: two worms, one
+  rooted one mobile, swap: Burning Bile / Paralytic Toxin
+  - a burned player frees a paralyzed one by TOUCHING
+  them; jormungar tanks swap when one submerges.
+  ICEHOWL: he fixates, charges a marked player (move at
+  the last moment - he crashes and stuns himself), breath
+  cone. AI RULE: bile cures toxin by touch; the charge is
+  dodged, never soaked.
+2. LORD JARAXXUS: Incinerate Flesh on a player = heal
+  them TO FULL before it ends or they blow up the area
+  (healing-absorb bomb); Mistress adds (kill/interrupt),
+  Legion Flame on a player (run it out, leaves fire),
+  portals/volcanoes spawn adds until destroyed.
+  AI RULE: the burning companion is healed, not dispelled;
+  flame carrier keeps moving.
+3. FACTION CHAMPIONS: PvP fight, no threat tables: CC
+  their healers, kill order healers > casters > melee,
+  use interrupts/dispels like arena; defensive when
+  focused. AI RULE: you are in an arena match - crowd
+  control IS the tactic.
+4. Val'kyr Twins (Fjola Lightbane/Eydis Darkbane, shared
+  health - page): take a Light or Dark essence; absorb
+  orbs of YOUR colour to stack Powering Up (100 stacks =
+  Empowered: +100% damage to the OPPOSITE-colour twin,
+  page). Opposite-colour orbs explode on you (Unleashed
+  Dark/Light - page) - never touch them. DPS only your
+  opposite twin. Twin's Pact: one twins shields and casts
+  a 20% heal (50% heroic, 15-sec cast - page): burst the
+  shield with Empowered players, then interrupt.
+  Vortex: switch to the casting twin's colour to survive
+  it (era rule; absorption on this core unverified).
+  AI RULE: your colour decides your target and your
+  orbs - same colour feeds you, opposite explodes.
+5. ANUB'ARAK (ids read on page): P1 surface with
+  Nerubian Burrowers (tank them ON permafrost); P2 he
+  submerges (67322 Submerge): spikes PURSUE one player -
+  kite them onto permafrost. Permafrost is made by
+  killing Frost Spheres (npc 34564, page) -> 67856
+  Permafrost patch blocks his burrow path; only ~6
+  patches exist in heroic (plan them). P3 at 30%: no
+  more submerge; Leeching Swarm - healers keep the raid
+  LOW-but-alive (he heals from leech; healing high =
+  healing him). 66012 Freezing Slash (tank freeze),
+  68510 Penetrating Cold (heal the five).
+  AI RULE: frost patches are a budget, spend them only
+  on his pursuit line; in P3, minimal healing wins.
+
+ONYXIA'S LAIR (map 249)
+6. ONYXIA (level-80 version): P1 ground (cleave/tail -
+  stand on her flanks, never front/back); P2 air: whelp
+  waves from the side tunnels + deep breath (watch her
+  position: breath covers a lane - move to safe side);
+  P3 ground + fear (Bellowing Roar) + lava cracks erupt.
+  AI RULE: sides only, always; deep breath is a lane,
+  not an area - be out of the lane.
+
+ICECROWN CITADEL (map 631)
+7. LORD MARROWGAR: Bone Spike pins players (kill the
+  spike, free them); Bonestorm (he spins, chases - run
+  from him, healers spread); Coldflame lines (move out).
+  Tanks stack together (Saber Lash splits).
+  AI RULE: spiked companions are freed before boss DPS.
+8. LADY DEATHWHISPER: P1 mana shield: casters burn the
+  shield, melee kill adds (fanatics transform - kill
+  fast/marked ones; adherents - interrupt, they are
+  caster-immune by type). Death and Decay = move out.
+  P2 shield down: tank swap (Touch of Insignificance
+  threat drop), interrupt Frostbolt, ghosts run to
+  players and explode (move away from ghosts).
+  AI RULE: ghosts are walked AWAY from, never soaked.
+9. GUNSHIP BATTLE: cannons + boarding: rocket-pack jump
+  to the enemy ship, kill their mage (freezes your
+  cannons) and crew, return; gunners keep firing, tank
+  holds boarding party on your deck. AI RULE: frozen
+  cannons mean the mage lives too long - board faster.
+10. DEATHBRINGER SAURFANG: blood power: marks at 100
+  power (marked players must NOT die - they heal him);
+  blood beasts: slow/root/knockback, never let them hit
+  anyone (they feed power); spread (Blood Nova).
+  AI RULE: a beast touching anyone is boss health.
+11. FESTERGUT: spores on 3 players: everyone stacks on
+  them for inoculation before Pungent Blight; tank swaps
+  on Gastric Bloat (10 stack = explosion risk);
+  Vile Gas ranged spread. AI RULE: hug the spores.
+12. ROTFACE: slimes: oozes merge - kite big ooze in a
+  circle around the room's edge (offtank), little oozes
+  are kited INTO the big one; Mutated Infection player
+  runs to the ooze tank; slime pools move.
+  AI RULE: everything slimy travels to the big ooze.
+13. PROFESSOR PUTRICIDE: abomination vehicle player
+  eats pools (slow him) and slows adds; gas/orange ooze
+  fixates a player - kite until it reaches and pops;
+  P3 tank swaps (Mutated Plague stacks), heroic: plague
+  passed player-to-player (unverified here).
+  AI RULE: fixated = run; pools are the abom's lunch.
+14. BLOOD PRINCE COUNCIL: health shared; only one prince
+  empowered (purple): DPS THE EMPOWERED one (others
+  near-immune); Kinetic Bombs must be DPSed to keep them
+  floating (they fall and explode); dark nuclei (hunter/
+  lock pet or player babysits); empowered Valanar's
+  vortex: spread/run out. Tank: Keleseth tanked by a
+  caster at range. AI RULE: hit the purple prince;
+  keep bombs in the air.
+15. BLOOD-QUEEN LANA'THEL: bite chain: bitten players
+  MUST bite another player before frenzy timer ends
+  (plan bite order bite 1->2->4->8); air phase fear;
+  Swarming Shadows = run fire out in a line; Pact of
+  the Darkfallen: linked players run TOGETHER.
+  AI RULE: bite on schedule or you kill us for her.
+16. VALITHRIA DREAMWALKER: heal-the-boss fight: healers
+  take portals into the dream (orbs = stacking heal
+  buff, refresh before expiry), outside team kills adds:
+  blazing skeletons (lay waste - move), suppressers on
+  her (kill first), worms/mages interrupt.
+  AI RULE: healers fly the rotation; the raid's job is
+  keeping her sky open.
+17. SINDRAGOSA: air phase: 5 players marked - they
+  become ice blocks in a LINE; hide behind blocks for
+  Frost Breath then DPS them free in order. Ground:
+  Unchained Magic casters stop casting on stacks
+  (backlash), Blistering Cold pulls everyone in - run
+  OUT. P3 Mystic Buffet tank swaps.
+  AI RULE: casters count stacks; pulled in = run out.
+18. THE Lich King (15-min enrage, page): P1: Necrotic
+  Plague on a player - they run TO the add pile (dispel
+  there, plague jumps to adds and kills them); shamblers
+  tanked apart (enrage). Intermission (70%/40%): edge of
+  platform, Raging Spirits face who they copy - kill and
+  look away rules (unverified), spheres shot down by
+  ranged. P2: Val'kyr picks up a player and flies to the
+  edge - ALL DPS on the Val'kyr or the player is dropped;
+  Defile under a player GROWS if anyone stands in it -
+  run out and never re-enter; Soul Reaper tank swaps.
+  P3: Harvest Soul puts the raid inside Frostmourne
+  (protect/heal Terenas, interrupt the Warden), Vile
+  Spirits float down and explode (soak away or kill).
+  AI RULE: Defile is a fire that grows - feet out, and
+  it never gets a second tick on you.
+
+RUBY SANCTUM (map 724)
+19. MINIBOSSES (Saviana / Baltharus / Zarithrian):
+  Saviana: flame breath cone + conflagration marks (run
+  out). Baltharus: splits at health marks; blade tempest.
+  Zarithrian: adds summoned; fear; tank swap cleave
+  armour. AI RULE: copies die before the original (each).
+20. HALION: two realms: outside (physical) and twilight
+  realm (portal). Fiery Combustion (outside) / Soul
+  Consumption (inside): debuff expires into a growing
+  circle - run to the wall, drop it, cleansed at edge
+  (dispel makes the circle - dispel placement matters).
+  Corporeality balance: DPS him in the realm taking less
+  damage (call switches: if one side lags he enrages
+  that side); Shadow Cutter beams (page name) rotate
+  around the room in P3 - stand between the beams, move
+  with them. Verified ids from page: 74524 Cleave,
+  74531 Tail Lash (more ids unverified).
+  AI RULE: beams are clock hands - stand in the gap and
+  walk with the clock.
+
+TRASH NOTES (entries unverified): ICC: bone spiked
+traps (rogue disarm), Deathwhisper cult packs interrupt;
+Plagueworks abomination cleaves; Frostwing whelps/
+val'kyr. ToC: no trash. RS: packs before minibosses.
+No pack detail verified this step.
+
+END OF STEP 9. Next step is 10_Cataclysm.txt.
