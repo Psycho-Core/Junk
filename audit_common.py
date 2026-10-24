@@ -127,3 +127,20 @@ def gh_gist(gist_id, filename):
         raise RuntimeError("gh api gist %s failed: %s"
                            % (gist_id, result.stderr.strip()))
     return result.stdout
+
+
+def gh_raw(repo, path):
+    """Return the raw text of a (possibly >1MB) file via the gh CLI.
+
+    The contents API returns an empty content field above 1MB, so this
+    uses the raw media type instead of gh_content.
+    """
+    result = subprocess.run(
+        ["gh", "api",
+         "repos/%s/contents/%s" % (repo, path),
+         "-H", "Accept: application/vnd.github.raw"],
+        capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError("gh raw failed for %s/%s: %s"
+                           % (repo, path, result.stderr.strip()))
+    return result.stdout
