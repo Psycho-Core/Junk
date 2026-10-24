@@ -1,0 +1,162 @@
+TWINK29 - ROGUE - STEP 1 OF 3 - ITEMS FOR EVERY SLOT
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+RULE FOR THIS FILE: leather armour, rare (blue) or bind-on-account, item
+level 35 or less, required level 26 to 29. Weapons and jewellery follow
+the same quality and level window. Same rule the druid and monk files use.
+SLOT|item|id|ilvl|req|source|tag    tag: SOLO ALT RNG
+V = name, item level, required level and stat line read off a search or
+item page for this file.
+Pool: rare leather at required 26-29 returns 35 rows, but eight of them
+are class-locked to Hunter and Shaman. What is left is the same leather
+pool the druid and monk files work from, plus the one thing neither of
+those classes gets: the Arathi Basin leather set is locked to Druid and
+Rogue, so a rogue can actually buy its belt and boots.
+
+0. THE TWO THINGS THAT MAKE ROGUE GEARING DIFFERENT
+   The battleground set is open. 20117 Highlander's Leather Girdle is
+   +12 Agility +4 Stamina and 20114 Highlander's Leather Boots are
+   +7 Agility +8 Stamina with a run speed bonus, both 33/28, both locked
+   to Rogue and Druid (V). The monk file has no belt or boots at all; a
+   rogue buys both from Samuel Hawke 15127 (Alliance) or Rutherford
+   Twing 15126 (Horde) in Arathi Highlands. The Lizardhide pair
+   (20105/20172 girdle, 20102/20169 boots) is the Intellect line and is
+   not for a rogue.
+   The head and shoulder the older files lead with are not blue in this
+   build. 15339 Pathfinder Hat and 15140 Cutthroat's Mantle both read as
+   quality 2 with a random enchantment on the 8.3.7 tooltip (V), so under
+   this file's rule they are out, and the rogue head is 3020.
+
+1. LEATHER ARMOUR - THE SAME FOR ALL THREE SPECS
+   All three rogue specs are Agility specs, so unlike the monk there is
+   no spec split in the armour at all. The specs differ only in weapons,
+   section 2.
+HEAD|Enduring Cap|3020|33|28|world drop, +24 Sta +7 Int|RNG V
+HEAD|Whisperwind Headdress|6688|32|27|Earthcaller Halmgar 4842, BFD|SOLO
+     the 8.3.7 tooltip reads this as an Intellect head at required 30,
+     which would put it out twice over; the search value is printed, and
+     either way it is not an Agility item, so it is a fallback only
+SHOULDER|Stained Shadowcraft Spaulders|42952|scales|1|heirloom, Agi|ALT V
+SHOULDER|Watchman Pauldrons|7727|32|27|SM zone drop|RNG
+SHOULDER|Forest Tracker Epaulets|2278|31|26|world drop|RNG
+BACK|no rare Agility cloak verified in the window - heirloom or green
+CHEST|Stained Shadowcraft Tunic|48689|scales|1|heirloom, Agility|ALT V
+CHEST|no rare leather Agility chest in the window - 55907 Vest of
+     Flowing Water (32/28, Desolace quest) is +12 Intellect (V)
+WRIST|Barbaric Bracers|18948|32|27|Leatherworking 23399, +4 Agi|ALT V
+WRIST|Emissary Cuffs|9455|33|28|Dark Iron Ambassador 6228, Gnomer|RNG
+     the 8.3.7 tooltip reads item level 29, required 24, random suffix,
+     which would put it below this file's floor; printed as searched
+HANDS|Dog Training Gloves|7756|34|29|Houndmaster Loksey 3974, SM|SOLO V
+     +9 Agility +6 Stamina, hit rating 6 (V)
+HANDS|Ebon Vise|7690|31|26|Fallen Champion 6488, SM|SOLO V
+     +9 Agility +6 Stamina, critical strike 6 (V) - the cheaper pair, and
+     the crit makes it the better glove for Subtlety
+WAIST|Highlander's Leather Girdle [20191 Defiler's]|20117|33|28|AB|SOLO V
+WAIST|Houndmaster's Belt|65916|33|29|SM quest 26973, +6 Agi +9 Sta|SOLO V
+LEGS|Ferine Leggings|6690|34|29|Agathelos the Raging 4422, RFK|SOLO
+     the 8.3.7 tooltip reads required 30; the search value is printed and
+     the conflict is flagged here rather than hidden
+FEET|Highlander's Leather Boots [20188 Defiler's]|20114|33|28|AB|SOLO V
+FEET|Gnomebot Operating Boots|9450|33|28|Crowd Pummeler 6229|SOLO
+RING 1|no rare Agility ring verified at 26-29 - green, of the Monkey
+RING 2|second ring, same suffix
+     13097 Thunderbrow Ring is +8 Strength +3 Agility at required 24:
+     below the floor, and the Agility is not worth the rule break
+TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena, quest 7838|SOLO
+TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
+TRINKET 2|Minor Recombobulator|4381|28|none|Engineering 140, charges|ALT
+     4381 matters more to a rogue than to any class so far: it is the
+     only trinket here that also hands back mana and health to a friendly
+     target, and a rogue's job in a group is to still be alive at the flag
+
+2. WEAPONS - WHERE THE SPECS SPLIT
+   Rogue weapon skills: daggers, fist weapons, one-hand axes, one-hand
+   maces, one-hand swords. The rare one-hand axe search at required 26-29
+   returns nothing at all, so the axe skill is dead at this tier (V).
+   Assassination and Subtlety are dagger specs: their core abilities in
+   8.3.7 require a dagger, so sections 3 and 4 are daggers only. Outlaw
+   takes any one-hand weapon and wants the slowest main hand it can get.
+DAGGER|Torturing Poker|7682|34|29|Interrogator Vishas 3983, SM|SOLO V
+     22.06 dps at 1.70 speed, +5 Agility (V). The best dagger in the
+     window and not unique, so a rogue can carry two
+DAGGER|Scout's Blade [19549 Sentinel's Blade]|19545|33|28|WSG|SOLO V
+     21.18 dps at 1.70, +7 Agility +3 Stamina (V). 19545 is the Horde
+     blade (Kelm Hargunth 14754, Northern Barrens) and 19549 the Alliance
+     one (Illiyana Moonblaze 14753, Ashenvale); the druid file in this set
+     has the two factions swapped
+DAGGER|Hypnotic Blade|7714|34|29|Arcanist Doan 6487, SM|SOLO V
+     22.14 dps but +7 Intellect: the fastest dagger here and a caster
+     stat line, so it is third despite the dps
+DAGGER|Claw of the Shadowmancer|2912|32|27|world drop|RNG V
+     +2 Intellect and a shadow bolt proc; a proc dagger, not a stat one
+FIST|Bloody Brass Knuckles|7683|31|26|Interrogator Vishas 3983|SOLO V
+     the only rare fist weapon in the window: 19.62 dps at 2.60 speed,
+     +5 Agility, hit rating 5 (V). An Outlaw off hand or a cheap main
+SWORD|The Butcher|8226|31|26|world drop|RNG V
+     19.64 dps at 2.80 speed, +5 Agility +4 Stamina (V): the slowest
+     one-hand in the pool, which is exactly what Outlaw wants in the
+     main hand
+SWORD|The Black Knight|12974|31|26|world drop|RNG V
+     19.74 dps at 1.90, no stats, shadow bolt proc (V)
+SWORD|Protector's Sword [19553 Legionnaire's]|19557|33|28|AB|SOLO
+     +7 Strength +3 Stamina: a warrior sword, listed so nobody buys it
+     for a rogue by mistake
+MACE|Looming Gavel|13048|31|26|world drop, +6 Sta +3 Agi|RNG
+OFF|a second one-hand weapon - every rogue spec dual wields in 8.3.7
+RANGED|none - a rogue has no ranged, wand or thrown slot in 8.3.7
+
+3. ASSASSINATION
+   Armour: section 1.
+   Weapons: 7682 Torturing Poker in both hands if two drop, otherwise
+   7682 main hand and 19545 [19549] off hand. Assassination's damage is
+   poison-driven, and the off-hand speed is what applies it, so the
+   1.70-speed Warsong dagger beats the slower fist weapon here.
+   Trinkets: 19024 and the Insignia; 4381 third.
+
+4. SUBTLETY
+   Armour: section 1, with 7690 Ebon Vise preferred over 7756 for its
+   critical strike.
+   Weapons: 7682 main hand, 19545 [19549] off hand. Subtlety is the one
+   spec that might take 2912 for the proc, but the proc is 35 shadow
+   damage against +7 Agility, and the Agility wins.
+   Trinkets: the same three.
+
+5. OUTLAW
+   Armour: section 1.
+   Weapons: 8226 The Butcher main hand (2.80 speed is the slowest in the
+   pool), 7683 Bloody Brass Knuckles or 19545 [19549] off hand. Outlaw is
+   the only spec that can use the sword and fist pools at all, which
+   makes it the cheapest rogue to gear: two of its three weapons are
+   world drops and dungeon drops rather than a single boss's dagger.
+   Trinkets: the same three.
+
+6. WHAT TO WEAR, SLOT BY SLOT
+   HEAD      3020 Enduring Cap.
+   NECK      13087 River Pride Choker - +9 Stamina +4 Strength, and the
+             Strength is dead weight; no Agility neck was verified.
+   SHOULDER  42952 heirloom, then 7727 Watchman Pauldrons.
+   BACK      heirloom or a green cloak. Nothing blue verified.
+   CHEST     48689 heirloom. Nothing blue exists for an Agility rogue.
+   WRIST     18948 Barbaric Bracers, then 9455 if its floor is waived.
+   HANDS     7756 Dog Training Gloves, 7690 Ebon Vise for Subtlety.
+   WAIST     20117 [20191] from Arathi Basin, then 65916.
+   LEGS      6690 Ferine Leggings, subject to the flag in section 1.
+   FEET      20114 [20188] from Arathi Basin, then 9450.
+   RINGS     two greens, of the Monkey or of Agility.
+   TRINKETS  19024 and the Insignia, 4381 as the third.
+   WEAPON    7682 twice for Assassination, 7682 + 19545 for Subtlety,
+             8226 + 7683 for Outlaw.
+
+7. HONEST SUMMARY OF THE POOL
+   A rogue is the best-served leather class in this set, because it is
+   the only one that can buy the Arathi Basin belt and boots and because
+   Interrogator Vishas drops both its best dagger and its only fist
+   weapon. Its weak slots are the same as everyone's: neck, rings, back
+   and chest have no blue Agility item in the window.
+   Three conflicts between the search pool and the 8.3.7 tooltip are
+   printed in place rather than smoothed over: 6688 and 6690 read as
+   required 30, 9455 reads as required 24, and 15339 and 15140 read as
+   green. Where the two disagree the search value is the one in the row,
+   because that is the convention the other seven files in this set use,
+   and the disagreement is stated so it can be settled on the server.
