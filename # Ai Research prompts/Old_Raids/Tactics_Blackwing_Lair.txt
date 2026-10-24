@@ -225,7 +225,12 @@ ABILITY LIST:
     -75% 6 sec on target; decurse priority = tank. Type
     unverified in source, filed as curse-family by name).
   Class calls (spell ids unverified): force one class's
-   signature harm - druids stuck in Cat Form; hunters'
+   signature harm - death knights Death Grip the whole raid
+   into his hitbox (run back to position); demon hunters'
+   controlling screen blacks out (player-only effect on the
+   page; companion behaviour unverified); monks Roll
+   uncontrollably for ~5 sec (wait it out); druids stuck in
+   Cat Form; hunters'
    ranged weapons break (unequip before calls); mages cast
    Wild Polymorph on the raid (dispel it, D-Magic); paladins
    Blessing of Protection on Nefarian (stop DPS); priests'

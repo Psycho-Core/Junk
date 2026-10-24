@@ -1,0 +1,205 @@
+TACTICS - RUINS OF AHN'QIRAJ (OLD RAIDS STEP 3 OF 16)
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Context: level 60 raid (20-player in its era) entered by a
+level 120 character with computer-controlled companions.
+Values read on warcraft.wiki.gg.
+Zone: Ruins of Ahn'Qiraj (Wowhead zone 3429). Instance map
+id and all coordinates (map, x, y, z): unverified.
+Boss entries verified on the Wowhead Ruins NPC list:
+Kurinnaxx 15348, General Rajaxx 15341, Moam 15340, Buru the
+Gorger 15370, Ayamiss the Hunter 15369, Ossirian the
+Unscarred 15339. Add entries unverified unless stated.
+D = dispel type. I = interruptible (only where read).
+Most boss pages here name abilities WITHOUT spell ids; ids
+are marked unverified rather than invented (Kurinnaxx is
+the exception - his page links every id).
+
+1. KURINNAXX (15348)
+PHASES: single phase; Frenzy at 30% health (page strategy:
+   enrage, more physical damage + attack speed).
+TANK: tank him facing away from the raid (Wide Slash 25814
+   frontal, Mortal Wound stacks on the frontal target);
+   offtank stays behind him and taunts when Mortal Wound
+   stacks climb (10% healing reduction per stack, read).
+GROUP: melee stack on one flank; ranged spread. A player
+   caught in a Sand Trap 25656 (silence + 75% miss) waits
+   it out - bandage/potion, do not run through the group.
+GROUND: 25656 Sand Trap - placed under a player; silence
+   zone. Move out of the trap area.
+ADD ORDER: none.
+ABILITY LIST:
+  26527 Frenzy - +75% attack speed (at 30%, see PHASES).
+  25646 Mortal Wound - healing -10% per stack on target.
+  25656 Sand Trap - see GROUND.
+  26446 Summon Player - summons an enemy player to him.
+  3391 Thrash - 2 extra attacks.
+  25814 Wide Slash - frontal cone +314.
+AI RULE: only the current tank stands in front of him;
+  swap tanks on Mortal Wound stacks, never heal through
+  a full stack.
+
+2. GENERAL RAJAXX (15341) - SEVEN WAVES, THEN THE BOSS
+PHASES: waves 1-7 (officer + Swarmguard Needlers + Qiraji
+  Warriors each), then Rajaxx. Allied NPCs Lieutenant
+  General Andorov + 4 Kaldorei Elite help (entries
+  unverified) - keep Andorov alive, he heals the raid
+  (Aura of Command, read). Talking to Andorov starts it.
+TANK: hold each wave at its spawn side; wave officers tanked
+  facing away (Pakkon's Sweeping Slam is frontal). Rajaxx
+  tanked with the raid's backs to a wall (Thundercrash
+  knockback); re-taunt instantly after Thundercrash and
+  after his aggro-drop.
+GROUP: CC adds (they can be frozen/feared/rooted/stunned -
+  page Weaknesses), kill the officer first each wave; on
+  wave 2 kill Captain Tuubid fast (Attack Order marks one
+  companion and all adds swarm them - protect the marked).
+  Keep Drenn's Hurricane away from Andorov (move him).
+GROUND: Drenn's Hurricane - channelled AoE around him
+  (id unverified). Move out / move him away from NPCs.
+ADD ORDER (per wave): P1 the officer, P2 Swarmguard
+  Needlers (fragile, deadly - page), P3 Qiraji Warriors.
+  Wave officers (entries unverified): W1 Captain Qeez
+  (Intimidating Shout, AoE fear) 2N+4W; W2 Captain Tuubid
+  (Attack Order) 3N+3W; W3 Captain Drenn (Hurricane)
+  5N+1W; W4 Captain Xurrem (Shockwave) 3N+3W; W5 Major
+  Yeggeth (Blessing of Protection - physical immunity;
+  switch to casters or wait it out) 4N+2W; W6 Major Pakkon
+  (Sweeping Slam) 2N+4W; W7 Colonel Zerran (Enlarge -
+  dispellable, offensive dispel) 3N+3W (counts read).
+ABILITY LIST (ids unverified unless stated):
+  Thundercrash (Rajaxx) - halves everyone's current health
+    (minimum 100), knockback, aggro reset. Id unverified.
+  Aggro drop (Rajaxx) - drops current target. Id unv.
+  Officer abilities as above; Enlarge is D-Magic offensive
+  (dispellable per page).
+AI RULE: officer first every wave, and after Thundercrash
+  the tank re-taunts before anyone else acts.
+
+3. MOAM (15340)
+PHASES: P1 drain race: he drains mana (6 targets, +1000
+  to himself per target) toward a full bar = Arcane
+  Explosion (3000 raid-wide + knock-up). At 90 sec he
+  turns to stone (immune, inactive) and summons 3 Mana
+  Fiends; resume when they die or after 90 sec (page).
+TANK: hold him centre; no positional ability was read.
+GROUP: mana-drain classes (priest/warlock/hunter drains
+  per page) drain HIM constantly - the fight is won by
+  keeping his mana bar from filling; mana users enter
+  a few seconds late (page: avoids the first drain).
+GROUND: none read.
+ADD ORDER: P1 Mana Fiends (x3, entry unverified) the
+  moment they spawn - killing them ends stone form.
+  Mana Fiend: Arcane Explosion (no knockback), Counterspell
+  12-sec school lock - spread casters by school.
+ABILITY LIST (ids unverified - page names, no ids):
+  Drain Mana, Arcane Explosion (at full mana), Trample
+  (physical AoE), Turn to Stone (90-sec form change).
+AI RULE: drain his mana non-stop; if his bar fills, the
+  explosion is the group's fault, not the healers'.
+
+4. BURU THE GORGER (15370)
+PHASES: P1 kite-and-eggs to 20%: he cannot be tanked and
+  is immune to taunt; he fixates a player and speeds up
+  until an egg bursts on him. P2 at 20%: shell breaks,
+  normal tank fight + Creeping Plague stacking raid DoT
+  (80/tick, stacks every 3 ticks, undispellable even by
+  Ice Block - page). Kill fast in P2.
+TANK: P1 NO tank - the fixated companion kites him over
+  the eggs. P2 tank normally.
+GROUP: pre-damage the eggs to ~5%, burst one only when
+  Buru stands on it (an egg does 45000 to Buru, 100-500
+  to nearby players by proximity - keep distance from
+  the burst). Kill each Hive'Zara Hatchling that hatches
+  (entry unverified). Six eggs in the arena (read: "the
+  six eggs").
+GROUND: the eggs themselves are the weapon/zones; the
+  pool water slows the kiter - kite on land (page warns
+  swimming gets the target caught: Dismember stacking
+  bleed 1248/2 sec if he reaches you).
+ADD ORDER: P1 Hive'Zara Hatchlings as they hatch; P2
+  none. NEVER DPS Buru directly in P1 (immune progress
+  is by eggs only).
+ABILITY LIST (ids unverified): Dismember (on catch),
+  Thorns 200 aura, Creeping Plague (P2), egg burst.
+AI RULE: if he is following you, run him over an egg -
+  never stop, never swim; everyone else bursts the egg
+  only when he is on it.
+
+5. AYAMISS THE HUNTER (15369)
+PHASES: P1 airborne to 70%: ranged only, melee cannot
+  reach her; she is taunt-immune. P2 at 70% she lands -
+  complete aggro wipe (page), re-establish threat before
+  DPS; offtank ready (main tank may be sacrificed).
+TANK: P1 a ranged companion holds her (Poison Stinger
+  stacks climb on the top-aggro target, 25 Nature/sec,
+  stacks to 100 - swap/let stacks be healed; page tactic:
+  never let a target pass ~20 stacks without help).
+  P2 tank at the altar, back to the mountain edge.
+GROUP: melee wait at the altar base, NOT under her: their
+  job is the Hive'Zara Larva. When a companion is Paralyzed
+  on the altar, a larva runs for them - kill it before it
+  arrives or the player dies and an elite Hive'Zara wasp
+  spawns (page; entries unverified). AoE the swarmer waves
+  (~20 low-health wasps).
+GROUND: none read; Stinger Spray is raid-wide (1000
+  Nature, ~30 sec).
+ADD ORDER: P1 Hive'Zara Larva (sacrifice target), P2
+  swarmers (AoE), P3 the elite wasp ONLY if a larva got
+  through. Boss priority returns after each add call.
+ABILITY LIST (ids unverified): Stinger Spray, Poison
+  Stinger (flying only), Paralyze (altar sacrifice),
+  swarm summon, Fly (to 70%).
+AI RULE: kill the larva before it reaches the altar -
+  that one add is worth more than any boss damage.
+
+6. OSSIRIAN THE UNSCARRED (15339)
+PHASES: single phase, but fought as a kite loop: he starts
+  in Supreme Mode (huge melee, fast). An Ossirian Crystal
+  activated near him debuffs him 45 sec (weak, slow, one
+  school vulnerable; crystals rotate around the room).
+  If the debuff lapses in Supreme Mode he one-shots the
+  tank - the loop never stops. (Holy damage is exempt
+  from his resistances/vulnerabilities - page note.)
+TANK: tanks wait behind the first crystal; the puller
+  (mounted, marked) body-pulls; tank picks him up only
+  after the first crystal fires, then kites crystal to
+  crystal; no raid DPS until after the second crystal
+  (threat is thin - page).
+GROUP: move with the tank between crystals; designated
+  clicker fires the next crystal at 10-15 sec remaining
+  on the debuff (it has a cast time); stay out of the
+  moving Sand Vortex tornadoes (very high damage inside;
+  hunters can Track Elementals to see them); decurse
+  Curse of Tongues off healers first.
+GROUND: Sand Vortex tornadoes - moving zones, id
+  unverified; crystals' positions are the safe rally
+  points (tank him just short of the crystal so his
+  Warstomp knockback cannot throw the clicker).
+ADD ORDER: none. Crystals are objects, not adds.
+ABILITY LIST (ids unverified): Supreme Mode, Enveloping
+  Winds (10-sec stun on the aggro target; he ignores the
+  stunned target, threat preserved; cannot be dispelled),
+  Curse of Tongues (AoE around him, D-Curse), Warstomp
+  (1500 + knockback), Sand Vortex summon.
+AI RULE: when his weakness debuff is about to expire, be
+  moving to the next crystal - never let him reach anyone
+  in Supreme Mode.
+
+TRASH (entries unverified - not read for this file)
+  Entrance to Kurinnaxx: silithid/qiraji packs (Qiraji
+    Warriors, Needlers type mix as in Rajaxx waves);
+    spells unverified; kill order: Needler-type first
+    by the Rajaxx-wave reasoning - unverified here.
+  Reservoir area (Moam/Buru): obsidian destroyer and
+    silithid packs; mana-drain risk to casters -
+    unverified pack detail.
+  Hive area (Ayamiss/Buru): wasp/swarmer packs; AoE
+    groups; unverified.
+  Ossirian courtyard approach: anubisath-type packs;
+    unverified. Kaldorei NPC allies only exist for the
+    Rajaxx event - heal Andorov between waves.
+  General trash AI RULE: keep Andorov alive during the
+    Rajaxx event above all trash priorities; elsewhere,
+    interrupt/dispel unverified - no invented trash ids.
+
+END OF STEP 3. Next step is 04_Temple_of_Ahn_Qiraj.txt.

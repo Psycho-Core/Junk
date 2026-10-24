@@ -1,0 +1,53 @@
+AUDIT - Tactics_Blackwing_Lair.txt (Old Raids step 2)
+Re-checked against warcraft.wiki.gg boss pages and the
+Wowhead Blackwing Lair NPC list. Result: 15 pass, 1 corrected,
+3 unverified (already marked in the file).
+
+PASS:
+ - Boss entries 12435, 13020, 12017, 11983, 14601, 11981,
+   14020, 11583 (Wowhead BWL sidebar list).
+ - Razorgore: egg mechanic, room-wipe if he dies early
+   (Wowhead, explicit), add caps 40 orcs / 12 dragonspawn,
+   abilities 19873/19872/22425/23023/24375/19632/23040.
+ - Vaelastrasz: 23513 (3 min Essence), 18173 rotation (mana
+   user every 15 sec, every third on tank), 23461/23642/
+   19983/15847. Solo note on the page - Burning Adrenaline
+   kills regardless of level - supports the AI rule at 120.
+ - Firemaw/Ebonroc/Flamegor drake kit: 23341 (explicitly
+   non-dispellable), 22539, 23339, 3391, 20279; Ebonroc
+   23340 heal-on-hit and the taunt-swap rule; Flamegor
+   23342 Enrage cadence 10-15 sec and Tranq rotation.
+ - Chromaggus: breaths hit all in line of sight (not just
+   frontal), 2 of 5 per lockout, 30-sec alternation; the
+   five Brood Afflictions and their dispel types incl.
+   Bronze = Hourglass Sand only; mutation at 5 stacks;
+   frenzy 10-15 sec; hard enrage at 20%.
+ - Nefarian: 22686/19983/22539/23364/22687, 3 phases,
+   Bone Constructs at 20%, the nine class calls filed.
+
+CORRECTED:
+ - Nefarian class calls omitted three classes that exist in
+   8.3.7 and are on the source page: Death Knight (whole
+   raid Death Gripped into his hitbox - run back out),
+   Demon Hunter (controller screen blackout - a player-only
+   effect; companion behaviour unverified), Monk
+   (uncontrollable Roll ~5 sec - wait it out). All three
+   are now in the file. Evoker is correctly absent (not a
+   class in 8.3.7); the page's Evoker call is post-BfA.
+
+UNVERIFIED (stand as marked):
+ - Vaelastrasz exact starting health percentage (the file
+   does not assert one; the fight's 3-minute shape is read).
+ - Broodlord Lashlayer and Chromaggus breath/affliction
+   spell ids: pages name the abilities without ids.
+ - Nefarian phase 1 add counts/colours per lockout, and
+   Veil of Shadow's dispel type (filed curse-family by
+   name, not read).
+ - Instance map id and coordinates (zone % only), and all
+   trash entries. Suppression Room numbers (30-sec whelp
+   respawn, aura to 20%) are read and pass.
+
+Pattern carried forward: a retail wiki page now lists more
+classes (and a whole Season of Mastery ruleset) than the
+8.3.7 client contains - every "current" list must be
+filtered to what existed in BfA before it is filed.
