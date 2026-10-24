@@ -1,0 +1,224 @@
+TWINK29 - SHAMAN - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, PROFESSIONS, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+Sources: the profession files in Twink29_Professions-completed (Enchanting,
+Alchemy, Inscription, Cooking and First Aid, Engineering, Leatherworking),
+the shaman item and talent steps, and the wiki pages for Flametongue,
+Flametongue Weapon, Windfury Weapon, Earthbind Totem and Tremor Totem
+read for this file.
+V = read. Where a number was not read it says unverified.
+
+0. THE SHAPE OF THIS FILE
+   A shaman is two classes sharing one file: Enhancement enchants and
+   drinks like the rogue, Elemental and Restoration like the priest and
+   warlock. The step 1 file found the casters have almost no Intellect
+   gear; this file finds they at least have the casters' full enchant and
+   oil list, which the melee half cannot use. And the class feature this
+   step asks about - weapon imbues - turns out to be mostly absent in
+   this build. Section 4 is the one to read.
+
+1. ENCHANTS - ONE PER SLOT, ALL INSIDE SKILL 225
+   Enhancement takes the melee column, Elemental and Restoration the
+   caster column. Shared slots first.
+CLOAK|13746 Greater Defense +50 armour (205) for all three; 13882 Lesser
+   Agility +3 Agility (225) for Enhancement. V
+CHEST|Enchant Chest - Greater Health|13640|+35 health|skill 160|V
+WRIST|Enhancement: 13661 Bracer - Strength +5 Strength (180), the wrong
+   stat, as in the rogue file. Elemental: 13622 Lesser Intellect +3 Int.
+   Restoration: 13642 Bracer - Spirit +5 Spirit. All V.
+HANDS|Enhancement: 13815 Gloves - Agility +5 Agility (210). Casters: no
+   caster glove enchant inside 225, the gap every caster file reports. V
+LEGS|Heavy Armor Kit|4265|+24 armour|item level 30, req 20|V
+FEET|Enchant Boots - Minor Speed|13890|movement speed|skill 225|V
+   Worth most to Enhancement, which has to stay in melee range, and to a
+   Restoration bot that has to keep up with a moving group.
+WEAPON|Enhancement: 13693 Striking +3 weapon damage (195) on both
+   weapons, the rogue's double cost again. Casters: no caster weapon
+   enchant inside 225 - oils instead, section 2. V
+OFF|13693 on the second Enhancement weapon; nothing for a shield. V
+NECK|190894 and RING|190871 / 191014 - current-expansion enchanter-only
+   enchants, ALT, effects unverified, unusable with only Classic skill.
+   ALT LIST, above the cap: 13939 (240), 13943 (245), 13898 Fiery Weapon
+   (265), 20012 Gloves - Greater Agility (270), 20031 (300), 25080
+   Gloves - Superior Agility (300). V, Enchanting file.
+
+2. CONSUMABLES
+   BATTLE ELIXIR
+     Enhancement: Elixir of Agility 8949, +15 Agility for 1 hour,
+       requires 27, spell 11328 (V).
+     Elemental and Restoration: no Intellect battle elixir in the window
+       was found in the audited Alchemy file. Elixir of Firepower 6373
+       (+10 fire spell damage, requires 18) exists; how much of an
+       Elemental rotation it touches at 29 was not read, so it is listed
+       as available and not recommended on a claim this file cannot back.
+   GUARDIAN ELIXIR
+     Elixir of Greater Defense 8951, +250 armour, requires exactly 29
+     (V); Elixir of Fortitude 3825, requires 25 (V), the cheaper one. A
+     mail class needs the armour less than the cloth casters did.
+   WEAPON OILS - casters only
+     Minor Wizard Oil 20744, +7 Intellect for 1 hour, requires 5 (V):
+       Elemental, and Restoration if it wants damage.
+     Minor Mana Oil 20745, +7 Spirit for 1 hour, requires 20 (V):
+       Restoration's pick.
+     Lesser Wizard Oil 20746 requires 30 (V): out by one level.
+     Enhancement uses no oil: its weapons carry permanent enchants, and
+     its fire damage comes from an ability, section 4.
+   POTIONS
+     Greater Healing Potion 1710, requires 21 (V). Lesser Mana Potion
+     3385, requires 14 (V), for the two mana specs. Free Action Potion
+     5634, requires 20 (V), for Enhancement above all - a rooted melee
+     does nothing. Swiftness Potion 2459, requires 5 (V). Shadow
+     Protection 6048 and Frost Protection 6050 (V).
+     All potions share one cooldown, so a bag of them is one potion.
+   SCROLLS
+     Scroll of Intellect II 2290 (+5 Int, requires 15), Scroll of
+     Agility II 1477 (+5 Agility, requires 15, Inscription skill 85),
+     Scroll of Stamina II 1711 (+5 Sta, requires 15). All V.
+   FOOD
+     Roast Raptor 12210, +8 Stamina and +8 Spirit for 15 min, requires
+     25 (V). Enhancement takes it for the Stamina alone.
+   BANDAGES
+     8544 Mageweave Bandage, heals 1600 over 8 sec, Tailoring 240 (V),
+     bought not made; 6451 Heavy Silk Bandage, heals 1280, skill 210 (V).
+     A shaman heals itself with spells, so bandages are the mana-free
+     option between fights rather than a survival tool.
+
+3. PROFESSIONS
+   ENGINEERING  The pick for all three specs. Iron Grenade 4390 and Big
+     Iron Bomb 4394 give a 3 sec stun, Minor Recombobulator 4381 (item
+     level 28, Engineering 140, 10 charges) restores 150 to 250 health
+     and mana to a friendly target and attempts to dispel polymorph (V),
+     and Discombobulator Ray 4388 cuts a target's damage for 12 sec
+     (V, Engineering file). Bombs share a cooldown and cannot be chained.
+     A class with an interrupt already (Wind Shear, whose level was not
+     read for this file) gets less from the stun than a rogue does, and
+     more from 4388, which no other profession offers.
+   LEATHERWORKING  Makes mail and leather armour and the armour kits;
+     the step 1 wrist and chest answers are heirlooms, so this is a
+     money profession here rather than a gearing one. Skinning funds it.
+   ENCHANTING  Self-supply for the most split enchant list in the set:
+     an Enhancement bot needs the melee column, a caster bot the other.
+   ALCHEMY  Elixir of Agility 8949, the mana potions, 8951.
+   RECOMMENDATION  Engineering + Enchanting for self-sufficient bots;
+     Engineering + Leatherworking for a played character that will skin
+     its way to its own kits. Blacksmithing gives a shaman nothing it
+     can wear at 29 that Leatherworking does not.
+
+4. WEAPON IMBUES - THE SECTION THIS STEP ASKED FOR
+   The classic picture of a shaman choosing between Flametongue,
+   Windfury, Frostbrand and Rockbiter on each weapon does not exist in
+   8.3.7. Two of the four imbues were removed in 6.0.2 and only came back
+   in 9.0.1, after this build.
+     Flametongue, spell 193796, Enhancement, learned at level 12 (V).
+       Not an imbue in BfA: an instant attack on a 12 sec cooldown that
+       scorches the target and enhances your weapons for 16 sec, each
+       attack dealing up to 2.6% of attack power as Fire damage. Removed
+       in 9.0.1 and replaced by Flametongue Weapon. This is what Hot
+       Hand, the step 2 Enhancement talent, procs from, so a 29
+       Enhancement bot presses it on cooldown and that is the whole
+       imbue routine.
+     Flametongue Weapon - NOT in this build. Removed in 6.0.2 ("Replaced
+       with Flametongue"), re-added in 9.0.1 at level 7 (V). Any guide
+       telling a 29 to imbue Flametongue Weapon for an hour is reading
+       Shadowlands or later.
+     Windfury Weapon - NOT in this build either. Removed in 6.0.2 and
+       replaced by a passive; reintroduced in 9.0.1 "replacing the
+       passive ability Windfury" (V). So an 8.3.7 Enhancement shaman does
+       get Windfury extra attacks, but from a passive it never casts,
+       and - this is the part that matters for the talent file -
+       Forceful Winds, the level 30 trap, was written against that
+       passive, which is why its text talks about Windfury attacks
+       stacking rather than about an imbue. The passive's proc chance at
+       29 was not read, so no number is given.
+     Elemental and Restoration have no imbue at all in this build. Their
+       weapons carry an oil (section 2) or nothing, which is one more
+       reason the staff loadout in step 1 is the simpler bot build.
+   PRACTICAL ANSWER  Enhancement: keep Flametongue up, enchant both
+     weapons with 13693, and carry no imbue item, because there is none
+     to carry. Casters: wizard or mana oil, refreshed hourly.
+
+5. TOTEMS WORTH CARRYING
+   Totems are abilities in 8.3.7, not items - nothing goes in a bag. What
+   a 29 can actually drop is shorter than the classic list:
+     Earthbind Totem, learned at level 8 in BfA (9.0.1 lowered it to 5)
+     (V): slows enemies within 10 yards by 50% for up to 20 sec, 30 sec
+     cooldown. Available to all three specs and the one totem a bot
+     should drop on being trained or on a flag carrier.
+     Grounding Totem, Restoration, PvP talent, level 20 (V, step 2):
+     redirects harmful spells to itself, 30 sec cooldown, 5 health in
+     this build.
+     Tremor Totem - NOT available at 29. Removed in 7.0.3 and re-added
+     in 8.0.1 at level 58 (V). This is the totem every classic shaman
+     guide builds around for fear fights, and a 29 in this build simply
+     does not have it; the fear break has to come from the Insignia or a
+     racial, section 6.
+     Healing Stream Totem, Capacitor Totem and Wind Rush Totem: their
+     BfA learn levels were not read for this file, so they are named as
+     existing and not filed as available or unavailable. Capacitor is
+     the one worth checking first on the server, since a stun totem
+     would change the Enhancement script.
+
+6. RACES
+   Which races could be shamans in 8.3.7 is not verified (the wiki race
+   pages are current-expansion pages), so this list's membership is
+   unverified and its racial effects are the read part. Shaman has the
+   widest race list of any class in this set, which makes the pick
+   matter less, not more.
+   READ EARLIER IN THIS SET
+     Orc       Blood Fury, 2 min cooldown: the Blood Fury page lists
+       shaman among the classes that receive both the attack power and
+       the spell power (Intellect since 8.0.1) buff (V, warlock file).
+       The only racial here that helps all three specs.
+     Undead    shamans cannot be undead - included to say so plainly,
+       because Will of the Forsaken has been the first pick in four
+       files running and it is not available to this class. That is a
+       real cost in a bracket where Tremor Totem is also missing:
+       a 29 shaman has no fear break of its own at all.
+     Blood elf shamans cannot be blood elves either, so no Arcane
+       Torrent purge.
+   NAMED, IDS AND FIGURES UNVERIFIED
+     Troll     Berserking, haste on demand.
+     Tauren    War Stomp, a short area stun - the closest thing this
+       class gets to a second interrupt.
+     Goblin    Rocket Jump, a leap; a shaman's only gap closer or escape.
+     Dwarf     Stoneform, a debuff purge and damage reduction.
+     Draenei   Gift of the Naaru, a heal over time.
+     Pandaren  Quaking Palm, an incapacitate.
+     Mag'har   Ancestral Call, a stat gain.
+     Zandalari Regeneratin', a heal channel; Embrace of the Loa, a stat.
+     Kul Tiran Haymaker, a knockback stun.
+     Dark iron Fireblood, a debuff purge and stat gain.
+     Vulpera   Bag of Tricks, damage or healing on demand - Vulpera are
+       an 8.3 addition, so this is the one allied race that a build
+       35662 server definitely postdates; whether it is enabled is
+       unverified.
+   PICKS  Orc first for any spec. Tauren if the bot needs the stun,
+     Goblin if it needs to move. Avoid nothing outright, but note the
+     class-level fact: with no undead or blood elf option and no Tremor
+     Totem, a 29 shaman is the only healer in this set with neither a
+     fear break nor a purge racial, and the Insignia trinket is not
+     optional for it.
+
+7. WHAT TO BUY, IN ORDER
+   First  20744 or 20745 oil for the casters; 8949 Elixir of Agility
+          for Enhancement.
+   Second 5634 Free Action Potions (Enhancement), 3385 Lesser Mana
+          Potions (casters).
+   Third  12210 Roast Raptor, then the scroll for the spec's stat.
+   Fourth 1710 Greater Healing Potions, 8544 Mageweave Bandages.
+   Last   the enchants: 13890 boots, then the spec's gloves and weapon
+          enchants, 13640 chest, the cloak, the bracers.
+
+8. WHAT THIS FILE DOES NOT HAVE
+   A caster glove enchant inside 225 (none exists that was read).
+   An Intellect battle elixir (none found; Firepower is unverified for
+   this class rather than recommended).
+   Flametongue Weapon or Windfury Weapon as castable imbues.
+   Tremor Totem, or any fear break native to the class at 29.
+   A ring or neck enchant a 29 can apply (enchanter-only, ALT).
+   A verified shaman race list for 8.3.7.
+   The gaps here are different in kind from the other classes': a rogue
+   was missing poisons for two specs, and a shaman is missing the imbues
+   and the fear totem that define the class in every other era. What it
+   has instead is the widest race list in the set and an Orc racial that
+   is the only one anywhere in these files to buff all three specs.
