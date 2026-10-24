@@ -8,7 +8,7 @@ unverified. Plain text, no code.
 
 1. MATCH CONTEXT
    - 15 v 15, two rounds. Round length 600 s (BG_SA_ROUNDLENGTH =
-     60 * IN_MILLISECONDS, LC BattlegroundStrandOfTheAncients.h).
+     600 * IN_MILLISECONDS, LC BattlegroundStrandOfTheAncients.h).
      Round 2 is given the round-1 clear time (capped at 600 s); if the
      second round runs past its budget both scores sit at 600 ->
      EndBattleground(0) tie (cpp PostUpdate/EventPlayerClickedOnFlag
@@ -277,8 +277,8 @@ unverified. Plain text, no code.
        creature_template: name "Antipersonnel Cannon", npcflag
        16777216 (VEHICLE), type 9, faction 614 (BG overrides to the
        DEFENDERS' faction in OverrideGunFaction: BgFactions[Attackers
-       ? ALLIANCE : HORDE] = defF - defenders crew them), Health-
-       Modifier 8.64198, VehicleId 160 (DBC, unreadable), AIName
+       ? ALLIANCE : HORDE] = defF - defenders crew them),
+       HealthModifier 8.64198, VehicleId 160 (DBC, unreadable), AIName
        'NullCreatureAI', ScriptName empty. Wiki: turret has 60,000
        HP at level 80; actual value on this server unverified.
        Ten spawn rows (BG_SA_GUN_1..10), paired two per gate by
