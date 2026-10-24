@@ -30,14 +30,23 @@ BLACKWING DESCENT (map 669)
   never let them reach anyone (they infect/spawn more);
   lava spew/pools move. AI RULE: parasites are kept at
   range forever; chained head = all cooldowns.
-5. OMNOTRON (4 golems, 2 active): kill the ACTIVE pair
-  in order called; never hit a shielded golem (shield
-  breaks = raid damage/punish); Electron: Lightning
-  Conductor player runs out; Toxitron: poison adds,
-  slime pools (stand in green for buff only when called
-  - unverified), Arcanotron: stand in his power circle
-  (buff) but pull him out of it first; Magmatron:
-  flamethrower chases (kite), Acquisition Target laser.
+5. OMNOTRON (4 golems, activated in sequence, 100 energy
+  each): DPS the active golem; when a golem raises its
+  shield STOP attacking it - each shield punishes hits
+  differently (page): Electron's Unstable Shield (79900)
+  answers attacks with Static Shock on a nearby player;
+  Magmatron's Barrier (79582) explodes for raid damage
+  if BROKEN (73125-76875); Arcanotron's shield converts
+  hits into his own power; Toxitron's shell poisons
+  attackers. Electron: 79888 Lightning Conductor player
+  runs out (10 sec). Toxitron: tank him IN his Chemical
+  Cloud (91472: +50% damage taken by anything inside -
+  page), kill Poison Bombs before they reach their
+  fixated player (80094). Arcanotron: tank him OUT of
+  his Power Generator circle, players stand IN it.
+  Magmatron: 92036 Acquiring Target - the named player
+  gets the 79504 Flamethrower channel: drop aggro or be
+  healed through it standing aside.
   AI RULE: shields decide targets, not health bars.
 6. MALORIAK: vial phases: red (adds burn, AoE them
   grouped), blue (spread, frost), green (all adds take
@@ -46,22 +55,33 @@ BLACKWING DESCENT (map 669)
   stopped by call - unverified); below 25%: frost orbs
   kite. Adds must die in green or tank is overrun.
   AI RULE: colour calls the job - green means adds die.
-7. ATRAMEDES: SOUND is the second health bar: hitting
-  100 sound = killed by Sonar. Discs on the floor chase
-  players (run out, they spawn sonar bombs); air phase:
-  run the beam (he fixates and breathes a lane, speed
-  matters), gongs interrupt his Searing Flame cast and
-  reset via stun (limited gongs - spend on searing only);
-  ground: modulation circles move out, tracking flame
-  kited. AI RULE: watch your sound, not your health;
-  gongs are a budget, never waste one.
-8. CHIMAERON: bile-o-tron ON = raid can live at 10k
-  (heals only need to top past 10000 - do not overheal);
-  Caustic Slime hits if above... split spit between
-  stacked groups; Feud: stack tight, heal to 10k;
-  tank swap on Double Strike/Break; below 20%: bot
-  off, mortality - pure burn, no healing works as
-  before. AI RULE: 10,000 is full health until 20%.
+7. ATRAMEDES: SOUND is the second health bar: at 100
+  sound he channels 78868 Devastation on you (24375-
+  25625 every 0.5 sec - page), not an instant kill.
+  Ground (80 sec): 92451 Modulation (+7 sound raid-wide);
+  92407 Sonic Breath follows a non-tank player (run the
+  agreed direction); once per phase 92423 Searing Flame
+  - the designated gong-hitter strikes a gong: Vertigo
+  stuns him 5 sec, interrupts it, and resets EVERYONE'S
+  sound to zero. 10 gongs, each one-use (page strategy).
+  Air: 78353 Roaring Flame Breath chases a player and
+  speeds up (after a gong he follows the gong-hitter),
+  92556 Sonar Bombs drop (move), flame patches stay.
+  AI RULE: watch your sound, not your health; the gong
+  is for Searing Flame and the sound reset, on call.
+8. CHIMAERON: Bile-o-Tron ONLINE: spread out; its buff
+  (Finkle's Mixture) stops Caustic Slime and Massacre
+  one-shotting you, so healers only keep everyone above
+  10,000 - do not overheal. Massacre may knock the bot
+  OFFLINE: then the heads Feud - STACK tight and heal
+  as much as possible until it returns (page strategy).
+  Tanks: swap around Break stacks; a Double Attack after
+  Break can drop a tank to 1 hp - healers rescue fast
+  (page). At 20%: 82934 Mortality (page) - he is
+  taunt-immune, takes +10% damage, and healing done is
+  cut by 99%: pure burn, healers DPS too.
+  AI RULE: 10,000 is full health while the bot lives;
+  at 20% stop healing maths and burn.
 9. NEFARIAN (page ids): P1 Nefarian flies, resurrects
   Onyxia; dragons tanked 50+ yd apart (78619 Children of
   Deathwing: +100% attack speed if close - page); bone
@@ -130,17 +150,22 @@ BASTION OF Twilight (map 671)
 
 THRONE OF THE FOUR WINDS (map 754)
 15. CONCLAVE OF WIND (3 platforms, jump by wind):
-  Nezir (ice: tank swap, wind chill stacks; his ultimate
-  at full energy = stack for heals), Anshal (nature:
-  adds - kill flowers, stand in his green circle hurts -
-  pull out; ultimate: spread), Rohash (wind: tornadoes
-  dodge, wind blast rotates around him - stay behind the
-  turn; ultimate: group up). All three must die within
-  ~60 sec of each other or they revive. Ultimate energy
-  calls: everyone crosses to Nezir for his (healing),
-  spreads for others (era calls, unverified locally).
-  AI RULE: three bosses, one death - synchronise the
-  last 10%.
+  PLATFORM RULE (page intro): every platform must always
+  have an attackable player on it, or that djinn puts a
+  punishing debuff on the whole raid. Nezir (ice: tank
+  swap, wind chill stacks). Anshal (nature: 85422
+  Nurture summons Ravenous Creepers - kill them; 86206
+  Soothing Winds green circle HEALS his allies 20000/sec
+  and silences/pacifies players inside (page) - pull him
+  OUT of it and never stand in it yourself). Rohash
+  (wind: tornadoes dodge, Wind Blast rotates around him -
+  stay behind the turn). At full energy all three
+  ultimate together: raid gathers on Nezir's platform to
+  heal through his and avoids the other two (era call).
+  All three must die within ~60 sec of each other or
+  they revive (revive mechanic unverified here).
+  AI RULE: never leave a platform empty; three bosses,
+  one death - synchronise the last 10%.
 16. AL'AKIR: P1: squall line tornado wall has ONE gap -
   stand in it; wind burst knocks back (stand near him,
   run in after); ice patches on ranged. P2: acid rain

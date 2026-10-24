@@ -1,0 +1,169 @@
+TACTICS - Cataclysm B (OLD RAIDS STEP 11 OF 16)
+Firelands, Dragon Soul.
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Spell ids unverified unless stated as page-read;
+creature entries and coordinates unverified throughout.
+Map ids: Firelands 720, Dragon Soul 967 (verify on
+server). Both raids also exist in the 8.3.7 client's
+normal/heroic 10/25 forms; numbers below are era rules,
+not re-verified values.
+
+FIRELANDS (map 720)
+1. BETH'TILAC: two levels: a team rides webs UP to her
+  (tank/healer/dps), ground team kills spiderlings
+  (broodlings run at players and explode - ranged kill
+  them), spinners (taunt them DOWN for ground team),
+  drones (tank, face away). At ~20% she descends:
+  everyone down, burn, Frenzy heal race (widows kiss
+  tank debuff - healers rotate).
+  AI RULE: upstairs is a shift, not a suicide - descend
+  when she does; broodlings never reach a player.
+2. LORD RHYOLITH: he walks toward lava; steering him is
+  the fight: hitting ONE leg turns him that way - DPS
+  calls: left leg = turn left, right leg = right.
+  Never let him drink lava (armor up/raid damage).
+  Fragments/sparks (adds): offtank, fragments die fast,
+  sparks kept 30+ yd from raid (they pulse). At 25%
+  armor gone: tank and burn, stomp heal.
+  AI RULE: legs are steering, not targets of opportunity
+  - hit the CALLED leg only.
+3. ALYSRAZOR: air team: flyers pass through her rings
+  (stacking haste/buff - miss 3 and you fall); ground:
+  hatchlings on two tanks (feed them worms or they
+  enrage - tantrum), initiates channel firestorms
+  (interrupt), her burnout phases (she crashes at 0
+  energy: BURN, she takes +damage; avoid her re-ignite
+  blast - run to edges). Feathers on ground grant speed
+  (3 = flight for the assigned flyer).
+  AI RULE: rings are fuel; a hatchling unfed is a wipe.
+4. SHANNOK: his dogs: Rageface (fixates a player - if it
+  sticks, DPS dog or player dies; traps: crystal prison
+  traps to catch dogs - drag them over traps), Rip
+  (bleeds tank), Shannox throws his spear (dog fetches -
+  kite time). Immolation traps on players (move).
+  Kill order: Rageface first (era), then Rip, boss;
+  killing dogs enrages him (stacking) - balanced burn.
+  AI RULE: dogs are kited through traps, never tanked
+  standing; traps are tools, not just hazards.
+5. BALEROC: crystal rotation: Torment shards spawn -
+  assigned players soak ticks (swap at called stacks,
+  ~12-15 era) gaining Vital Spark; healers heal the
+  TANK to convert sparks into tank-healing power (Vital
+  Flame window). Incendiary Soul tank swap; Decimation
+  Blade: tank must be healed above 90% or the decimate
+  hit kills (special heal call). Countdown link: linked
+  players run TOGETHER.
+  AI RULE: shard soaks are a roster, not volunteers;
+  decimate means top the tank, nothing else matters.
+6. MAJORDOMO STAGHELM: he swaps form on raid SPREAD/
+  STACK: stacked = scorpion (flame scythe splits among
+  stacked players - stay stacked), spread = cat (leaps
+  on players, leaving flame pools - stay spread). Each
+  swap grants him Concentration (energy resets by
+  forcing swaps before specials: force a swap before
+  his energy hits 100 to dodge the special). Burning
+  Orbs (heroic): soak rotation.
+  AI RULE: the raid's formation is his form - call the
+  swap before 100 energy, every time.
+7. RAGNAROS (page ids, stage 1): P1: 98708 Sulfuras
+  Smash (he faces a player, smash point kills within
+  5 yd - page; lava waves 98928 roll out - sidestep),
+  100115 Wrath of Ragnaros knockback on locations; magma
+  traps on players (detonate carefully one at a time -
+  each raises the next trap's damage; era).
+  Intermissions (70%/40%): he submerges, Sons of Flame
+  run to the hammer - kill/stun them BEFORE one reaches
+  it (any arrival = raid blast), lava seeds (P2) on
+  players: run them to the back together, meteors (P3)
+  fixate players: kite, never through the group; living
+  meteors knocked back by damage to delay. P2: seeds +
+  elemental adds (molten elementals - AoE and slows);
+  P3: meteors + burn race. Heroic P4: legs - he walks,
+  dreadflame spread controlled by assigned soakers,
+  roots/traps from NPCs (Cenarius etc.).
+  AI RULE: intermission adds have a finish line - the
+  hammer; a son arriving is everyone's failure.
+
+DRAGON SOUL (map 967)
+8. MORCHOK: Stomp splits damage among nearest players
+  (stack close); crystal: 3 players soak its explosion
+  (called soakers run to it); black blood phase: hide
+  behind the rock spikes he leaves, never in the blood.
+  Heroic: Kohlrohm twin mirrors him. AI RULE: blood =
+  behind rocks; crystal = the called three go.
+9. WARLORD ZON'OZZ: the void ball: it bounces between
+  two called groups (stack points): each bounce = raid
+  pulse; after called bounces (5-9 era) a player sends
+  it INTO the boss (he takes +damage, tentacle phase:
+  kill eyes/flails, interrupt). Failing to bounce =
+  ball hits wall/boss early. AI RULE: the ball is a
+  rally - be on your stack point before it arrives.
+10. YOR'SAHJ: oozes run to him: raid kills ONE ooze
+  (called colour), the others reach him and grant
+  combos: purple = do NOT AoE heal (healing explodes
+  stacks - single target only), green = spread, red =
+  stack, yellow = fast phases, black = adds (kill),
+  blue = mana void (kill void after drain, stand in
+  return). AI RULE: one ooze dies by CALL; purple means
+  small heals only - a big heal is a bomb.
+11. HAGARA: ice phase: 4 crystals - kill while running
+  the ice wall ring (stay ahead of the wall, gap at
+  pillars); lightning phase: chain the lightning
+  between players to the pillars (form lines); frozen
+  orbs; ice tomb on players (kill tomb to free); watery
+  entrenchment bubble safe spot in ice phase centre.
+  AI RULE: phases are laps: keep moving ahead of the
+  wall; lightning needs a chain, not a clump.
+12. ULTRAXION: the button fight: Heroic Will (extra
+  action button) - use it to leave reality before Hour
+  of Twilight lands (except the 2-3 called soakers with
+  cooldowns); Fading Light on tanks/current targets -
+  also button (or swap); crystals from Aspects buff
+  healers (assign colours by healer); Twilight
+  Instability raid ticks ramp (heal race, 6-min enrage
+  era). AI RULE: the button is your defensive cooldown -
+  press it on Hour, press it on Fading, never otherwise.
+13. WARMASTER BLACKHORN: ship fight: drakes drop
+  twilight barrages (small circles: move; big Onslaught
+  circle: STACK to split or ship dies); adds board:
+  kill sappers first (they run to the engine - slow/
+  kill before arrival); Goriona breath strafes; P2 he
+  lands: shockwave cone, roar, vengeance stacks tank
+  swap; ship health is a second boss bar.
+  AI RULE: the ship can die before you do - soak the
+  big circle, kill the sapper, in that order.
+14. SPINE OF DEATHWING: ride his back: kill corruptions
+  (tentacles) -> amalgamation adds: tank them, feed them
+  9 blood residues (kill bloods ON the amalgamation,
+  they leave residue the add absorbs walking through),
+  at 9 stacks it pulses nuclear blast beside a plate:
+  that blows the plate's armor loose; then burn the
+  exposed tendon before it reseals (3 plates). Barrel
+  roll: he rolls toward the side with more players -
+  everyone STACKS in a corruption hole/middle on the
+  roll call or is thrown off (death).
+  AI RULE: bloods die on the add; roll call = stack
+  instantly or fly off.
+15. MADNESS OF DEATHWING: four platforms (aspects):
+  fight a limb per platform: mutated corruption tentacle
+  (tank, its impale on tank = cooldown), bolt: kill the
+  elemental bolt before it lands (Nozdormu slows it if
+  his platform lives), blistering tentacles (kill,
+  Alexstrasza burns them), arm tentacle burn; order of
+  platforms decides which aspect buffs remain (lose a
+  platform's aspect help when you leave it - order is
+  strategy; era standard saves Ysera last-ish,
+  unverified). Cataclysm cast = platform must finish
+  before it ends. P2 (20%): head down centre: fragments
+  and terrors (tank/kill), shrapnel on players (Ysera
+  dream button), burn with all aspect help gone except
+  timed buffs. AI RULE: bolt and tentacle outrank the
+  limb; the platform order is decided before the pull.
+
+TRASH NOTES (entries unverified): Firelands: molten
+giants (tank apart), scorpion packs, core hounds;
+spider hill packs. Dragon Soul: portal gauntlets,
+twilight dragon packs before Ultraxion, deck trash on
+the gunship. No pack detail verified this step.
+
+END OF STEP 11. Next step is 12_Mists_of_Pandaria.txt.
