@@ -8,18 +8,21 @@ Map ids: Mogu'shan Vaults 1008, Heart of Fear 1009,
 Terrace of Endless Spring 996 (verify on server).
 
 MOGU'SHAN VAULTS (map 1008)
-1. THE STONE GUARD (2-4 guardians by size): petrification
-  rotation: the guardian casting Petrification must be
-  tanked WITH a partner (share its overload); tanks swap
-  guardians to equalise: keep the petrifying one beside
-  another guardian so its energy... rule: the petrifying
-  guardian is tanked next to a second one, and the pair
-  swaps at ~50 energy. Chains link two players (stay
-  close together if chained), pools (cobalt/jasper/
-  amethyst by week set) move out; overload of the WRONG
-  guardian = raid blast.
-  AI RULE: watch the petrification cast - energy and
-  pairing, not health, decide the tank swaps.
+1. THE STONE GUARD (3-4 guardians by size): guardians
+  only gain energy within 12 yd of another guardian; a
+  lone one turns Solid Stone (90% less damage, NO energy
+  - page). THE RULE: the guardian currently casting
+  Petrification must be the one paired (so IT reaches
+  100 energy first): its Overload damage is cut 90% by
+  its own petrification aura. All other guardians are
+  kept ISOLATED so they cannot gain energy - if a
+  non-petrifying guardian overloads, the blast is
+  unreduced. Tanks swap pairings every petrification.
+  Jasper Chains pair: stay within 10 yd or the chains
+  burn (they break after 15 sec apart - page); Cobalt
+  Mines move out (3-sec arm, roots on trigger).
+  AI RULE: make the petrifying guardian overload, keep
+  every other guardian alone and energy-starved.
 2. Feng the Accursed: boss steals a player ability set
   per phase (fists phases by statue): tank swap on his
   boss debuffs; use the stolen-ability counters the raid
@@ -46,14 +49,22 @@ MOGU'SHAN VAULTS (map 1008)
   maddening shout = MC players, break by damage).
   AI RULE: Meng reflecting means hands off - reflected
   damage has killed more raids than the bosses.
-5. ELEGON: two phases alternate: platform outer ring
-  falls away during vortex (do not stand on the edge
-  ring); energy charges (orbs) run to the pylons - kill
-  them BEFORE they reach a pylon (each success buffs
-  him) - orb teams by side; celestial adds tanked;
-  when pylons all die: burn phase (stack centre, he
-  takes +damage). AI RULE: an orb arriving is boss
-  damage forever - orbs outrank him.
+5. ELEGON: Stage 1: tank him centre; Celestial
+  Protector adds are dragged OFF the platform edge
+  (they explode at death - 129711 Total Annihilation;
+  page: kill them over the edge or soak it called).
+  Stage 2 (85%): he constructs 6 Energy Charges that
+  run for the Empyreal Focuses; killing a whole wave
+  forces another Draw Power wave (+10% damage taken on
+  him, stacking, charges 20% faster each wave - page);
+  the stage ends when one charge escapes - so one wave
+  is nearly always let through late. Stage 3: destroy
+  all six Focuses (stand out of the conduit beams);
+  stages then repeat, and each Focus death also buffs
+  his output (116989). At 50% Radiating Energies makes
+  inside/outside the vortex different damage - position
+  by call. AI RULE: charges are a wave budget - kill
+  waves for his debuff, never let wave one through.
 6. WILL OF THE EMPEROR: two bosses (Qin-xi/Jan-xi) +
   add waves: rage adds (fixate players - kite/kill),
   courage adds (they block their path to bosses -
@@ -81,15 +92,19 @@ HEART OF FEAR (map 1009)
   tornadoes to reach him, then burn both sides.
   AI RULE: unseen strike is soaked as a group standing
   still, never run from the mark.
-9. GARALON: leg fight: 4 legs (kill a leg = he slows,
-  takes burst, leg regrows); tanks soak his frontal
-  Fury swipes with the pheromone carrier kiting him in
-  a big circle around the room (pheromone trail pools:
-  swap carrier at called stacks - passing leaves a
-  pool; never cross the trail). Crush: when a leg dies
-  he crushes - nobody under him.
+9. GARALON: leg fight: kill legs standing IN the leg's
+  blue circle (Weak Points damage buff - page strategy);
+  each broken leg slows him, legs mend over time. Two
+  tanks stay in front soaking Furious Swipe - if nobody
+  is in front he gains Fury (page). The Pheromones
+  carrier kites him around the room's edge leaving a
+  trail; swap carrier at 20 stacks (4+ kiters cycle,
+  stacks last 2 min - page). CRUSH happens on every
+  pheromone SWAP (raid topped before each) and if anyone
+  stands in the purple circle under his body - never
+  under him; it is not triggered by leg deaths.
   AI RULE: the carrier draws a circle the raid never
-  crosses; legs on your side are your job.
+  crosses; swaps are announced and pre-healed.
 10. WIND LORD MEL'JARAK: adds (3x3 classes): CC a set
   with the amber prisons (click spears - imprison one
   of each type set), kill one TYPE at a time (killing
