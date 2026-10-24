@@ -135,10 +135,11 @@ NECK|190894 and RING|190871 / 191014 - current-expansion enchanter-only
    current-expansion pages, so treat the membership of this list as
    unverified and the racial descriptions as the verified part.
    VERIFIED FOR THIS FILE
-     Undead    7744 Will of the Forsaken. 2 min cooldown, removes charm,
-       fear and sleep (V). It does NOT remove the horror from Death Coil,
-       and it shares a 30 second cooldown with the Insignia trinket (V) -
-       so a warlock either carries one self-break or the other, not two.
+     Undead    Will of the Forsaken, 2 min cooldown (V): removes charm,
+       fear and sleep. It does NOT remove the horror from Death Coil, and
+       the page gives it a shared cooldown with similar effects, 30 sec
+       since 4.0.1 (V), so a warlock carries one self-break, not two.
+       The id 7744 is a Classic-era id and was not on the page.
      Orc       Blood Fury, 2 min cooldown. 8.0.1 changed it from Spell
        Power to Intellect (V), which makes it a straight caster cooldown
        in this build. Spell id unverified.
