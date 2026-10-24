@@ -141,7 +141,9 @@ RANGED|none - a rogue has no ranged, wand or thrown slot in 8.3.7
    WRIST     18948 Barbaric Bracers, then 9455 if its floor is waived.
    HANDS     7756 Dog Training Gloves, 7690 Ebon Vise for Subtlety.
    WAIST     20117 [20191] from Arathi Basin, then 65916.
-   LEGS      6690 Ferine Leggings, subject to the flag in section 1.
+   LEGS      6690 Ferine Leggings - subject to the flag in section 1: if
+             the 8.3.7 tooltip's required 30 is what the server uses, this
+             slot is heirloom or green and the rogue has no rare legs.
    FEET      20114 [20188] from Arathi Basin, then 9450.
    RINGS     two greens, of the Monkey or of Agility.
    TRINKETS  19024 and the Insignia, 4381 as the third.
