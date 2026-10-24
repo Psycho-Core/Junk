@@ -1,0 +1,67 @@
+AUDIT - Twink29_Shaman_2_Talents.txt
+File under audit: step 2 of 3, 115 lines. 13 claims checked: 10 pass,
+0 corrected, 3 unverified.
+Pages used: Earthen Rage, Forceful Winds, Hot Hand, Undulation and
+Grounding Totem, all read for their patch-change lines rather than their
+current tooltips - the same method as the priest, warlock and rogue
+talent audits. No file change was needed, so this audit changes nothing.
+
+1. THE GATING
+   1  PASS  Seven normal rows at 15/30/45/60/75/90/100, three PvP slots at
+      20/40/70, one of each at 29, and the two systems are separate.
+      Stated plainly here because the prompt asked it as an open question.
+
+2. THE LEVEL 15 TALENTS
+   2  PASS  Earthen Rage 170374: 11.0.0 "Re-added as a row 7 Elemental
+      talent (was a level 15 Elemental talent)", 10.0.0 removed it, 7.1.5
+      "Damage is now 55% of spell power (was 50%)". Level and number are
+      both BfA-sourced, and 55% is the last change before 8.3.7.
+   3  PASS  Hot Hand 201900: 9.0.1 "Now available at level 25 (was 15)",
+      and the same line quotes the old text the file uses - next Lava
+      Lash costs no Maelstrom and deals 100% increased damage. So the
+      level and the wording are both the pre-9.0.1 form.
+   4  PASS  Forceful Winds as the trap: 9.0.1 "Now available at level 15
+      (was 30)" and 8.1.0 "Damage per stack reduced to 80% (was 100%)".
+      Both halves of the claim (level 30 in BfA, 80% per stack) check out,
+      which makes this the best-documented trap in the file.
+   5  PASS  Undulation 200071: 10.0.0 "was a level 15 Restoration talent",
+      added 7.0.3, every third Healing Wave or Healing Surge +50%. No
+      intervening patch changes either number.
+   6  UNVERIFIED  Torrent. The file mentions it as the name a current tree
+      gives and declines to file it; no page under that name could be
+      read. Declining is correct - a talent named but not verified stays
+      out of the loadout, as with the rogue file's unread row-mates.
+
+3. THE PVP SLOT
+   7  PASS  Grounding Totem is filed on its page as a Level 20 Restoration
+      PvP talent; 8.0.1 converted it from a rank 43 honor talent. The
+      file's "argument from absence" wording is honest: no patch line
+      moves its level, which is weaker evidence than a line that states
+      a level, and the file says so.
+   8  PASS  The totem had 5 health in BfA: 9.0.1 "Now has 50 health (was
+      5)". And 7.3.0 stopping redirected spells from damaging it predates
+      8.3.7, so both BfA details in the file are right.
+   9  PASS  Not claiming a duration: the current page gives 3 sec, and
+      there is no BfA patch line for duration, so the file prints the
+      cooldown (30 sec, from the infobox) and leaves duration out. That
+      restraint is the correct call and worth recording, because 3 sec
+      was right there to copy.
+   10 PASS  Elemental and Enhancement are left without a PvP pick. Given
+      that Grounding Totem is spec-filed to Restoration, offering it to
+      all three specs would repeat the Dismantle error the rogue audit
+      caught in reverse.
+
+4. WHAT IS NOT VERIFIED
+   11 UNVERIFIED  Hot Hand's proc chance. 7.2.5 reduced the proc rate by
+      29% without stating a number; the file prints none. Correct.
+   12 UNVERIFIED  Which abilities count for Earthen Rage's "most recently
+      attacked target" at 29, and whether Earth Shock exists yet at this
+      level to spend Maelstrom on. Not claimed either way.
+   13 UNVERIFIED  That all three specs are open at 29 and split Int/Agi
+      as stated. Uncontroversial, not read off a spec page.
+
+5. WHAT TO CHANGE
+   Nothing. The file's four picks each rest on a patch line that names a
+   BfA level, the trap is documented on both its level and its numbers,
+   and the two open PvP slots are labelled open. This is the second
+   talent audit in the set (after the rogue's) to require no correction.

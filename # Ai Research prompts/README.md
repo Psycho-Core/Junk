@@ -349,3 +349,23 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   poisons are spellbook abilities, Assassination only, and Crippling
   Poison is learned at 38, so a 29 rogue cannot have it.
   Deliverable: `Twink29_Rogue_3_Enchants_Consumables_Races.txt`.
+
+## Twink29/Shaman-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 shaman in 8.3.7, mail only,
+  item level 35 or less, required level 26-29. The pool is the hunter's
+  seven mail pieces: Enhancement is fed by it, Elemental and Restoration
+  get no Intellect mail at all and live on a staff or dagger-and-shield,
+  heirloom shoulders and a Warsong ring.
+  Deliverable: `Twink29_Shaman_1_Items.txt`.
+- `2_Talents.txt`: Earthen Rage (55% of spell power), Hot Hand in its
+  pre-9.0.1 form, Undulation, and Grounding Totem for Restoration at 20
+  with 5 health. Forceful Winds is the trap: level 30 in BfA, level 15
+  only from 9.0.1.
+  Deliverable: `Twink29_Shaman_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: the enchant and elixir list split
+  by spec, and the imbue answer - Flametongue Weapon and Windfury Weapon
+  do not exist as castable imbues in BfA; Enhancement has the Flametongue
+  attack (193796) and a passive Windfury. Tremor Totem is level 58, so a
+  29 shaman has no fear break of its own.
+  Deliverable: `Twink29_Shaman_3_Enchants_Consumables_Races.txt`.

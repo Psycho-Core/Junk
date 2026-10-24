@@ -1,0 +1,104 @@
+AUDIT - Twink29_Shaman_1_Items.txt
+File under audit: step 1 of 3, 160 lines after this audit's correction.
+19 claims checked: 15 pass, 1 corrected, 3 unverified.
+Pages used: 8.3.7 tooltips for 6686, 5819, 20090, 20093, 1488, 9445, 7787,
+65942, 2816, 7682, 7683, 7714 and 13087; the rare shield search (3 rows);
+the rare one-hand axe search (0 rows); and the item page for 19569.
+
+1. THE CORRECTED ROW
+   1  CORRECTED  The staff row printed 19569 Advisor's Gnarled Staff with
+      19573 in brackets, following the monk file's ordering. The item page
+      says otherwise (V): 19569 is Side: Horde, sold by Kelm Hargunth
+      14754, Warsong Supply Officer, in the Northern Barrens, and "will be
+      converted to Lorekeeper's Staff if you transfer to Alliance". So
+      19573 is the Alliance staff and 19569 the Horde one. The row and the
+      section 6 loadout now read 19573 [19569]. The monk file in this set
+      has the same reversal and is noted here for its own next pass; the
+      session's earlier mage audit found the identical error there, which
+      makes three files that inherited it from each other.
+      The staff's own numbers are confirmed on the same page: 33/28,
+      +11 Stamina +7 Intellect +10 Spirit, 27.76 dps (V).
+
+2. THE MAIL POOL
+   2  PASS  The battleground pair: 20090 Highlander's Padded Girdle is
+      +12 Agility +5 Stamina, Classes Hunter, Shaman, 33/28, and is filed
+      as Leather in the tooltip while sitting in the mail pool (V). 20093
+      Highlander's Padded Greaves is +8 Agility +8 Stamina with run speed
+      increased slightly, same lock (V). So Enhancement gets a real belt
+      and boots and the casters get Stamina pieces, exactly as stated.
+   3  PASS  5819 Sunblaze Coif is +10 Stamina, critical strike 10, +10 Fire
+      Resistance, 33/28 (V): a helm no spec wants for its stats, which is
+      what the file says.
+   4  PASS  6686 Tusken Helm reads +11 Agility +11 Stamina, crit 11 on the
+      8.3.7 tooltip, item level 35 and required 30 there against 33/27 in
+      the search (V both). The file prints the search values and flags the
+      conflict in place, and section 6 repeats the flag. Consistent with
+      the rogue file's treatment of 6690, and for the same reason: if the
+      tooltip is what the server uses, Enhancement has no rare helm.
+   5  PASS  1488 Avenger's Armor reads +15 Strength +10 Stamina at required
+      30 on the tooltip (V), so "no rare Intellect or Agility mail chest"
+      stands, and listing it only to warn against it is right.
+   6  PASS  9445 Grubbis Paws reads item level 29, required 24, +8 Strength
+      on the tooltip (V). The file prints the search row (34/29) and flags
+      that the tooltip would put it below the floor. This is the fourth
+      Gnomeregan-or-dungeon item in the set where the two sources split,
+      and it is the reason the hands slot has no clean answer.
+   7  PASS  13087 River Pride Choker +4 Strength +9 Stamina, 33/28 (V).
+
+3. WEAPONS AND SHIELDS
+   8  PASS  The shield search returns exactly three rare shields at
+      required 26-29 (V): 7787 and the faction quest pair 65942/66024.
+      7787 Resplendent Guardian is 972 armour, +7 Stamina, parry 5, 31/26
+      (V); 65942 Shield of the Righteous Cause is 1026 armour, +4 Strength
+      +7 Stamina, hit 4, 33/29 (V). Calling them warrior shields a shaman
+      can hide behind is fair on those numbers.
+   9  PASS  The one-hand axe search returns no rows (V), the same result
+      the rogue audit got, so "no axe at this tier" is now twice-sourced.
+   10 PASS  7714 Hypnotic Blade +11 Stamina +7 Intellect +3 Spirit, 22.14
+      dps at 1.40 (V); 7682 Torturing Poker +5 Agility (V); 7683 Bloody
+      Brass Knuckles +5 Agility, hit 5, 31/26 on the tooltip (V). The
+      Enhancement and caster main hands are what the file says they are.
+   11 PASS  2816 Death Speaker Scepter reads +6 Intellect +4 Spirit at
+      required 30 on the 8.3.7 tooltip (V), against 33/27 in the search.
+      It is the only caster mace in the window on either reading, and the
+      flag is printed in the row.
+   12 PASS  No swords for a shaman, so 13033 is correctly absent. The
+      weapon skill list is stated as a class fact and no sword row
+      appears, which is the checkable form of the claim.
+
+4. THE HEIRLOOM AND JEWELLERY ROWS
+   13 PASS  44101 Prized Beastmaster's Mantle and 48677 Champion's
+      Deathdealer Breastplate are carried from the audited hunter file
+      with the same ids and tags.
+   14 UNVERIFIED  42951 Mystical Pauldrons of Elements as the Intellect
+      mail shoulder heirloom. The hunter file names it in prose as the
+      Intellect mail shoulder heirloom but never opened it, and this file
+      repeats the id. It is the right shape of answer and it is still an
+      unchecked id.
+   15 UNVERIFIED  19525 Lorekeeper's Ring and 19521 Advisor's Ring at
+      +6 Intellect +6 Spirit, carried from the warlock file. The warlock
+      audit marked the same rows as read there; no shaman-specific check
+      was done, and the faction order in brackets now follows the staff
+      correction (Lorekeeper's is the Alliance name).
+
+5. WHAT IS NOT VERIFIED
+   16 UNVERIFIED  13127 Frostreaver Crown, 9405 Girdle of Golem Strength
+      and 9510 Caverndeep Trudgers carry search values only - id, item
+      level, required level and source, no stat line. Same position as
+      the equivalent rows in the hunter file.
+   17 UNVERIFIED  The heirloom legs. No id is quoted, matching every other
+      file in the set.
+   18 UNVERIFIED  "Totems are abilities in 8.3.7, not items, so there is
+      no relic slot." True for the expansion and the reason the ranged
+      row reads none, but no totem page was opened for this file.
+   19 UNVERIFIED  Whether the 8.3.7 tooltip or the search value governs
+      6686, 1488, 9445 and 2816 on this server. Four flags in one file is
+      the highest count in the set, and all four are dungeon items, which
+      is itself a pattern worth settling once on the server rather than
+      four times on paper.
+
+6. WHAT TO CHANGE
+   Done: the Warsong staff faction bracket is corrected in both places it
+   appears. The rest of the file stands. Its central claim - that two
+   Intellect specs are wearing an armour type with no Intellect piece in
+   it at this tier - is supported by every tooltip opened for this audit.
