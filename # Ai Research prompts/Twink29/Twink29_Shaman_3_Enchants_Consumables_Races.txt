@@ -101,8 +101,7 @@ NECK|190894 and RING|190871 / 191014 - current-expansion enchanter-only
    ALCHEMY  Elixir of Agility 8949, the mana potions, 8951.
    RECOMMENDATION  Engineering + Enchanting for self-sufficient bots;
      Engineering + Leatherworking for a played character that will skin
-     its way to its own kits. Blacksmithing gives a shaman nothing it
-     can wear at 29 that Leatherworking does not.
+     its way to its own kits.Blacksmithing was not checked for this class.
 
 4. WEAPON IMBUES - THE SECTION THIS STEP ASKED FOR
    The classic picture of a shaman choosing between Flametongue,
