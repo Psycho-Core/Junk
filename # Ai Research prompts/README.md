@@ -309,3 +309,25 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   the wizard and mana oils that stand in for a missing caster weapon enchant,
   and the races and their crowd-control breaks.
   Deliverable: `Twink29_Priest_3_Enchants_Consumables_Races.txt`.
+
+## Twink29/Warlock-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 warlock in 8.3.7, rare or
+  bind-on-account, item level 35 or less, required level 26-29. Cloth again,
+  so the pool is the same nineteen rows - but the warlock can use one-hand
+  swords and only one of the five blue ones is a caster weapon (13033 Zealot
+  Blade, +5 Int +6 Spirit). Weapon choice is the class's real strength:
+  staff, dagger, sword, wand and orb all exist with a caster line.
+  Deliverable: `Twink29_Warlock_1_Items.txt`.
+- `2_Talents.txt`: one normal talent (level 15 row) and one PvP talent (level
+  20 slot) per spec. Nightfall (50% in 8.3.7), Dreadlash, Flashover, and
+  Nether Ward at 20; the traps are Writhe in Agony and Eradication, both
+  level 30 in BfA and both listed at 15 by current guides.
+  Deliverable: `Twink29_Warlock_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: the enchant list as it applies to a
+  caster, and the three places a warlock diverges from the priest - Intellect
+  bracers instead of Spirit, wizard oil instead of mana oil, and Engineering
+  for the Minor Recombobulator. Elixir of Firepower is finally a good elixir,
+  for Destruction. Also records that Arcane Torrent stopped being a silence
+  in 8.0.1.
+  Deliverable: `Twink29_Warlock_3_Enchants_Consumables_Races.txt`.

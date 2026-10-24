@@ -1,0 +1,190 @@
+TWINK29 - WARLOCK - STEP 3 OF 3 - ENCHANTS, CONSUMABLES, PROFESSIONS, RACES
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+Sources: the profession files in Twink29_Professions-completed (Enchanting,
+Alchemy, Inscription, Cooking and First Aid, Engineering, Tailoring), the
+warlock item and talent steps, and item/spell tooltips read for this file.
+V = read. Where a number was not read it says unverified.
+
+0. THE SHAPE OF THIS FILE
+   A warlock is the one caster in this set whose consumables and enchants
+   line up with what the class actually does. The bracer enchant, the
+   weapon oil, the battle elixir and the food buff all give Intellect or
+   fire damage, and the class's own Healthstones are the only consumable in
+   the bracket that another character can use. What it does not have is any
+   caster weapon enchant inside the 225 skill cap, exactly like the priest.
+
+1. ENCHANTS - ONE PER SLOT, ALL INSIDE SKILL 225
+CLOAK|Enchant Cloak - Greater Defense|13746|+50 armour|skill 205|V
+   The only in-cap cloak enchant that is not Agility. +50 armour is the
+   biggest defensive number available and a warlock is the softest target
+   on the field, so this is the cloak choice without argument.
+CHEST|Enchant Chest - Greater Health|13640|+35 health|skill 160|V
+   3x Soul Dust 11083, Runed Golden Rod. There is no Intellect chest
+   enchant inside 225 at all.
+WRIST|Enchant Bracer - Lesser Intellect|13622|+3 Intellect|Silver Rod|V
+WRIST|Enchant Bracer - Spirit|13642|+5 Spirit|Golden Rod|V
+   THIS IS THE ONE PLACE THE WARLOCK DIFFERS FROM THE PRIEST. The priest
+   file takes 13642 (+5 Spirit) because a healer lives on Spirit. A
+   warlock does not: Spirit gives a warlock no damage and, in BfA, no
+   meaningful regen in combat, so 13622 at +3 Intellect is the better of
+   the two, and it costs two Greater Astral Essence 11082 and the Runed
+   Silver Rod. 13642 stays listed for a warlock that is levelling the
+   profession and already owns the Golden Rod.
+HANDS|no caster glove enchant inside 225 - stated gap
+   13815 Enchant Gloves - Agility (+5 Agility, skill 210) is the only
+   in-cap glove enchant and it is the wrong stat. The slot stays empty.
+LEGS|Heavy Armor Kit|4265|+24 armour|item level 30, req 20|V
+   Not an enchant: 4265 adds 24 armour to a chest, legs, hands or feet
+   item of item level 15 or higher. No Intellect or Spirit leg enchant
+   exists inside the cap, so this is what the slot takes.
+FEET|Enchant Boots - Minor Speed|13890|movement speed|skill 225|V
+   Worth more to a warlock than any stat: a caster that cannot reposition
+   is a caster that dies to the first melee that reaches it. Exact
+   percentage still unverified in this build.
+WEAPON|no caster weapon enchant inside 225 - use an oil, section 2
+   13693 Enchant Weapon - Striking (+3 weapon damage, skill 195) is the
+   best in-cap weapon enchant and is melee-only.
+OFF|nothing - no off-hand enchant in the Classic skill line
+NECK|190894 and RING|190871 / 191014 - current-expansion enchanter-only
+   enchants, ALT, effects unverified, and a 29 with only the Classic skill
+   line cannot apply a ring enchant to his own rings.
+   ALT LIST, above the cap and needing a higher-level enchanter: 13939
+   Bracer - Greater Strength (240), 13943 Weapon - Greater Striking (245),
+   13898 Weapon - Fiery (265), 20012 Gloves - Greater Agility (270), 20031
+   Weapon - Superior Striking (300), 25080 Gloves - Superior Agility (300).
+   All six are melee enchants. A warlock's real weapon upgrade is an oil.
+
+2. CONSUMABLES
+   WEAPON OIL - the warlock's weapon enchant
+     Minor Wizard Oil 20744, +7 Intellect for 1 hour, requires 5 (V).
+       This is the warlock pick: Intellect is the class's whole stat line.
+     Minor Mana Oil 20745, +7 Spirit for 1 hour, requires 20 (V). The
+       priest's pick, not this class's.
+     Lesser Wizard Oil 20746 is +15 Intellect but requires level 30 (V),
+       one level past the bracket. A 29 cannot use it.
+   BATTLE ELIXIR
+     Elixir of Firepower 6373, +10 fire spell damage for 30 min, requires
+     18 (V). The only spell-damage elixir in the window, and uniquely
+     useful to this class: a Destruction warlock's Immolate, Conflagrate
+     and Chaos Bolt are fire, so the +10 is not wasted the way it is on a
+     priest. Affliction and Demonology get almost nothing from it.
+     No Intellect battle elixir in the window was found in the audited
+     Alchemy file, so this is the best a warlock can do.
+   GUARDIAN ELIXIR
+     Elixir of Greater Defense 8951, +250 armour for 1 hour, requires 29
+     (V). Usable at exactly 29, and the best guardian elixir for a cloth
+     class. Elixir of Fortitude 3825 (requires 25) is the cheap version.
+   SCROLLS
+     Scroll of Intellect II 2290, +5 Int for 30 min, requires 15 (V).
+     Scroll of Stamina II 1711, +5 Sta, requires 15 (V).
+     Inscription skill 75, one ink each. A scroll does not stack with a
+     class buff giving the same stat.
+   POTIONS
+     Lesser Mana Potion 3385, requires 14 (V): the mana potion a 29 can
+       drink, and a warlock burns mana as fast as any class here because
+       Life Tap is not free at this level.
+     Greater Healing Potion 1710, requires 21 (V).
+     Free Action Potion 5634, requires 20 (V). No root or slow - the
+       answer to being trained by a melee.
+     Shadow Protection Potion 6048, requires 17 (V). The mirror-match
+       potion: it blunts the other warlock's dots and the priest's shadow.
+     Frost Protection Potion 6050, requires 28 (V).
+     All potions share one cooldown, so a bag of them is one potion.
+   FOOD
+     Roast Raptor 12210, +8 Stamina and +8 Spirit for 15 min, requires 25
+     (V). The best food a 29 can eat. The Spirit half is dead weight to a
+     warlock, so the food is taken for the Stamina, honestly.
+   BANDAGES
+     8544 Mageweave Bandage, heals 1600 over 8 sec, Tailoring 240 (V):
+       bought, not made, because 240 is above a 29 tailor's 225.
+     6451 Heavy Silk Bandage, heals 1280, Tailoring 210 (V): the best a
+       29 tailor can make.
+   WHAT THE CLASS MAKES FOR OTHERS
+     A warlock conjures Healthstones, which is the only consumable in the
+     bracket that another character can pick up and use without a
+     profession. The 8.3.7 heal amount and the spell id were not read for
+     this file, so treat both as unverified. A warlock bot in a group is
+     worth more than its damage for this alone.
+
+3. PROFESSIONS
+   ENGINEERING  The warlock pick, and the strongest single note in this
+     file. Minor Recombobulator 4381 is a trinket that restores 150 to 250
+     health and mana to a friendly target and attempts to dispel polymorph
+     at reduced effect against casters of level 31 and above - which in a
+     29 bracket never applies (V). The same profession's Iron Grenade 4390
+     and Big Iron Bomb 4394 give a stun, and the Engineering file notes
+     bombs cannot be chained because they share a cooldown.
+   TAILORING  Cloth is this class's armour and bags carry the potions.
+     Skill 225 makes the Heavy Silk Bandage 6451 and the crafted cloth in
+     the step 1 pool.
+   ENCHANTING  The self-supply choice: a 29 enchanter supplies his own
+     13622 and 13640 and can apply other people's enchants.
+   INSCRIPTION  Skill 75 buys Scroll of Intellect II for one ink. Cheap,
+     and the least valuable of the four.
+   ALCHEMY  Elixir of Greater Defense 8951 and the mana potions. As with
+     the priest file, elixirs are usually cheaper to buy than to level for.
+   RECOMMENDATION  Engineering + Tailoring for a character that will be
+     played; Engineering + Enchanting if the bots are to be self-sufficient.
+     Alchemy is the fallback and Blacksmithing gives a warlock nothing.
+
+4. RACES
+   Racials are the only place a race choice matters at 29, and the ids
+   below are the BfA ones where a page was read for this file. Which races
+   could be warlocks in 8.3.7 is NOT verified: the wiki race pages are
+   current-expansion pages, so treat the membership of this list as
+   unverified and the racial descriptions as the verified part.
+   VERIFIED FOR THIS FILE
+     Undead    Will of the Forsaken, 2 min cooldown (V): removes charm,
+       fear and sleep. It does NOT remove the horror from Death Coil, and
+       the page gives it a shared cooldown with similar effects, 30 sec
+       since 4.0.1 (V), so a warlock carries one self-break, not two.
+       The id 7744 is a Classic-era id and was not on the page.
+     Orc       Blood Fury, 2 min cooldown. 8.0.1 changed it from Spell
+       Power to Intellect (V), which makes it a straight caster cooldown
+       in this build. Spell id unverified.
+     Blood elf Arcane Torrent, 2 min cooldown: removes 1 beneficial magic
+       effect from all enemies within 8 yards and restores 3% of a
+       warlock's mana (V). 8.0.1 turned the old silence into this purge (V)
+       - note that the priest file in this set still describes Arcane
+       Torrent as an area silence, which is pre-8.0.1 text.
+     Human     59752 Will to Survive, a self crowd-control break, read in
+       the paladin set.
+   NAMED, IDS UNVERIFIED
+     Gnome     Escape Artist, a snare break.
+     Troll     Berserking, haste on demand - the damage pick.
+     Goblin    Rocket Jump, a leap.
+     Worgen    Darkflight, a sprint.
+     Void elf  Spatial Rift, a teleport.
+     Nightborne  Arcane Pulse, a slow.
+     Zandalari Regeneratin', a heal channel.
+     Dark iron  Fireblood, a debuff purge and stat gain.
+   PICKS  Undead first for both factions' sake: a feared warlock loses the
+     pet's damage too, and the fear break is the largest single quality
+     change a bot can get. Orc if the bot is expected to do damage and the
+     script already handles trinket breaks, Blood elf if the group needs a
+     purge and the warlock is running dry, Human on the Alliance side.
+
+5. WHAT TO BUY, IN ORDER
+   First  a stack of 20744 Minor Wizard Oil - the whole weapon plan.
+   Second 12210 Roast Raptor for the Stamina.
+   Third  8951 Elixir of Greater Defense, then 6048 Shadow Protection.
+   Fourth 3385 Lesser Mana Potions and 5634 Free Action Potions.
+   Fifth  2290 Scroll of Intellect II, 1711 Scroll of Stamina II, and a
+          Healthstone from any warlock in the group.
+   Last   the enchants: 13890 boots first, then 13622 bracers, 13640
+          chest, 13746 cloak.
+
+6. WHAT THIS FILE DOES NOT HAVE
+   A caster glove enchant inside 225 (none exists that was read).
+   A caster weapon enchant inside 225 (oils instead).
+   A leg enchant (an armour kit instead).
+   A ring or neck enchant a 29 can apply (enchanter-only, ALT).
+   An Intellect battle elixir (none found; Firepower is fire damage).
+   A verified 8.3.7 warlock race list.
+   The gaps are the same six the priest file ends with, and for the same
+   reason: everything a caster wants is one expansion's worth of skill
+   above this character. What a warlock has instead is the only class
+   consumable in the bracket, a fire-damage elixir that one of its three
+   specs can actually use, and a trinket from Engineering that undoes a
+   polymorph with no level penalty at 29.
