@@ -1,0 +1,60 @@
+AUDIT - Tactics_Temple_of_Ahn_Qiraj.txt (Old Raids step 4)
+Re-checked against warcraft.wiki.gg pages and the Wowhead
+Temple NPC list. Result: 13 pass, 2 corrected, 3 unverified.
+
+PASS:
+ - Entries 15263, 15511/15543/15544, 15516, 15510, 15299,
+   15509, 15276/15275, 15517, 15727, Eye 15589 (Wowhead).
+ - Skeram 26192/26194/785/747, splits and image teleports;
+   MC companion must be CC'd, not killed (Wowhead warns
+   MC'd players hit very hard in small groups).
+ - Bug Trio kill order Kri/Yauj/Vem, Kri death cloud
+   2000/sec, Yauj heal interrupt (silence-immune, resists),
+   devour positioning theory filed as a theory.
+ - Sartura 8269/25174/26083/26084; stun rule (boss immune
+   while spinning, guards stunnable but keep spinning);
+   punt/tunnel warning; 20% and 10-min enrages.
+ - Fankriss hatchling cadence, Spawn worm 20-sec enrage
+   (10-20k), teleport+root, Mortal Wound rotation.
+ - Viscidus frost stages (10/15/20 hits), melee stage 30
+   hits, globs 5% each, room-reset behaviour, toxin cloud
+   warning bolt and oversize radius.
+ - Huhuran soaks (closest 15), Wyvern Sting never-dispel
+   (3000 on waking), Noxious Poison not cleansable,
+   30% Berserk not tranq-able, taunt-immune rotations.
+ - Twins: 60-yd Heal Brother 30000/tick, teleport 30-40
+   sec + aggro wipe + closest-takes-aggro, shared % health,
+   Vek'lor melee Arcane Burst, bug mutate 25 yd / explode
+   30 yd ranges and 3-sec spark, 2813-3187 explosion.
+ - Ouro sweep/Sand Blast threat-clear, submerge triggers,
+   Dirt Mound, scarab 45-sec despawn, 20% enrage, boulders
+   when nobody is in melee.
+ - C'Thun: 26134 chain +150%/jump, uninterruptible (page),
+   26029 glare sweep values, tentacle ruptures 26478/26139,
+   26143, carapace 26156 99%, stomach 26476, vulnerable
+   window 45 sec from both Flesh Tentacles.
+
+CORRECTED (applied with this audit):
+ 1. C'Thun section claimed "At 120 nobody survives a Glare
+    tick chain." Wrong on the file's own numbers: Dark
+    Glare is 43750-56250, trivial against a level-120
+    health pool. The real risk in both steps of this set is
+    mechanics that ignore health (chains, knockbacks into
+    lava, MC, resets), not raw damage. That sentence is
+    removed; the Glare movement rule stands on its own.
+ 2. Sartura 25174 said "+25 physical taken per hit
+    (stacking)". The source says the hits "increase
+    Physical damage taken by 25" - stacking was an
+    inference, now marked unverified in the ability line.
+
+UNVERIFIED (stand as marked):
+ - Skeram split health percentages come from the encounter
+   summary in the file, not from a fetched strategy line;
+   image health behaviour stays unverified.
+ - Most non-Skeram/Sartura/C'Thun-P1 spell ids (pages name
+   abilities without ids).
+ - Trash composition between bosses; map id/coordinates.
+
+The C'Thun correction is the lesson for step 5: in this
+series "it will kill you" must be justified by a mechanic,
+never by a damage number from the level-60 era.

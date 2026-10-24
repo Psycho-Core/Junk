@@ -82,7 +82,8 @@ ADD ORDER: P1-P3 Royal Guards, then Sartura (page: kill the
 ABILITY LIST:
   8269 Frenzy - +60% attack speed (Enrage family).
   25174 Sundering Cleave - +300% dmg, up to 3 targets,
-    +25 physical taken per hit (stacking, read).
+    hits increase Physical damage taken by 25 (whether it
+    stacks: unverified).
   26083 Whirlwind / 26084 Whirlwind (instant part).
 AI RULE: if it is spinning, move; stun and kill only in the
   gaps between Whirlwinds.
@@ -233,8 +234,9 @@ GROUP (P1): spread around the room so Eye Beam cannot
   the whole defence). Dark Glare 26029: a rotating beam
   sweeps half the room over 35 sec (43750-56250) - track
   the Eye's facing and run with/behind the sweep, never
-  through it. At 120 nobody survives a Glare tick chain -
-  AI movement here is the raid's top priority.
+  through it. AI movement here is the raid's top priority
+  (the beam is a fixed sweep - position, not health, is
+  the defence; damage values are level-60-era).
 GROUND: Dark Glare sweep zone; tentacle Ground Rupture
   points (26478 giant claw 2250-2750/15 yd; 26139 eye
   tentacle 1350-1650/10 yd, knockback).
