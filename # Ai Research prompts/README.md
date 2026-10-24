@@ -137,61 +137,61 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `09_Kul_Tiras.txt`: the flight masters and flight paths of Kul Tiras for both factions in 8.3.7.
 - `10_Boats_Zeppelins_Portals.txt`: the boats, zeppelins and city portals in 8.3.7, both factions.
 
-## Twink29/Druid (3 prompts)
+## Twink29-completed/Druid (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Druid class (items only).
 - `2_Talents.txt`: the talents of the level 29 Druid twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Druid twink.
 
-## Twink29/Hunter (3 prompts)
+## Twink29-completed/Hunter (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Hunter class (items only).
 - `2_Talents.txt`: the talents of the level 29 Hunter twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Hunter twink.
 
-## Twink29/Mage (3 prompts)
+## Twink29-completed/Mage (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Mage class (items only).
 - `2_Talents.txt`: the talents of the level 29 Mage twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Mage twink.
 
-## Twink29/Monk (3 prompts)
+## Twink29-completed/Monk (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Monk class (items only).
 - `2_Talents.txt`: the talents of the level 29 Monk twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Monk twink.
 
-## Twink29/Paladin (3 prompts)
+## Twink29-completed/Paladin (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Paladin class (items only).
 - `2_Talents.txt`: the talents of the level 29 Paladin twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Paladin twink.
 
-## Twink29/Priest (3 prompts)
+## Twink29-completed/Priest (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Priest class (items only).
 - `2_Talents.txt`: the talents of the level 29 Priest twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Priest twink.
 
-## Twink29/Rogue (3 prompts)
+## Twink29-completed/Rogue (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Rogue class (items only).
 - `2_Talents.txt`: the talents of the level 29 Rogue twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Rogue twink.
 
-## Twink29/Shaman (3 prompts)
+## Twink29-completed/Shaman (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Shaman class (items only).
 - `2_Talents.txt`: the talents of the level 29 Shaman twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Shaman twink.
 
-## Twink29/Warlock (3 prompts)
+## Twink29-completed/Warlock (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Warlock class (items only).
 - `2_Talents.txt`: the talents of the level 29 Warlock twink, normal and PvP.
 - `3_Enchants_Consumables_Races.txt`: the enchants, consumables, professions and races of the level 29 Warlock twink.
 
-## Twink29/Warrior (3 prompts)
+## Twink29-completed/Warrior (3 prompts)
 
 - `1_Items.txt`: the best level 29 battleground gear for the Warrior class (items only).
 - `2_Talents.txt`: the talents of the level 29 Warrior twink, normal and PvP.
@@ -226,7 +226,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
 - `09_Cooking_and_First_Aid.txt`: what Cooking and First Aid gives a level 29 battleground twink in 8.3.7.
 - `10_Herbalism_Mining_and_Skinning.txt`: what Herbalism, Mining and Skinning gives a level 29 battleground twink in 8.3.7.
 
-## Twink29/Druid-complete (3 prompts, all completed)
+## Twink29-completed/Druid-complete (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 druid in 8.3.7, rebuilt on
   the rule "rare or bind-on-account only, item level 35 or less, required
@@ -237,7 +237,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   neck and ring, consumables, professions and races. Deliverable:
   `Twink29_Druid_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Hunter-completed (3 prompts, all completed)
+## Twink29-completed/Hunter-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 hunter in 8.3.7, rebuilt on
   "mail or bind-on-account only, item level 35 or less, required level
@@ -248,7 +248,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   consumables, professions and races. Deliverable:
   `Twink29_Hunter_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Mage-completed (3 prompts, all completed)
+## Twink29-completed/Mage-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 mage in 8.3.7, rare or
   bind-on-account, item level 35 or less, required level 26-29.
@@ -259,7 +259,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   consumables, professions and races. Deliverable:
   `Twink29_Mage_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Monk-completed (3 prompts, all completed)
+## Twink29-completed/Monk-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 monk in 8.3.7, rare or
   bind-on-account, item level 35 or less, required level 26-29. The leather
@@ -274,7 +274,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   the version of the classic enchant list that mostly fits a monk.
   Deliverable: `Twink29_Monk_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Paladin-completed (3 prompts, all completed)
+## Twink29-completed/Paladin-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 paladin in 8.3.7, rare or
   bind-on-account, item level 35 or less, required level 26-29. There is no
@@ -291,7 +291,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   the eight races that can be paladins at all.
   Deliverable: `Twink29_Paladin_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Priest-completed (3 prompts, all completed)
+## Twink29-completed/Priest-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 priest in 8.3.7, rare or
   bind-on-account, item level 35 or less, required level 26-29. Cloth is the
@@ -310,7 +310,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   and the races and their crowd-control breaks.
   Deliverable: `Twink29_Priest_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Warlock-completed (3 prompts, all completed)
+## Twink29-completed/Warlock-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 warlock in 8.3.7, rare or
   bind-on-account, item level 35 or less, required level 26-29. Cloth again,
@@ -332,7 +332,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   in 8.0.1.
   Deliverable: `Twink29_Warlock_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Rogue-completed (3 prompts, all completed)
+## Twink29-completed/Rogue-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 rogue in 8.3.7, rare or
   bind-on-account, item level 35 or less, required level 26-29. The rogue
@@ -350,7 +350,7 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   Poison is learned at 38, so a 29 rogue cannot have it.
   Deliverable: `Twink29_Rogue_3_Enchants_Consumables_Races.txt`.
 
-## Twink29/Shaman-completed (3 prompts, all completed)
+## Twink29-completed/Shaman-completed (3 prompts, all completed)
 
 - `1_Items.txt`: every item slot for a level 29 shaman in 8.3.7, mail only,
   item level 35 or less, required level 26-29. The pool is the hunter's
@@ -369,3 +369,23 @@ Every folder lists its files in the order to run them. The answers go in `Bfa-8.
   attack (193796) and a passive Windfury. Tremor Totem is level 58, so a
   29 shaman has no fear break of its own.
   Deliverable: `Twink29_Shaman_3_Enchants_Consumables_Races.txt`.
+
+## Twink29-completed/Warrior-completed (3 prompts, all completed)
+
+- `1_Items.txt`: every item slot for a level 29 warrior in 8.3.7, mail only,
+  item level 35 or less, required level 26-29. There is no rare plate in
+  the bracket, so the warrior wears the hunter's mail pieces plus the
+  Arathi Basin battleground set labelled Warrior, Paladin, and Corpsemaker
+  is the best two-hander on numbers but reads required 30 against 27.
+  Deliverable: `Twink29_Warrior_1_Items.txt`.
+- `2_Talents.txt`: Sudden Death for Arms and Fury, Fresh Meat against
+  it, Punish for Protection, and War Banner in the PvP slot. Devastator
+  is the trap: level 75 in BfA, level 15 only from 9.0.1.
+  Deliverable: `Twink29_Warrior_2_Talents.txt`.
+- `3_Enchants_Consumables_Races.txt`: Enchant Bracer - Strength is +5
+  primary stat here, the Iron Counterweight and shield spike come from
+  the class's own Blacksmithing, and the Strength elixir slot is empty
+  at 29 - Elixir of Giants needs 38. Undead warriors get Will of the
+  Forsaken, which no shaman can.
+  Deliverable: `Twink29_Warrior_3_Enchants_Consumables_Races.txt`.
+  This closes the nine-class bracket set.

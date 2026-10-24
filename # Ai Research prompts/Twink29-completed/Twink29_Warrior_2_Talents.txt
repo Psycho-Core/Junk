@@ -1,0 +1,117 @@
+TWINK29 - WARRIOR - STEP 2 OF 3 - TALENTS, NORMAL AND PVP
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+
+0. WHAT A LEVEL 29 HAS
+   Normal talents: seven rows, unlocked at 15, 30, 45, 60, 75, 90 and
+   100. A level 29 character owns the first row only, one point.
+   PvP talents: three slots at 20, 40 and 70. A 29 owns the first slot
+   only, and even then a PvP talent is legal only if its own level is 20
+   or lower. The PvP slot is separate from the normal talent point - the
+   owner asked whether it is shared, and it is not: one point in each.
+   All three specializations are open at 29, and all three are Strength
+   specs - the only class in this set where that is true of every spec.
+   V = read off the talent's wiki page including the patch line that
+   states its BfA level. A current tooltip is not evidence.
+
+1. ARMS
+   LEVEL 15 ROW
+     Sudden Death, spell 29725 for Arms. Passive. Your attacks have a
+     chance to make your next Execute cost no Rage, be usable on any
+     target regardless of health, and deal damage as if you spent 40
+     Rage. 8.0.1 re-added it and extended it to all melee abilities (V),
+     and 10.0.0 confirms it "was a level 15 Arms/Fury talent", so level
+     15 covers 8.3.7. No BfA patch gives its proc rate, so none is
+     printed here.
+   THE OTHER TALENTS of the row were not read for this file.
+   PICK  Sudden Death. It is the verified level 15 talent, and it turns
+     a finisher a 29 Arms warrior can normally only use below 20% health
+     into an occasional opener. For a bot the value is that it needs a
+     script rule - press Execute when the proc lights up - and nothing
+     else.
+   PVP  War Banner - the verified pick for this class, section 4.
+
+2. FURY
+   LEVEL 15 ROW
+     Fresh Meat, spell 215568. Passive. Bloodthirst has a 60% increased
+     critical strike chance against targets above 80% health. 10.0.0
+     confirms it "was a level 15 Fury talent" (V), 7.1.5 set the bonus at
+     60% (was 40%), and 9.0.1 redesigned it entirely, so the sentence
+     above is the 8.3.7 form and the current page's Enrage text is not.
+     Sudden Death is also a level 15 Fury talent here (the Fury version
+     is spell 280721) (V), with the same 8.0.1 wording as Arms.
+   PICK  Fresh Meat for a bot, Sudden Death for a played character. A
+     companion script opens on a full-health target by definition, so
+     the 60% crit window is the part of the fight it will always get;
+     Sudden Death is worth more across a whole fight but only if
+     something is watching for the proc, which is the same condition as
+     in the Arms row.
+   PVP  no verified level 20 pick for this spec - see section 4.
+
+3. PROTECTION
+   LEVEL 15 ROW
+     Punish, spell 275334. Passive. Shield Slam deals increased damage
+     and reduces the damage the target deals to you. Added in 8.0.1, and
+     10.0.0 confirms it "was a level 15 Protection talent" with its
+     damage bonus reduced there to 10% "(was 20%)", so 20% is the 8.3.7
+     figure (V). The reduction percentage in 8.3.7 was not read, so only
+     the 20% is claimed.
+   TRAP  Devastator is not available to a 29, and it is the talent every
+     Protection guide puts in this row. 9.0.1 says "Now available at
+     level 15 (was 75)" (V) - in Battle for Azeroth it was a level 75
+     talent, forty-six levels out of reach. This is the largest level
+     gap of any trap in the set; the others were one level out.
+   PICK  Punish. Passive, always on, and it improves the one ability a
+     Protection bot presses most while making the bot harder to kill.
+     Nothing to time and nothing to proc-watch.
+   PVP  no verified level 20 pick for this spec - see section 4.
+
+4. THE PVP SLOT AT LEVEL 20
+   LEGAL AND VERIFIED
+     War Banner, spell 236320, Arms only, level 20, 1.5 min cooldown:
+     throw down a banner at your feet for 15 sec; allies within 30 yards
+     gain 30% movement speed and have the duration of incoming crowd
+     control reduced by 50%. 8.0.1 converted it from a rank 43 honor
+     talent (V), and no later patch line changes its level or spec,
+     which is the basis for reading both as the BfA values - an argument
+     from absence, stated as such, as in the warlock and shaman files.
+   WHY IT IS THE PICK  It answers the two things that kill a 29 melee
+     bot: being kited, and being crowd-controlled while its healer is
+     controlled too. Halving CC duration on the whole nearby group is
+     the closest thing to a fear break this class gets at 29, and it is
+     a drop-and-forget button a script can press on engagement.
+   NOT VERIFIED
+     Fury and Protection PvP talents. War Banner is filed as an Arms
+     talent, so it is not offered to the other two, on the same logic
+     that kept Dismantle Outlaw-only in the rogue file. Names a current
+     list would give - Death Wish, Barbarian, Bodyguard, Sharpen Blade -
+     are deliberately not filed with levels attached. Sharpen Blade in
+     particular is widely listed for Arms in later expansions; whether
+     it existed at level 20 in 8.3.7 was not read.
+   THE PATTERN TO REMEMBER  Devastator at level 75 makes four traps in
+     this set that a current tree places at 15 (Writhe in Agony,
+     Eradication, Forceful Winds, Devastator), and it is the only one
+     that was not merely one row too high but in the last row of the
+     old tree. A 9.0.1 patch note, not a guide, is what settles each.
+
+5. THE THREE LOADOUTS
+   ARMS        Sudden Death. PvP War Banner.
+   FURY        Fresh Meat (Sudden Death if procs are scripted). PvP
+               unverified.
+   PROTECTION  Punish. PvP unverified.
+   Arms is the only spec with both slots filled from read pages, which
+   matches step 1: it was also the spec with the simplest gearing - one
+   weapon, no off-hand decision. For companion bots that have to be
+   scripted rather than played, Arms is the warrior this set can
+   specify most completely.
+
+6. WHAT IS SOLID AND WHAT IS NOT
+   Solid: the row and slot gating and that the two systems are separate;
+   Sudden Death at level 15 for Arms (29725) and Fury (280721) in its
+   8.0.1 form; Fresh Meat 215568 at 60% against targets above 80%
+   health; Punish 275334 at +20% Shield Slam damage; Devastator at
+   level 75 in BfA as the trap; War Banner 236320 for Arms at 20.
+   Not solid: Sudden Death's proc rate, Punish's damage-reduction
+   percentage in 8.3.7, the unread talents in every row, War Banner's
+   spec restriction resting on the absence of a widening patch, and
+   every Fury and Protection PvP talent.

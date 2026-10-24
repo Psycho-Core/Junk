@@ -1,0 +1,173 @@
+TWINK29 - WARRIOR - STEP 1 OF 3 - ITEMS FOR EVERY SLOT
+Server: private Battle for Azeroth 8.3.7 build 35662, TrinityCore base.
+Bracket: level 29 (20-29).
+RULE FOR THIS FILE: rare (blue) or bind-on-account, item level 35 or
+less, required level 26 to 29. Same rule as the paladin file, whose pool
+this class shares.
+SLOT|item|id|ilvl|req|source|tag    tag: SOLO ALT RNG
+V = name, item level, required level and stat line read off a search or
+item page for this file.
+
+0. NO PLATE, AGAIN - AND THE WARRIOR'S OWN BATTLEGROUND SET
+   The paladin file established the bracket's strangest fact and it
+   applies unchanged: there is no rare plate at required 26-29 at all,
+   because Classic plate starts at level 40. The only plate a 29 wears
+   is the scaling bind-on-account pieces. A warrior wears mail below
+   that, leather below that, exactly as a paladin does.
+   What differs is the battleground set. The Lamellar pair (20108/20111
+   Alliance, 20178/20182 Horde) is labelled Paladin only, and a warrior
+   cannot buy it. The Mail pair is labelled Warrior, Paladin (V):
+   20126 Highlander's Mail Girdle is +12 Strength +5 Stamina and 20129
+   Highlander's Mail Greaves are +6 Strength +6 Agility +6 Stamina with
+   run speed increased slightly, both 33/28 (V). The Horde copies are
+   20207 and 20210. So the warrior's battleground armour is two slots,
+   both Strength, both bought - the best waist and feet in this file
+   cost honour, not luck.
+
+1. ARMOUR - THE SAME FOR ALL THREE SPECS
+   All three warrior specs are Strength specs, so unlike the shaman
+   there is no spec split in the armour. The specs split on weapons,
+   section 2.
+HEAD|Tusken Helm|6686|33|27|Overlord Ramtusk 4420, RFK|SOLO
+     +11 Agility +11 Stamina, crit 11 on the 8.3.7 tooltip, which also
+     reads required 30 (V): the tooltip-versus-search conflict flagged
+     in the rogue and shaman files. Printed as searched, flagged here.
+     The Agility is half-wasted on a warrior; the Stamina is not.
+HEAD|Sunblaze Coif|5819|33|28|SM drop, +10 Sta, crit 10|RNG V
+HEAD|Frostreaver Crown|13127|32|27|world drop|RNG
+NECK|River Pride Choker|13087|33|28|world drop, +9 Sta +4 Str|RNG V
+     the one neck in the window, and for once its Strength is not dead
+     weight - a warrior is the only class in this set that wants both
+     stats on it
+SHOULDER|Polished Spaulders of Valor|42949|scales|1|heirloom, Str|ALT V
+SHOULDER|Strengthened Stockade Pauldrons|44099|scales|1|heirloom|ALT V
+CHEST|Polished Breastplate of Valor|48685|scales|1|heirloom, Str|ALT V
+CHEST|Avenger's Armor|1488|31|26|RFK zone drop|RNG
+     the 8.3.7 tooltip reads +15 Strength +10 Stamina at required 30
+     (V), so on the tooltip reading it is a warrior chest that a 29
+     cannot yet wear; on the search reading it is the only blue chest.
+WRIST|Emissary Cuffs|9455|33|28|Dark Iron Ambassador 6228, Gnomer|RNG
+     the 8.3.7 tooltip reads item level 29, required 24, random suffix
+     (V) - flagged in every file since the rogue's
+WRIST|Barbaric Bracers|18948|32|27|Leatherworking 23399|ALT V
+     leather, +4 Agility +9 Stamina (V): cross-type, and the Stamina is
+     the point
+HANDS|Grubbis Paws|9445|34|29|Grubbis 7361, Gnomeregan|SOLO
+     the 8.3.7 tooltip reads item level 29, required 24, +8 Strength
+     (V). Of all the flagged items in this set this is the one where the
+     tooltip helps: +8 Strength is a warrior stat. Printed as searched.
+WAIST|Highlander's Mail Girdle [20207 Defiler's]|20126|33|28|AB|SOLO V
+WAIST|Girdle of Golem Strength|9405|33|28|world drop|RNG
+LEGS|Ferine Leggings|6690|34|29|Agathelos the Raging 4422, RFK|SOLO
+     leather, and the only rare legs in the window for any plate wearer;
+     the 8.3.7 tooltip reads required 30 (V), flagged here as in the
+     rogue file
+FEET|Highlander's Mail Greaves [20210 Defiler's]|20129|33|28|AB|SOLO V
+FEET|Caverndeep Trudgers|9510|32|27|Gnomeregan zone drop|RNG
+BACK|no rare back in the window for any armour type - a green cloak
+RING 1|no rare Strength ring verified at 26-29 - green, of the Bear
+RING 2|second ring, same suffix
+     13097 Thunderbrow Ring, +8 Strength +3 Agility at required 24, is
+     the right ring at the wrong level; below this file's floor, so a
+     note and not a row, as in five files before this one
+TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena, quest 7838|SOLO
+TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO
+TRINKET 2|Minor Recombobulator|4381|28|none|Engineering 140, charges|ALT
+
+2. WEAPONS - WHERE THE SPECS SPLIT
+   Warrior weapon skills: one- and two-hand axes, maces and swords,
+   daggers, fist weapons, polearms, staves, bows, crossbows, guns and
+   shields - the widest weapon list in the game. The bracket narrows it:
+   the rare polearm and two-hand sword pools are thin, and the best
+   two-hander carries a level flag.
+TWO-HAND|Corpsemaker|6687|34|27|Overlord Ramtusk 4420, RFK|SOLO
+     the 8.3.7 tooltip reads item level 35, required 30, +15 Strength
+     +10 Stamina, 30.13 dps at 3.80 speed (V). The best two-hander in
+     the window on its numbers and the most flagged item in this file:
+     if the server follows the tooltip, Arms loses its best weapon.
+TWO-HAND|Cobalt Crusher|7730|34|29|SM zone drop|RNG V
+     +5 Strength, 28.91 dps at 3.20, chance on hit 110 to 120 Frost
+     damage (V). The unflagged Arms weapon, and the proc is real damage
+     a proc-less bracket rarely gets.
+TWO-HAND|Manual Crowd Pummeler|9449|34|28|Crowd Pummeler 6229|SOLO
+     +16 Strength +5 Agility, on use +500 haste for 30 sec, 1 hour
+     cooldown (V, druid file). A burst button on a weapon, which no
+     other item in this set offers a warrior.
+TWO-HAND|Combatant Claymore|2877|33|28|world drop|RNG V
+     27.76 dps but +10 Stamina +15 Spirit (V): a Spirit sword. Listed
+     so nobody reads its dps and buys it for the Strength it lacks.
+ONE-HAND|Dreamslayer|7752|33|28|world drop|RNG V
+     +7 Strength, 21.43 dps at 2.10, hit 3 (V). The Protection main
+     hand, and a Fury off hand.
+ONE-HAND|Protector's Sword [19553 Legionnaire's]|19557|33|28|AB|SOLO
+     +7 Strength +3 Stamina (V, warlock audit): the sold one-hander.
+ONE-HAND|Death Speaker Scepter|2816|33|27|Death Speaker Jargba|SOLO
+     the tooltip reads +6 Intellect at required 30 (V): a caster mace.
+ONE-HAND|Electrocutioner Leg|9446|34|28|Electrocutioner 6000|SOLO
+     the tooltip reads item level 29, required 24, no stats, a 10 to 20
+     Nature proc (V) - below the floor on the tooltip reading.
+ONE-HAND|The Butcher|8226|31|26|world drop, +5 Agi +4 Sta|RNG V
+SHIELD|Resplendent Guardian|7787|31|26|SM zone drop|RNG V
+     972 armour, +7 Stamina, parry 5 (V). Three rare shields exist in
+     the window; the other two are the Scarlet Monastery quest pair
+     65942 and 66024, +4 Strength +7 Stamina, hit 4 (V on 65942), which
+     suit a warrior better than they suited the shaman.
+RANGED|none - a warrior has no ranged weapon slot in 8.3.7, whatever
+     its weapon skills say; thrown weapons are abilities, not items
+
+3. ARMS
+   Armour: section 1.
+   Weapon: 7730 Cobalt Crusher, or 6687 Corpsemaker if its required
+   level holds on the server, with 9449 as the swap-in for the on-use.
+   Trinkets: 19024 and the Insignia. Arms is the simplest bot in the
+   class: one weapon, no off-hand decision, no shield decision.
+
+4. FURY
+   Armour: section 1.
+   Weapons: two one-handers - 7752 Dreamslayer and 19557 [19553], or
+   7752 twice if the world drop is kind. Whether a 29 Fury warrior can
+   dual wield two-hand weapons in 8.3.7 was not read for this file, so
+   this loadout is built on one-handers and the two-hand option is
+   stated as unverified rather than assumed either way.
+   Trinkets: the same three. 4381 matters to Fury: it is the spec most
+   likely to be standing in melee when a polymorph lands on the healer.
+
+5. PROTECTION
+   Armour: section 1, with 44099 in the shoulder slot.
+   Weapon and shield: 7752 Dreamslayer + 65942 [66024] Shield of the
+   Righteous Cause, or 7787 Resplendent Guardian where the quest shield
+   is not yet done. A Protection warrior is the only spec in this set
+   that prefers the Strength quest shield to the dropped one.
+   Trinkets: 19024 and the Insignia; a tank without a crowd-control
+   break is a tank that watches its healer die, and the Insignia is the
+   only break here.
+
+6. WHAT TO WEAR, SLOT BY SLOT
+   HEAD      6686 Tusken Helm (flagged), then 5819.
+   NECK      13087 River Pride Choker - both its stats are wanted.
+   SHOULDER  42949, or 44099 for Protection.
+   BACK      a green cloak. Nothing blue exists.
+   CHEST     48685 heirloom, then 1488 (flagged).
+   WRIST     18948 Barbaric Bracers, then 9455 (flagged).
+   HANDS     9445 Grubbis Paws (flagged, but +8 Strength on the tooltip).
+   WAIST     20126 [20207] from Arathi Basin.
+   LEGS      6690 Ferine Leggings (flagged), leather and all.
+   FEET      20129 [20210] from Arathi Basin.
+   RINGS     two greens, of the Bear or of Strength.
+   TRINKETS  19024 and the Insignia, 4381 as the third.
+   WEAPON    7730 for Arms, 7752 + 19557 for Fury, 7752 + a shield for
+             Protection. 6687 heads every list if its level holds.
+
+7. HONEST SUMMARY OF THE POOL
+   A 29 warrior wears plate in two slots, mail in four, leather in two
+   and greens in three, and its two best armour pieces are bought from a
+   battleground vendor rather than dropped. That is the paladin's
+   situation with a better battleground set and a worse best weapon.
+   This file also has the set's heaviest flag load: 6686, 1488, 9445,
+   9455, 6690, 9446, 2816 and 6687 all read differently on the 8.3.7
+   tooltip than in the search pool, and they are concentrated in exactly
+   the slots a warrior cares about - head, chest, hands, legs and the
+   main weapon. Eight disagreements is too many to settle on paper. One
+   check on the server, against whichever of the two readings the core
+   uses, would close all eight at once and would retroactively settle
+   the same flags in the rogue, shaman, hunter and paladin files.
