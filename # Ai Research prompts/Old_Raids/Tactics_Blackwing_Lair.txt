@@ -1,266 +1,435 @@
-TACTICS - BLACKWING LAIR (OLD RAIDS STEP 2 OF 16)
+TACTICS - BLACKWING LAIR (OLD RAIDS STEP 2 OF 16, RESTART)
 Server: private BfA 8.3.7 build 35662, TrinityCore base.
 Context: level 60 raid entered by a level 120 character with
-computer-controlled companions. Values read on warcraft.wiki.gg.
-Zone: Blackwing Lair (Wowhead zone 2677). Instance map id and
-all coordinates (map, x, y, z): unverified - wiki gives only
-in-zone map percentages, which are not coordinates.
-Boss entries verified on the Wowhead Blackwing Lair NPC list:
-Razorgore 12435, Vaelastrasz 13020, Broodlord Lashlayer 12017,
-Firemaw 11983, Ebonroc 14601, Flamegor 11981, Chromaggus 14020,
-Nefarian 11583. Add entries unverified unless stated.
-D = dispel type. I = interruptible (only where read).
+computer-controlled companions. Values are as printed on the
+warcraft.wiki.gg pages read for this file; exact 8.3.7
+scaling on your core is unverified - check on server.
+Sources: boss pages (Razorgore the Untamed, Vaelastrasz the
+Corrupt, Broodlord Lashlayer, Firemaw, Ebonroc, Flamegor,
+Chromaggus, Nefarian (tactics)) and the mob pages for every
+add/trash type named below, all read this pass.
+Zone: Blackwing Lair, zone id 2677. Instance MAP ID: 469
+(InstanceID listing: 409 Molten Core, 469 Blackwing Lair).
+Coordinates (map 469, x, y, z): unverified - the wiki prints
+only in-zone map percentages (e.g. Razorgore 48.4, 53.7),
+which are not spawn coordinates; read xyz from your core.
+Boss entries (Wowhead NPC list, prior file): Razorgore
+12435, Vaelastrasz 13020, Broodlord Lashlayer 12017,
+Firemaw 11983, Ebonroc 14601, Flamegor 11981, Chromaggus
+14020, Nefarian 11583.
+Flags: I = interruptible only where a cast was read;
+D-Curse/D-Magic/D-Poison/D-Disease = dispel type.
 
 1. RAZORGORE THE UNTAMED (12435)
-PHASES: P1 kill Grethok the Controller (add, entry unverified)
-  and his 2 Blackwing Guardsmen. P2 a companion uses the Orb
-  of Domination to control Razorgore and destroy every egg
-  while adds spawn in the corners (caps read: 40 orcs -
-  Legionnaires and Mages - and 12 Death Talon Dragonspawn).
-  P3 eggs gone: adds flee, Razorgore heals to full (23040),
-  kill him. NEVER let Razorgore die before the eggs are gone:
-  he instantly kills the whole room and resets (Wowhead).
-TANK: P1 tank the Guardsmen; P3 tank Razorgore in the open,
-  facing away from the group (Cleave 19632, War Stomp 24375).
-GROUP: corner groups guard the spawn corners; protect the
-  orb controller (adds run at the controller first); Mages
-  are the priority kills, Dragonspawn are kited/CC'd, not
-  killed (page: hard to kill, high damage).
+P1 add group: Grethok the Controller (12557) + 2x Blackwing
+  Guardsman (14456). P2 spawn groups: Blackwing Mage
+  (12420), Blackwing Legionnaire (12416), Death Talon
+  Dragonspawn (12422). Egg: Black Dragon Egg (object;
+  entry unverified).
+PHASES: P1 kill Grethok and his Guardsmen fast (a spawn
+  timer runs from the pull, page). P2: a companion uses
+  the Orb of Domination to mind-control Razorgore and
+  destroy every egg (control is channeled, ~90 sec per
+  control period, page) while adds spawn in the corners
+  (caps: 40 orcs - Legionnaires/Mages - and 12 Dragonspawn
+  total; killed adds respawn as replacements until the
+  caps are met, page). P3: last egg destroyed - adds
+  flee, Razorgore heals to full (23040), kill him.
+  NEVER let Razorgore die before the eggs are gone: he
+  instantly kills every unit in the room and resets the
+  encounter (page, explicit). The controller companion
+  takes Razorgore's full aggro in P3 (page) - use a hard
+  class (warrior/paladin/feral) on the orb, pets dismissed.
+TANK: P1 tank the Guardsmen (frontal 15284). P3 tank
+  Razorgore facing away from the group (19632 Cleave,
+  24375 War Stomp).
+GROUP: one corner group per spawn corner (page: rogues/
+  mages/warlocks + an assist target); every add's first
+  aggro is the orb controller - adds must be peeled off
+  the controller, Mages before they reach mid-room and
+  start casting (page). Dragonspawn/Legionnaires are
+  kited/CC'd, not killed (Dragonspawn: hard to kill, high
+  damage; page).
 GROUND: none read.
-ADD ORDER (P2): P1 Blackwing Mages, P2 Legionnaires (kite),
-  Dragonspawn: CC/kite only. Eggs are the real priority -
-  Destroy Egg 19873 under control, Calm Dragonkin 19872.
-ABILITY LIST:
-  19873 Destroy Egg (while controlled) - the objective.
-  19872 Calm Dragonkin (controlled) - sleep 30 sec.
-  22425 Fireball Volley (controlled) - 2 sec cast.
-  23023 Conflagration - 3000 Fire/10 sec + panic, splashes
-    nearby allies for 150. Spread from the burning target.
-  24375 War Stomp - AoE +500, knockback, stun 5 sec, 15 yd.
+ADD ORDER (P2): eggs are the real objective (controlled
+  19873 Destroy Egg). Kills: P1 Blackwing Mage (12420).
+  Legionnaire (12416) and Dragonspawn (12422): kite/CC
+  only - killing them only spawns replacements and their
+  23967 Dragonbane (400% weapon damage) is aimed at
+  Razorgore (mob pages: "only used against Razorgore"),
+  i.e. a loose add can kill the boss and reset the room.
+ABILITY LIST (Razorgore, uncontrolled):
+  23023 Conflagration - 3000 Fire/10 sec + panic; the
+    burning target periodically scorches nearby allies
+    for 150. Spread from the burning companion.
+  24375 War Stomp - normal +500 nearby, knockback, 5 sec
+    stun, 15 yd.
   19632 Cleave - frontal, up to 10 targets.
-  23040 Warming Flames - heals him to full, starts P3.
-AI RULE: in P2 use the orb and destroy eggs; never damage
-  Razorgore to death before the last egg is gone.
+  23040 Warming Flames - heals to full, starts P3.
+ABILITY LIST (while controlled - the controller's bar):
+  19873 Destroy Egg - 10 yd; instant per ability list,
+    3 sec cast per strategy text (page contradicts
+    itself; cast time unverified), 1.5 sec cooldown.
+  19872 Calm Dragonkin - sleep a young dragon 30 sec.
+  22425 Fireball Volley - 2 sec cast; 133-154 Fire to
+    hostile units within 45 yd (page).
+ABILITY LIST (Grethok 12557 - kill him first, page):
+  14515 Dominate Mind - I (2 sec cast read); humanoid up
+    to level 25 (page) for 15 sec.
+  22274 Greater Polymorph - instant; up to 20 sec, one
+    target. Dispel: D-Magic unverified (standard for
+    polymorph; not printed).
+  13747 Slow - +50% attack/cast time, -60% move, 6 sec,
+    nearby. 22273 Arcane Missiles - 66-77 Arcane.
+ABILITY LIST (adds): Guardsman/Legionnaire/Dragonspawn
+  share 15284 Cleave (up to 3 frontal) + 15580 Strike;
+  Legionnaire/Dragonspawn also 23967 Dragonbane (above).
+  Blackwing Mage: 17290 Fireball (3 sec cast - interrupt
+  or kill first), 22271 Arcane Explosion (instant).
+AI RULE: control Razorgore, destroy eggs, kill only the
+  Mages; never let Razorgore die before the last egg.
 
 2. VAELASTRASZ THE CORRUPT (13020)
-PHASES: single phase from 30% health (he starts corrupted and
-  low; exact starting percent read as "starts the fight
-  already dying" - starting % unverified). A 3-minute race:
-  Burning Adrenaline kills its targets one by one.
-TANK: hold him facing the wall/alcove, tail away from the
-  group (Tail Sweep 15847 knocks back 150 yd behind him);
-  tanks rotate: every third Burning Adrenaline lands on the
-  current tank, and that tank dies when it expires.
-GROUP: ranged spread on his flanks, never front (Flame Breath
-  23461 cone + Cleave 19983 chains 10 yd), never behind (tail).
-  The Burning Adrenaline target keeps DPSing and dies clear
-  of others (explodes 4376-5624 to surrounding allies).
-GROUND: none placed; the death explosion point is the dying
-  Burning Adrenaline target.
+PHASES: single phase, but a 3-minute race: 23513 ends
+  after 3 minutes and with it the raid's resources (page:
+  fights are "won at 2:45"). He starts the fight already
+  corrupted and low (exact starting % unverified in the
+  text read). At 120 this is a burn; the mechanics below
+  are what still kill companions.
+TANK: tanking LINE, not one tank: 18173 Burning
+  Adrenaline hits a mana user every 15 sec, and every
+  THIRD cast hits the current tank instead (page) - that
+  tank dies when it expires. Next tank moves into the
+  tank spot and takes over immediately (page transitions
+  section); healers shift to the new tank. Hold him with
+  his head to a wall/alcove: 23461 cone in front, 15847
+  Tail Sweep behind (150 yd knockback, page).
+GROUP: casters clumped on one flank against the wall,
+  hunters/tank line opposite (page setups); melee at his
+  broadside between front and hind legs. Never in front
+  (23461 + 19983 chain), never behind (15847). A companion
+  with 18173 moves clear of everyone and keeps DPSing:
+  on death it deals 4376-5624 to surrounding allies.
+GROUND: none placed; the death-blast point is the dying
+  18173 target's position.
 ADD ORDER: none.
 ABILITY LIST:
-  23513 Essence of the Red - raid buff at pull: huge resource
-    regen, 3 min. This is the enrage timer in effect.
-  18173 Burning Adrenaline - +100% damage, instant casts,
-    max health -5%/sec, explodes on death. On a mana user
-    every 15 sec; every third cast on the tank instead.
-  23461 Flame Breath - frontal cone 3500-4500 + DoT.
-  23642 Fire Nova - 555-645 Fire, 100 yd radius, instant.
-  19983 Cleave - chains to targets within 10 yd.
-  15847 Tail Sweep - behind cone + huge knockback.
-AI RULE: kill him before Essence of the Red ends; a companion
-  with Burning Adrenaline moves away from the group before
-  it kills them.
+  23513 Essence of the Red - raid buff at pull: 500
+    mana / 50 energy / 20 rage / 20 runic power per sec,
+    3 min (page).
+  18173 Burning Adrenaline - +100% damage done, all
+    spells instant, max health -5% per sec, explodes on
+    death (see GROUP).
+  23461 Flame Breath - 2 sec cast; 3500-4500 Fire cone
+    + 938-1062/3 sec for 15 sec.
+  23642 Fire Nova - instant; 555-645 Fire, 100 yd radius.
+  19983 Cleave - up to 10 targets, chains within 10 yd.
+  15847 Tail Sweep - 925-1075 behind him, huge knockback.
+AI RULE: kill him before 23513 ends; if you get 18173,
+  run clear of the group and keep casting until you die.
 
 3. BROODLORD LASHLAYER (12017)
-PHASES: single phase (the two Suppression Rooms before him
-  are the real first phase - see TRASH).
-TANK: tank him in his doorway/room with tanks rotating -
-  Knock Away drops the target's threat by 50% each time, so
-  the next tank takes over; never let him reach cloth (Mortal
-  Strike crits 15000+ on cloth, read).
-GROUP: ranged at max range; nobody but tanks in front of him
-  (Cleave, Blast Wave knockback).
-GROUND: none read. Suppression devices (before the boss)
-  radiate an aura reducing move/attack/cast speed to 20%.
+The two Suppression Rooms before him are the real first
+  phase - see TRASH T1.
+PHASES: single phase.
+TANK: tank him by his gate/doorway away from suppression
+  devices (solo-strategy text). Tanks ROTATE: Knock Away
+  on the highest-threat target cuts that target's aggro
+  by 50% every time (page), so the next tank taunts and
+  the knocked tank rebuilds. DPS must be modulated - the
+  fight is lost when cloth aggro passes the tanks (page).
+GROUP: ranged at max range; nobody but the tank in front
+  (Cleave). Shield the tank through the Mortal Strike
+  debuff window (page: Power Word: Shield timing).
+GROUND: none in the boss room. Suppression devices (see
+  T1) radiate the slow aura - fight him away from them.
 ADD ORDER: none in the boss fight.
-ABILITY LIST (spell ids unverified - page lists no ids):
-  Blast Wave - AoE fire knockback. Id unverified.
-  Cleave - frontal high damage. Id unverified.
-  Mortal Strike - tank hit + healing-reduction debuff.
-    Id unverified.
-  Knock Away - single target knockback, -50% threat.
-    Id unverified.
-AI RULE: when your tank is knocked away, the next tank taunts
-  immediately; non-tanks never stand in front of him.
+ABILITY LIST (spell ids unverified - the page names the
+  abilities without wowhead id links):
+  Blast Wave - fire AoE knockback, "hefty" damage.
+  Cleave - high-damage frontal.
+  Mortal Strike - crits to 8000 on plate, 15000+ on
+    cloth (page); leaves the healing-reduction debuff.
+  Knock Away - single-target knockback, -50% threat on
+    the target (see TANK).
+AI RULE: when your tank is knocked away, the next tank
+  taunts at once; non-tanks never stand in front of him.
 
 4. FIREMAW (11983)
-PHASES: single phase.
-TANK: tanked in the doorway of the room he guards, tank with
-  his back to a wall; two tanks alternate - Wing Buffet
-  23339 knocks back and cuts threat, and the Flame Buffet
-  stack forces tank swaps so stacks can fall off (20 sec).
-GROUP: DPS/healers hug the walls and break line of sight to
-  drop Flame Buffet stacks; only expose to heal/DPS, then
-  hide again. He is patrolling: clear the first trash packs
-  of the Crimson Laboratories before pulling (page: ~3).
-GROUND: none placed. Flame Buffet 23341 stacks on anyone in
-  his line of sight - the "ground" here is his sightline.
+PHASES: single phase. He PATROLS: clear the first ~3
+  Crimson Laboratories packs before pulling (page).
+TANK: tanked in the doorway of Broodlord's room, tank's
+  back to a wall (23339 knockback). Two tanks alternate:
+  a second tank takes over while the first hides until
+  23341 stacks fall off (20 sec, page).
+GROUP: DPS/healers hug the walls either side of the
+  doorway and break line of sight to drop 23341 stacks -
+  expose only to cast, then hide (page). Never in front
+  (22539 cone) unless tanking.
+GROUND: none placed. 23341 Flame Buffet stacks on anyone
+  in his LINE OF SIGHT (page) - his sightline is the
+  ground effect here; the wall is the safe zone.
 ADD ORDER: none.
 ABILITY LIST:
-  23341 Flame Buffet - 139-161 Fire +150 Fire damage taken
-    per stack, 20 sec, NOT dispellable (page, explicit).
-  22539 Shadow Flame - frontal cone 3938-5062 Shadow (the
-    Onyxia Scale Cloak DoT protection note is Classic-era;
-    cloak requirement in 8.3.7 unverified).
-  23339 Wing Buffet - frontal knockback + threat reduction.
+  23341 Flame Buffet - 139-161 Fire +150 Fire damage
+    taken per stack, 20 sec; NON-DISPELLABLE (page,
+    explicit).
+  22539 Shadow Flame - 3938-5062 Shadow, frontal cone;
+    "previously" carried a 1750-2250/sec 10 sec DoT
+    unless wearing an Onyxia Scale Cloak (page - the
+    DoT/cloak state in 8.3.7: unverified; at 120 the
+    cone itself is the only concern).
+  23339 Wing Buffet - 563-937 frontal, knockback, threat
+    reduction (page tactics text).
   3391 Thrash - 2 extra attacks on the tank.
   20279 Summon Player - summons a player to his front.
-AI RULE: if Flame Buffet stacks climb, break line of sight
-  behind the doorway wall until they drop; never face him
-  toward the group.
+AI RULE: if 23341 stacks climb, break line of sight
+  behind the doorway wall until they drop; never face
+  him toward the group.
 
 5. EBONROC (14601)
 PHASES: single phase.
-TANK: tanks in a corner (knockback control), three-tank
-  rotation read on the page: main tank, Wing Buffet eater,
-  and Shadow cover. The instant a tank gets Shadow of
-  Ebonroc 23340, another tank taunts - the debuffed tank's
-  melee hits HEAL Ebonroc. Keep a Mortal Strike effect on
-  him (halves that healing; from the page).
-GROUP: DPS at his rear (6 o'clock), tanks at 3/9/12.
+TANK: THREE-tank rotation in a corner (staircase/wall
+  angle, page): MT, Wing Buffet eater, Shadow cover.
+  The instant a tank gets 23340 Shadow of Ebonroc,
+  another tank taunts - the debuffed tank's melee hits
+  HEAL Ebonroc. Keep a Mortal Strike effect on him at
+  all times (halves that healing; page). Tanks at
+  12/3/9 o'clock, DPS at 6 (page).
+GROUP: DPS at his rear (6 o'clock); only tanks in front.
 GROUND: none.
 ADD ORDER: none.
 ABILITY LIST:
-  23340 Shadow of Ebonroc - debuff: target's melee damage
-    heals Ebonroc. D type unverified in source.
-  22539 Shadow Flame - frontal cone (see Firemaw).
-  23339 Wing Buffet - frontal knockback/threat cut.
-  3391 Thrash. 20279 Summon Player.
-AI RULE: if you have Shadow of Ebonroc, stop attacking and
-  let another tank take him - your hits heal the boss.
+  23340 Shadow of Ebonroc - target's melee damage heals
+    Ebonroc (page). Dispel type not printed: unverified.
+    ~100 Shadow resistance on tanks cut its hit chance
+    (page strategy; era gearing note, unverified here).
+  22539 Shadow Flame, 23339 Wing Buffet, 3391 Thrash,
+  20279 Summon Player - as Firemaw.
+AI RULE: if you have 23340, STOP attacking and let
+  another tank take him - every swing heals the boss.
 
 6. FLAMEGOR (11981)
-PHASES: single phase; Enrage 23342 every 10-15 sec is the
-  fight (Fire Nova only while enraged, per page).
-TANK: like Firemaw (doorway/wall), facing away from group.
-GROUP: hunters run a Tranquilizing Shot rotation (book from
-  Lucifron) - Enrage must be removed within seconds; a
-  dedicated healer for offtanks/hunters (page).
-GROUND: none. Fire Nova while enraged hits the whole raid
-  and since patch 1.11 cannot be line-of-sighted (page) -
-  damage value unverified in source.
+PHASES: single phase; 23342 Enrage every 10-15 sec is
+  the fight - Fire Nova happens only while enraged and
+  since patch 1.11 cannot be line-of-sighted (page).
+TANK: like Firemaw (doorway, back to wall, facing away
+  from the group). No stacking debuff, so no tank hides
+  are needed for stacks (page).
+GROUP: hunter Tranquilizing Shot rotation (tome drops
+  from Lucifron in Molten Core) - Enrage removed within
+  seconds; a dedicated healer for off-tanks/hunters
+  (page: they take the most fire).
+GROUND: none. The enraged Fire Nova hits the whole raid
+  (value not printed on the page: unverified).
 ADD ORDER: none.
 ABILITY LIST:
-  23342 Enrage - +150% attack speed 10 sec; dispel by
-    Tranquilizing Shot (offensive, hunter only).
+  23342 Enrage - time between attacks -150% (i.e. attack
+    speed greatly increased) for 10 sec; remove with
+    Tranquilizing Shot (hunter offensive dispel).
   22539 Shadow Flame, 23339 Wing Buffet, 3391 Thrash,
-  20279 Summon Player - see Firemaw.
-AI RULE: Tranquilizing Shot on every Enrage; if none is
-  available, all companions stop and heal through 10 sec -
-  never let a second Enrage stack onto an un-dispelled one.
+  20279 Summon Player - as Firemaw.
+  Fire Nova (enraged only) - spell id unverified (the
+    page names it without an id).
+AI RULE: Tranquilizing Shot on every 23342; if none is
+  up, heal through the 10 sec - never let a second
+  Enrage land while the first is still on him.
 
 7. CHROMAGGUS (14020)
-PHASES: single phase; at 20% a hard Enrage joins the ongoing
-  Frenzy cycle (frenzy 10-15 sec, Tranquilizing Shot). His
-  two breaths are chosen per instance lockout from five.
-TANK: tanked where the raid can break line of sight (door of
-  his room / ramp cubbies, page list); everyone except the
-  tank hides on each breath warning (breaths hit everything
-  in line of sight, NOT just frontal). Time Lapse exception:
-  an offtank stays out to take him while the MT is stunned.
-GROUP: dispel teams by type (below); keep every companion at
-  3 or fewer Brood Afflictions - at 5, the player mutates
-  into an elite drakonid (undispellable; page: polymorph or
-  kill the mutant, and its death heals Chromaggus).
-GROUND: none placed (base version); breaths are LoS cones.
+PHASES: single phase; at 20% a hard Enrage for the rest
+  of the fight (page; id cited there only via an old
+  external link - spell id unverified). Frenzy every
+  10-15 sec throughout (Tranquilizing Shot; its spell
+  id unverified on this page). His TWO breaths are
+  chosen from the five below per instance lockout and
+  alternate every 30 sec (page). He also shimmers:
+  vulnerability to one magic school changes over the
+  fight (page; school/timing unverified per shimmer).
+TANK: tank where the raid can break line of sight (door
+  of his room / ramp top / cubbies; page list) - breaths
+  hit everything in LINE OF SIGHT, not just frontal.
+  Everyone except the tank hides on each breath warning.
+  Time Lapse exception: the MT takes every Time Lapse;
+  an off-tank who hid from it holds him, with healers
+  who also hid, until the MT's stun ends (page).
+GROUP: dispel teams by type (below); keep every
+  companion at 3 or FEWER Brood Afflictions - at all
+  five, the companion mutates into an elite drakonid
+  (cannot be dispelled; polymorph or kill the mutant -
+  its death heals Chromaggus significantly, page).
+GROUND: none placed in the base encounter (the ground
+  patches on cleanse are a Season of Mastery variant;
+  not used - unverified). Breaths are LoS, see TANK.
 ADD ORDER: none.
-ABILITY LIST (breath/affliction spell ids unverified - the
-  page names them without ids):
+ABILITY LIST (breath and affliction spell ids
+  unverified - the page names them without id links):
   Breaths (2 of 5 per lockout, alternate every 30 sec):
-   Incinerate - 3675-4275 Fire.
-   Corrosive Acid - 875-1125 Nature/3 sec 15 sec, armour cut.
-   Frost Burn - ~1400 Frost, attack speed -80%.
-   Ignite Flesh - 657-843 Fire/3 sec 60 sec, stacks.
-   Time Lapse - stun 6 sec, max health halved while stunned.
-  Brood Afflictions (zone-wide auras, all five cycle):
-   Red D-Disease: 50 Fire/3 sec; death heals Chromaggus.
-   Green D-Poison: healing -50%, 250 Nature/5 sec.
-   Blue D-Magic: move -70%, cast -50%, mana/health drain.
+   Incinerate (Red) - 3675-4275 Fire (~9000 if the
+    target has Brood Affliction: Black).
+   Corrosive Acid (Green) - 875-1125 Nature/3 sec for
+    15 sec; armour reduced 3938-5062.
+   Frost Burn (Blue) - ~1400 Frost; attack speed -80%.
+   Ignite Flesh (Black) - 657-843 Fire/3 sec for 60
+    sec; stacks on recast.
+   Time Lapse (Bronze) - 6 sec stun; max health halved
+    while stunned (returned when it ends, page).
+  Brood Afflictions (radiated zone-wide, all five cycle):
+   Red D-Disease: 50 Fire/3 sec; if the holder dies it
+    heals Chromaggus.
+   Green D-Poison: -50% healing received; 250 Nature
+    /5 sec.
+   Blue D-Magic: move -70%, cast speed -50%; drains
+    50 mana + 1 health per sec.
    Black D-Curse: +100% Fire damage taken.
-   Bronze: random 4-sec stuns, 10 min; removed ONLY by
-    Hourglass Sand (drops from the trash before him) or
-    Ice Block. Dispel types read on the page.
-  Frenzy - Tranquilizing Shot (id unverified here).
-  Enrage (20%) - id unverified (page cites 28747 via an
-    old external link; treat id as unverified).
-AI RULE: dispel every Brood Affliction fast (disease, poison,
-  magic, curse), and break line of sight on every breath
-  unless you are the tank.
+   Bronze (no dispel type): random 4-sec stuns for
+    10 min; removed ONLY by Hourglass Sand (item;
+    drops from the trash packs before Chromaggus) or
+    Ice Block (page). Prioritise sand for healers,
+    tanks, hunters (page).
+  Frenzy (10-15 sec) - Tranquilizing Shot; id unverified.
+  Enrage at 20% - id unverified (see PHASES).
+AI RULE: dispel every Brood Affliction fast (Disease,
+  Poison, Magic, Curse - never let one companion reach
+  five), and break line of sight on every breath unless
+  you are the tank.
 
 8. NEFARIAN (11583)
-PHASES: P1 Lord Victor Nefarius (entry unverified) on his
-  throne sends waves of drakonid adds from two doors (colours
-  vary per lockout; counts unverified). At the phase's end he
-  takes dragon form and lands: P2 class calls. P3 at 20% he
-  resurrects every drakonid killed in P1 as Bone Constructs
-  (add entries unverified).
-TANK: P2 tank him near his throne facing away from the raid
-  (Shadow Flame cone, Cleave 19983, Tail Lash 23364 behind);
-  fear breaks ready (Bellowing Roar 22686, 35 yd).
-GROUP: P1 split to both doors, AoE the waves; P2 spread on
-  his flank; respond to class calls (below); P3 tanks pick
-  up the Bone Constructs, raid stays on Nefarian.
+P1 add groups: Chromatic Drakonid (14302) - always - plus
+  two random colours (one per door, fixed per lockout;
+  page): Red/Blue/Green/Black/Bronze Drakonid (their
+  individual entries unverified - mob pages not read;
+  abilities/resists from the tactics page below). P3:
+  Bone Construct (14605). Lord Victor Nefarius (his
+  human form on the throne): creature entry unverified.
+PHASES: P1: talk to Nefarius on his throne; he is
+  invulnerable, wanders shadow-bolting, mind-controlling
+  and fearing random targets (page; his P1 spell ids
+  unverified) while drakonids flood from both doors.
+  After 42 drakonids are killed no more spawn; kill the
+  rest (page). He then casts a raid-wide Shadow Flame
+  (ignores LoS, ~1000 Shadow, page; behind the throne is
+  the one safe spot) and lands: P2 class calls every
+  ~25-35 sec (page). P3 at 20%: he resurrects every
+  drakonid killed in P1 as Bone Constructs where they
+  died (page); constructs do not despawn on his death
+  (high-level strategy text) - re-kill them after.
+TANK: P2 tank him near his throne facing away from the
+  raid (22539 cone front, 23364 behind). AoE fear about
+  every 30 sec (ground shakes first, page): Fear Ward /
+  Berserker Rage on the tank; ranged over 35 yd avoid it.
+GROUP: P1 split evenly to both doors (2-3 tanks per side
+  for Chromatics, page doorway method); ranged/healers
+  at max range mid-room to switch sides. P2 spread on
+  his flank; obey class calls (below); pre-position AoE
+  where drakonids died before he hits 20% (page).
 GROUND: none placed read.
-ADD ORDER: P1 drakonids as they spawn (both doors; the two
-  colours' resists vary - unverified per lockout). P3 Bone
-  Constructs P1 for tanks, but companions keep DPS on
-  Nefarian unless constructs reach the healers.
-ABILITY LIST:
-  22686 Bellowing Roar - AoE fear 4 sec, 35 yd.
-  19983 Cleave - frontal, up to 10 targets.
-  22539 Shadow Flame - frontal cone.
-  23364 Tail Lash - behind him: disarm + stun 2 sec.
-  22687 Veil of Shadow - D-Curse type not printed (healing
-    -75% 6 sec on target; decurse priority = tank. Type
-    unverified in source, filed as curse-family by name).
-  Class calls (spell ids unverified): force one class's
-   signature harm - death knights Death Grip the whole raid
-   into his hitbox (run back to position); demon hunters'
-   controlling screen blacks out (player-only effect on the
-   page; companion behaviour unverified); monks Roll
-   uncontrollably for ~5 sec (wait it out); druids stuck in
-   Cat Form; hunters'
-   ranged weapons break (unequip before calls); mages cast
-   Wild Polymorph on the raid (dispel it, D-Magic); paladins
-   Blessing of Protection on Nefarian (stop DPS); priests'
-   direct heals add a stacking DoT (priests stop direct
-   heals); rogues teleported+rooted at his side (tank turns
-   him); shaman spawn corrupted totems (kill the totems);
-   warlocks summon 2 Infernals each (AoE them); warriors
-   stuck in Berserker Stance +30% damage taken (heal tank).
-AI RULE: obey your class call the second it is announced;
-  otherwise never stand in front of or behind him.
+ADD ORDER: P1 leaking drakonids first, then the assist
+  target (page); colour handling (page): AoE Red groups,
+  assist-train Blue, prefer DPS on Black, AoE Bronze,
+  Green is governed by its partner colour. Chromatics
+  are "sunder" tanked (most health, page). P3: Bone
+  Constructs (14605) are tanks' P1 - pull them to the
+  AoE spot; companions keep DPS on Nefarian unless
+  constructs reach the healers.
+ABILITY LIST (Nefarian):
+  22686 Bellowing Roar - fear 4 sec, all within 35 yd.
+  19983 Cleave - normal +100%, up to 10 targets.
+  22539 Shadow Flame - frontal cone (ability list value
+    2210; tactics text prints 3938-5062 for the drake
+    version - value for Nefarian unverified).
+  23364 Tail Lash - behind him: 614 damage, drops the
+    target's weapon (disarm), 2 sec stun.
+  22687 Veil of Shadow - healing -75% for 6 sec, on the
+    target nearest the centre of his hitbox (page);
+    decurse the tank first. Dispel type: page does not
+    print it - filed D-Curse unverified.
+  Class calls (every ~25-35 sec; call spell ids
+  unverified - companion responses from the page):
+   Death knight: Death Grip pulls the whole raid into
+    his hitbox - run back out (no root, page).
+   Demon hunter: controlling player's screen blacks out
+    (player-only effect; companion rule: keep attacking
+    the current target - page solution is tab-target).
+   Druid: stuck in Cat Form - stay back, wait it out.
+   Hunter: ranged weapon durability destroyed - unequip
+    the ranged weapon before every call (page macro
+    exists; companions: swap to a spare/cheap weapon).
+   Mage: Wild Polymorph on random raid members (no
+    range/LoS limit) - dispel it, D-Magic; tanks first.
+   Monk: uncontrolled Roll for ~5 sec - wait, run back.
+   Paladin: Blessing of Protection on Nefarian - STOP
+    all damage until it drops (tank cannot gain threat).
+   Priest: direct heals add a stacking DoT (Corrupted
+    Healing) - priests use Renew/Power Word: Shield
+    only (page: both still work normally).
+   Rogue: teleported and rooted beside him - tank turns
+    him 45-90 degrees if rogues land in the cleave/
+    breath zone (page).
+   Shaman: corrupted totems spawn (incl. windfury/fire
+    nova) - ALL single-target DPS kills totems first;
+    never enter P3 with totems up (they buff constructs).
+   Warlock: 2 Infernals per warlock land on/near them
+    (stun + minor damage) - warlocks stand isolated at
+    the back; mage AoE kills the Infernals (fire immune).
+   Warrior: stuck in Berserker Stance, +30% damage
+    taken - extra heals on the tank; threat is lower,
+    watch DPS.
+   (Evoker call exists in current retail text - Pitiful
+    Whelp 389632 - but Evokers do not exist in 8.3.7;
+    not used.)
+AI RULE: obey your class call the second it lands;
+  otherwise never stand in front of or behind him,
+  and re-kill the Bone Constructs after he dies.
 
-TRASH (entries unverified - not read for this file)
-  Suppression Rooms (before Broodlord): non-elite whelp
-    swarms respawn 30 sec - AoE constantly, keep moving;
-    patrolling elites + Death Talon Hatchers (20 min
-    respawn). Suppression traps slow everything to 20%:
-    a rogue companion disarms traps ahead of the group
-    (this is the one trash job that cannot be skipped).
-    Kill order: elites first, whelps by AoE in passing.
-  Death Talon packs (after Vaelastrasz): mixed dragonkin
-    packs; pack lists/spells unverified - kill casters
-    first as a general rule, unverified for these packs.
-  Crimson Laboratories packs (before Firemaw and between
-    the drakes): technicians/whelps/dragonkin mix; spells
-    and entries unverified. Hourglass Sand for Chromaggus
-    Bronze drops from the packs before Chromaggus - loot
-    it, do not vendor it.
-  General trash AI RULE: disarm suppression traps and loot
-    Hourglass Sand; interrupt any cast heal seen (none
-    verified in these packs - unverified), kill order
-    unverified beyond elites-before-whelps above.
+TRASH (entries page-read where stated)
+T1. Suppression Rooms (between Vaelastrasz and
+  Broodlord): Suppression Devices (object; entry
+  unverified) radiate an aura cutting move/attack/cast
+  speed to 20% (Broodlord page). Non-elite whelps
+  (entry unverified) swarm and respawn 30 sec - AoE
+  constantly, keep moving; patrolling elite humanoids
+  + Death Talon Hatchers (entry unverified) respawn
+  20 min. At-level rule: a rogue does nothing but
+  disarm traps ahead of the group (page). Retail note
+  (page solo strategy): devices can now be clicked off
+  by any class but reactivate - companions should
+  click devices on their path and use instants inside
+  the aura. Kill order: elites first (hunters primary
+  - caster mana is saved for whelps, page), whelps by
+  AoE in passing; move in the respawn gaps.
+T2. Death Talon packs (room above Vaelastrasz; also the
+  first Broodlord room): 6 mobs per pull, at least one
+  of each type, max one Captain (pack page): Captain,
+  Seether, Flamescale, Wyrmkin types (individual
+  entries unverified - their pages not read). Pack
+  page mechanics: Wyrmkin Fireball Volley is the big
+  threat (druids keep Wyrmkins asleep); Captain has
+  Aura of Flames (fire thorns to all Death Talon
+  within ~30-40 yd - tank Seethers/Flamescales AWAY
+  from him) and Mark of Detonation (random target
+  explodes on nearby allies - DISPEL it; dispel type
+  unverified on the page, or kill the Captain before
+  the Flamescales if the group cannot dispel, page).
+  Seethers enrage (attack speed doubles; hunters
+  assigned - Tranquilizing Shot by analogy, unverified
+  on this page) and brand their tank +1000 Fire damage
+  taken from fire attacks (FR on seether tanks).
+  Kill order (page): Seether P1, Flamescale P2,
+  Captain P3, sleeping Wyrmkin last.
+T3. Crimson Laboratories packs (Broodlord to Firemaw,
+  and between the drakes): Blackwing Technician
+  (13996) verified: 22334 Bomb (Fire to a selected
+  area), 22335 Bottle of Poison (179 Nature/3 sec,
+  30 sec; D-Poison unverified). They are the only
+  source of Elementium Ingot (page). Mixed with
+  whelp/dragonkin packs (composition per pack
+  unverified). Hourglass Sand for Chromaggus Bronze
+  drops from the packs BEFORE Chromaggus (Chromaggus
+  page) - loot it, never vendor it.
+General trash AI RULE: in suppression rooms keep moving
+  and click devices off; in Death Talon packs keep the
+  Captain's aura away from the other tanks' targets
+  and dispel Mark of Detonation; loot Hourglass Sand.
 
-END OF STEP 2. Next step is 03_Ruins_of_Ahn_Qiraj.txt.
+END OF STEP 2 (RESTART). Next step is
+03_Ruins_of_Ahn_Qiraj.txt, on request.

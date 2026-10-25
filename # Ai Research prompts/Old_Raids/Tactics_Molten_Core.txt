@@ -44,8 +44,12 @@ ABILITY LIST (Lucifron):
   19460 Shadow Shock - instant Shadow on target.
 ABILITY LIST (Flamewaker Protector 12119):
   20605 Cleave - weapon +85, up to 3 targets, frontal.
-  20604 Dominate Mind - mind control, humanoid up to level
-    100, 15 sec; I unverified.
+  20604 Dominate Mind - mind control 15 sec; 2 sec cast
+    (8.3.7 tooltip). Level cap CONFLICT: wiki says humanoid
+    up to 100, the 8.3.7 tooltip prints up to 25 - which
+    applies in this build unverified (a level 120 companion
+    is above both). I: cast exists; interruptibility on
+    this creature unverified.
 AI RULE: kill the Protectors first; decurse (D-Curse) the
   tank first, then anyone mind-control-adjacent; never let
   Lucifron be tanked near the group.
@@ -132,9 +136,11 @@ ABILITY LIST (Firesworn 12099):
     on death (listed on both pages read).
   Immolate - CONFLICT: Garr boss page lists 20294 (760-840
     + 380-420/3 sec, 21 sec); the Firesworn mob page lists
-    15732 (337 + 168/3 sec, 15 sec). Which id the 8.3.7
-    build uses: unverified - check on server. D-Magic
-    (dispel tag unverified on both pages).
+    15732 (15 sec version). Audit 1: BOTH ids exist in the
+    8.3.7 tooltip data (20294 requires level 62, 15732
+    level 20) and both buffs are type Magic (D-Magic
+    verified). Which id Firesworn cast in this build:
+    unverified - check on server.
   20483 Massive Eruption - 2330 Fire to all within 30 yd
     + knockback (mob page only; trigger unverified).
   23492 Separation Anxiety - +300% Fire damage when too
@@ -226,18 +232,17 @@ ABILITY LIST (Sulfuron):
   19781 Flame Spear - 850-1150 Fire + splash around the
     target.
 ABILITY LIST (Flamewaker Priest 11662):
-  19775 Dark Mending - I (interruptible, per strategy
-    text above). Heal value CONFLICT: boss page prints
-    27750-32250; the mob page prints 1069. 8.3.7 value:
-    unverified - either way it out-heals companion DPS
-    at level and must never land; at 120 it is trivial.
+  19775 Dark Mending - I (2 sec cast, BfA tooltip read in
+    audit 1). Heal 27750-32250 in the 8.3.7 (dataEnv=11)
+    tooltip - the mob page's 1069 is current-retail
+    scaling, do not use it for this build.
   19777 Dark Strike - next melee attack +436, all damage
     Shadow (mob page only; missed by the old file).
   19776 Shadow Word: Pain - Shadow DoT every 3 sec,
     18 sec (boss page; mob page prints 15 sec - duration
     unverified). D-Magic unverified.
   20294 Immolate - 760-840 + 380-420/3 sec for 21 sec.
-    D-Magic unverified.
+    D-Magic (buff type Magic, 8.3.7 tooltip - audit 1).
 AI RULE: interrupt 19775 Dark Mending on every cast;
   never fight Sulfuron in range of a living Priest.
 
@@ -352,8 +357,10 @@ GROUND: the lava itself, and Lava Splash near lava flows
   proximity to a flow). Learn the lava exit ramps before
   the pull (page).
 ADD ORDER (P2 only): P1-P8 Son of Flame (12143), focus
-  one at a time; banish counts as a kill for resurface
-  timing (see PHASES) - at 120 simply kill them.
+  one at a time; banish counts as defeated for resurface
+  timing (see PHASES), but never banish ALL remaining
+  Sons - with none active he can resurface early onto an
+  unready group (strategy page, audit 1). At 120: kill.
 ABILITY LIST:
   20566 Wrath of Ragnaros - 1000 Fire + 25 yd knockback;
     two targeting modes (melee range, 3 sec CD; random
@@ -428,9 +435,11 @@ T6. Lava Surger (12101) - solitary chargers. Spell:
   your 8.3.7 core: unverified.
 T7. Firelord (11668) + Lava Spawn (spawned adds; Lava
   Spawn entry unverified - its page not read). Spells:
-  19393 Soul Burn (7158 Fire over 16 sec + silence +
-  -50% physical damage dealt; page strategy: dispel
-  ASAP - D-Magic tag unverified), 19392 Summon Lava
+  19393 Soul Burn (Fire DoT + silence + -50% physical
+  damage dealt; value CONFLICT on the page: spell list
+  7158 over 16 sec, strategy text 4000 over 30 sec -
+  8.3.7 value unverified; page strategy: dispel ASAP -
+  D-Magic tag unverified), 19392 Summon Lava
   Spawn. A Lava Spawn left alive splits into two (page).
   Firelord and spawns cannot be banished (page).
   Kill order: Lava Spawn the instant it appears (all

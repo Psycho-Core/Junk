@@ -1,60 +1,59 @@
-AUDIT - Tactics_Molten_Core.txt (Old Raids step 1)
-Claims re-checked against warcraft.wiki.gg boss pages and the
-Wowhead Molten Core NPC list. Result: 16 pass, 3 corrected,
-4 unverified (file already marked most of these).
+AUDIT 1 (RESTART) - Tactics_Molten_Core.txt
+Method this audit: claims re-checked against a SECOND
+source type the file was not built from - the 8.3.7
+(dataEnv=11) Wowhead tooltip database - plus a re-read
+of the Ragnaros strategy text. Result: 18 pass,
+6 corrected/improved, 3 unverified standing.
 
-PASS (spot-verified this audit):
- - Boss entries 12118, 11982, 12259, 12057, 12056, 12264,
-   12098, 11988, 12018, 11502 and Protector 12119: Wowhead list.
- - Lucifron 19702/19703/19460, Protector 20605/20604.
- - Gehennas 19728/19717/19716, adds 20277/15502/19730.
- - Garr 19492/19496, Firesworn 20294/19497 (8 adds).
- - Geddon 19695/19659/20475/20478; Living Bomb 8 sec fuse.
- - Shazzrah 19712/19713/19714/19715/21655; Blink threat wipe.
- - Sulfuron 19778/19779/19780/19781, Priest 19775/19776/20294;
-   Dark Mending heal range 27750-32250.
- - Golemagg 20553/13880/20228/19798, Rager 19820; Earthquake
-   below 10% (not a phase change, correctly filed as such).
- - Majordomo 20620/21075/20619/20534, Elite 20623/20229,
-   Healer 20603; CC stops after 4 adds die; he submits, is
-   not killed.
- - Ragnaros 20566/20564/20565/21388; submerge at 3 min, 8
-   Sons, 90 sec, banished Sons count as defeated.
+PASS (tooltip-verified this audit):
+ - 19703 Lucifron's Curse: buff type is Curse (D-Curse
+   confirmed, not inferred).
+ - 20294 Immolate: buff type Magic; 760-840 + 380-420/3s,
+   21 sec, requires level 62 (a level-60-raid spell).
+ - Boss/add creature entries 12118/12119/11661/11662/
+   11664/11663/11672/12099/12143 and trash 11658/11659/
+   11671/11673/11669/12101/11668/12076: mob-page external
+   links read during the restart, re-checked here.
+ - Instance map id 409 (zone 2717): AzerothCore map
+   table; the old file's "map unverified" gap is closed.
+ - Core Rager NEVER rule: mob page states they cannot
+   be killed while Golemagg lives and die with him.
+ - Core Hound 10-second pack window: mob page, explicit.
+ - Ragnaros 3 min / 90 sec / 8 Sons cycle: strategy text.
 
 CORRECTED (applied to the file with this audit):
- 1. Magmadar TANK line was wrong as written: "hold him facing
-    the group" puts Lava Breath 19272 on the raid. The page's
-    positioning is tank between boss and group with healers
-    at max range behind the tank. Now reads: boss facing
-    AWAY from the group, healers at max range behind tank.
- 2. Lucifron ADD ORDER contradicted its own AI RULE ("boss
-    first at 120" vs "kill Protectors before the boss").
-    Now one rule: Protectors first, then Lucifron (a 120
-    kills them in seconds; a free Protector still mind-
-    controls a companion, which is the only real risk).
- 3. Golemagg ADD ORDER claimed Core Ragers "cannot be killed
-    while Golemagg lives". The source says only "the dogs
-    can't die, so there is no reason to DPS them" - the
-    do-not-kill instruction stands, but the mechanism is now
-    stated as read (off-tank far, out of Trust range) with
-    the respawn/invulnerability mechanism marked unverified.
+ 1. 19775 Dark Mending: the file filed the heal value as
+    an open conflict. The 8.3.7 tooltip reads 27750-32250
+    with a 2 sec cast. The mob page's 1069 is current
+    retail scaling - wrong for this build. Fixed; the
+    interrupt flag is now grounded in the cast time.
+ 2. Firesworn Immolate: both 20294 and 15732 exist in
+    8.3.7 data and both are D-Magic (tooltip buff type).
+    File no longer guesses; which id the creature casts
+    stays unverified, the dispel type no longer is.
+ 3. 20604 Dominate Mind: wiki says "up to level 100";
+    the 8.3.7 tooltip prints "up to level 25", 2 sec
+    cast. Filed as a conflict; at 120 a companion is
+    above either cap, so the AI RULE is unchanged.
+ 4. Ragnaros Sons: added the strategy page's warning -
+    never banish ALL remaining Sons or he resurfaces
+    early onto an unready group.
+ 5. Firelord 19393 Soul Burn: the mob page contradicts
+    itself (7158/16 sec vs 4000/30 sec). File previously
+    printed only the first number; now filed as conflict.
+ 6. Sulfuron Priest 20294 Immolate dispel tag upgraded
+    from "unverified" to D-Magic (same tooltip evidence).
 
 UNVERIFIED (stand as marked in the file):
- - Geddon Armageddon 20478 trigger point (id read, trigger
-   not read).
- - Trash creature entries and pack spell lists (none read;
-   file gives none, correctly).
- - Core Hound pack revive timer: the pack-must-die-together
-   behaviour is read for the hound type, the exact base-game
-   timer was not read. File now says so.
- - 20294 Immolate and 19776 SW:P dispel tag D-Magic: correct
-   by spell family, not printed in the sources read.
- - Instance map id and all coordinates: none read, file
-   says unverified throughout. This remains the file's
-   biggest gap for a companion implementation.
+ - All spawn coordinates (map 409, x, y, z): no read
+   source prints them; they must come from the server's
+   creature table. Still the file's biggest gap.
+ - Which Immolate id Firesworn actually cast, 19730
+   Strike +200 vs +326, 19820 Mangle 300 vs 252, SW:P
+   18 vs 15 sec: page-vs-page conflicts, on-server check.
+ - Geddon 20478 Armageddon trigger, Flamewaker Healer
+   heal cast in 8.3.7, Lava pack member spell ids.
 
-Note for step 2 onward: the Magmadar error is the pattern to
-avoid - a strategy page's loose wording copied without
-checking it against the ability list in the same file. A
-frontal breath and "face the boss at the group" cannot both
-be true.
+Note: warcraft.wiki.gg pages mix original, Classic and
+current-retail numbers. The dataEnv=11 tooltip is the
+tiebreaker for this build - use it in later audits.
