@@ -1,0 +1,41 @@
+AUDIT 7 (RESTART) - Tactics_Burning_Crusade_B.txt
+Method: 8.3.7 (dataEnv=11) Wowhead tooltips for
+every spell id the file links.
+Result: 10 pass, 3 corrected/upgraded, several
+standing unverified (see end).
+
+PASS (tooltip-verified):
+ - 34229 Flame Quills: hits enemies on the upper
+   ledge - file's "get off the ledges" is exact.
+ - 35410 Melt Armor: -80% armor for 1 min, exact.
+ - 32111 Finger of Death: 20000 Shadow, 1-sec cast,
+   80 yd - matches "only if nobody in melee range".
+ - 35354 Hand of Death: instantly kills all, exact.
+ - 33023 Mark of Solarian: arcane resist -15,
+   2 min (stacking stays page-level, unverified).
+ - 26662 Berserk: +500% damage, taunt-immune - the
+   Eredar Twins 6-min attribution is now plausible
+   but remains flagged unverified in the file.
+
+CORRECTED / UPGRADED (applied):
+ 1. 34341 is Ember Blast, not "Ember explosion":
+    8750-11250 Fire + knockback. Tooltip radius
+    reads 0 yd (scripted), so the file's range is
+    now marked unverified instead of "about 15 yd".
+ 2. 33387 Great Heal: tooltip confirms the 2-sec
+    cast - the file now flags it (I - 2-sec cast
+    confirmed) as Solarian's interrupt priority.
+ 3. 39329 Void Bolt gained 4394-5106 Shadow and a
+    3-sec cast; 34322 Psychic Scream gained fear
+    4 sec / up to 5 / D-Magic; both upgraded in
+    Solarian's ability list.
+
+UNVERIFIED (stand):
+ - All creature entries and all five map ids.
+ - 33044, 33045 explosion numbers, 61632, 52208.
+ - All SSC, TK, Hyjal and Sunwell trash packs,
+   Hyjal wave composition, Illidan phase
+   thresholds, Brutallus enrage timer.
+NOTE: 33045's buff tooltip is only "500 Arcane per
+2 sec, 8 sec" - the bomb/jump behaviour stays
+page-verified only, as filed.

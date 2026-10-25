@@ -1,0 +1,363 @@
+TEMPLE OF AHN'QIRAJ - TACTICS (BFA 8.3.7 build 35662)
+Raid: Temple of Ahn'Qiraj (AQ40), 40-player, 9 bosses
+Zone id: 3428 (verified, Wowhead zone page)
+Map id: 531 - unverified in this pass
+Coordinates (x, y, z): unverified for every spawn below
+Source rule: mechanics and spell ids from
+warcraft.wiki.gg boss pages read for this file;
+a name with no linked spell id is printed "id
+unverified" rather than given a guessed number.
+Creature entries verified only where a Wowhead NPC
+page was read; all others are marked unverified.
+
+====================================================
+1. THE PROPHET SKERAM (15263)
+====================================================
+PHASES: One phase; splits at 75%, 50% and 25% into
+  himself plus 2 images (747 Summon Images). Images
+  share his abilities, spawn at his current health
+  percentage, and have far less total health.
+TANK: 2 tanks at each of the 3 blink spots (centre
+  platform, left stairs, right stairs). The instant a
+  form appears at your spot, engage it - an untanked
+  form spams Earth Shock at range.
+GROUP: Max 4 players in melee per spot (Arcane
+  Explosion only fires with more than 4 in melee).
+  Ranged on the steps; mages watch for mind controls.
+GROUND: 13810 Ice Trap (hunter class spell id as
+  listed on the page - treat as unverified for this
+  creature); blink spots are the movement hazard.
+ADD ORDER: P1 images (kill both fast, then resume the
+  real Skeram). Mind-controlled players are NEVER a
+  kill target - polymorph/fear/stun them instead.
+AI RULE: the second a split happens, stop, let tanks
+  claim all three forms, kill images first; crowd-
+  control - never kill - any mind-controlled player.
+ABILITY LIST:
+  785 True Fulfillment - mind control 20 sec, +300%
+    damage, instant casts, not dispellable. D: none
+    (polymorph/fear/stun/sleep the player instead)
+  26192 Arcane Explosion - 187-217 Arcane, melee
+    range, only with >4 in melee. I (interruptible)
+  26194 Earth Shock - 149-174 Nature, interrupts the
+    victim's cast 2 sec; spammed if his target is
+    out of melee
+  747 Summon Images - at 75/50/25%
+  Teleport - swaps place with an image, clears aggro
+    (spell id unverified)
+ADD GROUPS: 2 images per split. Creature entry of
+  the images: unverified.
+
+====================================================
+2. SILITHID ROYALTY (OPTIONAL) - LORD KRI,
+   PRINCESS YAUJ, VEM (entries unverified)
+====================================================
+PHASES: All three fought together. Kill order sets
+  loot and difficulty: easiest Kri > Yauj > Vem;
+  hardest Kri last. 15-min hard enrage.
+  Death specials: Kri leaves a poison cloud (about
+  2000/sec - never stand in it); Yauj spawns small
+  bugs (CC-able); Vem enrages the other two, and the
+  survivor devours the corpse (if Yauj devours Kri
+  she gains her heal - keep Vem nearer Kri's corpse
+  than Yauj is).
+TANK: Kri on the main raid with poison cleansing;
+  Yauj tanked far from the raid by 2 tanks swapping
+  on her roughly 20-sec AoE fear (fear also wipes
+  aggro); Vem offtanked (negligible on a tank, 2-3k
+  on cloth).
+GROUP: Spread for fear and poison; move out of Kri's
+  cloud the instant he dies; AoE Yauj's bugs down.
+GROUND: Kri death poison cloud (above).
+ADD ORDER: P1 Kri > P2 Yauj (interrupt every heal) >
+  P3 Vem. Yauj adds P0 when they spawn.
+AI RULE: kill in the set order, never stand where
+  Kri died, and never let a Yauj heal finish.
+ABILITY LIST (spell ids unverified - pages link
+  almost none): Toxic Volley (Kri, raid-wide poison
+  DoT, dispellable D-Poison, stacks); AoE Fear
+  (Yauj, aggro wipe); Heal (Yauj, I - top interrupt
+  priority in the whole encounter); Charge and
+  Knockback (Vem).
+
+====================================================
+3. BATTLEGURD SARTURA (entry unverified)
+====================================================
+PHASES: One phase with 3 Royal Guard adds (entries
+  unverified). Enrage at 20% (+124 physical damage,
+  +60% attack speed); hard enrage at 10 min (10-15k
+  hits, +150% attack speed - a wipe).
+TANK: 2 tanks on Sartura, 1-2 per guard, all spread
+  across the room; ping-pong Taunt. Boss and adds
+  periodically drop aggro for about 5 sec and chase
+  random players, then return to the top threat.
+GROUP: Never stand still: when a whirlwinding mob
+  moves at you, run - you cannot outrun it, but its
+  path is random. Stay away from the Fankriss tunnel
+  entrance (guard knockbacks can punt you into the
+  patrols). Sartura stunnable only when not spinning;
+  guards stunnable while spinning (spin continues).
+GROUND: none.
+ADD ORDER: P1 Royal Guards, then Sartura (page
+  strategy: kill guards clear of her Whirlwind).
+AI RULE: if it is spinning, move away and do not
+  melee it; if it stops spinning, stun and burn.
+ABILITY LIST:
+  26083 Whirlwind - 15 sec spin, normal damage +110,
+    immune to stun while spinning (boss and adds)
+  26084 Whirlwind - Physical damage within 10 yd
+  25174 Sundering Cleave - to 3 targets. CONFLICT:
+    page text says normal +300% and +25 Physical taken;
+    the 8.3.7 tooltip says normal damage plus 30 and
+    -240 armor for 30 sec. Use the tooltip (audit 4).
+  8269 Frenzy - +60% attack speed, 2 min (enrage at
+    20%; dispel type unverified)
+
+====================================================
+4. FANKRISS THE UNYIELDING (entry unverified)
+====================================================
+PHASES: One phase. From shortly after pull, roughly
+  every minute each of the 3 wall tunnels spawns 4
+  Vekniss Hatchlings and one player is teleported
+  and rooted in an alcove. 8 Vekniss Drones stand in
+  the room and join on pull.
+TANK: 2 tanks rotating on Mortal Wound (10% healing
+  reduction per stack, cleaves - face him away).
+  Offtanks hold Hatchlings (300 on tanks, 800-900 on
+  cloth).
+GROUP: Kill Spawn of Fankriss the instant they
+  appear (they enrage after 20 sec and then hit for
+  10-20k). Hatchlings can be snared/feared but NOT
+  frost-nova'd or frost-bolt snared; late in the
+  fight kite them instead of killing.
+GROUND: none (alcove root/teleport is the hazard).
+ADD ORDER: P1 Spawn of Fankriss (entries unverified,
+  20-sec enrage fuse) > P2 Vekniss Drones (on pull) >
+  P3 Vekniss Hatchlings (tank/kite, do not chase).
+AI RULE: a fresh Spawn of Fankriss outranks the boss
+  for every damage dealer, every time - it has a
+  20-second fuse.
+ABILITY LIST (ids unverified, page names mechanics):
+  Mortal Wound - healing -10%/stack, cleave (shares
+    the name of Kurinnaxx 25646; same id unverified)
+  Hatchling spawns; player teleport+root; Spawn of
+    Fankriss timed enrage (20 sec, stunnable)
+TRASH NOTE (the Bug Tunnel before him): packs of
+  Vekniss Soldier + many Vekniss Drones respawn
+  almost as fast as killed. Do not stop to clear:
+  drag them, AoE in bulk, summon the dead. Ends at
+  the left alcove "Safe Spot" (entries unverified).
+
+====================================================
+5. VISCIDUS (OPTIONAL, entry unverified)
+====================================================
+PHASES: Cycle, not health-based. Frost hits slow
+  him: 10 hits "begins to slow" (-15%), 15 "freezing
+  up" (-30%), 20 "frozen solid". Then melee hits:
+  30 hits shatter him into Globs (one glob per 5% of
+  his health, 10-15k health each). Globs run to the
+  centre to reform him; each glob killed removes
+  that 5% permanently. Shatter him below 5% to kill.
+  He takes 50% reduced damage throughout and resets
+  if pulled out of his room.
+TANK: One nature-geared tank; he hits about 1000 and
+  starts fast, slowing as frost builds.
+GROUP: Frost users spam fastest frost (rank does not
+  matter, hit count does); on "frozen solid" EVERYONE
+  melees; then assist-train globs one at a time (DPS
+  on a glob that survives is wasted; globs cannot be
+  slowed or stunned). Cure the Poison Volley DoT so
+  nobody takes more than one tick.
+GROUND: Toxin Clouds every 30-40 sec (about 1500/2
+  sec, 40% slow, damage radius larger than the
+  graphic; a single spit bolt lands where one will
+  form - move then).
+ADD ORDER: P1 Globs of Viscidus (focus-fire one at a
+  time; never split). NEVER: none - globs must die.
+AI RULE: frost to 20 hits, then melee to 30, then
+  kill globs single-target in assist order - repeat.
+ABILITY LIST (ids unverified, page gives numbers):
+  Poison Shock - about 1200 Nature, 15 yd, ~10 sec
+  Poison Volley - about 1500 Nature raid-wide (100
+    yd, ignores line of sight) plus dispellable DoT
+    about 500/2 sec for 10 sec. D-Poison (mass cure)
+  Toxin Cloud - above
+
+====================================================
+6. PRINCESS HUHURAN (entry unverified)
+====================================================
+PHASES: Above 30%: frenzies (tranquilizable - hunters
+  have about 5 sec), tank rotation on Acid Spit.
+  Below 30%: Berserk - attack speed doubled, Poison
+  Bolt volleys every 3 sec to the closest 15 players;
+  this frenzy cannot be tranquilized.
+TANK: Rotate 2-3 tanks: Acid Spit stacks 219-281/2
+  sec on the current tank, unresistible. She is
+  immune to taunt - rotate with aggro drops
+  (invulnerability/BoP) and threat races.
+GROUP: 15 nature-resistant "soaks" stand closest and
+  must be kept alive through Berserk. Spread for
+  Noxious Poison. Do NOT dispel Wyvern Sting (dispel
+  detonates it for 3000 Nature) - let sleepers sleep,
+  except the incoming tank.
+GROUND: none.
+ADD ORDER: none (no adds).
+AI RULE: below 30%, keep all 15 closest players
+  alive and burn - never dispel a sleeping player.
+ABILITY LIST (ids unverified, page gives numbers):
+  Frenzy - tranquilizable (D: Tranquilizing Shot)
+  Poison Bolt - 2000 to closest 15, only in Frenzy/
+    Berserk; pets do not count toward the 15
+  Noxious Poison - about 2900 over 8 sec + silence,
+    splashes around the target, not dispellable
+  Wyvern Sting - AoE sleep, up to 10 closest;
+    dispelling deals 3000. D: DO NOT DISPEL
+  Acid Spit - stacking DoT, tank only
+  Berserk - at 30%, untranquilizable soft enrage
+
+====================================================
+7. TWIN EMPERORS - VEK'NILASH (melee) AND VEK'LOR
+   (caster) (entries unverified)
+====================================================
+PHASES: Shared percentage health (damage to one
+  lowers both). Every 30-40 sec Twin Teleport swaps
+  their positions with a full aggro wipe; each then
+  attacks the closest player (about 2 sec rooted
+  first). Within 60 yd of each other they spam Heal
+  Brother (30000/tick) - keep them at opposite walls.
+  Berserk at 15 min.
+TANK: Each side: a warrior (must be the closest
+  player to whichever emperor arrives) and a warlock
+  who tanks Vek'lor at range with Searing Pain/
+  Curse of Doom (Vek'lor is immune to physical,
+  Vek'nilash immune to magic except Holy). Warrior's
+  back to the wall (Uppercut knockback).
+GROUP: Melee DPS follow Vek'nilash, casters follow
+  Vek'lor; everyone leaves their emperor about 5 sec
+  before a teleport so the warrior is closest. NEVER
+  enter Vek'lor's melee range (Arcane Burst).
+  A bug team handles mutated bugs on the physical
+  side; never AoE the neutral bugs.
+GROUND: Blizzard (Vek'lor) 1500/tick + slow - move
+  out. Exploding bugs: 2813-3187 Fire after 3 sec.
+ADD ORDER: P1 Mutated bug (grows 400%, 300% health,
+  hits 1800% - tank and kill) > P2 burning/exploding
+  bug is NEVER a kill target - run from it, it dies
+  on its own in 3 sec.
+AI RULE: at the teleport, stop, let the warrior be
+  closest, then DPS only your own emperor type -
+  physical on Vek'nilash, magic on Vek'lor.
+ABILITY LIST (ids unverified, page gives numbers):
+  Heal Brother - 30000/tick within 60 yd
+  Twin Teleport - 30-40 sec, aggro wipe
+  Uppercut (Vek'nilash) - knockback, melee range
+  Unbalancing Strike - 350% weapon, -100 Defense 6 s
+  Mutate Bug - every 10-15 sec
+  Shadow Bolt (Vek'lor) - 3000-4000 spam
+  Blizzard - 1500/tick ground effect
+  Arcane Burst - 4000-4950 Arcane if anyone is in
+    his melee range, knockback + 70% slow
+  Explode Bug - every 7-10 sec
+  Virulent Poison (bugs) - stacking DoT on melee hit
+
+====================================================
+8. Ouro (OPTIONAL, entry unverified)
+====================================================
+PHASES: P1 above ground until he submerges (chance
+  roughly every 90 sec, sooner if nobody is in melee:
+  untargetable; Dirt Mounds quake and Scarabs spawn
+  each surfacing - scarabs fixate their first target
+  and despawn after 45 sec, CC them, do not chase).
+  P2 at 20%: enrage (+150% attack speed, +100%
+  damage), never submerges again, still summons
+  mounds and scarabs; if nobody is in melee he
+  throws boulders for about 6000.
+TANK: Chain of tanks: Sand Blast (every 20-25 sec,
+  3500-4500 Nature, 180-deg frontal, 45 yd) hits the
+  highest-threat player and CLEARS their threat -
+  next tank takes over. After a Sweep (1-2.5k +
+  knockback) the swept tank stays out until healed.
+GROUP: 3 groups at 120 degrees; healers beyond 45 yd
+  of his face. Never stand on a Dirt Mound. Move a
+  tank into melee within about 10 sec of a surfacing
+  or he dives again.
+GROUND: Dirt Mound quake (about 1000 Nature) and
+  Ground Rupture (about 2000) where he surfaces.
+ADD ORDER: Scarabs: NEVER a priority kill - CC and
+  ignore for their 45-sec life.
+AI RULE: always have a tank in melee, never be the
+  highest threat standing in front of him, and never
+  stand where he is about to surface.
+ABILITY LIST: 26616 Boulder (id from the page's
+  external spell link, behaviour as above). Others
+  id unverified: Sweep, Sand Blast, Submerge,
+  Ground Rupture, Dirt Mound quake.
+
+====================================================
+9. C'THUN (15727) - EYE OF C'THUN (entry unverified)
+====================================================
+PHASES: P1 kill the Eye of C'Thun. P2 the body
+  rises: 26156 Carapace of C'Thun (-99% damage; id
+  is page-only - it returns no 8.3.7 tooltip, audit 4)
+  until both stomach Flesh Tentacles die - then
+  Vulnerable for 45 sec. Repeat until dead.
+TANK: No conventional tank: the Eye faces its beam
+  target; tentacles are killed where they spawn.
+GROUP P1: Spread 10+ yd apart at all times. One
+  nature-resistant volunteer enters first to eat the
+  opening beams while the raid spreads. Eye Beam
+  chains (+150% per jump - a stacked raid dies to
+  one cast). Dark Glare every 85 sec: a 43750-56250
+  Shadow beam sweeping 180 degrees over 35 sec -
+  run ahead of the rotation, never through it, it
+  cannot be line-of-sighted.
+GROUP P2: Devoured players land in the stomach:
+  26476 Digestive Acid (150 Nature/5 sec, stacking)
+  - kill both Flesh Tentacles fast, then exit. On
+  Vulnerable, all cooldowns into C'Thun for 45 sec.
+GROUND: Dark Glare sector (above); tentacle spawn
+  knockbacks.
+ADD ORDER P1: Eye Tentacles (8 every 45 sec, 2289
+  HP, Mind Flay MUST be interrupted/stunned) and
+  Claw Tentacles (1526 HP) > Eye of C'Thun.
+ADD ORDER P2: stomach Flesh Tentacles > Giant Eye/
+  Giant Claw Tentacles > C'Thun (only when
+  Vulnerable). NEVER DPS C'Thun through Carapace.
+AI RULE: spread always; tentacles before the boss;
+  inside the stomach, kill both Flesh Tentacles
+  immediately; hit C'Thun only in the 45-sec window.
+ABILITY LIST:
+  Eye of C'Thun:
+  26134 Eye Beam - 2625-3375 Nature, chains +150%
+    per jump, 2 sec cast. I: NO (not interruptible)
+  26029 Dark Glare - 43750-56250 Shadow sweep
+  Claw Tentacle: 26478 Ground Rupture (2250-2750,
+    15 yd), 26141 Hamstring (-70% move, 10 sec)
+  Eye Tentacle: 26139 Ground Rupture (1350-1650,
+    10 yd), 26143 Mind Flay - 750/sec for 10 sec,
+    30% snare, unresistable. I (interrupt/stun it)
+  C'Thun body: 26156 Carapace (-99% damage, id
+    page-only, no 8.3.7 tooltip - audit 4);
+    Devour (stomach teleport, id unverified)
+  Stomach: 26476 Digestive Acid - stacking aura
+  Giant Claw: 26478 Ground Rupture, 6524 Ground
+    Tremor (2-sec stun), 26141 Hamstring, 3391
+    Thrash (2 extra attacks)
+  Giant Eye: 26134 Eye Beam, 26478 Ground Rupture
+
+====================================================
+TRASH (entries unverified unless stated)
+====================================================
+ENTRANCE (before Skeram): 3 lone Obsidian
+  Eradicators, then 2 packs of 4 Anubisath Sentinels.
+  30-min respawn. Sentinel abilities and kill order:
+  unverified (not read this pass - do not invent);
+  pull packs whole, never chain into the next.
+HIVE DESCENT / SARTURA HALLS / TWINS APPROACH:
+  pack compositions unverified this pass.
+BUG TUNNEL: see Fankriss note above (drag and bulk
+  AoE; standing to clear is the one wrong play).
+General AI RULE for companions in AQ40: interrupt
+  any cast you can, cure poison before damage, and
+  treat every respawning-bug area as a movement
+  problem, not a kill problem.

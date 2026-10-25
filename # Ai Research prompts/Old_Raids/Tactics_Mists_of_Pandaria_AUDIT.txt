@@ -1,0 +1,56 @@
+AUDIT - Tactics_Mists_of_Pandaria.txt (Old Raids step 12)
+METHOD NOTE: this audit fetched full ability/strategy
+sections for 4 bosses (Stone Guard, Elegon, Garalon,
+Tsulong) instead of chunks. Result: 12 pass,
+3 corrected, 4 unverified - and see the honesty note
+at the bottom.
+
+PASS:
+ - Feng stolen-ability counters; Gara'jal crossing
+   rotation; Spirit Kings (Meng reflect rule); Will of
+   the Emperor combo dance; Zor'lok rings/bubbles;
+   Ta'yak stacked soak; Mel'jarak one-type rule;
+   Un'sok construct interrupt; Shek'zeer fields.
+ - Tsulong: confirmed in detail by the page - night
+   Sunbeam stack-dropping (beam shrinks while used),
+   tank swaps per Shadow Breath, day healing with
+   healers in front for Bathed in Light (Sun Breath:
+   +500% healing, mana back), Unstable Sha reaching
+   him deal 5,000,000 to him (page note) - the file's
+   "they outrank everything" is exactly right.
+
+CORRECTED (applied with this audit):
+ 1. Stone Guard logic was muddled ("pair at ~50 energy").
+    Page rule: a lone guardian gains NO energy (Solid
+    Stone). You pair ONLY the petrifying guardian so it
+    reaches 100 first (its own aura cuts its Overload
+    by 90%); isolate all others. Jasper Chains: burn
+    beyond 10 yd, break after 15 sec apart.
+ 2. Elegon orbs do not "run to pylons (each success
+    buffs him)". Six charges per wave run for the
+    Focuses; killing a whole wave triggers Draw Power
+    (+10% damage TAKEN on Elegon, faster next wave);
+    the stage ends when one escapes. Protector death
+    explosion (129711) and Focus conduit rules added.
+ 3. Garalon Crush is NOT triggered by leg deaths: it
+    fires on pheromone swaps (swap at 20 stacks, 4+
+    kiters - page) and on anyone under his body. Fury
+    comes from an empty frontal zone, leg Weak Points
+    circles are where DPS stand (both now filed).
+
+UNVERIFIED (stand as marked): all creature entries,
+coordinates, most spell ids in step 12; Protectors'
+prison handling; Lei Shi/Sha of Fear detail (written
+from structure; Sha light-wall specifics unverified).
+
+HONESTY NOTE (raised by the user this step): these
+files are NOT full spell-id dossiers. Per raid, a few
+bosses get page-verified ids; the rest are era tactic
+rules with ids marked unverified, and each audit
+re-reads only a sample (prioritising end bosses and
+mechanics an AI can get lethally wrong). 4 of the 16
+step-12 bosses were fully re-read here and 3 needed
+correction - assume a similar error density in the
+un-sampled bosses of every file, and verify on-server
+before trusting any single line. The files are a
+verified skeleton, not a finished database.

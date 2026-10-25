@@ -1,0 +1,1044 @@
+WRATH OF THE LICH KING (A) - TACTICS (BFA 8.3.7)
+Raids covered: Naxxramas (10/25), The Obsidian
+Sanctum, The Eye of Eternity, Vault of Archavon,
+Ulduar (10/25, normal modes; hard modes flagged)
+Map ids and coordinates: unverified in this pass.
+Creature entries: NONE verified this pass - all
+entries are unverified; fill from this core's DB.
+Sources: warcraft.wiki.gg boss pages read for this
+file. Spell ids are 25-man ids from the pages
+unless a 10-man id is named; other fields marked
+unverified. A level 120 in 8.3.7 outgears era
+numbers; the mechanics below are what a companion
+must still obey.
+
+====================================================
+NAXXRAMAS (WotLK version - not the 40-man values)
+====================================================
+1. ANUB'REKHAN
+PHASES: One phase; Locust Swarm every 70-120 sec
+(20 sec, 25-man); berserk at 10 min.
+TANK: Tank him at his spawn end; during Locust
+Swarm the tank KITES him down the room - the swarm
+is a 30-yd aura: 54021 (25), 1313-1687 Nature per
+2 sec stacking + silence (even auto-attack stops).
+GROUP: Spread in a semicircle (Impale: 56090 (25),
+line to a random player, 5688-7312 + launch + 50%
+fall damage). Crypt Guards at pull (25) and one per
+Locust Swarm: kill near the boss, then AoE the 10
+Corpse Scarabs from each guard corpse (5 per player
+corpse) before they scatter.
+GROUND: none (Locust Swarm moves with the boss).
+ADD ORDER: P1 Crypt Guard, P2 Corpse Scarabs.
+AI RULE: swarm means run - nobody stands in 30 yd.
+ABILITY LIST: 56090 Impale (25) / 28783 (10);
+54021 Locust Swarm (25) / 28785 (10); Summon
+Corpse Scarabs id unverified; Crypt Guard: Cleave,
+Acid Spit (stacking, 500/2 sec), Frenzy at low HP.
+D: unverified.
+
+2. GRAND WIDOW FAERLINA
+PHASES: One phase; Frenzy every 60-80 sec. The raid
+has only 4 Worshippers to spend - a long fight
+cannot be controlled past the last sacrifice.
+TANK: Drag her to the centre. Frenzy (28798):
++150% damage, +50% haste - tank cooldowns until
+Widow's Embrace lands.
+GROUP: Poison Bolt Volley (54098): 10 closest
+players (25), DoT 1900-2100/2 sec - D-Poison.
+Rain of Fire (58936): 8-yd zones, 3700-4300/2 sec,
+move out. On Frenzy: 25-man a priest Mind Controls
+a Worshipper and casts Widow's Embrace beside her
+(removes Frenzy, silences nature 30-60 sec, kills
+the Worshipper); 10-man the pre-damaged (about 5%)
+Worshipper is killed beside her AFTER she frenzies.
+GROUND: 58936 Rain of Fire.
+ADD ORDER: P1 Naxxramas Follower x2 (kill fast or
+off-tank; AoE silence, immune to silence). NEVER
+kill Worshippers early - they are the Frenzy
+answer, spent one per Frenzy.
+AI RULE: a Worshipper dies only on a Frenzy call.
+ABILITY LIST: 54098 Poison Bolt Volley (D-Poison);
+58936 Rain of Fire; 28798 Frenzy. I: none. Entries
+unverified.
+
+3. MAEXXNA
+PHASES: One phase; Web Spray cycle; Frenzy at 30%
+(stop DPS before 33%, wait for a Web Spray, then
+burn her inside the window).
+TANK: Tank her at a wall facing the room; HoTs and
+abolish poison rolling before every Web Spray
+(the tank cannot be healed during it).
+GROUP: Web Wrap sends players to the wall in
+cocoons - assigned ranged shoot them free at once.
+Spiderlings at 30 sec then every 40 sec (8, about
+7k HP): Frost Nova + AoE down within 10 sec,
+before Web Spray. Necrotic Poison: D-Poison fast.
+GROUND: none.
+ADD ORDER: P1 Web Wrap cocoon (free the player -
+never leave it), P2 Maexxna Spiderlings.
+AI RULE: cocoons are freed before anything else.
+ABILITY LIST (ids unverified): Web Spray; Web
+Wrap; Necrotic Poison (D-Poison); Frenzy. Spider
+abilities unverified.
+
+4. NOTH THE PLAGUEBRINGER
+PHASES: P1 on the floor (110 sec), P2 he teleports
+to the balcony, invulnerable, 70 sec of skeleton
+waves; repeat. Berserk after the 3rd P2.
+TANK: He Blinks (29211) with a FULL threat wipe
+about every 25 sec - re-taunt after every Blink.
+Cripple (29212) on the spot he left: move/attack
+-50%/-100%, strength -50% - dispel (D-Magic unv.).
+GROUP: Curse of the Plaguebringer (54835 (25), 10
+players; 29213 (10)): decurse within 10 sec or
+Wrath (54836) hits everyone in 30 yd for 5550-6450
++ 3150-3850/2 sec - a wipe in 25-man. D-Curse.
+P2: Plagued Champions (Mortal Strike, Shadow Shock
+54889) in 2 waves of 4; from P2-cycle 2, Guardians
+(Arcane Explosion about 6k, 30 yd) replace two.
+GROUND: none.
+ADD ORDER: P1 Plagued Warrior (3 per 30 sec in P1),
+P2 Plagued Champion / Plagued Guardian in P2.
+AI RULE: curses are decursed inside 10 seconds.
+ABILITY LIST: 54835/29213 Curse (D-Curse);
+54836/29214 Wrath; 29211 Blink; 29212 Cripple;
+54889 Shadow Shock. Entries unverified.
+
+5. HEIGAN THE UNCLEAN
+PHASES: 135-sec cycle: P1 90 sec on the floor,
+P2 45 sec channeling on the platform. No enrage;
+almost no melee damage - this is pure movement.
+TANK: P1 tank walks him between the marked spots
+as slow Eruptions crawl; ranged stand in the one
+safe quarter. Casters stay out of his 20-yd Spell
+Disruption aura (+300% cast time, 29310 (10)).
+GROUP: P2 = the Dance: three quarters of the floor
+erupt (29371, 6650-7350) in rotation - move to the
+new safe quarter every eruption, cast nothing.
+Nobody may stay on the platform (Plague Cloud
+30122, 7500/sec). Decrepit Fever (55011 (25) /
+29998 (10)): 4500/3 sec + max HP -50% within 20 yd
+- dispel instantly and isolate (D-Disease).
+GROUND: 29371 Eruption quarters; 30122 Plague
+Cloud on the platform.
+ADD ORDER: none.
+AI RULE: when in doubt, move - never finish a cast.
+ABILITY LIST: 29371 Eruption; 30122 Plague Cloud;
+29310 Spell Disruption (10-man id); 55011/29998
+Decrepit Fever (D-Disease). I: none.
+
+6. LOATHEB
+PHASES: One phase, DPS race. Necrotic Aura every
+20 sec: healing -100% for 17 sec, leaving a 3-sec
+healing window each cycle.
+TANK: One tank, centre. Shields and pre-cast big
+heals land as the aura drops; HoTs/potions do
+nothing during the aura.
+GROUP: Spores spawn about every 20-30 sec: the
+next assigned group of 5 stacks within 10 yd and
+kills the spore for Fungal Creep (29232: +50%
+crit, no threat; page 90 sec vs 8.3.7 tooltip
+60 sec - tooltip value used). Deathbloom (55594 (10)):
+200/sec for 6 sec then a 1200 bloom - undispellable.
+Inevitable Doom (55052 (10)) from 2 min: 4000
+Shadow after 10 sec, every 30 sec (15 sec after
+5 min) - only immunities remove it. D: none.
+GROUND: none.
+ADD ORDER: P1 Spore - killed ONLY with its 5
+assigned players in range (never solo-popped).
+AI RULE: heal only in the 3-second window; spores
+buff in rotation.
+ABILITY LIST: 55593 Necrotic Aura (10); 55594
+Deathbloom (10); 55052 Inevitable Doom (10);
+29232 Fungal Creep. 25-man ids unverified.
+
+7. INSTRUCTOR RAZUVIOUS
+PHASES: One phase. No player tank can survive him:
+Death Knight Understudies tank him, controlled by
+priests (25-man) or Orbs of Domination (10-man).
+TANK: The controlled Understudy taunts (20-sec CD)
+and tanks ONLY with Bone Barrier up (75% reduction,
+20 sec, 30-sec CD); two priests rotate two
+Understudies. Heal the Understudies, not a tank.
+GROUP: Disrupting Shout (29107 (25) / 55543 (10)):
+7125-7875 raid-wide every about 15 sec - heal
+through. Jagged Knife (55550): 5000 + 10000 bleed
+over 5 sec on a random player - LoS avoids it.
+Unbalancing Strike (55470): 350% weapon + defense
+-100 - must only ever hit an Understudy with
+Barrier up. Off-tank the spare Understudies.
+GROUND: none.
+ADD ORDER: Death Knight Understudies are NEVER
+killed during the fight (they take +1000% damage
+only after he dies). No kill order.
+AI RULE: barrier before taunt, always; if the
+controlled understudy dies, the boss is loose.
+ABILITY LIST: 29107/55543 Disrupting Shout; 55550
+Jagged Knife; 55470 Unbalancing Strike. Understudy
+bar: Blood Strike, Taunt, Bone Barrier (ids unv.).
+
+8. GOTHIK THE HARVESTER
+PHASES: P1 (4 min 34 sec): he is invulnerable; adds
+spawn on the LIVING side; everything killed there
+respawns stronger on the UNDEAD side. P2: he comes
+down, teleporting between rooms; gates open late.
+TANK: One tank per side. P2 he is tauntable and
+keeps threat through teleports; Shadowbolt
+(56405) chain-hits his tank.
+GROUP: Split the raid across both rooms and CONTROL
+the living-side kill rate - every kill feeds the
+dead side. Harvest Soul (28679) every 15 sec:
+-10% all stats, stacks to 10.
+GROUND: Unholy Aura zones around Riders (55609
+(25): 500 Shadow/2 sec) - kill order manages them.
+ADD ORDER living: P1 Unrelenting Rider, P2
+Unrelenting Death Knight (Shadow Mark 27825 feeds
+the Rider's Shadowbolt Volley 55638), P3 Trainee
+(Death Plague 55645, D-Disease). Undead mirror:
+Spectral Rider (+ Horse: Stomp 27993), Spectral
+Death Knight (Whirlwind 56408), Spectral Trainee
+(Arcane Explosion 56407). Entries unverified.
+AI RULE: never out-kill the other side.
+ABILITY LIST: 56405 Shadow Bolt; 28679 Harvest
+Soul; add ids as above. I: none verified.
+
+9. THE FOUR HORSEMEN
+PHASES: One phase; all four die to end it. Berserk
+after 100 marks cast.
+TANK: Each horseman must ALWAYS have a player
+within 45 yd or the raid eats a wipe AoE. Two melee
+horsemen (Korth'azz, Rivendare) tanked in the near
+corners; two ranged horsemen (Blaumeux, Zeliek)
+soaked in the far corners by high-HP soakers.
+GROUP: Marks stack per horseman: damage 0, 500,
+1500, 4000, 12500, 20000... and -50% threat per
+application. Rotate groups between corners - never
+take a 4th mark from the same horseman if avoidable
+(25-sec duration lets stacks drop). Korth'azz
+Meteor (57467 (25)): 47500-52500 Fire SPLIT in
+8 yd - the melee group stacks to share it.
+Blaumeux Void Zones (32366): 4250 Shadow/sec, last
+75 sec - move out. Zeliek Holy Wrath (57466)
+chains +50% per jump - spread on his side.
+GROUND: 32366 Void Zone.
+ADD ORDER: none - kill order is by rotation; the
+usual focus is one melee horseman first
+(unverified raid convention, not page-stated).
+AI RULE: three marks, then move - and no corner
+is ever left empty.
+ABILITY LIST: Marks 28832 Korth'azz, 28834
+Rivendare, 28833 Blaumeux, 28835 Zeliek; 57467 /
+28884 Meteor; 57369 Unholy Shadow; 57464 Shadow
+Bolt; 32366 Void Zone; 57465 Holy Bolt; 57466
+Holy Wrath. D: none. Entries unverified.
+
+10. PATCHWERK
+PHASES: One phase; Frenzy at 5%; Berserk at 6 min
+(Slime Bolt spam) - a hard DPS check.
+TANK: Main tank takes the melee. Hateful Strike
+(every 1 sec) hits the highest-CURRENT-HP target
+in melee range who is 2nd/3rd on threat: 1 off-
+tank (10) / 2 off-tanks (25, 79000-81000) soak it,
+gear for HP + armor, healers pre-heal the soak.
+GROUP: Melee enter only AFTER the soak tanks are
+in place. Nobody else stands in melee range with
+high HP. Frenzy (+40% haste, +25% damage at 5%):
+tank cooldowns, burn him.
+GROUND: Slime Bolt pools only after berserk.
+ADD ORDER: none.
+AI RULE: the soak tank is the healthiest melee -
+keep it that way.
+ABILITY LIST (ids unverified): Hateful Strike;
+Frenzy at 5%; Berserk 6 min; Slime Bolt (berserk
+only). I: none. D: none.
+
+11. GROBBULUS
+PHASES: One phase; berserk 9 min (25, per page
+strategy) / 12 min (10, ability list) - flagged:
+use 9 min as the safe planning value.
+TANK: Kite him slowly around the room edge, back
+to the raid. He drops a Poison Cloud (28240 (10))
+under himself every about 15 sec (grows, lasts
+75 sec, 2000/sec) - the kite never stops. Slime
+Spray (28157 (10)) is a 45-yd frontal cone: anyone
+hit spawns a Fallout Slime - only the tank may
+ever be sprayed.
+GROUP: Mutating Injection (28169 (10)) every about
+20 sec, faster as he drops: after 10 sec (or if
+cleansed - NEVER cleanse it) the player explodes
+(28206: 8075-8925 in 20 yd) and leaves a cloud.
+The injected run to the LAST cloud and drop theirs
+beside it to save floor space. Off-tank + ranged
+kill Fallout Slimes (1000/2 sec aura).
+GROUND: 28240 Poison Cloud (75 sec each).
+ADD ORDER: P1 Fallout Slime. No do-not-kill adds.
+AI RULE: clouds go on clouds - floor space is the
+enrage timer.
+ABILITY LIST (10-man ids): 28240 Poison Cloud;
+28157 Slime Spray; 28169 Mutating Injection (D:
+none - cleansing detonates it); 28206 Mutagen
+Explosion. 25-man ids unverified.
+
+12. GLUTH
+PHASES: One phase; Decimate about every 2 min;
+berserk about 8 min.
+TANK: Two tanks swap on Mortal Wound (54378 (10)):
+-10% healing taken per stack - taunt as the other
+tank's stack expires (about every 15 sec). Tank
+him at the far door, away from the grates.
+GROUP: Zombie Chows stream from the back grates
+(1-2 per 10 sec): they are KITED, never tanked
+(Infected Wound stacks +100 physical taken per
+hit). A kiter + Frost Traps / roots / slows holds
+them at the stacked raid. Gluth eats any zombie
+that reaches him: +5% HP each - none may arrive.
+Decimate (28375 (10)): everyone (players AND
+zombies) drops to 5% HP - heal the tank instantly
+and root/AoE every zombie (now about 25-50k HP)
+before it reaches him. His Enrage (19812):
++25%/+25% for 8 sec - dispel (tranq/soothe class).
+GROUND: none.
+ADD ORDER: P1 Zombie Chow - kite only; kill all
+of them in each Decimate window. NEVER let one
+be eaten.
+AI RULE: zombies are kited, then die at Decimate;
+the boss never eats.
+ABILITY LIST (10-man ids): 54378 Mortal Wound;
+28375 Decimate; 19812 Enrage (D by dispel-enrage
+effects). Devour Zombie id unverified.
+
+13. THADDIUS (Feugen + Stalagg first)
+PHASES: P1 Feugen and Stalagg on separate platforms
+- they must die within 5 sec of each other or they
+resurrect each other. Then 15 sec to reach Thaddius'
+platform. P2 Thaddius: 6-min berserk, killed with
+the polarity damage buff.
+TANK: One tank per wight, ON the platforms: pulling
+one off its platform (or too near the ramp) triggers
+unhealable Tesla coil damage to the raid. Magnetic
+Pull (28338) every 30 sec swaps the two tanks and
+their threat - both tanks re-establish on landing.
+GROUP: P2 Polarity Shift (28089) every 30 sec:
+charges are random each cast. Same-charge players
+stack together (+10% damage per nearby same-charge
+player - this is the enrage answer); opposite
+charges near you deal 4500 each after 5 sec. Call
+left/right (or +/-) spots and MOVE on every shift:
+the first 5 sec after a shift decide the fight.
+Chain Lightning (40536 (25): 5 targets 6938-8062).
+Ball Lightning (28299) only if nobody is in melee.
+GROUND: none.
+ADD ORDER: P1 Feugen = Stalagg (simultaneous -
+NEVER kill one alone). Entries unverified.
+AI RULE: same signs together, instantly, every shift.
+ABILITY LIST: 28089 Polarity Shift; 28299 Ball
+Lightning; 40536/28293 Chain Lightning; 54528/28135
+Static Field (Feugen); 28134 Power Surge (Stalagg);
+28338 Magnetic Pull. D: none.
+
+14. SAPPHIRON
+PHASES: Ground phase + air phase every about 45
+sec; 15-min enrage (Frost Aura x6).
+TANK: Standard dragon: tank him side-on, melee at
+the hind legs (cleave + tail slap; small safe arc).
+GROUP: Frost Aura (55799 (25)): 1600 Frost per
+2 sec to the whole room, the whole fight - the
+healing clock. Life Drain (55665 (25)): 5 players,
+drains 4500-5500/3 sec and heals him double -
+decurs FAST (D-Curse). Chill (55699 (25)): drifting
+ice storms, 5550-6450/2 sec + 50% slow - never stand
+in one. Air phase: Icebolt freezes players into
+ice blocks and his frost breath follows - hide
+behind the ice blocks (detail unverified this pass).
+GROUND: 55699 Chill (moving).
+ADD ORDER: none.
+AI RULE: decurse instantly; storms and breath are
+never soaked.
+ABILITY LIST (25-man ids): 55799 Frost Aura;
+55665 Life Drain (D-Curse); 55699 Chill; Icebolt
+id unverified. I: none.
+
+15. KEL'THUZAD
+PHASES: P1 (3 min 48 sec): he is invulnerable; adds
+stream from 7 alcoves. P2: he activates. P3 at
+45%: 4 Guardians of Icecrown join.
+TANK: P2 tank holds him centre; Guardians are
+off-tanked and burned with him (they flee when he
+dies). Frostbolt always hits the main tank
+(29250-30750, 2-sec cast) - an interrupt rotation
+(multiple melee) must never let it through.
+GROUP: Spread: Shadow Fissure (5 sec, then Void
+Blast 62500-137500) - move out instantly.
+Frost Blast: 26% max HP/sec for 4 sec, CHAINS to
+anyone within 10 yd - spread, and heal the target
+to full inside 4 sec or they die (can hit the tank
+in 25). Detonate Mana: the target runs out - the
+explosion scales with their max mana in 10 yd.
+Chains of Kel'Thuzad: 3 players charmed 20 sec
+(+200% damage) - CC them, NEVER kill them (cannot
+be dispelled). Frostbolt Volley every 20-30 sec.
+GROUND: Shadow Fissure / Void Blast - id unv.
+ADD ORDER: P1 Unstoppable Abomination (Mortal
+Wound 25646 stacks - kill before P2, they speed
+up), P2 Soul Weaver (Wail of Souls 28459, 30-yd
+knockback), P3 Soldier of the Frozen Wastes
+(explodes on contact, Dark Blast 28457 - shackle
+or kill at range; NEVER let one touch the raid).
+P3: Guardians of Icecrown (Blood Tap 28470 stacks
++15% damage every about 15 sec - a soft enrage;
+immune to CC). Entries unverified.
+AI RULE: fissures emptied, Frostbolt interrupted,
+charmed allies CC'd - never killed.
+ABILITY LIST: 25646 Mortal Wound (add); 28457
+Dark Blast (add); 28459 Wail of Souls (add);
+28470 Blood Tap (add); boss spell ids unverified;
+Frostbolt (I - the interrupt of the raid).
+NAXXRAMAS TRASH: pack breakdown, entries, spells,
+interrupt priority, dispels, kill order unverified.
+
+====================================================
+THE OBSIDIAN SANCTUM - SARTHARION (+3 drakes opt.)
+====================================================
+PHASES: Kill the 3 twilight drakes first (easy) or
+leave any alive for hard mode: each living drake
+adds its mechanic and, if its disciple lives,
+raid-wide effects. Each drake killed WHILE
+Sartharion is engaged gives him Twilight Revenge
+(+25% damage/haste per drake, stacks 3) - so the
+standard is drakes first, boss last. 15-min enrage.
+TANK: Tank Sartharion side-on (Cleave 35% to 10
+targets; Tail Lash behind; Fire Breath frontal
+8750-11250). Lava walls sweep from either side
+every about 30 sec on his emote: the whole raid
+(including the tank) shifts through the gap.
+GROUP: Shadow Fissure (57579 (10) / 59127 (25)):
+5-sec void zone - move out (one-shots non-tanks
+with drake buffs up). Drake portals (after 15-20
+sec): a portal team (off-tank + healer + DPS) goes
+in: Vesperon's disciple applies Twilight Torment
+(58835: +75% fire/shadow taken, self-damage on hit);
+Shadron's disciple keeps Gift of Twilight on its
+drake (58766 on Sartharion in multi-drake: +50%
+fire, immune) - kill the disciple to drop it.
+Tenebron's portal holds eggs: kill eggs inside or
+accept hatched whelps outside (stacking armor
+reduction) and AoE them on the off-tank.
+GROUND: Shadow Fissure; lava wall lanes.
+ADD ORDER: P1 Tenebron / Shadron / Vesperon before
+Sartharion (any order for 0-drake; escalating for
+hard mode), P2 disciples inside portals, P3
+Twilight Whelps. NEVER pull Sartharion with a
+portal team split. Entries unverified.
+AI RULE: fissure out, wave gap, disciples die fast.
+ABILITY LIST: 57579/59127 Shadow Fissure; 58835
+Twilight Torment; 57835/58766 Gift of Twilight;
+Cleave / Tail Lash / Fire Breath / Pyrobuffet
+(out-of-area punishment) ids unverified. I: none.
+
+====================================================
+THE EYE OF ETERNITY - MALYGOS
+====================================================
+PHASES: P1 ground to 50%. P2 (50%): he is untarget-
+able; Nexus Lords and Scions of Eternity on disks
+must all die. P3: the floor breaks; the raid fights
+on red drakes (vehicle). No hard enrage verified.
+TANK: P1 centre, raid behind him (cleave/cone).
+Power Sparks fly to him: a Death Knight grips each
+spark to the ranged stack point, root it, kill it
+there - the buff zone it leaves is where ranged
+stand for +damage. NEVER let a spark reach him.
+GROUP: P1 Vortex: raid is swept into the air -
+instant heals only, healthstones; heal anyone
+under 20k HP. P2: stand inside the pink anti-magic
+zones he drops (magic damage -50%; they shrink -
+move to each new one). Nexus Lords land and must
+be tanked (they one-shot non-tanks); Scions are
+ranged-killed first in 25; dead riders drop their
+disks -melee mount disks to kill Scions. Short
+burn on him when the last rider dies, then dismount.
+P3 drake rules: stay 30+ yd from him (Arcane Pulse:
+28275-31725 within 30 yd). Static Field (orb on a
+drake, 9425-10575/sec within 30 yd): move out.
+Surge of Power: the emoted target uses Flame
+Shield (drake button) through the 5-sec beam or
+dies. Drake rotation (solo page): build combo
+points with 1, stack the DoT with 2, keep the HoT
+up with 3 (3x3 at the start), out of Static Field.
+GROUND: Anti-magic zones (stand IN); Static Field
+(stay OUT). Vehicle phase only for the second.
+ADD ORDER: P2: P1 Scion of Eternity, P2 Nexus Lord
+(priority flips for disked melee). P1 Power Spark:
+kill it at the stack point - NEVER let it reach
+Malygos (it is a kill add; the ban is on arrival).
+AI RULE: sparks die at the stack, P3 shield on the
+Surge call.
+ABILITY LIST (ids unverified): Vortex; Power Spark;
+Arcane Breath set unverified; Arcane Pulse; Static
+Field; Surge of Power; drake: Flame Spike, Engulf
+in Flames, Revivify (names unverified), Flame
+Shield. I: none. Entries unverified.
+
+====================================================
+VAULT OF ARCHAVON (faction must hold Wintergrasp)
+====================================================
+1. ARCHAVON THE STONE WATCHER
+PHASES: One phase; hard enrage at 5 min (8x damage).
+TANK: Two tanks: Stomp picks up the current tank
+and throws them (threat wiped) - the off-tank
+taunts instantly; keep both tanks 1st/2nd on threat.
+GROUP: Rock Shards shower a random player (about
+7k, splashes neighbours): that player runs away
+from everyone. His leap leaves a white cloud
+(about 2k Nature/tick): never stand in it. Stacking
+within 10 yd of him stops the leap but worsens
+shard splash - spread is the default.
+GROUND: White cloud after leap - id unverified.
+ADD ORDER: none.
+AI RULE: shards isolate, tanks swap on the throw.
+ABILITY LIST (ids unverified): Stomp; Rock Shards;
+Crushing Leap. I: none. D: none.
+
+2. EMALON THE STORM WATCHER
+PHASES: One phase; 6-min berserk. 4 Tempest
+Minions; killed minions respawn.
+TANK: Boss tank and minion tank about 30 yd apart
+(Lightning Nova: 20813-24187 within 20 yd - melee
+RUN OUT on its cast). Tanks stay 10+ yd from everyone.
+GROUP: Spread 10 yd (Chain Lightning every 15 sec
+jumps, +50% per jump; in 25 stack in pairs to cap
+jumps). Overcharge every 45 sec: one minion doubles
+in size, full-heals, stacks +20% damage every 2 sec
+- ALL DPS switch to it; at 10 stacks it explodes
+for about 30000 raid-wide. It must die in 20 sec.
+Kill nothing else: uncharged minions are ignored.
+GROUND: none.
+ADD ORDER: P1 the Overcharged Tempest Minion only;
+NEVER kill a normal minion (respawns, wastes DPS).
+AI RULE: overcharged minion gets every cooldown.
+ABILITY LIST (ids unverified): Chain Lightning;
+Lightning Nova; Overcharge / Overcharged. I: none.
+
+3. KORALON THE FLAME WATCHER
+PHASES: One phase; Burning Fury stacks +5% damage
+every 20 sec from the pull - a soft enrage, no hard
+enrage. Fire resistance aura/totem recommended.
+TANK: TWO tanks stand on the SAME spot: Meteor
+Fists damage is shared between them (high-HP melee
+can supplement with one tank). Agree the dodge side.
+GROUP: Flaming Cinder leaves burning ground spots
+(3900-4100 + 2925-3075/sec within 4 yd): move out
+immediately, tanks call the side. Burning Breath:
+he spins - raid-wide, unavoidable, heal through
+(6-sec cooldown prevents back-to-back after
+Blazing Embers, per page hotfix notes).
+GROUND: Burning Cinder fire spots - id unverified.
+ADD ORDER: none.
+AI RULE: two tanks, one spot; fire is vacated.
+ABILITY LIST (ids unverified): Meteor Fists;
+Burning Breath; Flaming Cinder; Burning Fury.
+I: none. D: none.
+
+4. TORAVON THE ICE WATCHER
+PHASES: One phase; Whiteout every 38 sec stacks a
+frost-vulnerability debuff - a soft-enrage race.
+TANK: Two tanks swap at 4 stacks of his melee
+Frostbite DoT. Freezing Ground can root a tank -
+that tank cannot dodge an orb: others compensate.
+GROUP: Frozen Orbs swirl the room: ranged kill
+every orb IMMEDIATELY (even melee if short) - orb
+damage delays the post-Whiteout top-up and people
+die to the next Whiteout. Ice Block / Divine Shield
+/ Anti-Magic Shell timed to a Whiteout remove or
+resist its debuff stack.
+GROUND: Frozen Orb paths - id unverified.
+ADD ORDER: P1 Frozen Orb (ranged). No other adds.
+AI RULE: orbs die on spawn; swap at 4 stacks.
+ABILITY LIST (ids unverified): Whiteout (38 sec);
+Frostbite; Freezing Ground. I: none. D: none.
+VAULT TRASH: minimal; pack breakdown and entries
+unverified in this pass.
+
+====================================================
+ULDUAR (normal modes; hard modes flagged inline)
+====================================================
+1. FLAME LEVIATHAN (vehicle boss)
+PHASES: Gauntlet of towers (optional hard-mode
+towers left up buff him), then the boss in vehicles.
+There is no player-character combat.
+TANK: No tank: he Pursues a random vehicle and
+destroys what he catches - the pursued vehicle
+flees, others keep firing. Siege Engines interrupt
+Flame Vents with Electroshock (25-yd cone, 4-sec
+school lock).
+GROUP: Vehicle jobs - Siege Engine: Ram
+(22501-27501), Electroshock (interrupt), turret
+shoots down Pyrite ammo, Shield Generator.
+Demolisher: Hurl Boulder (27000-33000, 8 yd), Hurl
+Pyrite Barrel (stacking damage buff - the boss
+killer), passengers Load into Catapult and are
+thrown onto him to destroy his turrets, then get
+picked up. Chopper: lays Tar (slows him 45 sec;
+Demolishers ignite it for damage), Grab Pyrite to
+refuel Demolishers, First Aid Kit heals passengers.
+Kill adds/turrets in the gauntlet; never be caught.
+GROUND: Tar pools (friendly) - ignite under him.
+ADD ORDER: P1 his turrets (by launched passengers);
+gauntlet adds as pulled. Entries unverified.
+AI RULE: if he chases you, run; if not, shoot.
+ABILITY LIST (vehicle ids unverified): Ram;
+Electroshock (I - vehicle interrupt); Anti-Air
+Rocket; Hurl Boulder; Hurl Pyrite Barrel; Tar;
+Speed Boost; boss: Flame Vents (I by Electroshock).
+
+2. IGNIS THE FURNACE MASTER
+PHASES: One phase, soft enrage: each active Iron
+Construct gives him Strength of the Creator
+(+20% damage, stacking) - construct handling IS
+the enrage timer.
+TANK: Kite him across the centre, back to the raid,
+strafing out after each Scorch. Constructs are
+held by an off-tank/kiter with CC (roots, Frost
+Nova, traps) - never by the main tank.
+GROUP: Flame Jets knocks casters up and locks
+their school 8 sec - stop casting before it. Slag
+Pot: a random player is grabbed (7500 Fire/sec,
+10 sec) - heal them through; survivors gain Slag
+Imbued (+100% haste 10 sec). Scorch (3770-4230 per
+0.5 sec frontal + ground fire 3016-3384/sec, 13 yd)
+heats constructs in it: 10 Heat stacks = Molten
+(+100% haste, flame aura 1885-2115 within 7 yd).
+Drag Molten constructs into the WATER: Brittle -
+over 5000 damage in one hit window shatters them
+(14137-15863 to everything in 10 yd - nobody near).
+Constructs can also simply be kited/CC'd and the
+boss burned (about 3500 DPS x5-7 in era 10-man).
+GROUND: Scorch fire (13 yd) - his AND the tool
+that heats constructs.
+ADD ORDER: P1 Iron Construct - either shatter in
+water (nobody within 10 yd) or full-CC kite;
+NEVER leave them free near the raid.
+AI RULE: every construct is shattered or locked -
+his stacks are your clock.
+ABILITY LIST (ids unverified): Flame Jets; Slag
+Pot / Slag Imbued; Scorch; Heat; Molten; Brittle;
+Strength of the Creator. I: none. D: none.
+
+3. RAZORSCALE
+PHASES: Air/ground alternation until 50%, then
+permanently grounded. 10-min berserk (3.1.1).
+TANK: Air phase: tanks grab mole-machine adds at
+once. Grounded: tank her mid-room, Fuse Armor
+(-20% armor/attack/move speed, 20 sec, stacking)
+forces tank swaps.
+GROUP: Defend the engineers: 4 Harpoon Guns (2 in
+10-man) are repaired one by one; fire each when
+ready (assign harpoon duty; best fired with adds
+down) - all harpoons chain her down (Harpooned
+stun) for a full DPS window. Devouring Flame
+lava bombs: move out. Grounded: face her away
+(Flame Breath 17500-22500 frontal cone).
+GROUND: Devouring Flame - id unverified.
+ADD ORDER: P1 Dark Rune Sentinel (Whirlwind 4 sec,
+Battle Shout +100% damage - kill/avoid standing in
+it), P2 Dark Rune Watcher (Chain Lightning up to 5
+- interrupt, I), P3 Dark Rune Guardian
+(Stormstrike). Entries unverified.
+AI RULE: sentinels die first; harpoons fire on call.
+ABILITY LIST (ids unverified): Fireball; Devouring
+Flame; Flame Breath; Fuse Armor; Harpooned.
+I: Watcher casts (interrupt priority).
+
+4. XT-002 DECONSTRUCTOR
+PHASES: At 75/50/25% the Heart is exposed 20 sec
+(adds spawn, he naps). HARD MODE: destroying the
+Heart heals him to full with +50% HP - only on
+purpose.
+TANK: Tank him centre; Pummellers (XM-024) are
+off-tanked front-away (Arcing Smash cone, Trample,
+Uppercut knockback).
+GROUP: Spread 10 yd. Searing Light target runs out:
+sears allies for 9 sec. Gravity Bomb: after 10 sec
+explodes and pulls allies in - run out early.
+Tympanic Tantrum: 10% HP/sec for 8 sec + daze -
+raid cooldowns. During Heart exposure ALL DPS on
+the Heart (damage transfers) - except Scrapbot
+killers: XS-013 Scrapbots run to him and heal 1%
+each on arrival (Scrap Repair) - AoE them at the
+pile. XE-321 Boombots explode on death (Boom!) -
+kill them away from the raid. Hard mode adds Void
+Zones and Life Sparks (Static Charged pulse).
+GROUND: Hard-mode Void Zone only; ids unverified.
+ADD ORDER: P1 XS-013 Scrapbot (before it reaches
+him), P2 XE-321 Boombot (at range), P3 XM-024
+Pummeller. Heart is a boss-target, not an add.
+AI RULE: scrapbots never arrive; bombs die alone.
+ABILITY LIST (ids unverified): Tympanic Tantrum;
+Searing Light; Gravity Bomb; Exposed Heart;
+Scrap Repair; Boom!; hard mode: Heartbreak, Void
+Zone, Life Spark. I: none. Entries unverified.
+
+5. ASSEMBLY OF IRON (Steelbreaker, Runemaster
+Molgeim, Stormcaller Brundir)
+PHASES: One phase; each death heals the other two
+to FULL and gives Supercharge (+25% damage and a
+new ability each). Kill order sets the difficulty:
+Steelbreaker last is the hard mode.
+TANK: One tank each. Steelbreaker tank: Fusion
+Punch (18850-21150 + 15000/sec DoT) - heal/cooldown
+every one. Supercharge x2 Steelbreaker: Overwhelm-
+ing Power on HIS tank: +200% damage but Meltdown
+kills them (29250-30750 to 15 yd) after 35 sec -
+tank swaps become the DPS race (unverified detail).
+GROUP: Molgeim: stand IN his Rune of Power (+50%
+damage, both sides) when safe; do NOT hit him
+through Shield of Runes (absorbs 20000, then
++50% his damage if consumed - hold DPS or dispel,
+unverified). Rune of Death (x1): 2750/0.5 sec in
+13 yd - kite him out / move out. Rune of
+Summoning (x2): Lightning Elementals run at players
+and explode - kill at range. Brundir: interrupt
+Chain Lightning (I); Overload: 6-sec charge then
+20000 in 20 yd - run from him; Lightning Tendrils
+(x2): he lifts off and chases, 3000/sec around
+him - kite, do not stand near. Steelbreaker High
+Voltage: 1500/3 sec raid-wide all fight.
+GROUND: Rune of Power (stand in); Rune of Death
+(get out); ids unverified.
+ADD ORDER: P1 Lightning Elemental (ranged kill).
+Kill order (normal): Brundir or Molgeim first by
+raid choice; Steelbreaker last only by intent.
+AI RULE: each corpse makes the rest worse - plan
+the order before the pull.
+ABILITY LIST (ids unverified): Chain Lightning
+(I); Overload; Lightning Whirl; Lightning
+Tendrils; Shield of Runes (D-Magic unverified);
+Rune of Power; Rune of Death; Rune of Summoning;
+Fusion Punch; High Voltage; Static Disruption;
+Overwhelming Power; Meltdown; Supercharge.
+
+6. KOLOGARN
+PHASES: One stationary boss (body + Left Arm +
+Right Arm; shared hitbox). Killing an arm deals
+damage to the body; arms respawn (Right Arm 60 sec).
+TANK: Tanks on the TORSO only (he cannot be moved;
+nobody in melee range = Petrifying Breath
+14063-15937/sec + damage taken +20% - a wipe).
+Overhead Smash applies Crunch Armor (-20% armor,
+6 sec per guide; 25-man taunt rotation at 2 stacks).
+GROUP: Kill the Right Arm: Stone Grip squeezes a
+player (2925-3075/sec) until the ARM takes 100000
+damage - ALL DPS switch to the arm instantly.
+Eyebeam (Focused Eyebeam 6475-7525 in 3 yd) chases
+a (usually ranged) target: run it out the back and
+down the stairs; nobody stands in its path. Left
+Arm Shockwave (8788-10212) - heal through. Dead
+arms spawn Rubble (Stone Nova 5550-6450 in 10 yd,
++5% taken stacking): Rubble tank + ranged AoE,
+melee stay clear (25). About 4 arm kills kill him.
+GROUND: none persistent.
+ADD ORDER: P1 Right Arm (grip release), P2 Rubble
+(ranged), P3 Left Arm / body by call. Arms are
+boss parts, entries unverified.
+AI RULE: grip means arm - everything else waits.
+ABILITY LIST (ids unverified): Overhead Smash;
+Crunch Armor; Focused Eyebeam; Stone Shout (only
+with both arms dead); Petrifying Breath (only if
+no melee target); Stone Grip (Right Arm);
+Shockwave (Left Arm); Stone Nova (Rubble).
+
+7. AURIYA (+ 2 Sanctum Sentries; 4 in 25 unv.)
+PHASES: One phase. Feral Defender spawns in-fight
+with 9 lives (Feral Essence revives).
+TANK: The PULL is the fight: tanks wait out of LoS
+(alcove) and taunt on arrival - a ranged LoS pull
+makes the Sentries Savage Pounce (3700-4300 +
+2313-2687/sec) the puller. Main tank Auriaya;
+off-tank Sentries (separate them: Strength of the
+Pack +30% within 10 yd); Feral Defender tank picks
+it up each revive.
+GROUP: Stack in front of her in the Screech path:
+Sonic Screech (78625-91375 SPLIT across everyone
+in its path) - alone in the path is death; regroup
+after every Terrifying Screech (3-sec fear; Tremor
+Totem). Interrupt Sentinel Blast (I: 3500 Shadow +
+shadow taken +100% for 5 sec). Feral Defender:
+Feral Rush interrupts casters 6 sec (stop casting);
+Feral Pounce stuns 4 sec; it leaves Seeping Feral
+Essence pools (4500/sec) where it dies - drag it
+away before each death. Guardian Swarm marks a
+player for the swarm - heal/kiting unverified.
+GROUND: Seeping Feral Essence - id unverified.
+ADD ORDER: P1 Sanctum Sentry x2, P2 Feral Defender
+x9 lives (tanked away, killed clear of the raid).
+AI RULE: screech is shared, blasts are interrupted.
+ABILITY LIST (ids unverified): Sonic Screech;
+Sentinel Blast (I); Terrifying Screech; Guardian
+Swarm; Savage Pounce; Strength of the Pack;
+Feral Essence; Feral Rush; Feral Pounce. D: none.
+
+8. HODIR
+PHASES: One phase; hard mode is a speed kill before
+he destroys the Rare Cache (timer unverified).
+NPC allies start frozen in ice blocks - free them.
+TANK: Tank him mid-room; Frozen Blows (20 sec):
+his physical -70% but +31062 Frost per hit and
+4000 Frost/2 sec raid-wide - cooldowns + heal up.
+GROUP: Biting Cold aura punishes standing still -
+keep moving/jumping (unverified values). Icicles
+fall: their Snowdrifts are the ONLY safe spots
+for Flash Freeze: everyone not on a drift is
+encased in ice - and anyone ALREADY frozen when
+it lands DIES. Free frozen players and NPCs at
+once. Buffs to steal: Druid Starlight (haste
+zone), Shaman Storm Power (+135% crit damage),
+Mage Toasty Fire (clears Biting Cold; Singed
+stacks +2% magic taken on him). Freeze (root,
+10 sec) - dispel (D-Magic unverified).
+GROUND: Snowdrifts (stand on); Starlight (stand in).
+ADD ORDER: none hostile. Frozen NPC allies are
+freed, NEVER killed.
+AI RULE: Flash Freeze = stand on snow or die.
+ABILITY LIST (ids unverified): Flash Freeze;
+Freeze; Frozen Blows; Snowdrift; ally: Starlight,
+Storm Power, Conjure Toasty Fire, Singed, Melt Ice.
+
+9. THORIM
+PHASES: P1 split raid: Arena group survives waves
+while a Hallway group fights through to reach
+him; when they engage him he leaps down. P2 arena
+fight; hard mode = reach him fast (timer unv.).
+TANK: P2 two tanks swap on Unbalancing Strike.
+Hallway tank dodges Runic Colossus Smash/Runic
+Smash (abilities listed, ids unverified).
+GROUP: Arena: interrupt Dark Rune Acolyte Greater
+Heal (I) and Evoker Runic Mending (I: 18500-21500
++ 6000/sec) and Runic Lightning (I); Evoker Runic
+Shield (absorbs 120000 magic, D-Magic unverified);
+Warbringer Aura of Celerity (+20% haste to allies)
+- kill order below. Thorim meanwhile: Stormhammer
+(2451-2551 + 2-sec stun) + Deafening Thunder
+(4625-5375 + cast time +75% in 8 sec) on the arena;
+Charge Orb powers the side orbs. P2: Lightning
+Charge - move away from the charged orb side
+(detail unverified); Chain Lightning - spread;
+Lightning Field unverified.
+GROUND: orb charge lanes unverified.
+ADD ORDER arena: P1 Dark Rune Acolyte (healer),
+P2 Dark Rune Evoker, P3 Dark Rune Warbringer,
+P4 Dark Rune Champion (Mortal Strike), P5 Commoner
+(Pummel interrupts). Hallway: Iron Ring Guard
+(Impale bleed until healed >90%), others unv.
+AI RULE: healers interrupted; in P2 the orbs call
+the movement.
+ABILITY LIST (ids unverified): Stormhammer;
+Deafening Thunder; Charge Orb; Greater Heal (I);
+Runic Mending (I); Runic Lightning (I); Runic
+Shield; Aura of Celerity; Mortal Strike; Pummel;
+Unbalancing Strike; Lightning Charge.
+
+10. FREYA (+3 Elders optional hard mode)
+PHASES: P1: Attuned to Nature stacks (150 stacks,
++10% healing taken each - page: healing received
++10% per stack) drop 10 per ally killed (25 per
+elder add - unverified counts); at 0 stacks P2.
+She is unkillable in P1 (heals through Touch of
+Eonar 6000/sec). P2: burn with Nature Bombs.
+TANK: Boss tank + add tank(s): Snaplasher
+Hardened Bark stacks make it un-tankable over time
+- ranged kite it instead (page tactic unverified).
+GROUP: Waves rotate - Detonating Lashers (fixate
+random; Detonate 4163-4837 in 15 yd on death):
+spread, kill at range. Trio wave: Ancient Water
+Spirit (Tidal Wave line knockback), Storm Lasher
+(Stormbolt I, Lightning Lash I - interrupt both),
+Snaplasher (kite). Ancient Conservator:
+Conservator's Grip silences/pacifies everyone NOT
+near a Healthy Spore - stand by spores (Potent
+Pheromones +25% damage) when it is up; Nature's
+Fury target isolates (damage to nearby allies).
+Eonar's Gift grows: kill it before it matures or
+Lifebinding Heal heals her and adds 30%. Sunbeam
+(5088-5912, 8 yd) - spread. P2 Nature Bombs
+(8775-9225 in 10 yd after a delay) - move.
+GROUND: Nature Bombs; Sunbeam zones; ids unv.
+ADD ORDER: P1 Eonar's Gift (before it matures),
+P2 current wave adds (all must die for stacks),
+NEVER damage Freya seriously in P1 (wasted).
+AI RULE: stacks first, boss second; gift dies young.
+ABILITY LIST (ids unverified): Attuned to Nature;
+Touch of Eonar; Sunbeam; Lifebinder's Gift /
+Lifebinding Heal; Detonate; Conservator's Grip;
+Nature's Fury; Tidal Wave; Stormbolt (I);
+Lightning Lash (I); Hardened Bark; Nature Bomb.
+
+11. MIMIRON
+PHASES: 4 stages, one machine each: P1 Leviathan
+Mk II (tank), P2 VX-001 (no tank, turret), P3
+Aerial Command Unit (flying), P4 V0-L7R-0N: all
+three parts together - all parts must die within
+about 15 sec of each other or they revive
+(unverified window). Hard mode (red button):
+fire spreads all fight (flagged, detail unv.).
+TANK: P1 tank takes Plasma Blast (17000 Spellfire
+/sec for 6 sec - cooldowns, cannot be resisted).
+P4: tank the bottom, ranged handle the head.
+GROUP: P1: Shock Blast (50000 within 15 yd) - all
+run out; Proximity Mines (12000 within 3 yd) on
+the escape paths; Napalm Shell targets over 15 yd
+(7540-8460 + 32000 over 8 sec) - spread. P2: P3Wx2
+Laser Barrage - he spins up 4 sec then sprays a
+rotating cone (20000 per 0.3 sec): rotate AROUND
+with the cone, never through it. Rocket Strike:
+marked spot, 50000 within 3 yd - vacate. Heat Wave
+heal-through. P3: ranged kill Assault Bots: loot
+the Magnetic Core and deploy it UNDER the Aerial
+Unit - grounded, disabled, +50% damage taken:
+burn window. Bomb Bots explode on death - kill at
+range; Emergency Fire Bot unverified. Plasma Ball
+(9425-10575) on its target - heal. P4 combines
+Shock Blast, Laser Barrage and the grounded-core
+windows; parts equalised, killed together.
+GROUND: Proximity Mines; Rocket Strike marks;
+hard-mode fire lanes unverified.
+ADD ORDER P3: P1 Assault Bot (core carrier), P2
+Bomb Bot (at range). P4: no adds - parts order.
+AI RULE: barrage means rotate; the core means burn.
+ABILITY LIST (ids unverified): Proximity Mines;
+Shock Blast; Napalm Shell; Plasma Blast; Rapid
+Burst; P3Wx2 Laser Barrage; Rocket Strike; Heat
+Wave; Plasma Ball; Magnetic Field (D-Magic:
+root + damage taken +30%, 6 sec, from Assault Bot);
+Magnetic Core (item-effect, id unverified).
+
+12. GENERAL VEZAX
+PHASES: One phase, 10-min enrage (page strategy).
+Not tauntable. HARD: let 6 Saronite Vapors pool
+into a Saronite Animus (he gains Saronite Barrier,
+-99% damage taken) - kill Animus, then him.
+TANK: Tank him in place; Surge of Darkness
+(+100% damage, -55% his speed, 10 sec): kite him
+slowly or cooldown through it - page notes tank
+may simply stay and be healed.
+GROUP: Aura of Despair: NO mana regeneration from
+nearly all sources, melee attack speed -20% -
+mana is the real boss timer. Casters DPS mainly
+inside Shadow Crash fields (magic damage +100%?
+page: damage dealt +10% per source line - field
+gives casting speed +10%, mana cost -70%, healing
+done -75%): a Crash missile (11310-12690 in 10 yd
++ knockback) is dodged, then ONE caster stands in
+its 20-sec field. Searing Flames (I): 13875-16125
+raid-wide + armor -75% - interrupt EVERY cast;
+a second interrupter covers. Mark of the Faceless:
+target siphons 5000/sec from NEARBY allies for
+10 sec - healers/melee stay within 15 yd of him
+so only casters can be marked; the marked player
+isolates. Saronite Vapors: assigned killers break
+a Vapor, players stand in its cloud for 6-7 stack
+ticks to convert life to mana, then step out -
+saving Vapors for healers is the default plan.
+GROUND: Shadow Crash energy field (stand in - one
+caster); Saronite cloud (brief mana use).
+ADD ORDER (hard): P1 Saronite Animus (Profound
+Darkness stacks shadow taken +10%). Vapors are
+NEVER broken except on the mana call (hard mode:
+first six are never broken at all).
+AI RULE: interrupt flames, spend mana only in fields.
+ABILITY LIST (ids unverified): Aura of Despair;
+Shadow Crash; Mark of the Faceless; Searing
+Flames (I); Surge of Darkness; Saronite Barrier;
+Profound Darkness. D: none.
+
+13. YOGG-SARON (Sara / Brain / Yogg-Saron)
+PHASES: P1 Sara (invulnerable): Guardians die NEXT
+TO her - their Shadow Nova on death damages her.
+At 100% damage taken she transforms. P2: tentacles
++ portals to the Brain Room (illusion rooms);
+Brain to 30% starts P3. P3: Yogg-Saron direct, with
+Immortal Guardians; keepers chosen before the pull
+set the difficulty (0-4 keepers; fewer = harder).
+SANITY: every player has Sanity; at 0 they are
+PERMANENTLY mind-controlled (a wipe condition,
+not a dispel). Freya's Sanity Wells restore 20%
+per 2 sec at -50% damage done while inside.
+TANK: P1: drag each Guardian to Sara before it
+dies. P2: Crusher Tentacles tanked (they debuff
+the raid's damage while up - unverified detail);
+Corruptor Tentacles interrupted (casts include
+sanity loss). P3: Immortal Guardians tanked; at
+low HP Thorim's Titanic Storm finishes them; a
+Guardian with Empowering Shadows must be moved
+away - it heals the boss (page tank note).
+GROUP: P1 never touch an Ominous Cloud: touching
+spawns an extra Guardian (Boil Ominously). Sara
+buffs (Fervor +20% damage/+100% taken; Blessing;
+Anger) land on Guardians - detail unverified.
+P2 tentacle order and portals: the portal team
+enters on spawn, kills illusion tentacles inside
+to open the Brain, DPS the Brain, and MUST exit
+before Induce Madness finishes (or they are
+trapped/controlled). Look away from Laughing
+Skulls / Malady of the Mind / Brain Link: linked
+players stand TOGETHER; Death Ray - move (details
+unverified this pass). Malady/Psychosis drain
+Sanity - stand in wells between portal cycles.
+GROUND: Sanity Wells (stand in to recover);
+Ominous Clouds (never touch).
+ADD ORDER: P1 Guardian of Yogg-Saron (killed AT
+Sara - position is the mechanic). P2: Crusher
+Tentacle, Corruptor Tentacle (interrupts), then
+Brain (portal team). P3: Immortal Guardian
+(drag Empowering ones away; NEVER leave them at
+the boss at low HP expecting them to die alone).
+AI RULE: sanity is a second health bar - protect
+it like one.
+ABILITY LIST (ids unverified): Shadow Nova (on
+Guardian death); Dark Volley (-25% healing 10 sec);
+Sanity; Induce Madness; Brain Link; Sara's Fervor
+/ Blessing / Anger; keeper gifts: Resilience of
+Nature, Sanity Well, Fortitude of Frost, Hodir's
+Protective Gaze, Speed of Invention, Destabili-
+zation Matrix, Fury of the Storm, Titanic Storm.
+
+14. ALGALON THE OBSERVER (key + sigils required)
+PHASES: One phase; 6-min berserk; at low HP he
+casts Ascend to the Heavens (64487) if not killed
+(unverified trigger). Collapsing Stars spawn
+throughout; their deaths make Black Holes.
+TANK: Two tanks swap on Phase Punch (64412:
+8788-10212 + plane fade, 45-sec debuff per
+8.3.7 tooltip, stacks unverified - the faded tank
+enters the Black Hole realm to kill Living
+Constellations and close Black Holes; swap at
+the called stack count, detail unverified).
+GROUP: Cosmic Smash (64596 (25): 3 boulders
+53625-56375 Fire) - marked spots vacated. Quantum
+Strike (64592 (25): 34125-35875 in 5 yd) - tank
+healing. Big Bang (64584): 107250-112750 to nearby
+- the whole raid except ONE assigned soaker enters
+a Black Hole for the cast (inside: Living
+Constellations - kill and close, then return).
+Collapsing Stars must be killed on a RYTHMN by
+assigned ranged: each death = Black Hole Explosion
+(65108: 20475-21525 Shadow) - killing several at
+once wipes the raid; do not let them be killed by
+cleave. Keep star HP trimmed evenly.
+GROUND: Black Holes (enter on Big Bang only);
+Cosmic Smash impact marks.
+ADD ORDER: P1 Collapsing Star (assigned ranged,
+one at a time - NEVER AoE them down together),
+P2 Living Constellation (inside holes only).
+AI RULE: stars die one by one; Big Bang means
+everyone in a hole.
+ABILITY LIST (25-man ids): 64596 Cosmic Smash;
+65108 Black Hole Explosion; 64592 Quantum Strike;
+64412 Phase Punch; 64584 Big Bang; 64487 Ascend
+to the Heavens. 10-man ids differ (62311, 64122,
+64395 - page). I: none. D: none.
+ULDUAR TRASH: pack breakdown, entries, spells,
+interrupt priority, dispels and kill order all
+unverified in this pass (includes the Conservatory
+and Descent areas).
+
+END OF STEP 8 - all five raids written in this file.

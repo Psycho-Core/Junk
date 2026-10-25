@@ -1,0 +1,43 @@
+AUDIT 4 (RESTART) - Tactics_Temple_of_Ahn_Qiraj.txt
+Method: 8.3.7 (dataEnv=11) Wowhead tooltips for the
+spell ids the file carries.
+Result: 12 pass, 3 corrected, 3 unverified standing.
+
+PASS (tooltip-verified this audit):
+ - 785 True Fulfillment exactly as filed (0.5 sec cast,
+   20 sec, +300% damage, instant casts).
+ - 26083 Whirlwind exactly as filed, including
+   "immune to stun" in the buff text - the file's
+   spin rule is confirmed in the spell itself.
+ - 26134 Eye Beam 2625-3375, 2 sec cast, chains to up
+   to 60 additional targets (file said unlimited
+   chains; tooltip caps the count, damage ramp is
+   from the tactics page - no conflict on numbers).
+ - 26476 Digestive Acid 150 every 5 sec.
+ - 26192 Arcane Explosion: tooltip confirms the spell
+   exists in 8.3.7 but prints no damage numbers; the
+   file's 187-217 stays page-sourced, flagged here.
+
+CORRECTED (applied with this audit):
+ 1. 25174 Sundering Cleave: page text (+300%, +25
+    Physical taken) contradicted by the 8.3.7 tooltip
+    (normal +30, -240 armor, 30 sec). File now uses
+    the tooltip. Lesson repeats audit 2's: Classic
+    boss pages rewrite spell text loosely.
+ 2. 26143 Mind Flay snare: page -30%, tooltip speed
+    to 30% of normal (-70%). File now uses tooltip.
+ 3. 26156 Carapace of C'Thun returns NO 8.3.7 tooltip
+    ("entity not found"). The -99% mechanic is real
+    per the tactics page, but the id cannot be
+    confirmed in this build's data; file now marks
+    the id page-only wherever it appears.
+
+UNVERIFIED (stand as marked):
+ - Map id 531 and every spawn coordinate.
+ - All boss/add entries except Skeram (15263) and
+   C'Thun (15727); the name-only mechanics on the
+   Royalty, Fankriss, Viscidus, Huhuran, Twins and
+   Ouro pages, whose spell ids those pages never
+   link. Tooltipping by name was not used to fill
+   them (a name match is not proof of assignment).
+ - Anubisath Sentinel trash abilities/kill order.
