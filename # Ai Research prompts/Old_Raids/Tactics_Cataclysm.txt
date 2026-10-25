@@ -1,0 +1,430 @@
+Tactics: Cataclysm A (Step 10)
+Raids: Baradin Hold, Blackwing Descent,
+Bastion of Twilight, Throne of the Four Winds.
+Creature entries, map ids, coordinates
+unverified unless stated. Values 25-player
+normal unless marked 10.
+
+BARADIN HOLD (entries: Argaloth 47120,
+Occu'thar 52363, Alizabal 55869 - page-given)
+==========================================
+
+1. Argaloth
+PHASES: single; Fel Firestorm at 66% and 33%.
+Berserk 47008 at 5 min (+150% speed, +900%).
+TANK: two groups, one tank each flank, raid
+stacks on its tank. Meteor Slash (95172 not in 8.3.7 DB -
+unverified there; 25m
+/ 88942 10m: 475k/200k Fire split frontal,
++100% Fire taken 20s stacking) - other tank
+taunts instantly; first retaunts as debuff
+falls (2-3 sec overlap).
+GROUP/GROUND: Consuming Darkness (95173 /
+88954: 3900-4100 + ticking Shadow 15s) -
+dispel immediately (D-Magic unverified type).
+Fel Firestorm 88972: spread and keep moving
+15s, Fel Flame patches 8287-8712/s.
+AI RULE: never let both tanks hold the
+Meteor Slash debuff; dispel Darkness first.
+
+2. Occu'thar
+PHASES: single, alternates Focused Fire and
+Eyes. TANK: Searing Shadows 101007 (not in 8.3.7 DB -
+unverified there; page 105000
+Shadow cone frontal +100% Shadow taken 30s)
+- swap before a second cast lands on the
+debuffed tank; cooldown for each cast.
+GROUP: Focused Fire 96884 marks a player's
+location (35000 Fire/s, 12 yd) - pile moves
+to second spot. Eyes of Occu'thar 96920: an
+eye on every non-tank for 10s, Gaze 96942
+(6000/s); stack and AoE eyes down before
+Occu'thar's Destruction 96968 (25000 raid).
+AI RULE: kill every eye inside 10 seconds;
+an undamaged eye wave is a wipe in slow gear.
+ADD ORDER P1: Eyes > boss (eyes are spawned
+on players, never tank the boss into pile).
+
+3. ALIZABAL
+PHASES: single. Berserk 47008 at 5 min.
+TANK: tanks stand together; Skewer 104936
+stuns current tank 8s (10000/2s +150% damage
+taken) - other tank taunts instantly.
+GROUP: whole raid stacks on boss rear.
+Seething Hate 105067: 200k (10) / 600k (25)
+Fire split within 6 yd of target - staying
+stacked is the mitigation; do not run out.
+Blade Dance 104994: 12500/s within 13 yd and
+deflects all attacks - everyone, tanks too,
+runs out until it ends, then restack.
+AI RULE: stack for Hate, scatter for Dance;
+taunt the instant Skewer lands.
+
+Blackwing Descent
+==================
+
+4. OMNOTRON DEFENSE SYSTEM (Electron,
+Magmatron, Toxitron, Arcanotron; shared HP,
+two active at once, 50 energy each swap)
+TANK: one golem per tank, apart; golem at 50
+energy shields and shuts down - switch to
+the newly active golem, stop hitting shield.
+Electron: Lightning Conductor 79888 (target
+pulses 24375-25625 to allies/2s, 10s) - that
+player isolates; Electrical Discharge 79879
+chain; Unstable Shield 79900 - do not attack
+(Static Shock backfires).
+Magmatron: Incineration Security Measure
+79023 (14625-15375/s x4 raid); Acquiring
+Target 92036 -> Flamethrower 79504 channel
+frontal - target runs it away / drop aggro;
+Barrier 79582 absorb 150k (300k 25): do NOT
+break it (73125-76875 raid backlash).
+Toxitron: Chemical Bomb 80157 -> Chemical
+Cloud 91472 (+50% damage taken in cloud -
+drag golems INTO it, players out); Poison
+Protocol 80053: Poison Bombs fixate (80094)
+random non-tank - kite/snare, kill at range,
+Poison Puddle 91488 on explode.
+Arcanotron: Power Generator pool (stand in
+it for damage buff - also buffs golem, so
+tank golem off it); Arcane Annihilator is
+the interrupt priority (I; id unverified);
+heroic Overcharged generator blowback and
+Nefarius Shadow Infusion 92048/92053.
+ADD ORDER P1: Poison Bombs > active golem >
+never the shielded golem. AI RULE: attack
+only the unshielded golem; use their own
+clouds/pools as damage amps.
+
+5. Magmaw
+PHASES: P1 upright; head exposure cycles;
+heroic Nefarius adds + Shadow Breath 122752
+below 30%. TANK: main tank holds Magmaw at
+the spike side; at Massive Crash he is
+Mangled (picked up) - off-tank taunts body,
+heal/cooldown the Mangled tank, BoP works.
+GROUP: ranged/healers one pile, two marked
+spots ~20 yd apart. Pillar of Flame on the
+pile - move to other spot; Lava Parasites
+spawn there: snare/kite/AoE, keep 8+ yd - a
+parasite reaching a player bursts AoE.
+Two players jump the pincers and Launch
+Hook 91911 chains to the spike (both chains)
+-> Point of Vulnerability 79010: head takes
++100% damage (shared HP) - full burn.
+Heroic: Blazing Inferno 92154 meteor makes
+Blazing Bone Construct (Ignition 92134
+flame spirals; Armageddon 92182 at 20% HP -
+kill it away but before the cast ends).
+ADD ORDER: parasites > construct > head.
+
+6. ATRAMEDES (sound mechanic)
+PHASES: ground 80s / air, alternating; 10
+gongs (shields) total, each once: resets all
+sound to 0 and stuns boss 5s (Vertigo).
+At 100 sound he fixates and kills that
+player (Devastation 78868 channel).
+Ground: Modulation 92451 (+7 sound, 39000-
+41000); Sonic Breath 92407 tracks a non-tank
+(+20 sound/s) - target runs one way, raid
+the other; Searing Flame 92423 once/phase
+(+10 sound +25% Fire taken x8) - assigned
+player hits a gong after ~1 stack; Sonar
+Pulse discs travel - dodge (id unverified).
+Air: Roaring Flame Breath 78353 (accelerat-
+ing chase - gong near phase end), Sonar Bomb
+92556 (circles land, +20 sound), Sonic Fire-
+ball 78115, Roaring Flame 78555 patches.
+Heroic: Obnoxious Fiends jump players and
+raise sound (Obnoxious 92677) - kill fast.
+TANK: near entrance; boss melees hard/slow.
+AI RULE: gong only for Searing Flame and
+late air breath; sound is the real HP bar.
+
+7. Chimaeron
+PHASES: P1 with Bile-O-Tron online/offline;
+P2 at 20%: Mortality 82934 (taunt immune,
++10% taken, healing -99%) - burn, healers DPS.
+SYSTEM: Bile-O-Tron buff (Finkle's Mixture,
+id unverified) - attacks cannot reduce you
+below 1 while above 10000 HP. Keep everyone
+just over 10000, never top off in P1.
+Massacre (id unverified): huge raid hit, may
+knock Bile-O-Tron offline -> Feud: stack and
+AoE-heal through 3 pulses, spread when back.
+Caustic Slime (unverified id): split damage
+- spread in online phase. Break (unver-
+ified): +25% Physical taken stacking on
+tank; Double Attack 88826 - off-tank taunts
+for Double Attacks, Break tank takes it back;
+swap fully at 2-3 Break stacks.
+Heroic: Mocking Shadows 91307 (2000/s P2).
+AI RULE: heal to 10001, not to full; the
+offline stack is the only full-heal window.
+
+8. Maloriak
+PHASES: vial cycle 40s each (Red/Blue order
+random, every 3rd Green), P2 at 25%.
+Red: Scorching Blast shared frontal - raid
+stacks in front to split (id unverified);
+Consuming Flames single target (unverified).
+Blue: Biting Chill 92976 - isolated player
+(5000/s to self + within 8 yd, 10s); Flash
+Freeze 92978 - spread, break ice carefully
+(chain explosions 56550-63450).
+Both: Release Aberrations 92703 (I, 1.5s) -
+interrupt or only allow 9 total; Aberrations
+buff allies Growth Catalyst 77987 (+20%/-20%
+within 10 yd) - add tank holds them AWAY
+from Maloriak. Remedy on Maloriak: spell-
+steal/purge his heal (id unverified).
+Green: Debilitating Slime 77615 (+100%
+damage taken all, suppresses Catalyst 15s)
+- AoE the aberration pack down now.
+P2 25%: Release All (+2 Prime Subjects),
+Magma Jets 78194 frontal fissures, Absolute
+Zero 93043 orbs (keep 3+ yd), Acid Nova
+93011 (7500/s x10s). Heroic Dark Magic:
+Engulfing Darkness 92754 cone (healing
+-100%), Vile Swill adds + Dark Sludge 92988.
+ADD ORDER: Aberrations (green only) > Prime
+Subjects > boss. AI RULE: 9 adds max before
+green; interrupt Release, kick nothing else.
+
+9. Nefarian (+ Onyxia)
+P1: Onyxia grounded, Nefarian flying in at
+start then lands (timing unverified). Kill
+Onyxia before Electrical Energy 94107 fills
+(Electrical Overload 78999 = wipe). Both:
+Shadowflame Breath (94124/94125, resurrects
+Animated Bone Warriors - face dragons away
+from skeleton piles), Tail Lash 94128.
+Onyxia Lightning Discharge 77832 side arcs.
+Bone Warriors: energy decays, collapse at 0;
+kite them on a tank/platform edge, never
+kill order - let them collapse, keep out of
+breaths. Empowering Strikes 94091 grows -
+collapse resets it (unverified).
+P2 (Onyxia dead): magma floods, 3 platforms,
+Chromatic Prototype each casts Blast Nova
+80735 (I - interrupt rotation per platform;
+page 34800-45200/2s vs 8.3.7 tooltip 60900-
+79100 instant - conflict flagged);
+Shadowflame Barrage 78621; Explosive Cinders
+(unverified id) - swim/jump off briefly.
+Get Nefarian to ~71% evenly; Electrocute
+every 10% HP (unverified id, Crackle) -
+cooldown raid at set thresholds.
+P3: Nefarian + re-raised Bone Warriors;
+Shadowblaze fire spreads (unverified id) -
+kite boss around room edge, adds collapsed
+on a kiter away from fire. Heroic Dominion
+79318: dominated players click Free Your
+Mind 79323 / use Stolen Power 80627.
+ADD ORDER: NEVER Bone Warriors (collapse),
+Prototypes P2 (interrupt) > Nefarian.
+
+BASTION OF TWILIGHT
+====================
+
+10. Halfus Wyrmbreaker (+ Proto-Behemoth)
+Weekly drake set (3 of 5 normal, all heroic):
+free drakes to counter Halfus: each freed
+drake debuffs him, is then mind-controlled,
+must be tanked/killed; its death gives
+Dragon's Vengeance (+100% damage taken on
+Halfus, stacking). Proto-Behemoth: ignore
+(never kill order), dodge Fireball barrage;
+Scorching Breath if whelps dormant.
+Halfus buffs by dormant drake: Frenzy (attack
+speed), Malevolent Strikes (stacking -heal
+on tank - swap), Shadow Nova (interrupt its
+cast when Storm Rider freed slows it -500%).
+Drake counters: Nether Scion -25% hit/speed/
+damage; Slate Stone Grip (12s stuns on
+Halfus); Time Warden slows fireballs; whelps
+Atrophic Poison -750 drake damage x8.
+Furious Roar below 50%: 3x 7600-8400 + 2s
+stun - trinket/heal between roars.
+Spell ids mostly unverified on page chunk.
+ADD ORDER: freed drake (tanked) > Halfus >
+NEVER Proto-Behemoth. Release order by
+week: Scion first if Frenzy active.
+
+11. Valiona and Theralion (shared HP,
+alternate ground/air)
+Theralion grounded: Fabulous Flames patches
+(unverified id) move out; Twilight Shift
+93051 stacks on his tank, 5th = Shifting
+Reality 93055 (pulls near players to Twi-
+light Realm) - tank swap; Engulfing Magic:
+player moves out (splash) (unverified id).
+Air Theralion: Twilight Blast 86369 splash;
+Dazzling Destruction 93063 swirls - 5s then
+487500-512500 in zone + realm pull - move.
+Valiona grounded: Blackout 92878 (D-Magic):
+target stacks with group THEN dispel -
+250000 split; Devouring Flames 92873 frontal
+breath (80000/s, less at range) - side.
+Air Valiona: Twilight Meteorite 86013 -
+stack to split; Deep Breath 86059 strafes
+room thirds - move zones (realm pull).
+Twilight Realm: avoid Unstable Twilight 86305
+orbs, take collapsing portals back; heroic
+Twilight Sentries Rift Blast 93019, Twilight
+Sentry adds kill for achievement only.
+AI RULE: Blackout dispels only into a stack;
+never stand in a Dazzling swirl.
+
+12. ASCENDANT COUNCIL
+P1 Feludius (water) + Ignacious (fire) to
+25% either. P2 Arion (air) + Terrastra
+(earth) to 25% either. P3 Monstrosity with
+combined HP% left - equalise P1/P2 end HP.
+Feludius: Water Bomb (Waterlogged 25% slow;
+Glaciate freezes Waterlogged - Frozen
+25000/2s) - get hit by Ignacious fire to
+dry; Heart of Ice (D-Magic) - carrier stands
+near DPS to grant Frost Imbued vs Ignacious.
+Ignacious: Aegis of Flame shield then Rising
+Flames channel (I - burn shield, interrupt);
+Flame Torrent frontal cone; Inferno Rush
+leap + fire trail; Burning Blood carrier
+grants Flame Imbued vs Feludius.
+Arion: Call Winds cyclones (touch = Swirling
+Winds airborne buff - needed for Thunder-
+shock: Grounded players take reduced);
+Disperse short teleport (unverified);
+Lightning Rod heroic (unverified handling).
+Terrastra: Quake before Gravity Well - be
+airborne for Quake, grounded (Gravity Well)
+for Thundershock - swap buffs each cast;
+Eruption spikes (unverified id).
+P3 Elementium Monstrosity: Lava Seed,
+Lightning/Chain (unverified ids), Electric
+Instability aura grows - burn race.
+AI RULE: opposite-element imbued buffs;
+swap air/ground on Quake vs Thundershock;
+bring pair bosses down together.
+
+13. Cho'gall
+P1 to 25%, P2 below. Corruption bar: events
+raise it (0-100: sickness/vomit/MC stages,
+threshold ids unverified) - avoid all sources.
+TANK: Fury of Cho'gall 86027 (30000 Shadow +
+30000 Physical, +20% both taken 45s) - swap.
+Conversion 93204 (not in 8.3.7 DB -
+unverified there; I): worshippers channel
+Twisted Devotion 93206 (+10% boss damage) -
+interrupt/CC worshippers instantly.
+Flame's Orders 87579: Flaming Destruction
+81194 melee splash leaves Blaze 81532 pools;
+Shadow's Orders (same id on page): Empowered
+Shadows 81572 raid pulses. Move boss slowly
+to keep floor clear, raid behind.
+Corrupting Adherent 81628 (1.7M/4.98M HP):
+Depravity 93176 (I, raidwide + corruption),
+Corrupting Crash 93185 splash; kill OFF the
+raid - corpse pool Spilled Blood 81757.
+Fester Blood 82299 animates pools into Blood
+of the Old God oozes (fixate, melee raises
+corruption) - AoE/snare; living adherent
+sprays Festering Blood. Kill adherent before
+Fester cast where possible.
+P2: Corruption of the Old God 94144 aura;
+Darkened Creations tentacles (unverified id)
+- kill; boss no longer summons adherents.
+ADD ORDER: Adherent > Blood oozes (P1) >
+tentacles (P2) > boss.
+
+14. SINESTRA (heroic only)
+P1 to 30%: Flame Breath (unverified id);
+Wrack in P1 handled by dispel chain early
+(89421 detail in P3); Twilight Ascendant
+adds unverified. Twilight Whelps: Twilight
+Spit 89299 stacks Shadow taken on tank; on
+death Twilight Essence 88146 puddle - a
+puddle touching another dead whelp reani-
+mates it: kill whelps apart, move corpses
+zones clear (essence 9250-10750/2s).
+P2 30%: Mana Barrier 70842 shield; Calen
+duels (Pyrrhic Focus 87323: healing Calen
++500% received); raid kills 2 Pulsing
+Twilight Eggs when Twilight Carapace 87654
+drops (only then damageable). Spitecallers:
+Unleash Essence 90028 (not interruptible -
+stun briefly; Indomitable 90045 if CC'd too
+long - dispel its enrage type unverified).
+Twilight Drakes: Breath 76817; let them
+Absorb Essence 90107 to shrink puddles but
+each stack +10% drake damage/health - tank
+and kill after eggs.
+P3: Essence of the Red 95401 (+100% haste,
+mana regen, 3 min = soft enrage); Wrack
+89421 (D-Magic; tooltip confirms Magic,
+1 min, bounce to 2): dispel bounces to 2 nearby
+- controlled dispel rotation, damage resets;
+Twilight Slicer orbs cross room (unverified
+id) - move lanes. Burn before Essence ends.
+ADD ORDER: eggs (P2 windows) > Spitecaller >
+drake > whelps > boss.
+
+THRONE OF THE FOUR WINDS
+=========================
+
+15. CONCLAVE OF WIND (Anshal, Nezir, Rohash)
+Three platforms, wind bridges (gone at 90
+energy). NEVER leave a platform empty:
+Withering/Chilling/Deafening Winds wipe.
+All reach 90 together -> ultimates: Anshal
+Zephyr 93119 (heals allies 25000/s +15% dmg),
+Nezir Sleet Storm 86367 (page 28500-31500/s
+split; 8.3.7 tooltip reads 213750-236250/s
+total divided - conflict flagged), Rohash Hurricane 86481
+(2500/s airborne 15s + fall). Raid gathers
+Nezir for ultimates, splits after.
+Anshal (tank): Ravenous Creeper adds +
+Toxic Spores (500/5s stacking, 5000 heroic -
+kill creepers, id unverified); Soothing
+Breeze heal (I, unverified id).
+Nezir (tank+healer only in recharge): Wind
+Chill 93123 (+10% Frost taken stacking raid),
+Permafrost (page also lists 93123 - id
+conflict on page, flagged), Ice Patch 93130.
+Rohash (no tank): Slicing Gale 93057 random
+casts; Wind Blast 93139 rotating frontal -
+run clockwise; Tornado 93142 x3 avoid.
+Deaths: Gather Strength resurrects in 1 min
+- kill all three within that minute.
+ADD ORDER: creepers > (equalise all three).
+
+16. Al'Akir
+P1 100-80, P2 80-25, P3 25-0. Berserk 9 min.
+P1: Lightning Strike chain - stand in pairs
+(2 in 10 / 3 in 25) stacked; Wind Burst
+88858 knockback ~30s - be in melee or be
+thrown off; Squall Line 91110 tornado wall
+with one gap (2 walls heroic); Electrocute
+88427 if tank out of melee (safe).
+P2: Acid Rain 93281 (not in 8.3.7 DB -
+unverified there; page +500/s every 15s,
+stacking to P3) = DPS race; Stormlings kill
+on spawn: Feedback 87904 (+10% boss damage
+taken per kill, 30s in P2 handling) - at 5-6
+stacks full burn with Bloodlust.
+P3: platform shatters, Eye of the Storm
+82724 flight; raid stacks high, descends in
+steps: Lightning Cloud 93298 at an altitude
+(47500-52500/s same level) - change height;
+Lightning Rod 93294 - that player drops 6 yd
+away for 5s; Wind Burst pushes back - fly
+in. Stay mid-range: too far = storm death.
+Heroic P3 Lightning 93290 constant bolts.
+ADD ORDER P1-P2: Stormling > boss; P3 boss.
+
+TRASH (all four raids): pack-by-pack unver-
+ified. Known hooks: BWD dwarven/dragonkin
+packs, BoT cultist packs before Halfus/
+Cho'gall, Throne has no trash, Baradin Hold
+has none. Entries/interrupts unverified.

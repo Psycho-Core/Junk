@@ -1,0 +1,32 @@
+AUDIT 11 (RESTART) - Tactics_Cataclysm_B.txt
+Method: 8.3.7 (dataEnv=11) Wowhead tooltips vs
+shipped file. Result: 4 pass, 2 conflicts, 1
+name corrected, 1 id absent from 8.3.7 DB.
+
+PASS (tooltip-verified):
+ - 99497 Frenzy: +5% damage per stack exact.
+ - 100129 Face Rage: stun, all incoming hits
+   crit, one very powerful strike breaks it.
+ - 103628 Deep Corruption: detonation at 5
+   healing/absorption stacks, 25-sec duration
+   (duration now noted in file).
+ - 103327 Hour of Twilight: 300,000 unresist-
+   able Shadow, Aspects clause - exact.
+
+CORRECTED:
+ 1. 99353: 8.3.7 tooltip names it Decimating
+    Strike and adds healing done -90% for 4 sec
+    on top of the 90%-of-max-HP hit. File now
+    carries both page name and tooltip facts.
+CONFLICTS (flagged in file):
+ 2. 104378 Black Blood of Go'rath: page 14,099
+    per sec; tooltip 15,210-15,990 per sec.
+ 3. 100455: filed as Splitting Blow; 8.3.7
+    tooltip names 100455 "Sulfuras", a proximity
+    burn (68,250-71,750). Splitting Blow's id is
+    now marked unverified in the file.
+NOT IN 8.3.7 DB: 110041 Resonating Crystal.
+
+UNVERIFIED (stand): all creature entries, map
+ids, coordinates, trash packs, and every id the
+file already marks unverified.

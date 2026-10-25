@@ -1,0 +1,20 @@
+Audit 12 - Tactics_Mists_of_Pandaria.txt
+Checked 8.3.7 (dataEnv=11) tooltips:
+116018 Epicenter: Entity not found
+129711 Total Annihilation: Entity not found
+122389 Amber Strike: Entity not found
+123707 Eyes of the Empress: Entity not found
+117948 Annihilate: Entity not found
+132257 Linked Focuses: Entity not found
+122540 Amber Carapace: Entity not found
+118141 Pinning Arrow: Entity not found
+125464 Sha Energy: Entity not found
+Result: 0 pass / 1 corrected / 9 ids absent.
+Corrected: 2098 filed as Dispatch is
+Eviscerate (rogue finisher) in 8.3.7; the
+Shek'zeer add Dispatch id is now marked
+unverified in the main file. All 9 sampled
+MoP raid spell ids are marked
+unverified-in-8.3.7 in the main file; page
+mechanics/values retained from
+warcraft.wiki.gg boss pages read in Step 12.
