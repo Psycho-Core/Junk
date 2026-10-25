@@ -1,4 +1,4 @@
-AUDIT OF 03_Completed_Outland.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Outland.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 38 node blocks plus a closing evidence section.
@@ -19,7 +19,7 @@ Sources used:
   [CT8]    creature_template export, 8.x
   [WIKI]   warcraft.wiki.gg "Flight master", Alliance / Horde / Neutral tables
   [WH]     Wowhead NPC pages, checked this run
-  [FILE]   03_Completed_Outland.txt itself
+  [FILE]   Travel_Outland.txt itself
   [PROMPT] Travel/03_Outland.txt
 
 

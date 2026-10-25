@@ -1,4 +1,4 @@
-AUDIT OF 08_Completed_Zandalar.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Zandalar.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 44 node blocks plus a closing evidence section.
@@ -21,7 +21,7 @@ Sources used:
   [WIKI]   warcraft.wiki.gg pages read for step 08: Zul'jan Ruins, Tortaka
            Refuge, the Mugambala, Scroll of Flight
   [WH]     Wowhead NPC and search pages read for step 08 and this run
-  [FILE]   08_Completed_Zandalar.txt itself
+  [FILE]   Travel_Zandalar.txt itself
 
 
 ------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-AUDIT OF 02_Completed_Kalimdor.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Kalimdor.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 89 node blocks plus a closing evidence section.
@@ -20,7 +20,7 @@ Sources used:
   [CT8]    creature_template export, 8.x
   [WIKI]   warcraft.wiki.gg "Flight master", Alliance / Horde / Neutral tables
   [WH]     Wowhead NPC pages, checked this run
-  [FILE]   02_Completed_Kalimdor.txt itself
+  [FILE]   Travel_Kalimdor.txt itself
   [PROMPT] Travel/02_Kalimdor.txt
 
 

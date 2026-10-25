@@ -1,4 +1,4 @@
-AUDIT OF 04_Completed_Northrend.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Northrend.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 52 node blocks plus a closing evidence section.
@@ -20,7 +20,7 @@ Sources used:
   [CT8]    creature_template export, 8.x
   [WIKI]   warcraft.wiki.gg, River's Heart subzone page
   [WH]     Wowhead NPC and quest pages, checked this run
-  [FILE]   04_Completed_Northrend.txt itself
+  [FILE]   Travel_Northrend.txt itself
 
 
 ------------------------------------------------------------------------------
