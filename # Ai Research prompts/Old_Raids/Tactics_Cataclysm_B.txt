@@ -111,10 +111,12 @@ Blaze of Glory on current tank (stacking
 two roles: Blaze tank (grows huge HP) and
 Decimation tank (~250k HP). Blades 15s:
 Inferno Blade 99351 (100000 Fire per hit) on
-Blaze tank; Decimation Blade 99353 (90% max
-HP Shadow, min 250000, unmitigable but
-dodgeable, slower swings) on Decimation
-tank - swap by blade, first blade Inferno.
+Blaze tank; Decimation Blade: 8.3.7 tooltip for 99353
+names it Decimating Strike - 90% max HP
+Shadow, min 250000, unmitigable, plus
+healing done -90% for 4 sec (name/extra
+effect from tooltip, page name kept). Swap
+by blade, first blade Inferno.
 Shards of Torment (1 in 10 / 2 in 25) spawn
 near closest non-tank: DPS rotate soaking
 Torment stacks (rising Shadow damage; ~12
@@ -160,7 +162,9 @@ trigger on rotation (Eruption 100238 raid
 never stand untanked: Magma Blast 98313.
 Sulfuras Smash in P1 unverified (P2 listed).
 Intermissions 70% and 40%: Splitting Blow
-100455 - 8 Sons of Flame race to Sulfuras;
+(id unverified: 100455 in 8.3.7 is named
+Sulfuras, a proximity burn, not this cast)
+- 8 Sons of Flame race to Sulfuras;
 slow below 50% HP (Burning Speed 99414 lost),
 kill all; reaching = Supernova 99112 125000.
 Lava Bolt 100291 on 4 (10 in 25) while down.
@@ -190,7 +194,8 @@ TANK: Crush Armor stacking (id unverified) -
 swap on first application then as it falls.
 Stomp: damage split, two closest take double
 - tanks always the two closest, raid hug.
-Resonating Crystal 110041: explodes 12s,
+Resonating Crystal 110041 (not in 8.3.7 DB
+- unverified there): explodes 12s,
 damage split by 3 (7 in 25) closest, worse
 with distance - assigned soakers stand on it
 (link turns blue). Pattern: Stomp-Crystal-
@@ -222,7 +227,8 @@ Disrupting Shadows (D-Magic unverified id):
 dispel only at safe HP (dispel = damage +
 knockback; watch Void position).
 Black Blood phase ~30s: Black Blood of
-Go'rath 104378 (14099/s); heroic tentacles:
+Go'rath 104378 (page 14099/s; 8.3.7 tooltip
+15210-15990/s - conflict flagged); heroic:
 Claw (tank it or Ooze Spit 109396 100000),
 Eyes (Shadow Gaze), Flails (Wild Flail) -
 kill order claw/eyes/flails, timer-based.
@@ -246,8 +252,9 @@ Blood 105033 (stand CLOSE to boss), Black
 Dark: Forgotten Ones fixate (Psychic Slice
 108922) - AoE them, Green Acidic: Digestive
 Acid 105573 spread 4 yd, Purple Shadowed:
-Deep Corruption 103628 (every 5th heal/absorb
-on a player detonates 50000 raid - healers
+Deep Corruption 103628 (tooltip confirms:
+detonation when heal/absorb count reaches
+5, 25-sec duration; page 50000 raid - healers
 count, use efficient heals only).
 Kill-call table (raid leader): never allow
 purple+ combinations per comp - unverified
