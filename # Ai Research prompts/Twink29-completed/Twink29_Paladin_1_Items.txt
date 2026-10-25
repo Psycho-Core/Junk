@@ -78,8 +78,9 @@ WRIST|Emissary Cuffs|9455|33|28|Dark Iron Ambassador 6228, Gnomer|RNG V
 WRIST|Barbaric Bracers|18948|32|27|Leatherworking, spell 23399|ALT
 LEGS|Ferine Leggings|6690|34|29|Agathelos the Raging 4422, RFK|SOLO V
 BACK|no rare back exists in the window for any armour type - a green cloak
-SHOULDER|a leather alternative if no heirloom: 15140 Cutthroat's Mantle,
-        34/29, world drop, or 7727 Watchman Pauldrons, 32/27
+SHOULDER|a leather alternative if no heirloom: 7727 Watchman Pauldrons,
+        32/27, world drop. (15140 Cutthroat's Mantle removed by Gear
+        Audit 2: quality 2 on the 8.3.7 tooltip, not blue.)
    Holy is the spec that benefits most from going cross-type, because no
    Intellect plate exists in the bracket. Its chest and shoulders are the
    leather Intellect heirlooms 48687 and 42984, or the cloth pair 48691 and
