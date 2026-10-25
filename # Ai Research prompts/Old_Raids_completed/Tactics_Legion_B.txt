@@ -1,0 +1,440 @@
+Tactics: Legion B (Step 16)
+Raids: Tomb of Sargeras, Antorus the
+Burning Throne. Creature entries, map
+ids, coordinates unverified unless stated.
+Values page-given. Spell ids unverified;
+Legion raid ids expected absent in 8.3.7
+tooltip DB (pattern Audits 12-15).
+
+TOMB OF SARGERAS
+================
+
+1. Goroth
+PHASES: single; Crashing Comet destroys
+pillars; below unv % more abilities.
+TANK: hold centre; Crashing Comet target
+(tank comet unv assignment) breaks pillar.
+GROUP: hide behind Infernal Spikes for
+Infernal Burning (3610000-3800000 + dot)
+and Shattering Star (spikes reduce it per
+spike hit; 2500000). Move off spike marks
+(1368000-1512000). Rain of Brimstone:
+soak all 4 meteors or Brimstone Infernal
+spawns (kill it). Fel Eruption edges: stay
+centre.
+ADD ORDER: Brimstone Infernal > Goroth.
+AI RULE: be behind a spike on Burning.
+
+2. Demonic Inquisition (Atrigan + Belac)
+PHASES: single; Torment resource fight.
+TANK: Atrigan frontal Scythe Sweep away
+(2925000-3075000 +20 Torment); swap on
+Bone Saw - do not hit him during saw
+(attacks add Torment).
+GROUP: Belac Pangs of Guilt interrupt (I)
+1850000. Echoing Anguish (D-Magic): dispel
+carrier isolated (outburst 2437500-2562500
++10 Torment 8yd). At 100 Torment: use
+Confess, go down, hit Tormented Soul,
+click Remnants of Hope orbs to reduce
+Torment, kill Tormented Fragments that
+follow you out (unv detail).
+ADD ORDER: Fragments > Belac/Atrigan
+(balanced - shared unv).
+AI RULE: Confess at full Torment.
+
+3. Harjatan
+PHASES: single; Draw In cycles.
+TANK: face away; Jagged Abrasion swap unv
+chunk start; during Frigid Blows tank
+hits splash raid - raid spread.
+GROUP: adds from eggs/sides: Gladiator
+fixates (kite, cone Splashy Cleave),
+Taskmaster (heroic): kill FIRST (Focused
++100% dmg aura 10yd), Waverunners unv.
+Aqueous Burst carrier runs out (pools
+stack Drenched +5% frost taken/stack -
+dispel? not dispellable unv: avoid pools).
+Draw In pulls pools to boss: the fewer
+pools left, weaker Frigid Blows.
+ADD ORDER: Taskmaster > Gladiator > eggs
+> Harjatan.
+AI RULE: kill Taskmaster before boss DPS.
+
+4. Mistress Sassz'ine
+PHASES: P1 Ten Thousand Fangs, P2 Terrors
+(70%), P3 Vast Oceans (40%) thresholds unv.
+TANK: Burden of Pain tank: stop physical
+hits on him? shared 100% phys to raid -
+tank swap + raid holds phys during curse
+unv tactic; hold boss centre.
+GROUP: Hydra Shot line: players stack in
+line to split 2976750, but 2+ Hydra Acid
+stacks = 6s stun - rotate line members.
+Slicing Tornado dodge (use Murk clouds to
+weaken). Murlocs on players: stand in
+Thundering Shock jellyfish zone to knock
+them off, then kill (Murloc Mash stacks
+nearby - spread kills). P2: carry Befouling
+Ink clouds INTO Sarukel maw (3 = he flees)
+while resisting pull, stay 15yd+ from maw;
+Vellius wave jump/dodge unv.
+Abyss Stalkers die into Murk clouds - kill
+positioned on tornado paths.
+ADD ORDER: Waverunners > Stalkers > boss.
+AI RULE: ink goes to the shark, not raid.
+
+5. Sisters of the Moon (Kasparian, Yathae,
+Lunaspyre; one active ground, others astral)
+PHASES: Fountain of Elune sides: crossing
+floor line swaps Lunar/Umbra Suffusion
+(+5%/stack, crossing triggers Astral Purge
+584000-613000 and clears debuffs).
+P1 Huntress active: Moon Glaive tank swap
+(Discorporate -75% healing 30s; cleared by
+crossing over). Twilight Glaive lines dodge.
+Astral Yathae: Incorporeal Shot: raid lines
+up between her and target to split
+10000000. Lunaspyre Embrace: burn shield
+on sister (30M) before expiry or raid hit;
+Moon Burn players cross to clear.
+P2 Yathae active: Moontalon add kill (low
+HP screech ramps), Rapid Shot target CD.
+P3 Lunaspyre active unv chunk end.
+ADD ORDER: Moontalon > active sister.
+AI RULE: cross the line to clear debuffs.
+
+6. The Desolate Host (Engine of Souls)
+PHASES: two realms at once (corporeal /
+spirit); raid SPLIT both realms always
+occupied or Quietus ramps (575000 +25%
+stacks).
+Corporeal: Reanimated Templar Rupturing
+Slam lines dodge; Bonecage Armor at 50%:
+only Shattering Scream (spirit priestess)
+removes - coordinate cross-realm kills;
+Bound Essence on death buffs other realm
+unv.
+Spirit: Dejahna Crush Mind interrupt (I),
+Wither + Wailing Souls; Soulbind pairs:
+bound players in OPPOSING realms move
+within 5yd through realm mirror unv; Spear
+of Anguish (corporeal): soak 5yd group
+(13054400 split), spirit knocked out uses
+Spiritual Fonts to return (heal absorb
+1800000 blocks fonts - heal off first).
+ADD ORDER: priestess/templar pair > Host.
+AI RULE: never leave a realm empty.
+
+7. Maiden of Vigilance
+PHASES: P1 hammers, P2 Watcher's Wrath
+at unv % (she leaps away, shield 60000000,
+30-stack Wrath race), repeat.
+GROUP RULE: Fel Infusion stands LEFT,
+Light Infusion RIGHT - opposite infusions
+within 5yd = Unstable Soul explosion.
+Tank stack: Hammer cones split 12000000
+between all in 20yd frontal cone - raid
+of MATCHING infusion stacks in cone;
+opposite stays out. Remanence pools and
+Echoes trigger opposite Unstable.
+Mass Instability/Fragments: fragment chases
+opposite-infusion target - that target runs
+to fragment to consume before Fragment
+Burst (Ravaged Soul stacks).
+P2: collect only MATCHING essence fragments
+(Grace/Vigor +10% stacks), burn shield,
+interrupt Wrath of the Creators (I) after
+shield down before 30 stacks.
+ADD ORDER: fragments consumed, never boss
+DPS during P2 until shield breaks.
+AI RULE: never cross to opposite infusion.
+
+8. Fallen Avatar
+PHASES: P1 to 100 energy (platform), P2
+Awakened (platform destroyed, lava floor).
+P1: Maiden of Valor must tank the
+Corrupted Matrix beams: position Maiden
+between pylons and Avatar (she gains
+energy instead). If Maiden hits 100:
+burn her 25% shield or Cleansing Protocol
+10000000 raid. Tainted Matrix: a PLAYER
+soaks beam instead (Tainted Essence 10
+stacks = death - rotate soakers).
+Avatar: Desolate tank swap (5600000,
++75%/stack 29s); Unbound Chaos carriers
+keep moving (trail explosions); Shadowy
+Blades targets spread (2470000-2530000
+7yd + pools).
+P2: Dark Mark soak 8yd group (8890000
+split); Rupture Realities run far
+(5000000 falloff); Black Winds dodge
+(-90% healing 10s); Sear/Consume unv.
+ADD ORDER: Maiden shield (when casting) >
+Avatar.
+AI RULE: Maiden tanks every beam.
+
+9. Kil'jaeden (Tomb of Sargeras)
+PHASES: P1, intermission Eternal Flame
+80%, P2 Deceiver's Veil/darkness 40%
+thresholds unverified from overview.
+TANK: Felclaws swap (+50% phys/stack 30s,
+heroic frontal splash).
+GROUP: Armageddon: soak EVERY meteor
+(Rain small; Hail = tank soak 26400000)
+or Armageddon Blast 3000000 raid + dot.
+Rupturing Singularity: move away from
+impact centre (knockback off ship = death),
+position knockback against ship centre.
+Reflections: Wailing kill before Crescendo
+stacks grow; Erupting kill fast (Eruption
++200%/cast); later reflections interrupt
+Malignant Anguish (I), heal Hopeless.
+Intermission: Focused Dreadflame line soak
+split 8000000; Bursting targets spread 15yd.
+P2 darkness: find Illidan, kill Shadowsouls;
+final: stand near Tear Rift Gravity Squeeze
+to survive Darkness of a Thousand Souls,
+soak missiles with rifts.
+ADD ORDER: Reflections > Shadowsouls >
+Kil'jaeden.
+AI RULE: no meteor ever lands unsoaked.
+
+ANTORUS, THE BURNING THRONE
+===========================
+
+10. Garothi Worldbreaker
+PHASES: single; at 65/25%? Apocalypse Drive
+(unv thresholds): destroy one cannon
+before cast ends or 9500000-10500000 raid.
+Kill order of cannons: Decimator first
+then Annihilator (community unv - mark
+unverified) - each Drive empowers rest +20%.
+GROUP: Decimation targets run out (3800000
+-4200000 12yd on expiry); Annihilation:
+soak each impact 4yd (split 2850000-3150000)
+or 1900000-2100000 raid; Eradication run
+far (9260000 falloff 60yd); Surging Fel
+lines dodge (heroic).
+TANK: hold mid, Fel Bombardment unv chunk.
+ADD ORDER: cannon (during Drive) > boss.
+AI RULE: cannon dies during every Drive.
+
+11. Felhounds of Sargeras (F'harg + Shatug)
+PHASES: single, shared HP unv; keep hounds
+30yd+ apart (Sargeras' Gaze buff unv name).
+TANK: each hound faced away: Burning /
+Corrupting Maw cones (Smouldering/Decay
+stack to 25yd cone players - raid never in
+front). Swap at stacks unv number.
+GROUP: F'harg Enflame Corruption: Enflamed
+carriers run out (1300000 8yd pulse);
+Desolate Gaze target turns line away from
+raid. Shatug Consuming Sphere: sphere must
+be soaked/blocked before detonation
+(8000000 15yd) unv tactic; Weight of
+Darkness: 3+ stack on target to neutralise
+fear (heroic); Siphon Corruption carriers
+spread unv chunk end.
+ADD ORDER: hounds together (cleave).
+AI RULE: hounds always 30 yards apart.
+
+12. Antoran High Command (Svirax, Ishkar,
+Erodus rotate pods)
+PHASES: one in pod (Chaos Pulse + special),
+two on ground (Exploit Weakness tank swap
+3700000-4300000 +50% phys - swap each),
+rotate on timer unv.
+GROUP: player commandeers free pod each
+rotation (Psychic Assault kills eventually
+- rotate pod users, Scarring prevents
+re-entry): use Withering Fire on adds,
+Felshield for Fusillade.
+Svirax pod: Fusillade barrage dodge +
+shield (+25% each cast). Ishkar: Entropic
+Mines - do not step 6yd, beacon blows them.
+Erodus: Summoning Beacon adds: Pyromancer
+Pyroblast interrupt (I) 3800000-4200000,
+Shocktrooper charge/Bladestorm move out.
+Shock Grenades: carriers spread (stun 3s
+8yd after 5s).
+ADD ORDER: Pyromancer > Shocktrooper >
+commanders.
+AI RULE: always one player in free pod.
+
+13. Portal Keeper Hasabel
+PHASES: nexus + portal platforms at
+90/60/30% (Xoroth, Rancora, Nathreza unv
+order): split raid - portal teams kill
+gate lord, nexus team keeps boss (empty
+nexus = Catastrophic Implosion stacks).
+TANK nexus: Reality Tear swap (stacks,
+expiry Bursting Darkness per stack).
+GROUP: Collapsing World run 28yd+ away;
+Felstorm Barrage line dodge; Transport
+adds nexus: Imp interrupt Fiery Detonation
+(I) or kill before cast, Stalker webs,
+Stalker Howling Shadows interrupt (I).
+Xoroth: Vulcanar shielded 75% - Flames of
+Xoroth interrupt (I), Supernova out;
+portal empowers nexus dot until lord dies.
+Other lords unverified from chunks.
+ADD ORDER: gate lord (portal team) >
+nexus adds > Hasabel.
+AI RULE: nexus never empty.
+
+14. Eonar the Life-Binder (defence)
+PHASES: waves; Eonar gains Life Energy per
+kill, at 100 Life Force blasts Paraxis;
+lose if adds reach Eonar / she dies (unv).
+Final Doom casts: assigned team uses
+portals INTO Paraxis: kill Inquisitor
+(Mind Blast I), click 4 crystals, exit
+(Feedback debuffs per colour - spread
+crystal clicks across players).
+Paraxis attacks: Rain of Fel targets move
+(also strips Fel Shielding 60% on big
+adds - lure Rain onto shielded adds),
+Meteor Storm 8yd, Spear of Doom wake path,
+Annihilation orbs: soak each orb solo.
+ADD ORDER by path: shielded destroyers
+(with Rain) > Fel-infused adds racing to
+Eonar > Inquisitor (inside team).
+AI RULE: nothing reaches Eonar.
+
+15. Imonar the Soulhunter
+PHASES: P1 platform, bridge crossings at
+66/33% (mines, empowered traps), P2/P3.
+TANK: Shock Lance P1 swap (+10%/stack),
+Sever P2 swap (bleed stacks); face boss
+along bridge edge.
+GROUP: Sleep Canister (D-Magic): dispel
+only when carrier 10yd+ isolated (Slumber
+Gas sleeps 10yd 8s); Pulse Grenade mines
+give space (2300000 3yd); Empowered Pulse
+carriers spread (pulse 5yd).
+Bridge: cross single file through mine /
+Shrapnel gaps, Charged Blasts lines aim
+away (7s ship line), don't fall.
+P3 unv chunk: empowered all, enrage timer.
+ADD ORDER: none (mines never).
+AI RULE: dispel Sleep only isolated.
+
+16. Kin'garoth
+PHASES: alternating Deployment (boss) /
+Construction (Apocalypse Protocol: boss
+-99% damage, 2 Fel Reavers built), repeat.
+Construction: kill ONE Reaver type
+deliberately LAST: last Reaver killed
+empowers boss ability (Annihilator ->
+Ruiner, Decimator -> Reverberating,
+Demolisher -> Diabolic); never empower
+same twice (Overcharge +25% heroic).
+Reavers: soak Annihilation impacts;
+Decimation carriers out; Demolisher unv.
+Deployment: Diabolic Bomb: ONE player
+triggers it far from raid (3952000-4368000
+falloff 200yd); Ruiner beam move (1900000
+/0.3s); Reverberating Strike targets spread;
+Purging Protocol: out of bays before doors.
+ADD ORDER: chosen Reaver last, others >
+Kin'garoth.
+AI RULE: bomb triggered alone, far away.
+
+17. Varimathras
+PHASES: single.
+TANK: Shadow Strike frontal 15yd cone
+4875000-5125000 - face wall, raid behind;
+swap unv.
+GROUP: EVERYONE stays within 8yd of
+another player at all times (Alone in the
+Darkness 1560000-1640000); yet Dark Fissure
+rifts under players: move out, rifts explode
+3900000-4100000 radius after 6s - pairs move
+together. Marked Prey: he charges marked
+after 5s - raid clears the line, marked
+stands still with buddy. Necrotic Embrace
+(heroic): carrier stays but expiry spreads
+10yd - buddy system conflicts: mark unv.
+Misery: any Shadow damage = no healing 7s
++200% phys - healers pre-shield.
+Shadows (heroic) kill, Echoes carriers out.
+ADD ORDER: Shadow of Varimathras > boss.
+AI RULE: never be alone, ever.
+
+18. The Coven of Shivarra (Noura, Asara,
+Diima, Thu'raya heroic; two active)
+PHASES: pairs rotate; at intervals Torment
+of the Titans adds (one titan torment at
+a time).
+TANK: swap per boss: Noura Fiery Strike
+cone +50% stack; Diima Flashfreeze
+8190000-8610000 swap.
+GROUP: active pair tanked apart (unv
+distance); Noura Whirling Saber path out,
+Fulminating carriers spread 6yd at end.
+Asara Storm of Darkness: heal through
+500000/s 15s, Shadow Blades lines dodge.
+Diima Chilled Blood: heal absorbs off
+before expiry or frozen scaled; Orb of
+Frost kite boss/adds out of 30yd slow.
+Torments: Aman'Thul adds - kill (heals to
+full ticks), Golganneth: spread 2yd+ (pair
+damage), Khaz'goroth flame lines out,
+Norgannon spectral army: kill/stay clear.
+Thu'raya Touch (I) heroic.
+ADD ORDER: Torment adds > active pair.
+AI RULE: tank the two actives far apart.
+
+19. Aggramar
+PHASES: P1/P3 boss, intermissions at
+80/40% (Corrupt Aegis shield, adds).
+TANK: Taeshalach's Reach: BOTH tanks stack
+(melee hits next closest too; +5% phys on
+main 12s) swap stacks.
+Technique at 100 energy (combo fixed order
+unv): Foe Breaker cone out (only tanks CD);
+Flame Rend: WHOLE raid stacks in frontal
+cone to split 25000000 and knockback;
+Searing Tempest 3750000 radius out.
+GROUP: Scorching Blaze carriers spread 6yd;
+Wake of Flame waves dodge.
+Intermission: Embers walk to boss: CC and
+kill before reaching (Blazing Explosion);
+Flames of Taeshalach catalyse nearby
+embers (immune CC) - kill Flames first;
+Meteor Swarm marks move.
+ADD ORDER: Flames > Embers > Aggramar.
+AI RULE: whole raid soaks Flame Rend.
+
+20. Argus the Unmaker
+PHASES: P1 Storm and Sky 100-70, P2
+Protector Redeemed 70-40%, P3 (Constellar
+Designates) 40%, P4 death/res via Eonar
+tree - thresholds partly unverified.
+TANK: Sweeping Scythe swap (6000000,
++200% 15s). P4 Avatar of Aggramar tank
+protects Soulbomb carrier.
+GROUP P1: Cone of Death at 100 essence:
+move out of frontal cone (Death Fog
+2500000/s); Soulblight Orb: carrier drops
+fog at edges on expiry; Gifts: each player
+always takes SAME gift (Sky or Sea -
+mutually exclusive).
+P2: Soulburst carriers run far (detonation
+falloff 45yd); Soulbomb carrier runs to
+Avatar of Aggramar (bomb lethal otherwise).
+P3: Designates: tank apart (Cosmic Power),
+kill order by weapon unv from chunks;
+Soul... abilities unv.
+P4: dead players as ghosts collect Motes
+of Titanic Power to trigger Titanforging
+resurrections; Gift of Lifebinder tree:
+heal Withering Roots to keep rez alive;
+End of All Things cast = wipe timer unv.
+ADD ORDER: Designates > Argus.
+AI RULE: Soulbomb goes to the Avatar.
+
+TRASH: pack breakdowns unverified for
+both raids.
+

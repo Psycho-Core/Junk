@@ -1,0 +1,14 @@
+Audit 15: Tactics_Legion.txt
+Method: re-read main file; sampled spell
+ids looked up one at a time on the 8.3.7
+(dataEnv=11) tooltip DB.
+Result: main file lists no spell ids (by
+design; values are page-given), so 0 pass /
+0 corrected / 0 absent on ids.
+Flagged for on-server verification:
+Xavius P3 Darkened, Odyn phase thresholds
+and P1 Hyrja/Hymdall detail, Etraeus P3/P4,
+Elisande ring/orb/beam detail, Gul'dan
+phase thresholds, P1 add order and Mythic
+Demon Within, all creature entries, map
+ids, coordinates and trash packs.
