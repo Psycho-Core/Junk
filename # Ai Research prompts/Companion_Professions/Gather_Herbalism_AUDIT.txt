@@ -1,0 +1,95 @@
+AUDIT OF Gather_Herbalism.txt - COMPANION_PROFESSIONS STEP 123 (PART 14)
+========================================================================
+Run 2026-10-25. Script: audit_gather_herbalism.py (static checks + mutation
+self-test). Deliverable under audit: Gather_Herbalism.txt (the one file the
+prompt and RESEARCH_MASTER STEP 123 ask for).
+
+RESULT: 214/214 static checks PASS, 0 FAIL; mutation probes 214/214 detected
+on two consecutive runs; SELF-TEST PASS.
+
+WHAT WAS CHECKED (each claim is re-tested against the file text, not assumed
+from the writing session):
+  structure (20)  ten numbered sections present; filename per prompt and
+    master; no tabs; nine "N. Cannot ..." items in section 9; at least 15
+    explicit "unverified" markers; plain-text line discipline (derived)
+  skill lines (25)  child line ids 2556/2555/2554/2553/2552/2551/2550/2549
+    with their caps and gather spell patches; learn spells 265833/265836;
+    trainers 136096, 122704, 154257, 154408, 18776, 18748, 33639, 33678,
+    26994, 26974, 26910, 26958, 28704, 66980, 65877, 67025; Draenor scroll
+    111350; rank technique example 252440; forbidden filler ids 265820/265832
+    absent
+  gather spells (11)  2366 line (5 yd, 2 sec, GCD 0, Open Object value 1275,
+    Learn Skill 182); full nine-spell 2658xx family string; Find Herbs 2383;
+    legacy rank ladder 2368..110413; the 2020-10-25 archive capture path;
+    "Find Minerals", "4 sec cast", "value 1274" absent
+  time and items (13)  base cast 2 seconds; the 1.5-second guide conflict is
+    recorded and labelled; 2020 capture mounted-flag quote; stirrups 253112,
+    barding 154166, Sky Golem 95416, glove enchants 153430/159464;
+    "cast time: 1.5 seconds" as a fact absent
+  skill tables (20)  classic rows Peacebloom..Black Lotus incl. item ids
+    2447/765/2449/785/2450/13468/13463 and the Blacker Lotus dash row;
+    one exact opening row per later expansion (22785, 36901, 52983, 72234,
+    109124, 124101) plus Frost Lotus, Yseralline, Netherdust Bush 32468
+  BfA table (11)  all eight herbs orange 1 with grey 150/150/150/150/150/150/
+    150/175 and item ids 152507/152505/152511/152509/152506/152508/152510/
+    168487; "every row orange at 1"; fragment rule text
+  creatures (10)  5 x level rule, no skill-ups, wiki 22-creature scope,
+    sample NPC ids 17770/3535/129803/149653, current filter count 571,
+    2020 capture "Gathered from NPC (809)", "gives skill-ups" negation
+  skill-up rules (17)  LOW_CASTLEVEL + effect value +1275, +30 band ladder,
+    trivial-skill overrides, SkillChance.Orange/Yellow/Green/Grey
+    100/75/25/0, SkillGain.Gathering = 1, no decay for herbalism, conf
+    MiningSteps/SkinningSteps = 0, one skill-up per GUID until respawn;
+    wrong conf values absent
+  respawn (14)  GO_ACTIVATED/GO_JUST_DEACTIVATED, m_respawnTime =
+    now + delay, gameobject.spawntimesecs with 300 s constructor default,
+    Respawn.MinCheckIntervalMS = 5000, Respawn.DynamicMode = 0, pool
+    members/template re-roll, no client-side spawn data, linked respawns
+  gameobject entries (39)  classic 1618/1617/1619, Felweed 181270,
+    Goldclover 189973, Cinderbloom 202747, Green Tea Leaf 209349+221542,
+    Frostweed 233117/228571/235376/237398, Aethril 244774+variants;
+    complete BfA set 276237, 276234/281870 + six Flourishing, 276240/281872
+    + six Flourishing, 276239/281869, 276236+281079+281867+281868, 276238,
+    276242+294125 + six Overgrown, 326598, Nazjatar map 1718; the
+    Siren's Sting name-link caveat; wrong ids 1620/326597/276235 absent
+  zones per range (19)  every expansion block from the wow-professions
+    guides including Zidormi 162419, Broken Shore clusters, Drustvar and
+    Vol'dun routes, 150-175 Nazjatar grey at 175; a fake "1-175 in Elwynn"
+    range absent
+  cannot-do list (9)  all nine item lines present
+  derived (6)  16 item ids present in BOTH the deliverable and the repo's
+    BfA_8.3.7_party_features.txt; full 12-spell family present; all 17
+    trainer/quest creature ids present; ASCII + no tabs + max line length
+    140; BfA cap triple consistency (line 2549 = 175, Zin'anthid grey 175,
+    "(grey at 175)"); all eight section 4.x expansion headings with
+    word-boundary matching
+
+MUTATION SELF-TEST (run twice, identical results): every "has" target was
+rewritten at ALL of its occurrences, every "absent" string was inserted,
+regex targets were blinded, and the six derived checks were falsified one by
+one (item id vs party_features, spell family, trainer id, non-ASCII byte,
+BfA cap number, removed heading). 214/214 probes detected; first-round misses
+(payloads appearing twice: P08, R08; prefix extension: X06 "4.7 Legions")
+were fixed in the audit script and re-proved.
+
+WHAT THIS AUDIT DID NOT DO
+  - It did not re-fetch wowhead/wiki/guide pages during the run; the sources
+    behind each number were fetched and recorded in section 10 of the
+    deliverable on 2026-10-25 (wowhead live + 2020-10-25 capture, wiki,
+    wow-professions, TrinityCore master). The audit proves the file says
+    exactly what those reads said, not that the pages still serve them.
+  - It did not execute anything on a game server: pool timing, respawn
+    numbers, mounted-gather behaviour, fragment loot and the fork's
+    corpse-herbalism support remain server-side tests, and the deliverable
+    marks them unverified.
+  - It did not audit pre-BfA object coverage beyond the samples listed -
+    the deliverable itself marks the rest unverified, and the audit checks
+    that those markers are present rather than inventing coverage.
+
+Console output of the audited run:
+  Gather_Herbalism audit: 214 PASS, 0 FAIL
+  Static checks      : 214/214 PASS
+  Mutation probes    : 214/214 detected
+  Static checks      : 214/214 PASS
+  Mutation probes    : 214/214 detected
+  SELF-TEST: PASS

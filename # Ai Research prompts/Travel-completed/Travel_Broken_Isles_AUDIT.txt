@@ -1,4 +1,4 @@
-AUDIT OF 07_Completed_Broken_Isles.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Broken_Isles.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 55 node blocks plus a closing evidence section.
@@ -22,7 +22,7 @@ Sources used:
            Nesingwary's Retreat, Eye of Azshara, Shield's Rest, Hafr Fjall,
            Trueshot Lodge
   [WH]     Wowhead NPC searches read this run
-  [FILE]   07_Completed_Broken_Isles.txt itself
+  [FILE]   Travel_Broken_Isles.txt itself
 
 
 ------------------------------------------------------------------------------

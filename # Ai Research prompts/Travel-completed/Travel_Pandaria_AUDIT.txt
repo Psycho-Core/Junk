@@ -1,4 +1,4 @@
-AUDIT OF 05_Completed_Pandaria.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Pandaria.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 51 node blocks plus a closing evidence section.
@@ -18,7 +18,7 @@ Sources used:
   [WIKI]   warcraft.wiki.gg flight-master tables and NPC pages
   [WH]     Wowhead quest page, checked this run
   [CT]     creature_template exports (4.3.4 TDB update pack and the 8.x dump)
-  [FILE]   05_Completed_Pandaria.txt itself
+  [FILE]   Travel_Pandaria.txt itself
 
 
 ------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-AUDIT OF 06_Completed_Draenor.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Draenor.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 72 node blocks plus a closing evidence section.
@@ -20,7 +20,7 @@ Sources used:
   [WIKI]   warcraft.wiki.gg NPC pages, read this run
   [WH]     Wowhead NPC and search pages, read this run
   [CT]     creature_template exports (4.3.4 TDB update pack and the 8.x dump)
-  [FILE]   06_Completed_Draenor.txt itself
+  [FILE]   Travel_Draenor.txt itself
 
 
 ------------------------------------------------------------------------------

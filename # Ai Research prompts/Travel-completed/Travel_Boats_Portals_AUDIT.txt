@@ -1,4 +1,4 @@
-AUDIT OF 10_Completed_Boats_Zeppelins_Portals.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Boats_Portals.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 13 transport blocks (ten boats, three zeppelins),
@@ -32,7 +32,7 @@ Sources used:
   [DOC4]   BfA_8.3.7_flight_points_and_travel.txt, section 4, boats and the
            twelve "Transport" TaxiNodes rows
   [DOC5]   the same document, section 5, mage spells, portal spell ids, item ids
-  [FILE]   10_Completed_Boats_Zeppelins_Portals.txt itself
+  [FILE]   Travel_Boats_Portals.txt itself
 
 
 ------------------------------------------------------------------------------

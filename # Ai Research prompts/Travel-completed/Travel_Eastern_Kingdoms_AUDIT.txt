@@ -1,4 +1,4 @@
-AUDIT OF 01_Completed_Eastern_Kingdoms.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Eastern_Kingdoms.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 109 node blocks plus a closing evidence section.
@@ -27,7 +27,7 @@ Sources used:
            same repo)
   [WIKI]   warcraft.wiki.gg "Flight master", Alliance / Horde / Neutral tables
   [WH]     Wowhead NPC pages, checked this run
-  [FILE]   01_Completed_Eastern_Kingdoms.txt itself
+  [FILE]   Travel_Eastern_Kingdoms.txt itself
   [PROMPT] Travel/01_Eastern_Kingdoms.txt
 
 

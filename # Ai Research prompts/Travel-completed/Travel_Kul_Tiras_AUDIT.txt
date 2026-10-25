@@ -1,4 +1,4 @@
-AUDIT OF 09_Completed_Kul_Tiras.txt - ONE CLAIM PER LINE
+AUDIT OF Travel_Kul_Tiras.txt - ONE CLAIM PER LINE
 ==============================================================================
 
 Run 2026-10-23. The file has 57 node blocks plus a closing evidence section.
@@ -20,7 +20,7 @@ Sources used:
            Prospectus Bay, Shrine of the Storm
   [WH]     Wowhead NPC pages read for step 09: Jorum Hayes, Galeheart, Scroll of
            Flight
-  [FILE]   09_Completed_Kul_Tiras.txt itself
+  [FILE]   Travel_Kul_Tiras.txt itself
 
 
 ------------------------------------------------------------------------------
