@@ -1,46 +1,39 @@
-AUDIT - Tactics_Ruins_of_Ahn_Qiraj.txt (Old Raids step 3)
-Re-checked against warcraft.wiki.gg boss pages and the
-Wowhead Ruins NPC list. Result: 14 pass, 0 corrected,
-3 unverified (already marked in the file).
+AUDIT 3 (RESTART) - Tactics_Ruins_of_Ahn_Qiraj.txt
+Method: 8.3.7 (dataEnv=11) Wowhead tooltips for every
+spell id the file carries, Wowhead NPC pages for the
+two entries the file had left unverified.
+Result: 12 pass, 4 corrected/upgraded, 3 unverified.
 
-PASS:
- - Boss entries 15348, 15341, 15340, 15370, 15369, 15339
-   (Wowhead Ruins sidebar list).
- - Kurinnaxx: 26527/25646 and 25656 as filed
-   (25656 Sand Trap), 26446, 3391, 25814; Mortal Wound
-   10%/stack and tank swap; Frenzy at 30% per strategy.
- - Rajaxx event: 7 waves, officer names/abilities/add
-   mixes as filed (Qeez fear, Tuubid Attack Order, Drenn
-   Hurricane, Xurrem Shockwave, Yeggeth BoP, Pakkon
-   Sweeping Slam, Zerran Enlarge-dispellable); adds can
-   be frozen/feared/rooted/stunned; Andorov + 4 Kaldorei
-   Elite aid and his raid heal; Thundercrash half-health
-   knockback + aggro reset; officer-first order.
- - Moam: drain values (500 x6 targets, +1000 each to him),
-   full-bar Arcane Explosion 3000 + knock-up, stone form
-   at 90 sec with 3 Mana Fiends, Fiend Counterspell 12 sec.
- - Buru: taunt-immune fixate, speed-up until an egg burst
-   resets him, egg 45000 to Buru / 100-500 to players,
-   hatchling per egg, Dismember 1248/2 sec on catch,
-   P2 at 20% with undispellable Creeping Plague stacking.
- - Ayamiss: airborne to 70%, taunt-immune, Poison Stinger
-   stacking on top-aggro (flying only), Stinger Spray
-   ~1000/30 sec, Paralyze + larva race on the altar,
-   elite wasp on failure, P2 aggro wipe.
- - Ossirian: Supreme Mode, 45-sec crystal debuffs with
-   school vulnerability (holy exempt), click at 10-15 sec
-   remaining, no DPS before second crystal, Enveloping
-   Winds 10-sec stun (undispellable, threat preserved),
-   Curse of Tongues decurse priority, Warstomp 1500,
-   moving Sand Vortexes.
+PASS (verified this audit):
+ - 40504 Cleave (Needler) 110%, up to 3 targets.
+ - Entries 15348/15341/15369/15339/15344/15527 from the
+   restart reading; Rajaxx 7-wave compositions and the
+   officer-first kill order are page-explicit.
+ - Buru egg 45000 / Creeping Plague undispellable /
+   Ayamiss 70% aggro wipe / Ossirian 45-sec crystal
+   debuff: all as printed on the boss pages.
+
+CORRECTED (applied to the file with this audit):
+ 1. Moam and Buru entries were "unverified"; they are
+    15340 and 15370 (Wowhead NPC pages). Closed.
+ 2. 26527 Frenzy physical bonus: page +87, 8.3.7
+    tooltip +250. File now uses the tooltip value and
+    files the page number as the superseded one.
+ 3. 25646 Mortal Wound duration 15 sec and 25656 Sand
+    Trap duration 20 sec added from the tooltips - the
+    tank-swap and trap-wait rules now have timers.
 
 UNVERIFIED (stand as marked):
- - Every non-Kurinnaxx spell id (pages name abilities
-   without ids - the file invents none).
- - Add/NPC entries (officers, Andorov, hatchlings, larva).
- - Map id and coordinates; trash pack composition.
+ - Every Rajaxx/Moam/Buru/Ayamiss/Ossirian spell id:
+   those boss pages link no spell ids, so the file
+   names mechanics without ids rather than inventing
+   them. Next pass could tooltip-search by name, one
+   spell at a time, but a name match is not proof the
+   creature casts that id - flagged, not filled.
+ - Officer entries, Qiraji Warrior entry, hatchling/
+   larva entries, all spawn coordinates (map 509).
 
-No corrections were needed. The file's main discipline -
-refusing ids the pages do not print - is exactly what the
-next step (Temple of Ahn'Qiraj) needs, where only Skeram,
-Sartura and C'Thun's eye link spell ids.
+Note: AQ20's pages are prose-heavy and id-poor. The
+honest file for this raid has fewer numbers than
+Molten Core's, and that is correct, not a gap to fill
+by guessing.

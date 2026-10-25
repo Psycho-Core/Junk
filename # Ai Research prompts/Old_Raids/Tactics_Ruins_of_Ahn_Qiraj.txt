@@ -13,10 +13,9 @@ Zone: Ruins of Ahn'Qiraj, zone id 3429. Instance MAP ID:
 unverified - read spawn xyz from your core's creature
 table; no page read prints them.
 Boss entries: Kurinnaxx 15348, General Rajaxx 15341,
-Ayamiss the Hunter 15369, Ossirian the Unscarred 15339
-(verified, external links / Wowhead NPC pages). Moam and
-Buru the Gorger entries: unverified (their pages' external
-links were not read - do not guess them here).
+Ayamiss the Hunter 15369, Ossirian the Unscarred 15339,
+Moam 15340, Buru the Gorger 15370 (verified: boss-page
+external links and Wowhead NPC pages, audit 3).
 Flags: I = interruptible only where a cast/channel was
 read; D = dispel type where printed or tooltip-standard.
 
@@ -32,7 +31,8 @@ GROUP: melee stack on ONE side of him, ranged spread
   (page) - keeps 25656 Sand Trap victims grouped for
   healing and keeps Mortal Wound off non-tanks.
 GROUND: 25656 Sand Trap - placed under a player: -75%
-  chance to hit and silence (page spell text). The
+  chance to hit and silence, 20 sec (8.3.7 tooltip,
+  audit 3). The
   trapped companion cannot cast - bandage/potion/wand
   until it wears off (page strategy). Move out is not
   possible while trapped (unverified); treat as a
@@ -40,11 +40,14 @@ GROUND: 25656 Sand Trap - placed under a player: -75%
 ADD ORDER: none.
 ABILITY LIST:
   25646 Mortal Wound - healing received -10% per stack
-    (from his frontal hits; see TANK).
+    (from his frontal hits; see TANK); 15 sec duration
+    (8.3.7 tooltip, audit 3).
   25814 Wide Slash - normal +314, frontal cone.
   25656 Sand Trap - see GROUND.
-  26527 Frenzy - +75% attack speed, +87 physical damage,
-    2 min (at 30%, see PHASES). Dispel: enrage-type;
+  26527 Frenzy - +75% attack speed, 2 min (at 30%, see
+    PHASES). Physical damage bonus CONFLICT: page says
+    +87, the 8.3.7 tooltip says +250 - use the tooltip
+    for this build (audit 3). Dispel: enrage-type;
     Tranquilizing Shot removal unverified on this page.
   3391 Thrash - 2 extra attacks. 26446 Summon Player.
 AI RULE: off-tank stays behind him and taunts on Mortal
@@ -104,7 +107,7 @@ AI RULE: kill each officer first; after Thundercrash,
   tank re-taunts at once and everyone stays by the wall;
   heal Andorov before raid members who are safe.
 
-3. MOAM (entry unverified)
+3. MOAM (15340)
 Add group: 3x Mana Fiend (15527) at 90 seconds.
 PHASES: P1 mana race: he drains mana (Drain Mana: 500
   from 6 random players, +1000 to himself per player,
@@ -146,7 +149,7 @@ AI RULE: if you can drain mana, drain Moam, never DPS;
   keep him below 100% mana or be out of the room-side
   group when he fills.
 
-4. BURU THE GORGER (entry unverified)
+4. BURU THE GORGER (15370)
 Arena objects: 6 Buru Eggs (object entry unverified).
   Spawned add: Hive'Zara Hatchling (entry unverified).
 PHASES: P1 (100-20%): he CANNOT be tanked or DPSed
