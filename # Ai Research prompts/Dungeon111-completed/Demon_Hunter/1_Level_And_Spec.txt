@@ -1,12 +1,12 @@
 I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
 
-Research task (one step of a larger set): a level 111 Demon Hunter built for fast dungeon-after-dungeon leveling runs in Battle for Azeroth 8.3.7: a strong damage dealer (or a tank that pulls everything and kills it) that a low-level player can group with, so the player levels quickly. Level 111 on purpose. It is not a battleground twink. Step 1: level and specialization.
+Research task (one step of a larger set): a level 111 Havoc Demon Hunter (the specification is Havoc, damage dealer, not a tank) built for fast dungeon-after-dungeon leveling runs in Battle for Azeroth 8.3.7: a strong damage dealer that a low-level player can group with, so the player levels quickly. Level 111 on purpose. It is not a battleground twink. Step 1: level and specialization.
 
 WORKING LIMITS
 Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
 
 WHAT TO DELIVER - ONE TEXT FILE, Dungeon111_Demon_Hunter_1_Level_And_Spec.txt
-Can a Demon Hunter be level 111 in 8.3.7 and how does a character get there (start level, leveling, boost); the cheapest way to have one at exactly 111 and keep it there. The best specialization for dungeon boosting (many enemies at once, survives pulling whole packs) and why, with the talents (normal and PvP) for it at 111, with talent ids, and the spells that matter with ids.
+Can a Demon Hunter be level 111 in 8.3.7 and how does a character get there (start level, leveling, boost); the cheapest way to have one at exactly 111 and keep it there. The Havoc specialization (ChrSpecialization ID 577) for dungeon boosting (many enemies at once, kills whole packs fast) and why it is right, with the talents (normal and PvP) for it at 111, with talent ids, and the spells that matter with ids.
 
 Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
 

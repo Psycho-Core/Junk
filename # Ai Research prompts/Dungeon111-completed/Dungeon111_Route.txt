@@ -44,7 +44,7 @@ Queueing and Entry by Level Range:
 
 2. BOOSTER GEAR, CONSUMABLES, AND COOLDOWN SPELL REFERENCE
 ----------------------------------------------------------
-Recommended Level 111 Booster Spec: Havoc Demon Hunter (self-leech in Metamorphosis/Demonic, unmatched mobility, AoE burst) or Vengeance Demon Hunter (tank mitigation for Party Sync or undergeared pulls).
+Recommended Level 111 Booster Spec: Havoc Demon Hunter (ChrSpecialization ID 577; self-leech in Metamorphosis/Demonic, unmatched mobility, AoE burst).
 
 Booster Gear and Consumables (Verified Item IDs & Spell IDs):
 - Heart of Azeroth (Neck): Item ID 158075 (unlocks 3x BfA Azerite Armor slots in Head/Shoulder/Chest; keep 2 slots for Legion Legendaries up to level 115).
@@ -78,8 +78,8 @@ Demon Hunter Cooldown & Control Spell IDs (Build 35662):
   * Eye Beam: Spell ID 198013 (triggers 8 sec Metamorphosis + Soul Rending leech with Demonic Talent Spell ID 213410; Blind Fury Talent Spell ID 203550).
   * Blade Dance: Spell ID 188499 / Death Sweep (Metamorphosis): Spell ID 210152 (grants 100% Dodge for 1 sec; Trail of Ruin Talent Spell ID 258881; First Blood Talent Spell ID 206416).
   * Immolation Aura: Spell ID 258920.
-  * Metamorphosis (Havoc): Spell ID 162264 (Jump: Spell ID 191428, Stun: Spell ID 200166, 4 min CD).
-  * Fel Barrage (Talent): Spell ID 211053; Throw Glaive: Spell ID 185123; Fel Rush: Spell ID 195072; Vengeful Retreat: Spell ID 198793.
+  * Metamorphosis (Havoc): Ability Spell ID 191427 (40 yd, 4 min CD in 8.3.7; Jump: Spell ID 191428, Stun: Spell ID 200166) triggering the 30 sec demon form Spell ID 162264 (+25% Haste, +20% Leech).
+  * Fel Barrage (Talent): Spell ID 258925 (Battle for Azeroth version; the Legion-era Spell ID 211053 no longer applies in 8.3.7); Throw Glaive: Spell ID 185123; Fel Rush: Spell ID 195072; Vengeful Retreat: Spell ID 198793.
 - Defensive / Utility / Crowd Control:
   * Blur: Spell ID 198589 (Buff Spell ID 212800 - +50% Dodge and 20% damage reduction for 10 sec, 1 min CD).
   * Netherwalk (Talent): Spell ID 196555 (100% damage immunity and +100% speed for 5 sec, 2 min CD; does not replace Blur 198589 in 8.3.7).
@@ -90,8 +90,6 @@ Demon Hunter Cooldown & Control Spell IDs (Build 35662):
   * Consume Magic (Offensive Magic Purge, 10 sec CD): Spell ID 278326.
   * Imprison (Incapacitate Beast/Demon/Humanoid, 45 sec CD): Spell ID 217832.
   * Spectral Sight: Spell ID 188501; Shadowmeld (Night Elf threat drop): Spell ID 58984.
-- Vengeance DH Tank Cooldowns (if running Tank spec):
-  * Demon Spikes: Spell ID 203720 (Buff Spell ID 203819); Fiery Brand: Spell ID 207744 (DoT Spell ID 207771); Metamorphosis (Vengeance): Spell ID 187827; Fel Devastation: Spell ID 212105 (Heal Spell ID 212106); Spirit Bomb: Spell ID 218677; Infernal Strike: Spell ID 189110; Sigil of Flame: Spell ID 204598; Sigil of Silence: Spell ID 204490; Sigil of Misery: Spell ID 207685; Sigil of Chains: Spell ID 208674.
 
 
 3. ALL BATTLE FOR AZEROTH DUNGEONS: ELIGIBILITY & RANKING (PATCH 8.3.7)
@@ -235,7 +233,7 @@ STAGE 3: LEVELS 58 TO 80 - HELLFIRE RAMPARTS (PRIMARY) & THE BLOOD FURNACE / UTG
     - Dangerous Trash: Bonechewer Destroyer (Creature Entry 17271 - Mortal Strike -50% healing & Knock Away), Bonechewer Hungerer (Creature Entry 17259 - Disarm), Bleeding Hollow Scryer (Creature Entry 17478 - Fear), Hellfire Sentry (Creature Entry 17517 - must kill the 2 sentries to make Vazruden descend).
   * Pulls, Cooldowns, and Skips:
     - Packs per pull: Unsynced 111 pulls 4-6 packs per pull (3 total trash pulls across the ramparts); Party Sync (scaled to 80) pulls 2 packs at a time.
-    - Cooldowns: Tank Bonechewer Destroyers (17271) with back against a wall so Knock Away cannot knock booster off the ramparts; Chaos Nova (179057) / Sigil of Misery (207685) on Bleeding Hollow Scryers (17478) before Fear lands; Blur (198589) during Mortal Strike healing reduction.
+    - Cooldowns: Tank Bonechewer Destroyers (17271) with back against a wall so Knock Away cannot knock booster off the ramparts; Chaos Nova (179057) on Bleeding Hollow Scryers (17478) before Fear lands; Blur (198589) during Mortal Strike healing reduction.
     - What to skip & reset shortcut: Skip Omor the Unscarred's (17308) upper right branch if doing pure trash + Vazruden speed runs (or kill Omor in 15 sec if clearing all bosses). After killing Vazruden (17537) and Nazan (17536), jump straight off the left side of Vazruden's bridge onto the entrance ramp below and zone out (~3-4 min/run).
 - Lockout Filler / Alternative (58-80):
   * The Blood Furnace (Map ID 542, Normal LfgDungeonID 137, Portal Min 58, LFD Min 59, Outland Map ID 530; Bosses: The Maker 17381 [avoid Domination 30923 mind control on solo/duo by bursting or keeping lowbie out of LOS], Broggok 17380 [Poison Cloud 30916], Keli'dan the Breaker 17377 [Burning Nova 5388]), OR
