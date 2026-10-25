@@ -167,7 +167,8 @@ ABILITY LIST (ids unverified): Summon Astral
 
 6. TERESTIAN ILLHOOF (optional)
 Kil'rek (imp): 30053 Amplify Flames (+500 Fire
-  damage taken 25 sec); on death applies 30065
+  damage taken; 30 sec per 8.3.7 tooltip - page
+  said 25, audit 6); on death applies 30065
   Broken Pact to Illhoof (+25% damage taken) and
   respawns in about 45 sec.
 PHASES: One phase; portals open about 10 sec in
@@ -274,14 +275,14 @@ PHASES: three health phases in the era encounter
   room is a shrinking safe-space puzzle.
 TANK: Face him away; Sunder Armor (30901, 5 stacks,
   20 sec) + Thrash (3391, 2 extra attacks) burst.
-GROUP: Enfeeble (30843) targets cannot be healed
-  effectively (page: reduces healing/health - the
-  era effect sets 5 players to 1 HP): Enfeebled
+GROUP: Enfeeble (30843): healing effects -100%
+  for 9 sec (8.3.7 tooltip, audit 6): Enfeebled
   players RUN from Infernals and burn nothing near
   them; healers skip them until it fades. Shadow
-  Nova (30852): 30-yd knockback - ranged beyond 30
+  Nova (30852): 2-sec cast, 3000 Shadow, 30-yd
+  knockback (tooltip, audit 6) - ranged beyond 30
   yd or against the wall. Shadow Word: Pain (30898,
-  18 sec) D-Magic. Amplify Damage (39095): +100%
+  1313-1687/3 sec, 18 sec) D-Magic verified. Amplify Damage (39095): +100%
   damage taken 10 sec (his P3 axes phase, page-
   placed at chunk end - phase attribution
   unverified).
