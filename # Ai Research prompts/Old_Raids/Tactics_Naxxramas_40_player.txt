@@ -1,0 +1,619 @@
+NAXXRAMAS (40-PLAYER) - TACTICS (BFA 8.3.7 build 35662)
+Raid: original 40-man Naxxramas (patch 1.11 design,
+as restored on this core). 15 bosses, 4 wings plus
+Frostwyrm Lair.
+Zone id / map id: unverified in this pass (the 3.0
+Naxxramas reuses the same instance shell; do not
+assume its ids without checking this core).
+Coordinates (x, y, z): unverified for every spawn.
+Sources: the "(Classic)" boss pages on
+warcraft.wiki.gg, read for this file. Spell ids are
+the Classic Wowhead links on those pages; they have
+NOT been re-tooltipped against 8.3.7, so treat every
+id as page-verified only. Any spell the page does
+not link is printed "id unverified". NOTE: the
+Kel'Thuzad page mixes later-expansion spell links
+(55802/55807); those two are flagged in place.
+Creature entries: NONE were verified this pass (no
+NPC pages read) - all entries below are unverified.
+That is deliberate; fill from this core's DB.
+
+====================================================
+SPIDER WING
+====================================================
+1. ANUB'REKHAN (entry unverified) - 1,665,500 HP
+Starts with 2 Crypt Guards (204,380 HP each); one
+more Crypt Guard joins at every Locust Swarm.
+PHASES: Tank phase alternating with Locust Swarm
+  kite (Swarm lasts 20 sec, boss slowed 40%).
+TANK: Tank him at the far end; on Locust Swarm kite
+  him slowly along the wall - he must not catch the
+  raid, and nobody may be inside 30 yd of him while
+  the swarm is up (pacify + stacking DoT).
+GROUP: Ranged spread (Impale is a line at a random
+  player). Kill Corpse Scarabs from player corpses
+  fast (Summon Corpse Scarabs off Crypt Guard
+  bodies too).
+GROUND: Locust Swarm aura (30 yd) is the hazard.
+ADD ORDER: P1 Crypt Guards (new one each swarm) >
+  P2 Corpse Scarabs > boss.
+AI RULE: when Locust Swarm starts, stop everything,
+  stay 30+ yd away, and let the tank kite; resume
+  only when it ends.
+ABILITY LIST:
+  28783 Impale - line, up to 3938 Physical + knockup
+  28785 Locust Swarm - 20 sec aura, boss -40% speed
+  28786 Locust Swarm (DoT) - 875-1125 Nature/2 sec,
+    6 sec, pacified, stacks indefinitely
+  Summon Corpse Scarabs - id unverified
+  Crypt Guard abilities: unverified this pass
+
+2. GRAND WIDOW FAERLINA (entry unverified)
+Adds: 4 Naxxramas Worshippers (about 250,000 HP)
+and 2 Naxxramas Followers (about 100,000 HP,
+stunnable, AoE silence, random charges).
+PHASES: One phase on a roughly 60-sec Enrage timer.
+  Sacrificing a mind-controlled Worshipper (her own
+  ability used by the controlling priest) removes
+  Enrage and silences her Nature school 30 sec, but
+  kills the Worshipper - only 4 exist, so the fight
+  cannot run past about 4:45.
+TANK: MT on Faerlina; offtanks hold all 6 adds.
+  Followers tanked away from casters (silence).
+GROUP: Spread for Rain of Fire; cleanse Poison Bolt
+  Volley DoT (D-Poison). Priests: Mind Control a
+  Worshipper at about 0:50, 1:50, 2:50, 3:50 and
+  sacrifice AFTER she Enrages for the full effect
+  (before the Enrage it only delays it 30 sec).
+GROUND: 28794 Rain of Fire - 1850-2150 Fire/2 sec
+  for 6 sec on a selected area. Move out.
+ADD ORDER: P1 Followers (kill both in about 30 sec
+  or offtank all fight) > boss. Worshippers: NEVER
+  kill by damage - they are the Enrage mechanic;
+  they die only to their own sacrifice.
+AI RULE: never damage a Worshipper; when she
+  Enrages, the controlled Worshipper's sacrifice is
+  the only answer - everything else is survival.
+ABILITY LIST:
+  28796 Poison Bolt Volley - Nature + DoT. D-Poison
+  28794 Rain of Fire - above
+  28798 Enrage - +75% attack speed, +150 Physical,
+    30 min. D: only the Worshipper sacrifice
+
+3. MAEXXNA (entry unverified)
+PHASES: A strict 40-sec cycle; Enrage at 30%
+  (28747). Cycle: 0-20 DPS, at 20 Web Wrap (3
+  players to the wall), at 30 spiderlings spawn,
+  at 40 Web Spray (raid-wide 8-sec incapacitate).
+TANK: Centre of the room, raid behind her, backs
+  to the wall so wraps land close. Before each Web
+  Spray the MT must be topped, HoT'd, shielded and
+  have Abolish Poison running (Necrotic Poison
+  negates all HoTs unless cleansed).
+GROUP: Assigned ranged kill the 3 cocoons (about
+  6,000 HP each) - free wrapped players first if out
+  of healer line of sight. AoE the spiderlings down
+  BEFORE the Web Spray (Frost Nova them under her).
+GROUND: none (the wall cocoons are the hazard).
+ADD ORDER: P1 Web Wrap cocoons (your own players -
+  break the cocoon, never leave one wrapped into a
+  Spray) > P2 Maexxna Spiderlings (8-10, about
+  4,000 HP, spawn at 30 sec marks).
+AI RULE: the cycle is the boss: wraps at 20,
+  spiders at 30, spray at 40 - never start anything
+  that leaves a player wrapped or spiders alive at
+  second 40.
+ABILITY LIST:
+  28622 Web Wrap - 650-850 Nature/2 sec in cocoon
+    (Classic page). CONFLICT: 8.3.7 tooltip reads
+    2925-3575/2 sec (remade Naxx value, audit 5)
+  29484 Web Spray - 1750-2250 Nature + 8-sec
+    incapacitate, every 40 sec, unresistable
+  28741 Poison Shock - 1750-2250 Nature, 15-yd
+    frontal cone. Only the tank stands in front
+  28776 Necrotic Poison - healing taken -90%, 30
+    sec. D-Poison (immediately, on the tank first)
+  28747 Enrage - at 30% (values unverified)
+
+====================================================
+PLAGUE WING
+====================================================
+4. NOTH THE PLAGUEBRINGER (entry unverified)
+PHASES: Ground phase alternating with balcony
+  phases (he teleports up at 90 sec, then 110 sec
+  later, then 180 sec later; each balcony phase
+  spawns skeleton waves below: Champions, then
+  Champions+Guardians, then Guardians - Plagued
+  Guardians are shackle-immune). Damage targets
+  from the page: 80% by balcony 1, 50% by balcony 2,
+  dead before balcony 3 matters.
+TANK: MT centre; Blink (29211, about every 25 sec)
+  wipes aggro - STOP DPS until the MT has him back.
+  Blink also Cripples everyone near where he left.
+GROUP: Mages and druids decurse INSTANTLY: an
+  unremoved Curse of the Plaguebringer becomes
+  Wrath of the Plaguebringer on the 20 closest
+  players - one miss can wipe the raid. Shackle
+  Champions on balcony phases; tanks at the 3 spawn
+  points (NW, NE, SW). Adds do not despawn when he
+  dies - finish them.
+GROUND: none.
+ADD ORDER: P1 Plagued Guardian (stunlock, 1 per
+  wave) > P2 Plagued Champions > P3 the 30-sec
+  skeleton summons > boss on ground phase.
+AI RULE: decurse before damage, shackle before
+  killing, and after every Blink do nothing until
+  the tank calls aggro.
+ABILITY LIST:
+  29213 Curse of the Plaguebringer - D-Curse
+    (highest dispel priority in the wing); 10-sec
+    dispel window (8.3.7 tooltip, audit 5)
+  29214 Wrath of the Plaguebringer - what the curse
+    becomes: Nature/Shadow DoT spreading to nearby
+  29211 Blink - aggro wipe (id from page link)
+  29212 Cripple - -50% move/attack/Strength near
+    his blink origin. D-Magic (tank first)
+
+5. HEIGAN THE UNCLEAN (entry unverified) - 1,780,000 HP
+PHASES: 135-sec cycle: P1 90 sec he is in the field
+  (slow eruptions, Decrepit Fever, Mana Burn,
+  teleports 3 players to the Eye Stalk tunnel);
+  P2 45 sec he is on the platform (fast eruptions -
+  the whole raid "dances"; platform is poisoned).
+TANK: Move him between marked points after every
+  eruption burst during P1, hugging the dance path.
+GROUP: Ranged/healers stand in the one safe zone.
+  Eruptions sequence 1-2-3-4-3-2-1 and reset to
+  zone 1 at every phase change. Move on YOUR OWN
+  position cue, not by following others (latency).
+  Teleported players: kill any Eye Stalks (500 HP,
+  Mind Flay) and run back before P2 - the tunnel
+  fills with poison (4000/3 sec) during the dance.
+GROUND: 29371 Eruption - 3500-4500 Nature
+  (Classic page), unresistable, patterned zones.
+  CONFLICT: 8.3.7 tooltip reads 6650-7350 - that is
+  the remade (80) Naxx value; audit 5. THE ground
+  effect of the whole raid tier: never stand in an
+  erupting zone.
+ADD ORDER: Eye Stalks in the tunnel only; no adds
+  in the room.
+AI RULE: know your next safe zone before the
+  eruption fires - if you are deciding where to go
+  while it erupts, you are already dead.
+ABILITY LIST:
+  29371 Eruption - above (6650-7350 in 8.3.7 data,
+    Classic page 3500-4500 - audit 5 conflict)
+  29998 Decrepit Fever - max health -50%, 500
+    Nature/3 sec, 20-yd radius (melee), P1 only.
+    D-Disease
+  AoE Mana Burn - drains mana, Shadow damage equal
+    to mana drained (id unverified)
+  Teleport (3 players to tunnel) - id unverified
+TRASH NOTE (the tunnel to Heigan, from his page):
+  waves of Plague Beasts (disease aura, Stomp about
+  2000; tank away), Grubs (30109 Slime Burst, 232-
+  268 Nature + 50% slow) and Bats (charge, 30113
+  Putrid Bite +120 damage taken 30 sec). Bats
+  respawn fast unless the whole pack dies - leave
+  one marked bat alive per pack and walk past.
+
+6. LOATHEB (entry unverified)
+PHASES: One phase, a DPS race against Inevitable
+  Doom: first Doom at 2 min (every 30 sec), from
+  5 min every 15 sec.
+TANK: One tank; healers can cast ONE beneficial
+  spell per minute (Corrupted Mind), so the tank is
+  healed on a called rotation and everyone else
+  lives on consumables/bandages.
+GROUP: Take Fungal Bloom (spores spawn every 12
+  sec, only 5 players per spore): +50% melee crit,
+  +60% spell crit, ZERO threat generation, 90 sec.
+  Melee eat Poison Aura ticks; he decurses himself
+  every 30 sec, so curses are wasted.
+GROUND: Poison Aura - 196 Nature/6 sec, 5 yd
+  around him (id unverified).
+ADD ORDER: none (spores are a buff, never kill
+  players chasing them - take them in groups of 5).
+AI RULE: healers: one heal per minute, called out,
+  tank only; everyone else: never expect a heal -
+  consumable at the health your rotation assigns.
+ABILITY LIST (ids unverified - page links none):
+  Corrupted Mind - 1-min linked cooldown on ALL
+    beneficial spells (includes cleanses)
+  Inevitable Doom - 2550 Shadow after 10 sec,
+    undispellable, unresistable
+  Poison Aura - above; Fungal Bloom (buff pickup);
+  self-Decurse every 30 sec
+
+====================================================
+ABOMINATION WING
+====================================================
+7. PATCHWERK (entry unverified)
+PHASES: One phase. Berserk at 7 min (damage about
+  x5); at 7:30 Slime Bolts (about 25,000 Nature,
+  raid-wide). Enrage at 5% (save Shield Walls).
+TANK: 1 MT plus THREE Hateful Strike tanks: Hateful
+  Strike hits the highest-health player among the
+  2nd/3rd/4th threat players in melee range, about
+  every 1.2 sec (base 22100-29900 before armor).
+  Keep the 3 HS tanks topped and ABOVE all melee
+  DPS in health; if a melee DPS enters the top 4
+  threat, they take the next Hateful and die.
+GROUP: Melee stand in the slime is a myth - do NOT
+  do it (page debunks it). Pure DPS race.
+GROUND: none (the slime is scenery, page-verified).
+ADD ORDER: none.
+AI RULE: Hateful Strike is a health-ranking puzzle:
+  the 3 soak tanks must always be the healthiest
+  melee-range players after the MT.
+ABILITY LIST (ids unverified - page links none):
+  Hateful Strike - above; Berserk 7:00; Slime Bolt
+  7:30; Enrage 5%
+
+8. GROBBULUS (entry unverified)
+PHASES: One phase, 12-min enrage. Mutating
+  Injection frequency rises below 30%.
+TANK: Kite him slowly around the room hugging the
+  outside wall - he drops a long-lived 10-yd poison
+  cloud behind him; use as little new space per
+  cloud as possible. Never let him face the raid
+  (Slime Spray spawns a Fallout Slime per player
+  hit) and never leave his melee range (Slime
+  Stream on the ranged threat leader).
+GROUP: Ranged-only DPS on the boss (melee would
+  spawn slimes). Injected players run to the edge
+  of the existing clouds, THEN are cleansed (the
+  cleanse triggers the smaller AoE + a new cloud
+  at their feet - position first, cleanse second;
+  uncleansed it detonates for 4500 after 10 sec).
+GROUND: Poison Cloud (his, and each cleansed/
+  expired injection leaves one) - high Nature
+  damage, lasts a very long time. Room space is
+  the enrage timer you can see.
+ADD ORDER: P1 Fallout Slime (300/2 sec 10-yd aura -
+  melee kill it away from the ranged group) > boss.
+AI RULE: an injected player is a ground-effect
+  delivery: run out, call it, get cleansed there -
+  never be cleansed standing in the raid.
+ABILITY LIST (ids unverified - page links none):
+  Poison Cloud; Slime Spray 3600-4800 Nature;
+  Mutating Injection (D - cleansable, see above);
+  Slime Stream 4500 Nature over 3 sec
+
+9. GLUTH (entry unverified)
+PHASES: Decimate every about 105 sec sets EVERYONE
+  (raid and zombies) to 5% health. Enrages 10-20
+  sec after the third Decimate.
+TANK: 2 tanks swapping on Mortal Wound (he is NOT
+  tauntable - swap by threat). Tanked at the door,
+  head to the door, as far from the grates as
+  possible. Hunters: Tranquilizing Shot every
+  Frenzy (about every 10 sec).
+GROUP: Zombies spawn at the 3 grates about every
+  10 sec. KITE them (do not kill) for the full 105
+  sec; at Decimate they drop to 5%, lose aggro and
+  run at Gluth - kill them all before any reaches
+  him (each one eaten heals him 5%).
+GROUND: none.
+ADD ORDER: Zombies are NEVER killed before a
+  Decimate and MUST all die in the seconds after
+  one. P1 zombies (post-Decimate) > boss.
+AI RULE: a zombie near Gluth is a 5% heal: kite
+  wide, and on Decimate the whole raid turns and
+  burns zombies before touching the boss.
+ABILITY LIST (ids unverified - page links none):
+  Mortal Wound - healing -10%/stack; Frenzy (about
+  10 sec, D: Tranquilizing Shot); Decimate (105
+  sec, all to 5%); Terrifying Roar (AoE fear about
+  20 sec, under 20 yd); Devour Zombie (+5% health)
+
+10. THADDIUS (entries unverified)
+PHASES: P1 Feugen and Stalagg (499,650 HP each) on
+  separate platforms tethered to Tesla Coils; they
+  must die within 5 sec of each other or the dead
+  one resurrects at full health. Magnetic Pull
+  swaps the two tanks' platforms (threat wiped on
+  the pulled tank). P2: jump to the centre within
+  15 sec, Thaddius (about 6.66M HP), Berserk 5 min.
+TANK P2: Tauntable; move WITH your charge group -
+  an unstacked tank loses threat and the raid's
+  multiplied damage rips him off you.
+GROUP P1: casters on Stalagg, melee on Feugen
+  (Feugen's Static Field burns 500 mana/6 sec in
+  30 yd; hunters/mages can outrange it). Never move
+  a wight out of its coil's range: the coil then
+  Shocks the raid (4375-5625 every second).
+GROUP P2: Polarity Shift every 30 sec: same-charge
+  players stack (each nearby same-charge ally gives
+  +10% damage done); opposite-charge players within
+  range zap each other (2000/5 sec). On a shift you
+  have 5 sec to reach your side - run THROUGH him,
+  shortest path. About half the raid keeps its
+  charge each cast: CHECK YOUR OWN DEBUFF every
+  time. Never battle-rez or soulstone in P2 (a
+  chargeless player damages everyone nearby).
+GROUND: none (player charges are the ground game).
+ADD ORDER: P1 both wights together (5-sec window)
+  - a NEVER rule: never kill one early and wait.
+AI RULE: every 30 seconds, look at your own charge
+  first and move second - the boss is killed by
+  stacked charges, and players die to guessing.
+ABILITY LIST:
+  22839 Magnetic Pull - tank swap between wights
+  28125 Warstomp - 15 yd knockback, about 1500
+  28099 Shock (Tesla Coil) - 4375-5625/sec if the
+    wight leaves coil range
+  28135 Static Field (Feugen) - 500 mana burn/6 sec
+  28134 Power Surge (Stalagg) - +200% attack speed
+  28169 Chain Lightning - up to 15 targets, rising
+    damage, every 5-10 sec
+  28089 Polarity Shift - 3 sec cast, every 30 sec
+  28084 Negative Charge / 28059 Positive Charge -
+    +10% damage per same-charge ally nearby; 2000
+    Nature/5 sec to opposite-charge nearby
+  28299 Ball Lightning - 7000-9000, only if nobody
+    is in his melee range (never leave him untanked)
+  27680 Berserk - at 5 min
+
+====================================================
+DEATHKNIGHT WING
+====================================================
+11. INSTRUCTOR RAZUVIOUS (entry unverified)
+Adds: 4 Deathknight Understudies (91,560 HP) -
+  they are the tanks. Clear ALL stable trash first;
+  it is linked to the pull.
+PHASES: One phase. Two priests Mind Control
+  Understudies in rotation: an Understudy tanks via
+  its own Taunt (29060, lasts 20 sec, 1-min CD) and
+  Shield Wall (29061, -75% for 20 sec, 30-sec CD).
+  When Razuvious lands Unbalancing Strike on the
+  active Understudy, the second Understudy Shield
+  Walls and taunts. After Mind Control ends, that
+  Understudy has Mind Exhaustion (29051, charm-
+  immune 60 sec) and must be offtanked (never Sunder
+  it) inside priest range.
+TANK: No player tanks the boss, ever - he one-shots
+  players. Understudy tanks as above.
+GROUP: NO healer or ranged player may ever be in
+  his line of sight: Disrupting Shout (every 25
+  sec, 45 yd, line-of-sight only) burns 4050-4950
+  mana and deals DOUBLE the burn as damage - it
+  one-shots most casters. Use the railing to break
+  line of sight on the shout timer. Melee stay on
+  him (small mana pools survive it).
+GROUND: none.
+ADD ORDER: Understudies are NEVER killed while he
+  lives (29125 Hopeless makes them trivial after he
+  dies: +5000% damage taken).
+AI RULE: line of sight is life: if you have a mana
+  bar and can see Razuvious when the shout timer
+  ends, you die - break sight every 25 seconds.
+ABILITY LIST:
+  29107 Disrupting Shout - above
+  26613 Unbalancing Strike - 350% weapon, -100
+    Defense for 6 sec (the swap trigger)
+
+12. GOTHIK THE HARVESTER (entry unverified)
+PHASES: P1 (4 min 34 sec): Gothik invulnerable on
+  the balcony; timed waves spawn on the LIVING side
+  (first at 24 sec); every living add killed reborns
+  on the UNDEAD side, stronger (Rider reborns as
+  TWO, Rider + Horse). Undead side is magic-immune:
+  melee there, casters on living. P2: he lands,
+  teleports sides every 15-20 sec; gate opens and
+  teleports stop at 30%.
+TANK/GROUP: Split raid in two balanced halves, 3
+  tanks living side. Control the kill RATE: killing
+  fast floods the undead side; CC-ing everything
+  floods the living side. Final wave 50 sec before
+  he lands - leftover living adds get CC'd for the
+  rest of the fight. If one side has no living
+  players, the gate opens and everything crosses.
+GROUND: none.
+ADD ORDER (page kill priority): living: Rider >
+  Deathknight (shackle/root) > Trainee. Undead:
+  Spectral Trainee > Spectral Rider > ... page
+  order continues Deathknight/Horse (chunk read
+  ends mid-list - treat tail order as unverified).
+  Interrupt Spectral Rider Drain Life (27994,
+  4000 over 5 sec. I).
+AI RULE: this fight is a valve, not a race: feed
+  kills across the gate at the rate the undead side
+  can absorb - both floods are wipes.
+ABILITY LIST:
+  Living: 30285 Eagle Claw (Trainee DoT), 11428
+    Knockdown (2-sec stun), Deathknight: 20615
+    Intercept, 27825 Shadow Mark (marks targets for
+    Rider Shadow Bolt Volley - spread after it),
+    Rider: 27831 Shadow Bolt Volley (3200-4100,
+    marked targets only), 27987 Unholy Aura (450
+    Shadow/2 sec, 45 yd)
+  Undead: 27989 Arcane Explosion (Spectral Trainee,
+    500, 20 yd), Deathknight: 19983 Cleave, 27992
+    Mana Burn (3780-4620), 27991 Sunder Armor
+    (-2950 per stack), 15589 Whirlwind; Rider:
+    27994 Drain Life (I), 27987 Unholy Aura;
+    Horse: 27993 Stomp (60% slow, 12 sec)
+  Gothik: 28679 Harvest Soul (-10% all stats, 1
+    min, stacks, every 15 sec, cannot be removed),
+    29317 Shadow Bolt (2250-2750, hits primary plus
+    random targets every second)
+
+13. THE FOUR HORSEMEN (entries unverified)
+Mograine, Korth'azz, Blaumeux, Zeliek - one per
+corner, 8 tanks (2 each) rotating on marks.
+PHASES: One phase. Each horseman casts HIS mark
+  every 12 sec (first at 20 sec): 65 yd, ignores
+  line of sight, 75-sec duration; damage by stacks
+  of THAT mark: 1st 0, 2nd 250, 3rd 1000, 4th 3000,
+  5th 5000, then +1000 per stack; each mark also
+  cuts your threat on that horseman by 50%.
+  Enrage (8599) at 100 marks (about 20 min).
+  Shield Wall (29061) at 50% and 20% each.
+TANK: 2 tanks per corner swap before their mark
+  count turns lethal; taunts can resist (16% vs
+  bosses) - the page names double taunt resists as
+  the usual wipe cause. Stay 65+ yd from the other
+  corners' horsemen while rotating out.
+GROUP: Assigned corner groups rotate with their
+  tanks; a player may carry low stacks of several
+  marks but never a high stack of one. Spread 8 yd
+  on Korth'azz (Meteor splits). NEVER stand in
+  Blaumeux Void Zones (90 sec each).
+GROUND: 28863 Void Zone (Blaumeux) - 28865
+  Consumption 3950-4750 Shadow/sec inside.
+ADD ORDER: The dead horseman's SPIRIT stays, rooted
+  where it died, still casting/marking in range -
+  spirits are NEVER killable; finish the living in
+  your corner order and play around spirit range.
+  Page does not fix a raid-wide kill order -
+  unverified; corner groups kill their own first.
+AI RULE: count YOUR stacks of the mark of the
+  horseman near you; at the called number, get out
+  of his 65 yards and let your partner take over.
+ABILITY LIST:
+  Shared: 8599 Enrage, 29061 Shield Wall, marks:
+  28834 Mograine, 28832 Korth'azz, 28835 Zeliek,
+    28833 Blaumeux (all as PHASES above). WARNING
+    (audit 5): in 8.3.7 data 28834 is "Mark of
+    Rivendare" - Mograine was replaced in the
+    remake, so the Classic mark ids may not exist
+    in this build; re-map on this core.
+  28882 Righteous Fire (Mograine) - melee proc 25%:
+    2160-2640 + 4800 over 8 sec
+  28884 Meteor (Korth'azz) - 12825-14275 Fire split
+    among everyone within 8 yd of impact, 12-sec CD
+  28883 Holy Wrath (Zeliek) - 495-605 Holy chaining,
+    DOUBLING per jump, 12-sec CD - spread vs him
+  28863/28865 Void Zone (Blaumeux) - above
+
+====================================================
+FROSTWYRM LAIR (all 13 wing bosses dead to enter)
+====================================================
+14. SAPPHIRON (entry unverified) - 3,164,450 HP,
+frost-immune and taunt-immune; frost resistance
+gear is a raid requirement (about 150 unbuffed).
+PHASES: Ground phase; air phase first at 45 sec,
+  then every 67 sec after landing, until 10% (then
+  permanently grounded). Berserk at 15 min (Frost
+  Aura +500%).
+TANK: Single tank (immune to taunt - threat only);
+  keep him faced away (Cleave 10 targets frontal,
+  Tail Sweep behind). Extra tanks DPS.
+GROUP: Spread (Chill blizzards spawn on players:
+  3063-3907 unresistable + 65% slow inside - move
+  instantly; the slow cannot be dispelled). Decurse
+  Life Drain IMMEDIATELY (28542: it heals him
+  3500-4500 per tick per target). D-Curse.
+  AIR PHASE: spread 10 yd apart; 5 Icebolts encase
+  random players in ice blocks - after the THIRD
+  bolt, run behind a block; Frost Breath lands 7
+  sec after his deep breath for 75000-125000 to
+  anyone in line of sight. Moving behind blocks
+  early risks a bolt or blizzard on the group.
+GROUND: 28547 Chill (roaming blizzards, above).
+ADD ORDER: none. Ice blocks are terrain, NEVER a
+  DPS target (the player inside is freed on landing
+  - do not attack the block).
+AI RULE: in the air, count the bolts: hide behind
+  ice only after bolt three, and be hidden before
+  the breath lands - line of sight is the only
+  armour that works.
+ABILITY LIST:
+  28531 Frost Aura - raid-wide, continuous.
+    CONFLICT: Classic page 600 Frost/2 sec; 8.3.7
+    tooltip 1200/2 sec (remade Naxx, audit 5)
+  28547 Chill - roaming blizzard (above)
+  19983 Cleave - frontal, up to 10 targets
+  28542 Life Drain - 1750-2250/3 sec for 12 sec on
+    10 targets, heals him double. D-Curse (instant)
+  15847 Tail Sweep - 600-1000 + knockback, rear
+  28522 Icebolt - 2625-3375 Frost + ice block (air)
+  28524 Frost Breath - 75000-125000, line of sight
+
+15. KEL'THUZAD (entry unverified) - 3,150,000 HP,
+taunt-immune. Frost resistance NOT advised (page).
+P1 (5 min 10 sec): he is invulnerable; adds stream
+  from the 7 corners. Stay centre; pets passive.
+  Soldiers of the Frozen Wastes (2000 HP, slow):
+  NEVER let one touch the raid - Dark Blast (28457)
+  2503-3097 Shadow to the raid and it dies; two at
+  once is a wipe. They are shackleable. Unstoppable
+  Abominations (100,000 HP, 14 planned): Mortal
+  Wound stacking, hit about 4000 - melee kill fast,
+  none may be alive when he activates. Soul Weavers
+  (140,000 HP, 14 planned): Wail of Souls (28459)
+  6375-8625 + 30-yd knockback near its target -
+  ranged kill, call targets early.
+P2: Tank drags him centre (interrupters mandatory:
+  his single-target Frostbolt, 9000-11000, 2-sec
+  cast, can chain into Frostbolt Volley for about
+  14,000 unresistable burst. I).
+  Spread 10 yd everywhere, always: Frost Blast
+  (27808) chains within 10 yd and deals 104% of max
+  health over 5 sec - heal the blocked within 4
+  sec or they die. Mana Detonation (27819): the
+  marked mana user runs from everyone (explodes in
+  4 sec for their max mana in Arcane to all within
+  10 yd, burns half their mana - never to self).
+  Shadow Fissure (27810): red fissure, out in 3
+  sec or Void Blast (27812) 62500-137500.
+  Frostbolt Volley: 2750-3500 to the whole room
+  every 15 sec, instant, cannot be interrupted.
+  Chains of Kel'Thuzad (28410, about 60-sec CD):
+  mind-controls the top-threat player + 4 others
+  (+200% size/damage, +500% healing, full threat
+  wipe) - CC the controlled with humanoid CC, never
+  kill them; spare tanks fight for threat while
+  interrupts continue.
+P3 (40%): 5 Guardians of Icecrown (HP like his):
+  exactly 3 may be shackled (a 4th shackle makes
+  HIM dispel all shackles); 2 are tanked
+  (tauntable). Blood Tap (28470): +15% damage
+  stacking (to 99) every target switch or player
+  death - control them or tanks explode. Guardians
+  flee when he dies.
+GROUP: 8-yd diamond of 5-man melee clumps around
+  him; circle of ranged at 10-yd spacing.
+GROUND: 27810 Shadow Fissure (above).
+ADD ORDER: P1: Soldiers > Abominations > Soul
+  Weavers (by reach-the-raid risk, page-assigned:
+  ranged take Soldiers/Weavers, melee Abominations).
+  P3: shackled Guardians are NEVER damaged (breaks
+  shackle); tanked Guardians after Kel'Thuzad only
+  if called - killing him ends the fight.
+AI RULE: spread is survival, interrupts are the
+  tank's life, and a fissure, a detonating ally or a
+  chained Frost Blast all punish the same sin -
+  standing near other players.
+ABILITY LIST (ids are the page's links; the two
+  Frostbolt ids below are from a later-expansion
+  link set on the page - flagged, re-verify on this
+  core before use):
+  Frostbolt (single) - page link 55802 FLAGGED,
+    9000-11000, 2 sec cast. I (top priority)
+  Frostbolt Volley - page link 55807 FLAGGED,
+    2750-3500 raid-wide every 15 sec, instant
+  28410 Chains of Kel'Thuzad - MC x5, 20 sec
+    (tooltip-verified, audit 5; above)
+  27819 Mana Detonation - run out (above)
+  27810 Shadow Fissure / 27812 Void Blast
+  27808 Frost Blast - chain freeze, 104% HP/5 sec
+  Adds: 28457 Dark Blast, 25646 Mortal Wound
+    (Abominations - same id as Kurinnaxx, page
+    linked), 28459 Wail of Souls, 28470 Blood Tap
+
+====================================================
+TRASH (general; pack tables unverified this pass)
+====================================================
+Only pack detail verified from a boss page is the
+Heigan approach tunnel (filed under Heigan above).
+Wing-by-wing trash pack compositions, entries,
+spell lists and kill orders: unverified - the
+Classic mob pages were not read this pass, and the
+3.0 versions of these mobs differ in level/stats.
+Do not port numbers from the WotLK pages.
+Safe standing rule until then: pull with line of
+sight around corners, interrupt every caster, and
+never assume a 40-man trash mob has its 80-level
+namesake's health pool.

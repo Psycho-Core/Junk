@@ -1,0 +1,183 @@
+TACTICS - Cataclysm A (OLD RAIDS STEP 10 OF 16)
+Baradin Hold, Blackwing Descent, Bastion of Twilight,
+Throne of the Four Winds.
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Spell ids unverified unless stated as page-read;
+creature entries and coordinates unverified throughout.
+Map ids (verify on server): Baradin Hold 757, Blackwing
+Descent 669, Bastion of Twilight 671, Throne of the
+Four Winds 754.
+
+Baradin Hold (map 757; faction-controlled zone boss set)
+1. ARGALOTH: tank swap on Meteor Slash stack share -
+  tanks stack in front together; Fel Firestorm: run
+  continuously, fire falls on positions. Consuming
+  Darkness: mass dispel team (D-Magic).
+  AI RULE: share the slash, run the storm.
+2. OCCU'THAR: eyes beam adds (kill eyes before they
+  finish casting); focussed fire cone - tanks keep him
+  turned, group behind; searing shadows pools move.
+  AI RULE: eyes die first - they out-damage the boss.
+3. ALIZABAL: Skewer on tank (heal through, swap);
+  Blade Dance: she spins to a player and whirls (spread,
+  move from her); Seething Hate on a player (soak split
+  by stacking on them). AI RULE: dance = scatter.
+
+BLACKWING DESCENT (map 669)
+4. MAGMAW: tank eaten (Mangle - heal hard, tanks swap);
+  exposed head phase: two players click chains to pin
+  the head (burn window); parasites: ranged kite/kill,
+  never let them reach anyone (they infect/spawn more);
+  lava spew/pools move. AI RULE: parasites are kept at
+  range forever; chained head = all cooldowns.
+5. OMNOTRON (4 golems, activated in sequence, 100 energy
+  each): DPS the active golem; when a golem raises its
+  shield STOP attacking it - each shield punishes hits
+  differently (page): Electron's Unstable Shield (79900)
+  answers attacks with Static Shock on a nearby player;
+  Magmatron's Barrier (79582) explodes for raid damage
+  if BROKEN (73125-76875); Arcanotron's shield converts
+  hits into his own power; Toxitron's shell poisons
+  attackers. Electron: 79888 Lightning Conductor player
+  runs out (10 sec). Toxitron: tank him IN his Chemical
+  Cloud (91472: +50% damage taken by anything inside -
+  page), kill Poison Bombs before they reach their
+  fixated player (80094). Arcanotron: tank him OUT of
+  his Power Generator circle, players stand IN it.
+  Magmatron: 92036 Acquiring Target - the named player
+  gets the 79504 Flamethrower channel: drop aggro or be
+  healed through it standing aside.
+  AI RULE: shields decide targets, not health bars.
+6. MALORIAK: vial phases: red (adds burn, AoE them
+  grouped), blue (spread, frost), green (all adds take
+  +damage - burn adds), dark (heroic). Interrupt his
+  casts (Arcane Storm, Release Aberrations is allowed/
+  stopped by call - unverified); below 25%: frost orbs
+  kite. Adds must die in green or tank is overrun.
+  AI RULE: colour calls the job - green means adds die.
+7. ATRAMEDES: SOUND is the second health bar: at 100
+  sound he channels 78868 Devastation on you (24375-
+  25625 every 0.5 sec - page), not an instant kill.
+  Ground (80 sec): 92451 Modulation (+7 sound raid-wide);
+  92407 Sonic Breath follows a non-tank player (run the
+  agreed direction); once per phase 92423 Searing Flame
+  - the designated gong-hitter strikes a gong: Vertigo
+  stuns him 5 sec, interrupts it, and resets EVERYONE'S
+  sound to zero. 10 gongs, each one-use (page strategy).
+  Air: 78353 Roaring Flame Breath chases a player and
+  speeds up (after a gong he follows the gong-hitter),
+  92556 Sonar Bombs drop (move), flame patches stay.
+  AI RULE: watch your sound, not your health; the gong
+  is for Searing Flame and the sound reset, on call.
+8. CHIMAERON: Bile-o-Tron ONLINE: spread out; its buff
+  (Finkle's Mixture) stops Caustic Slime and Massacre
+  one-shotting you, so healers only keep everyone above
+  10,000 - do not overheal. Massacre may knock the bot
+  OFFLINE: then the heads Feud - STACK tight and heal
+  as much as possible until it returns (page strategy).
+  Tanks: swap around Break stacks; a Double Attack after
+  Break can drop a tank to 1 hp - healers rescue fast
+  (page). At 20%: 82934 Mortality (page) - he is
+  taunt-immune, takes +10% damage, and healing done is
+  cut by 99%: pure burn, healers DPS too.
+  AI RULE: 10,000 is full health while the bot lives;
+  at 20% stop healing maths and burn.
+9. NEFARIAN (page ids): P1 Nefarian flies, resurrects
+  Onyxia; dragons tanked 50+ yd apart (78619 Children of
+  Deathwing: +100% attack speed if close - page); bone
+  warrior adds (94121 Hail of Bones) kited, NOT tanked
+  (they decay - unverified); kill Onyxia first while
+  Nefarian at high health: every 10% of Nefarian = 94090
+  Electrocute raid blast (page) - push Onyxia, control
+  his %. P2 lava: swim to platforms, interrupt blast
+  novas on each platform add. P3 ground: crackle timing
+  (heal up before each 10%), shadowflame adds kited,
+  tank swaps on breath. 10:30 enrage (page 26662).
+  AI RULE: his health bar is a raid-wide metronome -
+  never push a crackle unhealed.
+
+BASTION OF Twilight (map 671)
+10. HALFUS WYRMBREAKER: proto-behemoth + drake choice:
+  free drakes by the raid's pick - each freed drake
+  removes an ability and debuffs him; the whelps/storm
+  rider/timestopper combos vary weekly (this core's set
+  unverified). Furious Roar: third roar stuns (trinket/
+  break). Tank swap on mortal strike stacks (healing
+  reduced). AI RULE: freed drakes are the kill order's
+  first half - mechanics removed beat DPS.
+11. VALIONA AND THERALION: ground dragon swaps with the
+  flying one: Valiona down: Blackout on a player - STACK
+  on them to split it; Devouring Flames breath (face
+  away cone, run sideways). Theralion down: Engulfing
+  Magic - the marked caster moves OUT and stops casting
+  near others (their casts explode around them); twilight
+  meteors on players (spread). Twilight realm portals
+  (heroic). AI RULE: Blackout = hug; Engulfing = exile.
+12. ASCENDANT COUNCIL: P1 Ignacious (fire: interrupt
+  casts, tank swap on burning wound; flame torrent run)
+  + Feludius (water: glaciate if near him when he
+  freezes - players spread out for frost; waterlogged
+  dispelled D-Magic); P2 Arion (wind: stay GROUNDED -
+  get the grounded buff near wells or his lightning rod
+  chain kills; disperse when he vanishes) + Terrastra
+  (earth: gravity well pulls, eruption spikes move);
+  each pair to 25% then P3 Monstrosity: lava seeds on
+  players (run out), gravity crush lifts a player (heal),
+  chain lightning spread, burn race. AI RULE: 25% on both
+  pairs evenly - one left high becomes P3 health.
+13. CHO'GALL (page ids): CORRUPTION is the real health
+  bar: 93189 Corrupted Blood stacks; at 25% 81836
+  Corruption: Accelerated (D-Magic - dispel it, page);
+  50% sickness - the player vomits in front: face AWAY
+  from the group; 75% malformation (shadowbolts at
+  allies - spread); 100% = faceless (unhealable but
+  +damage). Avoid: blood pools (+5/sec standing - page),
+  crash (+10), adherent casts. Adherents: interrupt
+  Depravity (page list); fester blood slimes killed.
+  P2 at 25%: tentacles (kill - they channel beams),
+  worshipping players broken by damage/interrupt.
+  10-min enrage (47008, page).
+  AI RULE: face your vomit at a wall and keep corruption
+  under 25 - dispellers own the first threshold.
+14. SINESTRA (heroic only): eggs shielded: burn a shield
+  off when she channels... Calen (red dragon) helps;
+  whelps: spit pools - the spit's Twilight Essence orbs
+  picked up by assigned players (they buff then kill -
+  trade off); slicers: two beams fixate - kite apart so
+  beams never cross the raid; twilight orbs chase.
+  AI RULE: beams and orbs are kited, never held.
+  (Heroic script on this core: unverified.)
+
+THRONE OF THE FOUR WINDS (map 754)
+15. CONCLAVE OF WIND (3 platforms, jump by wind):
+  PLATFORM RULE (page intro): every platform must always
+  have an attackable player on it, or that djinn puts a
+  punishing debuff on the whole raid. Nezir (ice: tank
+  swap, wind chill stacks). Anshal (nature: 85422
+  Nurture summons Ravenous Creepers - kill them; 86206
+  Soothing Winds green circle HEALS his allies 20000/sec
+  and silences/pacifies players inside (page) - pull him
+  OUT of it and never stand in it yourself). Rohash
+  (wind: tornadoes dodge, Wind Blast rotates around him -
+  stay behind the turn). At full energy all three
+  ultimate together: raid gathers on Nezir's platform to
+  heal through his and avoids the other two (era call).
+  All three must die within ~60 sec of each other or
+  they revive (revive mechanic unverified here).
+  AI RULE: never leave a platform empty; three bosses,
+  one death - synchronise the last 10%.
+16. AL'AKIR: P1: squall line tornado wall has ONE gap -
+  stand in it; wind burst knocks back (stand near him,
+  run in after); ice patches on ranged. P2: acid rain
+  stacks (heal race), stormlings killed near him (they
+  debuff him when dying close - feedback). P3 (25%):
+  flight: group stacks above/below as called (lightning
+  rods on players - spread vertically), clouds close in
+  from top/bottom - move to the open band.
+  AI RULE: P1 stand in the gap; P3 fly the band.
+
+TRASH NOTES (entries unverified): BWD: dwarven packs,
+drakeadon pairs (tank apart); BoT: cultist packs -
+interrupt/spellsteal; T4W: djinn packs by platform.
+
+END OF STEP 10. Next step is 11_Cataclysm_B.txt.

@@ -41,7 +41,8 @@ LEGS|no rare mail leg in the window - heirloom, a green, or nothing
 FEET|Caverndeep Trudgers|9510|32|27|Gnomeregan zone drop|RNG V
 FEET|Highlander's Padded Greaves|20093|33|28|AB, Alliance, Hun/Sham|SOLO V
 FEET|Defiler's Chain Greaves|20157|33|28|AB, Horde, Hun/Sham|SOLO V
-RING 1|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
+RING 1|none legal - 13097 Thunderbrow Ring is 29/24, below the 26-29
+     floor: OUT (Gear Audit 2). It was listed here as a row in error.
 RING 2|ring, of the Monkey|-|unv.|29|green drop|SOLO
 TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO
 TRINKET 2|Insignia of the Alliance/Horde|unv.|unv.|honour vendor|SOLO

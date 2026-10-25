@@ -1,0 +1,238 @@
+TACTICS - MISTS OF PANDARIA B (OLD RAIDS STEP 13)
+Throne of Thunder, Siege of Orgrimmar.
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Spell ids unverified unless stated as page-read;
+creature entries and coordinates unverified throughout.
+Map ids: Throne of Thunder 1098, Siege of Orgrimmar
+1136 (verify on server).
+
+THRONE OF THUNDER (map 1098)
+1. JIN'ROKH: throw tank swap (Static Wound); Focused
+  Lightning orbs fixate players - carry them to a grate
+  OUT of water; conductive water pools: fight him in a
+  pool for +damage, but Lightning Storm = everyone OUT
+  of water and spread. AI RULE: water is damage you
+  borrow - storm means leave it dry.
+2. HORRIDON: gates: adds pour per tribe gate; interrupt
+  dinomancer casts (heals boss - I), kill adds by gate
+  call; Jalak joins at end (kill fast, then boss takes
+  +damage). Direhorn spirit fixates a player (kite,
+  knockback slows it). Tank swap on Triple Puncture.
+  AI RULE: the add gate is the boss - boss DPS happens
+  between waves.
+3. COUNCIL OF ELDERS: kill order by empowerment: the
+  empowered elder (dark power) must die... rotation:
+  damage switches to whoever is empowered (Gara'jal
+  possesses them): Kazra'jin (reflect damage during
+  overload - stop), Sul (sand traps - stack out of
+  quicksand, adds), Malakk (tank swap frost stacks),
+  Mar'li (adds interrupt, spirits add waves).
+  AI RULE: hit the possessed one; reflected casts mean
+  hands off Kazra'jin.
+4. TORTOs: shell spin: whirl turtles - kick a turtle
+  (after it dies, aim it) INTO him to interrupt Fury
+  and knock him; bats: tank kites them (they heal him
+  if they hit players... they drain - kill at range);
+  crystal shell shields (player shield mechanic).
+  Rocks fall circles. AI RULE: turtles are ammunition
+  after death - save a corpse for the Fury cast.
+5. MEGAERA: heads: kill one head at a time (never the
+  same colour twice in a row if avoidable - rampage
+  every 2 heads: stack/heal); the living heads NOT in
+  melee range breathe/use from behind: green poison
+  bombs (spread), red flame beam (run out of line),
+  blue frost beam kited. Poison pools grow.
+  AI RULE: two heads die, everyone stacks - the cycle
+  is arithmetic, plan it.
+6. JI-KUN: nests: flyers use feathers to reach nests
+  (kill eggs/juveniles before hatch), feed young: the
+  flying group intercepts feed (pool buff); down teams
+  tank adds; Quills raid-wide (heal), talon rake swaps.
+  AI RULE: nests on a clock outrank boss DPS - the sky
+  team is a rotation, not volunteers.
+7. DURUMU: colourblind beams: red/yellow/blue beams on
+  3 players reveal matching adds (beam players sweep
+  their cones over the room to find crimson/amber/azure
+  adds - kill revealed adds before beams end); light
+  phase then maze: Disintegration Beam carves a path;
+  maze phase: run the opening path in the eye sore
+  maze (follow the safe lane as it opens, never ahead).
+  AI RULE: the maze opens in front of you only - walk
+  the gap, never guess a shortcut.
+8. PRIMORDIUS: living fluid blobs run to him (kill/
+  slow); dead blobs leave pools: stand in pools to gain
+  mutation stacks (good mutations buff; at 10 stacks
+  transformed), avoid bad mutation pools by call; he
+  evolves every X blobs absorbed (hardens).
+  AI RULE: his food is your buff - blobs die away from
+  him, pools are chosen, not random.
+9. DARK ANIMUS: anima golems: small golems killed beside
+  bigger ones to transfer anima (feed the plan: wake the
+  LARGE golems in called order; if Dark Animus himself
+  fills first he wipes (Interrupting Jolt + full power);
+  anima orbs (unverified); crimson wake paths move. Tank swaps on
+  explosive slam. AI RULE: anima flows uphill by kills -
+  never kill a golem where its anima feeds the wrong
+  body.
+10. IRON QON + 3 quilen: mounts sequential: Ro'shak
+  (fire: spread, molten stacks tank swap), Quet'zal
+  (wind: tornadoes, wind storm - stack in the eye... his
+  storm throws players - stand in centre ring), Dam'ren
+  (frost: frozen spikes lines, reflect shield stops).
+  Final: all dead mounts' abilities cycle; fist smash
+  phases spread. AI RULE: each dog is a weather - dress
+  for the current one only.
+11. TWIN CONSORTS: day/night: Lu'lin (night: star chart
+  drawing - a player traces constellations (vehicle
+  drawing) to buff; cosmic barrages stars), Suen (day:
+  tears of the sun, fan of flames; she melts ice comet
+  (stand behind comet for Lu'lin's nuclear... unverified
+  cross-detail). Tank swap per phase; crane/rush adds.
+  AI RULE: one twin is fought, the other is weather -
+  switch targets on the phase call only.
+12. LEI SHEN (page-read): 4 conduits, one per quadrant;
+  he charges the conduit he stands near; if near none,
+  Discharge ramps on the raid (page) - tanks keep him
+  AT a conduit. Choose WHICH conduit levels highest:
+  in intermissions (65%/30%) he supercharges all 45
+  sec; the highest-level conduit OVERLOADS and disables
+  (normal) - so the raid stands in the quadrant whose
+  ability they want GONE (Static Shock chain / Diffusion
+  Chain spawns adds per hit / Overcharge ring stun -
+  run out through its gap / Bouncing Bolt: soak every
+  bolt circle or Unharnessed Power adds spawn - page).
+  Decapitate: the thrown axe hits the tank by distance
+  (farther = less - page) - tank cooldown + swap.
+  Stage 3: Lightning Whip marks, violent winds push
+  (run against, stay off edges), summon ball lightning.
+  AI RULE: you vote with your feet which ability he
+  loses - stand in the quadrant you want deleted.
+
+SIEGE OF ORGRIMMAR (map 1136)
+13. IMMERSEUS: split adds: sha puddles (kill, move) and
+  contaminated puddles (HEAL them full - they run to
+  him healed) - split phase repeats: each returned
+  puddle removes corruption; swirl circles.
+  AI RULE: black puddles die, blue puddles are healed -
+  wrong verb on a puddle wastes the phase.
+14. FALLEN PROTECTORS (3): shared arena: each at 66/33%
+  summons its desperate measures: Rook (adds tombstones
+  - tank spin), He (mark of anguish passed player to
+  player - pass before stacks, dark meditation bubble),
+  Sun (calamity, adds - interrupt, sha sear spread).
+  Kill synced at the end (they heal each other if one
+  dies... they must die near-together - unverified).
+  AI RULE: measures happen by %, not by call - know
+  whose 66 is next.
+15. NORUSHEN: personal corruption: players enter solo
+  trials (kill your sha self; healers/tanks their role
+  trials) to purify (then +damage to boss); outside:
+  adds (big adds tank-swap aura), cutter beams spin.
+  AI RULE: your trial is private and timed - nobody
+  can help you pass it.
+16. SHA OF PRIDE: pride bar: gaining pride from hits;
+  at 100 you become proud... manifestations spawn
+  behind players (face them / kill), rifts: a player
+  closes rifts (click) or adds stream; banishment
+  maze realm (run to your light); swollen pride burst:
+  spread by pride level (higher pride = bigger ring).
+  AI RULE: rifts closed by hand beat adds killed.
+17. GALAKRAS: tower fight: ground team kills waves and
+  protects NPCs (they open towers), tower teams climb
+  and kill mini-bosses, shoot Galakras down with the
+  turrets when towers cleared; drakes strafe (move);
+  final: tank swap flames, fire pools.
+  AI RULE: protect the demolition crew - towers are
+  the timer.
+18. IRON JUGGERNAUT: assault/siege modes: siege = spread
+  (mortars, shock pulse knockback - stand near wall),
+  mines crawl to random players (stomp them - soakers),
+  cutter laser fixates (kite out), oil pools (never
+  ignite near raid); bored drill circles.
+  AI RULE: mines are stomped by the healthy, laser is
+  walked out alone.
+19. DARK SHAMAN (2): tank apart (they share health):
+  toxic mist players run out (leave pools), foul slimes,
+  ashen wall blocks the street (reposition), falling
+  ash circles; bloodlust timer (their enrage): swap
+  tanks on froststorm strikes (elementalist) / iron
+  tomb on player (kill the tomb to free them).
+  AI RULE: two bosses, two streets - your tank group
+  stays on its own side.
+20. GENERAL NAZGRIM: stances: battle (normal), berserker
+  (+damage taken by him... he takes more - burn window
+  but generates rage), defensive (STOP attacking - rage
+  gen: hitting him builds his rage; at 100 he ravages).
+  Adds by rage spending: kill banners first, shamans
+  (interrupt heals), assassins on healers (peel).
+  AI RULE: defensive stance = hands completely off -
+  your DPS is his rage bar.
+21. MALKOROK: shield phase: players' shields absorb
+  (healing fills shields - keep shields topped, green/
+  yellow/red callouts); orbs soak (called players eat
+  orbs; never let orbs expire on the ground), breath of
+  Y'Shaarj marks zones (move, they persist); imploding
+  energy... P2 blood rage solo soak (one tank cooldowns,
+  raid spreads far).
+  AI RULE: your shield colour is your health bar -
+  call red, soak orbs on roster.
+22. SPOILS OF PANDARIA: two rooms, box opening: open
+  small boxes steady, big boxes spawn mini-bosses; kill
+  quota by timer (energy); mogu side (statues come alive
+  - tank, amber pools) / mantid side (bombs - carried
+  out, pheromones). Both rooms finish before enrage.
+  AI RULE: pace boxes to the timer - greedy opening is
+  the wipe.
+23. THOK: cage phases: he fixates a player and chases
+  (kite room-to-room; each pass through a jail door -
+  freed prisoner NPC buffs); blood frenzy when his
+  chase targets drop... at phase end he eats a prisoner
+  (chosen buff: fire/frost/poison breath added);
+  tank swap swallow (he eats tanks at stacks - cooldown).
+  AI RULE: fixated means run the long corridor - he
+  must never catch anyone before the door.
+24. SIEGECRAFTER BLACKFUSE: conveyor belt team (vehicle):
+  ride the belt, kill the weapon being built (one of
+  shredder/mines/magnet/laser/crawler by round), jump
+  pipes back; floor: sawblades fixate (kite), mines
+  (kill/CC), magnet pulls (run against), superheated
+  laser lines; shredder add: tank, kill with sawblade
+  positioning (sawblade positioning - belt
+  choice is counter-pick). AI RULE: the belt decides
+  what the floor suffers - kill the called weapon.
+25. PARAGONS OF THE KLAXXI (9, 3 active): each death
+  empowers survivors and a new one lands: kill target
+  gains a power from the Corpse... each arrival: choose
+  who gains whose ability. Notable: amber on a player
+  (run out), parasite (do NOT kill hungry parasite adds
+  - they... unverified: avoid killing parasites or they
+  heal him), fiery lines between players (spread/move),
+  aim: player marked - line up others OUT of the arrow.
+  AI RULE: the kill order is a build order - the raid
+  leader's sequence is the strategy.
+26. GARROSH (page-read): P1: adds stream (warbringers,
+  farseer wolf riders - interrupt Greater Healing Wave
+  and Chain Lightning, page), siege engineers: kill at
+  least one per wave or its Iron Star rolls (it kills
+  adds for you too - stand clear of its lane; exploding
+  star damage fades with distance - page). Desecrated
+  Weapon: kill the weapon to shrink its ground.
+  Intermissions at 10% heals: Realm of Y'Shaarj (temple
+  scenes): kill sha adds, then interrupt Consume
+  break his shield, survive Annihilate behind remaining
+  sha bubbles (unverified), stop him gaining energy.
+  P2: Touch of Y'Shaarj MC - DPS the player free and
+  interrupt them (page); Whirling Corruption: run far
+  (distance reduces it); at 25 energy empowered: minions
+  spawn - kill them SPREAD OUT (they empower each
+  other if close - page). P3 (second 10%): all
+  empowered, bombardment, desperate burn.
+  AI RULE: engineers first, stars are lanes, and every
+  empowered minion dies alone.
+
+TRASH NOTES (entries unverified): ToT: bridge snails
+(one-shot graze - never melee the snail), mogu packs;
+SoO: vale sha packs, Orgrimmar street packs with
+shaman interrupts.
+
+END OF STEP 13. Next step is 14_Warlords_of_Draenor.txt.
