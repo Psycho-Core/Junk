@@ -1,0 +1,14 @@
+Audit 14 - Tactics_Warlords_of_Draenor.txt
+Main file lists no spell ids (all marked
+unverified). Checked page-captured WoD ids
+against 8.3.7 (dataEnv=11) tooltips:
+163663 Blackfuse Company 9000: not found
+164125 Creeping Moss: Entity not found
+165223 Burning Infusion: Entity not found
+143916 Eradicate (cross-ref): not found
+Result: 0 pass / 0 corrected / 4 ids absent.
+File's unverified-id stance is correct for
+8.3.7; wiki mechanics/values retained.
+Open items already flagged in file: Gruul
+(BRF) and Archimonde (HFC) entries are
+structural/unverified - verify on-server.
