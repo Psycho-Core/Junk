@@ -1,0 +1,852 @@
+BURNING CRUSADE (B) - TACTICS (BFA 8.3.7 build 35662)
+Raids covered: Serpentshrine Cavern (25), Tempest
+Keep (25), Hyjal Summit (25), Black Temple (25),
+Sunwell Plateau (25)
+Map ids: unverified in this pass for all five raids.
+Coordinates (x, y, z): unverified for every spawn.
+Creature entries: NONE verified this pass - all
+entries are unverified; fill from this core's DB.
+Sources: warcraft.wiki.gg boss pages read for this
+file. Spell ids are given only where the page links
+the spell; everything else is "id unverified". A
+level 120 in 8.3.7 will outgear the era numbers
+below; the mechanics (portals, cores, beams, cubes,
+dragon orbs) are what a companion must still obey.
+
+====================================================
+SERPENTSHRINE CAVERN
+====================================================
+1. HYDROSS THE UNSTABLE
+PHASES: One boss, two forms. Pure (frost) on pull;
+crossing the boundary line switches him to Venom
+(nature) form and back. Each switch resets threat
+and spawns 4 elemental adds matching the new form.
+TANK: Tank at the boundary; drag him across only
+when the mark stack forces a switch (era: about 4
+stacks / 60 sec; damage taken rises to +100%).
+Stop DoTs near a switch so adds are clean.
+GROUP: Stack for heals in each form phase; kill the
+4 spawned elementals before returning to the boss.
+GROUND: Water Tomb / form pools - id unverified.
+ADD ORDER: P1 the 4 adds of the new form on every
+switch (entries unverified). No do-not-kill adds.
+AI RULE: never let the mark stack past the switch
+call; adds first after every crossing.
+ABILITY LIST (ids unverified): Mark of Hydross /
+Mark of Corruption (stacking, form-specific);
+Vile Sludge; Water Tomb. I: none verified.
+D: unverified.
+
+2. THE LURKER BELOW
+PHASES: P1 surfaced. At about 2 min he submerges
+for 60 sec (adds only), then resurfaces; repeat.
+TANK: Face him away; Whirl knocks back within 5 yd.
+GROUP: Spout starts at the tank and rotates over
+360 degrees - everyone jumps into the water to
+dodge it. Geyser: 2500-3500 Frost + 10-yd knockback,
+spread out. Submerged: kill/banish the 9 adds.
+GROUND: none verified.
+ADD ORDER: P1 Coilfang Ambushers (2 per platform,
+3 platforms) + Coilfang Guardians (3, centre) -
+entries unverified; CC is allowed, do not let an
+Ambusher evade (despawn/respawn risk).
+AI RULE: jump in the water on Spout, every time.
+ABILITY LIST (ids unverified): Spout; Whirl;
+Geyser; Submerge. I: none verified. D: unverified.
+
+3. LEOTHERAS THE BLIND
+PHASES: P1 elf form (Whirlwind chases a fixated
+target). P2 demon form (Inner Demons spawn).
+Alternates until 15%, then both forms together.
+TANK: Elf form is taunt-immune. Demon form: fire-
+resistance tank (era: warlock tank) at range.
+GROUP: Whirlwind victim kites; the bleed it leaves
+is removed only by Divine Shield / Blessing of
+Protection / Ice Block. Inner Demon (about 11k HP)
+must be killed BY ITS OWNER before it finishes,
+or that player is mind-controlled.
+GROUND: Chaos Blast pools in demon form -
+id unverified.
+ADD ORDER: P1 Inner Demon of each targeted player
+(entries unverified) - each owner kills their own.
+AI RULE: your demon, your kill - before its cast
+ends, or you turn on the raid.
+ABILITY LIST (ids unverified): Whirlwind; Insidious
+Whisper (Inner Demons); Chaos Blast; Consuming
+Madness. I: unverified. D: unverified.
+
+4. FATHOM-LORD KARATHRESS
+PHASES: One phase, boss + 3 adds. Each add that
+dies gives Karathress that add's ability.
+TANK: One tank per add and one on the boss; keep
+them apart. Boss tank picks up gained abilities.
+GROUP: Interrupt Caribdis' Healing Wave (1.5-sec
+cast, heals about 100k+ - solo-heal reset risk).
+Spitfire Totem (from Tidalvess) is an instant
+ranged macro-kill.
+GROUND: Spitfire Totem zone, Tidal Surge -
+ids unverified.
+ADD ORDER: P1 Fathom-Guard Tidalvess, P2 Fathom-
+Guard Sharkkis, P3 Fathom-Guard Caribdis, P4
+Karathress (all entries unverified). Order matters:
+he inherits Spitfire Totem, The Beast Within and
+Tidal Surge as each falls.
+AI RULE: totem dies the second it appears; heals
+are interrupted, always.
+ABILITY LIST (ids unverified): Cataclysmic Bolt;
+Healing Wave (I); Spitfire Totem; The Beast Within;
+Tidal Surge. D: unverified.
+
+5. MOROGRIM TIDEWALKER
+PHASES: One phase. At 25% he begins summoning
+Watery Globules instead of Watery Graves.
+TANK: Hold him at the room edge; Earthquake pulls
+the side murloc packs - off-tanks gather them into
+the AoE zone. Tidal Wave slows attack speed
+(-400% debuff, unverified wording) - swap if needed.
+GROUP: Watery Grave (never on top threat): 4 players
+teleported to the water, burst them free / heal
+through. At 25%: kite Watery Globules away and
+burst the boss (burst damage about 6000 on reach).
+GROUND: Watery Grave splash zone - id unverified.
+ADD ORDER: P1 pulled murloc packs after each
+Earthquake (entries unverified). P2 Watery
+Globules: NEVER let them reach a player - kite,
+do not tank them in the raid.
+AI RULE: globules are kited, never soaked.
+ABILITY LIST (ids unverified): Tidal Wave;
+Earthquake; Watery Grave; Summon Watery Globule.
+I: none verified. D: unverified.
+
+6. LADY VASHJ
+PHASES: P1 (100-70%) tank and spank + Static Charge.
+P2 (70-50%) she is shielded: 4 Shield Generators
+must be disabled with Tainted Cores. P3 (50-0%)
+P1 mechanics plus Toxic Spore Bats.
+TANK: P1/P3 main tank centre. P2: Coilfang Elites
+tanking in the centre; Striders kited by a ranged
+tank (Panic Aura fears within 8 yd).
+GROUP: P2 - kill Tainted Elementals fast (they
+despawn in about 15-20 sec) and pass the Tainted
+Core to a player who disables a generator. Do NOT
+let Enchanted Elementals reach her (+5% damage
+each, stacking). P3: move out of Toxic Spores
+clouds (about 1500/sec).
+GROUND: Toxic Spores (id unverified); Static Charge
+(id unverified) - spread in P1/P3.
+ADD ORDER P2: P1 Tainted Elemental (core carrier),
+P2 Coilfang Strider (kite + DoT, never melee-tank),
+P3 Coilfang Elite, P4 Enchanted Elemental (NEVER
+let it reach Vashj - kill before contact; it is a
+kill add, the ban is on contact, not damage).
+AI RULE: cores disable generators; nothing touches
+the boss in P2.
+ABILITY LIST (ids unverified): Static Charge;
+Forked Lightning; Shock Blast; Entangle; Toxic
+Spores. I: unverified. D: unverified.
+
+SSC TRASH: pack breakdown, creature entries,
+spells, interrupt priority, dispels and kill
+order all unverified in this pass.
+
+====================================================
+TEMPEST KEEP
+====================================================
+1. AL'AR
+PHASES: P1 he rotates between platforms (about
+30 sec each, clockwise). P2 at 0% on a platform he
+is reborn at the room centre: Dive Bomb cycles.
+10-min berserk in P2 (61632 unverified attribution).
+TANK: P1 tank follows platform to platform. P2:
+Melt Armor (35410, -80% armor 60 sec) forces a
+tank swap.
+GROUP: Flame Quills (34229): get OFF the ledges,
+about 8000/sec. Ember adds explode on death
+(34341, 8750-11250, about 15 yd) - kill them away
+from the raid; each Ember death costs Al'ar 2% HP.
+Dive Bomb (35181) impact spawns 2 Embers; he uses
+Rebirth (34342) at the impact point.
+GROUND: Flame Patch - page id 52208 looks wrong-era,
+marked unverified; do not stand in fire patches.
+ADD ORDER: P1 Ember of Al'ar (entries unverified)
+away from the raid. No do-not-kill adds.
+AI RULE: ledges are lethal on Quills; embers die
+at range.
+ABILITY LIST: 34229 Flame Quills; 34341 Ember Blast
+(8750-11250 Fire, knockback; tooltip radius reads
+0 yd - scripted, range unverified); 35181 Dive Bomb
+(damage split among all targets hit);
+34342 Rebirth; 35410 Melt Armor. 61632 Berserk
+unverified. I: none. D: unverified.
+
+2. VOID REAVER
+PHASES: One phase, 10-min timer.
+TANK: Knock Away drops threat - second tank stays
+high on threat; taunt swap after each Knock Away.
+GROUP: Arcane Orb targets a random ranged player
+with NO warning (post-2.4): the explosion lands
+before the graphic - move within 1 sec of the orb
+launch, spread at range. Pounding: melee step out
+or eat it with heals ready.
+GROUND: Arcane Orb impact zone - id unverified.
+ADD ORDER: none.
+AI RULE: see an orb fly, move immediately - never
+wait for the ground graphic.
+ABILITY LIST (ids unverified): Arcane Orb;
+Pounding; Knock Away. I: none. D: none verified.
+
+3. HIGH ASTROMANCER SOLARIAN
+PHASES: P1/P2 cycle: every about 50 sec she vanishes
+and 12 Solarium Agents spawn; she returns with 2
+Solarium Priests. At 20% (P3) voidwalker form with
+a normal threat table.
+TANK: No threat table until P3 - tank picks her up
+at 20%. Agents are AoE-tanked in the centre.
+GROUP: Wrath of the Astromancer (33045): the bomb
+target RUNS OUT - explodes 5400-6600 in 10 yd plus
+fall damage; on expiry it jumps and leaves 33044
+(+50% arcane taken, stacking). Mark of Solarian
+(33023): -15 arcane resist, stacking. Priests'
+Great Heal (33387) is THE interrupt; also Holy
+Smite (25054) and Arcane Torrent (33390).
+GROUND: none verified.
+ADD ORDER: P1 Solarium Priest (interrupt heals),
+P2 Solarium Agents in the AoE pile (entries
+unverified).
+AI RULE: bomb runs out, heals are interrupted.
+ABILITY LIST: 33045 Wrath of the Astromancer;
+33044 (stacking debuff, name unverified); 33023
+Mark of Solarian (2 min, stacking unverified);
+33387 Great Heal (I - 2-sec cast confirmed);
+25054 Holy Smite; 33390 Arcane Torrent; 34322
+Psychic Scream (fear 4 sec, up to 5 targets,
+D-Magic); 39329 Void Bolt (3-sec cast, 4394-5106
+Shadow). D: Magic where noted.
+
+4. KAEL'THAS SUNSTRIDER
+PHASES: P1 four advisors, one at a time. P2 seven
+legendary weapons. P3 all advisors return together
+(3-min timer). P4 Kael'thas himself. P5 at 50%:
+Gravity Lapse cycles. Weapons despawn at 15 min;
+no hard enrage.
+TANK: Thaladred fixates (gaze) - the target kites
+him, staying over 10 yd. Sanguinar: fear (Bellowing
+Roar) - fear-break rotation. Capernian is ranged-
+tanked (Arcane Explosion if anyone is in melee).
+Telonicus: do NOT kill him while the tank carries
+his Remote Toy stun debuff - wait it out.
+GROUP: P2 loot the weapons and EQUIP them (they are
+the fight's buff). Kill order P2: Devastation
+(longbow) first, Cosmic Infuser second (interrupt
+its heals), then the rest. P4: interrupt Fireball;
+move out of Flamestrike; Phoenix every 30-40 sec -
+kill the Phoenix, then its egg (about 70k HP,
+15 sec to hatch) before it re-hatches. Pyroblast
+cycle: he shields (Shock Barrier, about 80k absorb)
+- burst the shield and interrupt the 2nd Pyroblast.
+Mind Control: CC the controlled, do not kill them.
+P5: during Gravity Lapse (30 sec) swim in the air,
+avoid Nether Vapor clouds (-10% max HP per stack),
+and break Nether Beam chains by spreading.
+GROUND: Flamestrike zone; Nether Vapor clouds -
+ids unverified.
+ADD ORDER: P3: P1 Thaladred, P2 Sanguinar, P3
+Telonicus / Capernian before the timer. P4: P1
+Phoenix, P2 Phoenix Egg. Advisors and weapons:
+entries unverified.
+AI RULE: weapons are looted and worn, eggs die
+before they hatch, controlled allies are CC'd,
+never killed.
+ABILITY LIST (ids unverified): Fireball (I);
+Flamestrike; Pyroblast (I behind shield-break);
+Shock Barrier; Mind Control; Gravity Lapse;
+Nether Beam; Bellowing Roar; Conflagration;
+Remote Toy. D: unverified.
+
+TK TRASH: pack breakdown, creature entries, spells,
+interrupt priority, dispels and kill order all
+unverified in this pass.
+
+====================================================
+HYJAL SUMMIT (Battle for Mount Hyjal)
+====================================================
+Waves precede each boss (8 waves, then the boss);
+NPC camps (Jaina, then Thrall) fight with the raid.
+Wave pack breakdown and entries: unverified.
+
+1. RAGE WINTERCHILL
+PHASES: One phase, 10-min enrage. DPS race.
+TANK: Single tank; Frost Armor slows attackers.
+GROUP: Ice Bolt (instant, random): 4250-5750 Frost
+plus a freeze with 2500 DPS - it CANNOT be dispelled;
+heal through it fast or break it (PvP trinket,
+Divine Shield, Ice Block, Blink). Death and Decay:
+20-yd ground AoE, 15% of max HP per sec for 10 sec -
+move out instantly (also keep Jaina out of it; if
+she dies the event resets). Frost Nova: about 3k
+plus 6-sec freeze, dispellable.
+GROUND: Death and Decay - id unverified.
+ADD ORDER: none (wave adds precede the pull).
+AI RULE: Death and Decay empties in one second;
+Ice Bolt targets get instant heals.
+ABILITY LIST (ids unverified): Ice Bolt (D: none -
+break effects only); Death and Decay; Frost Nova
+(D-Magic unverified); Frost Armor. I: none.
+
+2. ANETHERON
+PHASES: One phase, 10-min berserk.
+TANK: Two tanks - boss tank and Infernal tank
+(fire-resist helps). Vampiric Aura heals him for
+300% of his melee damage: keep Mortal Strike /
+Wound Poison up.
+GROUP: Carrion Swarm (every about 15 sec): cone,
+3-6k Shadow + healing done -75% for 15 sec -
+healers spread so one cone cannot catch them all.
+Sleep: 10-sec stun on 3 targets (trinket / Will of
+the Forsaken / Tremor Totem do NOT work, per page).
+Every 60 sec Inferno: a random player is stunned
+2 sec and a Towering Infernal lands on them - run
+it to the Infernal tank near Jaina.
+GROUND: Infernal Immolation (8 yd, 3-4k fire per
+2 sec) - id unverified.
+ADD ORDER: P1 Towering Infernal (entry unverified;
+immune to taunt and banish) - ranged kill it, or
+tank all of them and burn the boss (they despawn
+when he dies).
+AI RULE: infernals go to their tank, nobody stands
+in Immolation.
+ABILITY LIST (ids unverified): Carrion Swarm;
+Sleep; Vampiric Aura; Inferno; Immolation (add).
+I: none. D: unverified.
+
+3. KAZ'ROGAL
+PHASES: One phase; Mark of Kaz'rogal accelerates:
+first mark at 45 sec, each next 5 sec sooner, down
+to a 10-sec floor - a mana-burn soft enrage.
+TANK: Single tank at the Thrall camp; NPCs add DPS.
+GROUP: Mana users: when your mana is nearly gone,
+move AWAY from the raid before the mark makes you
+explode (damage scales with mana burned). Warlocks
+manage mana aggressively; non-mana classes stack
+freely. Kill him before the 10-sec mark cycle.
+GROUND: none verified.
+ADD ORDER: none (wave adds precede the pull).
+AI RULE: empty mana means run out - the explosion
+must hit nobody.
+ABILITY LIST (ids unverified): Mark of Kaz'rogal;
+Cleave; War Stomp (unverified). I: none. D: none.
+
+4. AZGALOR
+PHASES: One phase, 10-min enrage. A raid member is
+Doomed every 45 sec - deaths are scheduled, so the
+fight is survival, not a pure burn.
+TANK: Boss tank (melee 6-9k on plate, no crushes)
+plus 1-2 Doomguard tanks. Face Cleave (5 targets,
+melee +2000) away.
+GROUP: Rain of Fire (15 yd, 1619-1881 per 2 sec,
+10 sec) - move out; standing in it adds
+Unquenchable Flames (1250/sec, 5 sec). Howl of
+Azgalor: raid-wide 5-sec silence, about 15-sec CD -
+pre-HoT the tank, stop melee swings during silence.
+Ranged beyond 30 yd cannot be Rain-targeted.
+Doom: the target dies after 20 sec, no dispel -
+use the time to position, then a Lesser Doomguard
+spawns there.
+GROUND: Rain of Fire - id unverified.
+ADD ORDER: P1 Lesser Doomguard (about 145k HP;
+Thrash, Cripple -50% move/attack, Warstomp 1250 +
+2-sec stun) - entries unverified.
+AI RULE: fire first, healing second - nobody casts
+through Rain of Fire.
+ABILITY LIST (ids unverified): Rain of Fire; Howl
+of Azgalor; Cleave; Doom (D: none). I: none.
+
+5. ARCHIMONDE
+PHASES: One phase; Hand of Death (35354) kills the
+raid at 9 min or if he reaches Nordrassil. Every
+player MUST carry Tears of the Goddess (from
+Tyrande in camp) for Air Burst.
+TANK: Tank anywhere open; stance-dance / fear-break
+his Fear - a feared tank drags him toward the tree.
+GROUP: This is individual survival. Doomfire leaves
+moving fire trails - keep 15-20 yd from every trail,
+run in straight lines, never in circles. Grip of
+the Legion (curse): decurse INSTANTLY - decursers
+spread across the raid. Air Burst: at the top of
+the launch, wait about 3 sec, then use Tears of
+the Goddess (2-sec slow fall) - too late is death.
+Any player death gives him a Soul Charge, which he
+spends to kill another player - deaths chain.
+Finger of Death (32111): only if nobody is in melee
+range - never let the raid be fully out of melee.
+GROUND: Doomfire trails - id unverified.
+ADD ORDER: none.
+AI RULE: nobody dies - one death starts the chain.
+ABILITY LIST: 32111 Finger of Death; 35354 Hand
+of Death; Air Burst, Doomfire, Grip of the Legion
+(D-Curse), Fear - ids unverified. I: none.
+
+HYJAL TRASH (the 8-wave sets): pack breakdown,
+creature entries, spells, interrupt priority,
+dispels and kill order all unverified in this pass.
+
+====================================================
+BLACK TEMPLE
+====================================================
+1. HIGH WARLORD NAJ'ENTUS
+PHASES: One phase. Impaling Spine every 20 sec;
+Tidal Shield every 60 sec instead of a spine.
+TANK: Face him away (Horseshoe Swipe is frontal).
+Free spined players by looting the spine off them.
+GROUP: Spread 6 yd (Needle Spine splashes 4104-4536
+to neighbours; main hit 5202-7038). Impaling Spine:
+8122-8978 + 4950 per 3 sec, 30-sec stun until freed -
+free the target FAST and KEEP the spine (carry up
+to 5). Tidal Shield: immune + heals 1% per 2 sec
+for 30 sec; break it by THROWING a looted spine
+(25-yd range) - but only on the healer's call, when
+the raid is topped: breaking it deals 15300 Frost
+to everyone (Tidal Burst; era note: top everyone
+above the burst before the throw). Keep Wound
+Poison / healing-reduction up during the shield.
+GROUND: none.
+ADD ORDER: none. Aqueous Lords before him are a
+separate trash pull (unverified).
+AI RULE: spines are ammunition - free, loot, and
+throw only on the call.
+ABILITY LIST (ids unverified): Impaling Spine;
+Needle Spine; Tidal Shield; Tidal Burst; Horseshoe
+Swipe; Double Attack. I: none. D: none.
+
+2. SUPREMUS
+PHASES: P1 tank phase (60 sec), P2 gaze/kite phase
+(60 sec), alternating; threat wipes at each switch
+back to P1 - DoTs must end before the switch.
+TANK: P1 main tank has the HIGHEST total HP (Hateful
+Strike hits the highest-HP melee target in range);
+1-2 off-tanks stay in melee at all times. P2: no
+tank - he gazes a random player every about 10 sec
+and walks at them (about 90% run speed; one melee
+hit usually kills). Gaze target stays within about
+40 yd (beyond that he dashes at 5x speed); inside
+40 yd he may ranged-hit for about 5k + knockback.
+GROUP: Molten Flames spawn under players in both
+phases - never stand still in groups. P2 volcanoes
+erupt on random players - keep moving. Never climb
+the obstructions: he can evade-bug or teleport the
+target to his feet.
+GROUND: Molten Flames; volcanoes - ids unverified.
+ADD ORDER: none.
+AI RULE: in P2 you are either running or moving -
+never parked.
+ABILITY LIST (ids unverified): Hateful Strike;
+Molten Flames (name unverified); Gaze; Volcano.
+I: none. D: none.
+
+3. SHADE OF AKAMA
+PHASES: Stage 1: kill Ashtongue Channelers and
+Sorcerers (Chain Soul slows the Shade 30% each) so
+the Shade reaches Akama. Stage 2: kill the Shade
+before it kills Akama.
+TANK: Stage 1 tanks gather the add packs (see add
+order). Stage 2: tank the Shade on Akama's spot.
+GROUP: Spiritbinders heal: Spirit Mend, Chain Heal
+and Spirit Heal are ALL interruptible - interrupt
+rotation on them. Defenders/Spiritbinders keep
+arriving during Stage 1 - kill the 6 Channelers
+first to start Stage 2 quickly.
+GROUND: none verified.
+ADD ORDER (Stage 1): P1 Ashtongue Channeler (6),
+P2 Ashtongue Sorcerer, P3 Ashtongue Spiritbinder
+(interrupt all heals), P4 Ashtongue Defender -
+entries unverified.
+AI RULE: channelers die first; every spiritbinder
+cast is interrupted.
+ABILITY LIST (ids unverified): Chain Soul; Spirit
+Mend (I); Chain Heal (I); Spirit Heal (I); Shade
+strikes set unverified. D: unverified.
+
+4. TERON GOREFIEND
+PHASES: One phase, DPS race with a personal trial.
+TANK: Single tank holds him; nobody else special.
+GROUP: Shadow of Death: marked player dies after
+55 sec and returns as a Vengeful Spirit (ghost,
+about 60 sec) while Shadowy Constructs spawn where
+they died. ONLY the ghost can hurt the Constructs
+(they are immune to living players): ghost uses its
+bar chain to freeze/kill all 4-5 Constructs before
+they reach the raid (Atrophy stacks -5% attack and
+cast speed). Practise the ghost bar before the pull.
+Incinerate: dispel fast. Crushing Shadows targets
+take heavy shadow damage - extra heals.
+GROUND: Doom Blossom (stationary flower turrets
+shoot the raid) - id unverified; kill/ranged-out.
+ADD ORDER: P1 Shadowy Construct - GHOST ONLY;
+NEVER assign living DPS to them (immune). P2 Doom
+Blossom (entries unverified).
+AI RULE: if you die, your new job is constructs -
+nothing else matters for that minute.
+ABILITY LIST (ids unverified): Shadow of Death;
+Incinerate (D-Magic unverified); Crushing Shadows;
+Shadow Bolt set unverified. I: unverified.
+
+5. GURTOGG BLOODBOIL
+PHASES: 90-sec cycle: P1 Boiling Blood (60 sec),
+P2 Fel Rage (30 sec), repeat.
+TANK: 3 tanks rotate: Acidic Wound stacks (armor
+-3 per stack, up to 60, 1 min) force swaps.
+Bewildering Strike confuses the tank for 8 sec -
+the next tank picks him up instantly.
+GROUP: Bloodboil hits the 5 FURTHEST players
+(1040/sec, 24 sec): three pre-set groups of 5 rotate
+through the far position - nobody takes two sets in
+a row. P2 Fel Rage: ONE random player gets +250%
+HP / +15000 armor and is fixated for 30 sec - dump
+all heals into them; everyone else generates NO
+threat (Insignificance). Fel Geyser knocks back
+18 yd around the Fel Rage target - stay clear.
+Arcing Smash / Fel Arcing Smash are frontal cones.
+GROUND: none.
+ADD ORDER: none.
+AI RULE: far group soaks boils; the rage
+target gets every heal.
+ABILITY LIST (ids unverified): Bloodboil; Acidic
+Wound; Bewildering Strike; Arcing Smash; Fel Rage;
+Fel-Acid Breath; Fel Geyser; Insignificance.
+I: none. D: unverified.
+
+6. RELIQUARY OF SOULS
+PHASES: P1 Essence of Suffering. Intermission:
+Enslaved Souls. P2 Essence of Desire. Intermission.
+P3 Essence of Anger.
+TANK: P1: NO healing exists (Aura of Suffering:
+healing and regen -100%, armor -100%) - he fixates
+a new target every 5.5 sec, just survive and DPS.
+P2: warrior tank for Spirit Shock (16650-19350
+Shadow + 5-sec confuse). Interrupt Deaden (+100%
+damage taken, 10 sec) or call cooldowns. Rune
+Shield (100k absorb + interrupt immune): burn it.
+P3: NEVER taunt unless assigned - taunting triggers
+Seethe (+100% attack speed; the taunter gains
++200% threat). Face him away: Soul Scream (4725-6075
+Shadow + 4375-5625 mana burn, frontal). Spite: the
+target is immune 6 sec then takes a huge hit - heal
+them to full during the immunity.
+GROUP: P1 Soul Drain (4725-6077 + mana per 3 sec):
+dispel instantly. Intermissions: kill Enslaved
+Souls near players who need it - Soul Release
+restores 30% HP and mana in 10 yd. P2 Aura of
+Desire: damage you deal hurts you; healing +100%,
+max mana drains over time. P3 Aura of Anger ramps:
+shadow damage and your damage both climb - burn.
+GROUND: none verified.
+ADD ORDER: P1 Enslaved Soul in intermissions
+(entry unverified) - killed near the neediest
+players, never at range from everyone.
+AI RULE: dispel Soul Drain, never taunt in P3.
+ABILITY LIST (ids unverified): Aura of Suffering;
+Fixate; Frenzy; Soul Drain (D-Magic); Aura of
+Desire; Deaden (I); Spirit Shock; Rune Shield;
+Aura of Anger; Seethe; Soul Scream; Spite; Soul
+Release (add). D: Magic where noted, rest unv.
+
+7. MOTHER SHAHRAZ
+PHASES: One phase. Shadow-resistance fight in era
+(max shadow resist on everyone but the main tank).
+TANK: THREE tanks stand together in front of her:
+Saber Lash deals 76000-84000 split among up to
+3 targets - a lone tank dies. Face her away.
+GROUP: Fatal Attraction: 3 players are teleported
+and linked - they explode for 1500 Shadow per tick
+to anyone within 15 yd; the link breaks beyond
+25 yd apart - run in THREE different directions,
+fast, and call them. Beams every 30 sec (random of
+four): Sinful (6243-7257 Shadow chain), Sinister
+(3600 + knockback), Vile (3000 per 2 sec, 8 sec),
+Wicked (1000 mana burn) - all chain up to 30 players,
+so spread. Interrupting Shriek silences 3 sec in
+18 yd. Solo note from page: casters blow cooldowns
+between silences.
+GROUND: none.
+ADD ORDER: none.
+AI RULE: linked players scatter instantly - the
+explosion is friendly fire.
+ABILITY LIST (ids unverified): Fatal Attraction;
+Saber Lash; Interrupting Shriek; Sinful / Sinister
+/ Vile / Wicked Beam. I: none. D: none.
+
+8. ILLIDARI COUNCIL (4 bosses, shared HP)
+PHASES: One phase; all four share one health pool.
+Enrage timer unverified.
+TANKS: Gathios tanked AWAY from the others (his
+Devotion Aura cuts allies' damage taken 75%).
+Veras off-tanked. Malande off-tanked. Zerevor is
+MAGE-tanked at range (his Arcane Explosion, 12540-
+13860 within 10 yd, kills melee).
+GROUP: Interrupt Malande's Circle of Healing -
+THE interrupt of the fight. Gathios: he blesses one
+ally (Blessing of Protection: physical immune 15 sec;
+Blessing of Spell Warding: magic immune 15 sec) -
+stop hitting the warded target and swap. Hammer of
+Justice stuns 6 sec (D-Magic). Consecration ground:
+27000 Holy over 20 sec - move him out of it.
+Zerevor: move out of Flamestrike (5049-5751 per
+2 sec, 12 sec) and Blizzard (7875-10125 per 2 sec,
+12 sec); Dampen Magic on a boss (D-Magic: -75%
+spell damage taken) - dispel/spellsteal it.
+Veras: Vanishes 30 sec, returns with Envenom
+(7650-10350 Nature) on a random player - urgent
+heals; Deadly Poison (1800/sec, 4 sec). Malande:
+Empowered Smite (7932-8768), Divine Wrath (4500
+per 2 sec, 8 sec), Reflective Shield (absorbs
+25000, reflects half) - stop DPS into the shield.
+GROUND: Consecration; Flamestrike; Blizzard -
+ids unverified.
+ADD ORDER: shared HP - damage any reachable boss;
+priority is interrupts and dispels, not a kill
+order. NEVER melee Zerevor.
+AI RULE: Circle of Healing never lands; nobody
+hits a warded or shielded boss.
+ABILITY LIST (ids unverified): all named above;
+Circle of Healing (I). D: Magic where noted.
+
+9. ILLIDAN STORMRAGE
+PHASES: Stage 1 ground. Stage 2: he flies off and
+throws both glaives down - two Flames of Azzinoth.
+Stage 3: ground + periodic Demon Form (60 sec).
+Stage 4: The Long Hunt (adds Enrage-style pressure
+and traps; exact thresholds unverified in this pass).
+TANK: Stage 1/3/4: Shear - use active mitigation or
+lose 60% max HP for 7 sec. Draw Soul is frontal
+(8100-9900 Shadow, heals him) - face him away.
+Stage 2: two FR tanks, one per Flame of Azzinoth,
+tanked AT their glaive: if a Flame strays too far
+from its blade it enrages (Uncaged Wrath: +500%
+damage, +200% speed). Keep the two Flames apart.
+GROUP: Flame Crash leaves fire on the ground - move.
+Parasitic Shadowfiend: 5400 per 2 sec, 10 sec; when
+it leaves you it jumps to a new host - the spawned
+fiend must be killed before it reaches anyone.
+Stage 2 ranged: Dark Barrage (5400/sec, 10 sec) -
+heal through; spread for Fireball (4590-6210,
+10 yd). Demon Form: Shadow Demons stun then chase
+their target to death - kill them first; Shadow
+Blast (7800-8200, splashes 20 yd) - spread; Aura of
+Dread (1800 per 2 sec within 15 yd, shadow taken
++20% stacking) - ranged stay out. Agonizing Flames:
+7200 + 64800 over 1 min on a 5-yd cluster - spread.
+GROUND: Flame Crash blaze; Blaze (Flames, 9000 per
+3 sec within 6 yd) - ids unverified.
+ADD ORDER: P1 Flame of Azzinoth (both, evenly, at
+their glaives). P2 Shadow Demon (demon form). P3
+Parasitic Shadowfiend. Entries unverified.
+AI RULE: flames stay at their glaives, demons die
+before they reach their target.
+ABILITY LIST (ids unverified): Shear; Draw Soul;
+Flame Crash; Parasitic Shadowfiend; Fireball; Dark
+Barrage; Blaze; Flame Blast; Uncaged Wrath; Demon
+Form; Summon Shadow Demon; Shadow Blast; Flame
+Burst (5827-6773, 5 yd); Aura of Dread; Agonizing
+Flames. I: none verified. D: unverified.
+
+BT TRASH: pack breakdown (including the Reliquary
+gauntlet corridor, 15-sec respawns - run it as a
+group, no totems), creature entries, spells,
+interrupt priority, dispels and kill order all
+unverified in this pass beyond that note.
+
+====================================================
+SUNWELL PLATEAU
+====================================================
+1. KALECGOS (+ SATHROVARR THE CORRUPTOR)
+PHASES: Two realms at once. Normal realm: Kalecgos
+(dragon). Spectral realm: Sathrovarr fights Kalec
+(the NPC). Win: both subdued. Lose: Kalec dies.
+At 10% on either boss, BOTH enrage.
+TANK: One tank each realm; both bosses tauntable.
+A fixed portal rotation (3-4 groups) sends a fresh
+group down every portal.
+GROUP: Spectral Blast (every 15-25 sec): a random
+non-tank is blasted (5k arcane, 8 yd) and ported to
+the spectral realm, leaving a portal open about
+10 sec for the rotation group. Spectral Realm lasts
+60 sec, then Spectral Exhaustion bars re-entry
+60 sec. Arcane Buffet stacks (+500 arcane taken,
+40 sec) and clears on realm change - that is why
+the rotation exists. Decurse: Sathrovarr's Curse of
+Boundless Agony DOUBLES every 5 sec and JUMPS to a
+new target when dispelled, on death, or on expiry -
+decursers chain it onto the player about to take a
+portal, never let it expire free.
+GROUND: none verified.
+ADD ORDER: none. Kalec (NPC) is NEVER a kill
+target - he must be healed; if he dies, wipe.
+AI RULE: portals are taken on rotation, the curse
+is passed, never dropped.
+ABILITY LIST (ids unverified): Arcane Buffet;
+Frost Breath (attack speed -75%, 12 sec, dispellable
+type unverified); Tail Lash (1.5k + 2-sec stun);
+Wild Magic (random colour buff/debuff); Spectral
+Blast; Corrupting Strike (9k Shadow + stun + DoT);
+Curse of Boundless Agony (D-Curse). I: none.
+
+2. BRUTALLUS
+PHASES: One phase; hard DPS check, 6-min-scale
+enrage (exact timer unverified in this pass).
+TANK: Two tanks in a V formation. Meteor Slash
+hits the tank's whole side: each side soaks 3
+slashes (stacking fire damage taken), then the
+other tank TAUNTS and his side takes 3.
+GROUP: Melee at the V's point, behind him (no
+parries; parry-haste and crushing blows are OFF
+for this boss per page). Burn: the target leaves
+their group, stands alone where no slash cone can
+reach, and is healed through the DoT - spread so
+Burn never spreads. Stomp (3-tank variant avoids
+it - unverified detail).
+GROUND: Meteor Slash cone zone - id unverified.
+ADD ORDER: none.
+AI RULE: three slashes, taunt, three slashes - and
+Burn stands alone.
+ABILITY LIST (ids unverified): Meteor Slash; Burn;
+Stomp. I: none. D: none.
+
+3. FELMYST
+PHASES: Ground phase (about 60 sec), then flight
+phase, alternating; 10-min timer. Taunt-immune.
+TANK: Ground: tank her at a stage edge; frontal
+Cleave + Corrosion - nobody else in front.
+GROUP: Ground: group up for Mass Dispel - Gas Nova
+MUST be mass-dispelled immediately or the raid
+dies (even over-levelled, per page). Encapsulate:
+heal through it, keep burning. Flight: Demonic
+Vapor (twice) chases a random player for about
+10 sec leaving a lethal trail that SUMMONS
+skeletons - kite it away from the raid and never
+cross the trail (stepping in it spawns more
+skeletons). Fog of Corruption (3 breaths): a green
+cloud covers a third of the arena - anyone touched
+is mind-controlled until killed; a spotter calls
+the lane and the whole raid shifts north/south.
+Assign 3 safe zones before the pull. Threat drops
+on landing (Invisibility / Feign Death / Soulshatter).
+GROUND: Demonic Vapor trail; Fog of Corruption
+lane - ids unverified.
+ADD ORDER: P1 the Vapor skeletons (entries
+unverified) - AoE them at the assigned safe spot;
+protection paladin tank preferred.
+AI RULE: vapor is kited, fog lanes are vacated -
+MC'd allies are CC'd or killed, fast.
+ABILITY LIST (ids unverified): Gas Nova (D-Magic,
+mass dispel); Encapsulate; Corrosion; Cleave;
+Demonic Vapor; Fog of Corruption. I: none.
+
+4. EREDAR TWINS (Grand Warlock Alythess + Lady
+Sacrolash)
+PHASES: One phase; either twin Berserks at 6 min
+(26662, page-linked - attribution unverified).
+Kill Alythess first, then Sacrolash.
+TANK: Sacrolash needs TWO melee tanks up the ramp:
+Confounding Blow drops the current tank's threat,
+the second picks her up. Alythess is warlock-tanked
+at range (shadow resist); her melee applies Flame
+Touched stacking.
+GROUP: Dispel / purge / Spellsteal Pyrogenics off
+Alythess every time. Alythess' tank keeps MOVING:
+Blaze (5525-7475) leaves fire patches (2300-2700).
+Flame Sear (3-5 players, 650 per 0.5 sec, 6 sec =
+7800): HoTs. Conflagration: the target runs out -
+its explosion hurts neighbours; Shadow Nova on
+Sacrolash's side can be used to clear Flame
+Touched stacks (page tactic - high risk, call it).
+Spread for Sacrolash's Shadow Nova.
+GROUND: Blaze fire patches - id unverified.
+ADD ORDER: P1 Grand Warlock Alythess, P2 Lady
+Sacrolash (entries unverified). No adds.
+AI RULE: Pyrogenics never stays up; Alythess dies
+first.
+ABILITY LIST: 26662 Berserk (unverified); Pyrogenics
+(D-Magic by purge/spellsteal logic, unverified);
+Blaze; Flame Sear; Conflagration; Confounding Blow;
+Shadow Nova; Dark Strike - ids unverified. I: none.
+
+5. M'URU / ENTROPIUS
+PHASES: P1 M'uru (stationary) - add control + burn.
+P2 at his death he becomes Entropius (1.45M HP,
+page value): pure burn. Shared 10-min enrage (5x
+damage - a wipe).
+TANK: P1: two side tanks hold the humanoid waves;
+a protection paladin gathers Void Spawns for the
+warlock AoE group; a warrior/feral picks up Void
+Sentinels fast. P2: tank Entropius where he stands.
+GROUP: Humanoid waves (2 Shadowsword Berserkers +
+1 Shadowsword Fury Mage) enter from both sides:
+sheep one Berserker, kill Fury Mage second (names
+per page, entries unverified). Darkness spawns a
+void zone (3000 Shadow/sec) birthing Dark Fiends:
+Mass Dispel kills the Fiends (single Dispel/Purge
+for resists). P2: Negative Energy chains (about
+1885-2115, halving per jump; more targets every
+12-13 sec) - it only ramps, so burn; move out of
+Darkness voids; Singularity tosses nearby players.
+GROUND: Darkness void zones - id unverified.
+ADD ORDER P1: P1 Void Sentinel, P2 Shadowsword
+Fury Mage, P3 Shadowsword Berserker (one sheeped,
+never break early), P4 Void Spawns (AoE in packs).
+P2: P1 Dark Fiend - killed BY DISPEL, not damage.
+AI RULE: fiends are dispelled, adds die on their
+side, boss burns between waves.
+ABILITY LIST (ids unverified): Negative Energy;
+Darkness; Singularity; add spells unverified.
+I: unverified. D: Dark Fiend (dispel/purge).
+
+6. KIL'JAEDEN
+PHASES: P1 (100-85%): Soul Flayer, Legion
+Lightning and Fire Bloom (see list). P2 adds
+Shield Orbs. P3 (85%): Sinister Reflections +
+Shadow Spikes + dragon orbs. P4 (55%): Armageddon.
+P5 (25%): Sacrifice of Anveena (+25% Holy taken,
+5-sec stun on him), all 4 orbs up, Darkness every
+about 25 sec. Finish each phase before the 3rd
+Darkness of that phase or no dragon shield remains.
+TANK: Main tank holds him centre; reflection tanks
+pick up each set of 4 Sinister Reflections (they
+copy the target's class, melee about 2k on plate,
+not CC-able at all - but interruptible since 2.4.3).
+GROUP: Dragon orbs: when Kalecgos empowers an orb,
+an assigned player clicks it and becomes the blue
+dragon: Breath: Haste for the raid and Shield of
+the Blue against Darkness of a Thousand Souls
+(47500-52500 to everyone, 8-sec channel warning -
+the whole raid stacks in the shield). Fire Bloom
+(5 players, 1619-1881 per 2 sec in 10 yd, 20 sec):
+spread. Legion Lightning (2-sec cast): 3007-3493
+chaining to 4 more + 1500 mana drained - cannot be
+outranged (50 yd jumps). Shadow Spikes (28-sec
+channel): spikes chase positions and explode
+5100-6900 in 8 yd + healing -50% for 10 sec - keep
+moving. Flame Darts every 3 sec in P3+ punish
+clumping without Haste breath (500 splash + -50%
+speed). Armageddon: meteor marks burn about 8 sec
+(standing in the mark is safe) then 10000 impact -
+vacate the marks. Shield Orbs (20k HP) orbit him
+shooting Shadow Bolts - ranged kill them on spawn
+(1 per summon in P2, 2 in P3, 3 in P4+).
+GROUND: Armageddon marks; Shadow Spike impacts -
+ids unverified.
+ADD ORDER: P1 Shield Orb, P2 Sinister Reflection
+x4 (never CC - tank and kill; interrupt their
+casts). Entries unverified.
+AI RULE: Darkness means everyone inside the blue
+shield - no exceptions, ever.
+ABILITY LIST (ids unverified): Legion Lightning;
+Fire Bloom (D: none - immunities only); Sinister
+Reflection; Shadow Spike; Flame Dart Explosion;
+Darkness of a Thousand Souls; Armageddon; Sacrifice
+of Anveena. I: reflections only. D: none verified.
+
+SUNWELL TRASH: pack breakdown, creature entries,
+spells, interrupt priority, dispels and kill order
+all unverified in this pass.
+
+END OF STEP 7 - all five raids written in this file.
