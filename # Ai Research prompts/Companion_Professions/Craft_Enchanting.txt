@@ -1,0 +1,876 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - ENCHANTING CRAFTING FOR A SERVER-SIDE COMPANION
+===========================================================================================
+
+Scope: how a computer-controlled character (no client) levels Enchanting on a
+TrinityCore-based 8.3.7 server. Every id below was read from a source this
+week; anything without a readable source says "unverified" instead of a guess.
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+---------------------------------------------------
+Base spell Enchanting 7411 (instant): Effect1 = Trade Skill, Effect2 =
+Learn Skill (Enchanting, skill=333, value 1); wowhead infobox "Training cost:
+10"; text "Allows an enchanter to enchant basic items. Requires Dusts and
+Essences found by disenchanting magic items"; "Taught by (47)" list was not
+rendered; the spell page's Source column shows "Trainer" for 7411. The same
+page's "Other ranks (9)" table: 158716 (1), 195096 (1), 7412 (50), 7413 (125),
+13920 (200), 28029 (275), 51313 (350), 74258 (425), 110400 (500) - the classic
+rank ladder (Journeyman/Expert/Artisan named on the Classic-era side: TBC-classic
+page of 7412 prints "up to a maximum potential skill of 150").
+
+8.0.1 split the profession into per-expansion lines. Learn chain (each effect
+read on wowhead this week):
+  - Classic 1-300, skill=2494: wrapper 264457 "Enchanting" (added 8.0.1, text
+    "up to a maximum potential skill of 300"): Effect1 Learn Spell 7411,
+    Effect2 Learn Spell 264455, Effect3 Learn Skill Step (2494) value 1.
+    Main 264455 (8.0.1, cap 300): Effect Learn Skill (Classic Enchanting,
+    skill=2494) value 1. No Training cost shown on either page.
+  - Outland 1-75, skill=2493: main 264460 "Outland Enchanting" (8.0.1,
+    wowdb build #27101, cap 75): Learn Skill (Outland Enchanting) value 1;
+    wrapper 264461 (8.1.0): Learn Spell 264460 + Learn Skill Step (2493).
+  - Northrend 1-75, skill=2492: main 264462 (8.0.1, cap 75): Learn Skill
+    (Northrend Enchanting); wrapper 264463 (8.1.0): Learn Spell 264462 +
+    Learn Skill Step (2492).
+  - Cataclysm 1-75, skill=2491: main 264464 (8.0.1, cap 75, quick facts
+    "Requires Enchanting (1)", "Training cost: 10"): Learn Skill (Cataclysm
+    Enchanting); wrapper 264466 (8.1.0, note main+2 because 264465 is an
+    unrelated spell "Barrel Aged"): Learn Spell 264464 + Learn Skill Step
+    (2491). wowhead "Taught by (9)" for 264464: Alanna Raveneye 3606
+    (Teldrassil), Elestrae Dawnshard 133394 (Stormwind), Gimble Thistlefuzz
+    5157 (Ironforge), Godan 3345 (Orgrimmar), Lucan Cordell 1317 (Stormwind),
+    Nahogg 16725 (Exodar), Sedana 16633 (Silvermoon), Vance Undergloom 5695
+    (Tirisfal Glades), Xylinnia Starshine 7949 (Feralas) - the old-city
+    capital trainers.
+  - Pandaria 1-75, skill=2489: main 264467 (cap 75, no Training cost shown);
+    wrapper 264468 (8.1.0): Learn Spell 264467 + Learn Skill Step (2489).
+  - Draenor 1-100, skill=2488: main 264469 (8.0.1, cap 100): Learn Skill
+    (Draenor Enchanting); wrapper 264470 (8.1.0): Learn Spell 264469 +
+    Learn Skill Step (2488); wowhead lists "Triggered by (1) Learning
+    161788" on 264470 (what 161788 is was not investigated - unverified).
+    The practical learn source is scroll item 111922 "Draenor Enchanting"
+    (section 3.6), not a trainer spell press.
+  - Legion 1-100, skill=2487: main 264471 (8.0.1, cap 100): Learn Skill
+    (Legion Enchanting); wrapper 264472 (8.1.0): Learn Spell 264471 +
+    Learn Skill Step (2487); wowhead "Reward from (1)": quest 39874
+    "Some Enchanted Evening", level 10, category Enchanting.
+  - Battle for Azeroth 1-175, skill=2486 (one line id, both factions):
+    Alliance 264473 "Kul Tiran Enchanting" (8.0.1, quick facts "Requires
+    Enchanting (1)", "Training cost: 10", cap 175, Alliance Specific Spell,
+    Taught by (2): Emily Fairweather 136041 Boralus, Instructor Okanu 153811
+    Nazjatar); Horde 265805 "Zandalari Enchanting" (added 8.1.0, quick facts
+    "Requires Enchanting (1)", "Training cost: 10", cap 175, Horde Specific,
+    Taught by (2): Enchantress Quinni 122702 Dazar'alor, Narv 154393
+    Nazjatar). Both spells' Learn Skill links point at skill=2486
+    "Kul Tiran Enchanting" (shared line; the Horde spell is Horde Specific).
+    There is no separate 8.1.0 wrapper for BfA; trainers teach these directly.
+Spell 201698 "Legion Enchanter" (Effect1 Learn Spell Enchanting, Effect2
+Learn Skill Step (333) value 10) is a boost-era helper, not part of the
+route (seen on wowhead, unused here).
+Learn-cost fields (raw, wowhead prints no currency unit): 7411 = 10,
+264464 = 10, 264473 = 10, 265805 = 10; mains/wrappers for Classic/Outland/
+Northrend/Pandaria/Draenor/Legion show no Training cost at all.
+TC side of pressing "learn": NPCHandler.cpp 97 HandleTrainerListOpcode,
+112 SendTrainerList, 130 HandleTrainerBuySpellOpcode, 145 interaction guard
+(IsInteractingWith ... PlayerInteractionType::Trainer), 155
+trainer->TeachSpell(npc, _player, packet.SpellID); Trainer.cpp 76
+Trainer::TeachSpell, 98 reputationDiscount = GetReputationPriceDiscount(npc),
+100 HasEnoughMoney check, 106 ModifyMoney(-moneyCost), 149
+Trainer::CanTeachSpell (156/165 IsPrimaryProfessionFirstRank +
+GetFreePrimaryProfessionPoints = 2-profession limit), 172 GetSpellState,
+182 "if (trainerSpell->ReqSkillLine && player->GetBaseSkillValue(
+trainerSpell->ReqSkillLine) < trainerSpell->ReqSkillRank) return
+SpellState::Unavailable" (the learn-time skill gate), 185-186 ReqAbility
+prerequisite spells, 189 level requirement block. Trainer list payload carries
+ReqSkillRank/ReqAbility to the client (Trainer.cpp 67-68).
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki.gg/wiki/Enchanting_trainers (5 chunks, read this week):
+  Eastern Kingdoms/Kalimdor (coords from the table; "Teaches only Apprentice"
+  notes preserved): Wembil Taskwidget, Kharanos, Dun Morogh [53.7, 52.2]
+  (Apprentice only); Lien Farner, Goldshire, Elwynn [42, 67] (Apprentice);
+  Jack "All-Trades" Derrington, Gilneas starting zone (Worgen-only,
+  Apprentice); Kitta Firewind, Tower of Azora, Elwynn [64.9, 70.6];
+  Lucan Cordell, The Canals, Stormwind [53, 74.3]; Gimble Thistlefuzz, The
+  Great Forge, Ironforge [60, 45.4]; Annora, Uldaman, Badlands (no coords,
+  "Will only appear when room is cleared"); Therisa Sallow, Calston Estate,
+  Tirisfal [44.5, 53] (Apprentice); Nedric Sallow, Brill, Tirisfal [61, 51]
+  (Apprentice); Saren, Falconwing Square, Eversong [49, 47] (Apprentice);
+  Magistrix Eredania, Saltheril's Haven, Eversong [38.2, 72.6]; Vance
+  Undergloom, Brill, Tirisfal [61.7, 51.6]; Lavinia Crowe, The Apothecarium,
+  Undercity [62.3, 61.6]; Sedana, Court of the Sun, Silvermoon [70, 24];
+  Valn, Azure Watch, Azuremyst [48.5, 52.2] (Apprentice); Iranis Shadebloom,
+  Dolanaar, Teldrassil [56, 52.2] (Apprentice); Alanna Raveneye, The Oracle
+  Glade, Teldrassil [36.8, 34.2]; Lissah Spellwick, Theramore, Dustwallow
+  [66.0, 49.6]; Xylinnia Starshine, Feathermoon Stronghold, Feralas
+  [46.6, 42.8]; Taladan, Craftsmen's Terrace, Darnassus [56.6, 31.6];
+  Nahogg, The Crystal Hall, Exodar [40.5, 39.2]; KTC Train-a-Tron Deluxe,
+  Bilgewater Harbor, Azshara [57, 50.5] (Journeyman only; a second KTC bot at
+  Town-In-A-Box/Sky Falls/Gallywix Docks, Lost Isles, Goblin-only,
+  Journeyman); Runda, Razor Hill, Durotar [53, 42] (Apprentice); Lalum
+  Darkmane, Bloodhoof Village, Mulgore [46.5, 57.5] (Apprentice); Hgarth,
+  Sun Rock Retreat, Stonetalon [49.2, 57.2]; Godan, Godan's Runeworks/The
+  Drag, Orgrimmar [53.4, 49.5]; Teg Dawnstrider, Middle rise, Thunder Bluff
+  [45, 38]; Wandering Isle: Whittler Dewei (Singing Pools) and Elder Oakpaw
+  (Mandori Village), Pandaren-only, Apprentice.
+  Outland: Johan Barnes, Honor Hold, Hellfire [53.7, 66.1] (Alliance);
+  Felannia, Thrallmar, Hellfire [52.3, 36.1] (Horde); Enchantress Andiala,
+  Scryer's Tier, Shattrath [55.5, 74.5] ("Not available to members of the
+  Aldor"); Enchantress Volali and High Enchanter Bardolan, Seer's Library,
+  Shattrath [43.2, 92.3] ("Not available to members of the Aldor");
+  Zurii, Aldor Rise, Shattrath [36.4, 44.0] ("Not available to members of
+  the Scryers"); Asarnan, The Stormspire, Netherstorm [44.2, 33.7].
+  Northrend: Alexis Marlowe, Valiance Keep, Borean [57.6, 71.6]; Elizabeth
+  Jackson, Valgarde, Howling Fjord [58.6, 62.8]; Eorain Dawnstrike, Warsong
+  Hold, Borean [41.2, 53.9]; Emil Autumn, Vengeance Landing, Howling Fjord
+  [78.7, 28.3]; Enchanter Nalthanis, Simply Enchanting/Magus Commerce
+  Exchange, Dalaran [39.1, 40.5]; Fael Morningsong, Argent Tournament
+  Grounds, Icecrown [73.0, 20.6].
+  Pandaria: Lai the Spellpaw, Dawn's Blossom, Jade Forest [46.8, 42.9].
+  Draenor: Bil Sparktonic, Stormshield, Ashran (Alliance, no coords on the
+  wiki); Hane'ke, Warspear, Ashran (Horde, no coords).
+  Broken Isles: Enchanter Nalthanis, Simply Enchanting, Dalaran (no coords
+  on this row; the Dalaran coordinates above come from the Northrend row -
+  the two Dalaran copies share the layout; the guide warns the Legion copy
+  will not teach Northrend recipes).
+  BfA: Emily Fairweather, Tradewinds Market, Boralus (Alliance, no coords
+  on the wiki); Enchantress Quinni, Great Seal, Dazar'alor (Horde, no
+  coords; the leveling guide and wowhead place her at the Terrace of Crafters
+  inside the Great Seal area).
+Wiki patch notes on that page: 4.0.3a (2010-11-23) "All trainer ranks were
+removed, allowing any trainer to teach any skill level"; 2.3.0 (2007-11-13)
+enchanting trainers train to Artisan 300.
+Guide-specific teacher text: Cataclysm guide - "Visit any trainer in the main
+cities of old Azeroth" (ask a guard); Northrend guide - Enchanter Nalthanis
+npc=28693 at Dalaran (Northrend), "the same NPC exists in Legion Dalaran but
+he won't teach you Northrend recipes"; Legion - trainer Enchanter Nalthanis
+npc=93531, quest giver Ildine Sorrowspear npc=93530 "right next to the
+Enchanting Trainer", recipe NPCs by zone: Jace Darkweaver 90317 (Azsuna),
+Enchantress Ilanya 107139 (Azsuna), Fallen Priestess 98675, Priestess
+Driana 98698, Kharmeera 99420 (Azsuna, guide typo prints "Asuna"), Guron
+Twaintail 98017 (Highmountain), Nalamya 98156 (Val'sharah), Tigrid the
+Charmer 98367 (Stormheim); Outland guide - Johan Barnes npc=18773 (A,
+Honor Hold) or Felannia npc=18753 (H, Thrallmar), "there are also trainers
+in Shattrath City"; MoP guide - Lai the Spellpaw npc=65127, western tower
+at Dawn's Blossom; Draenor - scroll vendors below; BfA - Enchantress Quinni
+(Terrace of Crafters, Dazar'alor) and Emily Fairweather (Tradewinds Market,
+Boralus); Nazjatar trainers Instructor Okanu 153811 (A) and Narv 154393 (H),
+wand-rank vendors Dazzerian 154652 (H) / Crafticus Mindbender 154653 (A).
+Vendors used by routes: Madame Ruby npc=19663 (Shattrath, limited-supply
+Formula: Superior Wizard Oil 22563 and Formula: Major Stamina, 5-10 minute
+respawn per guide); Vanessa Sellers npc=32514 (Northrend Dalaran, 4 Dream
+Shards each; "the version in Legion Dalaran does not sell the Northrend
+recipes"); Ildine Sorrowspear 93530 (Legion: Formula: Ley Shatter 140634,
+Enchanting Vellum 38682, Rank 2 formulas 128582/128587); Toraan the Revered
+127151 (Formula: Chaos Shatter 152658, Argussian Reach - Friendly);
+Sylvia Hartshorn 106901 (Dreamweavers; 128599 at Honored, 128601 at
+Exalted); First Arcanist Thalyssra 97140 (Nightfallen - Exalted: 128600,
+128602, 128603); Collector Kojo 134345 (Tortollan Seekers - Revered:
+162298/162301); Hoarder Jena 135804 (H) / Quartermaster Alcorn 135815 (A)
+(Revered Voldunai/Order of Embers: 162318); Provisioner Lija 135459 (H) /
+Provisioner Fray 135808 (A) (Revered Talanji's/Proudmoore: 162723);
+Leedan Gustaf 142564 (A) / Ozgrom Ragefang 142552 (H) (Mark of Honor wand
+ranks); Enchanter's Study building NPCs in the garrison (Draenor scroll,
+after "Your First Enchanting Work Order"); Bil Sparktonic 85914 (Stormshield)
+/ Hane'ke 86027 (Warspear) sell scroll 111922 (base Enchanting must be
+learned first, guide note).
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+Source for every step: the wow-professions guide named per line (full URLs in
+section 10). Counts are the guide's own; "yellow/green" notes are the
+guide's wording, so buy the printed shopping-list amounts (the guide assumes
+1 point per craft otherwise).
+
+3.1 Classic 1-300 (retail "Classic" skill bar; learn per section 1):
+Guide "Vanilla Enchanting Leveling Guide 1-300 (Midnight)" - explicitly the
+1-300 bar inside retail, not the WoW Classic client. Vellum note (any line):
+"put enchants on an Enchanting Vellum 38682 if you can't put it on your own
+armor because it's too high level"; vellums come from General Goods or
+Enchanting Supply vendors near the trainer; Blood Elf passive +5 (section 6).
+  - 1-2: 1x Runed Copper Rod item 6218 = 1x Copper Rod 6217 (Enchanting
+    supply vendor) + 1x Strange Dust 10940 + 1x Lesser Magic Essence 10938.
+  - 2-90: 105x Enchant Bracer: Minor Health spell 7418 = 105x Strange Dust
+    (yellow for the last 20 points - craft a few more).
+  - 90-100: 10x Enchant Bracer - Minor Stamina spell 7457 = 30x Strange
+    Dust (can go to 120 if dust is cheap).
+  - 100-110: 10x Greater Magic Wand item 11288 = 10x Simple Wood 4470 +
+    10x Greater Magic Essence 10939 (wood is a vendor item).
+  - 110-130: 20x Minor Stamina spell 13378 = 20x Lesser Eternal Essence
+    16202 + 40x Light Illusion Dust 16204.
+  - 130-160: 33x Enchant Bracer - Lesser Stamina spell 13501 = 66x Light
+    Illusion Dust (yellow for the last 5).
+  - 160-180: 20x Greater Health spell 13640 = 60x Light Illusion Dust.
+  - 180-220: 55x Enchant Bracer: Strength spell 13661 = 55x Light Illusion
+    Dust (yellow last 20 - may need more).
+  - 220-245: 28x Superior Health spell 13858 = 56x Rich Illusion Dust
+    156930 (yellow last 5).
+  - 245-255: 10x Enchant Boots - Agility spell 13935 = 20x Greater Eternal
+    Essence 16203.
+  - 255-260: 5x Enchant Bracer - Greater Strength spell 13939 = 10x Greater
+    Eternal Essence + 10x Rich Illusion Dust.
+  - 260-275: 15x Enchant Bracer - Greater Intellect spell 20008 = 45x
+    Greater Eternal Essence.
+  - 275-290: 15x Greater Agility spell 20012 = 45x Greater Eternal Essence
+    + 45x Rich Illusion Dust.
+  - 290-300: 10x Major Mana spell 20028 = 50x Rich Illusion Dust.
+Shopping list (guide): 1x 10938, 134x 10940, 10x 10939, 10x 4470,
+20x 16202 (or 7x Greater Eternal), 225x 16204 (or 76x Rich Illusion),
+165x 156930, 120x 16203. Total planned crafts = 337 + rod.
+Learn where: guard points to a capital trainer (guide); who exactly teaches
+wrapper 264457 on retail wowhead - see section 9 item 13.
+
+3.2 Outland 1-75 (learn from Johan Barnes 18773 / Felannia 18753, section 2):
+Shopping list (guide): 630x Arcane Dust 22445, 15x Nightmare Vine 22792,
+20x Lesser Planar Essence 22447, 25x Greater Planar Essence 22446, 5x Large
+Prismatic Shard 22449, 12x Void Crystal 22450.
+  - 1-10: 9x Lesser Assault spell 34002 = 54x Arcane Dust.
+  - 10-16: 6x Brawn spell 27899 = 36x Arcane Dust.
+  - 16-30: 16x Major Armor spell 27961 = 128x Arcane Dust (yellow 20-30;
+    Major Versatility 33990 is the fallback if dust is expensive).
+  - 30-35: 5x Major Stamina spell 34009 = 75x Arcane Dust (recipe sold by
+    Madame Ruby 19663, Shattrath; buy Formula: Superior Wizard Oil 22563
+    there too - limited supply).
+  - 35-40: 5x Armor spell 44383 = 5x Large Prismatic Shard + 20x Lesser
+    Planar Essence (see section 9 item 6 about this link).
+  - 40-50: 15x Superior Wizard Oil item 22522 = 45x Arcane Dust + 15x
+    Nightmare Vine + 15x Crystal Vial 3371 (vial from trade/alchemy supply;
+    recipe yellow on learn - 14-16 may be needed; Resilience 44383 is the
+    no-vine fallback per guide text).
+  - 50-69: 25x Major Strength spell 33995 = 300x Arcane Dust + 25x Greater
+    Planar Essence (green at the end - expect extra crafts).
+  - 69-70: 1x Void Sphere spell 28028 = 2x Void Crystal.
+  - 70-75: cheapest = Void Sphere every 2 days (10 days for 5 points, more
+    because skill-ups are not guaranteed), or ~20+ more Major Strength, or
+    5x any of: Formula 22556 Major Agility (Eredar Deathbringer, The
+    Arcatraz), Formula 28271 Precise Strikes (Cenarion Expedition - Revered),
+    Formula 22553 Potency (world drop/AH), Formula 22533 Fortitude (Coilfang
+    Oracle, The Steamvault), Formula 22555 Major Spellpower (Blade's Edge
+    mobs).
+Total planned crafts = 82 (excluding the 5-recipe 70-75 alternative) and the
+cooldown path.
+
+3.3 Northrend 1-75 (learn from Enchanter Nalthanis 28693, Dalaran NR):
+Shopping list (guide): 310x Infinite Dust 34054, 45x Greater Cosmic Essence
+34055 (+30x more GCE or 60x more Infinite Dust), 8x Dream Shard 34052,
+30x Abyss Crystal 34057.
+  - 1-15: 14x Enchant Gloves: Gatherer spell 44506 = 15x Greater Cosmic
+    Essence.
+  - 15-30: 20x Abyssal Shatter spell 69412 = 20x Abyss Crystal.
+  - 30-40: 10x Enchant Gloves - Haste spell 44484 = 120x Infinite Dust.
+  - 40-45: 5x Enchant Gloves - Precision spell 44488 = 20x Greater Cosmic
+    Essence.
+  - 45-55: 10x Enchant Chest: Greater Versatility spell 44509 = 40x Infinite
+    Dust + 40x Lesser Cosmic Essence 34056 (right-click Greater Cosmic to
+    split it down - conversion spells 44122/44123 verified on the items).
+  - 55-60: 5x Enchant Gloves: Crusher spell 60668 = 75x Infinite Dust.
+  - 60-65: 5x Enchant Cloak - Mighty Stamina spell 47672 = 75x Infinite
+    Dust + 10x Greater Cosmic Essence; Formula 44471 from Vanessa Sellers
+    32514 for 4 Dream Shards.
+  - 65-75: buy ONE of Formula: Enchant Cloak - Shadow Armor item 37349 or
+    Formula: Enchant Cloak - Wisdom (item id for Wisdom - see section 9
+    item 7), 4 Dream Shards each; then either 10x Enchant Cloak - Wisdom
+    spell 47899 = 60x Greater Cosmic Essence + 10x Abyss Crystal, or 10x
+    Shadow Armor spell 44631 = 120x Infinite Dust + 10x Abyss Crystal.
+Total planned crafts = 79 either branch (shopping totals reconcile: 310 dust
+on the Shadow Armor branch).
+
+3.4 Cataclysm 1-75 (learn from the capital trainers, section 1/2):
+Shopping list (guide): 591x Hypnotic Dust 52555, 5x Lesser Celestial
+Essence 52718, 106x Greater Celestial Essence 52719.
+  - 1-5: 4x Enchant Boots - Earthen Vitality spell 74189 = 8x Hypnotic
+    Dust (Chest Mighty Stats 74191 if essence is cheaper; yellow).
+  - 5-10: 6x Enchant Cloak - Lesser Power spell 74192 = 18x Hypnotic Dust.
+  - 10-15: 5x Enchant Gloves - Haste spell 74198 = 20x Hypnotic Dust +
+    5x Lesser Celestial Essence.
+  - 15-25: 10x Enchant Cloak - Intellect spell 74202 = 60x Hypnotic Dust
+    (Bracer Critical Strike 74201 if Lesser Celestial is cheap).
+  - 25-30: 5x Enchant Gloves - Exceptional Strength spell 74212 = 15x
+    Hypnotic Dust + 10x Greater Celestial Essence (Chest Mighty Resilience
+    74214 fallback).
+  - 30-35: 5x Enchant Boots - Major Agility spell 74213 = 20x Hypnotic
+    Dust + 10x Greater Celestial Essence.
+  - 35-40: 5x Enchant Gloves - Greater Haste spell 74220 = 25x Hypnotic
+    Dust + 10x Greater Celestial Essence.
+  - 40-45: 5x Enchant Shield - Mastery spell 74226 = 60x Hypnotic Dust.
+  - 45-55: 10x Enchant Bracer - Precision spell 74232 = 120x Hypnotic Dust
+    + 10x Greater Celestial Essence.
+  - 55-60: 5x Superior Intellect spell 74235 = 30x Hypnotic Dust + 20x
+    Greater Celestial Essence.
+  - 60-65: 5x Exceptional Versatility spell 74237 = 45x Hypnotic Dust +
+    15x Greater Celestial Essence (Bracer Greater Haste 74239 fallback).
+  - 65-75: 17x Enchant Boots - Mastery spell 74238 = 170x Hypnotic Dust +
+    51x Greater Celestial Essence (green at the end - expect more; same
+    Bracer Greater Haste fallback).
+Total planned crafts = 87; material sums reconcile exactly with the shopping
+list (591/5/106).
+
+3.5 Pandaria 1-75 (learn from Lai the Spellpaw 65127, section 2):
+Shopping list (guide): 208x Spirit Dust 74249, 76x Mysterious Essence 74250.
+  - 1-40: 44x Enchant Chest - Mighty Versatility spell 104393 = 176x
+    Spirit Dust (yellow - expect more).
+  - 40-55: 16x Enchant Boots - Greater Haste spell 104407 = 32x Spirit
+    Dust + 16x Mysterious Essence (yellow).
+  - 55-75: 20x Enchant Gloves - Superior Mastery spell 104420 = 60x
+    Mysterious Essence (Greater Protection 104401 if Ethereal Shard 74247
+    is cheap).
+Total planned crafts = 80; sums reconcile (208/76).
+
+3.6 Draenor 1-100 (scroll 111922 first):
+Learn: scroll item 111922 "Draenor Enchanting" also teaches a few basic
+recipes. Three sources (guide): (a) vendor near the Ashran trainers -
+Bil Sparktonic 85914 Stormshield (A) or Hane'ke 86027 Warspear (H); must
+already have base Enchanting from a trainer; (b) Enchanter's Study
+garrison building vendor NPC after quest "Your First Enchanting Work
+Order" (base Enchanting first); (c) while leveling: loot Enchanted Highmaul
+Bracer 115350 from Draenor mobs or Karnoth 75043 during Shadows Awaken
+quest 34019 (A) / Dorogg the Ruthless 74254 during The Butcher of
+Bladespire quest 33410 (H) - the chain rewards scroll 111922.
+Leveling (guide, one main step):
+  - 1-100: 180x Enchanted Dust spell 162948 = 180x Draenic Dust 109693
+    (green for the last 25 points - buy more; for the last slow points the
+    guide suggests Mark of the Shattered Hand spell 159236 with Temporal
+    Crystal 113588 from the AH).
+Total planned crafts = 180 (+ a few Marks at the end).
+
+3.7 Legion 1-100 (learn path in section 1; base first, then quest 39874):
+Learn: quest 39874 "Some Enchanted Evening", requires level 10, from
+Enchanter Nalthanis 93531 at Dalaran (Broken Isles); reward = wrapper 264472
+(Legion Enchanting). First recipe quest from Ildine Sorrowspear 93530.
+Quest-chain materials (guide): 54x Arkhana 124440, 15x Leylight Shard
+124441, 5x Enchanting Vellum 38682. The guide lists all 29 quests: 39874,
+39875 (buy Formula: Enchant Ring - Word of Versatility 128582 first),
+39876, 39877, 40048, 39905, 39878, 39879, 39880 (collect Highmountain
+Armor 137195 and disenchant), 39883, 39881, 39884 (Enchanted Raven Sigil
+137221 from Black Rook Hold mobs, then Disenchant them), 39889, 39882
+(Darkheart Thicket run), 39903, 40265, 39904 (Halls of Valor), 39891
+(buy R2 Word of Strength 128587 from Ildine first), 39906, 39910, 39914,
+40169 (pick up all three together), 39916 (5x Fel-Crusted Rune 137286,
+disenchant them), 40130, 39918, 39907, 39920, 39921 (clear Neltharion's
+Lair, The Stonecore and Scholomance), 39923 (loot four Arcane defenders in
+Suramar city).
+  - 6-25: disenchanting route - "19 easy skill points by Disenchanting any
+    item from the Broken Isles" (not guaranteed; 40-50 items needed).
+    Legacy Legion raids make this fast: Archmage Timear 111246 in Dalaran
+    queues the Raid Finder wings (7 Emerald Nightmare + 3 Nighthold bosses,
+    5 items each = 50 items in 20-30 minutes solo), which also yields ~50
+    Chaos Crystal 124442 for later.
+  - Enchanting Shuffle (guide): every Legion recipe is craftable from skill
+    1; Chaos Shatter spell 252106 = 1x Chaos Crystal 124442 -> 2x Leylight
+    Shard 124441; Ley Shatter spell 224199 = 1x Leylight Shard -> 3x
+    Arkhana 124440; Formula: Ley Shatter 140634 sold by Ildine; Formula:
+    Chaos Shatter 152658 sold by Toraan the Revered 127151 at Argussian
+    Reach - Friendly.
+  - 25-70: 55x Chaos Shatter = 55x Chaos Crystal (yellow last 10 - a few
+    more); alternatives: 55x Rank 3 Word of Critical Strike 191009 / Word
+    of Haste 191010 / Word of Mastery 191011 / Word of Versatility 191012,
+    each 550x Arkhana. R2 formulas are sold by Ildine; three of the R3s
+    come from World Quests (random, every few days) unlocked by Uniting the
+    Isles quest 43341 from Archmage Khadgar 90417 (level 45, reputation
+    requirement removed); R3 Word of Versatility formula 128599 from
+    Sylvia Hartshorn 106901 at Dreamweavers - Honored.
+  - 70-100: make 30 of ONE of: R3 Binding of Critical Strike 191013 /
+    Haste 191014 / Mastery 191015 / Versatility 191016, each 30x =
+    120x Chaos Crystal + 1050x Arkhana (4x crystal + 35x Arkhana per
+    craft). R3 sources: 128600/128602/128603 from First Arcanist Thalyssra
+    97140 (The Nightfallen - Exalted), 128601 from Sylvia Hartshorn
+    (Dreamweavers - Exalted). Alternatives: R2 until done (green last 10,
+    ~50-60 crafts total), or one R2 neck recipe to 90 plus Enchanting
+    World Quests (1 point each, every 2-3 days).
+Planned crafts: 55 shatters + 30 bindings = 85, plus 19 disenchant points.
+
+3.8 Battle for Azeroth 1-175 (learn 264473/265805 from the faction trainer,
+section 1):
+Learn-side notes (guide): Kul Tiran (A) / Zandalari (H) names differ only by
+faction; Blood Elf +5 (section 6); "put the enchants on an Enchanting
+Vellum 38682 so you can sell them at the Auction House" (vendored near the
+trainer); most recipes have 3 ranks (less material, longer orange); Rank 3
+World Quests need Uniting Kul Tiras quest 51918 (A) / Uniting Zandalar 51916
+(H) first steps of the War Campaign.
+Shopping list "Normal leveling" (guide): 734x Umbra Shard 152876, 3850x
+Gloom Dust 152875, 222x Veiled Crystal 152877. Expulsom variant: 687x
+152876, 3139x 152875, 25x 152877, 87x Expulsom 152668, 12x Mark of Honor
+137642.
+  - 1-30: 40x any glove enchant that costs 5x Gloom Dust = 200x Gloom Dust.
+  - 30-35: 7x any "Seal of..." ring enchant = 84x Gloom Dust (yellow;
+    "... Hearthing" enchants with Umbra Shard are the alternative).
+  - 35-60: learn the R2 ring enchants from the trainer, then 50x "Rank 2
+    ring enchant" = 500x Gloom Dust (green at the end; R3 alts: formula
+    162298/162301 from Collector Kojo 134345 - Tortollan Seekers Revered;
+    formula 162299/162300 from Work Order World Quests 52355/52356 and
+    52360/52361 family - guide: "Work Order: Enchant Ring - Seal of
+    Haste/Mastery") then make 70x R3 ring = 560x Gloom Dust up to 85.
+  - 60-75: 30x Enchanter's Umbral Wand spell 265106 = 30x Star Wood
+    11291 (bought from the Enchanting Trainer) + 600x Gloom Dust + 30x
+    Umbra Shard; disenchant the wands to get dust back (guide).
+  - 75-85: 20x Coastal Surge spell 255103 = 100x Umbra Shard + 400x Gloom
+    Dust + 20x Veiled Crystal (yellow; any equal-cost weapon enchant works).
+  - 85-95: 17x Deadly Navigation spell 268907 = 136x Umbra Shard + 340x
+    Gloom Dust + 17x Veiled Crystal (yellow).
+  - 95-120: learn R2 weapon enchants from the trainer, then 40x Rank 2
+    Coastal Surge spell 255104 = 160x Umbra Shard + 720x Gloom Dust +
+    40x Veiled Crystal (yellow first 15). Wand alternative: R1 Honorable
+    Combatant's Sorcerous Scepter 269715 x10 (10 Star Wood, 120 Umbra, 30
+    Expulsom); with 6x Mark of Honor buy R2+R3 recipes from Leedan Gustaf
+    142564 (A) / Ozgrom Ragefang 142552 (H), R2 269719 x37 (37 Star Wood,
+    222 Umbra, 37 Expulsom), R3 stays orange longer - take it to 120 and
+    skip the step. R3 weapon formulas: Coastal Surge 162315 (Work Order
+    quests 52355 A/52360 H), Torrent of Elements 162319 (52356 A/52361 H),
+    Gale-Force Striking 162318 (Jena/Alcorn, Revered), Siphoning 162723
+    (Lija/Fray, Revered).
+  - 120-125: 7x R2 "Pact of..." ring enchant = 28x Umbra Shard + 90x Gloom
+    Dust + 35x Veiled Crystal; wand alternative: R2 Enchanter's Sorcerous
+    Scepter 265111 x5 = 5 Star Wood + 45 Umbra Shard + 10 Expulsom.
+  - 125-150: 25x Quick Navigation spell 268895 = 150x Umbra Shard + 450x
+    Gloom Dust + 25x Veiled Crystal; alternative Enchanted Tiki Mask 285644
+    x25 = 500x Gloom Dust + 50x Umbra Shard (formula 165696 drops from
+    King Rastakhan 145616 in Battle of Dazar'alor - every difficulty; the
+    guide's "100% drop" is its own 3-character anecdote) - green for the
+    last 5, switch back to Quick Navigation to finish.
+  - 150-155: Horde: visit Narv 154393 in Nazjatar (first few Nazjatar
+    intro quests required before he appears); Alliance: the Boralus
+    trainer teaches the Nazjatar recipes (guide: "for some reason...
+    probably an oversight"). Then 5x Accord of Critical Strike 298009 =
+    25x Veiled Crystal + 20x Umbra Shard + 90x Gloom Dust; wand alt: R1
+    Notorious Combatant's Sorcerous Scepter 294781 x5 = 5 Star Wood +
+    125 Gloom Dust + 35 Umbra Shard + 15 Expulsom; with 2x Mark of Honor
+    buy the R2 recipe from Dazzerian 154652 (H) / Crafticus Mindbender
+    154653 (A) at Nazjatar and craft R2 294782 x15 = 15 Star Wood +
+    345 Gloom Dust + 90 Umbra Shard + 30 Expulsom until 165 (skips the
+    next step).
+  - 155-165: 10x Force Multiplier 298440 = 60x Umbra Shard + 250x Gloom
+    Dust + 30x Veiled Crystal.
+  - 165-175: learn the R2 recipes from the trainer, then 10x Rank 2 Force
+    Multiplier 298439 = 50x Umbra Shard + 220x Gloom Dust + 30x Veiled
+    Crystal; alternative: R3 formula 169540 for 4x Mark of Honor from the
+    same Nazjatar NPCs, then 10x R3 Notorious Combatant's Sorcerous
+    Scepter 294783 = 10 Star Wood + 200 Gloom Dust + 50 Umbra Shard +
+    10 Expulsom.
+Total planned crafts (main path, no wands): 40+7+50+30+20+17+40+7+25+5+
+10+10 = 261; the guide's shopping list is the authority on material totals.
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Primary source = disenchanting. warcraft.wiki.gg/wiki/Enchanting section
+"Disenchanting": components are dusts, essences, shards, crystals;
+primarily from disenchanting, some from loot/AH/vendors; "Disenchanting
+requires a certain amount of skill to perform, depending on the level of the
+item being disenchanted, while Legendary items cannot be disenchanted".
+Drop table (wiki): Dust - mostly uncommon armor, less often uncommon
+weapons; Essence - mostly uncommon weapons, less often uncommon armor
+(3 lesser <-> 1 greater same type, both directions); Shard - usually rare
+items, rarely uncommon (3 lesser -> 1 greater, NOT back); Crystal - always
+epic, rarely rare.
+wow-professions disenchanting guide (read this week): Disenchant spell 13262
+"is a spell that you learn when you acquire Enchanting from your profession
+trainer"; it destroys the weapon/armor; results vary by type, item level,
+quality and expansion; general rules: dust/essences from uncommon gear
+(weapons skew essences), shards from rare, crystals from epic; since level
+scaling hit old zones "you can no longer sort enchanting results just based
+on item level" (wiki patch 7.3.5: materials "now based on the item's
+expansion level instead of item level").
+Verified item ids (wowhead links on that guide; probes agreed):
+  - Classic: Strange Dust 10940, Lesser Magic Essence 10938, Greater Magic
+    Essence 10939, Light Illusion Dust 16204, Lesser Eternal Essence 16202,
+    Small Brilliant Shard 14343, Rich Illusion Dust 156930, Greater Eternal
+    Essence 16203, Large Brilliant Shard 14344. Rod reagents: Copper Rod
+    6217 (vendor), Runed Copper Rod 6218; Simple Wood 4470 (vendor);
+    Greater Magic Wand product 11288.
+  - Outland: Arcane Dust 22445, Lesser Planar Essence 22447, Greater Planar
+    Essence 22446 (item Use: greater -> 3 lesser, spells 32977/32978),
+    Small Prismatic Shard 22448, Large Prismatic Shard 22449, Void Crystal
+    22450. Gathered: Nightmare Vine 22792 (herb - Herbalism 365 per
+    wowpedia/wowhead; Shadowmoon Valley, Blade's Edge, Hellfire, Isle of
+    Quel'Danas; gathering can apply the Nightmare Pollen nature-damage
+    debuff and rarely yields Fel Lotus - wowpedia); Crystal Vial 3371
+    (vendor, cost field 1-4 on wowhead).
+  - Northrend: Infinite Dust 34054, Lesser Cosmic Essence 34056, Greater
+    Cosmic Essence 34055 (Use: greater -> 3 lesser and back, spells
+    44123/44122), Small Dream Shard 34053 (Use: 3 -> 1 Dream Shard,
+    spell 61755), Dream Shard 34052, Abyss Crystal 34057.
+  - Cataclysm: Hypnotic Dust 52555, Lesser Celestial Essence 52718,
+    Greater Celestial Essence 52719, Small Heavenly Shard 52720, Heavenly
+    Shard 52721, Maelstrom Crystal 52722. Conversions printed on the
+    essence items: greater item "Turn three lesser celestial essences into
+    a greater one" (spell 74186), lesser item "Turn a greater celestial
+    essence into three lesser ones" (spell 74187).
+  - Pandaria: Spirit Dust 74249, Mysterious Essence 74250, Small Ethereal
+    Shard 74252, Ethereal Shard 74247, Sha Crystal 74248. Conversions seen
+    on the item pages: Mysterious Diffusion spell 118237 (Enchanting 535),
+    Ethereal Shatter spell 118238 (Enchanting 585), Mysterious Essence
+    craft spell 116497 (Enchanting 500), Lesser Mysterious Essence spell
+    103848.
+  - Draenor: Draenic Dust 109693, Small Luminous Shard 115502, Luminous
+    Shard 111245, Fractured Temporal Crystal 115504, Temporal Crystal
+    113588.
+  - Legion: Arkhana 124440, Leylight Shard 124441, Chaos Crystal 124442.
+  - Battle for Azeroth: Gloom Dust 152875, Umbra Shard 152876, Veiled
+    Crystal 152877; Expulsom 152668 (alt route); Mark of Honor 137642.
+  - Cross-line: Enchanting Vellum 38682 (Inscription-crafted, also sold by
+    reagent/enchanting vendors per wiki Trading section; guide: General
+    Goods/Enchanting Supply vendors near trainers, and Ildine in Legion);
+    Star Wood 11291 (Enchanting trainer vendor, BfA wand reagent).
+Conversion/shatter spells (all seen on their item pages or guide text):
+Void Shatter 45765 (Outland Enchanting 60, 2x Large Prismatic Shard from
+the item page), Abyssal Shatter 69412 (NR route, Abyss Crystal -> shards),
+Chaos Shatter 252106, Ley Shatter 224199, Veiled Shatter 290361, Umbra
+Shatter 290360 (the last three seen in the Coastal Surge reagent list on
+wowhead), Draenor Enchanted Dust 162948, Mysterious Diffusion 118237,
+Ethereal Shatter 118238.
+Companion sourcing: the shopping lists are auction-house numbers; without an
+AH a server-side character must disenchant its own drops (tailoring or
+other crafts feed it - wiki companion-professions section) or buy vendor
+stock (vials, wood, rods, vellums, formulas where gold-priced).
+
+5. TRAINER COSTS
+----------------
+Learn-spell quick-fact "Training cost" (raw value; wowhead prints no unit
+on these fields): 7411 = 10, 264464 = 10, 264473 = 10, 265805 = 10. Mains/
+wrappers 264455, 264457, 264460, 264461, 264462, 264463, 264466, 264467,
+264468, 264469, 264470, 264471, 264472 show no Training cost field at all.
+Same conflict pattern as Blacksmithing/Alchemy: the wowhead BfA guide text
+elsewhere quotes gold amounts while spell pages print the unit-less field
+(warcraft.wiki's classic row for professions prints "10 c" for the classic
+line - that c-reading is the wiki's, not wowhead's).
+TC server side: price = trainer-spell MoneyCost x
+GetReputationPriceDiscount(npc) (Trainer.cpp 98), charged at 100-106;
+SendSpells puts ReqSkillRank/ReqAbility in the list packet (Trainer.cpp
+67-68).
+Trained-recipe prices read on spell pages this week: Coastal Surge 255103
+"Training cost: 150" and detail line "Trainer: Enchantress Quinni - Zone:
+Zuldazar - Cost: 150" (unit not printed).
+Formula prices: Northrend - Vanessa Sellers charges 4 Dream Shards per
+formula (44471 Mighty Stamina and the Shadow Armor/Wisdom pair). Classic
+era: wow-professions' Classic page says "11.79 Gold to learn everything
+from Annora" (Classic-client figure, listed as context only). Legion -
+Ley Shatter formula price not printed on the guide; Chaos Shatter is
+reputation-gated (Friendly) rather than gold-quoted. BfA - Mark of Honor
+prices: 6x buys R2+R3 wand recipes from Leedan/Ozgrom (guide wording),
+2x buys the R2 Nazjatar wand recipe, 4x buys R3 formula 169540. Blizzard
+BfA trainer-formula table on wowpedia prints "Battle for Azeroth trainer
+25 g" as a source-line sample; individual gold prices for the trainer-sold
+BfA formulas were not read per recipe - unverified where needed.
+Where a price is not quoted above, treat it as unverified rather than
+assuming.
+
+6. LEVEL NEEDED
+---------------
+Character levels, per line (all read this week):
+  - Base/Classic: warcraft.wiki Enchanting_ingredients page and the Classic
+    formulas page: "can be trained as early as level 5". One commercial
+    guide's table claims Apprentice min level 1 - conflict, see section 9.
+  - Outland: warcraft.wiki Outland formulas page - "as early as level 58".
+  - Northrend: warcraft.wiki Northrend formulas page - "as early as level
+    58" (printed there; a Death Knight start explains 58 plausibly but that
+    reasoning is not sourced - treat the number as the wiki's claim).
+  - Cataclysm/Pandaria/Draenor: no character-level line was read on the
+    pages fetched - unverified.
+  - Legion: current quest 39874 requires level 10 (wowhead quest page and
+    wrapper 264472's Reward-from table: "Level 10"); wowpedia's Legion
+    formulas page still says "trained as early as level 98" (original
+    7.0 gate); the leveling guide suggests finishing the chain "at 50".
+  - Battle for Azeroth: no character-level line printed on the learn
+    spells (they only show "Requires Enchanting (1)") - character level
+    unverified; the content zones assume a leveled character but the
+    number was not read anywhere.
+  - Wowpedia's BfA formulas page header says "trained as early as level
+    TBC" - the template failed to fill in a number; unusable (flagged in
+    section 9).
+Proficiency minimums/caps, all from warcraft.wiki Enchanting training table
+plus the learn-spell texts: Classic ranks 1-75/75-150/150-225/225-300;
+TBC Master 1-75; WotLK Grand Master 1-75; Cataclysm Illustrious Grand
+Master 1-75; MoP Zen Master 1-75; Draenor Draenor Master 1-100; Legion
+Legion Master 1-100; BfA Kul Tiran/Zandalari Master "1-150" on that table
+but 175 per both learn spells and both guides (wowpedia BfA formulas page:
+"up to 175 skill (up from 150 in Patch 8.2.0)") - use 175 for 8.3.7,
+conflict logged in section 9.
+Profession-skill gates shown by wowhead on recipes: "Profession: Enchanting
+(1)" on 7418; "Profession: Battle for Azeroth Enchanting (40)" on Coastal
+Surge 255103; learn-spell quick facts "Requires Enchanting (1)" on 264464,
+264473 and 265805. Skill column per recipe (e.g. Coastal Surge R1 quick
+facts "Skill: Kul Tiran Enchanting"; R2 255104 skill ranges 105/120/135;
+R3 255105 115/130/145; 7418 quick fact "Skill: Classic Enchanting").
+TC side: trainer learn gate = GetSpellState ReqSkillLine/ReqSkillRank
+(Trainer.cpp 181-183) and level check at 189; profession-slot gate =
+IsPrimaryProfessionFirstRank + GetFreePrimaryProfessionPoints (149-166).
+There is no server-side craft-time skill check for enchant recipes: grep of
+game/Spells finds reqSkillValue only for lock-opening, gathering and
+prospecting/jewelcrafting/inscription paths; enchant-cast gating is target/
+item checks (section 7) while recipe-skill display lives in the client with
+SkillLineAbility data.
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+-----------------------------------------------
+Verified against TrinityCore master fetched this week (file/line numbers
+below are from that fetch; paths under src/server/game/):
+a) Learn press: NPCHandler.cpp 130 HandleTrainerBuySpellOpcode -> 145
+   interaction guard -> 155 trainer->TeachSpell; Trainer.cpp 76 TeachSpell
+   -> 79 CanTeachSpell -> 149 CanTeachSpell body: spell state must be
+   Available (172 GetSpellState: known check, race/class 179, skill
+   181-183, prerequisite spells 185-187, level 189-191, rank-chain logic
+   193+), free primary profession point (156/165), money at 100-106 with
+   reputation discount 98; then IsCastable -> CastSpell or LearnSpell.
+   For Enchanting this is how 7411, the 8.0.1 wrappers (264457, 264461,
+   264463, 264466, 264468, 264470, 264472), BfA 264473/265805 and every
+   trainer-taught formula enter the character.
+b) Casting an enchant recipe: SpellEffects.cpp 2463
+   EffectEnchantItemPerm (registered for effect 53 SPELL_EFFECT_ENCHANT_ITEM
+   at table line 145): needs an item target; if the target IsVellum (2476)
+   it destroys one vellum, creates the scroll via DoCreateItem
+   (effectInfo->ItemType, Trade_Skill context) and clears the item target;
+   otherwise it reads enchant_id = effectInfo->MiscValue, looks up
+   SpellItemEnchantmentEntry (2494-2498) and applies it. Reagents are taken
+   in Spell::cast before effects: Spell.cpp 3871/3876 TakeReagents()
+   (definition 5599). DoCreateItem must report inventory full (1440
+   EQUIP_ERR_INV_FULL || EQUIP_ERR_ITEM_MAX_COUNT -> SendEquipError).
+   Recipes print 2-second cast (7418, 255103) and tools "Runed Enchanting
+   Rod" (wowhead Tools field on both; wiki patch 5.0.4: "All enchantments
+   now only require Runed Copper Rod").
+c) Cast-time target checks in Spell::CheckCast (Spell.cpp):
+   - Vellum branch of SPELL_EFFECT_ENCHANT_ITEM (7664-7678): target must
+     exist with an effect ItemType; vellum must be owned by the caster
+     (7668-7670 "cannot enchant vellum for other player" ->
+     SPELL_FAILED_NOT_TRADEABLE); casting a scroll-produced item onto a
+     vellum is blocked (7671-7674, ITEM_FLAG_NO_REAGENT_COST ->
+     SPELL_FAILED_TOTEM_CATEGORY); space must exist for the scroll
+     (CanStoreNewItem).
+   - Item target required (7687 SPELL_FAILED_ITEM_NOT_FOUND).
+   - Level floor: unless SPELL_ATTR2_ALLOW_LOW_LEVEL_BUFF, the target's
+     required level (or item level if none) must reach the spell's
+     BaseLevel (7691-7697 -> SPELL_FAILED_LOWLEVEL).
+   - Level cap: when casting from an item (scroll, m_CastItem) or prismatic
+     effect, target item level above the spell's MaxLevel ->
+     SPELL_FAILED_HIGHLEVEL (7699-7701). This is what backs the printed
+     "Cannot be applied to items higher than level 120" (7418, cata
+     scrolls 52750-52753, BfA 255103 all print a level-120 cap; classic
+     example "items higher than level 136" on wowpedia's Spellpower page).
+   - On-use conflict: enchant type USE_SPELL onto an item that already has
+     an on-use -> SPELL_FAILED_ON_USE_ENCHANT (7716-7723); socket-full ->
+     SPELL_FAILED_MAX_SOCKETS (7728-7736); foreign trade-slot item with
+     soulbound enchant flag -> SPELL_FAILED_NOT_TRADEABLE (7741-7746).
+   - Temporary enchants repeat the level floor/cap (7754-7777).
+d) Skill-ups on a successful gear enchant: SpellEffects.cpp 2490-2492
+   ("// do not increase skill if vellum used" comment sits above
+   `if (!m_CastItem) player->UpdateCraftSkill(m_spellInfo);` - i.e. skill
+   is granted for direct gear casts only when not cast from an item;
+   the vellum branch at 2476-2486 makes no UpdateCraftSkill call at all).
+   UpdateCraftSkill: Player.cpp 5410, early-out SPELL_ATTR1_NO_SKILL_
+   INCREASE 5412, SkillLineAbility lookup 5419-5424, discovery branch
+   MECHANIC_DISCOVERY 5427-5431, gain = NumSkillUps x
+   CONFIG_SKILL_GAIN_CRAFTING 5433, chance via SkillGainChance over the
+   row's TrivialSkillLineRankHigh/Low then UpdateSkillPro 5435-5437.
+   Other call sites: DoCreateItem success 1469, EffectCreateItem2 loot
+   crafting 1499, disenchant 3533, and Spell.cpp 3864 for item-cast
+   skills (SPELL_ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN). Colour probabilities
+   (orange/yellow/green/grey) are the SkillLineAbility row plus
+   SkillGainChance; wiki definitions: orange always, yellow probably,
+   green probably not, grey never.
+e) Disenchant craft: spell 13262 (learned with the profession - DE guide);
+   handler table SpellEffects.cpp 191 = EffectDisEnchant for effect 99
+   SPELL_EFFECT_DISENCHANT; body 3525-3538: skill via UpdateCraftSkill
+   3533 unless cast from an item, then FillLoot on the item's
+   GetDisenchantLootId() with LootTemplates_Disenchant (LOOT_DISENCHANTING)
+   and SendLoot. CheckCast SPELL_EFFECT_DISENCHANT (Spell.cpp 7784-7804):
+   item target exists, belongs to the caster (no trade-slot DE,
+   7790-7794), GetDisenchantSkillRequired() must be present (7797) and
+   <= GetSkillValue(SKILL_ENCHANTING) (7800 -> SPELL_FAILED_CANT_BE_
+   SALVAGED_SKILL at 7801). Wiki adds: skill needed scales with the item,
+   Legendaries cannot be disenchanted, and since 7.3.5 results key off
+   expansion not item level.
+f) Learn-spell effects themselves: 8.0.1 mains use Learn Skill (line id)
+   value 1 with cap in the text; 8.1.0 wrappers use Learn Spell(main) +
+   Learn Skill Step (line id); the Classic wrapper 264457 additionally
+   learns 7411 (trade skill + skill 333) and 264455 (line 2494). The
+   server must implement Learn Spell / Learn Skill Step / Trade Skill
+   effects and the 333 skill line before any line bar can move.
+g) Recipe-level gates as printed: skill column (e.g. "Skill: Classic
+   Enchanting", "Skill: Kul Tiran Enchanting"), "Profession: ... (n)"
+   lines, "Requires Bracers" (target slot) and Tools: Runed Enchanting
+   Rod on the spell page. Client shows these; server-side the enforceable
+   pieces are the learn-time ReqSkillLine gate (a) and the cast checks
+   (c); a craft-time minimum-skill check for enchant recipes was NOT found
+   in TC's Spell.cpp/SpellInfo.cpp (grep evidence in section 6).
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+- Enchant the Blood Elf bonus into its stats: Arcane Affinity 28877 is a
+  racial Apply Aura: Mod Skill (Enchanting) value 5 (wowhead; "Enchanting
+  skill increased by 5"). A non-Blood-Elf server-side character never gets
+  the +5 orange-extension; the wiki's "+10" text (section 9 item 3) must
+  not be implemented as-is. Wowhead also lists Dracthyr Visage (races 75/76)
+  as having the spell - on a companion you still have to grant the aura
+  yourself, races considered.
+- Cross the reputation/time gates without code support: Tortollan
+  Revered (Kojo formulas), Nightfallen/Dreamweavers Exalted (R3 Bindings),
+  Dreamweavers Honored (128599), Argussian Reach Friendly (Chaos Shatter),
+  Revered Voldunai/Order of Embers/Talanji's/Proudmoore (weapon formulas),
+  limited-supply vendor respawns (Madame Ruby 5-10 minutes), World Quest
+  rotation (BfA R3 work orders; Legion WQs every 2-3 days; Uniting Kul
+  Tiras/Zandalar war-campaign prequests; Uniting the Isles 43341 at 45),
+  Void Sphere's 2-day cooldown route, and daily/lockout content - all are
+  external schedules a plain server-side script cannot pass by clicking.
+- Enter the places the routes name without teleport/instance support:
+  Annora is inside Uldaman and "only appears when room is cleared"
+  (wiki); the Legion chain needs Darkheart Thicket, Halls of Valor,
+  Neltharion's Lair, The Stonecore, Scholomance, Black Rook Hold mobs and
+  Suramar patrol loot; the Draenor scroll chain needs zone drops/quest
+  mobs; Raid Finder farming needs the queue NPC path (Archmage Timear).
+  None of these are craft actions - they are world actions.
+- Trade and auction: the guides' material lists assume Auction House
+  buying; wiki Trading says vellums enable AH sale/mail of enchants. A
+  server-side character has no AH/mail UI - it must DE its own stock or
+  hit vendor lists (section 4) - and the TC vellum path grants no skill
+  point (section 7d), so AH-style skill grinding by vellum spam does not
+  work on this core even if a UI existed.
+- Enchant other people's gear: soulbound-flag enchants on foreign items
+  fail (Spell.cpp 7746), vellums owned by others fail (7670), DE of
+  trade-slot items fails (7790-7794), scroll-to-vellum exploit fails
+  (7671). Also cannot enchant past the scroll item-level cap (7701) or
+  under the spell's BaseLevel floor (7696), and cannot add on-use enchants
+  to on-use items (7723).
+- Hold more than two primary professions: CanTeachSpell's free primary
+  profession point gate (Trainer.cpp 156) - a companion that already has
+  two professions is Unavailable for the Enchanting first-rank spells.
+- Read the client's profession UI: rank-star hover sources, red/yellow/
+  green recipe colours in the window, guard map-markers, and the
+  "disenchant loot box" picking UI (TC SendLoot the packet still needs a
+  scripted claim) are UI features; the data behind them (colours, ranks,
+  sources) must be carried server-side from the dbc/guides instead.
+- Rely on wiki "Any trainer teaches any skill level" (4.0.3a) without
+  checking: the wiki table still marks many trainers "Teaches only
+  Apprentice" (stale rows) while the patch note says ranks were removed -
+  use the patch note, and treat the Apprentice-only notes as historic.
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+1) BfA cap: warcraft.wiki training table says 1-150; both learn spells and
+   both leveling guides say 175; wowpedia: "up from 150 in Patch 8.2.0".
+   Resolved: 175 for 8.3.7 (spells + patch history win).
+2) wow-professions' BfA overview page says "maximum of 176 skill points";
+   its own BfA leveling guide says 175 and the learn spells cap at 175.
+   Resolved: 175 (the 176 is a typo, not adopted).
+3) Blood Elf bonus: wiki perks section says "+10"; spell 28877 effect
+   value 5 and every guide says +5. Resolved: 5 (spell wins).
+4) Vellum skill: wiki Trading section says applying to a vellum grants
+   "skill points as if applied to gear"; TC's EffectEnchantItemPerm vellum
+   branch makes no UpdateCraftSkill call and the gear branch comment says
+   "do not increase skill if vellum used". Both statements recorded; on
+   this core assume no skill from vellums (section 7d).
+5) Cosmic conversion counts: wowhead item texts print 3:1 both ways
+   (44122/44123); wowdb's spell 74186 entry prints "Lesser Celestial
+   Essence x 2". Adopted the printed three-to-one text; wowdb's x2
+   recorded as a stale reading.
+6) Outland guide crosslink: step 35-40 "Armor" and the no-vine fallback
+   "Resilience" both link spell 44383. Which name belongs to 44383 was
+   not resolved from the guide alone - treat one of the two names as
+   mislabelled (unverified).
+7) Northrend guide's Wisdom formula link points at item 44488 (which is
+   also its Gloves - Precision link); Shadow Armor's item 37349 looks
+   consistent. Formula: Enchant Cloak - Wisdom's item id = unverified.
+8) Legion chain ownership: guide says the first recipe quest comes from
+   Ildine and learn-quest "for Enchanter Nalthanis"; wowhead 39874 text
+   is "Speak to Ildine Sorrowspear"; wrapper 264472's Reward-from table
+   lists 39874 at level 10; a 2021 forum bug report says Nalthanis must
+   offer it. Adopted: quest 39874 from Nalthanis (level 10), objective
+   at Ildine - all three sources are cited in section 10.
+9) Legion gating levels: 10 (current wowhead), 98 (wowpedia original),
+   "start at 50" (guide author). Current content = 10; other two kept as
+   era notes.
+10) Classic apprentice level: wiki/icy-veins-style sources say level 5;
+    overgear's table says min level 1. Adopted 5; entry kept.
+11) Training-cost units: wowhead prints "Training cost: 10"/"150" with no
+    unit on enchanting pages; wiki prints "10 c" only for the classic
+    profession row; wowhead's BfA guide text quotes gold elsewhere (same
+    conflict as the Blacksmithing/Alchemy files). Raw values kept; no
+    currency invented.
+12) BfA trainer coordinates: wiki rows for Emily Fairweather and
+    Enchantress Quinni have no coordinates; guide gives subzones
+    (Tradewinds Market / Terrace of Crafters at the Great Seal). Numeric
+    coords = unverified; npc entries 136041/122702 are verified.
+13) Who teaches Classic wrapper 264457 now: the page rendered no
+    Taught-by list; the guide says ask a guard in a capital city; the
+    capital NPCs are confirmed as teachers of the Cataclysm line 264464
+    (Taught-by 9). Classic-line teacher for 264457 = unverified.
+14) Wowpedia BfA formulas header prints "trained as early as level TBC"
+    (broken template). No level adopted from it.
+15) wowpedia says Northrend enchanting "as early as level 58" - kept as
+    the wiki's claim; the reasoning behind 58 for a Wrath line was not
+    sourced.
+16) Draenor wrapper 264470 "Triggered by (1) Learning 161788" - what
+    161788 is was not read; unverified and unused.
+17) Enchanted Tiki Mask "100% drop" from King Rastakhan is the guide
+    author's 3-character anecdote; treated as a probable drop, not a
+    guarantee.
+18) Outland guide's Superior Wizard Oil step prints materials for 15
+    crafts as "45 Arcane Dust, 15 Nightmare Vine, 15 Crystal Vial" (3 per
+    craft) while shopping totals already assume 15 oils - kept as printed.
+19) Cataclysm guide's yellow-warning steps (1-5, 5-10, 15-25) and MoP's
+    yellow 1-40/40-55 steps mean the printed craft counts are floors;
+    shopping lists are the material authority, as the guides themselves
+    say.
+
+10. SOURCES
+-----------
+All fetched 2026-10-26 week; pages are not stored in the repository.
+wowhead spell pages: 7411 (base + other ranks 158716/195096/7412/7413/
+13920/28029/51313/74258/110400), 264455, 264457, 264460, 264461 (beta),
+264462, 264463, 264464 (+Taught-by 9), 264466, 264467, 264468, 264469,
+264470, 264471, 264472 (+Reward 39874), 264473 (+Taught-by 2), 265805
+(+Taught-by 2), 201698, 28877 (Arcane Affinity value 5), 7418 (Minor
+Health mechanics), 255103/255104/255105 (Coastal Surge ranks; trainer/
+zone/cost lines), 13262 (via the DE guide link).
+wowhead item pages probed for ids: 22445, 22446, 22449, 22450, 22451 (a
+Primal, not a route mat), 22452 (Primal Earth, not a route mat), 33445/
+33447 (potions, not Infinite Dust), 34052, 34053, 34054, 34055, 34056,
+34057, 52555, 52750-52754 (cata SCROLL items, not essences), 52718/52719
+(essences, via DE-guide links), 74249, 74250, 109390 (not Draenic Dust),
+3371 (Crystal Vial).
+Guide-hub search results (record id/url): [1] Classic Enchanting skill
+page https://www.wowhead.com/skill=2494/classic-enchanting; vanilla guide
+[18] https://www.wow-professions.com/guides/vanilla-enchanting-leveling;
+BfA guide [1]
+https://www.wow-professions.com/guides/zandalari-kul-tiran-bfa-enchanting-leveling-guide;
+Outland learn spell [1]
+https://www.wowhead.com/spell=264460/outland-enchanting + skill [2]
+https://www.wowhead.com/skill=2493/outland-enchanting; Northrend spell [1]
+https://www.wowhead.com/spell=264462/northrend-enchanting + skill [3]
+https://www.wowhead.com/skill=2492/northrend-enchanting; Legion spell [1]
+https://www.wowhead.com/spell=264471/legion-enchanting + skill [5]
+https://www.wowhead.com/skill=2487/legion-enchanting + quest [4]
+https://www.wowhead.com/quest=39874/some-enchanted-evening; Nightmare Vine
+[3] https://www.wowhead.com/item=22792/nightmare-vine; cata conversion
+spells [1] https://www.wowhead.com/cata/spell=74186/greater-celestial-essence
+and [3] https://www.wowhead.com/spell=74187/lesser-celestial-essence;
+wowauctions URL slug corroborating 52719 [6]
+https://www.wowauctions.net/auctionHouse/classic-eu/earthshaker-eu/greater-celestial-essence-52719.
+wow-professions guides (full slugs): vanilla-enchanting-leveling;
+outland-enchanting-leveling; northrend-enchanting-leveling;
+cataclysm-enchanting-leveling; pandaria-enchanting-leveling;
+draenor-enchanting-leveling; legion-enchanting-leveling;
+zandalari-kul-tiran-bfa-enchanting-leveling-guide; overview page
+bfa-enchanting (the 176 typo); wow-disenchanting-guide (all material ids +
+spell 13262 + scaling note); bfa-enchanting overview for the "Draenor
+Enchanting"/"Disenchanting Rod" side notes.
+warcraft.wiki.gg pages: Enchanting (training table, requirements, perks
++10 claim, companion professions, Disenchanting rules, Trading/vellum,
+patch notes 8.0.1/7.3.5/5.0.4/0.9); Enchanting_trainers (5 chunks, all
+coords above + 4.0.3a/2.3.0 patches); Outland_enchanting_formulas (level
+58 + sample rows); Northrend_enchanting_formulas (level 58 header);
+Legion_enchanting_formulas and Battle_for_Azeroth_enchanting_formulas
+(search snippets: level-98 header; "up to 175 ... 8.2.0" and "trainer
+25 g" sample line); Enchanting_ingredients (level-5 classic header; page
+marked outdated).
+wowpedia.fandom.com: Classic_enchanting_formulas (level 5, 300 cap);
+BfA_enchanting_formulas snippet ("level TBC" broken header, 175/8.2 note);
+Spellpower_(weapon_enchant) (classic "items higher than level 136" cap);
+Nightmare_Vine (herb 365, Superior Wizard Oil use, debuff, Fel Lotus);
+Enchanting_trainers redirect target (guide link).
+Icy Veins/other classic pages in search results: classic rank tables and
+Annora-in-Uldaman context (level 5/50/125/225 ladders; "11.79 gold"
+figure via wow-professions' classic page).
+TrinityCore master, fetched this week with the GitHub contents API and a
+blobless sparse clone (files under src/server/game/): Spells/Spell.cpp
+(3864, 3871/3876, 5599, 7664-7678, 7691-7701, 7716-7763, 7784-7804),
+Spells/SpellEffects.cpp (145, 191, 1440, 1469, 1499, 2463-2527, 3525-3538),
+Entities/Player/Player.cpp (5410-5437), Handlers/NPCHandler.cpp (97, 112,
+130, 145, 155), Entities/Creature/Trainer.cpp (67-68, 76, 98-106, 149,
+156, 165, 172, 181-191).
