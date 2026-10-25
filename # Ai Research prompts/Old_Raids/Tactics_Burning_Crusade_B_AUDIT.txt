@@ -1,0 +1,60 @@
+AUDIT - Tactics_Burning_Crusade_B.txt (Old Raids step 7)
+Re-checked against warcraft.wiki.gg pages fetched for
+this audit (Karathress, M'uru, Felmyst, Hydross, plus the
+Vashj/Kael'thas/Illidan/Kil'jaeden chunks from step 7).
+Result: 24 pass, 3 corrected, 3 unverified.
+
+PASS:
+ - Hydross: form switch on the line, +10%-per-mark
+   stacking, 4 elementals per switch, aggro reset on
+   switch - all page-backed as filed.
+ - Lurker Spout water rule; Leotheras own-demon rule;
+   Morogrim graves/murlocs; Vashj core relay, generator
+   count and P3 spore race (page chunks).
+ - Al'ar/Void Reaver/Solarian phase rules; Kael'thas
+   5-phase structure, weapon looting, Thaladred Gaze
+   kite (page chunks); Hyjal wave format and all five
+   boss signatures (Archimonde tears rule).
+ - Naj'entus spine/shield, Supremus fixate kite, Shade
+   of Akama channelers, Gorefiend ghost constructs,
+   Bloodboil soak rotation, Reliquary faces, Shahraz
+   attraction spread, Council interrupt priority.
+ - Illidan 65% flight, flames, demon cycles, 30% Maiev
+   (page overview); Kalecgos two-realm balance,
+   Brutallus burn isolation, Twins kill-order logic,
+   Kil'jaeden hands/orbs/Darkness structure (chunks).
+
+CORRECTED (applied with this audit):
+ 1. Karathress kill order was INVERTED: the file put the
+    healing priest first. Page order is Tidalvess
+    (shaman, most raid damage), Sharkkis (hunter), then
+    Caribdis (priest) LAST - controlled by a small
+    interrupt group the whole time. The inheritance is
+    now specific: shaman -> Spitfire Totems, hunter ->
+    The Beast Within, priest -> Tidal Surge freeze.
+ 2. Felmyst air phase was garbled: it is not a generic
+    "breath strafe". Demonic Vapor (x2) chases a marked
+    player leaving a skeleton-summoning trail - stepping
+    in it spawns MORE skeletons; then Fog of Corruption
+    x3 mind-controls anyone caught. Also filed now: she
+    is taunt-immune, and Encapsulate handling differs
+    between era guides (level-80 note: heal through).
+ 3. M'uru wave details were vague ("Sentinels + casters
+    from doors"): actually 1 Fury Mage + 2 Berserkers
+    per side every 60 sec, Void Sentinels summoned
+    separately, Darkness every 45 sec (~3000/sec,
+    unhealable) spawning 8 Dark Fiends, Negative Energy
+    beams on 4-5 random players throughout.
+
+UNVERIFIED (stand as marked):
+ - Every creature entry, coordinate and spell id in
+   this file (the fetched chunks name abilities without
+   linking ids - nothing was invented, all marked).
+ - Encapsulate handling and several era thresholds
+   (Kael'thas enrage, Vashj/Kil'jaeden phase % lines).
+ - Trash beyond the one-line notes; Hyjal NPC-camp
+   survival rules on this core.
+
+Step 8 preview note: WotLK Naxxramas overlaps step 5's
+raid in 10/25 form - the step-5 audit's warning applies
+in reverse (do not copy 40-player numbers into it).

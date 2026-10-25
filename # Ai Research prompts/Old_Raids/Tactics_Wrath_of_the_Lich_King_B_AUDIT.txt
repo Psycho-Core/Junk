@@ -1,0 +1,53 @@
+AUDIT - Tactics_Wrath_of_the_Lich_King_B.txt (STEP 9)
+Re-checked against warcraft.wiki.gg pages fetched for
+this audit (Val'kyr Twins, Halion, Lich King and
+Anub'arak structures from step 9). Result: 17 pass,
+1 corrected-with-additions, 3 unverified.
+
+PASS:
+ - Northrend Beasts three-act rules (bile cures toxin
+   by touch, Icehowl crash-stun); Jaraxxus heal-the-
+   bomb rule; Faction Champions arena framing.
+ - Anub'arak: 67856/66012/68510/67322 as filed, sphere
+   npc 34564, P3 minimal-healing rule.
+ - Onyxia-80 lanes/flanks rule.
+ - ICC set: Marrowgar spike-freeing, Deathwhisper
+   ghost rule ("walked away from, never soaked"),
+   Saurfang beast-touch rule, Festergut spore hugging,
+   Rotface ooze relay, Putricide fixate-run, Council
+   purple-prince + bomb babysitting, Lana'thel bite
+   chain, Valithria portal rotation, Sindragosa
+   backlash/gaze rules, Lich King Defile/Val'kyr/
+   Frostmourne set (15-min enrage page-verified).
+ - Ruby Sanctum miniboss rules; Halion two-realm and
+   dispel-placement structure.
+
+CORRECTED (applied with this audit):
+ 1. Val'kyr Twins had a false rule and a missing system.
+    "Wrong colour = you heal her" is wrong: nothing
+    heals a twin for being hit in the wrong colour. The
+    real system (page): absorb YOUR colour's orbs to
+    stack Powering Up; at 100 stacks Empowered gives
+    +100% damage against the OPPOSITE-colour twin;
+    opposite-colour orbs explode on contact (Unleashed
+    Dark/Light). Twin's Pact numbers added (20% heal,
+    50% heroic, 15-sec cast - interrupt after shield).
+    Also named properly: Fjola Lightbane, Eydis
+    Darkbane, shared health pool (page).
+ 2. Halion additions only (not an error): the cutter
+    beams are Shadow Cutters (page name), and two ids
+    are now verified from the page - 74524 Cleave,
+    74531 Tail Lash.
+
+UNVERIFIED (stand as marked):
+ - All other spell ids, creature entries, coordinates.
+ - Vortex colour-swap handling and corporeality switch
+   calls on this core; bite-order specifics by raid
+   size; heroic-only passing mechanics (Putricide
+   plague, Anub'arak sphere budget beyond normal).
+ - Gunship and vehicle scripting on this core at all.
+
+Overall: the leanest error count of the set so far -
+the one correction was an invented consequence ("heals
+her") attached to a real system. Invented CONSEQUENCES
+are the failure mode to grep for in steps 10-16.

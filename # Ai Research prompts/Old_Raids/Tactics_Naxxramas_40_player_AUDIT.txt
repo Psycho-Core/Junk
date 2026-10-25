@@ -1,0 +1,65 @@
+AUDIT - Tactics_Naxxramas_40_player.txt (Old Raids step 5)
+Re-checked against warcraft.wiki.gg (Classic) boss pages
+fetched for this audit. Result: 11 pass, 3 corrected,
+3 unverified.
+
+PASS:
+ - Scope note stands: the 40-player raid was removed in
+   patch 3.0.2 and every fetched page says so; the file's
+   premise (server restores it) is marked unverified.
+ - Faerlina: 28796/28794/28798 and the sacrifice-after-
+   enrage rule match the page, including Enrage being
+   +150 Physical damage (flat) for 30 min, which the file
+   already stated correctly.
+ - Anub'Rekhan 28783/28785/28786 and the kite rule.
+ - Maexxna: Spray/Wrap cadence and the pre-heal rule; the
+   ability ids were already hedged as legacy.
+ - Noth 29213 curse rule (expire = 20 nearest infected).
+ - Heigan: 135-sec cycle, zone order, platform rule.
+ - Loatheb: spore rotation, Doom timing, heal rationing.
+ - Patchwerk: Hateful Strike targets the healthiest
+   non-MT in melee - file's AI rule is the right one.
+ - Grobbulus/Gluth: kite-and-cloud and Decimate rules.
+ - Thaddius: 28135/28134/28169/28089/28084/28059/28299/
+   27680 and the 5-second twin kill; no-combat-rez rule.
+ - Sapphiron: ice-block shelter rule.
+
+CORRECTED (applied with this audit):
+ 1. Razuvious understudy count: the file contradicted
+    itself ("two... 4 in the original"). Page: FOUR
+    Deathknight Understudies. Also the ability list
+    named Jagged Knife, which belongs to the WotLK
+    version - replaced with the verified originals:
+    26613 Unbalancing Strike, 29107 Disrupting Shout
+    (LoS-only, mana-burn; healers must never be in his
+    line of sight - a rule the file lacked), 29060 Taunt,
+    29061 Shield Wall, 29051 Mind Exhaustion (the reason
+    four understudies rotate), 29125 Hopeless.
+ 2. Gothik directions were REVERSED: waves spawn on the
+    living side and souls are reborn spectral on the
+    undead side (a Rider gives a Rider AND a Horse), not
+    the other way round. P1 is a fixed 4:34; in P2 he
+    switches sides every 15-20 sec until 30%. Verified
+    kill priority (Rider > Deathknight > Trainee) and
+    28679 Harvest Soul / 29317 Shadow Bolt now replace
+    the "unverified" placeholders.
+ 3. Kel'Thuzad P3 is at 40%, not 45% (the 45% figure is
+    the WotLK version bleeding in), with FIVE Guardians
+    (max 3 shackled - he dispels shackles beyond that),
+    and Chains mind-controls the MT plus up to 4 others;
+    he is taunt-immune. All now stated from the page.
+
+UNVERIFIED (stand as marked):
+ - Every creature entry and all map/coordinate fields
+   (no list page was fetched for this raid, same as the
+   file already declares).
+ - Most trash composition outside the two page-backed
+   tips (Heigan gauntlet respawn, Patchwerk linked
+   trash).
+ - Whether this server restores the 40-player scripts
+   at all, and which numbers it uses where the Classic
+   and WotLK versions differ (see correction 3).
+
+Consistent pattern across corrections 1-3: WotLK 10/25
+mechanics leaking into the 40-player file. For the WotLK
+steps later in this set, the reverse check applies.
