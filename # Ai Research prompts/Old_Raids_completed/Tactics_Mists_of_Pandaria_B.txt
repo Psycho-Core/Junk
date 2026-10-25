@@ -2,9 +2,9 @@ Tactics: Mists of Pandaria B (Step 13)
 Raids: Throne of Thunder, Siege of Orgrimmar.
 Creature entries, map ids, coordinates
 unverified unless stated. Values are
-page-given normal unless marked. Spell ids
-from wiki wowhead links where captured;
-ids marked (unv-8.3.7) per Audit 12 pattern:
+page-given normal unless marked. Spell ids from wiki wowhead links where
+captured; Audit 13 sampled ids marked
+(unv-8.3.7):
 MoP raid ids absent from 8.3.7 tooltip DB.
 
 THRONE OF THUNDER
@@ -149,8 +149,8 @@ AI RULE: nest team never misses a nest.
 PHASES: single; Light Spectrum phases;
 Disintegration Beam maze phases.
 Abilities (wowhead ids in page): Eye Sore
-140502 pools, Mind Daggers 139107.
-Light Spectrum: 3 beam carriers (Red 133732
+140502 (unv-8.3.7) pools, Mind Daggers 139107.
+Light Spectrum: 3 beam carriers (Red 133732 (unv-8.3.7)
 Infrared, Yellow 133738 Bright, Blue 133677)
 keep cones filled (empty cone = 200000 raid)
 and sweep to REVEAL fogs: Crimson Fog in
@@ -323,8 +323,8 @@ SIEGE OF ORGRIMMAR
 PHASES: alternate boss DPS to 0 HP, then
 Split, until Corruption 100 -> 0.
 TANK: face away; swap Corrosive Blast
-143436 (+100% Shadow 45s stacking).
-GROUP: Sha Bolt 143295 at everyone - spread
+143436 (unv-8.3.7) (+100% Shadow 45s stacking).
+GROUP: Sha Bolt 143295 (unv-8.3.7) at everyone - spread
 5yd, pools form; Swirl 143309 eruptions
 dodge; never touch Seeping Sha 143286 ring.
 Split: Sha Puddles - kill before centre
@@ -408,7 +408,7 @@ Galakras down with 2 turret hits, then boss.
 Ground: protect NPCs (Fracture on leaders
 kill Bonecrushers); Tidal Shamans: interrupt
 Chain Heal (I), kill Healing Tide Totem
-108280 spell filed; Flameslingers unv.
+108280 (unv-8.3.7) spell filed; Flameslingers unv.
 Officers: Dagryn Shoot 16572/Muzzle Spray
 147824; Krugruk Arcing Smash 147688 cone;
 Thranok Crusher's Call 146769 pulls 5 then
@@ -446,7 +446,9 @@ unv) > boss.
 AI RULE: every mine gets a soaker.
 
 20. Kor'kron Dark Shaman (Haromm, Kardris)
-PHASES: shared HP (Spirit Link 98021);
+PHASES: shared HP (filed as Spirit Link 98021 =
+player Spirit Link Totem in 8.3.7; boss
+shared-HP id unverified);
 totems at 85/65/50% grant ability pairs;
 Bloodlust 71975 filed at 25% (+30%/25%).
 Split strategy typical: two tank groups
@@ -474,7 +476,7 @@ STOP DPS in Defensive Stance (ranged
 deflect frontal; only Sundering-Blow tank
 hits him) to starve Rage. Battle/Berserker
 stance DPS windows.
-TANK: swap Sundering Blow 143494 (+5-10
+TANK: swap Sundering Blow 143494 (unv-8.3.7) (+5-10
 Rage if kept); face away.
 Rage spends: Shockwave 30 (dodge Aftershock
 lines), Banner 50 (kill banner instantly),
@@ -494,7 +496,7 @@ AI RULE: no DPS in Defensive Stance.
 PHASES: Might phase / Blood Rage at 100
 Rage, repeat; 12 min Eradicate 143916.
 Healing builds Ancient Barrier (Miasma
-142861 absorbs heals into shield to 100%
+142861 (unv-8.3.7) absorbs heals into shield to 100%
 HP; shield STRONG/WEAK colour tells soak
 readiness) - healers keep shields capped.
 TANK: Fatal Strike 142990 swap (cannot be
