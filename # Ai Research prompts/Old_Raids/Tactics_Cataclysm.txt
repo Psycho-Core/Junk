@@ -13,7 +13,8 @@ Occu'thar 52363, Alizabal 55869 - page-given)
 PHASES: single; Fel Firestorm at 66% and 33%.
 Berserk 47008 at 5 min (+150% speed, +900%).
 TANK: two groups, one tank each flank, raid
-stacks on its tank. Meteor Slash (95172 25m
+stacks on its tank. Meteor Slash (95172 not in 8.3.7 DB -
+unverified there; 25m
 / 88942 10m: 475k/200k Fire split frontal,
 +100% Fire taken 20s stacking) - other tank
 taunts instantly; first retaunts as debuff
@@ -28,7 +29,8 @@ Meteor Slash debuff; dispel Darkness first.
 
 2. Occu'thar
 PHASES: single, alternates Focused Fire and
-Eyes. TANK: Searing Shadows 101007 (105000
+Eyes. TANK: Searing Shadows 101007 (not in 8.3.7 DB -
+unverified there; page 105000
 Shadow cone frontal +100% Shadow taken 30s)
 - swap before a second cast lands on the
 debuffed tank; cooldown for each cast.
@@ -206,7 +208,9 @@ breaths. Empowering Strikes 94091 grows -
 collapse resets it (unverified).
 P2 (Onyxia dead): magma floods, 3 platforms,
 Chromatic Prototype each casts Blast Nova
-80735 (I - interrupt rotation per platform);
+80735 (I - interrupt rotation per platform;
+page 34800-45200/2s vs 8.3.7 tooltip 60900-
+79100 instant - conflict flagged);
 Shadowflame Barrage 78621; Explosive Cinders
 (unverified id) - swim/jump off briefly.
 Get Nefarian to ~71% evenly; Electrocute
@@ -310,7 +314,8 @@ raise it (0-100: sickness/vomit/MC stages,
 threshold ids unverified) - avoid all sources.
 TANK: Fury of Cho'gall 86027 (30000 Shadow +
 30000 Physical, +20% both taken 45s) - swap.
-Conversion 93204 (I): worshippers channel
+Conversion 93204 (not in 8.3.7 DB -
+unverified there; I): worshippers channel
 Twisted Devotion 93206 (+10% boss damage) -
 interrupt/CC worshippers instantly.
 Flame's Orders 87579: Flaming Destruction
@@ -357,7 +362,8 @@ each stack +10% drake damage/health - tank
 and kill after eggs.
 P3: Essence of the Red 95401 (+100% haste,
 mana regen, 3 min = soft enrage); Wrack
-89421 (D-Magic): dispel bounces to 2 nearby
+89421 (D-Magic; tooltip confirms Magic,
+1 min, bounce to 2): dispel bounces to 2 nearby
 - controlled dispel rotation, damage resets;
 Twilight Slicer orbs cross room (unverified
 id) - move lanes. Burn before Essence ends.
@@ -373,8 +379,9 @@ energy). NEVER leave a platform empty:
 Withering/Chilling/Deafening Winds wipe.
 All reach 90 together -> ultimates: Anshal
 Zephyr 93119 (heals allies 25000/s +15% dmg),
-Nezir Sleet Storm 86367 (28500-31500/s split
-among his platform), Rohash Hurricane 86481
+Nezir Sleet Storm 86367 (page 28500-31500/s
+split; 8.3.7 tooltip reads 213750-236250/s
+total divided - conflict flagged), Rohash Hurricane 86481
 (2500/s airborne 15s + fall). Raid gathers
 Nezir for ultimates, splits after.
 Anshal (tank): Ravenous Creeper adds +
@@ -400,7 +407,8 @@ P1: Lightning Strike chain - stand in pairs
 thrown off; Squall Line 91110 tornado wall
 with one gap (2 walls heroic); Electrocute
 88427 if tank out of melee (safe).
-P2: Acid Rain 93281 (+500/s every 15s,
+P2: Acid Rain 93281 (not in 8.3.7 DB -
+unverified there; page +500/s every 15s,
 stacking to P3) = DPS race; Stormlings kill
 on spawn: Feedback 87904 (+10% boss damage
 taken per kill, 30s in P2 handling) - at 5-6

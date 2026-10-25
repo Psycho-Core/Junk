@@ -1,58 +1,29 @@
-AUDIT - Tactics_Cataclysm.txt (Old Raids step 10)
-Re-checked against warcraft.wiki.gg pages fetched for
-this audit (Omnotron, Chimaeron, Atramedes, Conclave).
-Result: 12 pass, 4 corrected, 3 unverified.
+AUDIT 10 (RESTART) - Tactics_Cataclysm.txt
+Method: 8.3.7 (dataEnv=11) Wowhead tooltips vs
+shipped file. Result: 2 pass, 2 conflicts
+flagged, 4 ids absent from the 8.3.7 DB.
 
-PASS:
- - Baradin Hold trio one-line rules.
- - Magmaw chain/parasite rules; Maloriak colour framing
-   and green-add rule; Halfus drake logic; Valiona/
-   Theralion hug-or-exile pair; Ascendant Council 25%
-   structure; Cho'gall corruption ladder (93189/81836/
-   82125/82170 + 47008, all page-filed at writing).
- - Nefarian: 78619/94090/94121 and crackle metronome,
-   10:30 enrage - page-filed, re-confirmed.
- - Al'Akir gap/band rules.
+PASS (tooltip-verified):
+ - 104936 Skewer: 8-sec stun, 9000-11000/2 sec,
+   +150% damage taken - file exact.
+ - 89421 Wrack: Magic type, 1-min duration,
+   bounces to two nearby allies when dispelled -
+   file exact; tooltip note added in place.
 
-CORRECTED (applied with this audit):
- 1. Omnotron shields were lumped into one fake rule
-    ("shield breaks = raid damage"). Each shield is a
-    different punishment (page): Electron 79900 answers
-    attacks with Static Shock; Magmatron 79582 explodes
-    only if BROKEN; Arcanotron's converts hits into his
-    power; Toxitron's poisons attackers - so "stop on
-    the shield" is right, the reason was invented. Also
-    fixed: Chemical Cloud (91472) is a +50% damage-taken
-    zone to tank Toxitron IN, not a vague buff pool.
- 2. Chimaeron had a broken sentence ("Caustic Slime hits
-    if above...") and a wrong endgame: at 20% the
-    Bile-o-Tron does NOT switch off - 82934 Mortality
-    cuts healing by 99% while the bot stays up (page).
-    Feud = bot OFFLINE (after Massacre), stack and heal
-    fully - now stated the right way round.
- 3. Atramedes: 100 sound is not "killed by Sonar" - it
-    triggers 78868 Devastation channelled on that
-    player. Gong use clarified from the strategy: one
-    designated hitter, on Searing Flame, resetting ALL
-    sound; 10 gongs, one use each. Verified ids added:
-    92451, 92407, 92423, 78353, 92556.
- 4. Conclave was missing the encounter's platform rule
-    (every platform needs an attackable player or the
-    djinn debuffs the raid) and had Soothing Winds
-    backwards: 86206 HEALS Anshal's allies 20000/sec
-    and silences players - pull him out, never stand
-    in it (the file implied it simply "hurts").
+CONFLICTS (flagged in file):
+ 1. 80735 Blast Nova: page 34,800-45,200 per
+    2 sec; 8.3.7 tooltip 60,900-79,100 instant.
+ 2. 86367 Sleet Storm: page 28,500-31,500/sec
+    divided; 8.3.7 tooltip reads 213,750-236,250
+    per sec total, divided among all targets.
+    Likely a size-rank difference; both printed.
 
-UNVERIFIED (stand as marked):
- - All creature entries/coordinates; most Baradin Hold,
-   Maloriak, Halfus, Sinestra spell ids.
- - Sinestra heroic scripting on this core; Halfus drake
-   set for this core's lockouts.
- - Conclave revive window (~60 sec) - filed as
-   unverified in the correction itself.
+NOT IN 8.3.7 DB (now marked unverified there):
+ 95172 Meteor Slash (25), 101007 Searing
+ Shadows, 93204 Conversion, 93281 Acid Rain.
 
-Pattern held from audit 9: no invented numbers, but two
-invented MECHANISM summaries (shield rule, green circle)
-where several distinct effects were compressed into one
-wrong sentence. Compression is the enemy in council and
-multi-unit fights - spell out per-unit differences.
+UNVERIFIED (stand): all creature entries except
+the three Baradin Hold boss entries, map ids,
+coordinates, all trash packs, Arcanotron /
+Chimaeron / Halfus spell ids as marked,
+Sinestra heroic scripting on this core.
