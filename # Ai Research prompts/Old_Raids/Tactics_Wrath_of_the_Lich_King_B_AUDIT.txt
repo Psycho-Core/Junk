@@ -1,0 +1,33 @@
+AUDIT 9 (RESTART) - Tactics_Wrath_of_the_Lich_King_B.txt
+Method: 8.3.7 (dataEnv=11) Wowhead tooltips for
+key spell ids, checked against the shipped file.
+Note: a stale audit for a different draft was in
+the folder; replaced by this audit of the ship-
+ped file. Result: 3 pass, 2 conflicts flagged,
+4 ids absent from the 8.3.7 DB.
+
+PASS (tooltip-verified):
+ - 74562 Fiery Combustion: 4000 Fire/2 sec, Mark
+   charges, dispel drops patch, curse or magic
+   removal - exact; 30-sec duration added.
+ - 71237 Curse of Torpor: Curse type, +15 sec
+   cooldowns; 15-sec duration added to file.
+ - 70337 disease type + jump mechanics match,
+   but see conflict below.
+
+CONFLICTS (flagged in file, per Audit 5 rule):
+ 1. 69055 Bone Slice: page prints 200% split;
+    8.3.7 tooltip reads 300% to target + two
+    nearest allies. File now flags both.
+ 2. 70337 Necrotic Plague: page 50,000/5 sec
+    (10) and 100,000 (25); 8.3.7 tooltip reads
+    150,000/5 sec. File flags the conflict.
+
+NOT IN 8.3.7 DB (now marked unverified there):
+ 67108 Nether Power, 68510 Penetrating Cold,
+ 72444 Mark of the Fallen Champion, 77844
+ Twilight Cutter. Page values stand as filed.
+
+UNVERIFIED (stand): all creature entries, map
+ids, coordinates, most trash, heroic variants,
+Val'kyr orb-stack numbers, Onyxia ids.
