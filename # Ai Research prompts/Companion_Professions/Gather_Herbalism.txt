@@ -1,0 +1,418 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - HERBALISM GATHERING FOR A SERVER-SIDE COMPANION
+==========================================================================================
+
+Scope: how a computer-controlled character (no client) gathers with Herbalism on a
+TrinityCore-based 8.3.7 server. Every id below was read from a source this week; where
+no readable source exists the text says "unverified" instead of guessing.
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+---------------------------------------------------
+Since 8.0.1 every expansion has its own child skill line under the base profession
+(base line 182 Herbalism, no cap of its own). The child lines and the cap each
+Herb Gathering spell gives ("Gives a potential herbalism skill of N"):
+
+  line id  child line                     cap   gather spell (added in patch)
+  2556     Classic Herbalism              300   265819 (8.0.1)
+  2555     Outland Herbalism               75   265821 (8.0.1)
+  2554     Northrend Herbalism             75   265823 (8.1.0)
+  2553     Cataclysm Herbalism             75   265825 (8.1.0)
+  2552     Pandaria Herbalism              75   265827 (8.1.0)
+  2551     Draenor Herbalism              100   265829 (8.0.1)
+  2550     Legion Herbalism               100   265834 (8.1.0)
+  2549     Kul Tiran / Zandalari Herbalism 175   265831 Alliance (8.0.1)
+                                                  265835 Horde (8.1.0)
+  182      Herbalism (base)                 -   2366 (the classic spell, learn value 1)
+
+  Sources: wowhead spell pages 265819/265821/265823/265825/265827/265829/265831/
+  265834/265835/2366 (read 2026-10-25), skill links on the same pages
+  (skill=2549/2550/.../2556); SkillLine.db2 mapping recorded in
+  BfA_8.3.7_party_features.txt 4.1 (ParentTierIndex 4 = Classic, 11 = BfA).
+
+How the profession is learned:
+  - BfA: learn spells Kul Tiran Herbalism 265833 (Alliance), Zandalari Herbalism
+    265836 (Horde) - wow-professions BfA guide, links spell=265833 / spell=265836.
+    Trainers: Declan Senal creature 136096 (Boralus, Tradewinds Market), Jahden Fla
+    creature 122704 (Dazar'alor, Terrace of Crafters); Zin'anthid rank 1 comes from
+    Instructor Ulooaka 154257 (Alliance) / Rolm 154408 (Horde) in Nazjatar after
+    the intro quests.
+  - Draenor: no trainer - item 111350 "A Compendium of the Herbs of Draenor",
+    100% drop from the first Draenor herb gathered (wow-professions WoD guide).
+  - Legion: no trainer - pick any Broken Isles herb once (wow-professions Legion guide).
+  - Northrend trainers: Kirea Moondancer 26994, Tansy Wildmane 26974, Fayin
+    Whisperleaf 26910, Marjory Kains 26958, Dorothy Egan 28704 (wow-professions).
+  - Outland trainers: Rorelien 18776, Ruak Stronghorn 18748, Botanist Alaenra
+    33639, Jijia 33678 (wow-professions + wowhead spell 265821 "Taught by").
+  - Pandaria trainers: Grower Miao 66980, Han Flowerbloom 65877, Orchard Keeper
+    Li Mei 67025 (wowhead spell 265827 "Taught by" + wow-professions).
+  - Classic and Cataclysm trainers: guided to city trainers by guard direction;
+    a creature entry list per city is unverified (no page read that gives them).
+  - The BfA per-herb ranks are technique spells, e.g. Herbalism Technique:
+    Siren's Pollen (Rank 1) spell 252440 (wowhead search 2026-10-25); the full
+    rank-1..3 list per herb is unverified.
+
+2. THE SPELL IDS THAT GATHER
+----------------------------
+  2366   Herb Gathering - 5 yd range (Interact), 2 sec cast, GCD 0, no cost.
+         Effect 1 Open Object (Herbalism) value 1275, Effect 2 Learn Skill
+         Herbalism 182 value 1. Read from the wowhead page twice: live page
+         (2026-10-25) and the web.archive capture of 2020-10-25 (8.3.7-era data,
+         /web/20201025165308/) - both say "5 yd range, 2 sec cast, Value: 1275".
+  265819, 265821, 265823, 265825, 265827, 265829, 265831, 265834, 265835
+         the 8.0.1/8.1.0 family: each 5 yd, 2 sec cast, Open Object value 1275,
+         Learn Skill on its child line (table in section 1), flag "Can be used
+         while mounted" on the pages read. Training cost 10 on the pages that
+         show one.
+  2383   Find Herbs - tracking spell (BfA_8.3.7_party_features.txt 4.1).
+  Legacy pre-8.0.1 rank spells still listed as "other ranks" under 2366:
+         2368 (50), 3570 (125), 11993 (200), 28695 (275), 50300 (350),
+         74519 (425), 110413 (500), plus 158745 and 195114. Which (if any) of
+         these still casts on an 8.3.7 core is unverified; the 2658xx family
+         plus 2366 is what the 8.0.1+ trainer system teaches.
+  A companion bot casts one of the spells above at the node gameobject; the
+  spell family is interchangeable for opening (all carry Open Object value 1275).
+
+3. HOW LONG A GATHER TAKES
+--------------------------
+  Base cast time: 2 seconds (wowhead spell 2366, 2020-10-25 capture AND live
+  page 2026-10-25; every 2658xx family page read also says "2 sec cast").
+  Range: 5 yards, interact range. Global cooldown: 0. Mana/resource cost: none.
+  Disruption: the cast can be interrupted by damage while it runs - the
+  wow-professions BfA and Legion guides both warn "mobs can still interrupt your
+  casting" and recommend Monel-Hardened Stirrups spell 253112, Coarse Leather
+  Barding item 154166, or a tank spec to avoid it.
+  Glove enchants: Enchant Gloves - Kul Tiran Herbalism item 153430, Enchant
+  Gloves - Zandalari Herbalism item 159464 (and Legion's 128558). The
+  wow-professions guides say these bring gathering time "down from 1.5 seconds
+  to 0.5 seconds"; that 1.5 conflicts with the 2-second spell data above, so the
+  guide's numbers are recorded but marked unverified - the spell pages are the
+  primary source and they say 2 seconds for 8.3.7-era data.
+  Mounted gathering: the 2020-10-25 capture of spell 2366 shows the flag "Can be
+  used while mounted", while the wow-professions BfA guide sells stirrups and the
+  Sky Golem item 95416 as things that "let you gather herbs while mounted".
+  The two sources disagree; treat baseline mounted gathering on 8.3.7 as
+  unverified and let the server test decide.
+
+4. SKILL NEEDED PER NODE (AND PER CREATURE)
+-------------------------------------------
+Colour thresholds per node (four columns): a character at or below the orange
+value gets the best skill-up odds; the node turns grey at the grey value and
+gives no more skill; the red band (below orange) is "skill too low" in the
+skill-up routine. In 8.3.7 the red band never blocks the pick itself: since
+patch 6.0.2 "most classic herb nodes are accessible to anyone even with a skill
+of 1" (warcraft.wiki.gg Herb); low-skilled picks yield petals/stems/leaves/
+brambles instead of the full herb and ten fragments combine into one herb - but
+which nodes hand out fragments is loot-table data of your server, unverified.
+
+Tables (item ids included; "-" means the source row has no threshold/no yield;
+"?" means the 2020 wiki article did not record the value). Source:
+warcraft.wiki.gg Herb revision 475343 (2020-08-16) as recorded in
+BfA_8.3.7_party_features.txt 4.4 (read 2026-10-21); the classic and Battle for
+Azeroth rows were re-read live on warcraft.wiki.gg/wiki/Herb on 2026-10-25 and
+match.
+
+4.1 Classic (Eastern Kingdoms and Kalimdor)
+  Node                Orange Yellow Green  Grey  Item id
+  Peacebloom          1      25     50     100  2447
+  Silverleaf          1      25     50     100  765
+  Bloodthistle        1      25     50     100  22710
+  Earthroot           1      40     75     115  2449
+  Mageroyal           1      75     100    150  785
+  Briarthorn          1      95     120    170  2450
+  Stranglekelp        1      110    135    185  3820
+  Bruiseweed          1      125    150    200  2453
+  Grave Moss          1      150    170    220  3369
+  Wild Steelbloom     1      140    165    215  3355
+  Kingsblood          1      155    175    225  3356
+  Liferoot            1      175    200    250  3357
+  Fadeleaf            1      175    200    250  3818
+  Goldthorn           1      195    220    270  3821
+  Khadgar's Whisker   1      185    210    260  3358
+  Dragon's Teeth      1      225    245    295  3819
+  Firebloom           1      235    255    300  4625
+  Purple Lotus        1      235    260    300  8831
+  Sungrass            1      255    280    300  8838
+  Blindweed           1      260    280    300  8839
+  Ghost Mushroom      1      270    295    300  8845
+  Gromsblood          1      275    ?      300  8846
+  Golden Sansam       1      280    ?      300  13464
+  Dreamfoil           1      295    ?      300  13463
+  Mountain Silversage 1      ?      ?      300  13465
+  Sorrowmoss          1      ?      ?      300  13466
+  Icecap              1      ?      ?      300  13467
+  Black Lotus         1      ?      ?      300  13468
+  Blacker Lotus       ?      ?      ?      ?    - (not an ordinary node; item id unverified)
+
+4.2 The Burning Crusade (all grey at 75 in the source table)
+  Felweed 22785, Dreaming Glory 22786, Ragveil 22787, Flame Cap 22788,
+  Terocone 22789, Ancient Lichen 22790, Netherbloom 22791,
+  Netherdust Bush 32468, Nightmare Vine 22792, Mana Thistle 22793 -
+  orange 1, yellow/green "?" ; Fel Lotus 22794 has no threshold row.
+
+4.3 Wrath of the Lich King (all orange 1, grey 75)
+  Goldclover 36901, Fire Leaf 39970, Tiger Lily 36904, Talandra's Rose 36907,
+  Adder's Tongue 36903, Lichbloom 36905, Icethorn 36906, Frost Lotus 36908;
+  Frozen Herb has no item id in the source, Deadnettle 37921 has no threshold row.
+
+4.4 Cataclysm (orange 1, grey 75)
+  Cinderbloom 52983, Azshara's Veil 52985, Stormvine 52984, Heartblossom 52986,
+  Whiptail 52988, Twilight Jasmine 52987.
+
+4.5 Mists of Pandaria (orange 1, grey 75)
+  Green Tea Leaf 72234, Rain Poppy 72237, Silkweed 72235, Snow Lily 79010,
+  Fool's Cap 79011, Golden Lotus 72238; Sha-Touched Herb no item id,
+  Desecrated Herb 89639 no threshold row.
+
+4.6 Warlords of Draenor (orange 1, grey 100)
+  Frostweed 109124, Starflower 109127, Fireweed 109125, Gorgrond Flytrap 109126,
+  Talador Orchid 109129, Nagrand Arrowbloom 109128.
+
+4.7 Legion (orange 1, grey 100; seeds are the low-skill outcome)
+  Aethril 124101, Dreamleaf 124102, Foxflower 124103, Fjarnskaggl 124104,
+  Starlight Rose 124105, Felwort 124106, Astral Glory 151565;
+  seeds: Aethril 129284, Dreamleaf 129285, Foxflower 129286, Fjarnskaggl 129287,
+  Starlight Rose 129288, Yseralline 128304.
+
+4.8 Battle for Azeroth (every row orange at 1 - only position on the bar
+    changes the colour; grey values are the caps to level toward)
+  Node           Orange Yellow Green Grey Item id
+  Akunda's Bite  1      ?      ?     150  152507
+  Riverbud       1      ?      ?     150  152505
+  Sea Stalk      1      ?      ?     150  152511
+  Siren's Pollen 1      ?      ?     150  152509
+  Star Moss      1      ?      ?     150  152506
+  Winter's Kiss  1      ?      ?     150  152508
+  Anchor Weed    1      ?      ?     150  152510
+  Zin'anthid     1      ?      ?     175  168487
+
+Creature side (mob herbalism): a corpse is "herb skinned" when the character's
+Herbalism is at least 5 x the creature's level, and this gives NO skill-ups
+(warcraft.wiki.gg Mob herbalism, read 2026-10-25). Only nature giants and
+elementals qualify; the wiki names the scope as 22 creatures in Outland
+(Zangarmarsh Bog Lords, Terokkar Rotting Forest-Rager, Blade's Edge Raven's
+Wood Stonebark, Underbog lurkers/shamblers, Botanica's Warp Splinter) and drops
+TBC herbs plus Fel Lotus 22794, Mote of Life and Zangar Caps. Wowhead's current
+"Gatherable (herbalism)" NPC filter returns 571 creatures spanning every era
+(sample rows: Hungarfen 17770 The Underbog, Blackmoss the Fetid 3535
+Teldrassil, Whiplash 129803 Stormsong Valley, Carnivorous Lasher 149653
+Nazjatar), and the 2020-10-25 capture of spell 2366 shows "Gathered from NPC
+(809)" - which creatures carried the gatherable flag inside 8.3.7 exactly is
+unverified; read your own creature data. TrinityCore master's spell effects
+(SpellEffects.cpp read 2026-10-25) contain a skinning path but no
+herbalism-on-corpse path, so whether your fork can do it at all is unverified.
+
+5. HOW THE SKILL RISES (SERVER RULES)
+--------------------------------------
+  - The required skill of a node comes from the lock of its gameobject
+    (client Lock.db2 via Spell::CanOpenLock, TrinityCore master, read
+    2026-10-25). Skill too low below that value returns
+    SPELL_FAILED_LOW_CASTLEVEL; every Herb Gathering spell adds its effect
+    value (+1275) to the check, which is why a skill-1 character can pick any
+    herb (matches the wiki's post-6.0.2 statement).
+  - Bands around the required value: yellow = red + 30, green = yellow + 30,
+    grey = green + 30; a gameobject_template can override yellow and grey via
+    its trivial-skill low/high fields, and then green is the midpoint
+    (Player::UpdateGatherSkill, TrinityCore master).
+  - Chance per colour comes from worldserver.conf: SkillChance.Orange = 100,
+    SkillChance.Yellow = 75, SkillChance.Green = 25, SkillChance.Grey = 0;
+    SkillGain.Gathering = 1 point per success (worldserver.conf.dist read
+    2026-10-25). Herbalism has NO chance decay with skill - only mining and
+    skinning have SkillChance.MiningSteps/SkinningSteps (both = 0 in the conf
+    read, i.e. decay off by default there; your fork's conf may differ,
+    unverified).
+  - One skill-up per character per node GUID until the node respawns
+    (EffectOpenLock "Allow one skill-up until respawned", per-GUID skill-up
+    list on the gameobject) - a party cannot chain skill-ups off one node.
+  - The cap belongs to the child line learned (section 1); the routine refuses
+    to raise a skill at its maximum.
+
+6. HOW NODES RESPAWN
+--------------------
+  - A harvested node runs the gameobject loot-state machine: use with the
+    gather spell -> GO_ACTIVATED (lootable) -> after the loot is taken
+    GO_JUST_DEACTIVATED (GameObject.cpp, TrinityCore master, read 2026-10-25).
+  - On deactivation the node schedules m_respawnTime = now + delay, where the
+    delay is gameobject.spawntimesecs of its spawn row (the code's constructor
+    default before load is 300 s). Respawn checks are not free-running:
+    Respawn.MinCheckIntervalMS = 5000 in worldserver.conf.dist;
+    Respawn.DynamicMode = 0 by default (a non-zero mode scales the delay by
+    map activity).
+  - At timer expiry: a non-pooled node is simply put back on the map; a pooled
+    node instead calls PoolMgr::UpdatePool, and the pool re-rolls which of its
+    members spawns next - explicit chance rows from pool_members (chance,
+    pool id) under pool_template limits (maxobjects). That is why picking a
+    node can make a different spot of the same zone light up instead of the
+    same bush.
+  - Every number here (each node's spawntimesecs, every pool's chance and
+    limit, linked respawns) lives only in your world database; the client
+    build 35662 ships no spawn rows, coordinates or respawn times, so all
+    actual values are unverified from client sources.
+
+7. NODE GAMEOBJECT ENTRIES BY ZONE, PER EXPANSION
+-------------------------------------------------
+Node ids are gameobject_template rows = server data; the rows below are the
+wowhead object entries (wowhead object filter pages, read 2026-10-25) for your
+server to cross-check. Locations are wowhead's zone lists (truncated "..." means
+more zones on the page). Wowhead reflects its current retail dataset - treat
+each id as verified-on-wowhead, unverified-on-your-8.3.7-core.
+
+Classic:
+  Peacebloom 2447 -> object 1618 Herb (Durotar, Teldrassil, Tirisfal Glades, ...)
+  Silverleaf 765  -> object 1617 Herb (Elwynn Forest, Tirisfal Glades, Mulgore, ...)
+  Earthroot 2449  -> object 1619 Herb (Durotar, Silverpine Forest, Tirisfal Glades, ...)
+  All other classic herbs: unverified (server gameobject_template).
+
+Outland:
+  Felweed 22785 -> object 181270 Herb (Nagrand, Hellfire Peninsula, Zangarmarsh, ...)
+  All other Outland herbs: unverified.
+
+Northrend:
+  Goldclover 36901 -> object 189973 Herb (Grizzly Hills, Howling Fjord,
+  Borean Tundra, ...). Other Northrend herbs: unverified.
+
+Cataclysm:
+  Cinderbloom 52983 -> object 202747 Herb (Deepholm, Twilight Highlands,
+  Mount Hyjal, ...). Other Cata herbs: unverified.
+
+Pandaria:
+  Green Tea Leaf 72234 -> objects 209349 Herb (The Jade Forest, Valley of the
+  Four Winds, Krasarang Wilds, ...) and 221542 Herb (Timeless Isle).
+  Other MoP herbs: unverified.
+
+Warlords of Draenor:
+  Frostweed 109124 -> objects 233117 (Frostwall, Frostfire Ridge),
+  228571 (Spires of Arak, Shadowmoon Valley, Lunarfall, ...), 235376
+  (Lunarfall, Frostwall), 237398 (Ashran). Other WoD herbs: unverified.
+
+Legion:
+  Aethril 124101 -> object 244774 Herb (Azsuna, Broken Shore, Highmountain, ...)
+  plus Azsuna-only variants Aqueous 247865, Bushy 248022, Flourishing 247605,
+  Lively 248019, Iridescent 248020 (their roles are unverified).
+  Other Legion herbs: unverified.
+
+Battle for Azeroth (complete for the eight herbs; zone column from the same
+wowhead rows; habitats from warcraft.wiki.gg Herb):
+  Akunda's Bite 152507 -> 276237 (Vol'dun, Nazmir, ...) - deserts, e.g. Vol'dun
+  Riverbud 152505 -> 276234 (Tiragarde Sound, Stormsong Valley, Drustvar, ...),
+                     281870 (Nazmir, Zuldazar, Dazar'alor, ...) - rivers and lakes
+    Flourishing Riverbud per zone: 297606 Tiragarde, 297607 Stormsong,
+    297060 Drustvar, 297608 Nazmir, 297061 Zuldazar, 297609 Vol'dun
+  Sea Stalk 152511 -> 276240 (Tiragarde Sound, Stormsong Valley, Drustvar, ...),
+                      281872 (Nazmir, Zuldazar, Vol'dun, ...) - coastal shores
+    Flourishing Sea Stalks: 297610 Tiragarde, 297611 Stormsong, 297062 Drustvar,
+    297612 Nazmir, 297064 Zuldazar, 297613 Vol'dun
+  Siren's Pollen 152509 -> no object carries that name on wowhead; the tree
+    herb rows are Siren's Sting 276239 (Tiragarde Sound, Drustvar, Stormsong
+    Valley, ...) and 281869 (Nazmir, Zuldazar, Vol'dun, ...); the name link
+    between the two is unverified - on trees per wiki
+  Star Moss 152506 -> 276236 and 281079 (Tiragarde Sound, Drustvar, Stormsong
+    Valley, ...), 281867 and 281868 (Vol'dun, Nazmir, Zuldazar, ...) - why two
+    ids per continent exist is unverified - on buildings and stones
+  Winter's Kiss 152508 -> 276238 (Drustvar, Tiragarde Sound, Stormsong Valley)
+    - snowy areas, e.g. Drustvar
+  Anchor Weed 152510 -> 276242 (Nazmir, Vol'dun, Tiragarde Sound, ...),
+    294125 (Drustvar, Tiragarde Sound, Stormsong Valley) - rare spawn
+    Overgrown Anchor Weed: 297065 Tiragarde, 297614 Stormsong, 297066 Drustvar,
+    297615 Zuldazar, 297616 Vol'dun, 297617 Nazmir
+  Zin'anthid 168487 -> 326598 (Nazjatar) - Nazjatar, map id 1718
+  The "Flourishing/Overgrown" per-zone objects are recorded as found; their
+  spawn rule (which patch event ties them in) is unverified.
+
+8. BEST ZONES FOR EACH SKILL RANGE (THROUGH THE BFA RANGE)
+----------------------------------------------------------
+From wow-professions.com leveling guides (read 2026-10-25), zone choice is the
+guide author's recommendation; ranges are the skill bars of section 1.
+
+  Classic 1-300:   1-70 starter zones (Tirisfal Glades, Elwynn Forest; Peacebloom/
+                   Silverleaf/Earthroot); 70-115 Hillsbrad Foothills or Darkshore
+                   (Mageroyal/Briarthorn/Bruiseweed); 115-185 Western Plaguelands
+                   or Feralas (Kingsblood/Fadeleaf/Khadgar's Whisker/Goldthorn);
+                   185-255 Thousand Needles or Eastern Plaguelands (Sungrass);
+                   255-300 Swamp of Sorrows and Felwood (Golden Sansam,
+                   Sorrowmoss, Gromsblood, Purple Lotus, Dreamfoil)
+  Outland 1-75:    1-50 Nagrand, Blade's Edge Mountains, Terokkar Forest
+                   (Dreaming Glory, Terocone); 50-75 Netherstorm (Netherbloom)
+                   or Shadowmoon Valley (Nightmare Vine)
+  Northrend 1-75:  1-50 Howling Fjord or Grizzly Hills (Goldclover);
+                   50-75 Storm Peaks (Icethorn, Lichbloom)
+  Cataclysm 1-75:  Uldum (Whiptail) or Twilight Highlands (Twilight Jasmine).
+                   In 8.3.7 Uldum is phased for the N'Zoth assault; talk to
+                   Zidormi creature 162419 to phase back to the low-level zone
+                   for the herbs
+  Pandaria 1-75:   1-45 Valley of the Four Winds (Silkweed);
+                   45-75 Kun-Lai Summit (Snow Lily)
+  Draenor 1-100:   any of Nagrand, Talador, Frostfire Ridge, Shadowmoon Valley
+                   (Arrowbloom, Talador Orchid, Frostweed)
+  Legion 1-100:    1-85 any Broken Isles zone (guide uses Val'sharah/Dreamleaf);
+                   85-100 Fel-Encrusted Herb Clusters at Broken Shore or
+                   Krokuun (Astral Glory for Krokuun)
+  BfA 1-175:       1-150 Drustvar (Winter's Kiss routes 1-2) and Vol'dun
+                   (Akunda's Bite) are the guide's densest zones, "you can
+                   level in any other zone"; skill gains slow at ~150;
+                   150-175 Nazjatar Zin'anthid (grey at 175)
+  Wiki habitat cheat-sheet for BfA: Riverbud along rivers/lakes, Sea Stalk on
+  coasts, Siren's Pollen on trees, Star Moss on buildings/stones, Anchor Weed
+  rare spawn - warcraft.wiki.gg Herb.
+
+9. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+  1. Cannot see nodes: gameobject spawn coordinates, per-zone spawn lists,
+     respawn times and pool layouts are world-database rows; build 35662
+     carries none of it. The companion must read them from your DB - there is
+     no client-side source to fall back on.
+  2. Cannot use Find Herbs 2383 for anything: the spell's whole effect is the
+     client minimap overlay. With no client the tracking spell buys the
+     companion nothing; route from DB positions instead.
+  3. Cannot receive input-driven casts: no CMSG_CAST_SPELL arrives from a
+     player. The bot must start the 2-second Herb Gathering cast itself
+     (server-side spell invocation) with the node guid as target, within the
+     5-yard interact range, out of combat restrictions it has to model alone.
+  4. Cannot watch the cast bar or react to interrupts through UI: damage can
+     interrupt the 2-second cast (guide warning above); the bot needs its own
+     threat/interrupt handling or the cast fails silently into a recast loop.
+  5. Cannot loot through a window: the OPEN_LOCK effect runs GameObject::Use
+     and opens loot server-side; the companion must move items out of the
+     node's loot storage itself.
+  6. Cannot re-farm one node for skill-ups: the per-GUID skill-up list grants
+     at most one skill point per character until the node respawns - a bot
+     that loops the same bush gains nothing.
+  7. Cannot skin herb corpses unless the fork implements it: no
+     herbalism-on-corpse path was found in TrinityCore master's spell effects
+     read for this file; the wiki's 5 x level rule describes retail behavior.
+     unverified on your core.
+  8. Cannot trust mounted-gather flags blindly: sources disagree (section 3);
+     a mounted companion should be tested before being relied on.
+  9. Cannot exceed the cap or beat the grey band: child-line maximums and
+     SkillChance.Grey = 0 are enforced in the skill routines, so no amount of
+     node cycling pushes a bar past its cap.
+
+10. SOURCES AND UNVERIFIED INDEX
+--------------------------------
+  Sources read 2026-10-25 unless noted:
+    wowhead spell pages 2366 (live and /web/20201025165308/ capture),
+    265819/265821/265823/265825/265827/265829/265831/265834/265835, spell
+    search "Herb Gathering", object filter pages for Peacebloom, Silverleaf,
+    Earthroot, Felweed, Goldclover, Cinderbloom, Green Tea Leaf, Frostweed,
+    Aethril, Akunda's Bite, Riverbud, Sea Stalk, Siren's/Pollen searches,
+    Star Moss, Winter's Kiss, Anchor Weed, Zin'anthid, NPC filter
+    cr=15 (Gatherable herbalism)
+    warcraft.wiki.gg Herb, Mob herbalism, Herbs by area
+    wow-professions.com guides: vanilla, outland, northrend, cataclysm,
+    pandaria, draenor, legion, zandalari-kul-tiran-bfa herbalism leveling
+    BfA_8.3.7_party_features.txt sections 4.1-4.7 (this repo; sourced
+    2026-10-21 from SkillLine/ItemSparse wago CSVs, 2020-era wiki revisions,
+    TrinityCore master)
+    TrinityCore master source via github api: SpellEffects.cpp EffectOpenLock,
+    Spell.cpp CanOpenLock, Player.cpp UpdateGatherSkill/GetProfessionSkillForExp,
+    GameObject.cpp respawn states, PoolMgr.cpp, worldserver.conf.dist
+  Unverified, collected: exact per-node spawn/respawn numbers and pools;
+    most pre-BfA object entries beyond the samples in section 7; the
+    Siren's Sting -> Siren's Pollen item link; the reason for double object
+    ids on Star Moss and Anchor Weed; Flourishing/Overgathered spawn rules;
+    8.3.7 cast time of1.5 vs 2 seconds (spell data says 2); baseline mounted
+    gathering; glove enchant effect values; which NPCs were herb-gatherable in
+    8.3.7; herbalism-on-corpse support of the fork; classic/Cata trainer
+    creature entries; the full BfA rank-technique spell list; legacy rank
+    spells' usability in 8.3.7; whether low-skill fragment loot tables are
+    present on this server; child-line skill-up routing for the OPEN_LOCK path
+    (the skinning path uses GetProfessionSkillForExp; the herb path in master
+    passes the lock's skill - confirm skill-ups land on the right bar).
