@@ -1,303 +1,464 @@
-TACTICS - THE BURNING CRUSADE A (OLD RAIDS STEP 6 OF 16)
-Karazhan, Gruul's Lair, Magtheridon's Lair.
-Server: private BfA 8.3.7 build 35662, TrinityCore base.
-Facts read on warcraft.wiki.gg boss pages fetched for
-this step; spell ids only where a page links them, else
-unverified. Creature entries: unverified throughout (no
-list page fetched this step). Coordinates: unverified.
-Map ids: Karazhan 532, Gruul's Lair 565, Magtheridon's
-Lair 544 (instance ids, read from core conventions -
-verify on server).
+BURNING CRUSADE (A) - TACTICS (BFA 8.3.7 build 35662)
+Raids covered: Karazhan (10), Gruul's Lair (25),
+Magtheridon's Lair (25)
+Map ids: Karazhan 532, Gruul's Lair 565,
+Magtheridon's Lair 544 - unverified in this pass
+Coordinates (x, y, z): unverified for every spawn
+Creature entries: NONE verified this pass - all
+entries are unverified; fill from this core's DB.
+Sources: warcraft.wiki.gg boss pages read for this
+file. Spell ids are given only where the page links
+the spell; everything else is "id unverified". A
+level 120 in 8.3.7 will outgear all numbers below;
+the mechanics (marks, beams, cubes, phases) are
+what a companion must still obey.
 
-KARAZHAN (map 532; 10-player)
-1. ATTUMEN THE HUNTSMAN + MIDNIGHT
-PHASES: P1 Midnight alone to 95%; P2 Attumen spawns;
-  at 25% of either, P3 he mounts (merged health = the
-  higher of the two) and wipes threat (page).
-TANK: two tanks until P3, then one; face him away
-  (Shadow Cleave frontal); threat stops at each join.
-GROUP: P3 everyone stacks directly behind him - Berserker
-  Charge has a MINIMUM range (~8 yd, page): inside that
-  nobody can be charged. Decurse Intangible Presence.
-  Attumen can be Disarmed (weakens him - page).
+====================================================
+KARAZHAN
+====================================================
+1. ATTUMEN THE HUNTSMAN + MIDNIGHT (opt.)
+PHASES: P1 Midnight alone; at 95% Attumen spawns at
+  her position. P2 both active. At 25% of EITHER he
+  mounts: one boss at the HIGHER of the two health
+  percentages, gaining Berserker Charge.
+TANK: Two tanks P2 (Attumen taunt-immune). Face his
+  Shadow Cleave (about 4000) away. Disarm him
+  (about -65% damage while disarmed).
+GROUP: Decurse Intangible Presence (about every 30
+  sec, -50% hit, centred on his target). D-Curse.
+  P3: spread 8-40 yd is his charge band - expect
+  random charges with knockdown.
 GROUND: none.
-ADD ORDER: Midnight P1 to 95%, both in P2, merged P3.
-ABILITY (ids unverified): Shadow Cleave, Intangible
-  Presence (D-Curse), Berserker Charge (P3 only).
-AI RULE: stand closer than 8 yards behind him when he is
-  mounted - the charge cannot hit you there.
+ADD ORDER: P1 (P2) damage both evenly to the 25%
+  merge - never burn one far ahead.
+AI RULE: even damage before the mount, decurse
+  always; the merged boss keeps the higher health.
+ABILITY LIST (ids unverified): Shadow Cleave;
+  Intangible Presence (D-Curse); Berserker Charge;
+  Midnight kick/charge set unverified.
 
-2. MOROES (+4 random dinner guests from a pool of 6)
-PHASES: single phase; Vanish then Garrote on a random
-  player; Enrage at 30% (page). He is taunt-immune.
-TANK: MT holds him; when Gouge stuns the MT he takes the
-  2nd-threat target - the OT must be #2 on threat (page).
-GROUP: guests are the fight: CC/kill by assignment
-  (priest guest's heals interrupted, others CC'd -
-  Shackle/trap/sheep by guest type; guest pool and spells
-  unverified here). Blind hits his closest non-tank -
-  keep squishies off his flank. Garrote (1000/3 sec, 5
-  min, page) cannot be out-healed forever - kill fast.
+2. Moroes + 4 DINNER GUESTS (of 6 possible, 47-58k)
+GUESTS (page kill discussion, all class-based):
+  Baroness Dorothea Millstipe (shadow priest):
+    Mana Burn (THE danger spell - interrupt/stun/
+    silence every cast; no tank needed), Mind Flay
+  Lady Catriona Von'Indi (holy priest): Greater Heal
+    (interrupt), Power Word: Shield, Dispel Magic,
+    Holy Fire
+  Lady Keira Berrybuck (holy paladin): Holy Light,
+    Cleanse (frees CC'd guests - keep her shackled
+    all fight or kill early), Blessing of Might
+    (+550 AP - dispel/purge it), Divine Shield
+  Baron Rafe Dreuger (ret paladin): Hammer of
+    Justice (stuns his tank then runs at healers -
+    tank required to kill), Cleanse
+  Lord Robin Daris (arms warrior): Mortal Strike,
+    Whirlwind (keep away from raid); trap/shackle
+  Lord Crispin Ference (prot warrior): Disarm,
+    Shield Bash, Shield Wall; slowest kill - leave
+    him offtanked (even as a rage battery) and kill
+    after Moroes
+PHASES: One phase; Moroes Enrages at 30% (stops
+  casting); berserk dagger-throwing after a long
+  timer (page gives no exact time - unverified).
+TANK: Moroes taunt-immune. Gouge stuns his current
+  tank and he goes to 2nd threat - BOTH tanks stay
+  top-2 threat and nobody else may pass them.
+GROUP: CC on pull (Shackle Undead, Turn Evil,
+  Freezing Trap) and hold it; Garrote after every
+  Vanish: 1000/3 sec for FIVE MINUTES, undispellable
+  (D: none - Stoneshield/immunities only in era;
+  it is a healing-budget race). Blind (poison)
+  disorients the closest non-tank - tank swaps and
+  spacing matter. D-Poison for Blind.
 GROUND: none.
-ADD ORDER: P1 the healing guest, others CC'd, Moroes
-  after guests are controlled/dead (exact order by the
-  week's guest draw - unverified).
-ABILITY (ids unverified): Vanish, Garrote, Blind
-  (D-Poison), Gouge, Enrage 30%.
-AI RULE: never let Moroes' guests run free, and live
-  with the Garrote clock - speed is the dispel.
+ADD ORDER: by table discussion: healers and the
+  mana-burner first as the raid's control allows;
+  NEVER break CC without a kill call - a free guest
+  kills cloth players. Moroes second-to-last,
+  Crispin Ference last if present.
+AI RULE: control first, kill in the called order,
+  and track every Garrote - the fight is a healing
+  budget, not a DPS check on the boss.
+ABILITY LIST (ids unverified): Vanish; Garrote;
+  Blind (D-Poison); Gouge; Enrage 30%.
 
-3. MAIDEN OF VIRTUE
-PHASES: none; Berserk at 10 min (page).
-TANK: hold her centre where she stands.
-GROUP: spread one player per pillar gap around the room
-  (page layout): outside Holy Ground (silence aura at
-  her feet), in LoS of dispellers, spread so Holy Wrath
-  does not chain. Holy Fire (D-Magic) is dispelled
-  INSTANTLY - cancel anything to dispel it. Repentance
-  incapacitates the whole raid except her target for
-  12 sec - pre-HoT the tank, one healer breaks early by
-  damage/immunity (page's list of tricks).
-GROUND: Holy Ground silence/damage zone around her.
+3. MAIDEN OF VIRTUE (optional)
+PHASES: None - same behaviour throughout; Berserk
+  at exactly 10 min.
+TANK: Centre of the room where she stands
+  (taunt-immune). Load HoTs before Repentance; tank
+  cooldowns (Shield Wall etc.) are for Repentance
+  windows.
+GROUP: 8 pillars: one ranged/healer per pillar gap,
+  spread so Holy Wrath cannot chain (it chains -
+  never stand within jump range of another player).
+  Holy Fire MUST be dispelled instantly - cancel a
+  cast to dispel. D-Magic. Repentance: raid-wide
+  12-sec incapacitate except her current target,
+  30-sec CD, not cast during... it breaks on ANY
+  damage: era answers are a paladin taking damage
+  via Blessing of Sacrifice, a healer stepping into
+  Holy Ground, immunities (Divine Shield/Ice Block)
+  or pre-loaded HoTs. She does not Holy Fire during
+  Repentance.
+GROUND: Holy Ground - permanent 12-yd aura around
+  her: 240-360 Holy/3 sec + 1-sec silence. Melee
+  and tank only inside.
 ADD ORDER: none.
-ABILITY (ids unverified): Holy Fire (D-Magic), Holy
-  Wrath (chain), Holy Ground, Repentance, Berserk 10:00.
-AI RULE: dispel Holy Fire before any heal, and stay at
-  your pillar - never chain Holy Wrath.
+AI RULE: dispel Holy Fire before healing anything;
+  spread, and have a Repentance wake-up plan before
+  the pull.
+ABILITY LIST (ids unverified): Holy Ground; Holy
+  Fire (1-sec cast, 3238-3762 + 1750/2 sec 12 sec,
+  D-Magic; reflectable/Grounding Totem); Holy Wrath
+  (chained, 20-sec CD); Repentance (1750-2250 +
+  12-sec incapacitate).
 
 4. OPERA EVENT (one of three plays, random weekly)
-PHASES: WIZARD OF Oz: Dorothee, Tito, Roar, Strawman,
-  Tinhead, then Crone; kill order matters (below).
-  BIG BAD WOLF: he turns a player into Red Riding Hood
-  and chases them - that player RUNS the room's edge.
-  ROMULO/JULIANNE: kill Julianne, Romulo, then both
-  TOGETHER (each resurrects the other - kill them within
-  moments of each other, unverified window).
-TANK/GROUP: Oz: burn Strawman (fire-vulnerable), control
-  Roar (fearable), Tinhead stacks rust (slows - kite).
-  Wolf: only the chased player moves; everyone else DPS.
-GROUND: Crone cyclone (unverified detail). Otherwise none.
-ADD ORDER: Oz as listed; wolf none; Romulo both last.
-ABILITY (ids unverified): play-specific, page-not-fetched
-  for this step - treat all Opera spell data unverified.
-AI RULE: in Oz kill in the printed order; as the little
-  red girl, run and never stop.
+WIZARD OF OZ (page-read): activation order
+  Dorothee (summons Tito) > Roar > Strawman >
+  Tinhead; The Crone spawns when all four die.
+  Dorothee (106k): Water Bolt 2025-2475, AoE Fear,
+    cannot be tanked or interrupted - burn first.
+    Tito (26.5k): interrupts/silences casters.
+    NEVER kill Tito before Dorothee (she enrages).
+  Roar (77k): AoE fear - fear him (very susceptible)
+  Strawman (77k): fire damage applies a Disorient -
+    burn with fire
+  Tinhead (77k): the only must-tank; Cleave (3
+    targets), Rust slows him over time - kite late
+  The Crone (106k): Cyclone, Chain Lightning
+    (2775-3225, 5 targets)
+  AI RULE: kill in activation order, Tito right
+  after Dorothee, never before.
+BIG BAD WOLF and Romulo AND JULIANNE: pages not
+  read in this pass - all details unverified. Do
+  not improvise their mechanics from memory in AI
+  logic; read their pages first.
 
-5. THE CURATOR
-PHASES: 90-sec Flare phase (one Astral Flare every 10 sec,
-  10 per phase, each costing him 10% mana - page) then a
-  20-sec Evocation (inactive, refills mana, damage taken
-  +200% - burn window). At 15% health: soft enrage (no
-  more flares or Evocations, faster bolts). Hard enrage
-  at 10 min (page).
-TANK: hold him (he is taunt-immune, page); a designated
-  soaker (warlock/shadow priest) keeps the highest non-
-  tank threat on him - Hateful Bolt hits the non-tank
-  with the most threat built since the last Evocation
-  (page), so the soaker eats the bolts by design.
-GROUP: kill every Astral Flare within 10 seconds, before
-  the next spawns - flares are the DPS race; all cooldowns
-  into the boss ONLY during Evocation.
-GROUND: none read.
-ADD ORDER: P1 Astral Flares (each before the next), boss
-  during Evocation only.
-ABILITY (ids unverified): Summon Astral Flare (10 sec),
-  Hateful Bolt, Evocation, Soft Enrage 15%, Hard Enrage
-  10:00; flare's Arcing Sear chains 10 yd (page).
-AI RULE: a living flare always outranks the boss.
+5. THE Curator
+PHASES: Flare phase (90 sec: an Astral Flare every
+  10 sec, 10 total, draining his mana 10% each) >
+  Evocation (20 sec: inactive, takes +200% damage)
+  > repeat. At 15%: soft enrage - no more Flares or
+  Evocations, faster Hateful Bolts. Hard enrage 10
+  min. Immune to Arcane, poison, taunt, mana drain.
+TANK: Boss tank (about 3000 melee). Flares: an
+  assigned holder with high threat-on-spawn keeps
+  them still (hunter pet ideal era answer).
+GROUP: EVERY damage dealer kills the Flare within
+  its 10-sec window: Astral Flare (17,000 HP) chains
+  Arcing Sear to 3 targets within 10 yd (675-825).
+  Two Flares alive is the wipe path. Hateful Bolt
+  (4435-5999 Arcane) hits the highest-threat
+  non-tank since last Evocation - an assigned
+  arcane-geared soaker is optional. All cooldowns
+  into Evocation - but kill the 10th Flare first.
+GROUND: Flares ARE the ground problem (moving).
+ADD ORDER: P1 Astral Flare (always) > boss only
+  when no Flare lives; in Evocation, Flare then
+  boss.
+AI RULE: a living Astral Flare outranks the boss at
+  every moment of the fight except inside your own
+  assigned Evocation burst after the 10th is dead.
+ABILITY LIST (ids unverified): Summon Astral
+  Flare; Hateful Bolt; Evocation (+200% taken).
 
 6. TERESTIAN ILLHOOF (optional)
-PHASES: single phase; chains sacrifice a player in a
-  pentagram; imp adds stream from portals.
-TANK: hold him centre; add tank gathers imps.
-GROUP: BREAK THE CHAINS on the sacrificed player
-  immediately (they take escalating damage); kill the
-  imp adds in waves; his shadow bolts hit the tank.
-GROUND: pentagram chains zone (targeted, not floor).
-ADD ORDER: P1 chains (object), imps, boss.
-ABILITY (ids unverified): Sacrifice (chains), summon
-  imps, Shadow Bolt.
-AI RULE: the chained companion dies before the boss
-  matters - free them first.
+Kil'rek (imp): 30053 Amplify Flames (+500 Fire
+  damage taken 25 sec); on death applies 30065
+  Broken Pact to Illhoof (+25% damage taken) and
+  respawns in about 45 sec.
+PHASES: One phase; portals open about 10 sec in
+  and stream Fiendish Imps all fight.
+TANK: Illhoof + Kil'rek tanked at the sacrifice
+  circle centre-room (so Demon Chains die fast).
+GROUP: Stacked near boss for AoE. Sacrifice puts a
+  player in Demon Chains in the centre circle:
+  EVERYONE switches - the victim dies fast and
+  Illhoof heals heavily while chains live (healing
+  reduced by Mortal Strike/Wound Poison effects).
+  Imp stream: Seed of Corruption/AoE on the boss;
+  healers grouped (imp aggro + spell pushback).
+GROUND: none.
+ADD ORDER: P1 Demon Chains > P2 Kil'rek (only if
+  he dies in about 10 sec - otherwise AoE splash)
+  > P3 imp stream (AoE, continuous) > Illhoof.
+AI RULE: chains first, instantly, every time -
+  nothing else in the fight matters more.
+ABILITY LIST: Sacrifice/Demon Chains (id
+  unverified); Kil'rek 30053, 30065 (page-linked);
+  imp Firebolt (200, up to 700 on Amplify Flames).
 
-7. SHADE OF ARAN
-PHASES: single phase in a locked round room. Three
-  separate triggers, do not conflate them (page): at 40%
-  HEALTH he summons 4 Conjured Water Elementals (despawn
-  after 90 sec); at 20% MANA he polymorphs the raid,
-  drinks ~10 sec, then Pyroblasts the raid; Shadows of
-  Aran come only with the 12-minute berserk. Interrupt
-  choices control how fast his mana burns, so the two
-  triggers can be kept apart (page strategy).
-TANK: no real tanking - he is a caster; interrupters are
-  the front line (Frostbolt/Fireball/Arcane Missiles are
-  interruptible, page; immune to Silence/Tongues, page).
-GROUP: FLAME WREATH: three players get rings of fire -
-  IF YOU HAVE THE WREATH, DO NOT MOVE AT ALL until it
-  fades (moving detonates it on the room). Run OUT of
-  the ringed Blizzard as it moves; when he pulls everyone
-  to the centre (Magnetic Pull + Slow + Arcane Explosion,
-  page) run back out immediately. Water Elementals (~40%):
-  CC/kill them, they are timed.
-GROUND: Flame Wreath rings (on players), moving Blizzard
-  ring, Arcane Explosion centre.
-ADD ORDER: the 4 Water Elementals when up, then boss.
-ABILITY (ids unverified): Frostbolt (I), Fireball (I),
-  Arcane Missiles (I), Flame Wreath (3 players, 20 sec -
-  moving in/out detonates 3000-4000 on the room, page),
-  Circular Blizzard, Magnetic Pull/Slow/Arcane Explosion
-  (10-sec cast, 9000-11000 in 20 yd - run to the wall),
-  Polymorph + Pyroblast, AoE Counterspell (10 yd).
-AI RULE: with Flame Wreath on you, freeze completely -
-  your stillness is the whole raid's survival.
+7. SHADE OF ARAN (no tank; threat mostly ignored)
+Specials every 30-35 sec, never the same twice:
+  Flame Wreath (5-sec cast): rings on 3 players for
+  20 sec - DO NOT MOVE AT ALL (moving in/out deals
+  3000-4000 Fire to the WHOLE room; rings persist
+  even after he dies).
+  Circular Blizzard: slow clockwise blizzard, 1313-
+  1687 Frost/2 sec + 65% slow; centre is safe.
+  Magnetic Pull + Slow, then 10-sec cast Super
+  Arcane Explosion (9000-11000, 20 yd): run to the
+  outer wall.
+At 40% HP: 4 Conjured Water Elementals (13,000 HP,
+Waterbolts 1000-2000, despawn 90 sec) - kill them.
+At 20% MANA: mass Polymorph, he drinks 10 sec,
+then raid-wide Pyroblast 7000-7500. Do NOT
+interrupt the drink (interrupting brings the
+Pyroblast early onto a polymorphed raid; era raids
+let him finish). Page strategy goal: keep the 40%
+HP and 20% mana events FAR apart via interrupt
+management of his basic spells (Fireball/Frostbolt/
+Arcane Missiles, all interruptible. I). AoE
+Counterspell (10 yd, 10-sec lockout) fires often -
+casters stay out of 10 yd.
+AI RULE: movement discipline is the encounter:
+  Wreath = freeze, Blizzard = centre/edge as called,
+  Pull = run to the wall. When in doubt, do not
+  move during Flame Wreath.
+Berserk at 12 min (Shadows of Aran).
+ABILITY LIST (ids unverified): Fireball, Frostbolt
+  (chance to root - dispellable, D-Magic), Arcane
+  Missiles, Flame Wreath, Blizzard, Magnetic Pull/
+  Super Arcane Explosion, Polymorph/Pyroblast.
 
 8. NETHERSPITE
-PHASES: Portal phase 60 sec / Banish phase 30 sec
-  alternating (page); enrage at 9 min.
-TANK: Portal phase: the RED beam blocker is the tank
-  (beam forces his aggro and gives +31,000 health first
-  tick, page). Banish phase: normal tanking at range.
-GROUP: three beams must ALL be blocked by assigned
-  players: RED by the tank, GREEN (healer beam - if it
-  reaches him he heals 4000+/tick stacking, page) by a
-  mana-less companion if possible, BLUE (DPS beam) by a
-  damage dealer, swapping before stacks get lethal;
-  after leaving a beam you are Exhausted for that colour
-  90 sec (page) - plan two blockers per beam. Banish
-  phase: run out of Void Zones and keep DPS, nobody
-  tanks (he casts Nether Breath at range, page chunk).
-GROUND: Void Zones (Banish phase).
-ADD ORDER: none.
-ABILITY (ids unverified): beams (Perseverance/Serenity/
-  Dominance), Nether Exhaustion, Nether Burn aura, Void
-  Zone, Nether Breath, Empowerment (+200% dmg, Portal).
-AI RULE: your beam is your job - never leave it unblocked
-  and never take a colour you are Exhausted for.
+PHASES: Portal phase 60 sec > Banish phase 30 sec,
+  alternating. Enrage at 9 min (+500%).
+Portal phase: 3 fixed portals beam at him; players
+  BLOCK beams by standing in them (a beam reaching
+  him buffs/heals him; buffs on him last 5 sec).
+  RED (Perseverance, tank): blocker gains aggro,
+  +defense/health, full heal per tick; boss gains
+  -1% damage taken per tick if unblocked.
+  GREEN (Serenity, healer/manaless): boss HEALS
+  4000/tick stacking if unblocked - never allow;
+  player: +5% healing/tick, mana pool shrinks.
+  BLUE (Dominance, DPS): player +5% damage/tick,
+  +8% spell damage taken; boss +1% spell damage.
+  After leaving a beam: Nether Exhaustion - cannot
+  block THAT colour for 90 sec, so two blockers
+  rotate per beam (era: about 20 ticks each).
+Banish phase: he is banished (cannot be damaged -
+  verify on this core; page strategy treats DPS as
+  paused), casts Nether Burn (shadow aura), Void
+  Zones appear - move out. 2.5-sec casts (page:
+  Netherbreath-type volleys) unverified.
+TANK: the red-beam blocker IS the tank; no one
+  else needs threat skills in portal phase.
+GROUP: assigned beam teams; everyone else DPS/heals
+  from max range; spread for Void Zones.
+GROUND: Void Zones (Banish phase, id unverified).
+ADD ORDER: none. Blocking is the add mechanic.
+AI RULE: your beam is your job for the whole phase:
+  be in it before it ticks on him, swap at your
+  tick count, and never take a colour you are
+  Exhausted for.
+ABILITY LIST (ids unverified): Empowerment (+200%
+  damage, portal phase, undispellable); Nether
+  Burn; Void Zone; Enrage 9 min.
 
-9. CHESS EVENT
-PHASES: control chess pieces against Medivh's side;
-  he cheats (fire on squares, piece buffs) as the fight
-  runs. Win by killing the enemy king.
-TANK/GROUP/GROUND/ADD ORDER: not a normal encounter -
-  companions must each pilot one piece and follow the
-  event's own rules (unverified here; no page fetched).
-AI RULE: protect your king; take the piece you are told.
+9. CHESS EVENT: a vehicle/board encounter, not a
+   conventional boss fight - mechanics and piece
+   abilities unverified in this pass. Do not write
+   companion combat logic for it from this file.
 
 10. PRINCE MALCHEZAAR
-PHASES: P1 100-60%, P2 60-30% (axes adds), P3 30-0%.
-  Infernals fall all fight and grow in number.
-TANK: hold him in the open centre; move him as Infernals
-  land so melee keep space. Enfeeble (30843) targets
-  must not be healed (their health is cut - page family;
-  rule unverified in chunk).
-GROUP: spread 30 yd for Shadow Nova 30852 (knockback);
-  never stand in an Infernal's Hellfire (they are rooted,
-  permanent ground denial - reposition as a group).
-  P2: kill/avoid the two flying axes (unverified detail).
-GROUND: Infernal Hellfire patches - the whole mechanic.
-ADD ORDER: NEVER the Infernals (do not kill - move), axes
-  P1 in P2, boss.
-ABILITY: 30843 Enfeeble, 30852 Shadow Nova, 30898 Shadow
-  Word: Pain (D-Magic), 3391 Thrash, 30901 Sunder Armor,
-  39095 Amplify Damage (+100% damage taken - P3 spike,
-  from the page's ability list), Summon Infernal and
-  Flying Axes (ids unverified; axes ramp up over time).
-AI RULE: when an Infernal lands near you, the whole
-  group's position changes - never DPS through Hellfire.
+PHASES: three health phases in the era encounter
+  (thresholds page-section not read this pass -
+  treat 60%/30% stage changes as unverified here).
+  Throughout: Netherspite Infernals land on a timer
+  (Hellfire aura) and stay where they land - the
+  room is a shrinking safe-space puzzle.
+TANK: Face him away; Sunder Armor (30901, 5 stacks,
+  20 sec) + Thrash (3391, 2 extra attacks) burst.
+GROUP: Enfeeble (30843) targets cannot be healed
+  effectively (page: reduces healing/health - the
+  era effect sets 5 players to 1 HP): Enfeebled
+  players RUN from Infernals and burn nothing near
+  them; healers skip them until it fades. Shadow
+  Nova (30852): 30-yd knockback - ranged beyond 30
+  yd or against the wall. Shadow Word: Pain (30898,
+  18 sec) D-Magic. Amplify Damage (39095): +100%
+  damage taken 10 sec (his P3 axes phase, page-
+  placed at chunk end - phase attribution
+  unverified).
+GROUND: Infernal Hellfire circles - never stand in
+  one; reposition early as landing spots persist.
+ADD ORDER: Infernals are NEVER killed (despawn on
+  their own timer in era scripting - verify; they
+  are terrain). Kill target is always the Prince.
+AI RULE: your position relative to the newest
+  Infernal matters more than your damage: move
+  early, never get Enfeebled next to fire.
+ABILITY LIST (page-linked): 30843 Enfeeble, 30852
+  Shadow Nova, 30898 Shadow Word: Pain D-Magic,
+  3391 Thrash, 30901 Sunder Armor, 39095 Amplify
+  Damage; Summon Infernal id unverified.
 
-11. NIGHTBANE (summoned, optional)
-PHASES: ground/air cycles (air at 75/50/25%, era rule -
-  unverified for this server).
-TANK: ground: face him away (Cleave + Tail Sweep);
-  fear rotation on the tank (Bellowing Roar - bring fear
-  breaks); Charred Earth under the tank = move him.
-GROUP: air phase: kill Rain of Bones skeletons, stay
-  spread from Smoking Blast targets (unverified detail).
-GROUND: Charred Earth patches.
-ADD ORDER: P1 skeletons in air phase, boss on ground.
-ABILITY (ids unverified): Bellowing Roar (fear), Charred
-  Earth, Cleave, Tail Sweep, Distracting Ash, Smoking
-  Blast, Rain of Bones.
-AI RULE: on Charred Earth, move - it is under the tank,
-  so the whole melee group moves with him.
+11. NIGHTBANE (summoned; Master's Terrace)
+PHASES: Ground phase; at 75%, 50% and 25% Flight
+  phase: Rain of Bones (5 Restless Skeletons, about
+  13,500 HP, on a marked area), then Smoking Blast
+  spam (about 15 sec, at his top air-threat target -
+  usually a healer) then he lands. NOT tauntable.
+TANK (ground): back to the outside wall, dragon
+  rules: never front (Cleave about 6000 plate/
+  11,000 cloth, Smoldering Breath 5-6k + DoT) and
+  never rear (Tail Sweep). Fear: Bellowing Roar
+  (2.5-sec cast, about every 45-60 sec, moderate
+  range) - warrior stance-dance, Fear Ward, Tremor
+  Totem; a feared tank drags him through the raid.
+GROUP: ranged beyond fear range, split along the
+  wall. Charred Earth under random players (about
+  5 yd, up to 3000 Fire/sec, 30 sec, burns slightly
+  beyond its visual): move at once, hug walls so
+  half the circle is wasted. Distracting Ash
+  (-30% hit 40 sec) D-Magic. Air phase: kill the 5
+  skeletons fast (1300 on cloth), heal the Smoking
+  Blast target (1850-2150 + 3000 Fire over 18 sec,
+  D-Magic for the DoT). Keep EVERYONE in range of
+  him while airborne (Fireball Barrage punishes
+  anyone too far, 3000-3500/sec).
+GROUND: Charred Earth (above).
+ADD ORDER: Restless Skeletons > boss in air phase.
+AI RULE: dragon positioning plus fear discipline;
+  in the air, skeletons then survive the Blast.
+ABILITY LIST (ids unverified): as above.
 
-Kara trash (entries unverified): stable undead (25-min
-respawn until Attumen dies, page - clear fast, Stable
-Hands first, they heal); banquet guests before Moroes;
-library spell shades/protecters - kill order unverified.
+Karazhan TRASH: pack-by-pack breakdown unverified
+in this pass (Ghostly Philanthropists etc. were
+named on the Opera page only). Era note from the
+Moroes page only: control undead guests-style CC
+(Shackle/Turn Evil/Freezing Trap) is the instance's
+trash language too - verify per pack, do not copy.
 
-GRUUL'S LAIR (map 565)
-12. HIGH KING MAULGAR + 4-COUNCIL
-PHASES: council fight, then Maulgar alone (charge/fear/
-  whirlwind in his last phase, unverified); all five are
-  fought at once from the pull.
-TANK: Maulgar tank centre; Krosh Firehand is MAGE-TANKED:
-  a mage Spellsteals his Fire Shield and tanks him at
-  range (Blast Wave punishes melee); Kiggler is ranged/
-  moonkin-tanked (Polymorphs his target - shapeshift or
-  two tanks, page); Olm warlock/OT tanked, felhounds
-  banished/feared; Blindeye tanked in a corner.
-GROUP: kill the healer first: Blindeye shields then casts
-  a full-heal (page) - burst the shield and interrupt
-  fast (silence effects work through the shield - page's
-  list). Interrupt Olm's casts; keep Felhounds CC'd.
-GROUND: Krosh Blast Wave (around Krosh only).
-ADD ORDER: P1 Blindeye, P2 Olm, P3 Kiggler, P4 Krosh,
-  P5 Maulgar (standard order; verify on server).
-ABILITY (ids unverified): Blindeye shield+heals (I after
-  shield break), Krosh Fire Shield (stealable)/Blast
-  Wave/Greater Fireball, Kiggler Hex (Polymorph)+
-  Lightning Bolt/Arcane Shock, Olm summons Felhounds/
-  Death Coil.
-AI RULE: the priest ogre dies first - every heal he lands
-  restarts the fight.
+====================================================
+GRUUL'S LAIR
+====================================================
+12. HIGH King MAULGAR + COUNCIL OF FOUR
+COUNCIL (each needs its own tank answer):
+  Krosh Firehand (mage): Greater Fireball spam;
+  33054 Spell Shield (-75% spell damage taken,
+  30 sec) - a MAGE tank Spellsteals it on cooldown
+  and tanks him at range with modest DPS (no
+  Salvation on the mage). Blast Wave about 6000
+  (15 yd) - nobody but nobody stands near Krosh;
+  he is immune to Silence/Counterspell/Tongues.
+  Blindeye the Seer (priest): Power Word: Shield
+  then Prayer of Mending (10-sec cast, heals him
+  to full): when he shields, burn the shield, then
+  interrupt the cast. I (after shield is down).
+  Olm the Summoner (warlock): stacking unremovable
+  shadow DoT, Death Coil, summons Wild Fel
+  Stalkers - tanked by ENSLAVED stalkers (warlocks)
+  or 2 tanks; extra stalkers Banish/enslave or be
+  fed to Krosh to die.
+  Kiggler the Crazed (shaman): Lightning Bolt about
+  3000, 37132 Arcane Shock, Hex (polymorph) on his
+  tank - use TWO ranged tanks or a moonkin/feral
+  (polymorph-immune forms). Point-blank threat-wipe
+  knockback: keep away from the Krosh mage.
+MAULGAR: Arcing Smash (cleave 5000-6000), Mighty
+  Blow (knockback), Whirlwind (moves 50% speed,
+  4000-5000) - melee spread out on Whirlwind; at
+  50% charges random players.
+TANK/GROUP: 5 simultaneous tank assignments
+  (Maulgar, Krosh-mage, Olm, Blindeye, Kiggler) -
+  each cornered apart. Kill order page-standard is
+  by threat to raid: Blindeye (healer) first in
+  most era play; exact raid order unverified here -
+  but Prayer of Mending may never complete.
+GROUND: none.
+ADD ORDER (companions): Blindeye > Olm (+banish
+  spare stalkers) > Kiggler > Krosh > Maulgar is
+  the era-common order - flagged unverified as a
+  whole; interrupt priorities above are
+  page-verified per mob.
+AI RULE: five tanks, five jobs: if your assignment
+  is a council member, his interrupt/CC is worth
+  more than any damage on Maulgar.
+ABILITY LIST: 33054 Spell Shield (steal it),
+  37132 Arcane Shock; rest id unverified.
 
-13. GRUUL THE DRAGONKILLER
-PHASES: single phase DPS race: Growth stacks +15% damage
-  every 30 sec to 30 (page) - ~10 min practical limit.
-TANK: MT front; ONE OT stays second on threat IN MELEE
-  RANGE - Hurtful Strike always hits the #2 threat in
-  melee (page); melee DPS must stay BELOW the OT.
-GROUP: Ground Slam throws everyone randomly, then Gronn
-  Lord's Grasp slows you to a stop and Stoned freezes
-  you; Shatter then hits everyone, damage by CLUMPS -
-  after every slam, run APART from everyone (15+ yd is
-  near-minimal damage, page). Move out of Cave Ins.
-  Reverberation silences the raid 4 sec (undispellable).
-GROUND: Cave In circles (falling rock zones).
+13. Gruul THE DRAGONKILLER (about 3.4M HP)
+PHASES: One phase against the clock: Growth every
+  30 sec (+15% damage, +10% size, stacks to 30) -
+  roughly a 10-minute practical kill window; at
+  high Growth Hurtful Strike one-shots the OT.
+TANK: MT centre; OT is the designated Hurtful
+  Strike soak: it always hits the 2nd-highest
+  threat IN MELEE RANGE (12,350-13,650 base, about
+  every 20 sec). Melee DPS must stay below the OT
+  on threat - or they take it and die.
+GROUP: SPREAD always at range: Ground Slam throws
+  everyone randomly, then Gronn Lord's Grasp slows
+  -20% x5 over 5 sec, then Stoned, then Shatter:
+  damage scales with proximity (about 1100 at 15+
+  yd to 8500+ point blank, goes through immunities;
+  pets don't count). After the Slam, run APART
+  before you freeze. Reverberation: zone-wide
+  4-sec silence (pre-cast HoTs; not dispellable).
+GROUND: Cave In - shaking ground/ceiling warning,
+  about 3000/3 sec in the patch, more frequent and
+  harder with Growth. Move on the shake.
 ADD ORDER: none.
-ABILITY (ids unverified): Growth, Hurtful Strike,
-  Ground Slam, Gronn Lord's Grasp, Stoned, Shatter,
-  Reverberation, Cave In.
-AI RULE: after Ground Slam, your only job is distance
-  from every other companion before the Shatter.
+AI RULE: after Ground Slam, distance from OTHER
+  PLAYERS is your only defence - run apart first,
+  DPS second.
+ABILITY LIST (ids unverified): Growth; Hurtful
+  Strike; Reverberation; Cave In; Ground Slam /
+  Gronn Lord's Grasp / Stoned / Shatter chain.
 
-Trash: Lair Brutes + Gronn-Priests (page trash list);
-priests' heals interrupt priority - unverified detail.
+====================================================
+MAGTHERIDON'S LAIR
+====================================================
+14. MAGTHERIDON (3,372,866 HP)
+PHASES: P1 (120 sec): 5 Hellfire Channelers (240k)
+  around 5 Manticron Cubes; Magtheridon inactive.
+  Kill at least 3 Channelers before he frees (era
+  target: all 5). Each Channeler death buffs the
+  survivors (Soul Transfer: +30% damage/cast speed
+  per stack - the last channels at 220%).
+  P2: boss active. Blast Nova every 60 sec: all 5
+  cubes clicked (channelled) SIMULTANEOUSLY
+  interrupts it and gives him +300% damage taken
+  while all 5 channel; channel ticks 800 on the
+  clicker, and ending gives 30-sec Mind Exhaustion
+  (rotate 2 clicker teams of 5). At 30% (P3 in era
+  terms): roof collapses debris (page detail not
+  read this pass - unverified beyond this line).
+TANK: MT on boss (frontal Cleave about 8000 -
+  face away); one tank per Channeler (or two share).
+GROUP P1: interrupt Dark Mending (2 sec cast, heals
+  32k) ABOVE ALL, then Shadow Volley (1 sec); Fear
+  on tanks called. Burning Abyssals (max 5):
+  banish/fear/trap/nova or tank; landing hit
+  2625-3375, Fire Blast 3300 (20 yd).
+GROUP P2: spread for Conflagration patches (6000
+  over 8 sec); Quake (every 50 sec): 7 sec of
+  1-sec knockbacks - stop casting, it interrupts.
+  Cube teams: click on the Nova cast, all 5 or
+  nothing; a partial click is worse than none
+  (Nova continues AND clickers are exhausted).
+GROUND: Conflagration patches; debris P3
+  (unverified).
+ADD ORDER P1: Channelers in rotation order >
+  Abyssals (CC, do not chase) > boss (inactive).
+  NEVER leave a Channeler free-casting Mending.
+AI RULE: cubes are a five-player chord: click
+  together on Blast Nova, or do not click at all.
+ABILITY LIST (ids unverified): Channeler: Shadow
+  Volley I, Dark Mending I (top), Fear, Summon
+  Abyssal, Soul Transfer. Magtheridon: Cleave,
+  Conflagration, Quake, Blast Nova (cube-answer
+  only), Enrage 22 min.
 
-MAGTHERIDON'S LAIR (map 544)
-14. MAGTHERIDON (+5 Hellfire Channelers, P1)
-PHASES: P1 (2 min): kill channelers (at least 3 dead) or
-  he frees himself early at full rage; P2 boss active:
-  Blast Nova every ~60 sec must be stopped by ALL FIVE
-  Manticron Cubes clicked at once (he then takes +300%
-  damage briefly, page); one clicker cannot re-click
-  for 30 sec (Mind Exhaustion) - two cube teams rotate.
-  P3 at 30%: ceiling collapse (raid damage + debris).
-TANK: boss tank centre; one tank per channeler in P1.
-GROUP: P1 interrupts: Dark Mending first (heals a
-  channeler up to 32k), then Shadow Volley; each dead
-  channeler buffs the survivors (+30% dmg/cast speed,
-  stacking - kill order is a race, page). Burning
-  Abyssals (max 5, page): banish/fear/trap, do not tank
-  them near the raid. Quake knocks back and interrupts
-  casts - stop casting. Cubes: click on call, all five.
-GROUND: Conflagration patches; P3 falling debris zones.
-ADD ORDER: P1 channelers in a fixed rotation, Abyssals
-  CC-only (NEVER priority), boss from P2.
-ABILITY: channeler/boss ids unverified (not linked);
-  Cube channel and Mind Exhaustion (object, page).
-AI RULE: when Blast Nova starts, five companions click
-  five cubes - one missing cube means the raid burns.
-
-END OF STEP 6. Next step is 07_Burning_Crusade_B.txt.
+Gruul/Magtheridon TRASH: Gruul's Lair trash is
+Lair Brutes and Gronn-Priests (named on the lair
+template; abilities unverified this pass).
+Magtheridon's Lair has no pre-boss trash in the
+era layout (the Channelers are the encounter) -
+verify on this core.
