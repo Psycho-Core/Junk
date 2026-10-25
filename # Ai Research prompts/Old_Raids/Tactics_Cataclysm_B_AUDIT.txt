@@ -1,0 +1,60 @@
+AUDIT - Tactics_Cataclysm_B.txt (Old Raids step 11)
+Re-checked against warcraft.wiki.gg pages fetched for
+this audit (Beth'tilac, Alysrazor, Baleroc, Majordomo
+Staghelm; Ragnaros/Madness chunks at writing).
+Result: 11 pass, 4 corrected, 3 unverified.
+
+PASS:
+ - Rhyolith leg-steering and called-leg rule.
+ - Shannox dog/trap framing; Ragnaros stage structure
+   (98708/98928/100115 page-filed), hammer finish line.
+ - Morchok rocks/crystal; Zon'ozz bounce rally;
+   Yor'sahj colour calls incl. purple healing rule;
+   Hagara laps; Ultraxion button discipline;
+   Blackhorn ship-as-second-boss; Spine 9-residue and
+   roll-call stacking; Madness platform order.
+
+CORRECTED (applied with this audit):
+ 1. Beth'tilac does NOT descend at "~20% health". She
+    descends after her THIRD Smoldering Devastation
+    (page). Spiderling handling also sharpened: they
+    are Drone food (100634 Consume = +20% heal), and
+    exploding broodlings are heroic-only Engorged
+    Broodlings, not the normal adds.
+ 2. Alysrazor "miss 3 rings and you fall" was invented.
+    98619 Wings of Flame last 30 sec; each ring passed
+    REFRESHES them and stacks 99461 Blazing Power (to
+    25). You fall when wings expire, not on a count.
+    Hatchlings also corrected: they imprint on the
+    nearest player (who tanks with +1000% damage -
+    page), not generic "two tanks".
+ 3. Baleroc's spark economy was attributed backwards:
+    soakers gain Torment/Tormented, never Vital Spark.
+    HEALERS gain Vital Spark by healing the Tormented
+    (1 per 3 stacks) and convert it via a direct heal
+    on the Blaze of Glory tank into 99263 Vital Flame.
+    Decimation Blade now exact (99353: 90% of max, min
+    250000, unmitigable but dodgeable). Countdown is
+    heroic-only - the file implied it was general.
+ 4. Staghelm swap logic was inverted: swapping does
+    NOT dodge his 100-energy special and does not
+    "reset energy as a favour" - he casts the special
+    AT 100 in-form; you endure as many as healing
+    allows (era 5-7) and swap late, because each swap
+    permanently stacks Fury (+8% specials) while only
+    resetting Adrenaline. Burning Orbs/Searing Seeds
+    (every third change) are normal mode, not heroic.
+
+UNVERIFIED (stand as marked):
+ - All creature entries/coordinates; most Dragon Soul
+   spell ids; heroic scripting on this core (Sinestra
+   in step 10, Staghelm orb counts by size aside).
+ - Spark/soak stack counts where era guides differ
+   (Baleroc 12/8 split is the page's recommendation).
+ - Firelands trash beyond one-line notes.
+
+Third file in a row where corrections were trigger/
+attribution swaps (who gains the buff, what causes
+the transition), never damage values. For companions
+that is the dangerous class: an AI following "swap to
+dodge" or "descend at 20%" acts wrong at full health.

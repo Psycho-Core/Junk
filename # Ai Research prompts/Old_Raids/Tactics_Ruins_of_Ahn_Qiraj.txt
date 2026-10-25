@@ -1,0 +1,299 @@
+TACTICS - RUINS OF AHN'QIRAJ (OLD RAIDS STEP 3 OF 16,
+RESTART)
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Context: level 60 raid (originally 20-player) entered by a
+level 120 character with computer-controlled companions.
+Values as printed on the warcraft.wiki.gg pages read for
+this file; exact 8.3.7 scaling unverified - check on
+server. Sources: boss pages (Kurinnaxx, General Rajaxx,
+Moam, Buru the Gorger, Ayamiss the Hunter, Ossirian the
+Unscarred) and mob pages (Swarmguard Needler, Mana Fiend).
+Zone: Ruins of Ahn'Qiraj, zone id 3429. Instance MAP ID:
+509 (InstanceID listing). Coordinates (map 509, x, y, z):
+unverified - read spawn xyz from your core's creature
+table; no page read prints them.
+Boss entries: Kurinnaxx 15348, General Rajaxx 15341,
+Ayamiss the Hunter 15369, Ossirian the Unscarred 15339,
+Moam 15340, Buru the Gorger 15370 (verified: boss-page
+external links and Wowhead NPC pages, audit 3).
+Flags: I = interruptible only where a cast/channel was
+read; D = dispel type where printed or tooltip-standard.
+
+1. KURINNAXX (15348)
+PHASES: single phase; at 30% health he enrages (26527
+  Frenzy, patch 1.10.1 note and strategy text): healers
+  focus the tank, DPS blow cooldowns to finish (page).
+TANK: two-tank swap: 25646 Mortal Wound stacks from his
+  frontal attack (-10% healing per stack); the off-tank
+  stays BEHIND him and taunts when the MT's stacks get
+  too high (page). Wide aggro radius; sees stealth (page).
+GROUP: melee stack on ONE side of him, ranged spread
+  (page) - keeps 25656 Sand Trap victims grouped for
+  healing and keeps Mortal Wound off non-tanks.
+GROUND: 25656 Sand Trap - placed under a player: -75%
+  chance to hit and silence, 20 sec (8.3.7 tooltip,
+  audit 3). The
+  trapped companion cannot cast - bandage/potion/wand
+  until it wears off (page strategy). Move out is not
+  possible while trapped (unverified); treat as a
+  timed disable, not a zone to stand in.
+ADD ORDER: none.
+ABILITY LIST:
+  25646 Mortal Wound - healing received -10% per stack
+    (from his frontal hits; see TANK); 15 sec duration
+    (8.3.7 tooltip, audit 3).
+  25814 Wide Slash - normal +314, frontal cone.
+  25656 Sand Trap - see GROUND.
+  26527 Frenzy - +75% attack speed, 2 min (at 30%, see
+    PHASES). Physical damage bonus CONFLICT: page says
+    +87, the 8.3.7 tooltip says +250 - use the tooltip
+    for this build (audit 3). Dispel: enrage-type;
+    Tranquilizing Shot removal unverified on this page.
+  3391 Thrash - 2 extra attacks. 26446 Summon Player.
+AI RULE: off-tank stays behind him and taunts on Mortal
+  Wound stacks; if Sand Trapped, stop casting, bandage.
+
+2. GENERAL RAJAXX (15341)
+Event adds (all 7 waves): 1 officer (entries unverified)
+  + Swarmguard Needler (15344) x2-5 + Qiraji Warrior
+  (entry unverified) x1-4. Friendly NPCs: Lieutenant
+  General Andorov + 4 Kaldorei Elite (entries unverified)
+  spawn after Kurinnaxx and FIGHT WITH YOU (page) -
+  NEVER let Andorov die if you can heal him: his Aura
+  of Command heals the raid every 3 sec (page).
+PHASES: 7 waves (below), then Rajaxx himself. Talk to
+  Andorov to start. Waves come from alternating sides.
+  Wave officers and their one mechanic (boss page):
+   W1 Captain Qeez - Intimidating Shout (AoE fear;
+     fear-break the tank).
+   W2 Captain Tuubid - Attack Order: marks ONE target,
+     ALL adds aggro it - kill Tuubid FIRST (page,
+     "especially crucial"), the marked companion runs
+     to the tanks.
+   W3 Captain Drenn - Hurricane, channeled AoE around
+     himself: tank him AWAY from Andorov (page).
+   W4 Captain Xurrem - Shockwave: heavy AoE + move
+     speed to 1% for 2 sec - spread from him.
+   W5 Major Yeggeth - Blessing of Protection (physical
+     immunity): casters kill him / purge (page lists
+     the ability; removal method unverified).
+   W6 Major Pakkon - Sweeping Slam, frontal cone +
+     knockback: tank him facing the wall, away (page).
+   W7 Colonel Zerran - Enlarge (+physical damage, him
+     and allies): DISPEL it (page: "must be dispelled").
+  Wave spell ids: unverified (page names them without
+  id links). Adds can be frozen/feared/rooted/stunned
+  (page Weaknesses) - CC Warriors, kill Needlers first
+  (deadly but fragile, page) once the officer is down.
+TANK (Rajaxx): position the raid near a wall (page):
+  Thundercrash knocks everyone back. After each
+  Thundercrash and after his aggro-drop, re-taunt
+  instantly - he resets/drops aggro (page).
+GROUP: stay near the wall; keep Andorov healed (above);
+  if Andorov is dead, healers keep everyone topped -
+  Thundercrash halves health (minimum 100) and a
+  follow-up hit kills the low (page).
+GROUND: none placed. Drenn's Hurricane is a channeled
+  AoE centred on Drenn (see waves).
+ADD ORDER: per wave: P1 the officer, P2 Swarmguard
+  Needler (15344; 40504 Cleave up to 3 frontal), P3
+  Qiraji Warriors. NEVER priority: do not pull the next
+  wave early - waves are sequenced by the event.
+ABILITY LIST (Rajaxx; ids unverified - no id links):
+  Thundercrash - halves ALL players' health (minimum
+    100 damage), knockback everyone, resets aggro.
+  Aggro drop - drops his current target periodically.
+AI RULE: kill each officer first; after Thundercrash,
+  tank re-taunts at once and everyone stays by the wall;
+  heal Andorov before raid members who are safe.
+
+3. MOAM (15340)
+Add group: 3x Mana Fiend (15527) at 90 seconds.
+PHASES: P1 mana race: he drains mana (Drain Mana: 500
+  from 6 random players, +1000 to himself per player,
+  page) - at 100% mana he casts Arcane Explosion (3000
+  to the whole raid + knock-up, page) and his mana
+  resets. At 90 sec he Turns to Stone: immune to damage,
+  cannot attack or drain, summons 3 Mana Fiends; reverts
+  after 90 sec or when all Fiends die (page). Kill goal:
+  below 45% by the 90-sec stone form (page), or kill him
+  outright in under 90 sec at high DPS (~340000 health,
+  page numbers). At 120: burn him; the Fiend rules below
+  are the stall case.
+TANK: standard tank in P1; no aggro management needed
+  while he is stone (he cannot move/attack, page).
+GROUP: mana-drain team is the fight: warlocks + priests
+  mana-burn him continuously, hunter keeps Viper Sting
+  up (page) - pet classes and non-mana users are free
+  DPS (cat-form druids unaffected by the drain, page).
+  If the group CANNOT out-drain him: everyone but tank
+  + one healer runs out before the 100%-mana explosion
+  (page "fewer drainers" strategy).
+GROUND: none. His Arcane Explosion is raid-wide, not a
+  zone; the Mana Fiends' Arcane Explosion is a local AoE
+  without knockback (page).
+ADD ORDER: P1-P3 Mana Fiends (15527) - banish (warlock)
+  or freeze-trap and kill one at a time AFTER Moam dies
+  (they do not despawn on his death, page); while he is
+  stone, banished Fiends are NEVER priority - DPS Moam.
+  Fiend abilities (page): Arcane Explosion (AoE),
+  Counterspell (school lockout 12 sec - their cast on
+  YOU; interrupt priority: kill/banish before casts).
+ABILITY LIST (Moam; ids unverified - page lists no ids):
+  Trample - physical AoE around him.
+  Drain Mana - see PHASES.
+  Arcane Explosion - at 100% mana, 3000 raid-wide +
+    knock-up.
+  Turn to Stone - see PHASES.
+AI RULE: if you can drain mana, drain Moam, never DPS;
+  keep him below 100% mana or be out of the room-side
+  group when he fills.
+
+4. BURU THE GORGER (15370)
+Arena objects: 6 Buru Eggs (object entry unverified).
+  Spawned add: Hive'Zara Hatchling (entry unverified).
+PHASES: P1 (100-20%): he CANNOT be tanked or DPSed
+  down normally - he fixates a random player and chases,
+  continually speeding up; he catches a player after
+  ~60 sec without an egg hit and Dismembers them
+  (stacking bleed 1248/2 sec, page). Kite him onto an
+  egg, destroy the egg UNDER him: 45000 damage to Buru
+  (page), 100-500 to nearby players by proximity, resets
+  his speed, he picks a new target, a Hatchling spawns.
+  Pre-damage eggs to ~5% and finish them as he crosses
+  (page). P2 at 20%: shell breaks, normal tank-and-burn,
+  but Creeping Plague starts (below) - a DPS race.
+TANK: P1: the fixated player IS the tank - run him over
+  the marked egg, never through the deep water (slows
+  you, he catches up; page). P2: standard tank.
+GROUP: two groups (page): egg group (wands/light DPS to
+  hold eggs at 5%, burst on the call) and Hatchling
+  group (kill each spawned Hatchling before they build
+  up). Healers watch the kite target after ramp jumps.
+GROUND: the eggs themselves (explosion radius around
+  the destroyed egg); deep water = slow zone, avoid.
+ADD ORDER: P1 Buru Egg (only when Buru is on top of it;
+  NEVER destroy an egg he is not standing on - it wastes
+  one of six and spawns a Hatchling for nothing), P2
+  Hive'Zara Hatchlings as they spawn.
+ABILITY LIST (ids unverified - page lists no ids):
+  Dismember - stacking bleed 1248/2 sec, if he catches
+    his target. Thorns - 200 damage thorns aura.
+  Creeping Plague (below 20%) - raid-wide: 80 per tick,
+    stacking +80 every 3 ticks, UNRESISTABLE and
+    UNDISPELLABLE, even Ice Block (page, explicit).
+  Immune to taunt (page).
+AI RULE: if Buru is chasing you, run him onto the marked
+  egg and keep running; never DPS Buru directly in P1.
+
+5. AYAMISS THE HUNTER (15369)
+Add groups: Hive'Zara Swarmer swarm (~20; entry
+  unverified), Hive'Zara Larva (entry unverified), and
+  the elite Hive'Zara Buzzer (entry unverified) that a
+  successful Larva spawns.
+PHASES: P1 airborne until 70%: ranged only (melee cannot
+  hit him, page). P2 at 70%: he lands - COMPLETE AGGRO
+  WIPE (page) and he is untauntable: let the tank build
+  aggro before DPS (page). Tank him on the altar, back
+  to the mountain border (page).
+TANK: P1: the highest-aggro ranged player tanks him -
+  Poison Stinger stacks on the top-aggro target only
+  (25 Nature/sec per stack, to 100 stacks, page): swap
+  the ranged tank at ~20 stacks (page strategy). P2:
+  see PHASES; offtank ready if the MT is sacrificed.
+GROUP: P1 ranged together at the back; melee wait at
+  the altar base on Larva duty (below). Throughout:
+  Stinger Spray ~1000 Nature to the whole raid every
+  ~30 sec (page); swarms of ~20 Swarmers descend - AoE
+  them (very low health, ~60 a hit on cloth, page).
+GROUND: the altar top = the Paralyze sacrifice spot: a
+  random player is teleported/shackled there and a
+  Larva runs at them from the altar base; if it arrives
+  it KILLS the player and spawns an elite Buzzer (page).
+  The Larva is fast and cannot be slowed or stunned
+  (page) - melee must already be in position.
+ADD ORDER: P1 Hive'Zara Larva (the instant it spawns -
+  nothing else matters while it lives), P2 Hive'Zara
+  Swarmers (AoE in passing), P3 Hive'Zara Buzzer (only
+  exists if a Larva got through - kill it, then boss).
+ABILITY LIST (ids unverified - page lists no ids):
+  Stinger Spray - ~1000 Nature, raid-wide, ~30 sec.
+  Poison Stinger - stacking DoT on top-aggro, P1 only.
+  Paralyze - see GROUND. Immune to Taunt (page).
+AI RULE: melee live at the altar base and kill the
+  Larva the second it appears; ranged swap the sting
+  tank at 20 stacks.
+
+6. OSSIRIAN THE UNSCARRED (15339)
+Arena objects: Ossirian Crystals (object entry
+  unverified) spawn around the courtyard. Hazard: Sand
+  Vortex tornadoes (entry unverified).
+PHASES: single phase, one mechanic: he STARTS in
+  Supreme Mode (huge melee, very fast, page). Clicking
+  a crystal puts a 45-sec debuff on him: much less
+  damage, slowed, and vulnerable to one magic school
+  (can stack several; Holy is exempt from the
+  resistance/weakness system, page). The whole fight
+  is: kite him crystal to crystal, click the next at
+  30-35 sec elapsed on the debuff (crystals have a
+  slight cast time - never at the last second, page),
+  DPS only in the weakened windows, and NO raid DPS
+  until after the 2nd crystal (tanks have almost no
+  threat built, page). Alternative (page): two fast
+  clickers patrol the edges clicking every crystal so
+  they respawn in the centre; raid fights him in the
+  centre - faster, but casters easily over-aggro.
+TANK: MT stands BEHIND the first crystal, gains initial
+  aggro from range, stays out of his reach until the
+  first debuff lands (Supreme hits kill, page). Tank
+  him just BEFORE each crystal, never on top of it -
+  his knockback can throw the clicker (page). OT
+  covers the Enveloping Winds stun (below): he will
+  not target the stunned player but threat is preserved
+  (page) - OT holds him until it breaks.
+GROUP: stay between the tanks and the next crystal;
+  healers stay close to the MT (knockback LoS, page).
+  Decurse Curse of Tongues instantly, healers first
+  (page). Watch the kite path for tornadoes.
+GROUND: Sand Vortexes/tornadoes roam the zone once he
+  is engaged (very high damage inside; hunters Track
+  Elementals, page) and a sandstorm runs instance-wide
+  from the pull (visibility only, page). The crystals
+  are the safe-tempo points, not ground effects.
+ADD ORDER: none. NEVER ignore a crystal timer for DPS:
+  Supreme Mode returning is the wipe.
+ABILITY LIST (ids unverified - page lists no ids):
+  Supreme Mode - see PHASES.
+  Enveloping Winds - 10 sec stun on the aggro holder;
+    cannot be dispelled; breaks on damage; Nature
+    resist can resist it (page).
+  Curse of Tongues - AoE curse around him: D-Curse -
+    decurse instantly, healers first (page).
+  Warstomp - ~1500 around him + knockback.
+  Crystal Weakness debuff - 45 sec per crystal (above).
+AI RULE: the crystal timer is the fight - move to the
+  next crystal at 30 seconds, click by 35, and never
+  DPS a Supreme Ossirian in melee range.
+
+TRASH (Ruins of Ahn'Qiraj)
+T1. The Rajaxx waves ARE the trash for the first half
+  (boss 2 above): CC-able adds (frozen/feared/rooted/
+  stunned, page); kill order officer > Needler >
+  Warrior per page strategy.
+T2. Reservoir/Canal trash before Moam (Obsidian
+  Destroyer / Canal Frenzy types are named in zone
+  listings; entries and spells unverified - pages not
+  read). Kill order unverified; do not pull them into
+  Moam's area.
+T3. Hatchling/Hive trash around Buru and Ayamiss
+  (Hive'Zara types; entries/spells unverified beyond
+  the boss-spawned adds above). Rule: clear the egg
+  room edges before pulling Buru; never start Buru
+  with Hatchlings up.
+General trash AI RULE: in this raid the "trash" that
+  kills groups is event trash - keep Andorov alive,
+  kill officers first, and never pull a boss with his
+  room's adds still up.
+
+END OF STEP 3 (RESTART). Next step is
+04_Temple_of_Ahn_Qiraj.txt, on request.
