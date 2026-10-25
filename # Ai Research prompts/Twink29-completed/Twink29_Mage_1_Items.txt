@@ -56,7 +56,8 @@ LEGS|no rare cloth legs and no cloth leg heirloom - a green
 FEET|Highlander's Cloth Boots|20096|33|28|AB, Alliance, Mage/Pri/Wlk|SOLO V
 FEET|Defiler's Cloth Boots|20162|33|28|AB, Horde, Mage/Pri/Wlk|SOLO V
 FEET|Acidic Walkers|9454|32|27|Viscous Fallout 7079, Gnomeregan|SOLO V
-RING 1|Thunderbrow Ring|13097|29|24|world drop, +8 Str +3 Agi|RNG V
+RING 1|none legal - 13097 Thunderbrow Ring is 29/24, below the 26-29
+     floor: OUT (Gear Audit 2). It was listed here as a row in error.
 RING 1|no caster ring verified at 26-29 - the search returned none
 RING 2|second ring, of Intellect|-|unv.|29|green drop|SOLO
 TRINKET 1|Arena Grand Master|19024|unv.|none|STV arena chest, quest 7838|SOLO

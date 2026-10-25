@@ -1,0 +1,45 @@
+AUDIT 2 (RESTART) - Tactics_Blackwing_Lair.txt
+Method: claims re-checked against the 8.3.7 (dataEnv=11)
+Wowhead tooltip database, which the file was not built
+from, plus the boss pages read for the restart.
+Result: 15 pass, 4 corrected/upgraded, 3 unverified.
+
+PASS (tooltip-verified this audit):
+ - 23341 Flame Buffet 139-161 + 150 taken/stack, 20 sec.
+ - 23967 Dragonbane 400% weapon damage (adds vs boss).
+ - 23342 Enrage 10 sec, buff type Enrage (Tranquilizing
+   Shot target confirmed as an enrage-type dispel).
+ - Entries 12435/13020/12017/11983/14601/11981/14020/
+   11583 and add entries 12557/14456/12420/12416/12422/
+   14302/14605/13996: mob/boss page external links.
+ - Razorgore caps 40 orcs / 12 Dragonspawn, 42-kill
+   Nefarian P1 count, 20% Bone Construct trigger.
+
+CORRECTED (applied to the file with this audit):
+ 1. 19873 Destroy Egg: page contradicted itself
+    (instant vs 3 sec cast / 1.5 sec CD). 8.3.7 tooltip:
+    3 sec cast, 7 sec cooldown. Egg pace in P2 is set
+    by the 7 sec CD - plan the orb rotation on that.
+ 2. 23340 Shadow of Ebonroc now has its numbers: heals
+    Ebonroc 25000 per melee hit, 8 sec duration. The
+    tooltip buff carries no dispel type, so the swap
+    rule stands and "dispel it" is not an option read.
+ 3. 18173 Burning Adrenaline duration is 20 sec
+    (-5% max health/sec = death at expiry). Filed.
+ 4. 22687 Veil of Shadow upgraded to D-Curse VERIFIED
+    (tooltip buff type Curse). Decurse-the-tank rule
+    is now grounded, not inferred.
+
+UNVERIFIED (stand as marked in the file):
+ - Broodlord Lashlayer spell ids (Blast Wave, Cleave,
+   Mortal Strike, Knock Away): his page links no ids.
+ - Chromaggus breath/affliction ids and Frenzy/Enrage
+   ids: page names them without ids; Bronze removal
+   (Hourglass Sand / Ice Block) is page-verified.
+ - Victor Nefarius human-form entry, coloured drakonid
+   entries, Death Talon trash-type entries, all spawn
+   coordinates (map 469): read from your core.
+
+Note: the wiki's cast-time lines are the least reliable
+field on Classic boss pages (see Destroy Egg). Where a
+cast time drives an AI decision, tooltip it.

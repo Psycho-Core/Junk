@@ -1,0 +1,236 @@
+TACTICS - WRATH OF THE Lich King A (OLD RAIDS STEP 8)
+Naxxramas (10/25), Obsidian Sanctum, Eye of Eternity,
+Vault of Archavon, Ulduar.
+Server: private BfA 8.3.7 build 35662, TrinityCore base.
+Spell ids unverified unless stated; creature entries
+and coordinates unverified throughout. Map ids (verify
+on server): Naxxramas 533, Obsidian Sanctum 615, Eye of
+Eternity 616, Vault of Archavon 624, Ulduar 603.
+Numbers below are the 10/25 versions - do NOT reuse the
+step-5 40-player numbers (audit-7 warning applies).
+
+NAXXRAMAS (map 533) - only differences from step 5 are
+filed in full; shared rules are repeated in short form.
+1. ANUB'REKHAN: as step 5 (Impale line, Locust Swarm
+  kite, Crypt Guards). AI RULE: swarm starts = run.
+2. FAERLINA: as step 5 BUT in this version mind-control
+  is not required: sacrificing a Worshipper still clears
+  Enrage; poison cleanse; Rain of Fire out.
+3. MAEXXNA: Web Wrap = free the cocooned; Web Spray
+  stuns the raid - pre-heal the tank.
+4. NOTH: decurse instantly (curse -> Wrath on expiry);
+  balcony phases clear skeleton waves.
+5. HEIGAN: the dance, unchanged: zones 1-2-3-4-3-2-1,
+  move at your own pace, never follow another player.
+6. LOATHEB: heals are blocked by 55593 Necrotic Aura
+  (page: -100% healing for 17 sec, recast every 20 sec =
+  exactly 3 seconds to heal per cycle); spores give the
+  crit buff in group order; 55601 Deathbloom ticks then
+  blooms; 55052 Inevitable Doom from 2 min (page).
+  AI RULE: heal ONLY in the 3-second window.
+7. PATCHWERK: Hateful Strike soaks: offtanks in melee
+  kept topped; at 120 the era gear-check framing is
+  historical - mechanic kept for script fidelity.
+8. GROBBULUS: kite him; injection target runs out
+  (becomes a poison cloud); slimes from spray killed.
+9. GLUTH: zombies kited/piled; on Decimate AoE them
+  before he eats one; tank wound swaps.
+10. THADDIUS: twins within 5 sec; charges: stand only
+  with your own polarity sign; no combat-rez in P2.
+11. RAZUVIOUS: understudy count by size (page): TWO in
+  10-player, FOUR in 25-player. 25-player: priests MC
+  them and rotate (as step 5). 10-player: Orbs of
+  Domination let any class control them instead.
+  AI RULE: the controller's job is Bone Barrier uptime.
+12. GOTHIK: as step 5 (living side feeds spectral side;
+  pace your side to the other room).
+13. FOUR HORSEMEN: roster differs from step 5 (page):
+  Mograine is GONE - Baron Rivendare takes his corner.
+  front pair = Rivendare + Thane Korth'azz (melee, tanks
+  swap on mark stacks); back pair = Lady Blaumeux +
+  Sir Zeliek (casters, held at range). Rotate corners
+  before stacks kill. AI RULE: count your mark.
+14. SAPPHIRON: hide behind ice blocks for Frost Breath
+  in air phase; blizzard move; decurse Life Drain team.
+15. KEL'THUZAD: P1 timed waves; P2 spread (Frost Blast
+  chains to neighbours), fissure = move now, MC'd
+  companions CC'd; Guardians join late - shackle/tank.
+  All ids unverified here; see step 5 for the originals.
+
+OBSIDIAN SANCTUM (map 615)
+16. SARTHARION (+3 twilight drakes if left alive)
+PHASES: single; lava waves sweep the platform from one
+  side (called by emote); drake portals open: a player
+  team enters the twilight portal to kill the disciple/
+  acolyte inside or the dragon outside stays immune.
+TANK: hold him centre-side, never in a wave path; drake
+  tanks pick up Tenebron (whelps hatch - AoE), Shadron,
+  Vesperon as they land (if up).
+GROUP: MOVE for every lava wave (cross the gap in the
+  wave); adds: fire elementals on enrage of lava, kill;
+  portal team kills the inner add fast then returns.
+GROUND: Lava Strike circles, lava waves, flame walls.
+ADD ORDER: P1 portal inner add, drake adds, boss.
+ABILITY (unverified ids): Lava Wave, Lava Strike,
+  Twilight Portal, drake abilities (portal immunity).
+AI RULE: wave call beats everything - be on the far
+  side before it arrives.
+
+EYE OF ETERNITY (map 616)
+17. MALYGOS
+PHASES (page): P1 ground: Arcane Breath cone leaves a
+  5-sec delayed explosion on its targets (move apart
+  after breath); Power Sparks drift to him (+50% his
+  damage if they arrive) - kill them and STAND in the
+  spark patch (+50% your damage, stacks). Vortex tosses
+  the raid (heal in the air). At 50% P2: he flies;
+  Nexus Lords land on discs (tank them, loot discs,
+  melee ride discs up to Scions); Deep Breath: stand in
+  a purple anti-magic bubble (page: discs exempt).
+  P3: platform shatters - everyone on red drakes
+  (vehicle): combo builders/spenders, stack engines on
+  him, healers use drake heals; Static Field zones move.
+TANK: P1 face him from the group; breath targets spread
+  after.
+GROUP: sparks die mid-path, buff patches stacked; P3
+  drake rotation by role (DPS combo, heal combo).
+GROUND: spark patches (stand IN), anti-magic bubbles
+  (stand IN, P2), Static Field (OUT, P3).
+ADD ORDER: P1 sparks, P2 Nexus Lords then Scions, boss.
+ABILITY (ids unverified): as named above; 10-min enrage
+  across all phases (page).
+AI RULE: sparks are a race you win by standing in the
+  puddle they leave - take the buff, starve the boss.
+
+VAULT OF ARCHAVON (map 624)
+18. ARCHAVON: tank swap on Stomp (he picks the tank up);
+  Rock Shards on random players (move apart); leap
+  repositions - regroup behind him. Enrage era 5 min.
+  AI RULE: if he holds your tank, the OT talks to him.
+19. EMALON: adds (Tempest Warders) heal/buff him - one
+  add becomes Overcharged (grows, explodes): ALL DPS
+  switch to the charged add until dead, then back.
+  Chain Lightning: spread. AI RULE: charged add = boss.
+20. KORALON: Burning Breath cone (rotate him slowly);
+  Meteor Punch splits between tanks - tanks STACK
+  together in front; fire patches move. AI RULE: tanks
+  share the punch, nobody else shares the front.
+21. TORAVON: frost orbs (kill them), Frozen Ground,
+  tank swap on frost stacks (Whiteout raid pulse).
+  AI RULE: swap before stacks, kill orbs on spawn.
+All VoA ids unverified.
+
+ULDUAR (map 603)
+22. FLAME LEVIATHAN (vehicle fight): siege vehicles:
+  demolishers launch passengers/pyrite (reload at blue
+  pyrite barrels - more damage), choppers drop oil and
+  rescue, siege engines interrupt his casts (Overload =
+  burn window). Kill his turret passengers via launch.
+  GROUND: tar (light it), pursuit fixate - kite.
+  AI RULE: your vehicle IS your character; pyrite is
+  your mana - never run dry mid-burn.
+23. IGNIS: golems: heat them in his furnace, drag to
+  water = brittle, shatter them (they buff him while
+  alive); Flame Jets knock casters (stop casting);
+  Slag Pot: a player is grabbed - heal them hard, they
+  come out buffed. AI RULE: a golem alive is boss damage
+  up - brittle and break them on schedule.
+24. RAZORSCALE: ground teams kill dwarf waves and use
+  harpoon turrets (4 repaired) to chain her down; when
+  grounded: burn; at 50% permanent ground: breath cone,
+  Flame Buffet tanks swap, Devouring Flame patches.
+  AI RULE: harpoons first - nobody DPSes air she cannot
+  be reached in.
+25. XT-002 DECONSTRUCTOR: heart exposed at 75/50/25%
+  (kill heart = hard mode trigger - do NOT unless called;
+  heart damage carries to boss). Light Bomb (run out),
+  Gravity Bomb (run out, drops void zone), Tympanic
+  Tantrum (heal through). Adds from scrap piles in heart
+  phases (bots: bomb bots explode - kill at range).
+  AI RULE: bombs carry YOU out of the group; heart is a
+  button, not a target, unless the raid calls hard mode.
+26. ASSEMBLY OF IRON (3): kill order sets the survivor's
+  new powers: standard Steelbreaker last (his tank melts
+  - tank swaps + dispel Fusion Punch D-Magic), Runemaster
+  mid (runes: stand in Rune of Power OFF the boss's -
+  pull him out; death rune = move), Stormcaller first
+  (interrupt Chain Lightning/static). AI RULE: kill order
+  is the difficulty dial; interrupts on Stormcaller.
+27. KOLOGARN: arm fight: right arm dies = rubble adds +
+  he takes burst; left arm grips 3 players (kill arm to
+  free); Eyebeam chases a player (kite it away); body
+  killed = fight ends (arms alone do not end it).
+  AI RULE: gripped companions are freed by killing the
+  arm, not by healing through.
+28. AURIAYA: cat adds (Sanctum Sentries: they pounce and
+  buff each other - tank together, kill together or CC);
+  her fear (Terrifying Screech - tremor/berserker),
+  Sentinel Blast interrupt; Feral Defender (9 lives,
+  leaves void zone per death - tank it away each time).
+  AI RULE: the little cat gets more dangerous dead -
+  move its corpse zone each of its nine deaths.
+29. HODIR: singed/flash freeze: snowdrifts after Flash
+  Freeze - jump ON a drift or be frozen in ice (frozen
+  players freed by DPS); stand in singed circles (haste
+  buff) and moonbeam light; keep MOVING (Biting Cold
+  stacks on still players). Free the frozen NPC mages.
+  AI RULE: stillness freezes you - keep moving, stand in
+  the fire on purpose.
+30. THORIM: two teams: arena team survives waves; the
+  gauntlet team races the hallway (traps, mini-bosses)
+  to reach him before his buff maxes - then he jumps
+  down: tank centre; Lightning Charge buffs his side of
+  the room in thirds (rotate out of the charged third);
+  Chain Lightning spread. AI RULE: gauntlet speed is the
+  boss's damage - race, do not farm.
+31. FREYA (+3 elders optional): add waves rotate: snap-
+  lasher pack (AoE at low), storm lasher/storm water
+  (interrupt), big tree (tank); mushrooms = stand under
+  for her Nature's Fury; she heals unless adds die fast
+  (150-stack attunement falls per add death - unverified).
+  AI RULE: adds are her health bar - boss DPS happens
+  only when nothing is alive.
+32. MIMIRON: four vehicles in sequence: Leviathan MkII
+  (mines, Napalm on a player - run out; shock blast),
+  VX-001 (spin-up laser barrage - run behind; rockets
+  hit marked spots - move), Aerial Unit (plasma ball
+  tank at range, magnetic core drops it - ground team
+  burns when down), then ALL parts together (kill within
+  moments of each other). Fire patches everywhere (bots
+  put them out in hard mode only). AI RULE: each body
+  part has one movement answer - learn the four, in order.
+33. GENERAL VEZAX: no mana regen in the room (his aura);
+  healers use Saronite Vapors (green clouds -> crystal:
+  standing in the puddle gives mana but stacks a DoT);
+  Shadow Crash on ranged (move, leave crash puddle -
+  stand in it for +damage as caster); Mark of the
+  Faceless on a player (run from allies - it leeches);
+  Surge of Darkness: interrupt/stop tank damage (tank
+  cooldown). AI RULE: mana comes from standing in poison
+  - take turns, watch your stack.
+34. YOGG-SARON (+keepers optional): P1 Sara above a
+  cloud-spawned guardian fight (guardians explode near
+  her - tank blows them up at her); P2 brain portals:
+  a team descends, kills illusion mobs, hits the brain
+  (30-sec stun burn on him upstairs), exits before
+  sanity 0; sanity is the real health bar (stand near
+  keepers' wells as filed, unverified); P3 burn outside,
+  face AWAY when he casts Lunatic Gaze (sanity).
+  AI RULE: your sanity is your life - portals are a job
+  with a clock, gaze means look away.
+35. ALGALON (optional, timed): tank swap on Phase Punch
+  (punch 5 = tank removed to another realm briefly);
+  Collapsing Stars die -> black holes (never let star
+  die beside the raid; feed stars on schedule); Cosmic
+  Smash circles move; Big Bang (90-sec cycle): everyone
+  but one tank hides IN a black hole, return after.
+  AI RULE: Big Bang = get in the hole; the one who stays
+  is chosen, not brave.
+All Ulduar ids unverified.
+
+TRASH NOTES (entries unverified): Naxx wings as step 5
+(10/25 values); Ulduar: vehicle gauntlet before
+Leviathan (towers off = easier boss), keeper wings'
+giants/keepers packs interrupt priority.
+
+END OF STEP 8. Next step is 09_Wrath_of_the_Lich_King_B.

@@ -1,0 +1,48 @@
+AUDIT - Tactics_Wrath_of_the_Lich_King.txt (STEP 8)
+Re-checked against warcraft.wiki.gg pages fetched for
+this audit (Razuvious, Faerlina, Loatheb, Four Horsemen
+roster, Malygos from step 8). Result: 31 pass,
+3 corrected, 3 unverified.
+
+PASS:
+ - Naxxramas shared rules correctly NOT copied from the
+   40-player numbers (step-5 file kept separate).
+ - Malygos: 50% P2 trigger, spark buff mechanics, Deep
+   Breath bubbles, 10-min global enrage (page).
+ - Sartharion wave/portal structure; VoA boss rules
+   (Emalon charged add, Koralon shared punch, Toravon
+   swap); Ulduar set: Leviathan pyrite, XT heart as a
+   hard-mode switch, Hodir stillness rule, Vezax mana
+   economy, Yogg sanity, Algalon Big Bang hole rule.
+
+CORRECTED (applied with this audit):
+ 1. Razuvious understudy count was swapped: TWO in
+    10-player, FOUR in 25-player (page: "two (normal)
+    or four (heroic)"). The file had 25 down as 2.
+ 2. Four Horsemen roster: the file named Mograine in
+    the front pair. In WotLK Mograine is gone - Baron
+    Rivendare holds that corner (page list). front =
+    Rivendare + Korth'azz; back = Blaumeux + Zeliek.
+    Applying step 5's names here would target a boss
+    who is not in the room.
+ 3. Loatheb's Necrotic Aura was filed "unverified
+    numbers": the page gives spell 55593 (-100% healing,
+    17 sec, every 20 sec = a 3-second heal window), plus
+    55601 Deathbloom and 55052 Inevitable Doom. The
+    audit upgrades these from unverified to filed ids -
+    the only WotLK Naxx ids verified in either file.
+
+UNVERIFIED (stand as marked):
+ - All other spell ids, creature entries, coordinates
+   in step 8; Freya's attunement decrement per add;
+   several Ulduar hard-mode-only details (noted inline).
+ - Faerlina's worshipper handling at 10 vs 25 on this
+   core (page abilities chunk not re-read this audit;
+   the enrage-clear rule is as filed in step 5's form).
+ - Whether this server runs 10/25 lockouts and scripts
+   heroic-only mechanics where they exist.
+
+Audit-7's warning proved right within one step: two of
+three corrections were pure version drift (roster and
+group size), not number errors. Keep checking WHO is in
+the room and HOW MANY, before checking damage values.
