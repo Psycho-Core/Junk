@@ -1,238 +1,645 @@
-TACTICS - MISTS OF PANDARIA B (OLD RAIDS STEP 13)
-Throne of Thunder, Siege of Orgrimmar.
-Server: private BfA 8.3.7 build 35662, TrinityCore base.
-Spell ids unverified unless stated as page-read;
-creature entries and coordinates unverified throughout.
-Map ids: Throne of Thunder 1098, Siege of Orgrimmar
-1136 (verify on server).
+Tactics: Mists of Pandaria B (Step 13)
+Raids: Throne of Thunder, Siege of Orgrimmar.
+Creature entries, map ids, coordinates
+unverified unless stated. Values are
+page-given normal unless marked. Spell ids
+from wiki wowhead links where captured;
+ids marked (unv-8.3.7) per Audit 12 pattern:
+MoP raid ids absent from 8.3.7 tooltip DB.
 
-THRONE OF THUNDER (map 1098)
-1. JIN'ROKH: throw tank swap (Static Wound); Focused
-  Lightning orbs fixate players - carry them to a grate
-  OUT of water; conductive water pools: fight him in a
-  pool for +damage, but Lightning Storm = everyone OUT
-  of water and spread. AI RULE: water is damage you
-  borrow - storm means leave it dry.
-2. HORRIDON: gates: adds pour per tribe gate; interrupt
-  dinomancer casts (heals boss - I), kill adds by gate
-  call; Jalak joins at end (kill fast, then boss takes
-  +damage). Direhorn spirit fixates a player (kite,
-  knockback slows it). Tank swap on Triple Puncture.
-  AI RULE: the add gate is the boss - boss DPS happens
-  between waves.
-3. COUNCIL OF ELDERS: kill order by empowerment: the
-  empowered elder (dark power) must die... rotation:
-  damage switches to whoever is empowered (Gara'jal
-  possesses them): Kazra'jin (reflect damage during
-  overload - stop), Sul (sand traps - stack out of
-  quicksand, adds), Malakk (tank swap frost stacks),
-  Mar'li (adds interrupt, spirits add waves).
-  AI RULE: hit the possessed one; reflected casts mean
-  hands off Kazra'jin.
-4. TORTOs: shell spin: whirl turtles - kick a turtle
-  (after it dies, aim it) INTO him to interrupt Fury
-  and knock him; bats: tank kites them (they heal him
-  if they hit players... they drain - kill at range);
-  crystal shell shields (player shield mechanic).
-  Rocks fall circles. AI RULE: turtles are ammunition
-  after death - save a corpse for the Fury cast.
-5. MEGAERA: heads: kill one head at a time (never the
-  same colour twice in a row if avoidable - rampage
-  every 2 heads: stack/heal); the living heads NOT in
-  melee range breathe/use from behind: green poison
-  bombs (spread), red flame beam (run out of line),
-  blue frost beam kited. Poison pools grow.
-  AI RULE: two heads die, everyone stacks - the cycle
-  is arithmetic, plan it.
-6. JI-KUN: nests: flyers use feathers to reach nests
-  (kill eggs/juveniles before hatch), feed young: the
-  flying group intercepts feed (pool buff); down teams
-  tank adds; Quills raid-wide (heal), talon rake swaps.
-  AI RULE: nests on a clock outrank boss DPS - the sky
-  team is a rotation, not volunteers.
-7. DURUMU: colourblind beams: red/yellow/blue beams on
-  3 players reveal matching adds (beam players sweep
-  their cones over the room to find crimson/amber/azure
-  adds - kill revealed adds before beams end); light
-  phase then maze: Disintegration Beam carves a path;
-  maze phase: run the opening path in the eye sore
-  maze (follow the safe lane as it opens, never ahead).
-  AI RULE: the maze opens in front of you only - walk
-  the gap, never guess a shortcut.
-8. PRIMORDIUS: living fluid blobs run to him (kill/
-  slow); dead blobs leave pools: stand in pools to gain
-  mutation stacks (good mutations buff; at 10 stacks
-  transformed), avoid bad mutation pools by call; he
-  evolves every X blobs absorbed (hardens).
-  AI RULE: his food is your buff - blobs die away from
-  him, pools are chosen, not random.
-9. DARK ANIMUS: anima golems: small golems killed beside
-  bigger ones to transfer anima (feed the plan: wake the
-  LARGE golems in called order; if Dark Animus himself
-  fills first he wipes (Interrupting Jolt + full power);
-  anima orbs (unverified); crimson wake paths move. Tank swaps on
-  explosive slam. AI RULE: anima flows uphill by kills -
-  never kill a golem where its anima feeds the wrong
-  body.
-10. IRON QON + 3 quilen: mounts sequential: Ro'shak
-  (fire: spread, molten stacks tank swap), Quet'zal
-  (wind: tornadoes, wind storm - stack in the eye... his
-  storm throws players - stand in centre ring), Dam'ren
-  (frost: frozen spikes lines, reflect shield stops).
-  Final: all dead mounts' abilities cycle; fist smash
-  phases spread. AI RULE: each dog is a weather - dress
-  for the current one only.
-11. TWIN CONSORTS: day/night: Lu'lin (night: star chart
-  drawing - a player traces constellations (vehicle
-  drawing) to buff; cosmic barrages stars), Suen (day:
-  tears of the sun, fan of flames; she melts ice comet
-  (stand behind comet for Lu'lin's nuclear... unverified
-  cross-detail). Tank swap per phase; crane/rush adds.
-  AI RULE: one twin is fought, the other is weather -
-  switch targets on the phase call only.
-12. LEI SHEN (page-read): 4 conduits, one per quadrant;
-  he charges the conduit he stands near; if near none,
-  Discharge ramps on the raid (page) - tanks keep him
-  AT a conduit. Choose WHICH conduit levels highest:
-  in intermissions (65%/30%) he supercharges all 45
-  sec; the highest-level conduit OVERLOADS and disables
-  (normal) - so the raid stands in the quadrant whose
-  ability they want GONE (Static Shock chain / Diffusion
-  Chain spawns adds per hit / Overcharge ring stun -
-  run out through its gap / Bouncing Bolt: soak every
-  bolt circle or Unharnessed Power adds spawn - page).
-  Decapitate: the thrown axe hits the tank by distance
-  (farther = less - page) - tank cooldown + swap.
-  Stage 3: Lightning Whip marks, violent winds push
-  (run against, stay off edges), summon ball lightning.
-  AI RULE: you vote with your feet which ability he
-  loses - stand in the quadrant you want deleted.
+THRONE OF THUNDER
+=================
 
-SIEGE OF ORGRIMMAR (map 1136)
-13. IMMERSEUS: split adds: sha puddles (kill, move) and
-  contaminated puddles (HEAL them full - they run to
-  him healed) - split phase repeats: each returned
-  puddle removes corruption; swirl circles.
-  AI RULE: black puddles die, blue puddles are healed -
-  wrong verb on a puddle wastes the phase.
-14. FALLEN PROTECTORS (3): shared arena: each at 66/33%
-  summons its desperate measures: Rook (adds tombstones
-  - tank spin), He (mark of anguish passed player to
-  player - pass before stacks, dark meditation bubble),
-  Sun (calamity, adds - interrupt, sha sear spread).
-  Kill synced at the end (they heal each other if one
-  dies... they must die near-together - unverified).
-  AI RULE: measures happen by %, not by call - know
-  whose 66 is next.
-15. NORUSHEN: personal corruption: players enter solo
-  trials (kill your sha self; healers/tanks their role
-  trials) to purify (then +damage to boss); outside:
-  adds (big adds tank-swap aura), cutter beams spin.
-  AI RULE: your trial is private and timed - nobody
-  can help you pass it.
-16. SHA OF PRIDE: pride bar: gaining pride from hits;
-  at 100 you become proud... manifestations spawn
-  behind players (face them / kill), rifts: a player
-  closes rifts (click) or adds stream; banishment
-  maze realm (run to your light); swollen pride burst:
-  spread by pride level (higher pride = bigger ring).
-  AI RULE: rifts closed by hand beat adds killed.
-17. GALAKRAS: tower fight: ground team kills waves and
-  protects NPCs (they open towers), tower teams climb
-  and kill mini-bosses, shoot Galakras down with the
-  turrets when towers cleared; drakes strafe (move);
-  final: tank swap flames, fire pools.
-  AI RULE: protect the demolition crew - towers are
-  the timer.
-18. IRON JUGGERNAUT: assault/siege modes: siege = spread
-  (mortars, shock pulse knockback - stand near wall),
-  mines crawl to random players (stomp them - soakers),
-  cutter laser fixates (kite out), oil pools (never
-  ignite near raid); bored drill circles.
-  AI RULE: mines are stomped by the healthy, laser is
-  walked out alone.
-19. DARK SHAMAN (2): tank apart (they share health):
-  toxic mist players run out (leave pools), foul slimes,
-  ashen wall blocks the street (reposition), falling
-  ash circles; bloodlust timer (their enrage): swap
-  tanks on froststorm strikes (elementalist) / iron
-  tomb on player (kill the tomb to free them).
-  AI RULE: two bosses, two streets - your tank group
-  stays on its own side.
-20. GENERAL NAZGRIM: stances: battle (normal), berserker
-  (+damage taken by him... he takes more - burn window
-  but generates rage), defensive (STOP attacking - rage
-  gen: hitting him builds his rage; at 100 he ravages).
-  Adds by rage spending: kill banners first, shamans
-  (interrupt heals), assassins on healers (peel).
-  AI RULE: defensive stance = hands completely off -
-  your DPS is his rage bar.
-21. MALKOROK: shield phase: players' shields absorb
-  (healing fills shields - keep shields topped, green/
-  yellow/red callouts); orbs soak (called players eat
-  orbs; never let orbs expire on the ground), breath of
-  Y'Shaarj marks zones (move, they persist); imploding
-  energy... P2 blood rage solo soak (one tank cooldowns,
-  raid spreads far).
-  AI RULE: your shield colour is your health bar -
-  call red, soak orbs on roster.
-22. SPOILS OF PANDARIA: two rooms, box opening: open
-  small boxes steady, big boxes spawn mini-bosses; kill
-  quota by timer (energy); mogu side (statues come alive
-  - tank, amber pools) / mantid side (bombs - carried
-  out, pheromones). Both rooms finish before enrage.
-  AI RULE: pace boxes to the timer - greedy opening is
-  the wipe.
-23. THOK: cage phases: he fixates a player and chases
-  (kite room-to-room; each pass through a jail door -
-  freed prisoner NPC buffs); blood frenzy when his
-  chase targets drop... at phase end he eats a prisoner
-  (chosen buff: fire/frost/poison breath added);
-  tank swap swallow (he eats tanks at stacks - cooldown).
-  AI RULE: fixated means run the long corridor - he
-  must never catch anyone before the door.
-24. SIEGECRAFTER BLACKFUSE: conveyor belt team (vehicle):
-  ride the belt, kill the weapon being built (one of
-  shredder/mines/magnet/laser/crawler by round), jump
-  pipes back; floor: sawblades fixate (kite), mines
-  (kill/CC), magnet pulls (run against), superheated
-  laser lines; shredder add: tank, kill with sawblade
-  positioning (sawblade positioning - belt
-  choice is counter-pick). AI RULE: the belt decides
-  what the floor suffers - kill the called weapon.
-25. PARAGONS OF THE KLAXXI (9, 3 active): each death
-  empowers survivors and a new one lands: kill target
-  gains a power from the Corpse... each arrival: choose
-  who gains whose ability. Notable: amber on a player
-  (run out), parasite (do NOT kill hungry parasite adds
-  - they... unverified: avoid killing parasites or they
-  heal him), fiery lines between players (spread/move),
-  aim: player marked - line up others OUT of the arrow.
-  AI RULE: the kill order is a build order - the raid
-  leader's sequence is the strategy.
-26. GARROSH (page-read): P1: adds stream (warbringers,
-  farseer wolf riders - interrupt Greater Healing Wave
-  and Chain Lightning, page), siege engineers: kill at
-  least one per wave or its Iron Star rolls (it kills
-  adds for you too - stand clear of its lane; exploding
-  star damage fades with distance - page). Desecrated
-  Weapon: kill the weapon to shrink its ground.
-  Intermissions at 10% heals: Realm of Y'Shaarj (temple
-  scenes): kill sha adds, then interrupt Consume
-  break his shield, survive Annihilate behind remaining
-  sha bubbles (unverified), stop him gaining energy.
-  P2: Touch of Y'Shaarj MC - DPS the player free and
-  interrupt them (page); Whirling Corruption: run far
-  (distance reduces it); at 25 energy empowered: minions
-  spawn - kill them SPREAD OUT (they empower each
-  other if close - page). P3 (second 10%): all
-  empowered, bombardment, desperate burn.
-  AI RULE: engineers first, stars are lanes, and every
-  empowered minion dies alone.
+1. Jin'rokh the Breaker
+PHASES: single; 4 pool cycles of Throw ->
+Conductive Water -> Lightning Storm.
+TANK: hold near a dry grate; swap on Static
+Wound (10 stacks applied 3s after Static
+Burst 52250-57750 raid; 15000/stack taken
+on melee in water) - off-tank out of pool
+to let stacks dissipate.
+GROUP: stand in Conductive Water for Fluidity
+(+dmg/heal, +50% Nature taken); Focused
+Lightning orb fixate: carrier runs AWAY from
+pool, detonates outside (121875-128125/5yd;
+in pool = Violent Detonation 712500-787500,
+or conduction 58500-61500 to pool). Fissures
+left outside must not touch pool or orbs.
+Lightning Storm 15s: ALL out of pool
+(Electrified 19250/s), dodge strikes
+(heroic 390000-410000). Heroic Ionization
+(D-Magic): dispel only OUT of pool/raid,
+450000/8yd on dispel or expiry.
+ADD ORDER: none.
+AI RULE: orb carrier always exits pool.
 
-TRASH NOTES (entries unverified): ToT: bridge snails
-(one-shot graze - never melee the snail), mogu packs;
-SoO: vale sha packs, Orgrimmar street packs with
-shaman interrupts.
+2. Horridon (with War-God Jalak)
+PHASES: 4 tribal doors in order Farraki,
+Gurubashi, Drakkari, Amani; then Jalak, then
+Horridon enrage burn.
+TANK: face Horridon away; swap on Triple
+Puncture stacking (unv id); second tank
+holds adds at door. Charge/Double Swipe:
+marked player isolated, others clear path.
+GROUP: kill door adds, DPS the tribal DOOR
+when Dinomancer drops Orb of Control -
+control Horridon to smash door shut.
+Farraki: Sand Trap growing pools - move;
+Blazing Sunlight (D-Magic DoT) dispel.
+Gurubashi: Venom Bolt Volley (D-Poison)
+stacks - kill Venomous Effusions first,
+interrupt priests (I, unv id).
+Drakkari/Amani abilities unverified here.
+Jalak dies -> Bestial Cry buff on Horridon;
+then burn before Frenzy stacks kill tanks.
+Heroic: Direhorn Spirit fixates one player
+- that player kites/knocks it back only.
+ADD ORDER: Effusions > Priests/big adds >
+door trash > Jalak > Horridon.
+AI RULE: never DPS Horridon while a door
+is open except cleave.
 
-END OF STEP 13. Next step is 14_Warlords_of_Draenor.txt.
+3. Council of Elders (Malakk, Kazra'jin,
+Sul, High Priestess Mar'li)
+PHASES: council; Gara'jal spirit possesses
+one elder (empowered); force spirit out by
+DPS (25% of possessor HP) before 100 Dark
+Energy = Dark Power 10000+/s ramping wipe.
+TANK: separate tanks; Malakk tank swap at
+~12 Frigid Assault stacks (15 = 15s stun).
+GROUP: Sul first (typical): interrupt Sand
+Bolt (I) and Mar'li casts (I, unv); Quicksand
+pools - free Ensnared player by killing
+pool edge (unv). Malakk Frostbite: 2+ allies
+stack 4yd on target to shed stacks. Kazra'jin
+Reckless Charge line - clear; empowered =
+Overload: STOP dps 20s (50% reflect).
+Mar'li: Blessed Loa adds / Shadowed Loa
+(heroic) - kill/interrupt (unv).
+Living Sand adds from Quicksand: kill.
+ADD ORDER: Living Sand > empowered elder
+(to force spirit out) > Sul > others.
+AI RULE: all DPS switch to possessed elder.
+
+4. Tortos
+PHASES: single.
+TANK: main tank Tortos (Snapping Bite
+538125); add tank gathers Vampiric Cave
+Bats in front of boss.
+GROUP: Whirl Turtles: kill, then KICK shell
+through Tortos/adds (+25% taken 20s);
+ALWAYS keep 1 shell ready to interrupt
+Furious Stone Breath at 100 Fury (153375/
+0.5s x4.5s = wipe). Rockfall blue circles
+move (367500/5yd). Quake Stomp 65% max HP
+(100% heroic) - defensive/heal after.
+Bats Drain the Weak on <550000 HP targets
+- finish bats fast, kicked shells help.
+Heroic Crystal Shell: click crystal, healing
+builds absorb to 75% max HP.
+ADD ORDER: Bats > Turtles > boss (keep 1
+shell unkicked for Breath).
+AI RULE: never kick last shell except to
+interrupt Breath cast.
+
+5. Megaera
+PHASES: 7 heads; 2 active (1 in fog back,
+1 front pair unverified) - kill front head,
+new head rises; each kill = Rage stacks
+(+dmg). Rampage between heads: raid CDs.
+Heads: Flaming (Cinders D-Magic: target runs
+out, dispel at edge leaves fire pool; breath
+Ignite Flesh stacks), Frozen (Torrent of Ice
+beam kites, leaves Icy Ground; Arctic Freeze
+5 stacks = 20s stun - swap tanks), Venomous
+(Acid Rain splash - spread max range; Rot
+Armor +6% taken/stack breath), Arcane
+(heroic only: Nether Tear unv).
+TANK: one per active front head, swap on
+breath stacks.
+GROUP: standard kill order avoids Venomous
+last (unv raid choice); Cinders melt Icy
+Ground - route accordingly.
+ADD ORDER: Nether Wyrm heroic unv; heads
+only otherwise.
+AI RULE: swap tank every breath stack set;
+never stand in beam path.
+
+6. Ji-Kun
+PHASES: single + nest cycle.
+TANK: swap on Talon Rake (+50% next Rake
+1min) with Infected Talons stacks.
+GROUP: nest team (1 healer + DPS) flies
+(Flight feather from killed Hatchling) to
+nests in sequence: kill eggs/hatchlings
+before Juveniles fly (Cheep 220000). Feed
+Young: flyers intercept globs mid-air for
+Primal Nutriment (+100% dmg); pools on
+platform 100000/s - absorb after 3s only
+if assigned. Quills 66625/s x8 raid CD.
+Down Draft 8s: use feathers/speed to not
+fall. Caw sonic orbs dodge (330000).
+Heroic Nest Guardians: tank in nest, face
+Talon Strike arc, keep melee engaged or
+Screech raid interrupt.
+ADD ORDER: nest eggs > Juveniles > boss.
+AI RULE: nest team never misses a nest.
+
+7. Durumu the Forgotten
+PHASES: single; Light Spectrum phases;
+Disintegration Beam maze phases.
+Abilities (wowhead ids in page): Eye Sore
+140502 pools, Mind Daggers 139107.
+Light Spectrum: 3 beam carriers (Red 133732
+Infrared, Yellow 133738 Bright, Blue 133677)
+keep cones filled (empty cone = 200000 raid)
+and sweep to REVEAL fogs: Crimson Fog in
+red (kill before it exits: Crimson Bloom
+136122 277500-322500 raid; casts Caustic
+Spike 136154), Amber Fog in yellow (Amber
+Retaliation 136175 per 10% HP - kill fast),
+Azure Fog in blue (dies = Flash Freeze;
+respawns - kill last in its phase unv).
+Beam/maze: Disintegration Beam rotates;
+follow safe maze path through Eye Sores
+- beam contact = death (unv id).
+Mind's Eye: Force of Will 136932 cone
+knockback - face away from edge.
+Heroic: Ice Walls block movement - kill
+section during maze.
+ADD ORDER: Crimson > Amber > Azure >
+Mind's Eye (unv) > boss.
+AI RULE: during Spectrum, stay in your
+assigned cone and kill revealed fog.
+
+8. Primordius
+PHASES: single, 8 min hard enrage.
+TANK: kite slowly around room edge, face
+away (Primordial Strike cone unv); swap on
+Malformed Blood stacks (unv).
+GROUP: boss -35% dmg taken (Mutated
+Abomination) until Fully Evolved: kill
+Living Fluids before they reach boss (each
+reach/pool-step = mutation level up, gains
+abilities: Acidic Spines, Pathogen Glands,
+Erupting Pustules 300000/3yd etc unv).
+Fluid death leaves Mutagenic Pool: players
+step in RED small pools for helpful
+mutations (+10% stats etc), 5 = Fully
+Evolved (full dmg); avoid purple Volatile
+Pools (92500-107500 + harmful; if boss
+steps: heal 10% + max mutation - tanks kite
+away). Dispel (D-Magic) removes ALL
+mutations - do not dispel evolved players.
+Heroic Viscous Horror: tank away; if it
+reaches boss explodes 999998 raid.
+ADD ORDER: Living Fluid > Viscous Horror
+> boss.
+AI RULE: fluids never reach Primordius.
+
+9. Dark Animus
+PHASES: add-anima management, then boss
+activates after 1 min sequence.
+Setup: 25 Anima Golems (some Critically
+Damaged in 10), 8 Large, 2 Massive. Kill
+small golems NEAR inactive golems to move
+anima up; avoid waking Large golems
+(Crimson Wake line chases target 190000-
+210000). Linked golems (Acceleration Link)
+must be tanked apart (+250% speed/dmg).
+Goal: fill 1 Massive, activate boss with
+minimum anima spread.
+Boss: Siphon Anima drains 1/minion; at
+25 Anima Ring (tank soaks spheres, +50%
+melee taken/sphere), 50 Anima Font (Touch
+targets spew bolts 47500-52500), 75
+Interrupting Jolt (131625-138375 + raid
+interrupt - stop casts), 100 FULL POWER
+wipe - kill before.
+Matter Swap (D-Magic) on Massive: dispel
+timing swaps with farthest ally (unv).
+ADD ORDER: assigned small golems > Massive
+(activated) > boss.
+AI RULE: anima goes to one golem only.
+
+10. Iron Qon (Ro'shak, Quet'zal, Dam'ren)
+PHASES: 3 mounts then Qon alone. Tank swap
+Impale stacks all phases (unv id); dodge
+thrown spears (fire/ice/storm ground lines).
+P1 Ro'shak: groups of 3/5 cluster in turn
+to soak Unleashed Flame (600/700/1400000
+split 10yd) draining 30 energy; at 100 =
+Molten Overload wipe. Rotate clusters on
+Scorched (+Fire taken 2min). 
+P2 Quet'zal: Arcing Lightning stuns - other
+players pull victims out; Windstorm: run
+out against pull (healing -80%); 3 Storm
+Cloud stacks = 20s stun - spread.
+P3 Dam'ren: Dead Zone shield - stand in
+zone quadrants to hit him (attacks miss
+otherwise unv); Freeze then Shatter
+(95000ish) spread; reflect 10% - heal.
+P4 Qon: Fist Smash pulses, Rising Anger
+stacks burn; ignited/frozen cyclones avoid.
+Heroic: previous mount assists each phase.
+ADD ORDER: none (mounts in order).
+AI RULE: cluster only when your Scorched
+team is called (P1).
+
+11. Twin Consorts (Lu'lin, Suen)
+PHASES: Night (Lu'lin), Day (Suen), Dusk
+(both); celestial aid: draw constellations
+(extra action, unv mechanics here).
+Night: Lu'lin: Cosmic Barrage orbs 8yd,
+Beast of Nightmares on tank - only that
+tank may hit it; healers STOP healing that
+tank (Corrupted Healing stacks on healer).
+Suen peeks: Tears of the Sun / Light of Day
+(100000/8yd) splash.
+Day: Suen Fan of Flames tank swap (+25%
+Fire 30s); Blazing Radiance ticks stack her
++dmg - hide behind Ice Comets from Lu'lin
+(Icy Shadows -80/60% Fire taken); Nuclear
+Inferno heroic: comet cover.
+Dusk: both active; kill Lu'lin first
+(typical, unv) returns to Day enrage-ish.
+ADD ORDER: Beast of Nightmares (its tank
+only - NEVER others) > Lu'lin > Suen.
+AI RULE: never heal Beast tank; never hit
+Beast unless you are its target.
+
+12. Lei Shen
+PHASES: P1 (axe), intermission 65%
+Supercharge 45s, P2 (polearm), intermission
+30%, P3. Keep boss NEAR a conduit always
+or Discharge ramps raid damage.
+Conduits: N Diffusion Chain (spawns Diffused
+Lightning adds - kill), E Static Shock unv,
+S Overcharge (ring expands from target -
+run through gap/dodge, 179375 + 3s stun),
+W Bouncing Bolt (soak each bolt circle or
+Unharnessed Power adds spawn).
+P1: Decapitate tank 3000000 (range reduces)
++100% phys taken - swap/cooldown; Thunder-
+struck target area max range (1025000 falloff).
+Intermission: spread to 4 quadrants, soak
+your conduit ability; highest conduit
+becomes Overloaded (disabled; heroic stays).
+P2: Ball Lightning adds spawn on Thunder-
+crash (unv), Lightning Whip frontal unv.
+P3: Violent Gale Winds push + all conduit
+abilities; burn.
+Heroic: Helm of Command throws player -
+run back against it.
+ADD ORDER: Diffused Lightning > Unharnessed
+Power > Ball Lightning > boss.
+AI RULE: boss always charging a conduit.
+
+13. Ra-den (heroic only)
+PHASES: P1 40%: choose orb - kill Vita or
+Anima orb to set phase; orbs alternate.
+Vita: Unstable Vita bounces to farthest
+player every 5s (400000 path; touching twice
+= Vita Sensitivity death) - designated
+soaker rotation; Crackling Stalkers kill
+(Cauterizing Flare may clear anima).
+Anima: Unstable Anima victim stacks raid
+together in 8yd to split 2500000/15s;
+Sanguine Horrors kill (Sanguine Volley).
+Each Unleashed trigger gives boss +10%
+dmg (Lingering Energies) - race.
+Fatal Strike tank hit unv; Ruin aura
+95000-105000/2s near boss P2.
+P2 40%: both essences, burn; tank swap on
+strike; adds first.
+ADD ORDER: Stalkers/Horrors > boss.
+AI RULE: same player never takes Unstable
+Vita twice in a row.
+
+SIEGE OF ORGRIMMAR
+==================
+
+14. Immerseus
+PHASES: alternate boss DPS to 0 HP, then
+Split, until Corruption 100 -> 0.
+TANK: face away; swap Corrosive Blast
+143436 (+100% Shadow 45s stacking).
+GROUP: Sha Bolt 143295 at everyone - spread
+5yd, pools form; Swirl 143309 eruptions
+dodge; never touch Seeping Sha 143286 ring.
+Split: Sha Puddles - kill before centre
+(each kill -1 Corruption, Sha Residue
+143459 splash +25% to others); Contaminated
+Puddles - HEAL to full (Purified: -1 on
+reach + Purified Residue 143524 mana/heal
+buff); any puddle reaching centre = Erupting
+Sha 143498 raid 75000.
+Heroic: Swelling Corruption - spread single
+target hits (Congealed Sha adds unv), Sha
+Pool 143460 grows - touch to shrink.
+ADD ORDER: Sha Puddles > boss; healers:
+Contaminated Puddles only.
+AI RULE: puddles never reach centre.
+
+15. Fallen Protectors (Rook, He, Sun)
+PHASES: council, shared defeat: all to 1%
+together (Bond 143497 heals lone survivor
+20%). At 66/33% each does Desperate Measures.
+Rook: tank Vengeful Strikes cone; Corrupted
+Brew splash 5yd; Clash -> Corruption Kick -
+move out. Desperate: Misery (Defiled Ground
+143959 pools), Sorrow (Inferno Strike split
+1200000/8yd - stack on tank target), Gloom
+(Corruption Shock I).
+He: Gouge - tank turns back; Instant Poison
+unv; Desperate: Embodied Anguish fixates
+Mark of Anguish holder - pass mark via
+extra button before stacks kill (unv),
+only holder DPSes it (unv handling).
+Sun: Shadow Word Bane (D-Magic) spread/
+dispel; Calamity %HP raid hit; Desperate:
+Dark Meditation bubble - stand in, kill
+Embodied ... unv names; Meditate adds.
+ADD ORDER: Desperate Measures spirits >
+bosses equally.
+AI RULE: keep all three HP within ~10%.
+
+16. Norushen (Amalgam of Corruption)
+PHASES: single; players start 75 Corruption
+(-50% dmg); purify via Purifying Light orbs.
+Role tests inside: DPS kill Manifestation/
+Essences/Fragments (killed = expelled to
+outer room as adds - kill them, prevent
+Fusion reaching boss +5% dmg), Healer kill
+Greater Corruption with NPC help, Tank
+survive Titanic Corruption.
+TANK: swap Self Doubt (Unleashed Anger
++40%/stack); rotate around Blind Hatred
+rotating beam (100000/s).
+GROUP: purification order DPS first (unv
+raid choice); Icy Fear ticks rise as boss
+drops; at 50% boss Frays: Unleashed
+Manifestations spawn each 10%.
+ADD ORDER: expelled corruptions > boss.
+AI RULE: enter orb only when called.
+
+17. Sha of Pride
+PHASES: single; at 30% Norushen dies,
+purifies Pride, then soft enrage.
+Pride meter: hits give +5. Swelling Pride
+at 100 energy (350000 raid): 25-49 Bursting
+Pride pool move 5yd; 50-74 stand in your
+Projection within 8s; 75-99 Aura of Pride
+isolate 5yd; 100 Overcome - if hit again
+permanent MC (kill/break unv).
+TANK: taunt swap instantly on Wounded Pride.
+GROUP: Manifestations of Pride: kill +
+interrupt Mocking Blast (I); Corrupted
+Prison locks: 2 players stand on lock pads;
+Mark of Arrogance (D-Magic): dispel ONLY
+with Gift of the Titans or dispeller +5
+Pride; Gift players stack 8yd for Power.
+ADD ORDER: Manifestations > boss.
+AI RULE: dispel only while Gifted.
+
+18. Galakras
+PHASES: ground waves + 2 tower teams, shoot
+Galakras down with 2 turret hits, then boss.
+Ground: protect NPCs (Fracture on leaders
+kill Bonecrushers); Tidal Shamans: interrupt
+Chain Heal (I), kill Healing Tide Totem
+108280 spell filed; Flameslingers unv.
+Officers: Dagryn Shoot 16572/Muzzle Spray
+147824; Krugruk Arcing Smash 147688 cone;
+Thranok Crusher's Call 146769 pulls 5 then
+Skull Cracker 10yd - run out; Korgra poison
+cloud, at low HP Venom Bolt Volley form.
+Tower team: tank + healer + DPS kill tower
+guardian, use turret twice accurately.
+Final: tank swap Flame ... Flames of
+Galakrond: target runs fire orb THROUGH
+raid to reduce (page: diminish potency),
+stack split unv details.
+ADD ORDER: Totem > Shaman > Bonecrusher >
+officers > boss.
+AI RULE: shamans never finish a heal.
+
+19. Iron Juggernaut
+PHASES: Assault (mobile) / Siege (rooted)
+cycle on energy (unv timing).
+TANK P1: face away (Flame Vents cone +
+Melt Armor -20%/stack swap); position near
+wall for Siege knockbacks.
+GROUP: Borer Drill cracks dodge; Laser Burn
+243750-256250 + DoT; Mortar Cannon 8yd;
+Crawler Mines x3: designated soaker clicks
+each burrowed mine (850000 + launched) or
+raid takes 500000 each.
+Siege: Seismic 50000/s, Shock Pulse knock-
+back (back to wall), Demolisher Cannons
+144154 6yd, Cutter Laser chases target -
+never cross Explosive Tar (laser+tar =
+500000 explosion); tar pools 20000/s slow.
+Heroic Ricochet sawblade dodge.
+ADD ORDER: Crawler Mines (soak, do not DPS
+unv) > boss.
+AI RULE: every mine gets a soaker.
+
+20. Kor'kron Dark Shaman (Haromm, Kardris)
+PHASES: shared HP (Spirit Link 98021);
+totems at 85/65/50% grant ability pairs;
+Bloodlust 71975 filed at 25% (+30%/25%).
+Split strategy typical: two tank groups
+separate bosses >30yd (unv distance).
+Haromm tank swap Froststorm Strike 144215
+(+100% Nature 60s). Kardris Froststorm Bolt
+144214 (I unv flag) interrupt rotation.
+85%: Toxic Mist DoT (Toxicity stacks) heal;
+Toxic Storm + tornadoes dodge.
+65%: Foul Stream line aim away; Foul Geyser
+spawns Foul Slimes (Foulness aura) - tank
+away, kill.
+50%: Ashen Wall elemental line - position
+at edge; Falling Ash raid blast heal.
+Heroic 95%: Iron Tombs/Prisons unv here.
+Wolves Darkfang/Bloodclaw first (Rend).
+ADD ORDER: Wolves > Foul Slimes > bosses.
+AI RULE: bosses kept apart; totem pairs
+announced - move for new ability.
+
+21. General Nazgrim
+PHASES: single; Rage abilities at thresholds
+(Cooling Off 143484 15s after each).
+STOP DPS in Defensive Stance (ranged
+deflect frontal; only Sundering-Blow tank
+hits him) to starve Rage. Battle/Berserker
+stance DPS windows.
+TANK: swap Sundering Blow 143494 (+5-10
+Rage if kept); face away.
+Rage spends: Shockwave 30 (dodge Aftershock
+lines), Banner 50 (kill banner instantly),
+War Song 70 (75% HP raid CD), Ravager 100
+(spinning axe persists - kite boss away).
+Adds every ~ (unv): Warshaman - keep far,
+interrupt Earth Shield/heals (I unv ids),
+kill first; Arcweaver Arcane Shock (I);
+Assassin fixates non-tank - protect; 
+Ironblade Ironstorm move out; Sniper unv.
+At 10% extra wave + burn.
+ADD ORDER: Banner > Warshaman > Arcweaver >
+Assassin > Ironblade > Nazgrim.
+AI RULE: no DPS in Defensive Stance.
+
+22. Malkorok
+PHASES: Might phase / Blood Rage at 100
+Rage, repeat; 12 min Eradicate 143916.
+Healing builds Ancient Barrier (Miasma
+142861 absorbs heals into shield to 100%
+HP; shield STRONG/WEAK colour tells soak
+readiness) - healers keep shields capped.
+TANK: Fatal Strike 142990 swap (cannot be
+blocked/dodged); soaks Blood Rage melee
+splits.
+GROUP spread in assigned sectors: Arcing
+Smash 142815 cone (marked sector soaks),
+then Breath of Y'Shaarj 142816 explodes
+smashed zones - vacate; Imploding Energy
+142986: 3 (8 in 25) voids MUST each have a
+soaker with strong barrier or 800000 raid.
+Blood Rage: melee 3500000 split - all stack
+on tank; Displaced Energy (D-Magic) 142913:
+at expiry move 8yd from un-afflicted.
+Heroic orbs Essence 143913: soak to remove
+barrier intentionally unv; never let boss
+touch (heals 5%).
+ADD ORDER: Living Corruption heroic only >
+boss.
+AI RULE: every Imploding void soaked.
+
+23. Spoils of Pandaria
+PHASES: 2 rooms x2 quadrants; split raid in
+2 teams; open crates for Titan Energy,
+reach quota before defense timer (unv),
+pull 4 levers, then other side.
+Crates: Massive (miniboss, most energy),
+Stout (medium), Light (small). Open one at
+a time per side.
+Mogu: Shao-Tien council (Return to Stone
+statues kill; Strength of Stone stacks),
+Jun-Wei/Zu Yin/Xiang-Lin/Kun-Da 165000 hits;
+Modified Anima Golem: stand IN Matter
+Scramble circles (empty = 321750-338250
+raid 30yd), kill pools Crimson Reconstitution
+- move enemies out (heals 15%/s); Shadow
+Ritualist Torment (D-Magic jumps on dispel).
+Mantid Commanders: Set to Blow bombs -
+throw bombs off at edges away from raid;
+Pheromone Cloud pools.
+Klaxxi/other crates unverified here.
+ADD ORDER: statues > Ritualist/Golem >
+commanders > small crates.
+AI RULE: one crate at a time per team.
+
+24. Thok the Bloodthirsty
+PHASES: P1 tank phase <-> Blood Frenzy when
+5+ players <50% HP grouped 10yd (Bloodied)
+- healers keep raid >50% or spread low HP.
+TANK: swap breath stacks: Fearsome Roar /
+Acid/Fire/Frost breath cones (400000,
++effects per prisoner eaten); Tail Lash
+behind - nobody there.
+Deafening Screech at full energy interrupts
+casts (400000) - time instants; accelerates.
+Frenzy: Thok fixates Bloodied players,
+devours on catch (instant death) - fixated
+kite along wall, others kill Kor'kron
+Jailer, take key, free ONE prisoner:
+Akolik (acid), Gorai (frost), Montak (fire
+unv) - Thok eats prisoner, new breath, P1.
+Heroic: freed Yeti Wrecking Ball / bats.
+Prisoner order sets breath sequence (raid
+choice unv).
+ADD ORDER: Jailer (during Frenzy) > boss.
+AI RULE: fixated player never stops running.
+
+25. Siegecrafter Blackfuse
+PHASES: single + conveyor waves.
+TANK: swap Electrostatic Charge (also lets
+that tank damage Shredders through Reactive
+Armor +1000%); keep boss 35yd+ from
+Shredders (Automatic Repair Beam heals 5%/
+3s). Shredder: Death from Above landing,
+Overload ramping raid dmg - charged tank
+kills it; sawblades on ground (Serrated
+Slash 500000) cleared by Electromagnet
+activations (Magnetic Crush raid dmg phase:
+players pulled to magnet, run out).
+Conveyor team (rotating DPS): pipe up,
+kill ONE of 3 disassembled weapons per wave
+(choice sets active weapons: mines chase
+targets - kill mines; laser, turret, magnet,
+missile abilities unv per type); letting 3
+through = boss -90% dmg 20s.
+Protective Frenzy after weapon kill: tank CD.
+ADD ORDER: Crawler Mines > Shredder >
+boss.
+AI RULE: belt team kills exactly one weapon.
+
+26. Paragons of the Klaxxi
+PHASES: 9 paragons, 3 active; kill one ->
+others heal full +10% dmg, next drops in.
+Take dead paragon's Power (role-locked).
+Pairs must be split-tanked: Skeer/Rik'kal
+(Hewn/Genetic Alteration cross-vuln),
+Xaril/Kil'ruk (unv pair detail).
+Key mechanics (page + overview): Skeer
+Bloodletting: kill Bloods before they reach
+a paragon (heal by remaining HP). Rik'kal
+Injection: tank uses active mitigation or
+parasites spawn on expiry; parasites Feed
+fixated - kill. Hisek Aim/Fire: all stand
+in line with target to split. Korven Encase
+in Amber: break shell or target healed.
+Kaz'tik Hungry Kunchongs: devour on touch
+except Mesmerized player feeding; at full
+energy Molt = tank it. Iyyokh, Ka'roz,
+Xaril, Kil'ruk ability lists unverified
+here - mark unv in implementation.
+ADD ORDER: Bloods > Parasites > Kunchong
+(molted) > active paragon (raid order unv).
+AI RULE: kill order called by raid lead;
+never cleave paragons unevenly.
+
+27. Garrosh Hellscream
+PHASES: P1 to 10%, Realm intermissions at
+100 energy (x2), P2 to 10%, P3 (heroic P4
+Mythic-era unv for 8.3.7 heroic).
+P1: Desecrate weapon thrown - kill Desecrated
+Weapon (its ground shrinks as it dies);
+Warsong buffs adds (+25%/50%) - adds first:
+Farseer Wolf Riders interrupt Greater
+Healing Wave + Chain Lightning (I; interrupt
+gives Ancestral Fury +25% cast speed -
+rotate), Siege Engineers kill before 15s
+or Iron Star rolls (path = lethal; explosion
+falloff - max distance); Warbringers tanked.
+Realm of Y'Shaarj: kill all Sha adds before
+he finishes Consume (energy gain sets P2
+empowerment); Annihilate frontal in temple
+unv variant; bubble phase run.
+P2: Gripping Despair tank swap stacks;
+Whirling Corruption - run far (falloff),
+Touch of Y'Shaarj MC: DPS afflicted to
+break, interrupt their casts; at 25 energy
+Empowered: Minions of Y'Shaarj spawn -
+kill SPREAD APART (nearby deaths empower).
+P3: all empowered + Bombardment unv here;
+burn.
+ADD ORDER: Engineers > Farseers >
+Warbringers > Desecrated Weapon > Minions
+(spread) > Garrosh.
+AI RULE: engineers die before Iron Star.
+
+TRASH: pack breakdowns unverified for both
+raids.
+

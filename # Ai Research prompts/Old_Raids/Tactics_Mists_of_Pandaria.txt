@@ -3,7 +3,9 @@ Raids: Mogu'shan Vaults, Heart of Fear,
 Terrace of Endless Spring. Creature entries,
 map ids, coordinates unverified unless
 stated. Values normal unless marked.
-Most spell ids unverified (not in chunk).
+Spell ids sampled in Audit 12: all absent
+from BfA 8.3.7 tooltip DB (see audit file);
+MoP ids below marked unverified-in-8.3.7.
 
 MOGU'SHAN VAULTS
 ================
@@ -36,7 +38,7 @@ ADD ORDER: none - equalise guardians.
 Phases by statue, ~66/33% swaps (heroic adds
 Shield phase): Fist, Spear, Staff (+Shield).
 Tank swap each phase on stacking tank DoT:
-Lightning Fists phase: Epicenter 116018
+Lightning Fists phase: Epicenter 116018 (unv-8.3.7)
 (more damage near centre; move out /
 Nullification Barrier from tank crystal) and
 shockwaves (250000 in path).
@@ -84,7 +86,7 @@ Subetai - order: one active + lingering)
 Each defeated king stays, using one ability;
 heroic all four from start (unverified).
 Qiang: Massive Attacks 800000 split frontal
-(stack), Annihilate 117948 (1500000 frontal
+(stack), Annihilate 117948 (unv-8.3.7) (1500000 frontal
 20 yd - move behind), Flanking Orders adds
 (unverified); lingering: Massive Attacks?
 per page only listed shout/pillage remain -
@@ -97,7 +99,7 @@ Cowardice 117756 reflect; Crazy Thought
 Subetai: Pillage 118047 (-50% damage/heal),
 Volley cones 100k/200k/400k shrinking, Rain
 of Arrows 118122 - free pinned players
-(Pinning Arrow 118141), Slight of Hand (unv).
+(Pinning Arrow 118141 (unv-8.3.7)), Slight of Hand (unv).
 Zian: Undying Shadows (fixate adds, kill),
 Shadow Blast / Shield of Darkness (unv ids).
 ADD ORDER: Undying Shadows > active king.
@@ -110,7 +112,7 @@ reset stacks outside briefly each phase.
 P1: tank centre; Celestial Breath frontal
 (unverified); Celestial Protector add: tank
 outside, at 25% Stability Flux 117911 pulse,
-death = Total Annihilation 129711 (200000 -
+death = Total Annihilation 129711 (unv-8.3.7) (200000 -
 soak at least one player; heroic Destabi-
 lizing Energies 132222 heal that player 80%,
 soaking twice = Destabilized 132226 death,
@@ -124,7 +126,7 @@ High Energy 118118 faster each wave; Charge
 reaching = P2 ends, Discharge 118299).
 P3: kill 6 Empyreal Focuses (Energy Conduit
 116661 walls - don't touch; Overloaded 116989
-+20% Elegon per focus; heroic Linked 132257
++20% Elegon per focus; heroic Linked 132257 (unv-8.3.7)
 pairs together); floor falls - then final
 P1 burn with stacked Draw Power bonus.
 Radiating Energies at 50% 118310 in P1.
@@ -252,7 +254,7 @@ Menders (CC'd longest) > Blademasters > boss
 11. AMBER-SHAPER Un'sok
 P1: Amber Scalpel beam lines (unverified);
 Reshape Life turns a player into Mutated
-Construct (vehicle: Amber Strike 122389
+Construct (vehicle: Amber Strike 122389 (unv-8.3.7)
 interrupts boss/construct Amber Explosion
 casts + stacks +10% taken; Smash 122960;
 Struggle for Control 122395 stops own cast;
@@ -265,7 +267,7 @@ boss. Raid DPSes constructs to 20% to free
 players; construct interrupts boss casts.
 Parasite Growth / Burning Amber adds (unv).
 P2 70%: Amber Monstrosity (Amber Carapace
-122540 = boss -99% taken); Monstrosity:
+122540 (unv-8.3.7) = boss -99% taken); Monstrosity:
 Amber Explosion 122402 (construct Amber
 Strike interrupts), Massive Stomp 122408,
 Fling 122413 (throws tank at a player). Kill
@@ -285,11 +287,12 @@ players with Cry of Terror 123792 stand in/
 near fields to discharge them (field hp
 unverified); Dread Screech 123735 at 2 (5 in
 25) players, 5 yd splash - spread.
-Eyes of the Empress 123707: tank stacks; at
+Eyes of the Empress 123707 (unv-8.3.7): tank stacks; at
 5 = Servant of the Empress 123713 charm
 (+200% damage) - swap tanks before 5.
 P2: Set'thik Windblades (Fixate 133042,
-Dispatch 2098 listed I, Sonic Blade, Sticky
+Dispatch (id filed as 2098 = Eviscerate
+in 8.3.7 - id unverified), Sonic Blade, Sticky
 Resin 124097: resin carriers combine pools
 into Amber Trap 125803 - trap a Windblade
 in it) + Kor'thik Reavers (Toxic Slime
@@ -298,7 +301,7 @@ tank). Band of Valor 125417: guard within
 8 yd of each other +30% - separate/kill
 apart. (Trap building page-given.)
 P3 30%: Visions of Demise fear (unverified),
-Sha Energy 125464, Heart of Fear summon
+Sha Energy 125464 (unv-8.3.7), Heart of Fear summon
 unverified - burn with Eyes swaps active.
 ADD ORDER P2: Windblades (trapped first) >
 Reavers > boss.
