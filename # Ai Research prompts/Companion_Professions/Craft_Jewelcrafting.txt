@@ -1,0 +1,778 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - JEWELCRAFTING CRAFTING FOR A SERVER-SIDE COMPANION
+=============================================================================================
+
+Scope: how a computer-controlled character (no client) levels Jewelcrafting on a
+TrinityCore-based 8.3.7 server. Every id below was read from a source this
+week; anything without a readable source says "unverified" instead of a guess.
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+---------------------------------------------------
+Base spell Jewelcrafting 25229 (instant): Effect1 = Trade Skill, Effect2 =
+Learn Skill (Jewelcrafting, skill=755, value 1); wowhead infobox "Training
+cost: 10"; Difficulty 111; "Taught by (33)" row does not render on the page;
+"Other ranks (9)": 158750 (requires level 1), 195116 (requires level 1),
+25230 (50), 28894 (125), 28895 (200), 28897 (275), 51311 (350), 73318
+(425), 110420 (500); text "Requires precious gems and metals gathered with
+the Mining skill". warcraft.wiki's profession row: Jewelcrafting is primary,
+companion profession Mining, "Jewelcrafting requires a Jeweler's kit."
+The 8.0.1 learn block occupies spell ids 264532-264549 as main/wrapper pairs
+with two verified non-Jewelcrafting gaps (264536, 264540 - section 9 item
+13); every main is tagged "Added in patch 8.0.1" and every wrapper is tagged
+"Added in patch 8.1.0" except wrapper 264533, whose quick facts read 8.0.1
+(section 9 item 12). Mains print "Requires Jewelcrafting (1)" and "Training
+cost: 10" except Classic 264532 and the Draenor/Legion mains 264544/264546,
+whose pages print neither line:
+  - Classic Jewelcrafting: main 264532 (Learn Skill skill=2524, cap 300) +
+    wrapper 264533 (triple effect: Learn Spell 25229 + Learn Spell 264532 +
+    Learn Skill Step 2524 value 1).
+  - Outland Jewelcrafting: main 264534 (skill=2523, cap 75, cost 10, Taught
+    by 3 - section 2) + wrapper 264535 (Learn Spell 264534 + Learn Skill
+    Step 2523 value 1).
+  - Northrend Jewelcrafting: main 264537 (skill=2522, cap 75, cost 10,
+    Taught by 2) + wrapper 264538 (Learn Spell 264537 + Step 2522).
+  - Cataclysm Jewelcrafting: main 264539 (skill=2521, cap 75, cost 10,
+    Taught by 6) + wrapper 264541 (Learn Spell 264539 + Step 2521).
+  - Pandaria Jewelcrafting: main 264542 (skill=2520, cap 75, cost 10,
+    Taught by 1) + wrapper 264543 (Learn Spell 264542 + Step 2520).
+  - Draenor Jewelcrafting: main 264544 (skill=2519, cap 100, no training
+    cost printed) + wrapper 264545 (Learn Spell 264544 + Step 2519;
+    "Triggered by (1)" spell 169926).
+  - Legion Jewelcrafting: main 264546 (skill=2518, cap 100) + wrapper
+    264547 (Learn Spell 264546 + Step 2518; "Reward from (1)" quest 40523).
+  - Kul Tiran Jewelcrafting (Alliance): main 264548 (skill=2517, cap 175,
+    cost 10, Taught by 2) + wrapper 264549 (Learn Spell 264548 + Step 2517
+    value 1).
+  - Zandalari Jewelcrafting (Horde): main 265811 (skill=2517, cap 175,
+    cost 10, Taught by 1, "Horde Specific Spell", quick facts 8.1.0) +
+    wrapper 265812 (Learn Spell 265811 + Step 2517 value 1). Both faction
+    mains learn the same skill id 2517; wowhead's effect line on 265811
+    labels it "Kul Tiran Jewelcrafting" (section 9 item 10).
+Draenor entry point: item 115359 "Draenor Jewelcrafting" (iLvl 40, Req. 10,
+Source "Quest, Vendor") -> spell 169926 (6.0.1, Item Effect, 10-second cast,
+"Teaches you Draenor Jewelcrafting and a number of recipes", Effect Trigger
+Spell 264545, Teaches (11)) -> wrapper 264545.
+Legion entry point: quest 40523 rewards wrapper 264547 (section 9 item 6 for
+the guide's stale link).
+Prospecting: spell 31252, 2-second cast, Effect "Prospect" value 5, GCD 1.5
+seconds, flag "Target must be own item", text "Search 5 ore of a base metal
+for precious gems. This will destroy the ore in the process." Learned
+automatically on learning Jewelcrafting (vanilla guide links 31252
+directly). Since patch 2.1.0 prospecting always yields at least 1 gem;
+powders dropped except Adamantite Powder in 3.0.2; Titanium Ore added in
+3.2.0 (warcraft.wiki Prospecting patch rows). Per-expansion prospecting
+spells (Outland Prospecting 382980, Kul Tiras and Zandalar Prospecting
+382973, etc.) were all added in patch 10.0.0 ("Each expansion proficiency
+now has its own spell for Prospecting") - after 8.3.7 (section 9 item 7).
+Mass prospecting: consumes 20 ore per attempt, queueable, "does not appear
+to reduce the gem yield per ore" (warcraft.wiki Prospecting). The guide's
+route spell is Mass Prospect Osmenite 300619 (section 9 item 15).
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki.gg/wiki/Jewelcrafting_trainers (5 chunks, read this week; page
+ends at Pandaria; row notes "Teaches only Apprentice/Journeyman" are
+historic per patch 4.0.3a, section 9 item 19):
+  The Maelstrom: KTC Train-a-Tron Deluxe, Town-In-A-Box/Sky Falls/Gallywix
+  Docks, Lost Isles (up to Journeyman, Goblin-only, no coordinate printed).
+  Wandering Isle: Whittler Dewei, The Singing Pools (Apprentice,
+  Pandaren-only); Elder Oakpaw, Mandori Village (Apprentice, Pandaren-only).
+  Eastern Kingdoms: Wembil Taskwidget, Kharanos, Dun Morogh [53.7, 52]
+  (Apprentice); Lien Farner, Goldshire, Elwynn [42, 67] (Apprentice); Jack
+  "All-Trades" Derrington, Gilneas starting zone (Worgen-only, Apprentice);
+  Hanner Gembold, The Great Forge, Ironforge [51, 25.4]; Theresa Denman,
+  Trade District, Stormwind [63.6, 61.6]; Therisa Sallow, Calston Estate,
+  Tirisfal [44.5, 53] (Apprentice); Nedric Sallow, Brill, Tirisfal [61, 51]
+  (Apprentice); Saren, Falconwing Square, Eversong [49, 47] (Apprentice);
+  Aleinia, Falconwing Square, Eversong [48.5, 47.4]; Kalinda, The Royal
+  Exchange, Silvermoon [90.5, 74.1]; Neller Fayne, Mining & Jewelcrafting
+  War Quarter, Undercity [56.2, 36.6].
+  Kalimdor: Valn, Azure Watch, Azuremyst [48.5, 52.2] (Apprentice); Iranis
+  Shadebloom, Dolanaar, Teldrassil [56, 52.2] (Apprentice); Ingo Woolybush,
+  Theramore, Dustwallow [66.2, 45.2]; Aessa Silverdew, Craftsmen's Terrace,
+  Darnassus [54.0, 31.6]; Farii, The Crystal Hall, Exodar [45.0, 24.0];
+  KTC Train-a-Tron Deluxe, Bilgewater Harbor, Azshara [57, 50.5] (up to
+  Journeyman); Runda, Razor Hill, Durotar [53, 42] (Apprentice); Lalum
+  Darkmane, Bloodhoof Village, Mulgore [46.5, 57.5] (Apprentice); Lugrah,
+  Red Canyon Mining & Jewelcrafting Valley of Honor, Orgrimmar [72.5, 34.3];
+  Nahari Cloudchaser, Cloudchaser Jewelcrafting Lower rise, Thunder Bluff
+  [35.0, 54.0].
+  Outland: Tatiana, Honor Hold, Hellfire [54.6, 63.6]; Kalaen, Thrallmar,
+  Hellfire [56.8, 37.7]; Hamanar, Aldor Rise, Shattrath [35.7, 20.5] and
+  Nemiha, Aldor Rise, Shattrath [36.2, 46.9] (one shared row, "Not
+  available to members of the Scryers"); Kirembri Silvermane, Scryer's
+  Tier, Shattrath [58.1, 75.0] ("Not available to members of the Aldor");
+  Jazdalaad, The Stormspire, Netherstorm [44.5, 34.0].
+  Northrend: Alestos, Valiance Keep, Borean [57.5, 72.3]; Ounhulo, Valgarde,
+  Howling Fjord [59.9, 63.8]; Geba'li, Warsong Hold, Borean [41.6, 53.4];
+  Carter Tiffens, Vengeance Landing, Howling Fjord [79.3, 28.8]; Timothy
+  Jones, Cartier & Co. Fine Jewelry/Magus Commerce Exchange, Dalaran [40.5,
+  35.2]; Oluros, Argent Tournament Grounds, Icecrown [71.5, 20.8].
+  Pandaria: Mai the Jade Shaper, Greenstone Village, Jade Forest [48.0,
+  34.0].
+  (No Draenor, Broken Isles, Nazjatar, Boralus or Dazar'alor rows exist on
+  the page - same truncation as the Inscription trainers page.)
+wowhead Taught-by rows (creature entries, read on the learn mains this
+week) - the trainer-source entries for each line:
+  - 264534 Outland (3): "Jewelcrafting" npc 33614, Shattrath (uncategorized
+    name); Nemiha npc 33680, Shattrath; Tatiana npc 18774, Hellfire.
+  - 264537 Northrend (2): Geba'li npc 26982, Borean Tundra; Timothy Jones
+    npc 28701, Dalaran.
+  - 264539 Cataclysm (6): Farii npc 19778, Exodar; Hanner Gembold npc
+    52586, Ironforge; Lugrah npc 46675, Orgrimmar; Nahari Cloudchaser npc
+    52657, Thunder Bluff; Neller Fayne npc 52587, Undercity; Theresa
+    Denman npc 44582, Stormwind.
+  - 264542 Pandaria (1): Mai the Jade Shaper npc 65098, Jade Forest.
+  - 264548 Alliance (2): Instructor Okanu npc 153811, Nazjatar ("Profession
+    Trainer", level 50); Samuel D. Colton III npc 130368, Boralus
+    (Tradewinds Market, level 60).
+  - 265811 Horde (1): Seshuli npc 122695, Dazar'alor (Terrace of Crafters,
+    level 60).
+Guide-named sources (wow-professions):
+  - Vanilla guide: Kalinda npc 19775 (Silvermoon), Lugrah 46675, Nahari
+    Cloudchaser 52657, Neller Fayne 52587, Hanner Gembold 52586, Theresa
+    Denman 44582, Farii 19778.
+  - Outland guide: Loremaster Skosiris npc 33642, Shattrath bookcase
+    ("click on the Jewelcrafting bookcase"); Aldor characters must use
+    Nemiha npc 33680 instead.
+  - Cataclysm guide: the six capital trainers plus Kalinda npc 19775
+    (Silvermoon) and Aleinia npc 15501 (Eversong Woods) - neither appears
+    in 264539's Taught-by (section 9 item 9).
+  - Northrend guide: Timothy Jones npc 28701 in Northrend Dalaran, with the
+    warning that the same NPC exists in Legion Dalaran but "won't teach you
+    Northrend recipes".
+  - Pandaria guide: Mai the Jade Shaper npc 65098, Greenstone Village.
+  - Legion guide: Timothy Jones 28701 (Legion Dalaran), quest giver Tiffany
+    Cartier npc 93526 (same room), rank-2 vendor Tiffany Cartier, Jabrul
+    npc 100500 (neck/ring designs after the quest chain), rank-3 vendor
+    Ransa Greyfeather npc 106902 (Thunder Totem, Highmountain Tribe
+    Honored), Dalaran Sewers vendors Oxana Demonslay 97361, Matthew Rabis
+    97360, The Widow 97366, Dazzik "Proudmoore" 97362 (Sightless Eye
+    currency 1149).
+  - BfA guide: Seshuli (Dazar'alor) and Samuel D. Colton III (Boralus);
+    Nazjatar trainers Narv npc 154393 (Horde) / Instructor Okanu npc 153811
+    (Alliance) after the intro quests.
+  - WoD guide: Ashran vendors Artificer Harlaan npc 87052 (Stormshield) /
+    Kaevan Highwit npc 87548 (Warspear) sell the scroll and recipes;
+    garrison Gem Boutique NPC after "Your First Jewelcrafting Work Order".
+  - Outland design vendors (warcraft.wiki "Gem cutting" section): Master
+    Jewelcrafter Tatiana (Honor Hold Inn) and Kalaen (Thrallmar) sell the
+    post-300 socket cuts (Kalaen's creature entry: unverified).
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+All eight routes are the current wow-professions leveling guides (full slugs
+in section 10); counts are what each guide prints.
+
+3.1 Classic 1-300 (learn main 264532, section 2):
+Guide "Vanilla Jewelcrafting Leveling Guide 1-300" (the "Classic" 1-300
+skill bar in retail, not WoW Classic). Buy Jeweler's Kit 20815 from the
+Jewelcrafting Supplies vendor near your trainer or General/Trade Goods
+vendors. Prospecting 31252 is learned automatically; the guide's table
+prints per-ore yields (Common column always at least 1 gem per 5 ores,
+Rare column an extra roll): Copper Ore 2770 -> Malachite 774 (50%) +
+Tigerseye 818 (50%) / Shadowgem 1210 (10%); Tin Ore 2771 -> Lesser
+Moonstone 1705 (38%) + Moss Agate 1206 (38%) / Shadowgem 1210 (38%) /
+Aquamarine 7909, Citrine 3864, Jade 1529 (3.33% each); Iron Ore 2772 ->
+Lesser Moonstone 1705, Citrine 3864, Jade 1529 (35% each) / Star Ruby 7910
++ Aquamarine 7909 (5% each); Mithril Ore 3858 -> Star Ruby 7910,
+Aquamarine 7909, Citrine 3864 (35% each) / Blue Sapphire 12361, Large Opal
+12799, Azerothian Diamond 12800, Huge Emerald 12364 (2.5% each); Thorium
+Ore 10620 -> Star Ruby 7910 (30%), Huge Emerald 12364, Azerothian Diamond
+12800, Blue Sapphire 12361, Large Opal 12799 (16% each) / rare column
+"none".
+  - 1 - 30: 30 x Delicate Copper Wire spell 25255 (60 Copper Bar).
+  - 30 - 50: 20 x Tigerseye Band spell 32179 (20 Tigerseye, 20 Delicate
+    Copper Wire); alt 20 x Malachite Pendant spell 32178.
+  - 50 - 80: 50 x Bronze Setting spell 25278 (100 Bronze Bar).
+  - 80 - 100: 20 x Simple Pearl Ring spell 25284 (20 Small Lustrous Pearl,
+    20 Bronze Setting, 40 Copper Bar) or 20 x Gloom Band spell 25287 (20
+    Bronze Setting, 40 Shadowgem, 40 Delicate Copper Wire); alt Ring of
+    Silver Might spell 25317.
+  - 100 - 110: 10 x Ring of Twilight Shadows (guide links item 20828; 20
+    Shadowgem, 20 Bronze Bar).
+  - 110 - 120: 10 x Heavy Stone Statue spell 32807 (80 Heavy Stone).
+  - 120 - 150: 30 x Pendant of the Agate Shield spell 25610 (30 Moss
+    Agate, 30 Bronze Settings); alt Design: Amulet of the Moon item 20854
+    (yellow at 140).
+  - 150 - 180: 45 x Mithril Filigree spell 25615 (90 Mithril Bar).
+  - 180 - 185: 8 x Solid Stone Statue spell 32808 (80 Solid Stone).
+  - 185 - 200: 15 x Engraved Truesilver Ring spell 25620 (15 Truesilver
+    Bar, 30 Mithril Filigree).
+  - 200 - 220: 25 x Citrine Ring of Rapid Healing spell 25621 (25 Citrine,
+    50 Mithril Bar; yellow at 210).
+  - 220 - 225: 5 x Aquamarine Pendant of the Warrior spell 26876 (5
+    Aquamarine, 15 Mithril Filigree).
+  - 225 - 250: 50 x Thorium Setting spell 26880 (50 Thorium Bar).
+  - 250 - 260: 10 x Ruby Pendant of Fire spell 26883 (10 Star Ruby, 10
+    Thorium Setting).
+  - 260 - 280: 20 x Simple Opal Ring spell 26902 (20 Large Opal, 20 Thorium
+    Setting); alt Diamond Focus Ring spell 36526 from 265.
+  - 280 - 287: 7 x Diamond Focus Ring spell 36526 (7 Azerothian Diamond, 7
+    Thorium Setting).
+  - 287 - 290: 3 x Sapphire Pendant of Winter Night spell 26908 (3 Blue
+    Sapphire, 3 Essence of Undeath, 3 Thorium Setting); alt Glowing Thorium
+    Band spell 34960.
+  - 290 - 300: 10 x Emerald Lion Ring spell 34961 (20 Huge Emerald, 10
+    Thorium Setting).
+Total exact-count casts printed by the guide = 368 (30 + 20 + 50 + 20 + 10
++ 10 + 30 + 45 + 8 + 15 + 25 + 5 + 50 + 10 + 20 + 7 + 3 + 10; yellow/green
+slippage and the alternates add more).
+
+3.2 Outland 1-75 (learn main 264534 from Loremaster Skosiris' bookcase or
+Nemiha, section 2):
+Guide "Outland Jewelcrafting Leveling Guide 1-75". Shopping: 240 Adamantite
+Ore 23425, 12 Primal Earth 22452, 12 Adamantite Bar 23446, 12 Dawnstone
+23440 or 12 Talasite 23437, 12 Living Ruby 23436, 5 Earthstorm Diamond
+25867.
+  - 1 - 20: prospect 240 x Adamantite Ore (48 casts of Prospecting 31252 at
+    5 ores each; the guide links "Outland Prospecting" 382980 - section 9
+    item 7); keep Adamantite Powder 24243.
+  - 20 - 25: 5-7 x any trainer cut, e.g. Bold Blood Garnet 23095, Jagged
+    Deep Peridot 23104, Sparkling Azure Moonstone 23119, Glinting Shadow
+    Draenite 23100 (Reckless Flame Spessarite 23099 needs Consortium
+    Friendly, vendor item 23136).
+  - 25 - 35: 12 x Mercurial Adamantite item 31079 (48 Adamantite Powder, 12
+    Primal Earth; save them); alts Regal Deep Peridot 23105 (Honor Hold/
+    Quartermaster rep), Sovereign Shadow Draenite spell 28936, Rigid Azure
+    Moonstone 23116, Golden Draenite Ring spell 31049.
+  - 35 - 40: 5-10 x any of Potent Flame Spessarite 23101 (Lower City
+    Friendly, Nakodu 21655), Sovereign Shadow Draenite 28936, Rigid Azure
+    Moonstone 23116.
+  - 40 - 50: 12 x Heavy Adamantite Ring item 24078 (12 Adamantite Bar, 12
+    Mercurial Adamantite).
+  - 50 - 60: around 12 x Mystic Dawnstone spell 31101 (Halaa, Design 24208
+    from Aldraan 21485/Coreiel 21474 for 12 gold, limited supply) or
+    Steady Talasite spell 43493 (Design 33783 from Quartermaster Davian
+    Vaclav 18822 / Jaffrey Noreliqe 18821 for 4 Halaa Research Token 26044).
+  - 60 - 70: around 12 x Kailee's Rose spell 42588 (Design 33155 from
+    Almaador 21432, The Sha'tar Honored; 12 Living Ruby); alts Blood of
+    Amber 42592, Don Julio's Heart 42558, Facet of Eternity 42593, Falling
+    Star 42590 (rep-gated designs).
+  - 70 - 75: 5 x Insightful Earthstorm Diamond spell 32870 (5 Earthstorm
+    Diamond; Design 25904 from Almaador, Sha'tar Friendly; Earthstorm
+    Diamond transmuted by Outland Alchemists - Recipe 25869, transmute
+    spell 32765).
+Total exact-count crafts printed by the guide = 29 (12 + 12 + 5); the
+printed ranges 5-7, 5-10, around 12, around 12 and the 240-ore prospecting
+step add more (48 five-ore prospect casts).
+
+3.3 Northrend 1-75 (learn main 264537 from Timothy Jones 28701, section 2):
+Guide "Northrend Jewelcrafting Leveling Guide 1-75". Shopping: around 35
+total of one or mixed common gems (Bloodstone 36917, Chalcedony 36923, Dark
+Jade 36932, Huge Citrine 36929, Shadow Crystal 36926, Sun Crystal 36920),
+7 Bloodstone, 14 Crystallized Earth 37701, 46 Eternal Earth 35624 (or 23
+Eternal Earth + 23 Eternal Shadow 35627), 30 Earthsiege Diamond 41334 (or
+30 Skyflare Diamond 41266), 15 Frozen Orb 43102, 15 Chalcedony, 15 Shadow
+Crystal, 15 Dark Jade.
+  - 1 - 20: cut around 35 gems from the trainer cuts (one per bought color).
+  - 20 - 25: 7 x Bloodstone Band spell 56193 (7 Bloodstone, 14 Crystallized
+    Earth).
+  - 25 - 45: 23 x Stoneguard Band spell 58145 (46 Eternal Earth) or 23 x
+    Shadowmight Ring spell 58146 (23 Eternal Earth, 23 Eternal Shadow);
+    Wintergrasp alternatives (Champion Ros'slai 39173 Horde / Knight
+    Dameron 32294 Alliance, faction control required, 1 Mark of Honor 137642
+    each) usable up to 50.
+  - 45 - 70: around 30 x Powerful Earthsiege Diamond spell 55399 (30
+    Earthsiege Diamond) or Swift Skyflare Diamond spell 55394 (30 Skyflare
+    Diamond); Titanium-bar alts Dream Signet item 42340, Runed Mana Band
+    45808, Scarlet Signet 45809, Sky Sapphire Amulet 45813.
+  - 70 - 75: 15 x Icy Prism spell 62242 (15 Frozen Orb, 15 Chalcedony, 15
+    Shadow Crystal, 15 Dark Jade; green for the last points). Frozen Orb
+    vendors: Arcanist Ivrenne 31580 (Alliance), Magistrix Lambriesse 31582
+    (Horde).
+Total exact-count casts printed by the guide = 110 (35 + 7 + 23 + 30 + 15;
+the guide warns to buy extras because yellow crafts miss).
+
+3.4 Cataclysm 1-75 (learn main 264539 from the capital trainers, section 2):
+Guide "Cataclysm Jewelcrafting Leveling Guide 1-75".
+  - 1 - 18: around 30 x any new uncommon gem cut from the trainer (avoid
+    Nightstone 52180 and Hessonite 52181 - needed later; Jasper Ring item
+    52306 vendors at 5 gold).
+  - 18 - 35: 17 x Hessonite Band spell 73495 (34 Hessonite); alt Carnelian
+    Spikes item 52492.
+  - 35 - 50: 15 x Nightstone Choker spell 73497 (25 Jeweler's Setting, 30
+    Nightstone); alt The Perforator spell 73621 between 40-50.
+  - 50 - 70: 4 days of Jewelcrafting dailies (Marith Lazuria 50482 Horde,
+    Isabel Jones 50480 Alliance) to buy Illustrious Jewelcrafter's Token
+    currency 361, then one meta design costing exactly 4 tokens; 20 x
+    Forlorn Shadowspirit Diamond spell 73476 (20 Shadowspirit Diamond
+    52303). Alternates 60-70: Vicious Amberjewel Band 99540, Vicious Ruby
+    Signet 99541, Vicious Sapphire Ring 99539.
+  - 70 - 75: 5 x Vicious Sapphire Necklace spell 99542 (25 Ocean Sapphire,
+    40 Volatile Air, 20 Volatile Fire) or 5 x Vicious Amberjewel Pendant
+    spell 99543 (25 Amberjewel, 40 Volatile Water, 20 Volatile Life) or 5 x
+    Vicious Ruby Choker spell 99544 (25 Inferno Ruby, 40 Volatile Earth, 30
+    Volatile Water).
+Total exact-count casts printed by the guide = 87 (30 + 17 + 15 + 20 + 5).
+
+3.5 Pandaria 1-75 (learn main 264542 from Mai the Jade Shaper 65098,
+section 2):
+Guide "Pandaria Jewelcrafting Leveling Guide 1-75". Shopping: 80 total
+uncommon gems (Tiger Opal 76130, Roguestone 76135, Alexandrite 76137, Lapis
+Lazuli 76133) + 17 of one rare color (Sun's Radiance 76142, Vermilion Onyx
+76140, River's Heart 76138, Primordial Ruby 76131, Imperial Amethyst
+76141, Wild Jade 76139). Buy a Jeweler's Toolset 20815 from Woodcarver
+Liupo 62328 if needed.
+  - 1 - 60: about 80 x single-gem uncommon cuts (orange until 50, yellow to
+    55, green to 60; new recipes every 5 points).
+  - 60 - 61: 1 x one gem-research spell to discover a rare recipe (3 rare
+    gems of that color): River's Heart 131593, Sun's Radiance 131695,
+    Vermilion Onyx 131690, Wild Jade 131688, Primordial Ruby 131686,
+    Imperial Amethyst 131691 (one research per day: "wait a day for another
+    research"; no-cooldown alt Secrets of the Stone spell 131759 for Spirit
+    of Harmony).
+  - 61 - 75: 14 x the discovered rare cut.
+Total exact-count casts printed by the guide = 95 (80 + 1 + 14).
+
+3.6 Draenor 1-100 (learn main 264544 through item 115359, section 1):
+Guide "Draenor Jewelcrafting Leveling Guide 1-100". Three scroll sources:
+Ashran vendors Artificer Harlaan 87052 (Stormshield) / Kaevan Highwit 87548
+(Warspear); garrison Gem Boutique (after the first work-order quest); or the
+quest chain - Alliance loots Drained Crystal Fragment 115507 from Draenor
+mobs or Karnoth 75043 during Shadows Awaken 34019, Horde loots Intricate
+Crimson Pendant 115287 from mobs or Dorogg the Ruthless 74254 during The
+Butcher of Bladespire 33410.
+  - 1 - 55: 3 x Secrets of Draenor Jewelcrafting spell 176087 (1-day
+    cooldown each - at least 3 days) to buy Recipe: Reflecting Prism 116108
+    or Recipe: Prismatic Focusing Lens 116109 from the Ashran vendors; then
+    55 x Reflecting Prism spell 170731 (55 Sorcerous Fire 113261) or 55 x
+    Prismatic Focusing Lens spell 170732 (55 Sorcerous Earth 113263);
+    yellow between 50-55.
+  - 55 - 100: 45 x one Taladite cut bought with more Secrets: Critical
+    Strike 170719 (450 Blackrock Ore + 90 Fireweed), Haste 170720 (450
+    Blackrock Ore + 90 Frostweed), Mastery 170721 (450 True Iron Ore + 90
+    Starflower), Stamina 170724 (450 True Iron Ore + 90 Talador Orchid),
+    Versatility 170723 (450 Blackrock Ore + 90 Gorgrond Flytrap); one
+    recipe per day if more Secrets are needed.
+  - Skip-path variant: 98 x Taladite cuts straight from 1 (980 ore + 196
+    herbs).
+Total exact-count casts on the main branch = 103 (3 + 55 + 45).
+
+3.7 Legion 1-100 (learn wrapper 264547 from quest 40523, section 1):
+Guide "Legion Jewelcrafting Leveling Guide 1-100". Trainer Timothy Jones
+28701 in Legion Dalaran; start quest Facet-nating Friends 40523 from
+Tiffany Cartier 93526 (start and end in Dalaran). 24 profession quests
+unlock recipes; last is A Personal Touch 40562 (needs 50 Legion
+Jewelcrafting); World Quests need Uniting the Isles 43341 (Archmage Khadgar
+90417, level 45, friendly with every Legion faction) plus 25 Legion
+Jewelcrafting; ranks 3 come from World Quests, vendors, reputation,
+dungeons, rated battlegrounds (rank-2 designs from Tiffany Cartier).
+  - 1 - 35: around 40-45 x one cut (each recipe's material list is printed
+    as 45 gems): Deadly Deep Amber 195848 (Deep Amber 130173), Masterful
+    Queen's Opal 195851 (Queen's Opal 130177), Quick Azsunite 195849
+    (Azsunite 130174), Versatile Skystone 195850 (Skystone 130176),
+    Jeweled Lockpick 195881 (Sangrite 130172).
+  - 35 - 60: 25 x one rank-3 loop: Azsunite Loop 195925 (50 Azsunite + 25
+    Chaotic Spinel 130175), Deep Amber Loop 195923, Queen's Opal Loop
+    209609, Skystone Loop 195924 (same50 + 25 materials pattern).
+  - 60 - 95: around 45 x one rank-3 pendant: Skystone Pendant 195927 (225
+    Skystone + 45 Sangrite), Queen's Opal Pendant 209610, Deep Amber
+    Pendant 195926, Azsunite Pendant 195928 (same 225 + 45 pattern).
+  - 95 - 100: 5 x the class neck from A Personal Touch (materials: 10-20
+    extra gem, 25 Blood of Sargeras 124124, 10 Infernal Brimstone 124444, 5
+    Pandemonite 130181, 5 Furystone 130178).
+Total exact-count casts printed by the guide = 75 (25 + 45 + 5; the 1-35
+step prints only the range 40-45, and green/yellow slippage adds more).
+
+3.8 BfA 1-175 (learn main 264548/265811, section 1):
+Guide "BfA Jewelcrafting Leveling Guide 1 - 175" (zandalari-kul-tiran-bfa
+slug). Trainers Seshuli (Dazar'alor) / Samuel D. Colton III (Boralus).
+  - 1 - 75: around 130-150 x one cut: Deadly Solstone 256689, Insightful
+    Rubellite 256693, Masterful Kubiline 256692, Quick Golden Beryl 256694,
+    Straddling Viridium 256691, Versatile Kyanite 256690 (one of each
+    matching gem).
+  - 75 - 140: around 100 x one cut: Deadly Amberblaze 256696, Masterful
+    Tidal Amethyst 256698, Quick Owlseye 256699, Versatile Royal Quartz
+    256695.
+  - 140 - 150: 10 x Kraken's Eye of Agility 256701 or Intellect 256702 or
+    Strength 256700 (10 Kraken's Eye).
+  - 150 - 155: learn the Nazjatar recipes from Narv 154393 (Horde) /
+    Instructor Okanu 153811 (Alliance) after the intro quests; 5 x
+    Masterful Sea Currant 298797 (5 Sea Currant) or Versatile Dark Opal
+    298794 (5 Dark Opal).
+  - 155 - 165: 10 x one of Masterful Sea Currant 298797, Versatile Dark
+    Opal 298794, Deadly Lava Lazuli 298798, Straddling Sage Agate 300756,
+    Quick Sand Spinel 298796.
+  - 165 - 175: Mass Prospect Osmenite spell 300619 gives skill points all
+    the way to 175; around 100-150 Osmenite Ore 168185 prospected, then cut
+    the gems you get (Leviathan's Eye 168635 is the prospecting prize).
+Total exact-count casts printed by the guide = 25 (10 + 5 + 10; steps 1-2
+print ranges 130-150 and around 100, and 165-175 prints 100-150 ore).
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Origins: (Mining) = gathering profession, (prospect) = from Prospecting
+31252, (vendor) = trainer/recipe vendor, (AH) = auction house or world
+drops, (daily/quest) = currency or quest reward, (alchemy) = another
+profession's transmute.
+  - Classic: Copper Bar 2840, Tin Bar 3576, Bronze Bar 2841, Mithril Bar
+    3860, Truesilver Bar 6037, Thorium Bar 12359 (bars smelted from Mining
+    ores - the guides print no bar-recipe ids: unverified); Tigerseye 818,
+    Malachite 774,
+    Shadowgem 1210, Moss Agate 1206, Lesser Moonstone 1705, Citrine 3864,
+    Jade 1529, Aquamarine 7909, Star Ruby 7910, Large Opal 12799,
+    Azerothian Diamond 12800, Blue Sapphire 12361, Huge Emerald 12364
+    (prospect/AH); Small Lustrous Pearl 5498 (shellfish/ocean Gathering
+    note: origin unverified in these sources), Heavy Stone 2838 + Solid
+    Stone 7912 (Mining nodes), Essence of Undeath 12808 (AH/drops).
+  - Outland: Adamantite Ore 23425 (Mining/prospect), Adamantite Powder 24243
+    (prospecting 5.0+ keeps it), Primal Earth 22452 (AH/alchemy vendors),
+    Adamantite Bar 23446 (Mining), Dawnstone 23440/Talasite 23437/
+    Living Ruby 23436/Earthstorm Diamond 25867 (prospect or AH; Earthstorm
+    from Alchemy transmute 32765).
+  - Northrend common gems 36917/36923/36932/36929/36926/36920 (Northrend
+    ores prospect); Bloodstone 36917 (vendor/AH); Crystallized Earth 37701,
+    Eternal Earth 35624, Eternal Shadow 35627 (AH); Earthsiege 41334 /
+    Skyflare 41266 diamonds (crafted reagents/AH); Frozen Orb 43102
+    (vendors 31580/31582); Monarch Topaz 36930, Twilight Opal 36927,
+    Autumn's Glow 36921, Forest Emerald 36933, Sky Sapphire 36924 (alt
+    cuts); Titanium Bar (AH).
+  - Cataclysm: Nightstone 52180, Hessonite 52181, Carnelian Spikes alt
+    craft item 52492, Jasper Ring alt craft item 52306, Jeweler's Setting
+    (vendor/reagent - origin not printed in the guides: unverified),
+    Shadowspirit Diamond 52303 (crafted), Ocean Sapphire/Amberjewel/Inferno
+    Ruby plus Volatile Air/Fire/Water/Life (volatile item ids not printed
+    in the sources: unverified, AH), Illustrious Jewelcrafter's Token 361
+    (4 daily-quest days).
+  - Pandaria: uncommon gems 76130/76135/76137/76133 and rare gems
+    76142/76140/76138/76131/76141/76139 (prospect MoP ores or AH); Spirit
+    of Harmony (Secrets of the Stone research - AH).
+  - Draenor: Sorcerous Fire 113261, Sorcerous Earth 113263 (AH/sharding);
+    Blackrock Ore/True Iron Ore + Fireweed 109125, Frostweed 109124,
+    Starflower 109127, Talador Orchid 109129, Gorgrond Flytrap 109126
+    (Mining/Herbalism); scroll 115359 (vendor/garrison/quest chain).
+  - Legion: Deep Amber 130173, Queen's Opal 130177, Azsunite 130174,
+    Skystone 130176, Sangrite 130172, Chaotic Spinel 130175 (prospect
+    Legion ores or AH); Blood of Sargeras 124124 (world content),
+    Infernal Brimstone 124444 (AH), Pandemonite 130181, Furystone 130178
+    (prospect/AH).
+  - BfA: Solstone/Rubellite/Kubiline/Golden Beryl/Viridium/Kyanite,
+    Amberblaze/Tidal Amethyst/Owlseye/Royal Quartz, Kraken's Eye,
+    Sea Currant/Dark Opal/Lava Lazuli/Sage Agate/Sand Spinel, Osmenite Ore
+    168185, Leviathan's Eye 168635 (prospect BfA ores - Storm Silver Ore
+    152579, Platinum Ore 152513, Monelite Ore (id not read: unverified),
+    Osmenite Ore 168185 - or AH); guide prospecting yields read on
+    wowhead 31252's live table
+    (Storm Silver -> Solstone 22%, Kubiline 21%; Platinum -> Viridium 22%,
+    Kyanite 24%).
+  - Tools: Jeweler's Kit/Jeweler's Toolset 20815 (vendor - three names for
+    one id, section 9 item 17); warcraft.wiki Requirements says designs
+    beyond the most basic need the Jeweler's Toolset; "Jeweler's Setting"
+    is a crafting reagent (Nightstone Choker 25x, Carnelian Spikes 3x,
+    BfA recalibrations), not the tool.
+
+5. TRAINER COSTS
+----------------
+wowhead infoboxes: base 25229 "Training cost: 10"; mains 264534, 264537,
+264539, 264542, 264548 and 265811 each print "Training cost: 10" (currency
+unit is not rendered on the page - unverified). Classic main 264532 and
+Draenor/Legion mains 264544/264546 print no training-cost line. All mains
+except Classic/WoD/Legion print "Requires Jewelcrafting (1)".
+Recipe and vendor prices printed by the sources:
+  - Outland: Design: Mystic Dawnstone 24208 = 12 gold (Halaa, limited
+    supply); Design: Steady Talasite 33783 = 4 Halaa Research Token 26044
+    (10 Oshu'gun Crystal Powder Sample 26042 = 1 token).
+  - Northrend: Wintergrasp designs = 1 Mark of Honor 137642 each; Frozen
+    Orb price not printed (unverified).
+  - Cataclysm: one meta design = exactly 4 Illustrious Jewelcrafter's
+    Token 361 after 4 daily-quest days; daily rewards otherwise unverified.
+  - Legion: rank-2 Dalaran Sewers designs = 250 Sightless Eye 1149 each
+    (guide: 250 in about 10 minutes of farming); other rank-2/rank-3 prices
+    unverified.
+  - BfA: wiki designs table rows show Seshuli / Samuel D. Colton III sell
+    recalibrations for 25 gold; other design prices unverified.
+  - Server side, Trainer.cpp 98-102: cost = MoneyCost x reputation
+    discount, checked with HasEnoughMoney (FailReason::NotEnoughMoney at
+    102), then ModifyMoney deducts it - gold is enforced server-side.
+
+6. LEVEL NEEDED
+---------------
+  - Quest 40523 Facet-nating Friends: Level 10, "Requires level 10", Side
+    Both, Profession Jewelcrafting, added 7.0.1, start/end Tiffany Cartier
+    93526 in Dalaran; rewards the Legion learn wrapper.
+  - Scroll item 115359: iLvl 40, Req. 10 (wowhead's item row on the
+    169926 page).
+  - Legion: A Personal Touch 40562 opens only at 50 Legion Jewelcrafting;
+    profession World Quests need 25; Uniting the Isles 43341 needs level 45
+    (guide: start the quest chain at 45-50 because later quests have level
+    requirements).
+  - BfA: Nazjatar recipes need the first Nazjatar intro quests before the
+    trainers appear; BfA trainer NPCs are level 60 (Boralus/Dazar'alor) and
+    level 50 (Nazjatar).
+  - warcraft.wiki training table (all rows): Classic titles Apprentice/
+    Journeyman/Expert/Artisan 1-300 with sub-bands 1-75/75-150/150-225/
+    225-300; Master 1-75; Grand Master 1-75; Illustrious Grand Master 1-75;
+    Zen Master 1-75; Draenor Master 1-100; Legion Master 1-100; Kul Tiran/
+    Zandalari Master 1-150 (stale - section 9 item 3); Shadowlands Master
+    1-100; Draconic Master 1-100.
+  - warcraft.wiki designs headers: every line "can be trained as early as
+    level 5" (Classic 300, Outland 75, Northrend 75, Cataclysm 75,
+    Pandaria 75, Draenor 100, Legion 100, BfA 175); wowpedia's Outland
+    page prints level 50 (section 9 item 4) and wowpedia's BfA page prints
+    "level TBC" (section 9 item 5).
+  - Socket cuts: after skill 300 the "Master Jewelcrafter" vendors
+    (Tatiana/Kalaen) sell the socket-cut designs (warcraft.wiki Gem
+    cutting; note flagged as cleanup-needed).
+  - Racial skill bonuses come from character creation: Draenei/Visage
+    Gemcutting 28875 = +5 (section 9 item 1), Kul Tiran/Visage Jack of All
+    Trades 291442 = +2 to every profession incl. Jewelcrafting, added
+    8.1.5 (section 9 item 2).
+  - World/faction gates: Halaa control (Outland PvP town), Wintergrasp
+    control (Northrend), Aldor/Scryers exclusivity in Shattrath (wiki
+    trainer rows); guides print no character-level gates for the numeric
+    routes themselves.
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+----------------------------------------------
+Verified against TrinityCore master fetched this week (blobless sparse
+clone, HEAD 209d6d51d1; paths under src/server/game/). Line numbers are
+from this fetch; upstream moves - section 9 item 18 records the comparison
+with the earlier files.
+a) Learn press: NPCHandler.cpp 97 HandleTrainerListOpcode -> 112
+   SendTrainerList (entry guards at 102-109, missing trainer data at 121)
+   -> 127 trainer->SendSpells; 130 HandleTrainerBuySpellOpcode -> 155
+   trainer->TeachSpell. Trainer.cpp 41 SendSpells (list money with
+   reputation discount at 43/65), 76 TeachSpell -> 98-99
+   reputationDiscount x MoneyCost -> HasEnoughMoney / NotEnoughMoney at
+   102 -> ModifyMoney(-moneyCost) -> IsCastable ? CastSpell : LearnSpell;
+   149 CanTeachSpell, 172 GetSpellState, 212 SendTeachFailure. This is how
+   25229, the eight expansion mains (264532, 264534, 264537, 264539,
+   264542, 264544, 264546, 264548/265811) and their wrappers enter the
+   character. Profession bars themselves are applied by SPELL_EFFECT_SKILL
+   (effect 118, SpellEffects.cpp 210 dispatch) -> EffectSkill at
+   SpellEffects.cpp 4668: reads skillStep from the effect value, skillid from
+   MiscValue, checks GetSkillStep, SkillRaceClassInfo + SkillTiers (4689),
+   and SetSkill(skillid, skillStep, skillval, maxSkillVal) at 4699 - this
+   is the server path behind both the mains' "Learn Skill (skill=NNNN)"
+   and the wrappers' "Learn Skill Step (NNNN)". Wrapper Effect #1 "Learn
+   Spell" lands in EffectLearnSpell SpellEffects.cpp 2129 (TriggerSpell
+   learned at 2170, item ON_LEARN effects handled earlier in the same
+   function). The Draenor
+   route goes item 115359 -> 169926 (10-second item cast) -> wrapper
+   264545; the Legion wrapper 264547 arrives through the quest-reward
+   learn path (quest 40523).
+b) Prospecting (the opener and the 165-175 BfA step): CheckCast
+   Spell.cpp 7805-7835 case SPELL_EFFECT_PROSPECTING: target item exists,
+   ITEM_FLAG_IS_PROSPECTABLE (7811), item owned by caster/no trade slot
+   (7814-7815), item RequiredSkillRank <= GetSkillValue(SKILL_JEWELCRAFTING)
+   else SPELL_FAILED_LOW_CASTLEVEL (7817-7819), stack >= 5 else
+   NEED_MORE_ITEMS (7823-7828), LootTemplates_Prospecting.HaveLootFor else
+   CANT_BE_PROSPECTED (7831-7832). EffectProspecting SpellEffects.cpp
+   4614: re-checks flag and count >= 5; if SkillChance.Prospecting is
+   enabled it calls UpdateGatherSkill(SKILL_JEWELCRAFTING, ...) at 4633;
+   then LOOT_PROSPECTING (Loot.h 115, type 23) FillLoot from
+   LootTemplates_Prospecting (LootMgr.cpp 55, load 1308, refs check 1450)
+   and SendLoot. LootHandler.cpp 347-348 destroys only 5 items from the
+   stack "in case prospecting and milling".
+c) Crafting a product (the common case): recipes are Effect Create Item
+   (sampled pages print Effect: Create Item on the routed cuts, e.g. the
+   BfA and Legion gem cuts; the exact effect rows were not re-probed for
+   every spell - the TC path below is the one that matters). TC path:
+   Spell::cast takes power at Spell.cpp 3869 TakePower() and reagents at
+   3872 TakeReagents() (definition 5600; skips reagents for
+   ITEM_FLAG_NO_REAGENT_COST items); EffectCreateItem SpellEffects.cpp
+   1473 / EffectCreateItem2 1482 with SPELL_ATTR0_IS_TRADESKILL selecting
+   ItemContext::Trade_Skill (1478/1492/1522/2484); DoCreateItem
+   SpellEffects.cpp 1383 grants the item and calls UpdateCraftSkill at
+   1469 (`if (!m_CastItem) player->UpdateCraftSkill(m_spellInfo);`), with
+   the same call at 1499 in EffectCreateItem2 and at 2492/3533 in other
+   item-granting effects; item-cast crafts instead grant skill through
+   Spell.cpp 3863-3865 (SPELL_ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN).
+   Skill-up math: Player.cpp 5410 UpdateCraftSkill - skipped when
+   SPELL_ATTR1_NO_SKILL_INCREASE (5412), walks SkillLineAbility rows for
+   the spell (SkillupSkillLineID at 5421-5422), multiplies NumSkillUps by
+   SkillGain.Crafting (5433, default 1 at World.cpp 790), rolls
+   SkillGainChance against TrivialSkillLineRankHigh/Low (5435).
+   Roll odds: SkillChance.Orange 100 / Yellow 75 / Green 25 / Grey 0
+   (World.cpp 784-787). SkillLineAbility rows are database content - not
+   readable from the source clone (unverified per recipe).
+d) There is no server-side skill gate on ordinary recipe casts: the only
+   reqSkillValue checks in Spell.cpp are the lock/gather path (6373 ->
+   CanOpenLock 8648-8703) and the prospecting/milling item ranks (7817,
+   7848). A level-1 character with the spell and reagents would craft
+   server-side; the client hides recipes it lacks skill for. The base
+   spell's wowhead "Trade Skill" effect label has no dedicated TC effect
+   row (the tradeskill aspect in TC is SPELL_ATTR0_IS_TRADESKILL) -
+   mapping that one client label to a TC enum id: unverified.
+e) Configs the server operator controls: SkillChance.Prospecting default
+   false (World.cpp 629) and SkillChance.Milling default false (630) mean
+   prospecting grants no skill unless enabled; SkillChance.Orange/Yellow/
+   Green/Grey at 784-787; SkillGain.Crafting at 790. (The guide's "Mass
+   Prospect Osmenite gives skill points to 175" describes retail - section
+   9 item 14.)
+f) Skill/quest constants: SKILL_JEWELCRAFTING = 755 at SharedDefines.h
+   5958; QUEST_SORT_JEWELCRAFTING maps to it at 6370;
+   QUEST_TRSKILL_JEWELCRAFTING = 14 (QuestDef.h 138); prospecting loot
+   type LOOT_PROSPECTING = 23 (Loot.h 115); SPELL_EFFECT_PROSPECTING =
+   127 (SpellEffects.cpp 219 dispatch, SpellInfo.cpp 1089 item explicit
+   target).
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+1) Click profession-window buttons: Prospecting/Mass Prospect (and every
+   recipe) is a cast the client sends with an item target
+   (Spell.cpp CheckCast requires m_targets.GetItemTarget() - a server-side
+   actor has no UI to pick the ore stack; wowhead's own-item flag matches).
+2) Talk to trainers or vendors: every "ask a guard", trainer-list and
+   buy-spell interaction is a client opcode (NPCHandler.cpp 97 and 130
+   chains, section 7a); a no-session character cannot open the list, click
+   a design, or pay a vendor (all section 5 purchases).
+3) Turn in quests: the Legion chain (40523 -> 40562 and the 24-quest
+   profession storyline), the WoD scroll chain (34019/33410), the 4
+   Cataclysm daily-quest days, Uniting the Isles 43341 and the Nazjatar
+   intro all need client quest opcodes.
+4) Socket gems: shift-right-click socketing UI (warcraft.wiki Socketing:
+   select socket, "Socket Gems") is pure client interaction.
+5) Choose a race at creation for Gemcutting +5 or Jack of All Trades +2 -
+   the server can only apply a racial it was created with.
+6) Click the Shattrath Jewelcrafting bookcase (Outland learn object
+   interaction, section 2 guide note) or a garrison Gem Boutique vendor
+   prompt (WoD scroll source 2).
+7) Buy from the Auction House - every shopping list in section 3 assumes
+   one.
+8) Roll World Quests or see the guide's "wait even a few days" rank-3
+   rotation (Legion) on a timer it cannot observe without a session.
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+1) Draenei bonus: six wow-professions guides (vanilla, Outland,
+   Northrend, Cataclysm, Legion, BfA) print "+10 Jewelcrafting skill" and
+   link spell 28875; the Pandaria guide prints +5; the spell page reads
+   "Jewelcrafting skill increased by 5" (Mod Skill value 5) and
+   warcraft.wiki's Perks section prints +5. Adopted: 5.
+2) Kul Tiran bonus: the vanilla guide prints "+5 from the trait Jack of
+   All Trades" (link 291442); the spell page reads "Skill in all
+   professions increased by 2" (11 Mod Skill effects value 2, incl.
+   Jewelcrafting, added 8.1.5). Adopted: 2.
+3) BfA cap: warcraft.wiki's Inscription training table prints BfA 1-150;
+   its own BfA designs header, the learn spells (cap 175) and the guide
+   all say 175; wowpedia notes 175 (up from 150) in 8.2.0. Adopted: 175.
+4) Outland design level: warcraft.wiki's Outland designs header prints
+   "level 5"; wowpedia's Outland_jewelcrafting_designs prints "level 50".
+   Both printed per source; the guide prints no level gate.
+5) wowpedia BfA designs header prints "trained as early as level TBC"
+   (broken template - same bug as the Inscription file's item 3 and
+   Engineering's item 14); warcraft.wiki's header prints level 5. Both
+   recorded.
+6) Legion reward link: the guide hyperlinks spell 201704 "Legion
+   Jewelcrafter" as the reward of quest 40523 (201704 = Learn Spell
+   195116 + Learn Skill Step (755) value 10 - boost-era helper, added
+   7.0.1); the live quest page teaches wrapper 264547. Adopted: 264547
+   (201704 kept as the stale link, same pattern as Engineering's 201700
+   and the Inscription file's 201703).
+7) Prospecting spell era: the Outland guide links "Outland Prospecting"
+   382980 and warcraft.wiki's Kul Tiras and Zandalar Prospecting page
+   gives 382973 - both added in patch 10.0.0 per wiki patch rows, i.e.
+   after 8.3.7; the vanilla guide and the Legion guide link base
+   Prospecting 31252, which is the only prospecting spell that existed on
+   35662. Adopted for 8.3.7: 31252 (382980/382973 recorded as live-era).
+8) Trainer lists disagree three ways for the same lines: Outland - guide
+   names Loremaster Skosiris 33642 (bookcase) + Nemiha 33680, wowhead's
+   Taught-by lists npc 33614 ("Jewelcrafting" name), Nemiha 33680 and
+   Tatiana 18774, wiki lists Hamanar + Nemiha, Kirembri, Kalaen and
+   Jazdalaad; Northrend - guide names only Timothy Jones 28701, wowhead
+   lists 2, wiki lists 6. All three lists are printed in section 2; none
+   is merged.
+9) Cataclysm trainer list: the guide adds Kalinda 19775 (Silvermoon) and
+   Aleinia 15501 (Eversong) but 264539's Taught-by (6) contains neither,
+   and both guides that name Kalinda differ from the spell page.
+10) wowhead's effect line on Zandalari main 265811 reads "Learn Skill (
+    Kul Tiran Jewelcrafting)" although the spell is Horde-only; both
+    faction mains use skill id 2517. Recorded as printed.
+11) Patch-tag asymmetry: Alliance main 264548 prints "Added in patch
+    8.0.1" while Horde main 265811's quick facts print 8.1.0 (both
+    sub-skill 2517, cap 175). Recorded per page.
+12) Wrapper 264533's quick facts print 8.0.1 while every other wrapper in
+    the block prints 8.1.0. Recorded as printed.
+13) Block gaps verified by probe: 264536 = "Construct Building"
+    (non-profession spell) and 264540 = "Spell #264540 doesn't exist. It
+    may have been removed from the game." The pair gaps sit inside
+    264532-264549 (Classic pair 532/533, Outland 534/535, Northrend 537/
+    538, Cataclysm 539/541, Pandaria 542/543, Draenor 544/545, Legion 546/
+    547, Kul Tiran 548/549).
+14) TC vs guide on prospecting skill: the guide says Mass Prospect
+    Osmenite gives skill points to 175; TC's SkillChance.Prospecting
+    defaults to false (World.cpp 629), so a stock core grants none - the
+    operator must enable it or the 165-175 step stalls.
+15) Mass Prospect Osmenite is printed as a ptr.wowhead link 300619 with no
+    patch row read (added-patch unverified); warcraft.wiki's prospecting
+    table lists four BfA mass-prospect spells but their ids were not
+    fetched (unverified).
+16) warcraft.wiki's K&Z Prospecting and Outland Prospecting pages print
+    "Skill: 111325" under Reagents - meaning/id unverified; the pages are
+    10.0.0-era anyway (item 7).
+17) Tool names for item 20815: "Jeweler's Kit" (vanilla guide, wiki
+    official-site quote), "Jeweler's Toolset" (Pandaria guide, wiki
+    Requirements). One id, three spellings - all recorded.
+18) TC drift check: fresh clone HEAD 209d6d51d1 versus the earlier files'
+    e0eec525aa - shared anchors unchanged or near-unchanged (EffectMilling
+    4641, DoCreateItem 1383/1469, TakeReagents 5600, UpdateCraftSkill
+    5410, ATTR9 3863-3865, SkillChance.Milling 630, HandleTrainerList 97,
+    TeachSpell 76, HandleTrainerBuySpell 130/155); prospecting anchors are
+    new to this file (Spell.cpp 7805-7835, SpellEffects.cpp 4614,
+    LootHandler.cpp 347-348, World.cpp 629).
+19) warcraft.wiki trainer rows marked "Teaches only Apprentice/
+    Journeyman" are historic: patch 4.0.3a equalized trainer ranks and
+    2.3.0 turned redundant capital trainers into apprentices (page patch
+    rows). Trivia on the same wiki: before patch 5.0.4 items above skill
+    300 required a Simple Grinder - obsolete on 8.3.7.
+Also unverified (not guessed): individual design skill values and
+    SkillLineAbility rows; trainer-cost currency unit; Frozen Orb and most
+    design vendor prices; Small Lustrous Pearl origin; Jeweler's Setting
+    vendor/origin; Kalaen's creature entry; recipe spell ids where a guide
+    linked only the finished item (Classic Ring of Twilight Shadows row
+    prints item 20828); the base spell's "Trade Skill" effect enum id.
+
+10. SOURCES
+-----------
+All fetched 2026-10-26 week; pages are not stored in the repository.
+wowhead spell pages: 25229 (base + 9 other ranks 158750, 195116, 25230,
+28894, 28895, 28897, 51311, 73318, 110420), 264510 (miss - Shoot), 264454
+(miss - Currency Increase), 264532 (Classic main), 264533 (triple-effect
+wrapper), 264534 (+Taught-by 3), 264535, 264536 (miss - Construct
+Building), 264537 (+Taught-by 2), 264538, 264539 (+Taught-by 6), 264540
+(does not exist), 264541, 264542 (+Taught-by 1), 264543, 264544, 264545
+(Triggered by 169926), 264546, 264547 (+Reward quest 40523), 264548
+(+Taught-by 2), 264549, 265811 (+Taught-by 1, added 8.1.0), 265812, 169926
+(WoD scroll effect: Trigger 264545, Teaches 11, used by item 115359),
+31252 (Prospecting: Effect Prospect value 5, own-item flag, prospecting
+tables for 299 ores incl. BfA), 28875 (Gemcutting: Mod Skill value 5),
+291442 (Jack of All Trades: 11 Mod Skill value 2, added 8.1.5), 201704
+(Legion Jewelcrafter: Learn 195116 + Step 755 value 10), skill 755
+(Jewelcrafting hub).
+wowhead quest page: 40523 "Facet-nating Friends" (Level 10, requires level
+10, Both, Profession Jewelcrafting, start/end Tiffany Cartier 93526,
+Dalaran, added 7.0.1, 4-quest series + 25-row storyline, rewards learn
+264547).
+warcraft.wiki pages (chunk counts): Jewelcrafting (chunks 0-3: official
+quote "requires a Jeweler's kit", training table, colour rules,
+Requirements Jeweler's Toolset, Perks Gemcutting +5, Companion Mining,
+gem types/socketing/Gem cutting vendors, patch rows), Prospecting (2
+chunks: overview, 5-ore rule, 20-ore mass rule, per-proficiency table,
+patch rows 2.0.3/2.1.0/3.0.2/3.2.0/10.0.0), Outland_Prospecting (spell
+382980, added 10.0.0), Kul_Tiras_and_Zandalar_Prospecting (spell 382973,
+added 10.0.0), Jewelcrafting_trainers (5 chunks, 36 rows, ends at
+Pandaria), Classic/Outland/Northrend/Cataclysm/Pandaria/Draenor/Legion/
+Battle_for_Azeroth_jewelcrafting_designs (chunk 0 each: level-5 headers,
+caps 300/75/75/75/75/100/100/175, destacking notes).
+wow-professions guides (full pages): vanilla-jewelcrafting-leveling (3
+chunks), outland-jewelcrafting-leveling (2), northrend-jewelcrafting-
+leveling (2), cataclysm-jewelcrafting-leveling (1), pandaria-
+jewelcrafting-leveling (1), draenor-jewelcrafting-leveling (1), legion-
+jewelcrafting-leveling (chunks 0-2), zandalari-kul-tiran-bfa-jewelcrafting-
+leveling-guide (2).
+Search-derived records (id/url): warcraft.wiki K&Z Prospecting [1]
+https://warcraft.wiki.gg/wiki/Kul_Tiras_and_Zandalar_Prospecting; wowpedia
+Outland designs [4]
+https://wowpedia.fandom.com/wiki/Outland_jewelcrafting_designs ("level 50,
+up to 75"); wowpedia BfA designs [2]
+https://wowpedia.fandom.com/wiki/Battle_for_Azeroth_jewelcrafting_designs
+("level TBC", 175 up from 150 in 8.2.0); skill 2517 hub [1]
+https://www.wowhead.com/skill=2517/kul-tiran-jewelcrafting; guide hub [3]
+https://www.wow-professions.com/guides/bfa-jewelcrafting.
+TrinityCore: blobless sparse clone of master, HEAD 209d6d51d1,
+files/lines cited in section 7 (src/server/game/Spells/Spell.cpp,
+Spells/SpellEffects.cpp, Spells/SpellInfo.cpp, Entities/Player/Player.cpp,
+Entities/Creature/Trainer.cpp, Handlers/NPCHandler.cpp,
+Handlers/LootHandler.cpp, Loot/Loot.h, Loot/LootMgr.cpp,
+World/World.cpp, Miscellaneous/SharedDefines.h, Quests/QuestDef.h).
