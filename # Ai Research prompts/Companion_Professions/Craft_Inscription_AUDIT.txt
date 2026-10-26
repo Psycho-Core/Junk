@@ -1,0 +1,229 @@
+=== Craft_Inscription.txt - AUDIT REPORT (STEP 130, Companion_Professions) ===
+================================================================================
+
+Tool: audit_craft_inscription.py (same directory). Run: python3
+audit_craft_inscription.py -> preflight + static + derived + hygiene.
+Run: python3 audit_craft_inscription.py --self-test -> mutation testing.
+
+FINAL VERDICT
+-------------
+Static:            451 / 451 PASS, 0 FAIL  (exit code 0)
+Preflight:         0 payload misses (run before the first green run
+                   after two correction passes)
+Derived:           58 assertions in D01-D14 PASS, 0 FAIL (exit code 0)
+Hygiene:           ASCII only (0 non-ASCII), longest line <= 100 chars
+Self-test:         20 / 20 mutations caught, SELF-TEST PASS (exit 0)
+Deliverable:       Craft_Inscription.txt (928 lines)
+Audit script:      audit_craft_inscription.py (751 lines)
+Date of audit:     2026-10-26 (same week as every source fetch)
+
+STATIC CHECK BREAKDOWN (451 total, by check prefix)
+---------------------------------------------------
+  H01-H14    14  heading, scope promise, 10 section titles, subroute span
+                 3.1-3.8, section 1 pinned to line 8
+  B01-B11    11  base spell 45357: skill 773 value 1, Trade Skill
+                 effect, cost field, pigment text, Taught by (42),
+                 9-rank ladder (158748/195115/45358-45363/86008/110417),
+                 Difficulty 111, triple-effect wrapper note
+  L01-L27    27  8.0.1/8.1.0 learn chains for all eight lines plus the
+                 BfA faction pair (Classic 2514 through BfA 2507),
+                 wrapper effects, triggered Learning 161789, scroll
+                 111923, quest 39847 reward row, cost list, boost
+                 helper 201703 -> 195115 value 10
+  T01-T08     8  TC learn path with this fetch's lines: NPCHandler
+                 97/112/130/145/155, Trainer 76/79/149/172, money
+                 98/100-106, profession slots 156/165, skill gate
+                 182-184, prerequisites 185-187, level 189-191,
+                 list payload 67-68
+  C01-C64    64  trainers: wiki coordinate rows (35 named, incl. Aldor/
+                 Scryer locks and the no-coordinate Theoden row), all
+                 six wowhead Taught-by tables with npc entries, guide
+                 teachers (5 NR names, both BfA /way pins, Nazjatar
+                 reveal, dual-Dalaran warning), scroll vendors, satchel
+                 chain, Mishi flight
+  R00-R48    48  3.0 milling (spell 51005, effect, requirements, 2-4
+                 pigment yield, points-to-25, mass-mill thresholds and
+                 warning) + 3.1 Classic: guide, tools, tier shopping,
+                 33 step lines with spell ids and counts, total 477
+  O01-O08     8  3.2 Outland: guide, 500 herbs, Ebon->Darkflame->Book
+                 variable step, research 165464 with parchment note,
+                 total 42
+  N01-N11    11  3.3 Northrend: guide, 450 herbs, 95 ink prep with 190
+                 Azure, five scroll lines, yellow warning, research
+                 x2, Runescroll 69385, conditional tail, total 150
+  K01-K09     9  3.4 Cataclysm: guide, 180 herbs, technique drop +
+                 Zidormi phase, Origami 86646 with 300 parchment,
+                 Forged Documents 1-day CD, research 165466, total 115
+  P01-P09     9  3.5 Pandaria: guide, vendors, 135 ink prep, Starlight
+                 reserve, research 165467 x2, Ox/Crane recipes,
+                 conditional, total 180
+  D01-D14    14  3.6 Draenor: scroll sources, 161789 trigger, satchel
+                 ids, 2250-herb math, Ashran vendors, Secrets 177045,
+                 technique 118614, Volatile Crystal 166432, herb-trader
+                 alternative (NPCs, rotation, EU/NA swap), total 76
+  G01-G24    24  3.7 Legion: Pallin 92195, quest 39847 sign item flow,
+                 shopping 200/900, 4500-herb note, manual-mill warning,
+                 Tome technique 141447 + spell 227043, 60-Vantus math,
+                 LFR queue NPC, all eight R3 rune sources, mass-mill
+                 quest 39954 with per-herb unlock table, Astral Glory
+                 vendor, total 80
+  A01-A29    29  3.8 BfA: guide, both /way pins, guard tip, pigment
+                 rates, 900/550/50 totals, vendor goods, ink spells
+                 264776-78, War-Scroll math 8->64, both contract
+                 spells with 60/900/480, Honored lock, R2 recipe items
+                 + all nine alternative contracts with vendor npcs,
+                 yellow-at-105, Work Order R3, Darkmoon 256245 math,
+                 Nazjatar pair, Maroon 298929, Zin'anthid, total 173
+  M01-M30    30  materials: Herbalism pairing, tools/parchment/water/
+                 powder, eight expansion herb/pigment/ink id blocks,
+                 BfA ink reagent formulas, Maroon Inscription 125,
+                 common/uncommon ink rules, Umbral trader note, AH
+                 fallback
+  F01-F11    11  costs: raw training-cost list (7 spells), 10-copper
+                 wiki reading, explicit-unverified list, Midnight
+                 3s50c sample, BfA 35g/40g rows, 1000g as-printed,
+                 Spirit-of-War 20 pigment, Light Parchment 15c,
+                 MoneyCost x reputation discount
+  V01-V18    18  levels: eight per-line level-5 headers with their
+                 conflict notes (NR 65, MoP "up to 5"), trainer NPC
+                 levels, base level 5, milling Level 5 + Inscription
+                 (1), proficiency table + stale BfA 1-150 row, recipe
+                 gates, no server craft-time check, reqSkillValue
+                 inventory, TC gates 182-184/189-191
+  W01-W38    38  core mechanics: create-item path (3872/5600, 1383,
+                 1440, 1469), no variable yields in routes +
+                 CREATE_ITEM_2 fallback (1482-1522), SPELL_ATTR9 3863,
+                 the full MILLING block: effect 158 table 250,
+                 CheckCast 7836-7866 in order (target/flag/owner/skill
+                 182-style gate/need-5/loot template), EffectMilling
+                 4641-4666 (4651/4654/4656/4658-4660/4663-4664/4665),
+                 consumption LootHandler 348-361, config
+                 SkillChance.Milling default false (World 630, World.h
+                 124), UpdateCraftSkill 5410-5437 + discovery 5427,
+                 colour rules, tools/focus unverifiable marks, vellum
+                 branch 2475-2492, learn-effect handlers 128/136/139 ->
+                 2129/2405/2451, 773 + eight sub-lines 2507-2514
+  X01-X28    28  cannot-do: Nightborne +5 spell-verified, KT +2
+                 guide-only, reputation/WQ/trader-RNG/time gates,
+                 LFR/Nighthold/fishing/archaeology/quest-storyline
+                 content (Halls of Valor 39953), Uldum phase, satchel
+                 chains, Nazjatar intro, AH dependence, faction mains,
+                 Aldor/Scryer split, dual Dalaran, profession slots,
+                 UI-only feedback, stale wiki rows, default config
+  Y01-Y19    19  conflicts and unverified index (every numbered entry)
+  Z01-Z31    31  sources: dates, spell/quest probe list, 15 search-result
+                 id/URL records, nine guide slugs, 8 warcraft.wiki page
+                 groups, wowpedia snippet list, TC file+line manifest
+                 with HEAD e0eec525aa
+TOTAL                451
+
+DERIVED CHECKS (58 assertions in D01-D14)
+-----------------------------------------
+D01  Classic crafts: the 33 printed counts sum to 477 (matches the
+     printed total)
+D02  Classic ink ratios: 88/44, 72/36, 126/63, 80/40, 68/34, 84/42
+     (2 pigments per ink), 6 lines
+D03  Classic research ratios: 12=4x3, 12=3x3, 12=4x3, 15=5x3, 9=3x3,
+     12=4x3, 6 lines
+D04  Classic glyph ink sums: 9x3=27, 8x3=24, 15x3=45, 17x3=51, 11x3=33
+D05  Outland total 42; D06 Northrend total 150 with 95 = 5+5+5+5+15+
+     30+30 and 190 = 95x2 Azure
+D07  Cataclysm total 115 = 100+1+14 with 300 = 100x3 parchment and
+     42 = 14x3 ink
+D08  Pandaria total 180 with 270 = 135x2 and 60 = 20x3
+D09  Draenor main total 76, 2250 herbs -> 900 pigment (2 per 5),
+     900 = 75x12 Volatile Crystal
+D10  Legion total 80 with 180 = 60x3 and 900 = 60x15, shopping 20+180
+     = 200 Sallow
+D11  BfA total 173 = 8+60+5+100; contracts 900 = 60x15 and 480 = 60x8;
+     War-Scroll 64 = 8x8; Darkmoon 50 = 5x10
+D12  Key id coverage: 250+ required spell/item/npc ids, 0 missing
+D13  TC family presence: 19 literals (5410, 1383, 1482, 4641, 7836,
+     4656, 630, 348, 128, 2129, 2405, 2451, 3872, 5600, 97, 155, 182,
+     189, 98)
+D14  Conflict index has all 19 numbered entries
+Section heading order and "section 1 on line 8" also enforced.
+
+SELF-TEST (mutation testing, 20 mutations, replace-ALL)
+-------------------------------------------------------
+  base skill (773->774)               caught by 1 check
+  base id (45357->45358)              caught by 1 check
+  classic main (264494->264495)       caught by 1 check
+  bfa horde main (265809->265811)     caught by 1 check
+  milling id (51005->51006)           caught by 1 check
+  tc skill gate (182-184->181-184)    caught by 1 check
+  mill effect lines (4641-4666)       caught by 2 checks
+  config default (false->true)        caught by 1 check
+  vanilla total (477->478)            caught by 2 checks
+  nr total (150->151)                 caught by 2 checks
+  bfa total (173->174)                caught by 2 checks
+  grazzul npc (130901->130902)        caught by 2 checks
+  quest id (39847->39848)             caught by 1 check
+  conflict marker (19 broken)         caught by 2 checks
+  nightborne value (5->6)             caught by 1 check
+  loothandler (348-361->348-362)      caught by 1 check
+  bfa cap (175->150)                  caught by 1 check
+  zinanthid id (168487->168489)       caught by 2 checks
+  maroon spell (298929->298930)       caught by 1 check
+  pallin npc (92195->92196)           caught by 2 checks
+Result: 20/20 caught, no survivors.
+
+METHOD NOTES / FIXES MADE DURING THIS AUDIT
+-------------------------------------------
+1) Preflight (payload vs file before the first run) found 37 payload
+   misses: ~14 regexes that ignored line wraps (wrapper chains break
+   before or after "Step" differently per line; several npc/coordinate
+   rows wrap mid-name), three unescaped "+" quantifier bugs (M12/M14/
+   M16 - the "+" bound a space instead of matching a literal plus),
+   two payloads with a mistaken 4-space indent where the file wraps at
+   column 0 (F08/V13/V14), one case error ("whether" vs "Whether",
+   W31), one payload that added a word the file never printed ("check"
+   in W32, then the whole anchor retargeted), one line-continuation
+   assumption (W05: the payload name "inv" was correct but the pattern
+   needed 1440 plus whitespace), and one half-escaped chain (Z30/Z31).
+   All 37 were corrected in the audit payloads, not weakened away.
+2) Second preflight pass: 8 misses, third pass: 1 miss ("RequiresSpell-
+   Focus machinery" is not contiguous in the file - retargeted to
+   "focus machinery exists"). Fourth run: preflight clean, 451 green.
+3) Two derived failures on the first full run: the Shimmering research
+   line wraps between "4 x" and "Research" (pattern now allows \s+),
+   and id 55016 (Engineering's Nitro Boosts) had leaked into the key-id
+   list - removed; it belongs to the Engineering file.
+4) Deliverable edits made before/with the audit: eight "Total
+   exact-count casts" lines added (one per route) so every printed
+   total is machine-checked against an independent count list; no
+   factual sentence was changed for the audit.
+5) Facts were verified against fresh sources before writing: the TC
+   clone is this-week HEAD e0eec525aa with scripts/ included (Milling
+   lives in game/Spells), and the 51004 id miss from early probing is
+   recorded in section 10 rather than reused.
+
+WHAT THE AUDIT COVERS (acceptance)
+----------------------------------
+- Cheapest-route-per-line ask: sections 3.0-3.8 with every recipe
+  spell id, craft count, material id, shopping math (derived D01-D11)
+  and the printed per-route totals.
+- Learn ask: section 1 chains for base + eight lines + BfA faction
+  pair including wrapper effects, costs, taught-by rows, scroll and
+  quest entry points, boost-helper conflict.
+- Trainer/source ask: section 2 (35 wiki coordinate rows, all six
+  wowhead Taught-by lists with creature entries, guide NPCs with /way
+  pins, Aldor/Scryer and dual-Dalaran notes, Nazjatar reveal,
+  Draenor scroll vendors).
+- Materials ask: section 4 ids per expansion (every herb, pigment,
+  ink, tool, vendor good) plus milling yield rules and where each
+  comes from.
+- Cost/level asks: sections 5-6 with raw fields, the 10-copper wiki
+  reading, unverified marks, and every technique-page level header.
+- Core-success and cannot-meet asks: sections 7-8 keyed to exact
+  TrinityCore file/line literals fetched this week, with MILLING as the
+  profession's signature effect (CheckCast gate order, loot-template
+  consumption, SkillChance.Milling default false).
+- Verifiability: section 9 (19 conflicts/unverified entries), section
+  10 (every URL/slug/search record/TC manifest), zero invented numbers
+  (451 payload checks).
+
+Replicate: cd "# Ai Research prompts/Companion_Professions" &&
+python3 audit_craft_inscription.py && python3 audit_craft_inscription
+.py --self-test && python3 audit_craft_inscription.py --self-test
+Expected: RESULT 451 PASS, 0 FAIL / SELF-TEST PASS / SELF-TEST PASS.

@@ -1,0 +1,928 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - INSCRIPTION CRAFTING FOR A SERVER-SIDE COMPANION
+===========================================================================================
+
+Scope: how a computer-controlled character (no client) levels Inscription on a
+TrinityCore-based 8.3.7 server. Every id below was read from a source this
+week; anything without a readable source says "unverified" instead of a guess.
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+---------------------------------------------------
+Base spell Inscription 45357 (instant): Effect1 = Trade Skill, Effect2 =
+Learn Skill (Inscription, skill=773, value 1); wowhead infobox "Training
+cost: 10"; text "Requires pigments milled from herbs"; Difficulty 111; the
+page shows "Taught by (42)" (list not rendered) and "Other ranks (9)":
+158748 (1), 195115 (1), 45358 (50), 45359 (125), 45360 (200), 45361 (275),
+45363 (350), 86008 (425), 110417 (500).
+
+8.0.1 split the profession into per-expansion lines. Learn chain (each
+effect read on wowhead this week):
+  - Classic 1-300, skill=2514: main 264494 "Inscription" (8.0.1, cap 300,
+    no Training cost, no Requires line, no Taught-by rendered on either
+    page - the guides' capital-city trainer lists stand in, section 9
+    item 10); wrapper 264495 (8.1.0): Effect1 Learn Spell 45357, Effect2
+    Learn Spell 264494, Effect3 Learn Skill Step (2514) value 1 - the
+    triple-effect wrapper (it also brings the base trade skill).
+  - Outland 1-75, skill=2513: main 264496 (8.0.1, quick facts "Requires
+    Inscription (1)", "Training cost: 10", cap 75): Learn Skill (Outland
+    Inscription); wrapper 264497 (8.1.0): Learn Spell 264496 + Learn Skill
+    Step (2513). Taught by (3) on the main (section 2).
+  - Northrend 1-75, skill=2512: main 264498 (8.0.1, "Training cost: 10",
+    cap 75); wrapper 264499 (8.1.0): Learn Spell 264498 + Learn Skill Step
+    (2512). Taught by (3) on the main (section 2).
+  - Cataclysm 1-75, skill=2511: main 264500 (8.0.1, "Training cost: 10",
+    cap 75); wrapper 264501 (8.1.0): Learn Spell 264500 + Learn Skill Step
+    (2511). Taught by (10) on the main (section 2).
+  - Pandaria 1-75, skill=2510: main 264502 (8.0.1, "Training cost: 10",
+    cap 75); wrapper 264503 (8.1.0): Learn Spell 264502 + Learn Skill Step
+    (2510). Taught by (3) on the main (section 2).
+  - Draenor 1-100, skill=2509: main 264504 (8.0.1, cap 100, no Training
+    cost shown, no Taught-by): Learn Skill (Draenor Inscription); wrapper
+    264505 (8.1.0): Learn Spell 264504 + Learn Skill Step (2509); wrapper
+    page "Triggered by (1) Learning 161789". The practical learn source is
+    scroll item 111923 "Draenor Inscription" (10-sec Item Effect ->
+    trigger 161789; section 3.6).
+  - Legion 1-100, skill=2508: main 264506 (8.0.1, cap 100, no Training
+    cost shown); wrapper 264507 (8.1.0): Learn Spell 264506 + Learn Skill
+    Step (2508); wrapper page "Reward from (1)": quest 39847 "Sign This",
+    level 10, Both factions (section 3.7).
+  - Battle for Azeroth 1-175, skill=2507 (separate mains per faction):
+    Alliance main 264508 "Kul Tiran Inscription" (8.0.1, "Requires
+    Inscription (1)", "Training cost: 10", cap 175, Alliance Specific
+    Spell) + Alliance wrapper 264509 (8.1.0): Learn Spell 264508 + Learn
+    Skill Step (2507); Horde main 265809 "Zandalari Inscription" (wowhead
+    quick facts: "Requires Inscription (1)", "Training cost: 10", "Added
+    in patch 8.1.0", cap 175, Horde Specific; wowdb shows 8.0.1 build
+    #27101 - section 9 item 11) + Horde wrapper 265810: Learn Spell
+    265809 + Learn Skill Step (2507).
+Boost-era helper: spell 201703 "Legion Scribe" (Learn Spell 195115
+"Inscription" + Learn Skill Step (773) value 10) is linked by the Legion
+leveling guide as the quest reward, but the live quest and wrapper teach
+264507 instead (section 9 item 6).
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki.gg/wiki/Inscription_trainers (5 chunks, read this week; page
+ends at Pandaria; row notes "Teaches only Apprentice/Journeyman" are
+historic per patch 4.0.3a, section 8):
+  Eastern Kingdoms: Wembil Taskwidget, Kharanos, Dun Morogh [53.7, 52]
+  (Apprentice); Lien Farner, Goldshire, Elwynn [42, 67] (Apprentice);
+  Jack "All-Trades" Derrington, Gilneas starting zone (Worgen-only,
+  Apprentice); Catarina Stanford, Canals, Stormwind [49.8, 74.7]; Elise
+  Brightletter, Great Forge, Ironforge [60.7, 44.9]; Saren, Falconwing
+  Square, Eversong [49, 47] (Apprentice); Therisa Sallow, Calston Estate,
+  Tirisfal [44.5, 53] (Apprentice); Nedric Sallow, Brill, Tirisfal
+  [61, 51] (Apprentice); Margaux Parchley, Apothecarium, Undercity
+  [61.5, 57.9]; Zantasia, Court of the Sun, Silvermoon [69.5, 24].
+  Kalimdor: Valn, Azure Watch, Azuremyst [48.5, 52.2] (Apprentice);
+  Iranis Shadebloom, Dolanaar, Teldrassil [56, 52.2] (Apprentice); Theoden
+  Manners, Theramore, Dustwallow (no coordinate printed); Feyden Darkin,
+  Craftsmen's Terrace, Darnassus [58.9, 14.1]; Thoth, Crystal Hall,
+  Exodar [40.5, 39.1]; Runda, Razor Hill, Durotar [53, 42] (Apprentice);
+  Lalum Darkmane, Bloodhoof Village, Mulgore [46.5, 57.5] (Apprentice);
+  KTC Train-a-Tron Deluxe, Bilgewater Harbor, Azshara [57, 50.5] (up to
+  Journeyman; second KTC bot at Town-In-A-Box/Sky Falls/Gallywix Docks,
+  Lost Isles, Goblin-only); Nerog, The Mighty Pen/The Drag, Orgrimmar
+  [55, 56]; Jo'mah, Valley of Spirits, Orgrimmar [46.5, 57.5]; Poshken
+  Hardbinder, Spirit Rise, Thunder Bluff [29, 21.5].
+  Outland: Michael Schwan, Honor Hold, Hellfire [53.9, 65.5]; Neferatti,
+  Thrallmar, Hellfire [52.3, 36.1]; Recorder Lidio, Shattrath [36.5,
+  44.4] ("Not available to members of the Scryers"); Scribe Lanloer,
+  Shattrath [56.6, 74.6] ("Not available to members of the Aldor").
+  Northrend: Tink Brightbolt, Valiance Keep, Borean [57.6, 71.7]; Mindri
+  Dinkles, Valgarde, Howling Fjord [58.6, 62.8]; Adelene Sunlance,
+  Warsong Hold, Borean [41.2, 53.9]; Booker Kells, Vengeance Landing,
+  Howling Fjord [79.4, 29.3]; Professor Pallin, The Scribes'
+  Sacellum/Magus Commerce Exchange, Dalaran [42.4, 37.5]; Arthur Denny,
+  Argent Tournament Grounds, Icecrown [71.7, 21].
+  Pandaria: Inkmaster Wei, The Arboretum, Jade Forest [55.0, 45.0];
+  Scribe Rinji, Greenstone Village, Jade Forest [47.6, 35.0]; Lorewalker
+  Huynh, Seat of Knowledge, Vale of Eternal Blossoms [81.8, 29.4]; Master
+  Marshall, Peak of Serenity, Kun-Lai [50.6, 42.3].
+  No Draenor/Broken Isles/Kul Tiras-Zandalar rows exist on this page.
+Wowhead "Taught by" lists read this week (entries with their printed
+locations):
+  - Outland main 264496, Taught by (3): "Inscription" 33615
+    (Shattrath City, uncategorized row), Michael Schwan 30721 (Hellfire
+    Peninsula), Scribe Lanloer 33638 (Shattrath City).
+  - Northrend main 264498, Taught by (3): Adelene Sunlance 26977
+    (Borean Tundra), Booker Kells 26959 (Howling Fjord), Professor Pallin
+    28702 (Dalaran).
+  - Cataclysm main 264500, Taught by (10): Catarina Stanford 30713
+    (Stormwind), Elise Brightletter 30717 (Ironforge), Jo'mah 30706
+    (Orgrimmar), Margaux Parchley 30711 (Undercity), Nerog 46716
+    (Orgrimmar), Poshken Hardbinder 30709 (Thunder Bluff), Reshad 81770
+    (Spires of Arak), Theoden Manners 53415 (Dustwallow Marsh), Thoth
+    30716 (Exodar), Zantasia 30710 (Silvermoon City).
+  - Pandaria main 264502, Taught by (3): Inkmaster Wei 56065, Lorewalker
+    Huynh 64691, Scribe Rinji 62327.
+  - Kul Tiran main 264508, Taught by (3): Instructor Okanu 153811
+    (Nazjatar, level 50), Kronah 131386 (Drustvar, level 60), Zooey
+    Inksprocket 130399 (Boralus, level 60).
+  - Zandalari main 265809, Taught by (3): Chronicler Grazzul 130901
+    (Dazar'alor), Chronicler Kizani 132264 (Dazar'alor and the Great
+    Seal), Narv 154393 (Nazjatar).
+  - Classic 264494/264495 and Draenor 264504/264505 render no Taught-by
+    list; Cataclysm-side guide text also names Feyden Darkin 30715
+    (Darnassus) - not in the wowhead 10 (section 9 item 10).
+warcraft.wiki per-line technique pages also print a "Taught by" table with
+costs (Outland: Schwan, Neferatti, Lidio, Lanloer; Cataclysm: Catarina
+[49.8, 74.7], Elise [60.7, 44.9], ...; Northrend: Tink [57.6, 71.7],
+Mindri [58.6, 62.8], Adelene [41.2, 53.9], Booker [79.4, 29.3], Pallin
+[42.4, 37.5]; Pandaria: Wei, Rinji, Huynh).
+Guide-specific teacher text: vanilla/Cataclysm guides list the Horde four
+(Nerog, Zantasia, Margaux, Poshken) and Alliance three (Feyden Darkin,
+Elise, Catarina); Outland guide - Scribe Lanloer 33638 (Scryers) or
+Recorder Lidio 33679 (Aldor) in Shattrath, "if you completed the
+Aldor/Scryer quest you can only interact with one"; Northrend guide - Tink
+Brightbolt (Valiance Keep, A), Adelene Sunlance (Warsong Hold, H), Mindri
+Dinkles (Valgarde, A), Booker Kells (Vengeance Landing, H), Professor
+Pallin 92195 (Northrend Dalaran, "not Legion Dalaran"); Pandaria guide -
+Lorewalker Huynh above Mogu'shan Palace (Mishi 65716 flies you up) or
+Inkmaster Wei; Legion guide - Professor Pallin 92195 in The Scribe's
+Sacellum, Dalaran (Broken Isles); BfA guide - Chronicler Grazzul in
+Dazar'alor Terrace of Crafters /way 42.3, 39.6 and Zooey Inksprocket in
+Boralus Tradewinds Market /way 73.4, 6.33 (ask a guard for a map pin);
+Nazjatar trainers appear only after the first Nazjatar intro quests (Narv
+154393 H / Instructor Okanu 153811 A).
+Draenor scroll vendors (the "trainers" for that line): Joao Calhandro
+87063 (Stormshield, A) and Maru'sa 87551 (Warspear, H) in Ashran, or a
+Scribe's Quarters NPC in your garrison after "Your First Inscription Work
+Order"; you must know basic Inscription first (guide).
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+Source for every step: the wow-professions guide named per line (full
+URLs in section 10). Counts are the guide's own cast counts; yellow/green
+warnings mean more materials than the printed exact math - the shopping
+list is the authority. Milling is the shared opening of most lines
+(section 3.0).
+
+3.0 Milling as a skill source (applies to 1-25 of most lines):
+Milling spell 51005 ("Crush 5 herbs to create pigments for making inks.
+This will destroy the herbs in the process", 1 sec cast, Effect: Milling
+Value 5, "Target must be own item", Cooldown n/a). Requirements (wowpedia
+Milling page): Level 5 + Inscription (1). Five of any listed herb make
+2-4 common pigments and may produce 1-3 uncommon pigments (warcraft.wiki
+Inscription_ingredients). The guides state "milling gives skill points up
+to 25" (vanilla, Outland, Northrend, Pandaria, Draenor, Legion, BfA
+guides all open by milling their herb list to 25). Mass Milling recipes
+mill 20 herbs at once: Legion unlocks them via quest "Mass Milling
+Techniques" 39954 (section 3.7); BfA "you will unlock Mass Mill at 50,
+which will give skill points up to 80" and "Mass Mill Zin'anthid" 298927
+is learned at 155 (4-5 points per mass mill); the Legion guide warns
+"DO NOT USE MASS MILL YET, IT WON'T GIVE YOU SKILL POINTS" before 25.
+
+3.1 Classic 1-300 (retail "Classic" skill bar; learn per section 1):
+Guide "Vanilla Inscription Leveling Guide 1-300" - the 1-300 bar inside
+retail, not the WoW Classic client. Buy Virtuoso Inking Set 39505 and
+Light Parchment 39354 from the Inscription Supply vendor near your
+trainer first. Shopping (mill totals per tier, any herb of the tier):
+180 Alabaster-tier herbs, 160 Dusky-tier, 260 Golden-tier, 260
+Emerald-tier, 160 Violet-tier, 180 Silvery-tier (herb lists in section 4).
+  - 1 - 45: 44 x Moonglow Ink spell 52843 (88 Alabaster Pigment; keep
+    them). Milling to 25 happens alongside.
+  - 45 - 75: 30 x Scroll of Recall spell 48248 (30 Moonglow Ink); alt:
+    Enchanting Vellum spell 52739.
+  - 75 - 80: 36 x Midnight Ink spell 53462 (72 Dusky Pigment; stop at
+    80, more after 85).
+  - 80 - 100: 25 x Vanishing Powder spell 92026 (25 Midnight Ink); at 85
+    turn Verdant Pigment into Hunter's Ink spell 57703, then craft as many
+    Mysterious Tarot spell 48247 as you can (variable tail).
+  - 100 - 105: 63 x Lion's Ink spell 57704 (126 Golden Pigment; stop at
+    105).
+  - 105 - 109: 4 x Research: Moonglow Ink spell 165564 (12 Moonglow Ink).
+  - 109 - 112: 3 x Research: Midnight Ink spell 165304 (12 Midnight Ink).
+  - 112 - 116: 4 x Research: Lion's Ink spell 165456 (12 Lion's Ink).
+  - 116 - 125: 9 x any glyph discovered by Research: Lion's Ink (3 Lion's
+    Ink each = 27).
+  - 125 - 142: turn Burnt Pigment into Dawnstar Ink spell 57706, then as
+    many Strange Tarot spell 59480 as you can (variable).
+  - 142 - 150: 8 x any discovered glyph (24 Lion's Ink).
+  - 150 - 155: 40 x Jadefire Ink spell 57707 (80 Emerald Pigment).
+  - 155 - 180: 5 x Scroll of Stamina III 50614, 5 x Scroll of Versatility
+    III 50606, 5 x Scroll of Intellect III 50599, 5 x Scroll of Strength
+    III 58486 (5 Jadefire Ink each); before 175-180 turn Indigo Pigment
+    into Royal Ink spell 57708, then 5 x Scroll of Agility III 58476
+    (5 Jadefire Ink).
+  - 180 - 185: 5 x Research: Jadefire Ink spell 165460 (15 Jadefire Ink).
+  - 185 - 200: turn Royal Ink into Arcane Tarot spell 59487; 15 x any
+    orange glyph (45 inks).
+  - 200 - 205: 34 x Celestial Ink spell 57709 (68 Violet Pigment).
+  - 205 - 230: 10 x Scroll of Recall II 60336, 5 x Scroll of Intellect IV
+    50600, 5 x Scroll of Strength IV 58487 (5 Celestial Ink each); before
+    225-230 turn Ruby Pigment into Fiery Ink spell 57710, then 5 x Scroll
+    of Agility IV 58478 (5 Celestial Ink).
+  - 230 - 233: 3 x Research: Celestial Ink spell 165461 (9 Celestial Ink).
+  - 233 - 250: Shadowy Tarot spell 59491 as many as you can (Fiery Ink,
+    variable) then 17 x any orange glyph (51 inks).
+  - 250 - 255: 42 x Shimmering Ink spell 57711 (84 Silvery Pigment).
+  - 255 - 275: 5 x Scroll of Versatility V 50608, 5 x Scroll of Intellect
+    V 50601, 5 x Scroll of Strength V 58488, 5 x Scroll of Agility V
+    58480 (5 Shimmering Ink each).
+  - 275 - 290: turn Sapphire Pigment into Ink of the Sky spell 57712; 4 x
+    Research: Shimmering Ink spell 165463 (12 Shimmering Ink); 11 x any
+    orange glyph (33 inks).
+  - 290 - 300: 10 x Scroll of Stamina VI 50618 (10 Shimmering Ink).
+Total exact-count casts printed by the guide = 477 (the four "as many as
+you can" tarot steps plus yellow/green slippage add more).
+
+3.2 Outland 1-75 (learn main 264496 from Lanloer/Lidio/Schwan, section 2):
+Guide "Outland Inscription Leveling Guide 1-75". Buy Virtuoso Inking Set
+39505 + Light Parchment 39354 from your trainer. Shopping: mill around
+500 of any Outland herb (list in section 4).
+  - 1 - 25: mill 500 herbs.
+  - 25 - 33: turn all Ebon Pigment 43108 into Darkflame Ink spell 57714,
+    craft as many Book of Clever Tricks spell 59496 as you can
+    (approximate range - points depend on Ebon yield; guide: "you don't
+    have to reach 33, and you might even reach 35").
+  - 33 - 75: 42 x Research: Ethereal Ink spell 165464 (126 Ethereal Ink;
+    the recipe also eats 3 Light Parchment per cast per wowdb - the guide
+    counts only inks).
+Total exact-count casts printed by the guide = 42 (the 25-33 Book of
+Clever Tricks step is "as many as you can").
+
+3.3 Northrend 1-75 (learn main 264498; guide adds Tink/Mindri, section 9
+item 7): Guide "Northrend Inscription Leveling Guide 1-75". Buy Light
+Parchment 39354 + Virtuoso Inking Set 39505 from the Inscription Supply
+vendors near your trainer. Shopping: mill around 450 of any Northrend
+herb (list in section 4).
+  - 1 - 25: mill 450 herbs; 95 x Ink of the Sea spell 57715 (190 Azure
+    Pigment) for later; turn all Icy Pigment 43109 into Snowfall Ink
+    spell 57716 and keep them (used at 65); a few Research: Ink of the
+    Sea 165465 if milling did not reach 25.
+  - 25 - 65: 5 x Scroll of Stamina VIII 50620, 5 x Scroll of Versatility
+    VIII 50611, 5 x Scroll of Intellect VIII 50604, 5 x Scroll of
+    Strength VIII 58491 (5 Ink of the Sea each); 15 x Scroll of Agility
+    VIII 58483 (15 Ink of the Sea; yellow for the last 5 - expect extra);
+    10 x Research: Ink of the Sea 165465 (30 Ink of the Sea).
+  - 65 - 75: Runescroll of Fortitude spell 69385 with leftover Snowfall
+    Ink ("probably only gain 1-3 skill points" per cast), then 10 x
+    Research: Ink of the Sea 165465 (30 Ink of the Sea) - fewer than 10
+    research if runescrolls gave points.
+Total exact-count casts printed by the guide = 150 (95 ink prep + 45
+numbered 25-65 steps + 10 research at 65-75; Snowfall Ink prep and
+Runescrolls are variable).
+
+3.4 Cataclysm 1-75 (learn main 264500 from any old-city trainer):
+Guide "Cataclysm Inscription Leveling Guide 1 - 75". Shopping: mill
+around 180 of any Cataclysm herb (list in section 4); Light Parchment
+39354 from the vendor near your trainer.
+  - 1 - 60: farm Technique: Origami Beetle item 65651 from Schnottz
+    Infantryman 48629 around the Obelisk of the Moon in Uldum (mobs drop
+    in packs of 10; in the patch 8.3 phased Uldum the mobs do NOT drop it
+    - talk to Zidormi 162419 at Ramkahen to phase back; check your bank,
+    it will not drop twice), then 100 x Origami Beetle spell 86646 (300
+    Light Parchment).
+  - 60 - 61: 1 x Forged Documents spell 86654 (1 Light Parchment + 1
+    Blackfallow Ink). "This recipe has 1-day cooldown, so you could make
+    it more than once if you wait."
+  - 61 - 75: 14 x Research: Blackfallow Ink spell 165466 (42 Blackfallow
+    Ink).
+Total exact-count casts printed by the guide = 115 (100 + 1 + 14).
+
+3.5 Pandaria 1-75 (learn main 264502 from Lorewalker Huynh or Inkmaster
+Wei): Guide "Pandaria Inscription Leveling Guide 1 - 75". Shopping: mill
+around 500 of any Pandaria herb (list in section 4), ~200 Light Parchment
+39354 and a Virtuoso Inking Set 39505 from Fang Whitescroll 64053
+(Shrine of Two Moons) or Veronica Faraday 64081 (Shrine of Seven Stars).
+  - 1 - 25: mill 500 herbs (the ink crafts below give no points until 25
+    is reached); 135 x Ink of Dreams spell 111645 (270 Shadow Pigment);
+    turn Misty Pigment 79253 into Starlight Ink spell 111646 and keep it.
+  - 25 - 45: 20 x Research: Ink of Dreams spell 165467 (60 Ink of
+    Dreams).
+  - 45 - 50: Greater Ox Horn Inscription spell 126994 as many as you can
+    (5-10 from milling materials).
+  - 50 - 70: 20 x Research: Ink of Dreams 165467 (60 Ink of Dreams) -
+    "make fewer than 20 if you gained more than 5 skill points from the
+    previous recipe".
+  - 70 - 75: 5 x Secret Crane Wing Inscription spell 127023 (15 Ink of
+    Dreams).
+Total exact-count casts printed by the guide = 180 (135 ink prep + 20 +
+20 research + 5 final; the "as many as you can" and "fewer than 20"
+adjustments are variable).
+
+3.6 Draenor 1-100 (scroll item 111923 "Draenor Inscription" first):
+Guide "Draenor Inscription Leveling Guide 1-100". Three scroll sources
+(buy in Ashran from Joao Calhandro 87063 Stormshield / Maru'sa 87551
+Warspear; garrison Scribe's Quarters after "Your First Inscription Work
+Order"; or the Mysterious Satchel 114984 (A) / Illegible Sootstained
+Notes 115593 (H) quest chain from Draenor mobs). The scroll is a 10-sec
+item effect that triggers Learning 161789 -> wrapper 264505. Shopping:
+Cerulean Pigment 114931 from milling any Draenor herb, 2 pigments per 5
+herbs; need 900 total -> mill around 2250 herbs (list in section 4).
+  - 1 - 25: mill herbs to 25.
+  - 25 - 100: buy Virtuoso Inking Set 39505 + Light Parchment 39354 from
+    Jasa 86041 (Warspear) / Trader Caerel 85950 (Stormshield) or any
+    capital; create 1 x Secrets of Draenor Inscription spell 177045; buy
+    Technique: Volatile Crystal item 118614 from the Ashran vendors (or
+    garrison); 75 x Volatile Crystal spell 166432 (900 Cerulean Pigment).
+  - Alternative (1250 herbs instead of 2250): garrison level-3 town-hall
+    herb trader (Samantha Scarlet 91404 A / Nicholas Mitrik 91031 H,
+    1-of-4 daily spawn, rotation Ore -> Dust -> Fur -> Leather -> Herb;
+    guide notes EU/NA dates are swapped; visit another player's garrison
+    if yours does not spawn) sells Technique: The Spirit of War 122713
+    for 20 Cerulean Pigment; 75 x The Spirit of War spell 182125 (75
+    Primal Spirit 120945 + 300 Cerulean Pigment); Primal Spirit costs 5
+    Gorgrond Flytrap 109126 (H) / 5 Frostweed 109124 (A) from the same
+    trader (495 herbs).
+Total exact-count casts on the main branch = 76 (1 + 75).
+
+3.7 Legion 1-100 (learn quest 39847, wrapper 264507 - section 1):
+Guide "Legion Inscription Leveling Guide 1-100". Trainer Professor Pallin
+npc 92195, The Scribe's Sacellum, Dalaran (Broken Isles). Quest "Sign
+This" 39847 (level 10, Both): pick it up, then right-click the Unsigned
+Contract item 129047 in your inventory to sign it (quest provides
+129047 -> 129043); the live quest reward and wrapper page teach 264507
+(the guide hyperlinks 201703 - section 9 item 6). Shopping: ~200 Sallow
+Pigment 129034 + ~900 Roseate Pigment 129032; herb counts as printed:
+~4500 herbs if milling only Aethril/Fjarnskaggl/Astral Glory/Foxflower/
+Starlight Rose; ~2000 Dreamleaf (Nightmare Pods double the Sallow); or
+~100 Felwort plus buying Roseate.
+  - 1 - 25: manually mill ~400 Legion herbs (mass mill before 25 gives no
+    skill).
+  - 25 - 40: loot Technique: Tome of the Tranquil Mind item 141447 from
+    the scroll behind your trainer on the counter (near the small blue
+    rug); 20 x Tome of the Tranquil Mind spell 227043 (20 Sallow
+    Pigment; yellow - may need more); Light Parchment from the Pandaren
+    vendor behind the trainer.
+  - 40 - 100: 60 x any Nighthold Rank 3 Vantus Rune (180 Sallow Pigment +
+    900 Roseate Pigment). R1 from a Raid Finder kill (queue via Archmage
+    Timear 111246 in Dalaran, "Arcing Aqueducts" for Skorpyron), R2 from
+    the same boss on Normal; R3 sources: Marin Bladewing 107379 (The
+    Wardens Revered): items 137781 Star Augur Etraeus, 137777 Spellblade
+    Aluriel; Veridis Fallon 107376 (Court of Farondis Revered): 137776
+    Trilliax, 137774 Skorpyron, 137780 Krosus, 137779 High Botanist
+    Tel'arn; 137782 Grand Magistrix Elisande from Archaeology fragments
+    (low chance); 137775 Chronomatic Anomaly fished from Cursed Queenfish
+    in Azsuna (low chance). Alternative: glyphs to 70 (green between
+    45-70).
+  - Mass Milling Techniques quest 39954 from Pallin (use three books and
+    the ladder) rewards Mass Mill Yseralline Seeds 210116; the other
+    herbs unlock by manual milling -> random quest items: Aethrem Crystal
+    136909 -> Mass Mill Aethril 209658; Bulging Nightmare Pod 136912 ->
+    209659; Woody Seed Cluster 136915 -> Mass Mill Foxflower 209660;
+    Fjarnsk 136916 -> 209661; Roseate Essence 136917 -> 209662; Sallow
+    Essence 136918 -> Mass Mill Felwort 209664; Technique: Mass Mill
+    Astral Glory item 152725 bought from Toraan the Revered 127151
+    (Argussian Reach Friendly).
+Total exact-count casts printed by the guide = 80 (20 tomes + 60
+Vantus runes; the glyph alternative is variable).
+
+3.8 Battle for Azeroth 1-175 (learn wrappers 264509/265810 per section 1;
+trainers in section 2): Guide "BfA Inscription Leveling Guide 1 - 175".
+Pigment rarity as printed: Ultramarine ~75%, Crimson ~25%, Viridescent
+~10% (Anchor Weed ~30%) from milling any Zandalar/Kul Tiras herb; totals
+to reach 145: ~900 Ultramarine Ink 158187, ~550 Crimson Ink 158188, ~50
+Viridescent Ink 158189. Vendors: Light Parchment 39354, Distilled Water
+158186, Acacia Powder 158205 from the Inscription Supply vendors near
+your trainer or the trainer directly.
+  - 1 - 25: mill 100-150 of one herb to 25.
+  - 25 - 50: turn all pigments into inks (Ultramarine spell 264776,
+    Crimson 264777, Viridescent 264778) - "do not mill more herbs than
+    you need to reach 50".
+  - 50 - 80: use the Mass Mill spell learned from your trainer on any
+    herb; the pigments become inks (free skill). Alternative if not
+    milling: War-Scroll of Battle Shout spell 264767.
+  - 80 - 85: 8 x War-Scroll of Battle Shout 264767 (64 Crimson Ink;
+    yellow - 5-8 needed).
+  - 85 - 140: Alliance 60 x Rank 2 - Contract: 7th Legion spell 284293
+    (900 Ultramarine Ink + 480 Crimson Ink) or Horde 60 x Rank 2 -
+    Contract: The Honorbound spell 284296 (same totals); Honored with the
+    faction required (War Campaign quests + faction Assaults reach it);
+    R2 recipe items: Recipe: Contract: 7th Legion 166278 from Vindicator
+    Jaelaana 135446, Recipe: Contract: The Honorbound 166310 from Ransa
+    Greyfeather 135447. Alternative R2 contracts (all Honored): Horde -
+    Contract: Talanji's Expedition 256288 (Provisioner Lija 135459),
+    Contract: Voldunai 256291 (Hoarder Jena 135804), Contract: Zandalari
+    Empire 256285 (Natal'hakata 131287); Alliance - Contract: Order of
+    Embers 256279 (Quartermaster Alcorn 135815), Contract: Proudmoore
+    Admiralty 256276 (Provisioner Fray 135808), Contract: Storm's Wake
+    256282 (Sister Lilyana 135800); Neutral - Contract: Champions of
+    Azeroth 256298 and Contract: Tortollan Seekers 256295 (both Collector
+    Kojo 135793). Craft alternatives only until they turn yellow at 105
+    (unless rank 3); daily "Work Order" Inscription World Quests reward
+    the rank 3 recipes (contracts stay orange to ~130 with R3).
+  - 140 - 145: 5 x Rank 2 - Darkmoon Card of War spell 256245 (5 Light
+    Parchment + 50 Viridescent Ink + 5 Expulsom 152668); Rank 3 recipe
+    162377 from Collector Kojo 135793 at Tortollan Seekers Revered.
+  - 145 - 175: visit Nazjatar trainers (Narv 154393 H / Instructor Okanu
+    153811 A; intro quests first) and learn the new recipes; 100 x Maroon
+    Ink spell 298929 (100 Distilled Water + 100 Maroon Pigment); mill
+    around 150 Zin'anthid 168487 for the pigment; learn Mass Mill
+    Zin'anthid 298927 at 155 and mass mill the rest (4-5 points per
+    cast).
+Total exact-count casts printed by the guide = 173 (8 + 60 + 5 + 100;
+the two pigment-driven ink stages are variable).
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Primary source: herbalism (the wiki names Herbalism the companion
+profession; all guides pair Inscription with Herbalism or the auction
+house). Milling converts 5 herbs -> pigments -> inks; vendor goods come
+from Inscription Supply / general goods vendors by your trainer. Full
+herb/pigment/ink id tables below, every id linked on the milling-table
+page (section 10).
+  - Tools/vendor: Virtuoso Inking Set 39505 (tool; bought from
+    inscription vendors - vanilla/Outland/Northrend/Pandaria/Draenor
+    guides all say buy it); Light Parchment 39354 (vendor, 15c per
+    warcraft.wiki, "sometimes" required per wiki Requirements); Distilled
+    Water 158186 and Acacia Powder 158205 (BfA vendor goods); Expulsom
+    152668 (Scrapper); Primal Spirit 120945 (WoD herb trader / stock).
+  - Classic herbs and outputs: Peacebloom 2447, Silverleaf 765,
+    Earthroot 2449 -> Alabaster Pigment 39151 -> Moonglow Ink 39469
+    (spell 52843) and Ivory Ink 37101; Mageroyal 785, Briarthorn 2450,
+    Swiftthistle 2452, Stranglekelp 3820, Bruiseweed 2453 -> Dusky
+    Pigment 39334 + Verdant Pigment 43103 -> Midnight Ink 39774 (spell
+    53462) and Hunter's Ink 43115 (spell 57703); Wild Steelbloom 3355,
+    Grave Moss 3369, Kingsblood 3356, Liferoot 3357 -> Golden Pigment
+    39338 + Burnt Pigment 43104 -> Lion's Ink 43116 (spell 57704) and
+    Dawnstar Ink 43117 (spell 57706); Dragon's Teeth 3819, Fadeleaf
+    3818, Goldthorn 3821, Khadgar's Whisker 3358 -> Emerald Pigment
+    39339 + Indigo Pigment 43105 -> Jadefire Ink 43118 (spell 57707) and
+    Royal Ink 43119 (spell 57708); Blindweed 8839, Firebloom 4625,
+    Ghost Mushroom 8845, Gromsblood 8846, Purple Lotus 8831, Sungrass
+    8838, Arthas' Tears 8836 -> Violet Pigment 39340 + Ruby Pigment
+    43106 -> Celestial Ink 43120 (spell 57709) and Fiery Ink 43121
+    (spell 57710); Dreamfoil 13463, Golden Sansam 13464, Icecap 13467,
+    Mountain Silversage 13465, Sorrowmoss 13466 -> Silvery Pigment
+    39341 + Sapphire Pigment 43107 -> Shimmering Ink 43122 (spell
+    57711) and Ink of the Sky 43123 (spell 57712).
+  - Outland: Felweed 22785, Dreaming Glory 22786, Ragveil 22787,
+    Terocone 22789, Ancient Lichen 22790, Nightmare Vine 22792,
+    Netherbloom 22791, Mana Thistle 22793 -> Nether Pigment 39342 +
+    Ebon Pigment 43108 -> Ethereal Ink 43124 (spell 57713 unverified -
+    route uses Research 165464) and Darkflame Ink 43125 (spell 57714).
+  - Northrend: Goldclover 36901, Tiger Lily 36904, Deadnettle 37921,
+    Fire Leaf 39970, Talandra's Rose 36907, Adder's Tongue 36903,
+    Icethorn 36906, Lichbloom 36905 -> Azure Pigment 39343 + Icy
+    Pigment 43109 -> Ink of the Sea 43126 (spell 57715) and Snowfall Ink
+    43127 (spell 57716).
+  - Cataclysm: Cinderbloom 52983, Stormvine 52984, Heartblossom 52986,
+    Azshara's Veil 52985, Whiptail 52988, Twilight Jasmine 52987 ->
+    Ashen Pigment 61979 + Burning Embers 61980 -> Blackfallow Ink 61978
+    (spell 86004; 2 Ashen Pigment, Inscription 425, trainer) and Inferno
+    Ink 61981.
+  - Pandaria: Green Tea Leaf 72234, Rain Poppy 72237, Silkweed 72235,
+    Desecrated Herb 89639, Snow Lily 79010, Fool's Cap 79011 -> Shadow
+    Pigment 79251 + Misty Pigment 79253 -> Ink of Dreams 79254 (spell
+    111645) and Starlight Ink 79255 (spell 111646).
+  - Draenor: Fireweed 109125, Frostweed 109124, Gorgrond Flytrap
+    109126, Nagrand Arrowbloom 109128, Starflower 109127, Talador
+    Orchid 109129 -> Cerulean Pigment 114931 (Warbinder's Ink 113111
+    exists but the route spends pigment directly); also Primal Spirit
+    120945.
+  - Legion: Aethril 124101, Dreamleaf 124102, Foxflower 124103,
+    Fjarnskaggl 124104, Starlight Rose 124105, Felwort 124106,
+    Yseralline Seed 128304, Astral Glory 151565 -> Roseate Pigment
+    129032 + Sallow Pigment 129034 (route spends pigments directly);
+    Nightmare Pod 136926 extra from Dreamleaf.
+  - Battle for Azeroth: Riverbud 152505, Star Moss 152506, Akunda's
+    Bite 152507, Winter's Kiss 152508, Siren's Pollen 152509, Anchor
+    Weed 152510, Sea Stalk 152511 -> Ultramarine Pigment 153635 +
+    Crimson Pigment 153636 + Viridescent Pigment 153669 -> Ultramarine
+    Ink 158187 (spell 264776: 1 Distilled Water + 2 Ultramarine
+    Pigment), Crimson Ink 158188 (spell 264777: 1 Distilled Water + 2
+    Crimson Pigment), Viridescent Ink 158189 (spell 264778: 1 Distilled
+    Water + 1 Acacia Powder + 1 Viridescent Pigment); Zin'anthid 168487
+    -> Maroon Pigment 168662 -> Maroon Ink 168663 (spell 298929: 1
+    Distilled Water + 1 Maroon Pigment; Inscription 125, taught by Narv
+    and Instructor Okanu).
+  - Ink rules (warcraft.wiki Inscription_ingredients): common inks come
+    from 2 common pigments; uncommon inks from 1 uncommon pigment, except
+    Snowfall Ink and Inferno Ink which each require two. Glyphs and
+    scrolls use common inks; tomes and Darkmoon cards use common +
+    uncommon inks (wiki Basic materials).
+  - Extras as printed: Umbral Ink 173058 can be traded for any ink at
+    ink traders (the milling table's note - that is a Shadowlands-era
+    ink, section 9 item 17); ink traders and capital vendors also sell
+    most inks (wowhead vendor rows: Moonglow/Midnight/Ink of the Sea/
+    Ultramarine/Crimson/Viridescent/Maroon all show vendor locations).
+Companion sourcing: buying herbs/pigments/inks from the auction house is
+the fast path; without an AH the companion must herb, vendor-buy
+parchment/water/powder/inking sets, farm the Uldum technique, run the
+garrison/Nazjatar/Legion quest chains above, or wait on the WoD trader.
+
+5. TRAINER COSTS
+----------------
+Learn-spell quick-fact "Training cost" (raw value; wowhead prints no
+unit, warcraft.wiki prints the same figure as copper): 45357 = 10,
+264496 = 10, 264498 = 10, 264500 = 10, 264502 = 10, 264508 = 10,
+265809 = 10. warcraft.wiki per-line Taught-by sections print the same as
+money: "The cost to learn Outland/Northrend/Cataclysm/Pandaria
+Inscription is 10 copper, before any discounts" (each per-line page).
+Classic 264494/264495, Draenor 264504/264505 and Legion 264506/264507
+render no training cost - unverified. Rep discount: wiki says "before
+any discounts".
+Recipe-side costs read on pages: Midnight Ink spell 53462 wowdb source
+line "Profession Trainer: Classic Inscription (75) - Cost: 3 50" (3s50c
+sample; classic-era recipe gold for the rest unverified). BfA wiki
+technique tables: Contract: Zandalari Empire R1 source "Chronicler Kizani
+35 g"; Inscribed Vessel of Mysticism source "Chronicler Kizani /
+Zooey Inksprocket 40 g"; Rank 2 contract rows print the source as
+"Honored with <faction> 1000 g" (as printed). Currency/rank costs from
+guides: Legion R3 Vantus recipes = Revered vendors (gold not printed,
+unverified); BfA R2 recipe items from faction quartermasters (gold not
+printed on the guide); Technique: The Spirit of War = 20 Cerulean
+Pigment; technique items (Origami Beetle) drop from mobs (free).
+Vendor prices: Light Parchment 15c (warcraft.wiki); pigments sell for
+25c and inks 5s (wiki infoboxes).
+TC server side: price = trainer-spell MoneyCost x
+GetReputationPriceDiscount(npc) (Trainer.cpp 98), charged at 100-106;
+SendSpells puts ReqSkillRank/ReqAbility in the list packet (67-68).
+
+6. LEVEL NEEDED
+---------------
+Character levels, per line (all warcraft.wiki technique-page headers
+"can be trained as early as level X" read this week):
+  - Classic: level 5 (300 cap).
+  - Outland: level 5 (75 cap).
+  - Northrend: level 5 (75 cap) - wowpedia's Northrend page still prints
+    "level 65" (section 9 item 5).
+  - Cataclysm: level 5 (75 cap).
+  - Pandaria: level 5 (the header also misprints "progression up to 5
+    skill" - section 9 item 4).
+  - Draenor: level 5 (100 cap).
+  - Legion: level 5 (100 cap); current quest 39847 requires level 10
+    (wowhead quest quick facts and wrapper 264507 Reward-from row); the
+    guide notes R1/R2 Vantus raid bosses are solvable "at level 50".
+  - Battle for Azeroth: level 5, cap 175 (BfA technique page header);
+    trainer NPC quick facts: Okanu/Narv level 50, Kronah/Zooey/Grazzul
+    level 60; no character-level line is printed on the learn spells
+    ("Requires Inscription (1)" only) - the exact 8.3.7 gate rests on
+    the wiki header; wowpedia's BfA header prints "level TBC" (broken
+    template, section 9 item 3).
+Base requirement (wowpedia Inscription page): prospective scribes must be
+level 5; the initial 10 copper training grants the first skill point.
+Milling requirements: Level 5 + Inscription (1) (wowpedia Milling).
+Proficiency table (warcraft.wiki Inscription training table): Classic
+Apprentice/Journeyman/Expert/Artisan ladder 1-75 / 75-150 / 150-225 /
+225-300; TBC Master 1-75; WotLK Grand Master 1-75; Cataclysm
+Illustrious Grand Master 1-75; MoP Zen Master 1-75; WoD Draenor Master
+1-100; Legion Legion Master 1-100; BfA Kul Tiran/Zandalari Master
+1-150 (this row is stale - the learn spells and guides say 175, section
+9 item 2); later rows out of scope.
+Wowhead recipe gates read: "Profession: Pandaria Inscription (1)" on
+Research: Ink of Dreams 165467; "Skill: Pandaria Inscription" quick fact
+on the same; Maroon Ink requires Inscription 125 (wowpedia/warcraft.wiki
+item text). TC side: trainer learn gate = GetSpellState ReqSkillLine/
+ReqSkillRank (Trainer.cpp 182-184) and level check 189-191;
+profession-slot gate = IsPrimaryProfessionFirstRank +
+GetFreePrimaryProfessionPoints (149-165). There is no server-side
+craft-time skill check for inscription recipes: grep of game/Spells finds
+reqSkillValue only for lock-opening, gathering, prospecting and the
+milling path below (Spell.cpp 6373/8648-8702, SpellEffects.cpp 1702/
+1731/1738/4632/4659); craft-time skill display lives client-side with
+SkillLineAbility data. The one cast-time skill gate that DOES exist is
+milling's (section 7d).
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+-----------------------------------------------
+Verified against TrinityCore master fetched this week (blobless sparse
+clone; paths under src/server/game/ and src/server/scripts/). Line
+numbers are from this fetch; upstream moves - section 9 item 15 records
+the drift against the earlier files.
+a) Learn press: NPCHandler.cpp 97 HandleTrainerListOpcode -> 112
+   SendTrainerList -> 130 HandleTrainerBuySpellOpcode -> 145 interaction
+   guard -> 155 trainer->TeachSpell; Trainer.cpp 76 TeachSpell -> 79
+   CanTeachSpell -> 149 CanTeachSpell body: state must be Available (172
+   GetSpellState: known check, race/class, skill gate 182-184,
+   prerequisite spells 185-187, level 189-191, rank-chain logic), free
+   primary profession point (156/165), money at 100-106 with reputation
+   discount 98; then IsCastable -> CastSpell or LearnSpell. This is how
+   45357, the eight expansion mains (264494, 264496, 264498, 264500,
+   264502, 264504, 264506, 264508/265809) and their wrappers enter the
+   character; the Draenor scroll goes item 111923 -> Learning 161789 ->
+   wrapper 264505, and the Legion wrapper 264507 arrives through the
+   quest-reward learn path.
+b) Crafting a product (the common case): recipes are Effect Create Item
+   (sampled pages print Effect: Create Item, e.g. Moonglow Ink 52843
+   "Create Item Moonglow Ink", Ultramarine 264776, Maroon 298929). TC
+   path: Spell::cast takes reagents at Spell.cpp 3872/3877
+   TakeReagents() (definition 5600); DoCreateItem SpellEffects.cpp 1383
+   handles the item grant, reports inventory full at 1440
+   (EQUIP_ERR_INV_FULL || EQUIP_ERR_ITEM_MAX_COUNT -> SendEquipError),
+   and grants skill at 1469 (`if (!m_CastItem) player->
+   UpdateCraftSkill(m_spellInfo);`).
+c) Variable-yield crafts: none of the routed steps print a variable
+   yield - every count is fixed (splits/odds live in milling instead).
+   The generic mechanism still exists for anything that needs it:
+   SPELL_EFFECT_CREATE_ITEM_2 (effect 157, table line 249) with
+   IsLootCrafting rolls from LootTemplates_Spell (EffectCreateItem2
+   SpellEffects.cpp 1482, 1495-1497 AutoStoreLoot, second AutoStoreLoot
+   at 1522); item-cast crafts grant skill through Spell.cpp 3863
+   (SPELL_ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN).
+d) MILLING (this profession's signature effect): spell 51005 carries
+   SPELL_EFFECT_MILLING (effect 158, table SpellEffects.cpp 250,
+   implicit target ITEM at SpellInfo.cpp 1120). CheckCast block
+   Spell.cpp 7836-7866 returns, in order: no target -> failed
+   CANT_BE_MILLED; target without ITEM_FLAG_IS_MILLABLE -> failed
+   CANT_BE_MILLED; item owned by someone else (trade slot) -> failed
+   CANT_BE_MILLED; skill gate `item RequiredSkillRank > player
+   GetSkillValue(SKILL_INSCRIPTION)` -> failed LOW_CASTLEVEL (this is
+   the only cast-time recipe-like skill gate in these routes); stack of
+   fewer than 5 -> failed NEED_MORE_ITEMS (fills the need-items counters
+   with the herb entry and 5); loot template missing -> failed
+   CANT_BE_MILLED. EffectMilling SpellEffects.cpp 4641-4666: target-only
+   handle mode, re-check millable flag (4651) and count >= 5 (4654);
+   world config CONFIG_SKILL_MILLING (4656) gates the skill grant:
+   GetPureSkillValue + herb RequiredSkillRank -> UpdateGatherSkill
+   (4658-4660); then builds LOOT_MILLING from LootTemplates_Milling
+   keyed by the target item entry (4663-4664) and SendLoot (4665).
+   Consumption happens on loot: LootHandler.cpp 348-361 destroys
+   exactly 5 items from the stack ("destroy only 5 items from stack in
+   case prospecting and milling", capped at 5 for cheat cases). IMPORTANT
+   SERVER CONFIG: World.cpp 630 registers "SkillChance.Milling" with
+   DefaultValue false (World.h 124 CONFIG_SKILL_MILLING) - on a default
+   TC config milling yields pigments but grants no inscription skill;
+   the core must set SkillChance.Milling = true for the guides' "milling
+   to 25" opening to work.
+e) Skill-up math: Player::UpdateCraftSkill Player.cpp 5410, early-out
+   SPELL_ATTR1_NO_SKILL_INCREASE 5412, SkillLineAbility lookup,
+   discovery branch MECHANIC_DISCOVERY 5427 (research spells carry a
+   Script Effect alongside their Create Tradeskill Item - spell 165467
+   prints both effects and "Teaches (4)" glyph rows), gain =
+   NumSkillUps x CONFIG_SKILL_GAIN_CRAFTING 5433, chance via
+   SkillGainChance over the line's thresholds -> UpdateSkillPro
+   5435-5437. Other call sites: DoCreateItem 1469, EffectCreateItem2
+   1499. Wiki colour rules: orange always, yellow probably, green
+   probably not, grey never; red = not high enough skill to learn the
+   recipe.
+f) Learning recipes beyond the profession lines: trainer Taught-by paths
+   (section 2); quest rewards (Legion 39847 -> 264507); the Draenor
+   scroll chain (111923 -> 161789); technique items learned by use
+   (Technique: Origami Beetle 65651 drop, Technique: Volatile Crystal
+   118614 purchase, Technique: Tome of the Tranquil Mind 141447 loot,
+   R2/R3 BfA recipe items from vendors/world quests); research
+   discoveries (discovery branch in 7e). Technique/scroll items enter
+   through the generic item-spell learn path - no insc-specific handler
+   was found in game/Spells.
+g) Tools: wiki Requirements says Inscription "requires a Virtuoso
+   Inking Set and sometimes Light Parchment to craft", and the set may
+   be replaced by Scribe's Fastened Quill or Scribe's Resplendent Quill
+   (the wiki then notes Dragonflight-era profession equipment - scope of
+   the quills on 8.3.7 unverified). Recipe pages sampled by wowdb print
+   "Tools: Virtuoso Inking Set" (53462, 165464, 165467). Whether the
+   8.3.7 server enforces a carried tool (vs treating it as a reagent or
+   not at all) was not verified in this fetch - unverified. No insc
+   routed recipe printed a station/RequiresSpellFocus requirement; TC's
+   generic focus machinery exists (Spell.cpp 1120/1133, GameObjectFocus
+   2322-2323, aura focus 6064-6066, fail packet 4473) but was not tied
+   to any inscription spell. The routes contain no enchant-item crafts;
+   the Enchanting Vellum 52739 step is a plain Create Item product that
+   enchanters later consume (TC's vellum branch SpellEffects.cpp
+   2475-2492 belongs to the enchanter's cast, not the scribe's craft).
+h) Learn-spell effects: 8.0.1 mains use Learn Skill (line id) value 1
+   with the cap in the text; 8.1.0 wrappers use Learn Spell(main) +
+   Learn Skill Step (line id); the Classic wrapper 264495 additionally
+   learns 45357 (Trade Skill + skill 773). TC handlers: effect 36
+   LEARN_SPELL (table line 128) -> EffectLearnSpell SpellEffects.cpp
+   2129; effect 44 SKILL_STEP (table line 136) -> EffectLearnSkill 2405;
+   effect 47 TRADE_SKILL (table line 139) -> EffectTradeSkill 2451. The
+   server must implement these three effects plus the 773 skill line
+   (and its eight sub-lines 2507-2514) before any bar can move;
+   expansion mains also require base Inscription (1) as their quick
+   facts state.
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+- Satisfy racial bonuses without code: Nightborne Ancient History 255663
+  is "Inscription skill increased by 5" (Apply Aura: Mod Skill
+  (Inscription) value 5); a non-Nightborne companion never gets the +5
+  orange extension, and six wow-professions guides wrongly print +15
+  (section 9 item 1). Kul Tiran +2 Jack of All Trades comes from guide
+  text only (guide-verified, spell page not read).
+- Cross reputation and time gates by clicking: Honored factions for the
+  BfA R2 contracts (7th Legion/Honorbound via the War Campaign, plus
+  Voldunai/Order of Embers/Zandalari Empire/Storm's Wake/Proudmoore/
+  Talanji's/Order-of-Embers-style quartermasters, Tortollan Seekers and
+  Champions of Azeroth for the neutral pair), Tortollan Revered for the
+  Darkmoon Card of War R3, The Wardens/Court of Farondis Revered for the
+  Legion R3 Vantus vendors, Argussian Reach Friendly for Technique: Mass
+  Mill Astral Glory, the 1-day Forged Documents cooldown (Cata 60-61 -
+  one craft is enough, waiting is time), daily "Work Order" World
+  Quests for BfA R3 recipes, random garrison profession-trader spawn
+  (WoD alternative route: 1-of-4 RNG, level 3 town hall, 5-day cycle,
+  another player's garrison needed if yours is off-rotation), random
+  technique drops from manual milling (Legion per-herb mass-mill
+  quests), and the Herb Trader's "dates currently swapped between EU/NA"
+  quirk - none of these are craft actions.
+- Reach content the routes pass through: Raid Finder queueing and
+  Nighthold boss kills for the Vantus R1/R2 chain (Archmage Timear
+  queue, Skorpyron -> Trilliax -> High Botanist; "most classes at level
+  50 can solo on Normal"), Azsuna fishing for the Chronomatic Anomaly
+  rune, Legion Archaeology for the Elisande rune, the Mass Milling
+  Techniques quest's book-and-ladder room clicks, the 42-quest Legion
+  storyline behind quest 39847 (its last entries include Halls of
+  Valor 39953 - a dungeon), Uldum mob farming plus the Zidormi phase
+  switch for Technique: Origami Beetle (phasing is world state), the
+  Mysterious Satchel/Illegible Sootstained Notes drop chains (WoD),
+  the Draenor "Your First Inscription Work Order" garrison quest, and
+  the Nazjatar intro quests that reveal Narv/Instructor Okanu - world
+  actions needing scripting.
+- Use auction-house-only steps: every shopping list assumes an AH; the
+  companion must substitute herbalism, vendor stock (Light Parchment,
+  Distilled Water, Acacia Powder, inking sets, ink traders), the
+  garrison loop, or farming the technique drops itself.
+- Pass faction/side gates: faction mains 264508 (Alliance Specific) and
+  265809 (Horde Specific) are one-sided; Aldor cannot use Recorder
+  Lidio and Scryers cannot use Scribe Lanloer (Shattrath split, wiki +
+  guide); trainers differ per capital; and the dual-Dalaran trap is
+  real - the Northrend guide warns Pallin must be the Northrend-Dalaran
+  copy (guide: "Northrend, not Legion Dalaran") while the Legion quest
+  needs the Broken Isles copy (same name, npc 92195).
+- Hold more than two primary professions: CanTeachSpell's free
+  profession point gate (Trainer.cpp 156).
+- Read the client UI: recipe colours in the profession window, red
+  learnability, rank-star sources, guard map markers (the BfA guide's
+  "ask a guard" tip), the technique loot-spark on the counter behind
+  Pallin, and discovery feedback are client features; the data behind
+  them (SkillLineAbility colours, ranks, sources, discovery spells via
+  UpdateCraftSkill) must come from server-side DBC/quest state.
+- Trust the wiki's "Teaches only Apprentice/Journeyman" row notes as
+  current: patch 4.0.3a equalized trainer ranks; keep the notes as
+  historic (wiki page also carries an outdated-article banner).
+- Grind under default TC configs: SkillChance.Milling defaults to false
+  (section 7d) - without it the milling opening grants no skill at all.
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+1) Nightborne bonus: all six wow-professions leveling guides (vanilla,
+   Outland, Northrend, Cataclysm, Pandaria, Draenor, Legion, BfA) print
+   "+15 Inscription skill" and link spell 255663; the spell page reads
+   "Inscription skill increased by 5" (aura value 5) and warcraft.wiki's
+   Perks section plus wowpedia print +5. Adopted: 5.
+2) BfA cap: warcraft.wiki's Inscription training table prints BfA 1-150;
+   the learn spells, the BfA technique-page header and the guide all
+   say 175; wowpedia notes 175 (from 150) in 8.2.0. Adopted: 175.
+3) wowpedia BfA techniques header prints "trained as early as level TBC"
+   (broken template - same bug as the Engineering file's item 14).
+   warcraft.wiki's header prints level 5. Both recorded.
+4) Pandaria technique page header prints "permits progression up to 5
+   skill" (template typo) while its own training table row, the learn
+   spell 264502 cap and the guide say 75. Adopted: 75.
+5) Level gates: every warcraft.wiki inscription technique header prints
+   "level 5"; wowpedia's Northrend page still prints "level 65" (the
+   pre-destacking legacy, like Engineering's sources). Both printed per
+   source; the guides print no level gates at all.
+6) Legion reward link: the guide hyperlinks spell 201703 "Legion
+   Scribe" as the reward of quest 39847 (201703 = Learn Spell 195115 +
+   Learn Skill Step (773) value 10 - the boost-era helper); the live
+   quest page and wrapper 264507's Reward-from row teach 264507.
+   Adopted: 264507 (201703 kept as the stale link, same pattern as
+   Engineering's 201700).
+7) Northrend trainer set: the guide and warcraft.wiki list Tink
+   Brightbolt 26995 (Valiance Keep) and Mindri Dinkles 26916 (Valgarde)
+   as Northrend inscription trainers, but 264498's Taught-by (3) only
+   lists Sunlance 26977, Kells 26959 and Pallin 28702 - which spell Tink
+   and Mindri actually teach = unverified.
+8) Professor Pallin has two npc ids in live pages: 28702 (264498
+   Taught-by row) vs 92195 (quest 39847, both guides, warcraft.wiki
+   Legion technique page). Both printed; which entry serves the trainer
+   today = unverified.
+9) Outland trainer set: sources differ - wowhead Taught-by (3) =
+   33615 "Inscription" (Shattrath) / Schwan 30721 / Lanloer 33638;
+   the guide names Lanloer 33638 + Recorder Lidio 33679 (Aldor/Scryer
+   split); warcraft.wiki's Outland table shows Schwan, Neferatti, Lidio,
+   Lanloer with coordinates. All printed; no single list is complete
+   across sources.
+10) Classic/Cataclysm trainer sets: the guides list Feyden Darkin 30715
+    (Darnassus) but 264500's Taught-by (10) does not include him (it
+    does include Jo'mah 30706, Thoth 30716, Theoden 53415 and Reshad
+    81770, none of which the guides list). Both printed.
+11) Patch tags on the BfA Horde pair: wowhead quick facts say main
+    265809 "Added in patch 8.1.0" while wowdb shows 8.0.1 build #27101
+    (inverted-looking; same pattern as Engineering's 265807). Printed
+    as-is; no reinterpretation.
+12) BfA pigment rates: the guide prints Ultramarine ~75%, Crimson ~25%,
+    Viridescent ~10% (Anchor Weed ~30%); wowhead's spell 51005
+    "Milled from" table for 8.x herbs shows Ultramarine at ~99-100%,
+    Crimson at 65-71%, and Anchor Weed -> Viridescent at 1283/1388
+    (~92%). Both printed; the route's herb totals come from the guide
+    and do not depend on the rates.
+13) Research cooldowns: wowpedia's Northrend Research text still
+    describes a 20-hour cooldown (resets at midnight server time, as of
+    4.0.1); wowhead spell 165467 (sampled family member) prints
+    "Cooldown: n/a", and every guide batch-crafts research runs (up to
+    20 at once). Adopted: no cooldown on the retail research family
+    (sampled page + guide practice); the wowpedia page is treated as
+    legacy. Cataclysm's Forged Documents 86654 keeps a printed 1-day
+    cooldown (guide statement).
+14) Training-cost units: pages print "Training cost: 10" with no unit;
+    warcraft.wiki resolves it as 10 copper on the per-line pages (kept
+    as the money reading).
+15) TC line drift: this fetch shows SpellEffects.cpp SPELL_ATTR9 at 3863
+    (the Engineering file cites 3864) and Trainer.cpp's ReqSkillLine
+    gate at 182-184 (Engineering cites 181-183); TakeReagents
+    3872/definition 5600 matches Engineering exactly (the Enchanting
+    file's older 3871/5599 stays stale); NPCHandler 97/112/130/145/155,
+    Player 5410-5437, DoCreateItem 1383/1440/1469, EffectCreateItem2
+    1482-1522 all match Engineering's fetch.
+16) "Milling gives skill points up to 25" is printed by every guide, but
+    the mechanism is herb ItemTemplate RequiredSkillRank + gain-chance
+    data feeding UpdateGatherSkill (section 7d); the data values were
+    not read from DBC - the exact 25 cap is guide-verified, server data
+    unverified. Same for "Mass Mill gives points up to 80" (BfA).
+17) The milling table page's "Umbral Ink trades for any ink at ink
+    traders" note refers to Shadowlands-era Umbral Ink 173058 - that
+    economy is not part of retail 8.3.7; which inks 8.3.7's ink traders
+    accepted was not read (unverified).
+18) Outland 33-75 and several vanilla steps are explicitly approximate
+    ("approximate number... might even reach 35", "as many as you can",
+    "probably only gain 1-3 skill points") - kept as printed rather
+    than single numbers.
+19) Classic 264494/264495 and Draenor 264504 render no teacher list;
+    the guides' trainer lists and the scroll path stand in - precise
+    Taught-by NPCs for 264495/264504 = unverified.
+
+10. SOURCES
+-----------
+All fetched 2026-10-26 week; pages are not stored in the repository.
+wowhead spell pages: 45357 (base + 9 other ranks), 264494, 264495
+(triple-effect wrapper), 264496 (+Taught-by 3), 264497, 264498
+(+Taught-by 3), 264499, 264500 (+Taught-by 10), 264501, 264502
+(+Taught-by 3), 264503, 264504, 264505 (Triggered by Learning 161789),
+264506, 264507 (+Reward 39847), 264508 (+Taught-by 3), 264509, 265809
+(+Taught-by 3, added 8.1.0), 265810, 51004 (miss - Summon Dark Matter
+Target), 51005 (Milling: Effect Milling value 5, own-item flag, no CD,
+milled-from tables), 161789 (WoD treatise), 165467 (Research: Ink of
+Dreams: Tools/Reagents/Cooldown n/a, Profession Pandaria Inscription
+(1), Script Effect + Create Tradeskill Item, Teaches 4), 255663
+(Ancient History: Mod Skill Inscription value 5), 201703 (Legion
+Scribe: Learn Spell 195115 + Skill Step 773 value 10).
+wowhead quest pages: 39847 "Sign This" (level 10, Both, start/end
+Professor Pallin 92195, provides 129047 -> 129043, 42-quest storyline
+ending Halls of Valor 39953, reward learn 264507).
+wowhead item pages probed for ids: none missed; BfA ink ids came from
+search records below.
+Guide-hub search results (record id/url): Classic Inscription [2]
+https://www.wowhead.com/skill=2514/classic-inscription + warcraft.wiki
+Classic techniques [5]
+https://warcraft.wiki.gg/wiki/Classic_inscription_techniques + wowpedia
+[6] https://wowpedia.fandom.com/wiki/Classic_inscription_techniques
+(all: level 5, cap 300); Zandalari spell [1]
+https://www.wowhead.com/spell=265809/zandalari-inscription; Milling [1]
+https://www.wowhead.com/wotlk/spell=51005/milling; Blackfallow Ink [1]
+https://www.wowhead.com/item=61978/blackfallow-ink + [3]
+https://www.wowhead.com/spell=86004/blackfallow-ink + [5]
+https://wowpedia.fandom.com/wiki/Blackfallow_Ink (2x Ashen Pigment,
+Inscription 425); Moonglow Ink [1]
+https://www.wowhead.com/item=39469/moonglow-ink + [4]
+https://www.wowhead.com/spell=52843/moonglow-ink + [6]
+https://warcraft.wiki.gg/wiki/Moonglow_Ink (requires Virtuoso Inking
+Set, skill 1 45 60 75); Midnight Ink [1]
+https://www.wowhead.com/item=39774/midnight-ink + [9]
+https://www.wowdb.com/spells/53462-midnight-ink (Tools, reagent, cost 3
+50); Lion's Ink [1] https://www.wowhead.com/item=43116/lions-ink; Ink of
+the Sea [1] https://www.wowhead.com/item=43126/ink-of-the-sea; Ethereal
+Ink [1] https://www.wowhead.com/item=43124/ethereal-ink + [8]
+https://www.wowdb.com/spells/165464-research-ethereal-ink (reagents 3+3
+parchment, tools); Ultramarine Ink [1]
+https://www.wowhead.com/spell=264776/ultramarine-ink + [2]
+https://www.wowhead.com/item=158187/ultramarine-ink + [4]
+https://wowpedia.fandom.com/wiki/Ultramarine_Ink (water + 2 pigment);
+Crimson Ink [1] https://www.wowhead.com/item=158188/crimson-ink + [9]
+https://warcraft.wiki.gg/wiki/Crimson_Ink (water + 2 pigment); Viridescent
+Ink [1] https://www.wowhead.com/item=158189/viridescent-ink + [2]
+https://www.wowhead.com/spell=264778/viridescent-ink (water + acacia +
+1 pigment); Maroon Ink [1] https://www.wowhead.com/item=168663/maroon-ink
++ [3] https://wowpedia.fandom.com/wiki/Maroon_Ink (Ins 125, Narv/Okanu,
+water + 1 pigment); northrend guide slug [?]
+https://www.wow-professions.com/guides/northrend-inscription-leveling.
+wow-professions guides (full slugs): vanilla-inscription-leveling,
+outland-inscription-leveling, northrend-inscription-leveling,
+cataclysm-inscription-leveling, pandaria-inscription-leveling,
+draenor-inscription-leveling, legion-inscription-leveling,
+zandalari-kul-tiran-bfa-inscription-leveling-guide,
+milling-table-inscription (all herb/pigment/ink item links, section 4).
+warcraft.wiki.gg pages: Inscription (14 chunks: official overview,
+training table with BfA 1-150 row, colour rules, Requirements (Virtuoso
+Inking Set / Scribe's Fastened and Resplendent Quill), Nightborne +5
+perk, companion professions = Herbalism, Basic materials, notes);
+Inscription_trainers (5 chunks: all coordinates above, page ends at
+Pandaria); Inscription_ingredients (mill 5 -> 2-4 common + 1-3
+uncommon pigments, ink rules, Light Parchment 15c); Milling (per-
+expansion milling table, Kul Tiras and Zandalar Milling last for
+8.3.7); Classic/Outland/Northrend/Cataclysm/Pandaria/Draenor/Legion/
+Battle_for_Azeroth inscription techniques (headers level 5 + caps, costs
+10c, trainer tables with coordinates, BfA taught-by Zooey/Grazzul, MoP
+"up to 5" typo, Legion "learned from Professor Pallin after Sign This",
+Draenor learned from the scroll item, BfA consumable/contract tables).
+wowpedia.fandom.com snippets (search results with URLs above and):
+Inscription (training caps table, level 5, initial 10c, Nightborne
++5 via Ancient History), Northrend_inscription_techniques (level 65,
+skill levels not updated after BfA destacking, Ink of the Sea orange
+350), Battle_for_Azeroth_inscription_techniques (header "level TBC",
+175 from 150 in 8.2.0, Inscribed Vessel 40g / Contract 35g rows),
+Milling (Level 5 + Inscription (1), 1 sec), Northrend Research (20-hour
+cooldown text - conflict 13).
+TrinityCore master, fetched this week with a blobless sparse clone (HEAD
+e0eec525aa; files under src/server/game/ and src/server/scripts/):
+Spells/Spell.cpp (3863, 3872/3877, 5600, 6373, 7836-7866, 8648-8702,
+1120/1133, 2322-2323, 4473, 6064-6066), Spells/SpellEffects.cpp (128,
+136, 139, 145, 249, 250, 1383, 1440, 1469, 1482-1522, 1495-1499,
+2129, 2405, 2451, 2463-2492, 4641-4666, 1702-1738, 4632-4633),
+Spells/SpellInfo.cpp (1120), Entities/Player/Player.cpp (5399,
+5410-5437), Handlers/NPCHandler.cpp (97, 112, 125, 130, 145, 155),
+Handlers/LootHandler.cpp (348-361), Entities/Creature/Trainer.cpp
+(67-68, 76, 79, 98-106, 149, 156, 165, 172, 182-191), World/World.cpp
+(630 SkillChance.Milling default false), World/World.h (124).
