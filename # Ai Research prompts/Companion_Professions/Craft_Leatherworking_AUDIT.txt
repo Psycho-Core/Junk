@@ -1,0 +1,154 @@
+=== Craft_Leatherworking.txt AUDIT - PASS (639/639) ===
+Audited file: "# Ai Research prompts/Companion_Professions/Craft_Leatherworking.txt"
+Audit script: "# Ai Research prompts/Companion_Professions/audit_craft_leatherworking.py"
+Audit date: 2026-10-26 week (same fetch week as the deliverable's sources).
+
+VERDICT
+-------
+PASS: 639/639 checks, 0 fail.
+Hygiene: ASCII clean; 0 lines over 100 columns; no trailing whitespace; no
+tabs; no CRLF; no TODO/FIXME; "unverified" appears 20+ times; the leftover
+"Felix Scale" drafting fragment found during review is asserted absent.
+Mutation self-test: 20/20 mutations caught, two consecutive runs
+(SELF-TEST PASS twice; pristine baseline 639/639 both runs).
+Sibling-id guard: no Jewelcrafting/Inscription deliverable ids leak (25229,
+25230, 158750, 195116, 264494-264510, 264507-264510, 265809-265812, 45357,
+51005, 201700, 201703, 201704, 169926, 115359, 40523, 31252 all absent;
+skills 755/773 absent; the genuinely shared Legion quest 43341 remains
+allowed).
+
+CHECK INVENTORY (per family, all green)
+---------------------------------------
+  Structure/headings (S)              35/35
+  Learn block 8.0.1 (L)               93/93
+  Trainers: 52 wiki rows + guides (T) 101/101
+  Route steps 3.1-3.8 (R)             107/107
+  Totals + shopping cross-checks (C)  32/32
+  Materials, costs, level (M)         57/57
+  TrinityCore anchors (7)              46/46
+  Cannot-do list (8)                   22/22
+  Conflict index (9)                   64/64
+  Source manifest (10)                 36/36
+  Hygiene + sibling guard (H)          46/46
+  TOTAL                               639/639
+
+DERIVED CHECKS (recomputed by the script, not trusted from the file)
+-------------------------------------------------------------------
+1) Eight per-line craft totals parsed from the printed addends and
+   re-summed:
+     3.1 Classic  = 323 (19+10+20+5+30+15+15+16+15+5+5+20+20+10+10+5+35+15+18+25+10)
+     3.2 Outland  = 342 (5+25+246+20+30+8+8)
+     3.3 Northrend = 367 (5+5+5+300+6+13+5+13+5+10)
+     3.4 Cataclysm = 311 (6+5+10+5+10+240+5+12+3+5+5+5)
+     3.5 Pandaria = 77 (10+22+6+15+24)
+     3.6 Draenor  = 100 (55+45)
+     3.7 Legion   = 140 (90+25+25; the 1-75 count is explicitly approximate)
+     3.8 BfA      = 230 (25+25+50+15+45+30+40)
+2) Fifteen guide-printed shopping/craft arithmetic cross-checks asserted
+   from the file's own strings: Classic Light 260 exact / Medium 159 vs 160
+   / Heavy 220 / Thick 410 / Rugged 410; Outland heavy consumed 246 = 246
+   and 1340 = 10+100+1230; Northrend direct 1982 exact and heavy 322 vs 300
+   (flagged); Cata 1565 / 112 / 50 / 3 exact; Pandaria 636 vs 640;
+   BfA Coarse 2025 / Shimmerscale 350 / Blood-Stained 550 / Dredged 400.
+3) Learn block: 9 mains (264577/579/581/583/585/588/590/592 + 265813) and
+   9 wrappers (264578/580/582/584/586/589/591/593 + 265814) present;
+   sub-skills 2525-2532 all present; caps 300/75/100/175 present.
+4) Conflict numbering must be exactly 1)..19) consecutive.
+5) Wiki trainer count pinned to the exact phrase "52 rows, page includes
+   the BfA pair" (a one-row change fails the audit).
+
+MUTATION SELF-TEST (20/20 caught, x2 runs)
+-------------------------------------------
+#  Mutation                                   Result
+1  base id 2108 -> 2109                       caught (L)
+2  Classic sub-skill 2532 -> 2533             caught (L)
+3  total 323 -> 324                           caught (C x2, derived sum)
+4  total 367 -> 368                           caught (C x2, derived sum)
+5  total 230 -> 231                           caught (C x2, derived sum)
+6  SKILL_LEATHERWORKING 165 -> 166            caught (7)
+7  QuestDef.h 132 -> 133                      caught (7)
+8  SendTeachFailure NotEnoughMoney renamed   caught (7)
+9  SkillChance.Orange 100 -> 99               caught (7)
+10 wiki rows 52 -> 51 (section 2 phrase)      caught (T, pinned phrase)
+11 BfA cap 1-175 -> 1-150                     caught (L)
+12 Dalaran-style coord drift [53.7, 52]       caught (T)
+13 block-end probe 264594 -> 264595 (conflict caught (9)
+    line, the wrap-safe target)
+14 total 77 -> 78                             caught (C x2, derived sum)
+15 Nylon Thread "id unverified" -> fake id    caught (R)
+16 non-ASCII "CHEAPESTe ROUTE" injection      caught (S + H x3)
+17 line pushed past 100 columns               caught (S + H x3)
+18 conflict renumber 17) -> 18)               caught (9, numbering)
+19 Warhide count 810 -> 800                   caught (R)
+20 scope build 8.3.7 -> 8.4.0                 caught (S)
+Every mutation >= 1 failing check; two script-side fixes after the first
+run: mutation 10's target occurred twice so the section-2 phrase was made
+into a pinned check, and mutation 13 targeted a line-wrapped literal and
+was retargeted to the wrap-free conflict-index copy of the same fact.
+
+METHOD NOTES AND FIXES
+----------------------
+1) Preflight of the first complete script: 627/639. Twelve misses were
+   check-literal errors, not payload errors: (a) "conversion spell 64661"
+   where the file says "leather is spell 64661"; (b) a hyphen-wrapped
+   "Blood-Stained" step probe; (c) a parenthesized vendor-quote probe with
+   no matching paren; (d) "teach the mains" vs the file's "teaches";
+   (e) SkillupSkillLineID check written in the wrong word order;
+   (f) "consumes/step consume" voice mismatch; (g) quoted "learn on craft"
+   phrase probed without quotes; (h-k) four section-10 anchor lines
+   crossing a wrap after a trailing slash (probes shortened to the
+   wrap-safe prefix); (l) one payload trailing space on the "Money 1,400"
+   line (payload fixed). All fixed in the script; one payload line rewrap.
+2) Payload review before first run removed one drafting fragment ("Felix
+   Scale...") and fixed one missing space ("LegArmor" -> "Leg Armor");
+   the audit now asserts "Felix" is absent.
+3) Nylon Thread id: the single probe item 152576 answered "Tidespray
+   Linen" (miss, recorded in section 10); the id is marked unverified
+   rather than guessed further.
+4) Learn-block probing: 21 spell pages (264576-264594, 265813, 265814)
+   were each fetched directly; two non-LW gaps and the end-of-block miss
+   are recorded from those fetches (misses kept in section 10).
+5) Line anchors are from a fresh blobless sparse clone of TrinityCore
+   master at HEAD 209d6d51d1, re-read this week; leatherworking-specific
+   lines (SharedDefines 5901/6366, QuestDef 132) differ from the
+   jewelcrafting/inscription anchors by design and are checked directly.
+6) Checks normalize whitespace for prose literals (wrap-tolerant) but
+   keep exact matches for ids, coordinates, totals, and file:line anchors.
+
+ACCEPTANCE MAPPING (prompt requirements -> checks)
+--------------------------------------------------
+- One file, master's exact name Craft_Leatherworking.txt: file exists;
+  S family validates line-1 header and all ten numbered sections.
+- Cheapest route 1 to cap per skill line: R family (eight routes, every
+  printed step) + C family (eight totals recomputed + 15 shopping
+  cross-checks).
+- Recipe spell ids per step: R family (every routed spell id; item-linked
+  steps keep their item ids and mark craft spells unverified).
+- Trainer/source creature entry + position: T family (52 wiki rows with
+  coordinates, 15 wowhead taught-by entries with npc ids, 20 guide-named
+  sources with npc ids).
+- Materials with item ids + origin: M family ((Skinning)/AH/vendor/(PvP)/
+  reputation/quest origin tags; unverified ids asserted as such).
+- Craft counts: C family derived sums.
+- Trainer costs: M family (cost-10 mains, absent-cost list, all guide
+  price strings, TC money enforcement pointer).
+- Level needed: M family (115358 level 10, quest 39958 level 10, 42-quest
+  45/50 notes, Tools of the Trade 120+150, rank gates 160/170, wiki titles).
+- What the core must do for a craft to succeed: 7 family (46 fresh TC
+  file:line anchors: trainer chain, TakePower/Reagents, no skill gate,
+  UpdateCraftSkill math, EffectSkill/LearnSpell, CreateItem context,
+  skill/quest ids).
+- What a server-side character cannot meet: 8 family (8 numbered items:
+  UI, opcodes, quests, garrison RNG, reputation, group content,
+  currencies, world interactions).
+- Verified facts only, "unverified" where unsourced: M + 9 families
+  (20+ unverified markers; explicit "Also unverified (not guessed)"
+  paragraph; three payload numbers deliberately downgraded during review).
+- Conflicts numbered: 9 family (1..19 consecutive + per-item strings).
+- Sources with full slugs/probe ids + TC manifest: 10 family.
+
+REPLICATE
+---------
+  cd "# Ai Research prompts/Companion_Professions"
+  python3 audit_craft_leatherworking.py            # expect CHECKS: 639/639
+  python3 audit_craft_leatherworking.py --self-test # expect 20/20 twice
