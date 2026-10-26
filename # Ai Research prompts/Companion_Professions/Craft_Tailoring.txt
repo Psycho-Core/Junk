@@ -1,0 +1,760 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - TAILORING CRAFTING FOR A SERVER-SIDE COMPANION
+=========================================================================================
+Scope: how a computer-controlled character (no client, no human at the keyboard) levels
+Tailoring on a TrinityCore-based 8.3.7 server. Everything below was read from a source
+fetched this week (2026-10-27); anything without a readable source says "unverified"
+instead of being guessed. Craft counts are exactly the counts the linked guides print
+(they warn that yellow/green recipes need more crafts - those warnings are kept where
+printed).
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+--------------------------------------------------
+Base spell: Tailoring 3908 - Training cost: 10, Difficulty: 111, Skill: Classic
+Tailoring, Effect #1 Trade Skill, Effect #2 Learn Skill (Tailoring, skill=197) Value 1;
+description "Allows a tailor to make basic cloth armors. Requires cloth found on
+humanoids." Related lists Other ranks (9), Taught by (48), Triggered by (5). The nine
+other ranks read:
+  - 158758 (skill 1), 195126 (skill 1), 3909 (50), 3910 (125), 12180 (200),
+    26790 (275), 51309 (350), 75156 (425), 110426 (500).
+The 8.0.1 expansion learn block is contiguous: 264616-264631 with verified
+non-Tailoring gaps immediately BEFORE the block (264614 "Blind Eye", 264615 "Ping
+Event", both added 8.0.1) and a verified end (264632 = "Classic Cooking", a different
+profession), plus the Horde pair 265815/265816. Unlike the Leatherworking block there
+is NO internal gap inside this one. Eight main/wrapper pairs:
+  - main 264616 "Tailoring" (Learn Skill Classic Tailoring skill=2540, cap 300) added
+    8.0.1, no Training-cost line, no Taught-by table rendered (See also (10) only) -
+    section 9 item 7;
+    wrapper 264617 "Tailoring" added 8.0.1 (the only wrapper not tagged 8.1.0 -
+    section 9 item 4): Learn Spell 3908 + Learn Spell 264616 + Learn Skill Step (2540)
+    Value 1.
+  - main 264618 "Outland Tailoring" (skill=2539, cap 75, cost 10, 8.0.1, Taught by 5),
+    wrapper 264619 (8.1.0): Learn Spell 264618 + Step 2539.
+  - main 264620 "Northrend Tailoring" (skill=2538, cap 75, cost 10, 8.0.1, Taught by 2),
+    wrapper 264621 (8.1.0): Learn 264620 + Step 2538.
+  - main 264622 "Cataclysm Tailoring" (skill=2537, cap 75, cost 10, 8.0.1, Taught by 13),
+    wrapper 264623 (8.1.0): Learn 264622 + Step 2537.
+  - main 264624 "Pandaria Tailoring" (skill=2536, cap 75, cost 10, 8.0.1, Taught by 1),
+    wrapper 264625 (8.1.0): Learn 264624 + Step 2536.
+  - main 264626 "Draenor Tailoring" (skill=2535, cap 100) added 8.0.1, no
+    Training-cost line, no Taught-by (learned from the scroll, see below),
+    wrapper 264627 (8.1.0): Learn 264626 + Step 2535 - Triggered by (1) spell 169924.
+  - main 264628 "Legion Tailoring" (skill=2534, cap 100) added 8.0.1, no
+    Training-cost line, no Taught-by table, wrapper 264629 (8.1.0): Learn 264628 +
+    Step 2534 - Reward from (1) and Triggered by (1) quest 38944 "Sew It Begins"
+    (Level 10, Requires level 10, Exp 1,400, Money column empty, category Tailoring).
+  - main 264630 "Kul Tiran Tailoring" (skill=2533, cap 175, cost 10, added 8.0.1,
+    "Alliance Specific Spell", Taught by 2), wrapper 264631 (8.1.0):
+    Learn 264630 + Step 2533.
+  - main 265815 "Zandalari Tailoring" (cap 175, cost 10, added 8.1.0, "Horde Specific
+    Spell", Taught by 2): its Effect says Learn Skill (Kul Tiran Tailoring skill=2533)
+    Value 1 - the Horde spell carries the Alliance label and BOTH factions share
+    sub-skill 2533 (section 9 item 5);
+    wrapper 265816 (8.1.0): Learn 265815 + Step 2533 Value 1.
+Sub-skill ids and caps (all from the main spells' own text): 2540 Classic 1-300,
+2539 Outland 1-75, 2538 Northrend 1-75, 2537 Cataclysm 1-75, 2536 Pandaria 1-75,
+2535 Draenor 1-100, 2534 Legion 1-100, 2533 BfA (Kul Tiran/Zandalari) 1-175.
+WoD scroll path: item 115357 "Draenor Tailoring" (iLvl 40, Requires Level 10, sources
+printed "Quest, Vendor"; wowhead prints its Type as "[Alchemy Recipe]" - section 9
+item 18) -> spell 169924 (6.0.1, Item Effect, 10 sec cast, "Tradeskill recipe" flag,
+"Teaches you Draenor Tailoring and a number of recipes") -> Triggers wrapper 264627
+-> learns main 264626 + SetSkill 2535. Spell 169924's page shows Used by Item (1)
+(the scroll) and Teaches (5); the five taught spell ids are not rendered in the
+fetched table: unverified. Scroll sources (guide): buy from the vendor near the
+Ashran tailoring trainer - Steven Cochrane npc 87049 (Stormshield, Alliance) / Petir
+Starocean npc 87543 (Warspear, Horde) - or the garrison Tailoring Emporium (after the
+"Your First Tailoring Work Order" quest, and Tailoring must already be learned), or
+the quest chain (Alliance: Cryptic Tome of Tailoring item 114972 looted from Karnoth
+npc 75043 during Shadows Awaken quest 34019 or from Draenor mobs; Horde: Frostwolf
+Tailoring Kit item 114973 from Dorogg the Ruthless npc 74254 during The Butcher of
+Bladespire quest 33410 or from Draenor mobs).
+Legion path: trainer Tanithria npc 93542 (Dalaran) -> quest 38944 "Sew It Begins"
+(Level 10) -> guide: "The quest reward is Legion Tailor 201708"; wowhead lists wrapper
+264629 as both "Reward from" and "Triggered by" that quest (section 9 item 16). Spell
+201708 (added 7.0.1): Effect #1 Learn Spell 195126 (the Legion rank of Tailoring) +
+Effect #2 Learn Skill Step (197) Value 10 - the same double grant the Leatherworking
+file records for spell 201705 (Learn 195119 + Step 165 value 10).
+The guide then gates recipes behind 38 Tailoring profession quests (the guide's own
+count, not independently verified): "you should get to level 45 and finish every
+Tailoring quest before you continue"; the key quest is The Queen's Grace Loom 38970
+(around the 30th in the chain) rewarding Imbued Silkweave Bracers spell 185926 and
+Imbued Silkweave spell 185962 (which unlock the Imbued Silkweave vendors/quests used
+at 90-100); Uniting the Isles 43341 (Archmage Khadgar npc 90417) unlocks World
+Quests - the guide prints "(the reputation requirement was removed)" for this quest
+(section 9 item 17); profession World Quests need Legion Tailoring 25; most rank-3
+Silkweave recipes come from World Quests.
+Base-rank note: the wiki training table shows the classic four titles
+(Apprentice/Journeyman/Expert/Artisan at 1-75/75-150/150-225/225-300), Master 1-75
+(Outland), Grand Master 1-75 (Northrend), Illustrious Grand Master 1-75 (Cataclysm),
+Zen Master 1-75 (Pandaria), Draenor Master 1-100, Legion Master 1-100, and the BfA
+row reads "Kul Tiran Master / Zandalari Master" with Skill Range "1 - 150" while
+every 8.3.7 source says the BfA cap is 175 (section 9 item 1). The wiki article page
+carries an "This article is outdated" banner.
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki Tailoring_trainers page (5 chunks; the table ENDS at Pandaria - there
+are no Draenor, Legion or BfA rows, unlike the Leatherworking_trainers page which ran
+through the BfA pair - section 9 item 2). Coordinates are the wiki's own "[x, y]"
+strings:
+The Maelstrom (Cataclysm):
+  - KTC Train-a-Tron Deluxe, Town-In-A-Box/Sky Falls/Gallywix Docks, The Lost Isles
+    (three locations, no single coordinate), "Teaches only up to Journeyman level",
+    goblin-only.
+The Wandering Isle (Mists of Pandaria):
+  - Whittler Dewei, The Singing Pools (no coordinate); Elder Oakpaw, Mandori Village
+    (no coordinate) - both "Teaches only Apprentice", pandaren-only.
+Eastern Kingdoms:
+  - Wembil Taskwidget, Kharanos, Dun Morogh [53.7, 52] (Apprentice)
+  - Lien Farner, Goldshire, Elwynn Forest [42, 67] (Apprentice)
+  - Eldrin, Eastvale Logging Camp, Elwynn Forest [79.3, 69.0]
+  - Jack "All-Trades" Derrington, Duskhaven/Stormglen Village/Keel Harbor, Gilneas
+    starting zone (no coordinate), Apprentice, worgen-only
+  - Jormund Stonebrow, The Great Forge, Ironforge [43.2, 29.0]
+  - Georgio Bolero, Mage Quarter, Stormwind [53.2, 81.4]
+  - Jalane Ayrole, The Slaughtered Lamb, Stormwind [40.6, 83.9]
+  - Grarnik Goodstitch, Booty Bay, Cape of Stranglethorn [28.7, 76.8]
+  - Therisa Sallow, Calston Estate, Tirisfal Glades [44.5, 53] (Apprentice)
+  - Nedric Sallow, Brill, Tirisfal Glades [61, 51] (Apprentice)
+  - Bowen Brisboise, Cold Hearth Manor, Tirisfal Glades [52.6, 55.6]
+  - Daryl Stack, Tarren Mill, Hillsbrad Foothills [63.7, 20.8]
+  - Keelen Sheets, The Bazaar, Silvermoon [57.0, 50.1]
+  - Josef Gregorian + Josephine Lister, The Magic Quarter, Undercity [70.7, 30.3]
+    and [86.5, 22.3]
+Kalimdor:
+  - Valn, Azure Watch, Azuremyst Isle [48.5, 52.2] (Apprentice, BC)
+  - Iranis Shadebloom, Dolanaar, Teldrassil [56, 52.2] (Apprentice)
+  - Erin Kelly, Odesyus' Landing, Azuremyst Isle [46.2, 70.5] (BC)
+  - Faeyrin Willowmoon, Lor'danel, Darkshore [50.6, 20.8]
+  - Timothy Worthington, Theramore Isle, Dustwallow Marsh [66.2, 51.7]
+  - Refik, Trader's Tier, the Exodar [64.5, 68.4] (BC)
+  - Me'lynn, Craftsmen's Terrace, Darnassus [63.3, 22.5]
+  - Meilosh, Timbermaw Hold, Felwood [64.8, 5.2]
+  - KTC Train-a-Tron Deluxe, Bilgewater Harbor, Azshara [57, 50.5] (Journeyman)
+  - Runda, Razor Hill, Durotar [53, 42] (Apprentice)
+  - Lalum Darkmane, Bloodhoof Village, Mulgore [46.5, 57.5] (Apprentice)
+  - Kil'hala, The Crossroads, Northern Barrens [52.2, 31.7]
+  - Mahani, Vendetta Point, Southern Barrens [44.9, 59.4]
+  - Magar, Magar's Cloth Goods, the Drag, Orgrimmar [63.5, 50.0]
+  - Hiwahi Three-Feathers, Valley of Wisdom, Orgrimmar [38.8, 50.6]
+  - Nivi Weavewell, Goblin Slums, Orgrimmar [41.1, 79.7]
+  - Tepa, Middle rise, Thunder Bluff [44.3, 45.0]
+Outland:
+  - Hama, Honor Hold, Hellfire Peninsula [54.6, 63.7]
+  - Dalinna, Thrallmar, Hellfire Peninsula [56.6, 37.1]
+  - Weaver Aoa, Shattrath City [37.7, 27.0] - "Not available to members of the
+    Scryers"
+  - Miralisse, Shattrath City [41.4, 63.5] - "Not available to members of the Aldor"
+Northrend:
+  - Darin Goodstitch, Valiance Keep, Borean Tundra [57.5, 72.3]
+  - Benjamin Clegg, Valgarde, Howling Fjord [58.6, 62.8]
+  - Raenah, Warsong Hold, Borean Tundra [41.6, 53.5]
+  - Alexandra McQueen, Vengeance Landing, Howling Fjord [79.4, 30.7]
+  - Charles Worth, Talismanic Textiles, Magus Commerce Exchange, Dalaran [36.5, 33.5]
+  - Dustin Vail, Argent Tournament Grounds, Icecrown [73.0, 20.8]
+Pandaria:
+  - Silkmaster Tsai, Silken Fields, Valley of the Four Winds [62.7, 59.8]
+Wiki patch rows (historic): 4.0.3a "All trainer ranks equalized, and specialization
+skills offered only as purchasable recipes"; 2.3.0 "Tailoring profession trainers
+changed to train up to Artisan level (skill level 300)".
+Wowhead "Taught by" tables per main (creature entries with levels/locations):
+  - 264618 Outland (5): Dalinna npc 18749 (Hellfire, level 10-30, AH), Hama npc 18772
+    (Hellfire, level 14-30, AH), Miralisse npc 33636 (Shattrath, level 30, AH),
+    npc 33613 "Tailoring" (Shattrath, level 30, Uncategorized) and Weaver Aoa
+    npc 33684 (Shattrath, level 30, AH) - section 9 item 10.
+  - 264620 Northrend (2): Charles Worth npc 28699 (Dalaran, level 30, AH), Raenah
+    npc 26969 (Borean Tundra, level 30, H) - the guide names four trainers (item 11).
+  - 264622 Cataclysm (13): Aevedos 133363 (Stormwind, A), Daryl Stack 2399
+    (Hillsbrad, H), Georgio Bolero 1346 (Stormwind, level 9-90, A), Grarnik Goodstitch
+    2627 (Cape of Stranglethorn, level 30, AH), Jalane Ayrole 9584 (Stormwind, AH),
+    Jormund Stonebrow 5153 (Ironforge, A), Josef Gregorian 4576 (Undercity, H),
+    Keelen Sheets 16640 (Silvermoon, AH), Leyweaver Aurielle 133239 (Orgrimmar,
+    level 40-80, H), Magar 3363 (Orgrimmar, level 59-90, AH), Me'lynn 4159
+    (Darnassus, level 80, A), Meilosh 11557 (Felwood, level 30, AH), Refik 16729
+    (The Exodar, A).
+  - 264624 Pandaria (1): Silkmaster Tsai npc 57405 (Valley of the Four Winds,
+    level 35 Elite, AH, titled "The Tailor of Pandaria").
+  - 264630 Kul Tiran (2): Daniel Brineweaver npc 136071 (Boralus, level 60, A),
+    Instructor Alikana npc 153817 (Nazjatar, level 50, A, "Profession Trainer").
+  - 265815 Zandalari (2): Jada npc 154321 (Nazjatar, level 50, H, "Profession
+    Trainer"), Pin'jin the Patient npc 122700 (Dazar'alor, level 10-60, H).
+Guide-named sources (wow-professions, ids as printed on the guides):
+  - Classic: Magar npc 3363 (Horde, Orgrimmar) / Georgio Bolero npc 1346 (Alliance,
+    Stormwind) teach the profession; bandage recipes come from SEPARATE trainers:
+    Mender Jessara npc 133109 / Krenk Choplimb npc 45540 in Orgrimmar (guide: if you
+    cannot see them, Pand Stonebinder npc 2798 in Thunder Bluff) / Angela Leifeld
+    npc 56796 in Stormwind.
+  - Outland: learn from the Tailoring bookcases behind Loremaster Skosiris npc 33642
+    in Shattrath (guide: Aldor-choosers cannot use the books and must visit Weaver
+    Aoa npc 33684); Hellfire Peninsula alternates: Dalinna npc 18749 (H, Thrallmar)
+    / Hama npc 18772 (A, Honor Hold). Bandages: the bookcase behind Skosiris, or
+    Mildred Fletcher npc 19184 (Shattrath, pin 66.6, 13.4, upstairs right); Hellfire:
+    Aresella npc 18991 (H, Falcon Watch) / Burko npc 18990 (A, Temple of Telhamat).
+  - Northrend: Charles Worth npc 28699 in Dalaran (Northrend) - guide warns "this
+    NPC exists in Broken Isle Dalaran too, but he won't teach you Northrend
+    Tailoring" (section 9 item 12); Raenah npc 26969 Warsong Hold [41, 53] (2nd
+    floor); Darin Goodstitch npc 27001 Valiance Keep [57.4, 72.2]; Alexandra McQueen
+    npc 26964 Vengeance Landing [79.4, 30.6] (inside the inn); Benjamin Clegg
+    npc 26914 Valgarde [58.6, 62.6] (upstairs in the inn). Bandages from Olisarra
+    the Kind npc 28706 (house left of the tailoring trainer) or Nurse Applewood
+    npc 29233 [41.6, 54.4] / Brynna Wilson npc 26992 [57.8, 66.2] / Sally Tompkins
+    npc 26956 [79.4, 29.4] / Anchorite Yazmina npc 23734 [59.8, 62.2].
+  - Cataclysm: Leyweaver Aurielle npc 133239 (Horde, Orgrimmar) / Georgio Bolero
+    npc 1346 (Alliance, Stormwind); Embersilk Bandage from Mender Jessara 133109
+    (H, "the NPC right next to the Tailoring Trainer") / Angela Leifeld 56796 (A).
+  - Pandaria: Silkmaster Tsai npc 57405, Silken Fields; bandages from SEPARATE
+    trainers Ala'thinel npc 65862 (Horde, Shrine of the New Moons) / Healer Nan
+    npc 64482 (Alliance, Shrine of the Seven Stars) - "you do not learn bandage
+    recipes from Tailoring trainers"; Pattern: Contender's Satin Cuffs 86365 sold by
+    Esha the Loommaiden npc 64051 (H, Shrine of Two Moons) / Raishen the Needle
+    npc 64052 (A, Shrine of Seven Stars) for 1 Spirit of Harmony 76061.
+  - Draenor: scroll vendors Steven Cochrane 87049 / Petir Starocean 87543 (Ashran);
+    Pattern: Hexweave Embroidery item 114852 from the same vendors or the garrison
+    Tailoring Emporium; alternative route recipe Pattern: Primal Weaving item 122716
+    from the random garrison fur trader Dorothy "Two" npc 91025 (Alliance) / Calvo
+    Klyne npc 91034 (Horde) for 60 Sumptuous Fur (Primal Spirit sold there for 5
+    Sumptuous Fur each) - section 9 item 20.
+  - Legion: Tanithria npc 93542 (Dalaran, gives quest 38944); bandage teacher
+    Olisarra the Kind npc 93529 (Dalaran, guide pin; wowhead labels both her and
+    Anchorite Lysara npc 126022 "Bandage Trainer"); Lalla Brightweave npc 93524
+    (Dalaran, sells Runic Catgut 127037 and Sharp Spritethorn 127681 - the
+    Spritethorn only after the "A Needle Need" and "Meticulous Precision" quests -
+    plus rank-2 patterns 137956 etc.); Strap Bucklebolt npc 107760 (Dalaran Sewers,
+    Sightless Eye currency 1149: pattern 137954 for 250, 137962 for 500, 137966 for
+    250, 137974 for 500); Veridis Fallon npc 107376 (Azsuna, Honored with Court of
+    Farondis, pattern 138015); Leyweaver Erenyi npc 93974 (Val'sharah, pattern
+    127022); Leyweaver Yaphisteia npc 93975 (Highmountain, pattern 127027); First
+    Arcanist Thalyssra npc 97140 (Suramar, Exalted with The Nightfallen, pattern
+    137979); Uniting the Isles from Archmage Khadgar npc 90417.
+  - BfA: Pin'jin the Patient npc 122700 (Dazar'alor, Terrace of Crafters; the guide
+    prints no entry, wowhead supplies it) / Daniel Brineweaver npc 136071 (Boralus,
+    Tradewinds Market; same - guide text only, entry from wowhead); Nazjatar recipes
+    150-175 from Jada 154321 (H) / Instructor Alikana 153817 (A) after the first few
+    Nazjatar intro quests; rank-2/3 Notorious recipes from Dazzerian npc 154652 (H)
+    / Crafticus Mindbender npc 154653 (A) at Nazjatar for 2 / 4 Mark of Honor
+    137642; Nylon Thread sold by the trainer or the tailoring supply vendor near the
+    trainer; Deep Sea Bag rank 3 from Hoarder Jena npc 135804 (Vol'dun, Revered with
+    Voldunai) / Quartermaster Alcorn npc 135815 (Drustvar, Revered with Order of
+    Embers); Embroidered Deep Sea Bag rank 1 = random world drop, rank 2 = Revered
+    with Tortollan Seekers, rank 3 = dropped by Zul npc 138967 in Uldir; Sinister
+    Combatant rank 2/3 from Ozgrom Ragefang npc 142552 (H) / Leedan Gustaf npc
+    142564 (A); Tools of the Trade questline starts at the faction trainers.
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+Format:  - A - B: N x Craft Name spell id (materials the guide prints). Counts are
+the guide's printed counts; notes are the guide's own color/luck warnings.
+
+3.1 Classic 1-300 (guide: vanilla-tailoring-leveling; learn Magar 3363 (H) /
+Georgio Bolero 1346 (A); bandage recipes from the separate bandage trainers)
+  - 1 - 50: 55 x Linen Bandage spell 3275 (55 Linen Cloth)
+  - 50 - 80: 30 x Heavy Linen Bandage spell 3276 (60 Linen Cloth)
+  - 80 - 130: 55 x Wool Bandage spell 3277 (55 Wool Cloth)
+  - 130 - 150: 20 x Heavy Wool Bandage spell 3278 (40 Wool Cloth)
+  - 150 - 190: 45 x Silk Bandage spell 7928 (45 Silk Cloth)
+  - 190 - 210: 20 x Heavy Silk Bandage spell 7929 (40 Silk Cloth)
+  - 210 - 240: 30 x Mageweave Bandage spell 10840 (30 Mageweave Cloth)
+  - 240 - 260: 20 x Heavy Mageweave Bandage spell 10841 (40 Mageweave Cloth)
+  - 260 - 290: 30 x Runecloth Bandage spell 18629 (30 Runecloth Cloth - the guide
+    prints "Runecloth Cloth")
+  - 290 - 300: 10 x Heavy Runecloth Bandage spell 18630 (20 Runecloth Cloth)
+Total exact-count casts printed by the guide = 315 (55 + 30 + 55 + 20 + 45 + 20 + 30
++ 20 + 30 + 10; every step is a printed count; the guide's standing warning is that
+materials assume one point per craft).
+
+3.2 Outland 1-75 (guide: outland-tailoring-leveling; learn from the bookcases behind
+Loremaster Skosiris 33642 / Dalinna 18749 / Hama 18772 / Weaver Aoa 33684)
+  - 1 - 40: 45 x Netherweave Bandage spell 27032 (45 Netherweave Cloth)
+  - 40 - 75: 100 x Heavy Netherweave Bandage spell 27033 (200 Netherweave Cloth;
+    "green for the last points - you might need to make more or fewer")
+Total exact-count casts printed by the guide = 145 (45 + 100).
+
+3.3 Northrend 1-75 (guide: northrend-tailoring-leveling; learn from Charles Worth
+28699 at Dalaran (Northrend) or the four starter-zone trainers)
+  - 1 - 20: 20 x Frostweave Bandage spell 45545 (20 Frostweave Cloth)
+  - 20 - 75: 90 x Heavy Frostweave Bandage spell 45546 (180 Frostweave Cloth;
+    "green for the last points - you might need to make more or fewer")
+Total exact-count casts printed by the guide = 110 (20 + 90).
+
+3.4 Cataclysm 1-75 (guide: cataclysm-tailoring-leveling; learn from Leyweaver
+Aurielle 133239 (H) / Georgio Bolero 1346 (A); bandages from Jessara 133109 /
+Angela Leifeld 56796)
+  - 1 - 25: 25 x Embersilk Bandage spell 74556 (25 Embersilk Cloth)
+  - 25 - 75: 80 x Heavy Embersilk Bandage spell 74557 (160 Embersilk Cloth;
+    "green for the last few points - you may not need to craft all 80")
+Total exact-count casts printed by the guide = 105 (25 + 80).
+
+3.5 Pandaria 1-75 (guide: pandaria-tailoring-leveling; learn from Silkmaster Tsai
+57405, Silken Fields [62.7, 59.8]; bandages from Ala'thinel 65862 (H) / Healer Nan
+64482 (A))
+  - 1 - 10: 45 x Bolt of Windwool Cloth spell 125551 (225 Windwool Cloth; "You will
+    use all of these later, so if you make them now, it's basically free skill
+    points"; "It doesn't matter if you didn't reach 10")
+  - 10 - 25: 25 x Windwool Bandage spell 102697 (25 Windwool Cloth)
+  - 25 - 60: 70 x Heavy Windwool Bandage spell 102698 (140 Windwool Cloth;
+    "green for the last few points")
+  - 60 - 75: 15 x Contender's Satin Cuffs spell 125544 (45 Bolt of Windwool Cloth =
+    the 45 bolts crafted above; Pattern 86365 from Esha 64051 / Raishen 64052 for
+    1 Spirit of Harmony 76061 = 10 Motes of Harmony 89112)
+Total exact-count casts printed by the guide = 155 (45 + 25 + 70 + 15).
+
+3.6 Draenor 1-100 (guide: draenor-tailoring-leveling; learn the item 115357 scroll
+first - see section 1)
+  - 1 - 2: 1 x Secrets of Draenor Tailoring spell 176058 (its own reagents are not
+    printed: unverified); buy Pattern: Hexweave Embroidery item 114852 from the
+    Ashran vendors or the garrison Emporium
+  - 2 - 50: 150 x Antiseptic Bandage spell 172539 (750 Sumptuous Fur; "green for the
+    last 25 points, so 150 is just an approximate number"; wowhead: 5 Sumptuous Fur
+    per craft, "Recipe for 4. Actual yield will vary based on first aid skill",
+    Profession: Draenor Tailoring (1), learned via spell 160329 "First Aid in
+    Draenor")
+  - 50 - 100: 50 x Hexweave Embroidery spell 168836 (1500 Sumptuous Fur)
+Total crafts printed by the guide = 201 (1 + 150 + 50; the 2-50 step is explicitly
+approximate). Guide fur total for the main route = 2250 (= 750 + 1500).
+  - ALTERNATIVE 1 - 100 (guide-printed): 1 - 25: 40 x Antiseptic Bandage 172539
+    (200 Sumptuous Fur; "yellow, so 40 is just an approximate number"); 25 - 100:
+    75 x Primal Weaving spell 182123 (75 Primal Spirit 120945 + 750 Sumptuous Fur;
+    Pattern 122716 from the fur trader for 60 Sumptuous Fur; Primal Spirit also sold
+    there for 5 Sumptuous Fur each = 375 extra). Alt totals: 116 crafts (1 + 40 +
+    75) and "around 1400 Sumptuous Fur instead of 2250" (the printed 200 + 750 + 375
+    + 60 = 1385).
+
+3.7 Legion 1-100 (guide: legion-tailoring-leveling; Tanithria 93542 -> quest 38944
+-> 38 profession quests (guide count) -> Uniting the Isles; bandages from Olisarra
+93529)
+  - 1 - 30: 55 x Silkweave Bandage spell 202853 (55 Shal'dorei Silk)
+  - 30 - 54: 24 x Silkweave Cinch Rank 3 spell 185943 (288 Shal'dorei Silk; rank-3
+    pattern 137962 from Strap 107760 for 500 Sightless Eye) + 24 x Silkweave
+    Pantaloons Rank 3 spell 208353 (384 Shal'dorei Silk, 48 Runic Catgut 127037,
+    24 Sharp Spritethorn 127681; rank-3 pattern 138015 from Veridis Fallon 107376,
+    Court of Farondis Honored); threads from Lalla Brightweave 93524
+  - 54 - 60: 6 x Imbued Silkweave spell 185962 (60 Shal'dorei Silk, 18 Arkhana
+    124440; "Keep these. You will use all of them later.")
+  - 60 - 90: 55 x Silkweave Splint spell 202854 (275 Shal'dorei Silk, 55 Leystone
+    Ore; learn from Olisarra 93529; wowhead teaches table also lists Anchorite
+    Lysara 126022)
+  - 90 - 100: 10 x Rank 3 Imbued Silkweave Cinch spell 185955 (60 Imbued Silkweave =
+    the six kept crafts above x10 per craft, 20 Blood of Sargeras 124124; guide:
+    "Get the rank 3 recipe before you start crafting these!" - rank 2 pattern 137966
+    / rank 3 pattern 137974 from Strap for 250 / 500 Sightless Eye; rank-1 sources
+    Erenyi 93974 (127022) and Yaphisteia 93975 (127027))
+Total exact-count casts printed by the guide = 174 (55 + 24 + 24 + 6 + 55 + 10).
+The guide prints no shopping list for this line; the printed crafts consume 1062
+Shal'dorei Silk (55 + 288 + 384 + 60 + 275), 18 Arkhana, 48 Runic Catgut, 24 Sharp
+Spritethorn, 55 Leystone Ore, 60 Imbued Silkweave, 20 Blood of Sargeras.
+
+3.8 BfA 1-175 (guide: zandalari-kul-tiran-bfa-tailoring-leveling; Pin'jin 122700
+(Dazar'alor) / Daniel Brineweaver 136071 (Boralus); sub-skill 2533 cap 175)
+  - 1 - 60: 100 x Tidespray Linen Bandage spell 267201 (200 Tidespray Linen; guide:
+    "yellow/green for the last points, so you probably have to make a few more")
+  - 60 - 75: 15 x Tidespray Linen Robe spell 257104 (240 Tidespray Linen, 300 Nylon
+    Thread; overview lists this recipe at Tailoring skill 25)
+  - 75 - 150: 150 x Embroidered Deep Sea Satin spell 272440 (150 Deep Sea Satin,
+    150 Tidespray Linen, 750 Nylon Thread; "yellow/green for the last points";
+    the intermediate is kept for the epic armors and the Deep Sea Bag pattern 163027)
+  - 150 - 160: 10 x Rank 1 Notorious Combatant's Satin Bracers spell 294844 (100
+    Gilded Seaweave, 60 Deep Sea Satin, 80 Nylon Thread, 20 Expulsom); learn at
+    Nazjatar from Jada 154321 (H) / Alikana 153817 (A) after the intro quests
+  - 160 - 170: 10 x Rank 2 Notorious Combatant's Satin Bracers spell 294845 (80
+    Gilded Seaweave, 50 Deep Sea Satin, 60 Nylon Thread, 20 Expulsom); Recipe 169582
+    for 2 Mark of Honor from Dazzerian 154652 (H) / Crafticus Mindbender 154653 (A)
+  - 170 - 175: 5 x Rank 3 Notorious Combatant's Satin Bracers spell 294846 (35
+    Gilded Seaweave, 20 Deep Sea Satin, 25 Nylon Thread, 5 Expulsom); Recipe 169583
+    for 4 Mark of Honor from the same NPCs
+Total exact-count casts printed by the guide = 290 (100 + 15 + 150 + 10 + 10 + 5).
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Per-line shopping lists exactly as the guides print them, with ids the sources print
+and explicit "unverified" for ids they do not:
+  - Classic: 115 Linen Cloth 2589, 95 Wool Cloth 2592, 85 Silk Cloth 4306, 70
+    Mageweave Cloth 4338, 50 Runecloth 14047 (all five linked by the guide; cloth
+    drops from humanoids + the guide's per-cloth farming links + AH).
+    Cross-check from the printed crafts: Linen 55 + 60 = 115 (exact), Wool
+    55 + 40 = 95 (exact), Silk 45 + 40 = 85 (exact), Mageweave 30 + 40 = 70
+    (exact), Runecloth 30 + 20 = 50 (exact).
+  - Outland: 245 Netherweave Cloth (id 21877 from a direct probe: Crafting Reagent,
+    added 2.0.1; the guide prints it unlinked) = 45 + 200 exact; origin humanoids of
+    Outland + AH (guide's Netherweave farming link).
+  - Northrend: 200 Frostweave Cloth (id 33470 from a direct probe: Crafting
+    Reagent, added 3.0.1; guide prints it unlinked) = 20 + 180 exact; origin
+    humanoids of Northrend + AH (guide's farming link).
+  - Cataclysm: 185 Embersilk Cloth 53010 (guide link) = 25 + 160 exact (humanoids
+    + AH; farming link).
+  - Pandaria: 390 Windwool Cloth 72988 (link) + 1 Spirit of Harmony 76061 (link;
+    = 10 Motes of Harmony 89112 - "Motes are dropped by every mob in Pandaria, even
+    in dungeons... you can buy these from the Auction House"). Cross-check: Windwool
+    225 + 25 + 140 = 390 exact (the 45 bolts are crafted FROM 225 of it and consumed
+    as bolts in the 60-75 step); 1 SoH for pattern 86365 exact.
+  - Draenor: 2250 Sumptuous Fur main route (guide's number = 750 + 1500 exact; item
+    id 111557 from wowhead's reagent link on spell 172539; origin not printed in
+    these sources: unverified); alt route "around 1400" (= 200 + 750 + 375 + 60 =
+    1385 as printed); Primal Spirit 120945 (guide link; trader for 5 Fur each or
+    banked); recipes 114852 / 122716 (vendors above); Secrets of Draenor Tailoring
+    176058 reagents unverified.
+  - Legion: no shopping list printed - the craft sum is 1062 Shal'dorei Silk 124437
+    (guide link on the 54-60 step), 18 Arkhana 124440 (guide link; origin not
+    printed: unverified), 48 Runic Catgut 127037 + 24 Sharp Spritethorn 127681
+    (guide links; sold by Lalla 93524), 55 Leystone Ore 123918 (id from wowhead's
+    reagent link on spell 202854; (Mining)/AH - wowhead attaches its Legion Mining
+    guide), 20 Blood of Sargeras 124124 (probe: Crafting Reagent, binds when picked
+    up, Legion 7.0.3; drops from content, no AH), 60 Imbued Silkweave self-crafted,
+    Sightless Eye currency 1149 (Strap 107760: 250 rank 2 / 500 rank 3; guide:
+    "you can get the 250 in about 10-15 minutes").
+  - BfA: 590 Tidespray Linen 152576 (link; overview: "Basic cloth dropped by most
+    humanoids"), 280 Deep Sea Satin 152577 (link; overview: "Rare cloth"), 1175
+    Nylon Thread 159959 (link; "sold by your trainer or the tailoring supply vendor
+    near your trainer"), 215 Gilded Seaweave 167738 (link; overview: new cloth in
+    patch 8.2), 45 Expulsom 152668 (link; soulbound, from the Scrapper - Scrap-o-Matic
+    1000 (A) / Shred-Master Mk1 (H)). Cross-check: Tidespray 200 + 240 + 150 = 590
+    (exact), Deep Sea 150 + 60 + 50 + 20 = 280 (exact), Gilded 100 + 80 + 35 = 215
+    (exact), Expulsom 20 + 20 + 5 = 45 (exact), Nylon 300 + 750 + 80 + 60 + 25 =
+    1215 vs list 1175 (section 9 item 13). Mark of Honor 137642 (PvP currency).
+
+5. TRAINER COSTS
+----------------
+- Base spell 3908: "Training cost: 10"; mains with the same line: 264618, 264620,
+  264622, 264624, 264630, 265815. Mains WITHOUT a training-cost line on their wowhead
+  page: 264616 (Classic), 264626 (Draenor), 264628 (Legion); no wrapper shows a
+  cost. Currency unit is not rendered on the pages - unverified (section 9 item 8).
+- TC enforcement (section 7): trainer money = MoneyCost x reputation discount,
+  FailReason::NotEnoughMoney, ModifyMoney deduction.
+- Recipe/trainer prices as printed: Silkweave Splint 202854 quick-facts "Training
+  cost: 250" while its reagent box prints "Profession Trainer: Legion Tailoring (60)
+  / Cost: 17" - two numbers on one page (section 9 item 14); Tidespray Linen Bandage
+  267201 prints Training cost 10 and box Cost 10 (agree); Antiseptic Bandage 172539
+  prints no cost line. Guide prices: Contender's Satin Cuffs pattern 86365 - 1 Spirit
+  of Harmony; Primal Weaving pattern 122716 - 60 Sumptuous Fur, Primal Spirit 5
+  Sumptuous Fur each; Legion rank 2 patterns - 250 Sightless Eye, rank 3 - 500
+  Sightless Eye; BfA Notorious rank 2 - 2 Mark of Honor, rank 3 - 4 Mark of Honor;
+  Hexweave Embroidery pattern 114852, classic/Old-World bandage learns, and quest
+  38944's reward money: no prices printed (the quest row's Money column is empty).
+
+6. LEVEL NEEDED
+---------------
+- Profession learn itself: no character level on spell 3908 or the mains; the wiki
+  intro says Tailoring "does not rely on a gathering profession" and "Most Tailoring
+  can be done anywhere, provided that you have the necessary materials."
+- Scroll 115357: Requires Level 10 (printed in spell 169924's Used-by-Item row); a
+  "Requires Tailoring" line was not rendered in the fetched pages: unverified.
+- Legion: quest 38944 "Sew It Begins" is Level 10, Requires level 10 (wowhead row,
+  Exp 1,400); the guide says start the 38 quests at 45-50 because "later quests have
+  level requirements", finish every Tailoring quest by 45 before continuing, and
+  Uniting the Isles unlocks World Quests (reputation requirement removed per the
+  guide); profession World Quests need Legion Tailoring 25.
+- Draenor: the guide's quest-chain option is framed "If you are still leveling your
+  character" (scroll chain items from Karnoth 75043 quest 34019 / Dorogg 74254 quest
+  33410, marked level 10-40 territory by analogy with the other files - the guide
+  prints no level markers here: unverified); the garrison Emporium route needs the
+  "Your First Tailoring Work Order" quest first.
+- BfA: bandage/heal items print their own use-levels (Tidespray Linen Bandage item
+  158381 "Requires Level 40"); crafted Tidespray greens "require level 111" and the
+  Sinister Combatant epics "require level 120" to EQUIP (overview; equip level, not
+  craft level); Nazjatar recipe trainers show level 50 on wowhead (Jada/Alikana) and
+  cannot be seen until the first Nazjatar intro quests are done (guide); Tools of
+  the Trade questline needs character level 120 AND Battle for Azeroth Tailoring 150;
+  the overview notes skill bars are split per expansion, so BfA 1-175 needs no prior
+  line: "You can level the new Battle for Azeroth skill tier without putting any
+  point into any of the previous expansions tiers."
+- Wiki training table titles per expansion: Apprentice/Journeyman/Expert/Artisan
+  (Classic 1-300), Master (Outland), Grand Master (Northrend), Illustrious Grand
+  Master (Cataclysm), Zen Master (Pandaria), Draenor Master (1-100), Legion Master
+  (1-100), Kul Tiran/Zandalari Master (row says 1 - 150 - section 9 item 1).
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+-----------------------------------------------
+Fresh TrinityCore master, blobless sparse clone (src/server/game + src/server/shared),
+HEAD 209d6d51d1 - the same HEAD the Leatherworking file's section 7 was re-read from,
+so every shared anchor below is byte-identical to that audited manifest:
+a) Trainer flow: opcode in -> SendTrainerList -> SendSpells, buy -> money check ->
+   teach. NPCHandler.cpp 97 HandleTrainerListOpcode -> 112 SendTrainerList (talks to
+   trainer->SendSpells at 127); NPCHandler.cpp 130 HandleTrainerBuySpellOpcode (GUID
+   check at 137, TeachSpell call at 155); Trainer.cpp 41 SendSpells (reputation
+   discount 43, condition filtering 58, MoneyCost x discount at 65), 76 TeachSpell ->
+   79 CanTeachSpell (CanTeachSpell definition 149), 98 reputationDiscount x MoneyCost
+   (99), 100 HasEnoughMoney -> 102 SendTeachFailure NotEnoughMoney, 106
+   ModifyMoney(-moneyCost); Trainer.cpp 172 GetSpellState, 212 SendTeachFailure.
+   Nothing tailoring-specific: any trainer creature with the right trainer id teaches
+   the mains (264616, 264618, 264620, 264622, 264624, 264630/265815) and wrappers.
+b) Casting the craft: Spell.cpp 3869 TakePower() then 3872 TakeReagents() before
+   HandleEffects (definition TakeReagents at Spell.cpp 5600); ITEM_FLAG_NO_REAGENT_COST
+   0x10000000 (ItemTemplate.h 218) makes a spell ignore reagents. There is NO
+   server-side skill gate on recipe casts: reqSkillValue appears only in the lock
+   path (Spell.cpp 6373 -> CanOpenLock 8648, lock table value 8688, fail 8702;
+   open-lock effect reagents at SpellEffects.cpp 1702-1705), the skill_discovery
+   template (SkillDiscovery.cpp), and quest turn-in requirements (Player.cpp 15405
+   GetRequiredSkillValue) - tailoring recipes never go through any of them; recipe
+   difficulty colors are a client concept, the server only rolls skill-ups (see c).
+c) Skill-ups on craft: Player.cpp 5410 UpdateCraftSkill -> blocked by
+   SPELL_ATTR1_NO_SKILL_INCREASE (5411-5412); reads the spell's skill line at
+   5421-5422 (SkillupSkillLineID), multiplies NumSkillUps x
+   CONFIG_SKILL_GAIN_CRAFTING (5433) and returns UpdateSkillPro against
+   TrivialSkillLineRankHigh/Low via SkillGainChance (definition 5399, call 5435).
+   Weights: World.cpp 784-787 SkillChance.Orange 100 / Yellow 75 / Green 25 / Grey 0,
+   World.cpp 790 SkillGain.Crafting default 1.
+d) Learn and skill-step effects: dispatch SpellEffects.cpp 128 (LEARN_SPELL) and
+   136 (SKILL_STEP 44 -> EffectLearnSkill 2405, SetSkill at 2433) and 210 (effect
+   118 SKILL -> EffectSkill 4668: skillStep guard 4682, SkillTiers lookup 4689,
+   SetSkill 4699); EffectLearnSpell 2129 (TriggerSpell learn at 2170). This is
+   exactly how wrappers 264617-264631 and 265816 work: Learn main + Learn Skill Step
+   (2540 -> 2533), and how spell 201708 works: Learn 195126 + Step 197 value 10.
+   EffectCreateItem dispatch 116 -> EffectCreateItem 1473 with
+   SPELL_ATTR0_IS_TRADESKILL -> ItemContext::Trade_Skill at 1478 (further
+   ATTR0_IS_TRADESKILL selections at 1492/1522/2484), DoCreateItem 1383,
+   EffectCreateItem2 dispatch 249 / definition 1482; craft items (bandages, bolts,
+   armors, bags) are granted from the created-item path only.
+e) Identifiers: SKILL_TAILORING = 197 (SharedDefines.h 5911);
+   QUEST_SORT_TAILORING = 264 (SharedDefines.h 5667) -> case returns SKILL_TAILORING
+   (SharedDefines.h 6368); QUEST_TRSKILL_TAILORING = 10 (QuestDef.h 134);
+   TRADESKILL_TAILORING = 10 (ScriptedGossip.h 45); SPELL_ATTR9 item-cast skill gain
+   gate Spell.cpp 3863-3865 (ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN - only matters when
+   casting from an item, e.g. the WoD scroll cast of 169924 via item 115357).
+f) Scroll/quest chain: item use 115357 is an item-cast -> EffectLearnSpell 2129
+   learns TriggerSpell 169924 -> 169924 (10 sec cast, "Tradeskill recipe" flag)
+   triggers wrapper 264627 ("Triggered by (1)" on wowhead) -> wrapper learns main
+   264626 + SetSkill 2535. Quest 38944 "Sew It Begins" granting wrapper 264629
+   ("Reward from" and "Triggered by" on wowhead) plus the guide's Legion Tailor
+   spell 201708 lands in the quest-reward spell path (reward spell cast ->
+   EffectLearnSpell). The 38 Legion profession quests, Uniting the Isles, the
+   Nazjatar intro, and the Tools-of-the-Trade questline are ordinary
+   QUEST_TRSKILL_TAILORING (10) quests the core can serve through the quest system
+   if the character can complete objectives (see section 8).
+g) There is no tailoring-specific spell effect in the core: the specialized effects
+   next door (PROSPECTING 127 at SpellEffects.cpp 219 / EffectProspecting 4614,
+   MILLING 158 at 250 / EffectMilling 4641) belong to other professions; tailoring
+   recipes are plain CREATE_ITEM + skill-up + trainer data. On bandages: the
+   string SKILL_FIRST_AID occurs 0 times in the game tree (grep of all headers and
+   sources) - First Aid is not a server skill line anymore, while legacy quest enums
+   survive (QUEST_TRSKILL_FIRSTAID = 6 and QUEST_SORT_FIRST_AID = 324 in the same
+   QuestDef.h / SharedDefines.h files); wowhead maps bandage spell-ups to the
+   Tailoring sub-skills (3275 recipes table -> Tailoring skill 197; 172539 "Skill:
+   Draenor Tailoring"; 267201 "Skill: Kul Tiran Tailoring"), and the actual
+   SkillupSkillLineID arrives from skill_line_ability data (path c), so serving
+   bandage skill-ups is data-side, not a C++ branch.
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+  1. Click profession-window buttons: crafts must be cast by spell id with the
+     recipe already in the spellbook (gained via trainers/quests/items - a); a
+     server-side character has no profession UI to press.
+  2. Talk to trainers, vendors and NPCs at all: trainer lists/buys are opcodes
+     (NPCHandler 97/130), and every named source in section 2 needs NPC interaction
+     packets - the bandage trainers (Jessara 133109, Krenk 45540, Pand 2798, Angela
+     56796, Mildred 19184, Aresella 18991, Burko 18990, Olisarra 28706, Applewood
+     29233, Wilson 26992, Tompkins 26956, Yazmina 23734, Ala'thinel 65862, Nan
+     64482, Olisarra 93529, Lysara 126022), the pattern/currency vendors (Lalla
+     93524, Strap 107760, Veridis 107376, Erenyi 93974, Yaphisteia 93975, Thalyssra
+     97140, Esha 64051, Raishen 64052, Dazzerian 154652, Crafticus 154653, Jena
+     135804, Alcorn 135815, Ozgrom 142552, Leedan 142564, Ashran 87049/87543, fur
+     traders 91025/91034), and the "walk up to a guard and ask" hint the BfA guide
+     prints for finding trainers.
+  3. Complete quests: Sew It Begins 38944 (level 10), the 38 Legion profession
+     quests (guide count) including The Queen's Grace Loom 38970, the Spritethorn
+     gates ("A Needle Need" and "Meticulous Precision"), Uniting the Isles 43341,
+     the WoD chain (Cryptic Tome 114972 from Karnoth 75043 in quest 34019 /
+     Frostwolf Tailoring Kit 114973 from Dorogg 74254 in quest 33410, then the
+     "Your First Tailoring Work Order" quest), the Nazjatar intro quests that hide
+     Jada/Alikana until done, and the Tools of the Trade questline (level 120 +
+     BfA skill 150) - objectives are world interactions a headless server routine
+     must simulate.
+  4. Get lucky with the garrison fur trader: Dorothy "Two" 91025 / Calvo Klyne 91034
+     are one of 4 possible daily spawns at a level-3 town hall ("it's not guaranteed
+     that you get a profession trader in your garrison, even if it's the day it is
+     supposed to spawn"), on a fixed Ore -> Dust -> Fur -> Leather -> Herb rotation,
+     and the guide's EU/NA date-swap warning (section 9 item 20) is client-side
+     lore; without the trader the alternative 1-100 route (recipe 122716 for 60
+     Sumptuous Fur) needs someone else's garrison (grouping + visiting another
+     player's garrison through the unit-frame menu).
+  5. Hold reputation the recipes need: Court of Farondis Honored (Pantaloons rank 3
+     138015), The Nightfallen Exalted (Slippers rank 3 137979), Voldunai Revered
+     (Deep Sea Bag rank 3, Jena), Order of Embers Revered (Alcorn), Tortollan
+     Seekers Revered (Embroidered Deep Sea Bag rank 2), plus the Aldor/Scryers
+     exclusivity in Shattrath (wiki: Miralisse not for Aldor, Weaver Aoa not for
+     Scryers; guide: Aldor cannot use the bookcases) - reputation is grind the core
+     does not gain from crafts.
+  6. Run dungeons/raids/world content for recipes and reagents: Zul 138967 in Uldir
+     (Embroidered Deep Sea Bag rank 3), the 8.3 N'Zoth-worshipper drops (Faceless,
+     K'thir, Aqir and Cultists at the Vale/Uldum assaults and in Lesser Visions -
+     "Not available on week 1 of patch 8.3" - for the Unsettling/Maddening/Eldritch
+     Seaweave 440/455/470 recipes), the world-drop pattern 163027, Legion World
+     Quests (Uniting the Isles + skill 25), the Tools-of-the-Trade essences
+     (Avatar of Sethraliss, Viq'Goth, Rezan, King Dazar - any difficulty), and Blood
+     of Sargeras 124124 (binds when picked up, only from content).
+  7. Earn currencies by playing: Sightless Eye 1149 (Strap's rank 2/3 patterns,
+     guide: 250 in 10-15 minutes of activities) and Mark of Honor 137642 (battleground
+     wins; the guide's Oribos alternative is a Shadowlands-era source - section 9
+     item 19) for the Notorious rank 2/3 recipes (2 / 4 Marks) - a server-side
+     routine has no PvP/activity loop; Expulsom 152668 needs the Scrapper machines
+     (Scrap-o-Matic 1000 / Shred-Master Mk1) processing of BfA gear.
+  8. Interact with world systems as a player would: the Tools of the Trade perk
+     (Synchronous Thread 292946) is gained by closing Time Rifts and opening Chronal
+     Caches of Cloth 168162 around Zandalar/Kul Tiras; the 8.3 Void Focus crafting
+     station (and the 8.2 Abyssal Focus) must be unlocked before raid-tier crafts -
+     both are proximity/world-progress systems beyond standing at a trainer.
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+Numbered conflicts (all resolved by adoption below):
+1) BfA cap: warcraft.wiki training table prints "1 - 150" for the BfA row while the
+   mains 264630/265815 say "maximum potential skill of 175" and both guides title
+   their routes 1-175. Adopted: 175 (the wiki article carries an outdated banner).
+2) The wiki Tailoring_trainers table ends at Pandaria: no Draenor, Legion or BfA
+   rows at all (the Leatherworking_trainers page had a full BfA section). Adopted:
+   BfA/Draenor/Legion positions come from the guides and wowhead taught-by tables
+   only; wiki coverage stops at Silkmaster Tsai.
+3) Faction main patch tags: 264630 (Alliance) added 8.0.1 while 265815 (Horde)
+   added 8.1.0 - both verified on their own pages. Adopted: A main is 8.0.1, H main
+   is 8.1.0 (the guide lists both as "the" BfA learn spells).
+4) Wrapper patch tags: every wrapper 264619-264631 and 265816 is tagged 8.1.0
+   except the Classic wrapper 264617, whose quick facts print 8.0.1 - the same
+   first-wrapper exception the Leatherworking/Jewelcrafting/Inscription blocks show.
+   Adopted: 264617 = 8.0.1, the rest = 8.1.0.
+5) Skill label bug: spell 265815 is named "Zandalari Tailoring" (Horde, "Horde
+   Specific Spell") but its Effect reads Learn Skill (Kul Tiran Tailoring) skill=2533
+   - both factions genuinely share 2533 (264631 and 265816 both Step 2533). Adopted:
+   one sub-skill 2533 for both factions; the label is wrong on the Horde spell
+   (mirrors the Leatherworking file's item 4 and Jewelcrafting's item 10).
+6) Block boundaries: 264614 is "Blind Eye" and 264615 is "Ping Event" immediately
+   before the block, and 264632 is "Classic Cooking" immediately after it. Adopted:
+   block = 264616-264631, eight pairs, no internal gap (the Leatherworking block
+   needed an internal-gap exception; this one does not).
+7) Classic main has no trainer table: 264616's page renders no "Taught by" section
+   (See also (10) only), yet the guide trains Classic at Magar 3363 / Georgio
+   Bolero 1346 and the wiki lists dozens of trainers. Adopted: classic training
+   happens through base spell 3908's trainers (Taught by 48) and main 264616's own
+   teacher list is unverified.
+8) Cost lines: mains 264616, 264626 and 264628 show NO "Training cost: 10" while
+   the other six mains do. Adopted: cost 10 only where printed; the other three
+   record "no training-cost line" (the currency unit is unverified anyway).
+9) Wrapper effect shape: Classic wrapper 264617 has THREE effects (Learn 3908 +
+   Learn 264616 + Step 2540) while every other wrapper has two (Learn main + Step).
+   Adopted: as printed (same asymmetry as Leatherworking's 264578 wrapper).
+10) Outland taught-by three ways: wowhead's 264618 table lists Dalinna 18749, Hama
+    18772, Miralisse 33636, an "Uncategorized" creature literally named "Tailoring"
+    (npc 33613, Shattrath) and Weaver Aoa 33684; the guide says click the bookcases
+    behind Loremaster Skosiris 33642 (Aldor-choosers instead visit Aoa) plus the
+    Hellfire pair; the wiki lists Hama, Dalinna, Aoa and Miralisse with reciprocal
+    faction notes (Miralisse not for Aldor, Aoa not for Scryers). Adopted: the union
+    with per-source counts (Taught-by 5 vs wiki 4 vs guide's bookcase object).
+11) Northrend taught-by mismatch: the guide names four Northrend trainers (Charles
+    Worth 28699, Raenah 26969, Darin Goodstitch 27001, Alexandra McQueen 26964,
+    Benjamin Clegg 26914) while wowhead's 264620 table lists only two (Worth, Raenah)
+    and the wiki six (adds Dustin Vail 73.0/20.8 and the starter-zone pair with
+    coordinates). Adopted: keep all named sources with their own per-source counts.
+12) Two Dalaran eras, same name: the Northrend guide trains at Charles Worth 28699
+    in Dalaran (Northrend) and explicitly warns the same NPC exists in Broken Isles
+    Dalaran but "won't teach you Northrend Tailoring"; the Legion guide trains at
+    Tanithria 93542 in Legion Dalaran. Adopted: 28699 for Northrend, 93529/93524/
+    93542 for Legion; the wiki's single Charles Worth row [36.5, 33.5] does not
+    distinguish the eras (same class as Leatherworking's Diane Cannings item 6).
+13) BfA shopping arithmetic: the guide's shopping list prints 1175 Nylon Thread
+    while its own steps consume 300 + 750 + 80 + 60 + 25 = 1215 (40 short). Adopted:
+    list as printed (1175), craft math as printed (1215), the 40-craft bridge is
+    unverified (buy extra); Tidespray 590, Deep Sea 280, Gilded 215 and Expulsom 45
+    all cross-check exact.
+14) One page, two learning prices: spell 202854 (Silkweave Splint) prints
+    "Training cost: 250" in quick facts and "Cost: 17" inside its Profession Trainer
+    box. Adopted: both as printed; neither number is used in the route totals (the
+    route prints craft counts, not gold).
+15) Residual First Aid language: wowhead's Linen Bandage 3275 prints "Profession:
+    First Aid (1)" in quick facts while its recipes table links the skill-up to
+    Tailoring (11.197); spell 172539 says "Actual yield will vary based on first aid
+    skill" and is "Learned via discovery" from a spell named "First Aid in Draenor"
+    (160329); TC's enum has zero SKILL_FIRST_AID occurrences while
+    QUEST_TRSKILL_FIRSTAID = 6 survives. Adopted: bandage crafts skill up the
+    Tailoring line (wowhead's own skill links + the Cata guide's "First Aid has been
+    removed as a separate profession. Bandage crafting is now part of Tailoring" +
+    the TC enum absence); the First Aid strings are legacy labels.
+16) Legion quest 38944 rewards: the guide says the reward is spell 201708, while
+    wowhead lists wrapper 264629 as both "Reward from" and "Triggered by" the same
+    quest (and 201708 itself learns 195126 + Step 197 value 10). Adopted: the quest
+    grants BOTH the perk spell and the wrapper (each source verified its own link -
+    same shape as Leatherworking's quest 39958 item 15).
+17) Uniting the Isles requirements: the Tailoring guide prints "(the reputation
+    requirement was removed)" while the Leatherworking guide's Legion section still
+    says "friendly with every Legion faction" for the same quest 43341. Adopted: the
+    rep requirement was removed (Tailoring guide's direct note; reciprocal of the
+    Leatherworking file's cross-guide remark).
+18) Bandage teachers split by guide era: the Classic and Cataclysm guides insist the
+    bandage recipes "are NOT taught by the tailoring trainers" (separate NPCs), the
+    Pandaria guide repeats it ("you do not learn bandage recipes from Tailoring
+    trainers"), but wowhead's BfA bandage 267201 is taught by ONLY the four BfA
+    tailoring trainers (Brineweaver, Alikana, Jada, Pin'jin). Adopted: era-split as
+    printed - separate bandage NPCs for Classic/Outland/Northrend/Cata/MoP/Legion,
+    tailoring trainers themselves for BfA.
+19) Vintage/anachronism labels: the vanilla guide page is branded "(Midnight)" and
+    says it targets the Classic skill bar in current Retail and is "NOT a WoW
+    Classic guide"; wowhead types item 115357 (a Tailoring scroll) as
+    "[Alchemy Recipe]"; and the BfA route's Mark of Honor advice cites Purveyor
+    Zo'kuul 164095 in Oribos selling Orboreal Distinguishment 185834 (a
+    Shadowlands-era vendor that does not exist on 8.3.7). Adopted: routes as
+    printed (per-line caps come from the mains, not page branding); the wowhead type
+    label is wrong; for 8.3.7 farm Marks directly from battlegrounds/arenas (the
+    guide's first-listed source).
+20) Draenor fur trader dates: the guide warns the wowhead Quick Facts spawn dates
+    are swapped between EU and NA ("if you play in Europe, use NA dates"). Adopted:
+    treat the trader as a random daily spawn only; do not program the printed dates.
+21) TC drift statement: this file's section 7 anchors were re-read from master HEAD
+    209d6d51d1 - the same HEAD as the Leatherworking file's clone, so the shared
+    craft/trainer anchors are unchanged (UpdateCraftSkill 5410, DoCreateItem 1383,
+    TakeReagents 5600, World 784-787/790, NPCHandler 97/130, Trainer 41/76); new
+    tailoring-specific lines are SKILL_TAILORING 5911, QUEST_SORT_TAILORING 5667
+    and 6368, QUEST_TRSKILL_TAILORING 134, EffectLearnSkill 2405/2433.
+Also unverified (not guessed): the five spells taught by scroll spell 169924; item
+115357's "Requires Tailoring" line (only Requires Level 10 was rendered); Secrets of
+Draenor Tailoring (176058) reagents; Sumptuous Fur origin; Arkhana origin; Gilded
+Seaweave origin beyond "new cloth in 8.2"; recipe gold prices where not printed; the
+guide's "38 Tailoring quests" count; quest 38944 reward money (Money column empty);
+classic bandage-trainer learn costs; any TC-side "learn on craft" handling for the
+BfA 440 -> 455 -> 470 discovery chain (the overview describes client behavior only)
+and for Legion recipe-rank procs (world quest rank-3 awards).
+
+10. SOURCES
+-----------
+All pages fetched 2026-10-27; nothing fetched is stored in the repository.
+Wowhead spell/item/quest probes (per-id pages):
+  - 3908 (base Tailoring: cost 10, difficulty 111, skill 197, 9 other ranks,
+    Taught by 48, Triggered by 5)
+  - 264614 ("Blind Eye" - MISS for block start), 264615 ("Ping Event" - second gap),
+    264616, 264617, 264618, 264619, 264620, 264621, 264622, 264623, 264624, 264625,
+    264626, 264627, 264628, 264629, 264630, 264631, 264632 ("Classic Cooking" - end
+    of block), 264633 (cooking block, boundary confirmation)
+  - 265815 (Horde main), 265816 (Horde wrapper), 169924 (scroll teach spell ->
+    triggers 264627, Used by item 115357, Teaches (5)), 201708 (Legion Tailor: Learn
+    195126 + Step 197 value 10), quest 38944 (via 264629: Level 10 / Requires 10,
+    Exp 1,400, Tailoring category)
+  - bandage crafts: 3275 (reagent 1 Linen, quick-fact "Profession: First Aid (1)",
+    recipes skill-up link Tailoring 11.197), 172539 (5 Sumptuous Fur 111557, "Skill:
+    Draenor Tailoring", taught via 160329), 202854 (5 Shal'dorei Silk + 1 Leystone
+    Ore 123918, "Skill: Legion Tailoring", Training cost 250 vs box Cost 17, taught
+    by 93529 + 126022), 267201 (2 Tidespray Linen, "Skill: Kul Tiran Tailoring",
+    Training cost 10, taught by 4 = the BfA tailoring trainers)
+  - items: 21877 (Netherweave Cloth), 33470 (Frostweave Cloth), 124124 (Blood of
+    Sargeras), 121855 (MISS - "Inexorable Defender Stone", not Sumptuous Fur; the
+    real id 111557 came from spell 172539's reagent link)
+warcraft.wiki pages (chunk counts in parentheses):
+  - Tailoring (11 chunks; read 0-1: outdated banner, official-site blurb, training
+    table with caps/titles including the BfA "1 - 150" row, advancing/rules text)
+  - Tailoring_trainers (5 chunks, table ends at Pandaria - 33 printed rows through
+    Silkmaster Tsai + patch rows 4.0.3a / 2.3.0)
+wow-professions guides (route data copied into sections 3-6; shopping lists into 4):
+  - vanilla-tailoring-leveling (1 chunk, "(Midnight)" branded), outland-tailoring-
+    leveling (1), northrend-tailoring-leveling (1), cataclysm-tailoring-leveling (1),
+    pandaria-tailoring-leveling (1), draenor-tailoring-leveling (1),
+    legion-tailoring-leveling (2), zandalari-kul-tiran-bfa-tailoring-leveling-guide
+    (2)
+  - bfa-tailoring overview (4 chunks; 8.3 Void Focus + Seaweave sets, 8.2 additions,
+    learning, leveling note (max 175, split skill bars), recipe acquisition (no BfA
+    profession quests), Tools of the Trade (Synchronous Thread 292946, recipe 168029,
+    essences 168128-168131), spellthreads, epic armors with skill gates, crafting
+    materials ids (Tidespray 152576, Deep Sea 152577, Embroidered 158378, Expulsom
+    152668, Tidalcore 165948, Breath 165703, Sanguicell 162461, Hydrocore 162460),
+    bags, battle flags, bandage/net utility items, Tidespray leveling gear tables,
+    Sinister Combatant set)
+TrinityCore: blobless sparse clone of master (src/server/game + src/server/shared),
+HEAD 209d6d51d1; re-read anchors: SpellEffects.cpp 116/128/136/210/249/1383/1473/
+1478/1482/1702-1705/2129/2170/2405/2433/4668/4682/4689/4699, Spell.cpp 3863-3865/
+3869/3872/5600/6373/8648/8688/8702, Player.cpp 5399/5410-5412/5421-5422/5433/5435/
+15405, World.cpp 784-787/790, NPCHandler.cpp 97/112/127/130/137/148/151/155,
+Trainer.cpp 41/43/58/65/76/79/98-100/102/106/149/151/172/212, SharedDefines.h 5667/
+5911/6368, QuestDef.h 126-140 (TRSKILL enum), ItemTemplate.h 218, ScriptedGossip.h
+45, SkillDiscovery.cpp 33-252 (reqSkillValue template); grep SKILL_FIRST_AID = 0 hits.

@@ -1,0 +1,201 @@
+=== AUDIT Craft Tailoring - COMPLETED ===
+Audit script: audit_craft_tailoring.py (committed alongside the deliverable; ASCII
+only, sits outside the hygiene gate).
+Method: independent re-derivation - family checks (section-keyed), live hygiene
+re-measurement of the deliverable, plain `in` containment needles in the order
+section S -> learn map L -> trainers T -> routes R -> cross C -> costs M ->
+TC lines 7 -> cannot-do 8 -> conflicts 9 -> sources 10 -> hygiene H - then a
+20-mutation destructive self-test of the script itself.
+
+VERDICT
+-------
+Checks ............ 560/560 PASS, 0 FAIL
+Hygiene gate ...... PASS (deliverable: ASCII-only, <=100 cols, no trailing ws,
+                   10 sections; this report likewise)
+Self-test ......... 20/20 PASS - TWO consecutive rounds (40/40 total)
+Source of truth ... every fact in the deliverable came from probe records, the
+                   wiki/guide fetches, or the fresh TC clone; the preflight pass
+                   (533/560 -> 560/560) fixed only audit-side needle wording and
+                   wrap mismatches - the payload was never edited to satisfy a
+                   check.
+
+Per-family breakdown (audit + script-side items)
+------------------------------------------------
+  Family          Checks  What it pins
+  S  (section)       25   Title byte-line, fetch date 2026-10-27, the
+                          "unverified" policy sentence, all ten section headings
+                          byte-exact, the eight 3.x sub-headings with their
+                          guide slugs, both printed totals-table captions.
+  L  (learn map)     58   Each of the eight mains (line, pair, skill/cap/cost,
+                          Taught-by counts) + each wrapper's effects and 8.x tag
+                          (incl. 264617 = the sole 8.0.1 three-effect wrapper =
+                          Learn 3908 + Learn 264616 + Step 2540), the 264631/265815
+                          Horde pair note, 264614/264615/264632 gap records,
+                          201708 = Learn 195126 + Step (197) value 10, 3908's
+                          nine other ranks, quest 38944 reward chain, WoD
+                          scroll 115357 -> 169924 chain, Skosiris/Aoa/Miralisse
+                          book notes, DIDI 33470 unteachable, wiki outdated banner.
+  T  (trainers)     110   The Tailoring_trainers table ends at Pandaria (with its
+                          "no Draenor/Legion/BfA rows" note), all wiki + guide
+                          trainer rows with coordinates (Classic..Pandaria, incl.
+                          Lost Isles/KTC rows and coordinate-less rows marked as
+                          such), all eight wowhead Taught-by npc lists (5/5/13/1/
+                          0/0/2 + Horde variant), BfA four-trainer rows incl.
+                          Brineweaver/Alikana and Pin'jin/Jada, bandage-source
+                          npc rows (Olisarra, Applewood, Wilson, Tompkins,
+                          Yazmina, Sewin/Wallace/angila chains), and the
+                          unverified-table markers.
+  R  (routes)        82   All bandage alternates (10 spells with cloth arithmetic),
+                          the eight 3.x LEARN lines, all eight ENTRY pair-lists,
+                          concrete counted steps with spell ids and material
+                          sub-sums (Painted band/Crimson ink/Silkweave emblem
+                          cross-crafts, painted-cloth swaps, Cheap-Linen
+                          47233-847 note), the painted/ dyed material chains, the
+                          Draenor main+Alt tables (incl. +86 alt note and fur-trader
+                          bandage table), BfA emblems, the two printed totals
+                          captions (315 and 290 lines), per-step "Cross" refs.
+  C  (cross)         34   The five cloth arithmetic blocks (115/95/85/70/50 exact),
+                          probe-sourced item ids (21877, 33470, 124124, 111557,
+                          123918, 124437, 152576/152577/167738/152668...), the
+                          Tidespray 590 / Deep Sea 280 / Gilded 215 / Expulsom 45
+                          equations, the Nylon 1175-vs-1215 (-40) equation, the
+                          MoP +1 SoH anomaly, blood/MoH/mark lines.
+  M  (costs/trade)   37   The mains-with-cost / mains-without-cost partitions
+                          (264616/264626/264628 no cost; no wrapper cost;
+                          currency unit unverified), TC money-discount enforcement
+                          line, trainer-cost invariants, pattern prices
+                          (86365 = 1 SoH, 122716 = 60 fur + 5 Primal Spirit),
+                          Tattered Hex 61737 + Frostwolf Kit 114973 + Dorogg
+                          74254, Tools-of-the-Trade level-120 row, wiki 1-150 row.
+  7  (TC lines)      60   Every claimed file:line in sec.7 and sec.10's TC manifest
+                          (HEAD 209d6d51d1 + byte-identical-manifest note,
+                          NPCHandler 97/112/130/155, EffectLearnSpell/TriggerSpell,
+                          SkillGainChance, ATTR9, CanOpenLock, open-lock skilllines,
+                          trainer dispatch chain, SkillLineAbility note,
+                          SKILL_TAILORING 5911, QUEST_SORT 5667/6368, QUEST_TRSKILL
+                          134, TRADESKILL_TAILORING 45, EffectLearnSkill 2405,
+                          EffectSetSkill 2433, quest gate Player 15405,
+                          UpdateCraftSkill 5410, Trainer 41/76/98-102/106,
+                          the 172539/267201 label lines).
+  8  (cannot do)     42   The client-only actions (window buttons, opcodes, guard
+                          gossip), quest-availability gates (38944, 38 Legion
+                          quests, intro chains), equip-vs-craft level 120, the
+                          locked stations (Synchronous Thread 292946, Chronal
+                          Caches 168162, Void/Abyssal Focus), hand-kept npc
+                          sources, and the sec.5/sec.2/sec.6 consequence chains.
+  9  (conflicts)     69   All 21 numbered conflict ids with their first sentences
+                          (the list appears only in sec.9), every "Adopted:" line,
+                          the unverified-by-design sentence, the no-third-bandage
+                          fact, and the mirrored unverified ids.
+  10 (sources)       38   Fetch-date policy line, probe records (3908, the two
+                          MISS records 264614/264615, the block end 264632, the
+                          H pair, bandage probes 172539/202854/267201, quest
+                          38944, item probes), the nine guide slugs + overview,
+                          the wiki pages, TC HEAD + manifest names, and
+                          "grep SKILL_FIRST_AID = 0 hits".
+  H (hygiene)         5   Format-line fingerprint, count-line fingerprints,
+                          "unverified" marker presence.
+
+Derived list (facts re-derived independently, not copied from the payload under
+audit)
+------------------------------------------------
+- "264616-264631 contiguous" verified against the L family's per-pair checks
+  (any interior gap breaks the main/wrapper conjuncts).
+- Route arithmetic: the eight sec.3 totals against the C family's printed equations
+  (590/280/215/45 sums, -40 Nylon, five exact cloth sums 115/95/85/70/50).
+- The eight sec.3 LEARN lines against the eight ENTRY pair-lists (R family checks
+  both, so drift shows as two independent failures).
+- Trainer-cost partitions (M family: same-line group 264618/264620/264622/264624/
+  264630/265815 vs the three no-cost mains) against sec.5's table.
+- SKILL_FIRST_AID = 0 hits in TC game-wide vs sec.7 + sec.10 (caught by mutation 20).
+- Bandage cross-checks vs probe spell records: 172539 -> 5x Fur 111557 (+92522),
+  202854 -> 5x Shal'dorei + Leystone 123918 (+169610), 3275 -> 1 Linen, 172540.
+- All 21 sec.9 conflict ids live in sec.9 only, and each id's home-section copy stays
+  mirrored (mutation 19 shows the sec.9 Adopted line under watch).
+
+Mutation table (20 attacks on the script - each mutated the payload, ran all
+560 checks, and required >= 1 failure)
+------------------------------------------
+ #  What was mutated (old -> new)                                  Caught by
+ 1  "fetched this week (2026-10-27)" -> "...2026-10-26)"            S (1)
+ 2  "110426 (500)" -> "110426 (499)" (rank count)                   S (1)
+ 3  "264616-264631 with verified" -> "...264630 with verified"      S (1)
+ 4  "264614 \"Blind Eye\"" -> "264614 \"Blind Foot\""                S (1)
+ 5  "the Horde pair 265815/265816" -> "...265817"                   S (1)
+ 6  "wrapper 264617 ... added 8.0.1" -> "added 8.1.0"               L (1)
+ 7  "Steven Cochrane npc 87049" -> "npc 87050"                      L (1)
+ 8  "Legion Tailor 201708" -> "Legion Tailor 201709"                L (1)
+ 9  "Effect #1 Learn Spell 195126" -> "195127"                      L (1)
+10  "quest 38944 \"Sew It Begins\"\n    (Level 10" -> "38945 ..."   L (1)
+11  "Pin'jin the Patient npc 122700 (...)" -> "npc 122701 (...)"    T (1)
+12  "the table ENDS at Pandaria" -> "ENDS at Draenor"               T (1)
+13  "Valley of the Four Winds [62.7, 59.8]" -> "[62.7, 59.9]"       T (1)
+14  "casts printed by the guide = 315 (55" -> "= 316 (55"           R (1)
+15  "casts printed by the guide = 290 (100" -> "= 291 (100"         R (1)
+16  "spell 294846 (35" -> "spell 294847 (35"                        R (1)
+17  "1215 vs list 1175 (section 9 item 13)" -> "1175 vs list 1175"  C (1)
+18  "SKILL_TAILORING = 197 (SharedDefines.h 5911)" -> "5910"        7 (1)
+19  "Adopted: 175 (the wiki article carries an outdated banner)"
+                                                                  -> "Adopted: 150" 9 (1)
+20  "grep SKILL_FIRST_AID = 0 hits" -> "= 1 hits"                   10 (1)
+Result: 20/20 caught - two consecutive rounds (40/40). Every mutation is caught
+by exactly one check, and every mutation's old literal is verified present
+before applying (a missing literal or a no-op would fail the self-test itself).
+
+Method notes / fixes
+--------------------
+- Preflight: 533/560 with 27 FAILs - every failure was a script-side needle
+  problem (a needle spanning a line wrap, or wording drifted from the payload);
+  each was located with a +80-char context dump around the needle and shortened
+  to a wrap-safe contiguous fragment (e.g. the Angela Leifeld / McQueen / Clegg /
+  Applewood / Tompkins trainer rows, "Loremaster Skosiris npc 33642", the
+  wrap-split "Spell\n201708 (added 7.0.1)" line, the lowercase "granting wrapper
+  264629", the "Draenor Tailoring\"; 267201" join, the sec.9 fact "->" vs "->" arrow
+  drift). No payload line was changed for the audit.
+- grep across a wrap-spanning needle with `set -e` aborts silently (exit 1 on the
+  first miss); the python context dump replaced it.
+- Mutation design: literals chosen wrap-free and mostly single-occurrence;
+  replace-first is safe here because a miss in the *mutated* text only matters if
+  the checks still pass - the self-test fails loudly if a mutation literal
+  disappears from the payload or mutates a no-op.
+- Hygiene: applied to the deliverable (760 lines, ASCII, 0 >100 cols,
+  0 trailing-ws) and to this report; the audit script itself is exempt per
+  established practice.
+- Containment checks cannot prove a number never appears elsewhere; the
+  structural families (section headings, LEARN/ENTRY pairing, totals captions,
+  cost partitions) make a wrong number almost impossible to hide.
+
+Acceptance mapping (STEP 133 as requested)
+------------------------------------------
+- ONE file, master's exact name ........ sec.10 lists Craft_Tailoring.txt;
+                                          filename matches RESEARCH_MASTER 748.
+- Cheapest route 1 -> cap, per line .... sec.3.1-3.8, eight printed totals
+                                          (315/145/110/105/155/201/174/290),
+                                          validated by families R + C.
+- Recipe spell id per craft ............ sec.3 format line; every step prints
+                                          "spell <id>" (R family).
+- Trainer/source creature entry + pos .. sec.2 (L/T/R families; wiki + guide +
+                                          wowhead Taught-by tables).
+- Materials with item ids + origin ..... sec.3.4 + sec.4 (probe, guide-link, crafted,
+                                          or marked unverified).
+- Craft counts / trainer costs /
+  level needed ........................ sec.3 step counts + C equations, sec.5 cost
+                                          partitions (M), sec.6 level rules.
+- What the core must do to craft ....... sec.7 - 60 checks keyed to fresh TC lines
+                                          (commit 209d6d51d1).
+- What a no-client server-side
+  character cannot meet ................ sec.8 - 19+ items (42 checks), consequences
+                                          chained back to sec.2/sec.3/sec.5/sec.6.
+- Verified facts only / unverified
+  where unsourced ..................... unverified indexes in sec.2/sec.5/sec.6/sec.7,
+                                          S policy line, sec.9 mirrors (S/L/M/9);
+                                          21 conflicts in sec.9 (69 checks) + the
+                                          bandage zero-conflict.
+- Audit + mutation test + _AUDIT
+  report (this file) ................... done - 560/560, 20/20 x2.
+
+Replicate commands
+------------------
+  cd "# Ai Research prompts/Companion_Professions"
+  python3 audit_craft_tailoring.py                # 560/560 + hygiene PASS
+  python3 audit_craft_tailoring.py --self-test    # 20/20 (run twice)
