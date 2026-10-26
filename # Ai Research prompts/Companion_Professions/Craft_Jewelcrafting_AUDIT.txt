@@ -1,0 +1,146 @@
+=== Craft_Jewelcrafting.txt AUDIT - PASS (644/644) ===
+Audited file: "# Ai Research prompts/Companion_Professions/Craft_Jewelcrafting.txt"
+Audit script: "# Ai Research prompts/Companion_Professions/audit_craft_jewelcrafting.py"
+Audit date: 2026-10-26 week (same fetch week as the deliverable's sources).
+
+VERDICT
+-------
+PASS: 644/644 checks, 0 fail.
+Hygiene: ASCII clean; 0 lines over 100 columns; no trailing whitespace; no
+tabs; no CRLF; no TODO/FIXME; "unverified" appears as a marker throughout.
+Mutation self-test: 20/20 mutations caught, two consecutive runs
+(SELF-TEST PASS twice; pristine baseline 644/644 both runs).
+Sibling-id guard: no Inscription/Engineering deliverable ids leak (45357,
+264494-264509, 265809/10, 51005, 161789, 111923, 255663, 39847 all
+absent; skill 773 absent; the deliberate cross-file references 201703 and
+201700 in conflict item 6 remain allowed).
+
+CHECK INVENTORY (per family, all green)
+---------------------------------------
+  Structure/headings (S)          34/34
+  Learn map + prospecting (L)     99/99
+  Trainers/coordinates (T)        85/85
+  Route steps 3.1-3.8 (R)       137/137
+  Craft-count totals (C)          27/27
+  Materials, costs, level (M)     66/66
+  TrinityCore anchors (7)         63/63
+  Cannot-do list (8)              15/15
+  Conflict index (9)              50/50
+  Source manifest (10)            35/35
+  Hygiene + sibling guard (H)     33/33
+  TOTAL                          644/644
+
+DERIVED CHECKS (recomputed by the script, not trusted from the file)
+-------------------------------------------------------------------
+1) Eight per-line craft-count totals parsed from the printed addends and
+   re-summed:
+     3.1 Classic = 368 (30+20+50+20+10+10+30+45+8+15+25+5+50+10+20+7+3+10)
+     3.2 Outland = 29 (12+12+5), plus printed ranges and 240-ore
+     3.3 Northrend = 110 (35+7+23+30+15)
+     3.4 Cataclysm = 87 (30+17+15+20+5)
+     3.5 Pandaria = 95 (80+1+14)
+     3.6 Draenor main branch = 103 (3+55+45)
+     3.7 Legion = 75 (25+45+5; 1-35 prints only a range)
+     3.8 BfA = 25 (10+5+10; steps 1-2 print ranges)
+2) 240 Adamantite Ore / 5 per cast = 48 Prospecting casts (stated in 3.2,
+   arithmetic asserted).
+3) Learn block: 9 mains (264532/534/537/539/542/544/546/548 + 265811) and
+   9 wrappers (264533/535/538/541/543/545/547/549 + 265812) each present;
+   sub-skill ids 2517-2524 and base 755 all present; caps 300/75/100/175
+   all present.
+4) Conflict numbering must be exactly 1)..19) consecutive.
+5) Eight route-total strings must exist with the expected values.
+
+MUTATION SELF-TEST (20/20 caught, x2 runs)
+-------------------------------------------
+#  Mutation                                   Result
+1  base id 25229 -> 25230                     caught (L)
+2  gap id "Spell #264540 doesn't exist" ->41  caught (L)
+3  Classic sub-skill 2524 -> 2525             caught (L)
+4  total 368 -> 369                           caught (C x3, derived sum)
+5  total 110 -> 111                           caught (C x3, derived sum)
+6  total 95 -> 96                             caught (C x3, derived sum)
+7  Prospecting effect value 5 -> 4            caught (L)
+8  SkillChance.Prospecting false -> true      caught (7)
+9  SKILL_JEWELCRAFTING 755 -> 756             caught (7)
+10 Gemcutting adopted +5 -> +10               caught (M)
+11 drop section 7 header                     caught (S x2)
+12 Dalaran coord [40.5,35.2] -> [40.5,36.2]   caught (T)
+13 Mass Prospect 300619 -> 300618             caught (R)
+14 quest "Requires level 10" -> 11            caught (M)
+15 Kaevan npc 87548 -> 87549                  caught (T)
+16 non-ASCII "CHEAPESTe ROUTE" injection      caught (S + H x3)
+17 line pushed past 100 columns               caught (S + H x3)
+18 conflict renumber 17) -> 18)               caught (9, numbering)
+19 Kailee's Rose 42588 -> 42589               caught (R)
+20 LOOT_PROSPECTING type 23 -> 24             caught (7)
+Every mutation >= 1 failing check; no no-op or missing-target mutations
+remain after two script-side fixes (mutation 2 initially hit a repeated
+id and mutation 16 used a case the file never prints - both retargeted to
+unique literals).
+
+METHOD NOTES AND FIXES
+----------------------
+1) Preflight of the first complete script: 639/644. Five misses were
+   check-literal errors, not payload errors: (a) "section 9 item 13"
+   probe ran on raw text across a wrap; (b) the Pandaria rare-gem list
+   probe carried wrong ids (file correctly prints Primordial Ruby 76131);
+   (c) level probe looked for "need 25 Legion" where the file prints
+   "World Quests need 25"; (d) conflict-9 probe omitted "npc"; (e)
+   conflict-12 probe read "prints" where the file prints "print". All five
+   fixed in the script; payload unchanged.
+2) Payload review before first run removed three under-sourced numbers I
+   refused to keep: a stray "Volatile Air 52311?" (removed - volatile ids
+   now explicitly unverified), a smelt-ore id 7915 not printed by any
+   fetched source (removed - bar recipe ids now unverified), and Monelite
+   Ore 152512 from recall (removed - id marked unverified). One typo
+   ("SpellEffects cpp") and two line-wrap artifacts fixed at the same
+   time.
+3) Line anchors are from a fresh blobless sparse clone of TrinityCore
+   master at HEAD 209d6d51d1 (fetched this week); the file's section 9
+   item 18 records the drift comparison against the earlier files'
+   e0eec525aa (shared anchors unchanged: EffectMilling 4641, DoCreateItem
+   1383/1469, TakeReagents 5600, UpdateCraftSkill 5410, ATTR9 3863-3865,
+   Milling config 630, trainer chain 97/76/130/155).
+4) Learn-block ids were probed one wowhead page at a time; 264540's first
+   fetch failed at transport level and was re-fetched before being called
+   a gap (it answers "Spell #264540 doesn't exist"). 264536 confirmed
+   "Construct Building" - both recorded as verified misses.
+5) Checks normalize whitespace for prose literals (the wrap-tolerant
+   pattern from the earlier audit scripts) but keep exact matches for
+   ids, coordinates, totals, and file:line anchors.
+
+ACCEPTANCE MAPPING (prompt requirements -> checks)
+--------------------------------------------------
+- One file, master's exact name Craft_Jewelcrafting.txt: file exists; S
+  family validates line-1 header and all ten numbered sections.
+- Cheapest route 1 to cap per skill line: R family (all eight routes,
+  every printed step with counts) + C family (eight totals recomputed).
+- Recipe spell ids per step: R family (every routed spell id).
+- Trainer/source creature entry + position: T family (36 wiki rows with
+  coordinates, 15 wowhead Taught-by entries with npc ids, guide-named
+  sources with npc ids).
+- Materials with item ids + origin: M family (per-line material groups
+  with (Mining)/(prospect)/(vendor)/(AH)/(daily/quest)/(alchemy) tags).
+- Craft counts: C family derived sums.
+- Trainer costs: M family (cost 10 lines, Halaa/Wintergrasp/token/
+  Sightless-eye/25g prices, TC money enforcement).
+- Level needed: M family (quest 40523 level 10, scroll Req 10, Legion 50/
+  25/45, wiki level-5 headers, wowpedia 50/TBC, racials).
+- What the core must do for a craft to succeed: 7 family (63 fresh TC
+  file:line anchors incl. CheckCast prospect gate, EffectProspecting,
+  EffectSkill, trainer chain, craft-skill math, configs).
+- What a no-client server-side character cannot meet: 8 family (8 numbered
+  items with mechanism strings).
+- Verified facts only, "unverified" where unsourced: M + 9 families
+  (unverified markers asserted >= 10; "Also unverified" paragraph in the
+  conflict index; three payload numbers deliberately downgraded to
+  unverified during review).
+- Conflicts numbered: 9 family (1..19 consecutive + per-item strings).
+- Sources with full slugs/URLs + TC manifest: 10 family.
+
+REPLICATE
+---------
+  cd "# Ai Research prompts/Companion_Professions"
+  python3 audit_craft_jewelcrafting.py            # expect CHECKS: 644/644
+  python3 audit_craft_jewelcrafting.py --self-test # expect 20/20 twice

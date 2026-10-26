@@ -1,0 +1,731 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - LEATHERWORKING CRAFTING FOR A SERVER-SIDE COMPANION
+=================================================================================================
+Scope: how a computer-controlled character (no client, no human at the keyboard) levels
+Leatherworking on a TrinityCore-based 8.3.7 server. Everything below was read from a
+source fetched this week (2026-10-26); anything without a readable source says
+"unverified" instead of being guessed. Craft counts are exactly the counts the linked
+guides print (they warn that yellow/green recipes need more crafts - those warnings are
+kept where printed).
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+--------------------------------------------------
+Base spell: Leatherworking 2108 - Training cost: 10, Difficulty: 111, Effect #1 Trade
+Skill, Effect #2 Learn Skill (Leatherworking, skill=165) Value 1; description "Requires
+leather scraps and hides gathered with the Skinning skill." Related lists Other ranks
+(9), Taught by (50), Triggered by (1). The nine other ranks read:
+  - 158752 (skill 1), 195119 (skill 1), 3104 (50), 3811 (125), 10662 (200),
+    32549 (275), 51302 (350), 81199 (425), 110423 (500).
+The 8.0.1 expansion learn block is contiguous: 264577-264593 with three verified
+non-Leatherworking gaps (264576 "Foul Winds", 264587 "Head Slam", and 264594 "Spell
+#264594 doesn't exist" = end of block), plus the Horde pair 265813/265814. Eight
+main/wrapper pairs:
+  - main 264577 "Leatherworking" (Learn Skill Classic Leatherworking skill=2532,
+    cap 300) added 8.0.1, no Training-cost line, no Taught-by table rendered
+    (See also only) - section 9 item 9;
+    wrapper 264578 "Leatherworking" added 8.0.1 (the only wrapper not tagged 8.1.0 -
+    section 9 item 3): Learn Spell 2108 + Learn Spell 264577 + Learn Skill Step (2532)
+    Value 1.
+  - main 264579 "Outland Leatherworking" (skill=2531, cap 75, cost 10, 8.0.1,
+    Taught by 3), wrapper 264580 (8.1.0): Learn Spell 264579 + Step 2531.
+  - main 264581 "Northrend Leatherworking" (skill=2530, cap 75, cost 10, 8.0.1,
+    Taught by 4), wrapper 264582 (8.1.0): Learn 264581 + Step 2530.
+  - main 264583 "Cataclysm Leatherworking" (skill=2529, cap 75, cost 10, 8.0.1,
+    Taught by 13), wrapper 264584 (8.1.0): Learn 264583 + Step 2529.
+  - main 264585 "Pandaria Leatherworking" (skill=2528, cap 75, cost 10, 8.0.1,
+    Taught by 1), wrapper 264586 (8.1.0): Learn 264585 + Step 2528.
+  - main 264588 "Draenor Leatherworking" (skill=2527, cap 100) added 8.0.1, no
+    Training-cost line, no Taught-by (learned from the scroll, see below),
+    wrapper 264589 (8.1.0): Learn 264588 + Step 2527 - Triggered by (1) spell 169925.
+  - main 264590 "Legion Leatherworking" (skill=2526, cap 100) added 8.0.1, no
+    Training-cost line, no Taught-by table, wrapper 264591 (8.1.0): Learn 264590 +
+    Step 2526 - Reward from (1) quest 39958 "Skin Deep".
+  - main 264592 "Kul Tiran Leatherworking" (skill=2525, cap 175, cost 10, added
+    8.0.1, "Alliance Specific Spell", Taught by 2), wrapper 264593 (8.1.0):
+    Learn 264592 + Step 2525.
+  - main 265813 "Zandalari Leatherworking" (cap 175, cost 10, added 8.1.0,
+    "Horde Specific Spell", Taught by 2): its Effect says Learn Skill (Kul Tiran
+    Leatherworking skill=2525) Value 1 - the Horde spell carries the Alliance label
+    and BOTH factions share sub-skill 2525 (section 9 item 4);
+    wrapper 265814 (8.1.0): Learn 265813 + Step 2525 Value 1.
+Sub-skill ids and caps (all from the main spells' own text): 2532 Classic 1-300,
+2531 Outland 1-75, 2530 Northrend 1-75, 2529 Cataclysm 1-75, 2528 Pandaria 1-75,
+2527 Draenor 1-100, 2526 Legion 1-100, 2525 BfA (Kul Tiran/Zandalari) 1-175.
+WoD scroll path: item 115358 "Draenor Leatherworking" (iLvl 15, Binds/Unique,
+Consumable, added 6.0.1, Cost: 95-100 - currency unit not rendered: unverified), Use:
+"Teaches you Draenor Leatherworking and a number of recipes" -> spell 169925,
+Requires Level 10 AND Requires Leatherworking (1). Teaches (8): Secrets of Draenor
+Leatherworking 176089, Journeying Robes 171261, Traveling Tunic 171264, Traveling Helm
+171263, Traveling Leggings 171265, Journeying Helm 171260, Journeying Slacks 171262,
+Burnished Leather 171391. Spell 169925 (6.0.1, Item Effect) -> triggers wrapper 264589
+-> learns main 264588 + skill 2527. Scroll sources (guide): Ashran pattern vendors
+Leara Moonsilk npc 87057 (Stormshield) / Garm Gladestride npc 87549 (Warspear), the
+garrison Tannery (after "Your First Leatherworking Work Order"), or the quest chain
+(Alliance: Dirty Note item 114877 from Karnoth npc 75043 during Shadows Awaken quest
+34019; Horde: Tattered Frostwolf Shroud item 116173 from Dorogg the Ruthless npc
+74254 during The Butcher of Bladespire quest 33410 - both quest ids marked level
+[10-40] on the guide).
+Legion path: trainer Namha Moonwater npc 93523 (Dalaran) -> quest 39958 "Skin Deep"
+(Level 10, Requires level 10) -> guide: "The quest reward is Legion Leatherworker
+201705"; wowhead additionally lists wrapper 264591 as "Reward from" that quest
+(section 9 item 15). Spell 201705 (added 7.0.1): Effect #1 Learn Spell 195119
+(the Legion rank of Leatherworking) + Effect #2 Learn Skill Step (165) Value 10.
+The guide then gates everything behind 42 Leatherworking profession quests (guide's
+count), incl. the last chain unlocked at level 45 after Suramar quest "Masquerade"
+42079, then "Demon Flesh" 40211 rewarding Recipe: Gravenscale Armbands item 140644 and
+Recipe: Dreadleather Bindings item 140636; Uniting the Isles 43341 (Archmage Khadgar
+npc 90417, friendly with every Legion faction) is required for World Quests, which
+need Leatherworking 25.
+Base-rank note: the wiki training table still shows the classic four titles
+(Apprentice/Journeyman/Expert/Artisan at 1-75/75-150/150-225/225-300) and the BfA
+row shows "1 - 150" while every 8.3.7 source says the BfA cap is 175 (section 9
+item 1).
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki Leatherworking_trainers (52 rows, page includes the BfA pair and ends
+at Kul Tiras/Zandalar - unlike the Jewelcrafting trainers page which stopped at
+Pandaria). Coordinates are the wiki's own "[x, y]" strings:
+The Maelstrom (Cataclysm):
+  - KTC Train-a-Tron Deluxe, Town-In-A-Box/Sky Falls/Gallywix Docks, The Lost Isles
+    (three locations, no single coordinate), "Teaches only up to Journeyman level",
+    goblin-only.
+The Wandering Isle (Mists of Pandaria):
+  - Whittler Dewei, The Singing Pools (no coordinate); Elder Oakpaw, Mandori Village
+    (no coordinate) - both "Teaches only Apprentice", pandaren-only.
+Eastern Kingdoms:
+  - Wembil Taskwidget, Kharanos, Dun Morogh [53.7, 52] (Apprentice)
+  - Lien Farner, Goldshire, Elwynn Forest [42, 67] (Apprentice)
+  - Adele Fielder, Goldshire, Elwynn Forest [46.4, 62.1]
+  - Jack "All-Trades" Derrington, Duskhaven/Stormglen Village/Keel Harbor, Gilneas
+    starting zone (no coordinate), Apprentice, worgen-only
+  - Drakk Stonehand, Wildhammer Keep, Aerie Peak, The Hinterlands [13, 43]
+  - Fimble Finespindle, Finespindle's Leather Goods, The Great Forge, Ironforge [40, 33]
+  - Simon Tanner, Protective Hide, Old Town, Stormwind [71, 62]
+  - Therisa Sallow, Calston Estate, Tirisfal Glades [44.5, 53] (Apprentice)
+  - Nedric Sallow, Brill, Tirisfal Glades [61, 51] (Apprentice)
+  - Shelene Rhobart, southeast of Brill, Tirisfal Glades [67, 60]
+  - Saren, Falconwing Square, Eversong Woods [49, 47] (Apprentice, BC)
+  - Sathein, west of the Silvermoon entrance, Eversong Woods [54, 51] (BC)
+  - Brumn Winterhoof, west of Boulder'gor, Arathi Highlands [28, 44]
+  - Brawn, Grom'gol Base Camp, Northern Stranglethorn [37.8, 50.4]
+  - Se'Jib, south of Mizjah Ruins, Northern Stranglethorn [45.2, 58.6]
+  - Lynalis, Walk of Elders, Silvermoon City [85, 81] (BC)
+  - Arthur Moore, Rogues' Quarter, Undercity [74, 56]
+Kalimdor:
+  - Iranis Shadebloom, Dolanaar, Teldrassil [56, 52.2] (Apprentice)
+  - Nadyia Maneweaver, northwest of Ban'ethil Hollow, Teldrassil [41, 49]
+  - Valn, Azure Watch, Azuremyst Isle [48.5, 52.2] (Apprentice, BC)
+  - Moordo, Stillpine Hold, Azuremyst Isle [44.8, 23.8] (BC)
+  - Aayndia Floralwind, Astranaar, Ashenvale [35, 52]
+  - Eustace Tanwell, Theramore, Dustwallow Marsh [66.4, 45.2]
+  - Telonis, Craftsmen's Terrace, Darnassus [64, 21]
+  - Akham, Leatherworking & Skinning, Trader's Tier, The Exodar [67, 74] (BC)
+  - KTC Train-a-Tron Deluxe, Bilgewater Harbor, Azshara [57, 50.5] (Journeyman)
+  - Runda, Razor Hill, Durotar [53, 42] (Apprentice)
+  - Lalum Darkmane, Bloodhoof Village, Mulgore [46.5, 57.5] (Apprentice)
+  - Chaw Stronghide, Bloodhoof Village, Mulgore [47, 60]
+  - Narv Hidecrafter, Ghost Walker Post, Desolace [55, 56]
+  - Hahrana Ironhide, Leatherworking & Skinning, Camp Mojache, Feralas [74, 43]
+  - Karolek, Kodohide Leatherworkers, the Drag, Orgrimmar [62, 45]
+  - Una, Middle rise, Thunder Bluff [43, 44]
+Outland:
+  - Brumman, Honor Hold, Hellfire Peninsula [56, 63]
+  - Barim Spilthoof, Thrallmar, Hellfire Peninsula [56, 37]
+  - Grikka, Mok'Nathal Village, Blade's Edge Mountains [73, 62]
+  - Darmari, Lower City, Shattrath City [67, 68]
+  - Daenril, Scryer's Tier, Shattrath City [41.8, 63.8] - "Not available to members
+    of the Aldor"
+  - Korim, Aldor Rise, Shattrath City [37.6, 28.6] - "Not available to members of
+    the Scryers"
+Northrend:
+  - Rosemary Bovard, Valiance Keep, Borean Tundra [57, 70]
+  - Bernadette Dexter, Valgarde, Howling Fjord [60, 63]
+  - Gunter Hansen, Vengeance Landing, Howling Fjord [78, 30]
+  - Awan Iceborn, Taunka'le Village, Borean Tundra [77, 38]
+  - Andellion + Diane Cannings + Manfred Staller + Namha Moonwater (one wiki row),
+    Legendary Leathers, Magus Commerce Exchange, Dalaran [36, 29]
+  - Kul'de, Argent Tournament Grounds, Icecrown [71, 20]
+Pandaria:
+  - Clean Pelt, The Grummle Bazaar, Kun-Lai Summit [64.6, 60.9]
+  - Master Cannon, Peak of Serenity, Kun-Lai Summit [50.6, 42.0]
+Kul Tiras / Zandalar (Battle for Azeroth):
+  - Cassandra Brennor, Tradewinds Market, Boralus (no coordinate)
+  - Xanjo, Terrace of Crafters, Dazar'alor (no coordinate)
+Wiki patch rows (historic): 4.0.3a "specialization recipes from trainers removed, and
+all trainer ranks equalized"; 2.3.0 "Leatherworking profession trainers changed to
+train up to Artisan level (skill level 300)".
+Wowhead "Taught by" tables per main (creature entries with levels/locations):
+  - 264579 Outland: Brumman npc 18771 (Hellfire, level 30, AH), Darmari npc 19187
+    (Shattrath, level 30, AH), and npc 33612 "Leatherworking" (Shattrath, level 30,
+    Uncategorized) - section 9 item 7.
+  - 264581 Northrend: Andellion npc 29508, Diane Cannings npc 28700, Manfred Staller
+    npc 29507, Namha Moonwater npc 29509 - all Dalaran (AH).
+  - 264583 Cataclysm (13): Aayndia Floralwind 3967, Adele Fielder 1632, Chaw
+    Stronghide 3069, Drakk Stonehand 11097 (A), Eustace Tanwell 53436 (A), Fimble
+    Finespindle 5127 (A), Hahrana Ironhide 11098 (H, 30), Karolek 3365 (H, 14-90),
+    Lynalis 16688, Shelene Rhobart 3549, Simon Tanner 5564 (A, 9-90), Telonis
+    npc 151287 (Stormwind, level 60), Telonis npc 4212 (Darnassus, level 80) -
+    section 9 item 8.
+  - 264585 Pandaria: Clean Pelt npc 65121 (Kun-Lai, level 20-35).
+  - 264592 Kul Tiran (2): Cassandra Brennor npc 136063 (Boralus, level 60, A),
+    Instructor Alikana npc 153817 (Nazjatar, level 50, A).
+  - 265813 Zandalari (2): Jada npc 154321 (Nazjatar, level 50, H), Xanjo npc 122698
+    (Dazar'alor, level 10-60, H).
+Guide-named sources (wow-professions, ids as printed on the guides):
+  - Outland: Darmari npc 19187 (learn Outland Leatherworking, Shattrath); pattern
+    vendors Almaador npc 21432 (Sha'tar Honored) and Alurmi npc 21643 (inside
+    Caverns of Time, Keepers of Time Honored).
+  - Northrend: Diane Cannings npc 28700 (Dalaran Northrend trainer; guide warns the
+    same-named NPC in Legion Dalaran will NOT teach Northrend Leatherworking -
+    section 9 item 6); Braeg Stoutbeard npc 32515 (in front of the trainer building,
+    sells patterns 44524/44525/44551 and Arctic Fur).
+  - Cataclysm: Tamar npc 3366 (Horde, Orgrimmar) / Jillian Tanner npc 5565
+    (Alliance, Stormwind), labeled "Leatherworking Supplies", sell Pristine Hide.
+  - Pandaria: Clean Pelt npc 65121; pattern vendors Krogo Darkhide npc 64054
+    (Horde, Shrine of Two Moons) / Tanner Pang npc 64094 (Alliance, Shrine of
+    Seven Stars).
+  - Draenor: Leara Moonsilk npc 87057 / Garm Gladestride npc 87549 (Ashran pattern
+    vendors); garrison leather traders Jake the Fox npc 91024 (Alliance) / Zeezu
+    npc 91033 (Horde) - random daily garrison spawn (section 9 item 16).
+  - Legion: Namha Moonwater npc 93523 (Dalaran, gives quest 39958); Stalriss
+    Dawnrunner npc 98969 (Suramar, rank-1 recipe seller after the quests); Ranid
+    Glowergold npc 93521 (Dalaran, rank 2); Strap Bucklebolt npc 107760 (Dalaran
+    Sewers, rank 2/3 for Sightless Eye); rank-3 sources: Shade of Xavius npc 101403
+    (Darkheart Thicket), Dargrul npc 107704 (Neltharion's Lair), Advisor Vandros
+    npc 98208 (The Arcway), Advisor Melandrus npc 104218 (Court of Stars).
+  - BfA: Xanjo npc 122698 / Cassandra Brennor npc 136063 (faction trainers);
+    Instructor Alikana npc 153817 / Jada npc 154321 (Nazjatar, quest 150-175);
+    Aman de Child npc 141609 (Amber Tanning Oil, in front of the Horde trainer);
+    Dazzerian npc 154652 (H) / Crafticus Mindbender npc 154653 (A) at Nazjatar
+    sell the rank 2/3 Dredged-leather recipes (need Leatherworking 160 / 170);
+    Khadgar npc 90417 (Uniting the Isles 43341).
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+Format:  - A - B: N x Craft Name spell id (materials the guide prints). Counts are
+the guide's printed counts; notes are the guide's own color/luck warnings.
+
+3.1 Classic 1-300 (guide: vanilla-leatherworking-leveling; trainer: "any trainer in
+the main cities of old Azeroth"; threads/dyes/salt from Leatherworking Supply vendors)
+  - 1 - 20: 19 x Light Leather spell 2881 (57 Ruined Leather Scraps; 3 scraps per craft)
+  - 20 - 30: 10 x Light Armor Kit spell 2152 (10 Light Leather)
+  - 30 - 50: 20 x Handstitched Leather Cloak spell 9058 (40 Light Leather, 20 Coarse Thread)
+  - 50 - 55: 5 x Handstitched Leather Belt spell 3753 (30 Light Leather, 5 Coarse Thread)
+  - 55 - 85: 30 x Embossed Leather Gloves spell 3756 (90 Light Leather, 60 Coarse Thread)
+  - 85 - 100: 15 x Fine Leather Belt spell 3763 (90 Light Leather, 30 Coarse Thread;
+    guide: keep these, they are used later)
+  - 100 - 115: 15 x Cured Medium Hide spell 3817 (15 Medium Hide, 15 Salt; keep them)
+  - 115 - 130: 16 x Dark Leather Boots spell 2167 (64 Medium Leather, 32 Fine Thread,
+    16 Gray Dye)
+  - 130 - 145: 15 x Dark Leather Belt spell 3766 (15 Fine Leather Belt, 15 Cured
+    Medium Hide, 30 Fine Thread, 15 Gray Dye - guide prints "Gray Die")
+  - 145 - 150: 5 x Hillman's Leather Gloves spell 3764 (70 Medium Leather, 20 Fine Thread)
+  - 150 - 155: 5 x Heavy Leather spell 20649 (25 Medium Leather)
+  - 155 - 165: 20 x Cured Heavy Hide spell 3818 (20 Heavy Hide, 60 Salt; keep them)
+  - 165 - 180: 20 x Heavy Armor Kit spell 3780 (100 Heavy Leather, 20 Fine Thread;
+    yellow for the last 10 points)
+  - 180 - 190: 10 x Barbaric Shoulders spell 7151 (80 Heavy Leather, 10 Cured Heavy
+    Hide, 20 Fine Thread)
+  - 190 - 200: 10 x Guardian Gloves spell 7156 (40 Heavy Leather, 10 Cured Heavy
+    Hide, 10 Silken Thread)
+  - 200 - 205: 5 x Thick Armor Kit spell 10487 (25 Thick Leather, 5 Silken Thread)
+  - 205 - 235: 35 x Nightscape Headband spell 10507 (175 Thick Leather, 70 Silken Thread)
+  - 235 - 250: 15 x Nightscape Pants spell 10548 (210 Thick Leather, 60 Silken Thread)
+  - 250 - 265: 18 x Rugged Armor Kit spell 19058 (90 Rugged Leather)
+  - 265 - 290: 25 x Wicked Leather Bracers spell 19052 (200 Rugged Leather, 25 Black
+    Dye, 25 Rune Thread; yellow for the last few points)
+  - 290 - 300: 10 x Wicked Leather Headband spell 19071 (120 Rugged Leather, 10 Black
+    Dye, 10 Rune Thread)
+Total exact-count casts printed by the guide = 323 (19 + 10 + 20 + 5 + 30 + 15 + 15
++ 16 + 15 + 5 + 5 + 20 + 20 + 10 + 10 + 5 + 35 + 15 + 18 + 25 + 10; every step is a
+printed count; yellow warnings noted inline).
+
+3.2 Outland 1-75 (guide: outland-leatherworking-leveling; learn from Darmari npc 19187)
+  - 1 - 5: 5 x Comfortable Insoles spell 32482 (10 Knothide Leather; "Might need to
+    make more than 5"; conversion Knothide Leather Scraps 25649 -> Knothide Leather
+    is spell 32454 from the profession book)
+  - 5 - 25: 25 x Knothide Armor Kit item 25650 (100 Knothide Leather; yellow; guide
+    links the item, craft spell id unverified)
+  - 25 - 35: 246 x Heavy Knothide Leather spell 32455 (1230 Knothide Leather; guide:
+    stop early and buy them if they are cheaper)
+  - 35 - 50: 20 x Thick Draenic Vest spell 32473 (60 Heavy Knothide Leather, 60 Rune
+    Thread 14341; yellow; alt: Scaled Draenic Boots item 25659 with Fel Scales)
+  - 50 - 65: 30 x Heavy Knothide Armor Kit item 34330 (90 Heavy Knothide Leather;
+    green for the last 5 points; craft spell id unverified)
+  - 65 - 70: 8 x Drums of Battle spell 35543 (48 Heavy Knothide Leather, 32 Thick
+    Clefthoof Leather; yellow; recipe from Almaador 21432, Sha'tar Honored)
+  - 70 - 75: 8 x Drums of Panic spell 35538 (48 Heavy Knothide Leather, 32 Fel Hide;
+    green for the last 3 points, guide's observed range 7-15 crafts; recipe from
+    Alurmi 21643 inside Caverns of Time, Keepers of Time Honored)
+Total exact-count casts printed by the guide = 342 (5 + 25 + 246 + 20 + 30 + 8 + 8;
+the 1-5, 5-25, 35-50, 50-65, 65-70 and 70-75 steps carry yellow/green warnings and
+the 70-75 step prints an observed range 7-15).
+
+3.3 Northrend 1-75 (guide: northrend-leatherworking-leveling; learn from Diane
+Cannings npc 28700 at Dalaran (Northrend))
+  - 1 - 5: 5 x Borean Armor Kit spell 50962 (20 Borean Leather 33568; scraps 33567 ->
+    leather is spell 64661 for skinners - "free 5 skill points")
+  - 5 - 10: 5 x Arctic Boots spell 50948 (40 Borean Leather)
+  - 10 - 15: 5 x Arctic Gloves spell 50947 (50 Borean Leather)
+  - 15 - 30: 300 x Heavy Borean Leather spell 50936 (1800 Borean Leather; alt crafts
+    Arctic Belt 50949 / Arctic Wristguards 51571 if bought from the Auction House)
+  - 30 - 35: 6 x Nerubian Bracers spell 60622 (72 Borean Leather; "might have to
+    make more than 6")
+  - 35 - 45: 13 x Dark Frostscale Leggings spell 60601 (52 Heavy Borean Leather,
+    65 Crystallized Water 37705) OR 13 x Dark Iceborne Leggings spell 60611 (52
+    Heavy Borean Leather, 65 Crystallized Shadow 37703) - yellow; same count either way
+  - 45 - 50: 5 x Overcast Bracers item 43264 (40 Heavy Borean Leather, 5 Eternal
+    Water 35622; Pattern 44524 from Braeg Stoutbeard 32515; craft spell unverified)
+  - 50 - 60: 13 x Overcast Handwraps spell 60721 (130 Heavy Borean Leather, 13
+    Eternal Water; Pattern 44525 from Braeg 32515; yellow)
+  - 60 - 65: 5 x Frosthide Leg Armor spell 50965 (10 Arctic Fur 44128, 10 Nerubian
+    Chitin 38558, 5 Frozen Orb 43102) OR 5 x Icescale Leg Armor spell 50967 (10
+    Arctic Fur, 10 Icy Dragonscale 38557, 5 Frozen Orb) - "might need to make more
+    of these than 5"; the guide's 15-Frozen-Orb shopping list matches ONE of the two
+    (section 9 item 12)
+  - 65 - 75: 10 x Trollwoven Girdle spell 60759 (100 Heavy Borean Leather, 50
+    Eternal Shadow 35627, 50 Eternal Fire 36860, 10 Frozen Orb; Pattern 44551 from
+    Braeg for 2 Arctic Fur; alts: Revenant's Treads 60757 / Windripper Boots 62176)
+Total exact-count casts printed by the guide = 367 (5 + 5 + 5 + 300 + 6 + 13 + 5
++ 13 + 5 + 10; 35-45 and 60-65 are counted once as printed with choice alternatives
+that keep the same count).
+
+3.4 Cataclysm 1-75 (guide: cataclysm-leatherworking-leveling; "visit any trainer in
+the main cities of old Azeroth")
+  - 1 - 5: 6 x Savage Armor Kit spell 78379 (30 Savage Leather 52976)
+  - 5 - 10: 5 x Tsunami Boots spell 78410 (35 Savage Leather, 5 Eternium Thread -
+    vendor near trainer, id unverified)
+  - 10 - 20: 10 x Savage Cloak spell 78380 (70 Savage Leather, 10 Eternium Thread)
+  - 20 - 25: 5 x Darkbrand Boots spell 78407 (50 Savage Leather, 5 Eternium Thread)
+  - 25 - 35: 10 x Darkbrand Shoulders spell 78411 (120 Savage Leather, 10 Eternium Thread)
+  - 35 - 40: 240 x Heavy Savage Leather spell 78436 (1200 Savage Leather)
+  - 40 - 45: 5 x Darkbrand Chestguard spell 78428 (60 Savage Leather, 5 Eternium
+    Thread; "might need to make more than 5")
+  - 45 - 57: 12 x Darkbrand Helm spell 78424 (60 Heavy Savage Leather; yellow for
+    the last 2 points)
+  - 57 - 60: 3 x Vicious Hide Cloak spell 99535 (3 Pristine Hide 52980, 12 Volatile
+    Fire 52325) OR 3 x Vicious Fur Cloak spell 99536 (3 Pristine Hide, 12 Volatile
+    Earth - id unverified; shopping list has no Volatile Earth so the fire cloak is
+    the listed path); Pristine Hide bought from Tamar 3366 (H) / Jillian Tanner 5565
+    (A) for 10 Heavy Savage Leather 56516
+  - 60 - 65: 5 x Vicious Leather Bracers spell 78446 (50 Heavy Savage Leather, 50
+    Volatile Fire; Pattern 67046 from the same supply vendors)
+  - 65 - 70: 5 x Vicious Leather Boots spell 78454 (50 Heavy Savage Leather, 50
+    Volatile Fire; pattern from the same vendors)
+  - 70 - 75: 5 x Vicious Leather Helm spell 78469 (50 Heavy Savage Leather, 50
+    Volatile Water 52326; pattern from the same vendors)
+Total exact-count casts printed by the guide = 311 (6 + 5 + 10 + 5 + 10 + 240 + 5
++ 12 + 3 + 5 + 5 + 5; yellow warning on 40-45 and 45-57).
+
+3.5 Pandaria 1-75 (guide: pandaria-leatherworking-leveling; learn from Clean Pelt
+npc 65121, Grummle Bazaar, Kun-Lai Summit [64.6, 60.9])
+  - 1 - 11: 10 x Sha Armor Kit spell 124628 (40 Mist-Touched Leather 72120; alt
+    between 1-10: conversion Sha-Touched Leather 72162 -> Mist-Touched spell 124627)
+  - 11 - 30: 22 x Misthide Bracers spell 124576 (110 Mist-Touched Leather; "might
+    need to make a few more")
+  - 30 - 36: 6 x Misthide Gloves spell 124574 (48 Mist-Touched Leather)
+  - 36 - 51: 15 x Misthide Chestguard spell 124573 (150 Mist-Touched Leather)
+  - 51 - 75: 24 x Contender's Leather Bracers spell 124608 (288 Mist-Touched
+    Leather; Pattern 86250 from Krogo Darkhide 64054 (H) / Tanner Pang 64094 (A)
+    for 1 Spirit of Harmony 76061 = 10 Motes of Harmony 89112)
+Total exact-count casts printed by the guide = 77 (10 + 22 + 6 + 15 + 24).
+
+3.6 Draenor 1-100 (guide: draenor-leatherworking-leveling; learn the item 115358
+scroll first - see section 1)
+  - 1 - 55: 55 x Drums of Fury spell 178208 (275 Raw Beast Hide 110609; recipe item
+    120258 bought from Leara 87057 / Garm 87549 or the Tannery; yellow for the last
+    few points; requires one Secrets of Draenor Leatherworking spell 176089 crafted
+    first - 1-day cooldown)
+  - 55 - 100: 45 x Leather Refurbishing Kit spell 171266 (1350 Raw Beast Hide;
+    recipe item 116325 from the same vendors; requires a second Secrets 176089 the
+    next day) - main route
+  - ALTERNATIVE 55 - 100 (guide-printed): 45 x Spiritual Leathercraft spell 182121
+    (45 Primal Spirit 120945 + 450 Raw Beast Hide; recipe item 122715 from the
+    random garrison leather trader Jake the Fox 91024 / Zeezu 91033 for 60 Raw
+    Beast Hide; Primal Spirit sold by the trader for 5 Raw Beast Hide each = 225
+    extra Raw Beast Hide; guide: total 735 instead of 1350 for this leg)
+Total crafts printed by the guide = 100 (55 + 45; the alternative leg replaces the
+45-craft step with the same count).
+
+3.7 Legion 1-100 (guide: legion-leatherworking-leveling; Namha Moonwater 93523 ->
+quest 39958 -> 42 profession quests -> Uniting the Isles)
+  - 1 - 75: 90 x Rank 3 Warhide Bindings spell 194711 (810 Stonehide Leather - id
+    unverified; guide: "this is just an aproximate number", green for the last 5
+    points, and "you can also make it up to 80 if you are feeling lucky"; alt:
+    90 x Rank 3 Battlebound Grips 194754 with 1080 Stormscale - id unverified)
+  - 75 - 100: 25 x Rank 3 Gravenscale Girdle spell 194768 (300 Stormscale, 50 Blood
+    of Sargeras 124124) + 25 x Rank 3 Dreadleather Belt spell 194728 (300 Stonehide
+    Leather, 50 Blood of Sargeras); rank 2/3 sold by Strap Bucklebolt 107760 for
+    250/500 Sightless Eye currency 1149 (guide: 750 in about 25 minutes)
+  - alternative (no Blood of Sargeras): 25 x Dreadleather Bindings 194727 (2750
+    Stonehide), 25 x Gravenscale Armbands 194767 (2750 Stormscale), 25 x
+    Dreadleather Gloves 194732 (2875 Stonehide), 25 x Gravenscale Grips 194772
+    (2750 Stormscale) - same 25-craft counts
+Total crafts printed by the guide = 140 (90 + 25 + 25; the 1-75 count is explicitly
+approximate and 75-100 alternatives print the same counts).
+
+3.8 BfA 1-175 (guide: zandalari-kul-tiran-bfa-leatherworking-leveling; Xanjo
+(Dazar'alor) / Cassandra Brennor (Boralus); sub-skill 2525 cap 175)
+  - 1 - 25: 25 x Shimmerscale Armguards spell 256757 (150 Shimmerscale 153050, 100
+    Blood-Stained Bone 154164) OR 25 x Coarse Leather Armguards spell 256756 (150
+    Coarse Leather 152541, 100 Blood-Stained Bone; "might need to make a few more")
+  - 25 - 50: 25 x Shimmerscale Pauldrons spell 256759 (200 Shimmerscale, 150 Blood-
+    Stained Bone) OR 25 x Coarse Leather Pauldrons spell 256754 (200 Coarse Leather,
+    150 Blood-Stained Bone)
+  - 50 - 70: 50 x Hardened Tempest Hide spell 272278 (50 Tempest Hide 154722, 50
+    Amber Tanning Oil 160059 - Horde buys from Aman de Child 141609, Alliance from
+    the trainer; green for the last 5 points)
+  - 70 - 85: 15 x Coarse Leather Barding spell 256790 (375 Coarse Leather; alt:
+    Shimmerscale Diving Helmet 256793 would be cheaper but less useful)
+  - 85 - 120: 45 x Rank 2 Coarse Leather Barding spell 286019 (900 Coarse Leather;
+    learn rank 2 from the trainer; Rank 3 recipe item 166313 is a random drop from
+    humanoids and would carry the step to 125 for fewer leathers)
+  - 120 - 150: 30 x Drums of the Maelstrom spell 256791 (750 Coarse Leather, 300
+    Blood-Stained Bone)
+  - 150 - 175: 40 x Dredged Leather Bladder spell 301405 (400 Dredged Leather
+    168649, 200 Nylon Thread - id unverified); learn the recipe at Nazjatar from
+    Jada 154321 (H) / Instructor Alikana 153817 (A) after the first few intro
+    quests; alt: 6 x Notorious Combatant's Mail Armguards 294823 with 6 Mark of
+    Honor 137642 + Expulsom 152668 (rank 2/3 from Dazzerian 154652 (H) /
+    Crafticus Mindbender 154653 (A), need Leatherworking 160 / 170)
+Total exact-count casts printed by the guide = 230 (25 + 25 + 50 + 15 + 45 + 30 + 40;
+the 1-25 and 25-50 steps are faction-material choices with equal counts).
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Per-line shopping lists exactly as the guides print them, with ids the sources print
+and explicit "unverified" for ids they do not:
+  - Classic: 57 Ruined Leather Scraps (id unverified - the guide prints no link),
+    15 Medium Hide, 260 Light Leather, 160 Medium Leather, 20 Heavy Hide, 220 Heavy
+    Leather, 410 Thick Leather, 410 Rugged Leather (all leather ids unverified in
+    these sources; origin (Skinning)/AH), 20 Salt, Coarse/Fine/Silken Thread, Gray/
+    Black Dye (ids unverified; vendor - "threads, dyes, and salt from Leatherworking
+    Supply vendors near your trainer"), Rune Thread 14341 (vendor, same shops).
+    Cross-check from the printed crafts: Light 10+40+30+90+90 = 260 (exact),
+    Medium 64+70+25 = 159 vs list 160, Heavy 100+80+40 = 220 (exact), Thick
+    25+175+210 = 410 (exact), Rugged 90+200+120 = 410 (exact).
+  - Outland: 1340 Knothide Leather (id unverified; the guide prints it unlinked),
+    32 Thick Clefthoof Leather, 32 Fel Hide (ids unverified); Knothide Leather Scraps
+    25649 (Skinning) + conversion spell 32454; Heavy Knothide made from the printed
+    1230 (crafts 246) - consumed 60+90+48+48 = 246 exactly; Fel Scales/Scaled Draenic
+    Boots 25659 alt (Fel Scales origin (Skinning) per the guide's Fel Scale
+    farming link);
+    Rune Thread 14341; patterns from Almaador 21432 (Sha'tar Honored) and Alurmi
+    21643 (Keepers of Time Honored) - reputation, no gold printed.
+  - Northrend: 1982 Borean Leather 33568 (Skinning/AH), 65 Crystallized Water 37705
+    OR 65 Crystallized Shadow 37703, 18 Eternal Water 35622, 15 Frozen Orb 43102
+    (origin not printed: unverified), 10 Nerubian Chitin 38558 OR 10 Icy Dragonscale
+    38557, 50 Eternal Shadow 35627, 50 Eternal Fire 36860, 12 Arctic Fur 44128
+    (also bought from Braeg 32515 for 10 Heavy Borean Leather); Borean Leather Scraps
+    33567 -> leather conversion spell 64661; patterns 44524/44525/44551 (vendors).
+    Cross-check: direct crafts 20+40+50+1800+72 = 1982 exact; the heavy-leather leg
+    consumes 52+40+130+100 = 322 while the 300-craft step yields 300 (section 9
+    item 13).
+  - Cataclysm: 1565 Savage Leather 52976 (Skinning), 112 Volatile Fire 52325 (AH),
+    50 Volatile Water 52326 (AH), 3 Pristine Hide 52980 (vendor Tamar 3366 /
+    Jillian Tanner 5565 for 10 Heavy Savage Leather 56516 each, or other city
+    "Leatherworking Supplies" vendors); Eternium Thread (vendor, id unverified);
+    Volatile Earth (choice path, id unverified); patterns 67046 etc. (same vendors);
+    wiki notes Heavy Savage Leather is also sold by supply vendors (vendor
+    conversion). Cross-check: 30+35+70+50+120+1200+60 = 1565 exact, Volatile Fire
+    12+50+50 = 112 exact, Water 50 exact, Pristine 3 exact.
+  - Pandaria: 640 Mist-Touched Leather 72120 (Skinning/AH), 1 Spirit of Harmony
+    76061 (= 10 Motes of Harmony 89112, every Pandaria mob / AH); Sha-Touched
+    Leather 72162 + conversion spell 124627; Pattern 86250 (Krogo 64054 / Tanner Pang
+    64094). Cross-check: printed crafts consume 40+110+48+150+288 = 636 vs list 640
+    (guide labels the list approximate - section 9 item 14).
+  - Draenor: Raw Beast Hide 110609 (skin/AH), Primal Spirit 120945 (trader for 5
+    Raw Beast Hide each or banked), Secrets of Draenor Leatherworking spell 176089
+    (crafted, 1-day cooldown; its own reagents unverified), recipes 120258/116325/
+    122715 (vendors above), Tannery work orders (wiki: 20 Raw Beast Hide -> 4
+    Burnished Leather; daily Burnished conversion 20 Raw Beast Hide + 10 Gorgrond
+    Flytrap -> at least 8, id of Gorgrond Flytrap unverified here).
+  - Legion: Stonehide Leather (id unverified), Stormscale (id unverified) - both
+    only linked to farming guides, Blood of Sargeras 124124 (binds when picked up,
+    "can't buy it but most players have a lot laying around"), Sightless Eye currency
+    1149 (Strap Bucklebolt 107760: 250 rank 2 / 500 rank 3), rank-1 recipes from
+    Stalriss 98969 after quests, rank 2 from Ranid Glowergold 93521, rank-3 recipe
+    items 137924 (world drop), 137892 (Withered Army Training 43943 chest),
+    137897 (Vandros 98208), 137929 (Melandrus 104218).
+  - BfA: 2025 Coarse Leather 152541, 350 Shimmerscale 153050 (or +350 Coarse),
+    50 Tempest Hide 154722, 550 Blood-Stained Bone 154164, 400 Dredged Leather
+    168649 (all (Skinning)/AH), 200 Nylon Thread (id unverified - section 10 probe
+    miss), Amber Tanning Oil 160059 (Aman de Child 141609 / trainer), Mark of Honor
+    137642 (PvP), Expulsom 152668 (Scrapper); overview extras: Calcified Bone
+    154165, Mistscale 153051, Hardened Tempest Hide 152542 (Mallet material),
+    Spirit of the Bested 168138, Long Regal Sinew 168139. Cross-check: Coarse
+    375+900+750 = 2025 exact, Shimmerscale 150+200 = 350 exact, Blood-Stained
+    100+150+300 = 550 exact, Tempest 50 exact, Dredged 400 exact (the shopping list
+    corresponds to the Shimmerscale-arms + Shimmerscale-pauldrons choices).
+
+5. TRAINER COSTS
+----------------
+- Base spell 2108: "Training cost: 10"; mains with the same line: 264579, 264581,
+  264583, 264585, 264592, 265813. Mains WITHOUT a training-cost line on their
+  wowhead page: 264577 (Classic), 264588 (Draenor), 264590 (Legion); no wrapper
+  shows a cost. Currency unit is not rendered on the pages - unverified.
+- TC enforcement (section 7): trainer money = MoneyCost x reputation discount,
+  FailReason::NotEnoughMoney, ModifyMoney deduction.
+- Guide prices (exact strings from the sources): Drums of Battle pattern - Sha'tar
+  Honored (no gold printed); Drums of Panic pattern - Keepers of Time Honored (no
+  gold printed); Trollwoven Girdle pattern 44551 - 2 Arctic Fur; Contender's
+  Leather Bracers pattern 86250 - 1 Spirit of Harmony; Spiritual Leathercraft
+  recipe 122715 - 60 Raw Beast Hide, Primal Spirit 5 each (guide prints 225 extra
+  Raw Beast Hide for 45); Legion rank 2 - 250 Sightless Eye, rank 3 - 500 Sightless
+  Eye; BfA alternate step - 6 Mark of Honor + Expulsom; Arctic Fur from Braeg -
+  10 Heavy Borean Leather; Pristine Hide - 10 Heavy Savage Leather; classic threads/
+  dyes/salt - vendor, no prices printed: unverified; Draenor recipes 120258/116325 -
+  no prices printed: unverified; quest 39958 shows "Money 1,400" with no unit:
+  unverified; item 115358 quick facts show "Cost: 95-100" with no unit: unverified.
+
+6. LEVEL NEEDED
+---------------
+- Profession learn itself: no character level on spell 2108 or the mains; the wiki
+  requirements section says "Leatherworking does not require special tools or
+  locations to craft".
+- Scroll 115358: "Requires Level 10" AND "Requires Leatherworking (1)" (item page).
+- Legion: quest 39958 "Skin Deep" is Level 10, requires level 10 (guide says the
+  same); the guide says to start the 42 quests "at 50" because later quests have
+  level requirements, and the last chain needs level 45 (plus Suramar to Masquerade
+  42079); Uniting the Isles 43341 needs friendly with every Legion faction (reached
+  at level 45 per guide); profession World Quests need Leatherworking 25.
+- BfA: trainers show level 60 (Cassandra 136063) and 10-60 (Xanjo 122698); Nazjatar
+  recipe trainers show level 50 (Jada/Alikana); rank-2/3 buying needs Leatherworking
+  160 / 170 (Dazzerian/Crafticus); Tools of the Trade questline needs character
+  level 120 AND Battle for Azeroth Leatherworking 150 (overview guide).
+- Equipment note: the crafted leveling gear "requires level 111" (overview) - equip
+  level, not craft level.
+- Wiki training table titles per expansion: Apprentice/Journeyman/Expert/Artisan
+  (Classic 1-300), Master (Outland), Grand Master (Northrend), Illustrious Grand
+  Master (Cataclysm), Zen Master (Pandaria), Draenor Master (1-100), Legion Master
+  (1-100), Kul Tiran/Zandalari Master (row says 1 - 150 - section 9 item 1); the
+  Draenor proficiency is flagged as only available after the Cut 'Em Out! (H) /
+  Fair Trade (A) quest (level [10-40]).
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+-----------------------------------------------
+Fresh TrinityCore master, blobless sparse clone, HEAD 209d6d51d1 (same HEAD as the
+Companion_Professions audit clones; line numbers re-read this week):
+a) Trainer flow: opcode in -> SendTrainerList -> SendSpells, buy -> money check ->
+   teach. NPCHandler.cpp 97 HandleTrainerListOpcode -> 112 SendTrainerList (talks
+   to trainer->SendSpells at 127); NPCHandler.cpp 130 HandleTrainerBuySpellOpcode
+   (GUID check at 137); Trainer.cpp 41 SendSpells (condition filtering at 58),
+   76 TeachSpell -> 79 CanTeachSpell (CanTeachSpell definition 149),
+   98 reputationDiscount x MoneyCost (99), 100 HasEnoughMoney -> 102
+   SendTeachFailure NotEnoughMoney, 106 ModifyMoney(-moneyCost); Trainer.cpp 172
+   GetSpellState, 212 SendTeachFailure. Nothing leatherworking-specific: any
+   trainer creature with the right trainer id teaches the mains (264577, 264579,
+   264581, 264583, 264585, 264592/265813) and their wrappers.
+b) Casting the craft: Spell.cpp 3869 TakePower() then 3872 TakeReagents() before
+   HandleEffects (definition TakeReagents at Spell.cpp 5600); ITEM_FLAG_NO_REAGENT_COST
+   0x10000000 (ItemTemplate.h 218) makes a spell ignore reagents. There is NO
+   server-side skill gate on recipe casts: reqSkillValue appears only in the lock
+   path (Spell.cpp 6373 -> CanOpenLock 8648, lock table value 8688, fail 8702) -
+   leatherworking recipes never go through it; recipe difficulty colors are a client
+   concept, the server only rolls skill-ups (see c).
+c) Skill-ups on craft: Player.cpp 5410 UpdateCraftSkill -> blocked by
+   SPELL_ATTR1_NO_SKILL_INCREASE (5412); reads the spell's skill line at 5421-5422
+   (SkillupSkillLineID), multiplies NumSkillUps x CONFIG_SKILL_GAIN_CRAFTING (5433)
+   and returns UpdateSkillPro against TrivialSkillLineRankHigh/Low via
+   SkillGainChance (5435). Weights: World.cpp 784-787 SkillChance.Orange 100 /
+   Yellow 75 / Green 25 / Grey 0, World.cpp 790 SkillGain.Crafting default 1.
+d) Learn and skill-step effects: dispatch SpellEffects.cpp 128 (LEARN_SPELL) and
+   210 (effect 118 SKILL) -> EffectSkill 4668 (reads skillStep from effect value,
+   skill id from EffectMiscValue, SkillTiers lookup 4689) -> SetSkill 4699;
+   EffectLearnSpell 2129 (TriggerSpell learn at 2170). This is exactly how wrappers
+   264578-264593 and 265814 work: Learn main + Learn Skill Step (2532->2525).
+   EffectCreateItem dispatch 116 -> EffectCreateItem 1473 with
+   SPELL_ATTR0_IS_TRADESKILL -> ItemContext::Trade_Skill at 1478 (further
+   ATTR0_IS_TRADESKILL selections at 1492/1522/2484), DoCreateItem 1383,
+   EffectCreateItem2 dispatch 249 / definition 1482 (call sites 1499/2492/3533);
+   craft items are granted from the created-item path only.
+e) Identifiers: SKILL_LEATHERWORKING = 165 (SharedDefines.h 5901);
+   QUEST_SORT_LEATHERWORKING -> SKILL_LEATHERWORKING (SharedDefines.h 6366);
+   QUEST_TRSKILL_LEATHERWORKING = 8 (QuestDef.h 132); SPELL_ATTR9 item-cast skill
+   gain gate Spell.cpp 3863-3865 (ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN - only matters
+   when casting from an item, e.g. the WoD scroll cast of 169925 via item 115358).
+f) Scroll/quest chain: item use 115358 is an item-cast -> EffectLearnSpell 2129
+   learns TriggerSpell 169925 (learned at 2170) -> 169925 triggers wrapper 264589
+   ("Triggered by (1)" on wowhead) -> wrapper learns main 264588 + SetSkill 2527.
+   Quest 39958 granting wrapper 264591 lands in the quest-reward spell (reward
+   spell cast -> EffectLearnSpell). The 42 Legion quests, Uniting the Isles, the
+   Suramar chain and the Tools-of-the-Trade questline are ordinary
+   QUEST_TRSKILL_LEATHERWORKING (8) quests the core can serve through the quest
+   system if the character can complete objectives (see section 8).
+g) There is no leatherworking-specific spell effect in the core: the specialized
+   effects next door (PROSPECTING 127 at SpellEffects.cpp 219 / EffectProspecting
+   4614, MILLING 158 at 250 / EffectMilling 4641) belong to other professions;
+   leatherworking recipes are plain CREATE_ITEM + skill-up + trainer data.
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+  1. Click profession-window buttons: crafts must be cast by spell id with the
+     recipe already in the spellbook (gained via trainers/quests/items - a); a
+     server-side character has no profession UI to press.
+  2. Talk to trainers, vendors and NPCs at all: trainer lists/buys are opcodes
+     (NPCHandler 97/130), vendor purchases (Amber Tanning Oil from Aman 141609,
+     Arctic Fur from Braeg 32515, patterns from Almaador 21432, Alurmi 21643,
+     Braeg 32515, Krogo 64054, Tanner Pang 64094, traders 87057/87549) need the
+     NPC interaction packets; the character cannot "walk up to a guard and ask"
+     as the BfA guide suggests.
+  3. Complete quests: Skin Deep 39958 (level 10), the 42 Legion profession quests
+     incl. dungeon leads, Suramar to Masquerade 42079 + Demon Flesh 40211, Uniting
+     the Isles 43341 (friendly with every Legion faction), the WoD chain (Dirty
+     Note 114877 from Karnoth 75043 in quest 34019 / Tattered Frostwolf Shroud
+     116173 from Dorogg 74254 in quest 33410, then the Tannery work-order quest),
+     and the Tools of the Trade questline (level 120 + BfA skill 150) - objectives
+     are world interactions a headless server routine must simulate.
+  4. Get lucky with the garrison leather trader: Jake the Fox 91024 / Zeezu 91033
+     are a random daily spawn among 4 NPCs at a level-3 town hall ("not guaranteed
+     ... even on the day it is supposed to spawn"), and the guide's EU/NA date
+     swap warning is client-side lore; without the trader the alternative 55-100
+     route (recipe 122715 for 60 Raw Beast Hide) is unavailable.
+  5. Hold reputation the recipes need: Sha'tar Honored (Drums of Battle), Keepers
+     of Time Honored (Drums of Panic), Aldor/Scryers exclusivity (wiki: Daenril
+     not for Aldor, Korim not for Scryers), and BfA rank-2/3 vendors only sell to
+     Revered (overview) - reputation is grind the core does not gain from crafts.
+  6. Run dungeons/raids/world content for rank 3: Shade of Xavius 101403,
+     Dargrul 107704, Advisor Vandros 98208, Advisor Melandrus 104218, the Broken
+     Isles world drop, and the Withered Army Training 43943 chest; also Legion
+     World Quests (need Uniting the Isles + skill 25). Blood of Sargeras 124124
+     only drops from content and cannot be bought.
+  7. Earn currencies by playing: Sightless Eye 1149 (guide: 750 in ~25 minutes of
+     activities) for Strap's rank 2/3, and Mark of Honor 137642 (PvP) for most BfA
+     rank 2/3 recipes and the alternate 150-175 step (6 Marks) - a server-side
+     routine has no PvP/activity loop.
+  8. Interact with world objects as a player would: the Tools of the Trade Mallet
+     of Thunderous Skins 293076 requires visiting Drums of Primal Might spots for
+     buffs (and the permanent-drums interaction), and Expulsom needs the Scrapper
+     machines (Scrap-o-Matic 1000 / Shred-Master Mk1) - both are proximity/vision
+     interactions beyond standing at a trainer.
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+Numbered conflicts (all resolved by adoption below):
+1) BfA cap: warcraft.wiki training table prints "1 - 150" for the BfA row while
+   the mains 264592/265813 say "maximum potential skill of 175" and both guides
+   title their routes 1-175. Adopted: 175 (page is flagged outdated).
+2) Faction main patch tags: 264592 (Alliance) added 8.0.1 while 265813 (Horde)
+   added 8.1.0 - both verified on their own pages. Adopted: A main is 8.0.1,
+   H main is 8.1.0 (the guide lists both as "the" BfA learn spell).
+3) Wrapper patch tags: every wrapper 264580-264593 and 265814 is tagged 8.1.0
+   except the Classic wrapper 264578, whose quick facts print 8.0.1 - the same
+   first-wrapper exception the Jewelcrafting/Inscription blocks show. Adopted:
+   264578 = 8.0.1, the rest = 8.1.0.
+4) Skill label bug: spell 265813 is named "Zandalari Leatherworking" (Horde,
+   "Horde Specific Spell") but its Effect reads Learn Skill (Kul Tiran
+   Leatherworking) skill=2525 - both factions genuinely share 2525 (264593 and
+   265814 both Step 2525). Adopted: one sub-skill 2525 for both factions; the
+   label is wrong on the Horde spell (mirrors the Jewelcrafting file's item 10).
+5) Block boundaries: 264576 is "Foul Winds" (a Nature cone damage spell) and
+   264587 is "Head Slam" (Temple of Sethraliss ability) inside the LW block, and
+   264594 answers "Spell #264594 doesn't exist". Adopted: block = 264577-264593
+   with two verified non-LW gaps and a verified end probe.
+6) Two Dalaran eras, same names: the Northrend guide trains at Diane Cannings
+   npc 28700 and explicitly warns the same NPC in Legion Dalaran will not teach
+   Northrend Leatherworking; the Legion guide trains at Namha Moonwater npc 93523,
+   while wowhead's Northrend taught-by list contains Namha Moonwater npc 29509.
+   Adopted: use 28700/29509-era NPCs for Northrend and 93523 for Legion; the
+   wiki's single four-name Dalaran row does not distinguish the eras.
+7) Outland taught-by mismatch: wowhead's 264579 table lists Brumman 18771,
+   Darmari 19187 and an "Uncategorized" creature literally named "Leatherworking"
+   (npc 33612, Shattrath), while the wiki's Outland rows list Brumman, Barim
+   Spilthoof, Grikka, Darmari, Daenril and Korim (no 33612). Adopted: the union
+   with per-source counts (Taught-by 3 vs wiki 6).
+8) Cataclysm taught-by mismatch: wowhead's 13 entries include TWO Telonis NPCs
+   (151287 Stormwind level 60 and 4212 Darnassus level 80); the wiki shows only
+   the Darnassus Telonis [64, 21]. Adopted: keep all 13 wowhead entries and the
+   wiki rows with their own coordinates.
+9) Classic main has no trainer table: 264577's page renders no "Taught by"
+   section (See also only), yet the guide says "visit any trainer in the main
+   cities of old Azeroth" and the wiki lists many. Adopted: classic training
+   happens through base spell 2108's trainers (Taught by 50) and main 264577's
+   own teacher list is unverified.
+10) Wrapper effect shape: Classic wrapper 264578 has THREE effects (Learn 2108 +
+    Learn 264577 + Step 2532) while every other wrapper has two (Learn main +
+    Step). Adopted: as printed (same asymmetry as the Jewelcrafting 264533
+    wrapper).
+11) Cost lines: mains 264577, 264588 and 264590 show NO "Training cost: 10"
+    while the other six mains do. Adopted: cost 10 only where printed; the other
+    three record "no training-cost line" (the currency unit is unverified anyway).
+12) Northrend 60-65 reads as a choice: the guide lists BOTH Frosthide Leg Armor
+    and Icescale Leg Armor (5 casts each = 20 Frozen Orb with Trollwoven) but its
+    shopping list buys 15 Frozen Orb (one armor + Trollwoven). Adopted: one armor
+    at 60-65; route total 367; both spell ids kept.
+13) Northrend heavy-leather arithmetic: the 15-30 step crafts 300 Heavy Borean
+    Leather while the later steps consume 52+40+130+100 = 322 (+22), and the
+    1982-Borean shopping list covers only the direct crafts. Adopted: counts as
+    printed; the +22 bridge is unverified (buy more Borean leather / more scraps).
+14) Pandaria shopping list: 640 Mist-Touched Leather vs 636 consumed by the
+    printed crafts (+4 buffer); the guide itself says "approximate materials".
+    Adopted: list as printed; crafts as printed; total 77.
+15) Legion quest 39958 rewards: the guide says the reward is spell 201705, while
+    wowhead lists wrapper 264591 as "Reward from" the same quest (and 201705
+    itself learns 195119 + Step 165 value 10). Adopted: the quest grants BOTH the
+    perk spell and the wrapper (each source verified its own link).
+16) Draenor leather trader dates: the guide warns the wowhead Quick Facts spawn
+    dates are swapped between EU and NA. Adopted: treat the trader as a random
+    daily spawn only; do not program the printed dates.
+17) Historic rows kept for context: wiki trainers page 4.0.3a (specializations
+    removed, ranks equalized) and 2.3.0 (trainers to Artisan 300); wiki article
+    4.0.1 removed specializations (Elemental/Tribal/Dragonscale), 6.0.2 removed
+    Fur Lining/Leg Reinforcements (needed 400 skill), 5.0.4 updated them, 8.0.1
+    split the skill bars; the Trainers page also flags the KTC machine as
+    "Journeyman only" and Worgen/Pandaren/Goblin rows as race-limited.
+18) TC drift statement: this file's section 7 anchors were re-read from master
+    HEAD 209d6d51d1; against the earlier files' e0eec525aa the shared craft and
+    trainer anchors are unchanged (UpdateCraftSkill 5410, DoCreateItem 1383,
+    TakeReagents 5600, World 784-787/790, Trainer 41/76, NPCHandler 97/130).
+19) Guide vintage label: the "vanilla-leatherworking-leveling" page is branded
+    "(Midnight)" and states it targets the Classic skill bar in current Retail
+    and is "NOT a WoW Classic guide"; its 1-300 route is applied here to the
+    8.3.7 Classic bar as printed (per-line caps come from the mains, not the
+    guide's branding).
+Also unverified (not guessed): craft spell ids for the item-linked steps (25650
+Knothide Armor Kit, 34330 Heavy Knothide Armor Kit, 43264 Overcast Bracers,
+25659 Scaled Draenic Boots); Nylon Thread item id (probe item 152576 = Tidespray
+Linen, a miss); Stonehide Leather / Stormscale ids; Classic leather/hide/thread/
+dye ids; Knothide/Clefthoof/Fel Hide ids; Eternium Thread id; Volatile Earth id;
+Gorgrond Flytrap id; Ruined Leather Scraps id; Frozen Orb source; Secrets of
+Draenor Leatherworking reagents; recipe gold prices where not printed; quest 39958
+"Money 1,400" unit; scroll "Cost: 95-100" unit; classic-main trainer list; any
+TC-side "learn on craft" discovery handling for BfA 440 -> 455 -> 470 recipes and
+Legion conversion pattern procs (sources describe client behavior only).
+
+10. SOURCES
+-----------
+All pages fetched 2026-10-26 week; nothing fetched is stored in the repository.
+Wowhead spell/item/quest/skill probes (per-id pages):
+  - 2108 (base Leatherworking: cost 10, difficulty 111, 9 other ranks, Taught by 50)
+  - 264576 (MISS for block start - it is "Foul Winds", a damage spell)
+  - 264577, 264578, 264579, 264580, 264581, 264582, 264583, 264584, 264585,
+    264586, 264587 ("Head Slam" - non-LW gap), 264588, 264589, 264590, 264591,
+    264592, 264593, 264594 (does not exist - end of block)
+  - 265813 (Horde main), 265814 (Horde wrapper)
+  - 115358 (WoD scroll -> Teaches spell 169925, 8 taught recipes), 169925 chain
+    (via 264589 "Triggered by"), 201705 (Legion Leatherworker: Learn 195119 +
+    Step 165 value 10), quest 39958 "Skin Deep" (Level 10 / Requires 10, wrapper
+    264591 reward link), skill=165 hub (Skill ID 165, pattern-group counts),
+    spells/professions/leatherworking (1922-result recipe list; not used for ids),
+    item 152576 (MISS for Nylon Thread - it is Tidespray Linen).
+warcraft.wiki pages (chunk counts in parentheses):
+  - Leatherworking (8 chunks; read 0-3, 5-6: training table with caps/titles,
+    requirements (no tools), companion profession Skinning, leather-conversion
+    rules, limited/daily conversions, specializations, historic benefits, patch rows)
+  - Leatherworking_trainers (6 chunks, 52 rows through Kul Tiras/Zandalar + patch rows)
+wow-professions guides (route data copied into sections 3-6; shopping lists into 4):
+  - vanilla-leatherworking-leveling (2 chunks; guide content complete in 0)
+  - outland-leatherworking-leveling (1), northrend-leatherworking-leveling (2;
+    content complete in 0), cataclysm-leatherworking-leveling (1),
+    pandaria-leatherworking-leveling (1), draenor-leatherworking-leveling (2;
+    content complete in 0), legion-leatherworking-leveling (2),
+    zandalari-kul-tiran-bfa-leatherworking-leveling-guide (2)
+  - bfa-leatherworking overview (5 chunks; read 0-2: 8.3/8.2 additions, learning,
+    leveling note (max 175), recipe acquisition, Tools of the Trade, leatherworker
+    armors, crafting material ids, utilities)
+TrinityCore: blobless sparse clone of master (src/server/game + src/server/scripts),
+HEAD 209d6d51d1; re-read anchors: SpellEffects.cpp 116/128/210/219/249/250/1383/
+1473/1478/1482/4614/4641/4668/4689/4699, Spell.cpp 3863-3865/3869/3872/5600/6373/
+8648/8688/8702, Player.cpp 5410/5412/5421-5422/5433/5435, World.cpp 629-630/784-787/
+790, NPCHandler.cpp 97/112/127/130/137, Trainer.cpp 41/58/76/79/98-100/102/106/149/
+172/212, SharedDefines.h 5901/6366, QuestDef.h 132, ItemTemplate.h 218, Loot.h 115.

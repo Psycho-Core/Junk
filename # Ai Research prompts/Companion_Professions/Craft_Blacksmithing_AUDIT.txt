@@ -1,0 +1,135 @@
+AUDIT OF Craft_Blacksmithing.txt - COMPANION_PROFESSIONS STEP 127 (PART 14)
+==========================================================================
+Run 2026-10-25. Script: audit_craft_blacksmithing.py (static checks +
+mutation self-test). Deliverable under audit: Craft_Blacksmithing.txt (the
+one file the prompt and RESEARCH_MASTER STEP 127 ask for).
+
+RESULT: 245/245 static checks PASS, 0 FAIL; mutation probes 247/247
+detected on two consecutive runs; SELF-TEST PASS.
+
+WHAT WAS CHECKED (each claim is re-tested against the file text, not
+assumed from the writing session):
+  structure (20)  ten numbered sections; the prompt's deliverable name
+    Craft_Blacksmithing.txt in both 05_Blacksmithing.txt and
+    RESEARCH_MASTER STEP 127 ("Deliver ONE text file named:
+    Craft_Blacksmithing.txt"); "Do only this step"; the PART 14 header;
+    no tabs; at least seven "- Cannot" bullets (nine present); at least 20
+    explicit "unverified" markers (44 present); the eight 3.x route
+    sub-blocks
+  learn map (30)  table rows for child lines 2477/2476/2475/2474/2473/
+    2472/2454/2437/164 checked with wrap-safe regexes; the BfA row must
+    read Kul Tiran / Zandalari Blacksmithing 175 (row wraps in the file -
+    derived check uses \s+ across the newline); learn spells 264435
+    (8.0.1), 264448 Alliance (8.0.1), 265803 Horde (8.1.0), 264444
+    (8.0.1), wrapper spells 264437 and 264439 and 264445, "Requires
+    Blacksmithing (1)", caps text "maximum potential skill of", "Learn
+    Skill Step", the Draenor scroll chain 115356 with "Triggered by (1)",
+    the Legion quest Strange New Ores 38499 with reward-id conflict
+    (264447 vs 201699), 195097, the pre-8.0.1 "Other ranks (9)" list, the
+    8.0.1 rank-merge quote "now just Classic" (after fixing a missing
+    open-quote found by the pre-run grep), the 9.0.1 (2020-10-13) patch
+    note, Haephest's Satchel and Fractured Forge Hammer, Tribal Knowledge
+    38533
+  trainers (40)  both BfA trainers with creature ids 133536/127112 AND
+    the /way coordinates 73.4 8.4 / 43.6 38.6 (regex across /way lines),
+    the Terrace of Crafters and Tradewinds Market landmarks, Nazjatar pair
+    154321/153817 with zone 10052, zone 8670 (regex across the wrap),
+    zone 8568, zone 4395, the twin-Alard warning ("won't teach you
+    Northrend recipes", "TWO Alard Schmieds", both creature ids), wiki
+    coordinates [45.5, 28.0] [69.2, 44.8] [52.4, 50.0] [48.4, 36.9]
+    [21.6, 72.2], the named route trainers Zula 20125 / Len 65114 / Lao
+    65129 / Royce 87062 / Nonn 87550 / Tognus 1241, Mark of Honor vendors
+    142552/142564, quartermaster 19331 (wrap-safe), Urael 92265, Muirn
+    92243, Strap Bucklebolt 107760 (wrap-safe), Aaron Hollman 19662, the
+    limited-supply notes with 30-60 minute and 15-60 min respawns, and
+    both "no Draenor section" / "no Broken Isles section" wiki gaps
+  routes (30)  all eight blocks 3.1-3.8 by exact heading; one named anchor
+    recipe per expansion (Rough Sharpening Stone, Felsteel Gloves,
+    Daunting Legplates, Hardened Obsidium Breastplate, Contender's
+    Revenant Bracers, Truesteel Reshaper, Demonsteel Waistguard,
+    Monel-Hardened Armguards, Notorious Combatant's Plate Armguards); the
+    Firmament Stone station; the Mark of Honor gates; "Shopping list
+    totals"; the guides' colour warnings ("Yellow for the last 5 points",
+    "green last 3 points", "yellow at 10", extras); Rank 2/3 framing;
+    Hoofplates; Tools of the Trade with Khaz'gorian Smithing Hammer; the
+    Outland three-ways table; Revered
+  materials (16)  Coal 3857 and Green Dye 2605 vendor notes, the smelt
+    spells Smelt Cobalt 49252 and 49258 with the Gather_Mining.txt line
+    reference (lines 189-192, regex at least twice), Blacksmith Hammer
+    with the explicit "its item id was not read" marker, auction house
+    mentions, Blood of Sargeras 124124, Durable Flux 160298, Elemental
+    Flux 18567, Expulsom 152668, "smelting is Mining", Mark of Sargeras
+    30809, Kyparite 72093 - plus a derived word-boundary set of 76
+    material item ids across all eight expansions
+  costs (11)  "Training cost: 10" at least twice, "Training cost: 5" on
+    rank spell 3100, "50 gold" twice (the BfA conflict), MoneyCost,
+    GetReputationPriceDiscount, NotEnoughMoney, SendTeachFailure, the
+    recipe sample "Cost: 10" (55835), the wiki discount number 2s50c, the
+    "9 copper" current text, and the unit caveat "currency unit is not
+    printed"
+  level needed (14)  ReqSkillLine, ReqLevel (at least twice), ReqAbility,
+    the free primary profession point sentence (regex across its wrap),
+    two primary professions, wiki minimums "min level 5" and "min level
+    10", the Legion quest row "Level 10, Requires 10", Draenor "Requires
+    Level 90", the 9.0.1 note (at least twice), the "no character level"
+    regex across its wrap, Legion "level 45", per-spell ReqLevel, and
+    GetBaseSkillValue
+  core rules (38)  TakeReagents, DestroyItemCount, "before HandleEffects"
+    (regex across its wrap), EQUIP_ERR_INV_FULL and EQUIP_ERR_ITEM_MAX_
+    COUNT, SPELL_EFFECT_CREATE_ITEM, ItemContext::Trade_Skill,
+    UpdateCraftSkill, SkillupSkillLineID, the NumSkillUps x
+    CONFIG_SKILL_GAIN_CRAFTING line, SkillGainChance,
+    TrivialSkillLineRankHigh, UpdateSkillPro, MECHANIC_DISCOVERY,
+    GetSkillDiscoverySpell, "Alchemy Discoveries here",
+    GameObjectFocusCheck, RequiresSpellFocus, SPELL_FAILED_MIN_SKILL,
+    CMSG_TRAINER_BUY_SPELL, PlayerInteractionType::Trainer, TeachSpell,
+    CanTeachSpell, IsInteractingWith, StartInteraction,
+    HandleTrainerBuySpellOpcode, the "Cast time: 2 seconds" sample,
+    Mechanic n/a, the wowpedia anvil sentence with "Rough Sharpening
+    Stone, for example" (regex across its wrap), "created anywhere"
+    (regex across its wrap - the plain-literal first attempt failed and
+    the check was corrected before sign-off), "Requires Anvil", the
+    official "blacksmith hammer and anvil" overview,
+    ITEM_SUBCLASS_PROFESSION_BLACKSMITHING, FindGameObjectFocus, and the
+    re-read core line numbers 5410 / 5599 / 2321 / 130
+  cannot-do (14)  nine "- Cannot" bullets individually by first words,
+    including Cannot craft "anywhere" and Cannot get Mark of Honor
+    without PvP; full-bag silent reagent loss; dungeon automation;
+    vendor-purchase packets; the "Wrong twin" trap; interaction guard
+  conflicts (10)  the reward-id "sources disagree", "BfA route
+    divergence", the "current-retail pages" vintage note, "quoted raw"
+    and "NOT decoded" difficulty policy, "post-dates 8.3.7" (Oribos
+    anachronism), the classic rank spells "still offers them" marker, the
+    Legion "your server grants" marker, the discovery-branch unverified
+    sentence (regex across its wrap), and the 8.3.7 level-values "were not
+    read" marker
+  sources (10)  guide 6278, warcraft.wiki.gg, wowpedia, the four TrinityCore
+    files SpellEffects.cpp / NPCHandler.cpp / Trainer.cpp (+ Spell.cpp and
+    Player.cpp inside other checks), own Gather_Mining.txt and
+    Craft_Alchemy.txt, gh api, and the anchored citation
+    wowhead.com/spell=264438
+  derived (12)  word-boundary sets: 20 learn-spell ids, 9 line ids, 53
+    creature ids, 82 route spell ids, 70 material ids; ASCII/no-tab/line
+    length <= 140 hygiene; BfA cap row + prose consistency; at least 40
+    "N crafts" markers (84 present); the anvil/station/anywhere logic
+    block; the eight full guide slugs; nine core symbols; the six named
+    faction/scroll/MoH vendors
+
+WHAT IT DOES NOT PROVE:
+  - It does not prove the ids are correct against a server database; it
+    proves they are present as written after being read from the cited
+    pages this week (same epistemic level as the alchemy audit).
+  - It did not enumerate every route recipe's training cost or world
+    x/y/z coordinates; the deliverable marks those unverified and the
+    audit checks the markers.
+  - Two literal-vs-wrap failures were caught before the final run (the
+    "created anywhere" line and the missing open-quote in the rank-merge
+    quote); the pre-run payload grep is part of the process, not optional.
+
+Console output of the audited run:
+  Craft_Blacksmithing audit: 245 PASS, 0 FAIL
+  Static checks      : 245/245 PASS
+  Mutation probes    : 247/247 detected
+  Static checks      : 245/245 PASS
+  Mutation probes    : 247/247 detected
+  SELF-TEST: PASS

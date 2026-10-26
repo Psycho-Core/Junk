@@ -1,0 +1,159 @@
+=== Craft_Engineering.txt - AUDIT REPORT (STEP 129, Companion_Professions) ===
+================================================================================
+
+Tool: audit_craft_engineering.py (same directory). Run: python3
+audit_craft_engineering.py -> static + derived + hygiene.
+Run: python3 audit_craft_engineering.py --self-test -> mutation testing.
+
+FINAL VERDICT
+-------------
+Static:            387 / 387 PASS, 0 FAIL  (exit code 0)
+Derived:            17 / 17 PASS            (exit code 0)
+Hygiene:            ASCII only (0 non-ASCII), longest line <= 100 chars
+Self-test run 1:    16 / 16 mutations caught, SELF-TEST PASS (exit 0)
+Self-test run 2:    16 / 16 mutations caught, SELF-TEST PASS (exit 0)
+Deliverable:        Craft_Engineering.txt (970+ lines)
+Date of audit:      2026-10-26 (same week as every source fetch)
+
+STATIC CHECK BREAKDOWN (387 total, by check prefix)
+---------------------------------------------------
+  H01-H14    14  heading, scope promise, 10 section titles, subroute span
+  B01-B10    10  base spell 4036, skill 202, rank ladder, apprentice
+                 wrapper 4039, cost field, taught-by 49
+  L01-L30    30  8.0.1/8.1.0 learn chains for all nine lines (Classic
+                 2506 through BfA 2499), taught-by/reward rows, cost
+                 lists, boost spell 201700, Nitro cost line
+  T01-T13    13  TC learn path: NPCHandler 97/112/130/145/155, Trainer
+                 76/98/100/106/149/156/165/172/181-183/185-187/189,
+                 list payload 67-68
+  C01-C41    41  trainers: wiki coordinate rows (16 named + spec
+                 masters), outdated banner, patches 4.0.3a/2.3.0, all
+                 five wowhead Taught-by tables with npc entries, guide
+                 teachers, 12 vendor/recipe sources
+  R01-R29    29  3.1 Classic: 21 route steps, tools, spec-at-200 note,
+                 shopping list, reconciliation strings, craft total 447
+  O01-O14    14  3.2 Outland: 9 route spells, ranged-shopping note,
+                 exact material sums, total 340
+  N01-N20    20  3.3 Northrend: shopping + omissions, 13 route steps,
+                 yields, Nitro page facts, saronite conflict, total 172
+  K01-K12    12  3.4 Cataclysm: shopping, bolt gun tool, 6 route steps,
+                 reconciliation, total 90
+  P01-P11    11  3.5 Pandaria: shopping, 5 route steps, 3-bar math,
+                 HEG conflict, total 235
+  D01-D20    20  3.6 Draenor: scroll sources, quest items, tool tip,
+                 3 branches, Didi/Welding paths, trader rotation,
+                 total 83
+  G01-G11    11  3.7 Legion: quest 40545 facts, 31-quest list, must-do
+                 40862, 140x route, Sightless Eye prices, R1/R2 failure
+  A01-A26    26  3.8 BfA: shopping, 12 route steps, four 110-145
+                 methods, Nazjatar tail, scrap loop, Monelite 700
+                 reconciliation, total 165
+  M01-M18    18  materials: no-disenchant statement, eight expansion
+                 id lists, WoD fragments, tools, wiki anvil/thermal
+  F01-F10    10  costs: raw fields, conflict pattern, Nitro 115, scroll
+                 100, Sightless/Mark prices, MoneyCost/discount
+  V01-V14    14  levels: per-line minimums 5/50/65/75/80/90/98 + BfA
+                 broken header, caps table, recipe gates, no
+                 craft-time server gate
+  W01-W29    29  core mechanics: create-item path, yields via
+                 CREATE_ITEM_2, tinker enchant path 2463/7664-7746,
+                 UpdateCraftSkill 5410 + discovery, scroll/learning
+                 chain, focus machinery, learn-effect rules
+  X01-X17    17  cannot-do: racial +5, reputation/WQ/raid/PvP gates,
+                 content zones, AH-only steps, faction splits,
+                 specialization, profession slots, UI, night flag,
+                 stale wiki rows
+  Y01-Y19    19  conflicts and unverified index (every numbered entry)
+  Z01-Z26    26  sources: dates, spell/item probe lists, search-result
+                 id/URL records, guide slugs, wiki/wowpedia pages, TC
+                 file+line manifests
+TOTAL                387
+
+DERIVED CHECKS (17)
+-------------------
+D01  Classic planned crafts: 60+30+30+20+20+13+1+30+15+15+1+60+7+
+     20+40+20+20+25+20 = 447 (matches the printed total)
+D02  Outland crafts 126+20+56+5+34+70+6+17+6 = 340; D02b Fel Iron
+     126+168 = 294 and Adamantite 136+34+48 = 218 material math
+D03  Northrend crafts 35+10+10+6+15+5+15+30+5+5+5+30+1 = 172; D03b
+     Cobalt 70+30+40+120 = 260 and Saronite 60+40+300 = 400; D03c the
+     390-vs-400 conflict entry exists
+D04  Cata crafts 30+15+15+15+15 = 90; D04b materials 60/30/360/15
+D05  Pandaria crafts 112+70+30+10+13 = 235; D05b bars 336+70 = 406 and
+     HEG consumption 60+80 = 140; D05c the 70-vs-140 conflict exists
+D06  Draenor main branch 12+1+70 = 83
+D07  BfA crafts 30+5+30+25+15+35+15+10 = 165; D07b Monelite
+     180+50+150+200+120 = 700
+D08  Key id coverage: 150+ required spell/item ids, 0 missing
+D09  TC family presence: 5410, 1383, 1482, 2463, 7664, 172, 130, 2322
+D10  Conflict index has all 19 numbered entries
+Section heading order and "section 1 on line 8" also enforced.
+
+SELF-TEST (mutation testing, 16 mutations, replace-ALL)
+-------------------------------------------------------
+  skill id (202->999)                 caught by 1 check
+  classic main id (264475)            caught by 1 check
+  nr saronite id (36913)              caught by 2 checks
+  classic total (447)                 caught by 2 checks
+  tc skill gate line (181-183)        caught by 1 check
+  BfA reagent id (160502)             caught by 1 check
+  npc entry (136059)                  caught by 1 check
+  legion level (10->11)               caught by 1 check
+  bfa cap (175->150)                  caught by 1 check
+  dampener spell (280734)             caught by 2 checks
+  hbp spell (3945->3946)              caught by 1 check
+  draenor scroll (111921)             caught by 2 checks
+  bfa total (165->166)                caught by 2 checks
+  conflict count (19 broken)          caught by 2 checks
+  leystone id (123918)                caught by 2 checks
+  nitro enchant entry (4223)          caught by 1 check
+Result: 16/16 caught, no survivors, in two consecutive runs.
+
+METHOD NOTES / FIXES MADE DURING THIS AUDIT
+-------------------------------------------
+1) Preflight (payload vs file before the first run) found 39 payload
+   misses plus 2 regex compile errors: 11 coordinate patterns again
+   closed with ")" instead of "]", ~20 regexes that ignored line wraps,
+   one case error ("Schematic" vs "schematic"), one wrong quest-rewrite
+   in a payload, and two broken escapes. All were corrected in the
+   audit, not weakened into unchecked claims.
+2) The first coordinate auto-fix over-escaped (double backslashes);
+   a second pass normalized 20 bracket fixes total.
+3) Deliverable cleanups before the first green run: three leftover
+   meta-sentence fragments ("Enchanted... no -", a Gnomish/Goblin
+   think-out-loud in section 7a, a "Quel? no" in section 4) were
+   rewritten, one over-long line was wrapped, and four wrapped URLs in
+   section 10 were rejoined so every source URL sits unbroken on one
+   line.
+4) Two self-test survivors were caught and fixed properly: the
+   Northrend shopping mutation targeted a wrapped literal no check
+   pinned (mutation retargeted to the item id; check N02 covers it),
+   and "cap 175, Alliance Specific" had no owning check at all (added
+   check L21b). Re-ran twice green.
+5) D08 originally included 161788, which belongs to the Enchanting
+   file's Draenor Learning spell; Engineering's is 161787 - removed.
+
+WHAT THE AUDIT COVERS (acceptance)
+----------------------------------
+- Cheapest-route-per-line ask: sections 3.1-3.8 with every recipe
+  spell id, craft count, material id, shopping reconciliation (derived)
+  and the two shopping-shortfall conflicts (NR Saronite, MoP Gunpowder).
+- Learn ask: section 1 chains for base/Classic/Outland/NR/Cata/MoP/
+  Draenor/Legion/BfA including wrapper effects, taught-by tables and
+  quest reward 264491.
+- Trainer/source ask: section 2 (wiki coordinates, spec masters, all
+  five wowhead Taught-by lists with entries, guide NPCs, vendors).
+- Materials ask: section 4 ids per expansion, no-disenchant statement,
+  tools with craft gates, where each comes from.
+- Cost/level asks: sections 5-6 with raw fields and unverified marks.
+- Core-success and cannot-meet asks: sections 7-8 keyed to exact
+  TrinityCore file/line literals fetched this week (create path AND
+  tinker enchant path, variable yields, discovery branch).
+- Verifiability: section 9 (19 conflicts/unverified), section 10 (every
+  URL/slug/TC file recorded), zero invented numbers (387 payload
+  checks).
+
+Replicate: cd "# Ai Research prompts/Companion_Professions" &&
+python3 audit_craft_engineering.py && python3 audit_craft_engineering
+.py --self-test && python3 audit_craft_engineering.py --self-test
+Expected: RESULT 387 PASS, 0 FAIL / SELF-TEST PASS / SELF-TEST PASS.

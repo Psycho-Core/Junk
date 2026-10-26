@@ -1,0 +1,979 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - ENGINEERING CRAFTING FOR A SERVER-SIDE COMPANION
+=============================================================================================
+
+Scope: how a computer-controlled character (no client) levels Engineering on a
+TrinityCore-based 8.3.7 server. Every id below was read from a source this
+week; anything without a readable source says "unverified" instead of a guess.
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+---------------------------------------------------
+Base spell Engineering 4036 (instant): Effect1 = Trade Skill, Effect2 =
+Learn Skill (Engineering, skill=202, value 1); wowhead infobox "Training
+cost: 10"; text "Allows an engineer to make basic contraptions. Requires
+stone and metal found with the Mining skill". The page shows "Taught by
+(49)" (list not rendered) and "Other ranks (9)": 158739 (1), 195112 (1),
+4037 (50), 4038 (125), 12656 (200), 30350 (275), 51306 (350), 82774 (425),
+110403 (500). Apprentice wrapper spell 4039 "Apprentice Engineer": Effect1
+Learn Spell 4036, Effect2 Learn Skill Step (202) value 1. The Classic main
+page's See-also list adds 49383 to the same family.
+
+8.0.1 split the profession into per-expansion lines. Learn chain (each
+effect read on wowhead this week):
+  - Classic 1-300, skill=2506: main 264475 "Engineering" (8.0.1, cap 300,
+    text "Requires stone and metal found with the mining skill"): Effect
+    Learn Skill (Classic Engineering, skill=2506) value 1; wrapper 264478
+    (8.0.1): Effect1 Learn Spell 4036, Effect2 Learn Spell 264475,
+    Effect3 Learn Skill Step (2506) value 1. No Training cost shown on
+    either page.
+  - Outland 1-75, skill=2505: main 264479 (8.0.1, quick facts "Requires
+    Engineering (1)", "Training cost: 10", cap 75): Learn Skill (Outland
+    Engineering); wrapper 264480 (beta page read): Learn Spell 264479 +
+    Learn Skill Step (2505). wowdb lists main as added 8.0.1 build #25902.
+  - Northrend 1-75, skill=2504: main 264481 (8.0.1, "Requires Engineering
+    (1)", "Training cost: 10", cap 75); wrapper 264482 (8.1.0): Learn
+    Spell 264481 + Learn Skill Step (2504).
+  - Cataclysm 1-75, skill=2503: main 264483 (8.0.1, "Requires Engineering
+    (1)", "Training cost: 10", cap 75); wrapper 264484 (8.1.0): Learn
+    Spell 264483 + Learn Skill Step (2503).
+  - Pandaria 1-75, skill=2502: main 264485 (8.0.1, "Requires Engineering
+    (1)", "Training cost: 10", cap 75); wrapper 264486 (8.1.0): Learn
+    Spell 264485 + Learn Skill Step (2502).
+  - Draenor 1-100, skill=2501: main 264487 (8.0.1, cap 100, no Training
+    cost shown): Learn Skill (Draenor Engineering); wrapper 264488
+    (8.1.0): Learn Spell 264487 + Learn Skill Step (2501); wowhead lists
+    wrapper "Triggered by (1) Learning 161787". The practical learn source
+    is scroll item 111921 "Draenor Engineering" (section 3.6).
+  - Legion 1-100, skill=2500: main 264490 (8.0.1, cap 100, no Training
+    cost shown); wrapper 264491 (8.1.0): Learn Spell 264490 + Learn Skill
+    Step (2500); wrapper page "Reward from (1)": quest 40545 "Aww Scrap!",
+    level 10.
+  - Battle for Azeroth 1-175, skill=2499 (one line id, both factions):
+    Alliance main 264492 "Kul Tiran Engineering" (8.0.1, "Requires
+    Engineering (1)", "Training cost: 10", cap 175, Alliance Specific
+    Spell) + Alliance wrapper 264493 (8.1.0): Learn Spell 264492 + Learn
+    Skill Step (2499); Horde main 265807 "Zandalari Engineering" (wowhead
+    quick facts: "Requires Engineering (1)", "Training cost: 10", "Added
+    in patch 8.1.0", cap 175, Horde Specific) + Horde wrapper 265808
+    (wowhead quick facts: "Added in patch 8.0.1" - see section 9 item 9):
+    Learn Spell 265807 + Learn Skill Step (2499). Both faction mains link
+    Learn Skill to skill=2499 "Kul Tiran Engineering".
+Boost-era helper: spell 201700 "Legion Engineer" (Learn Spell Engineering
++ Learn Skill Step (202) value 10) is linked by the leveling guide as the
+Legion reward, but the live quest page teaches 264491 instead (section 9
+item 6). Spell 264160 is tagged "(TEST) Legion Engineering" and unused.
+Learn-cost fields (raw; wowhead prints no currency unit): 4036 = 10;
+264479 = 10; 264481 = 10; 264483 = 10; 264485 = 10; 264492 = 10;
+265807 = 10. Mains 264475/264487/264490 and wrappers show no Training cost
+field. Nitro Boosts spell 55016 (a route recipe) prints "Training cost:
+115" and "Profession Trainer: Northrend Engineering (30)" (section 3.3).
+TC side of pressing "learn": NPCHandler.cpp 97 HandleTrainerListOpcode,
+112 SendTrainerList, 130 HandleTrainerBuySpellOpcode, 145 interaction guard
+(IsInteractingWith ... PlayerInteractionType::Trainer), 155
+trainer->TeachSpell(npc, _player, packet.SpellID); Trainer.cpp 76
+Trainer::TeachSpell, 98 reputationDiscount = GetReputationPriceDiscount(npc),
+100 HasEnoughMoney check, 106 ModifyMoney(-moneyCost), 149
+Trainer::CanTeachSpell (156/165 IsPrimaryProfessionFirstRank +
+GetFreePrimaryProfessionPoints = 2-profession limit), 172 GetSpellState,
+181-183 "check skill requirement" (ReqSkillLine/ReqSkillRank gate),
+185-187 ReqAbility prerequisite spells, 189 level requirement block;
+trainer list payload carries ReqSkillRank/ReqAbility (Trainer.cpp 67-68).
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki.gg/wiki/Engineering_trainers (6 chunks, read this week;
+page banner says "out-of-date"; table ends at Pandaria):
+  Eastern Kingdoms/Kalimdor (coordinates as printed): Lien Farner,
+  Goldshire, Elwynn [42, 67] (Apprentice only); Jack "All-Trades"
+  Derrington, Gilneas starting zone (Worgen-only, Apprentice); Wembil
+  Taskwidget, Kharanos, Dun Morogh [53.7, 52] (Apprentice); Bronk
+  Guzzlegear, Steelgrill's Depot, Dun Morogh [57.2, 48.6]; Deek
+  Fizzlebizz, Stonewrought Dam, Loch Modan [45, 13]; Finbus Geargrind,
+  Darkshire, Duskwood [77.4, 48.6]; Lilliam Sparkspindle, Dwarven
+  District, Stormwind [63.2, 31.5]; Springspindle Fizzlegear, Tinker
+  Town, Ironforge [68.4, 42.7]; Tinkmaster Overspark, Tinker Town,
+  Ironforge [69.8, 50.0] (Teaches Gnomish Engineering plans); Oglethorpe
+  Obnoticus, Booty Bay, Cape of Stranglethorn [43.0, 72.0] (Gnomish
+  plans); Nedric Sallow, Brill, Tirisfal [61, 51] (Apprentice); Saren,
+  Falconwing Square, Eversong [49, 47] (Apprentice); Danwe, Farstriders'
+  Square, Silvermoon [76.8, 40.9]; Franklin Lloyd, The Rogues' Quarter,
+  Undercity [76.1, 74.0]; Valn, Azure Watch, Azuremyst [48.5, 52.2]
+  (Apprentice); Iranis Shadebloom, Dolanaar, Teldrassil [56, 52.2]
+  (Apprentice); Artificer Daelo, Azure Watch, Azuremyst [48.4, 50.3];
+  Jenna Lemkenilli, Lor'danel, Darkshore [50.6, 20.6]; Caz Twosprocket,
+  Theramore, Dustwallow [64.6, 50.3]; Tana Lentner, Craftsmen's Terrace,
+  Darnassus [49.6, 32.6]; Ockil, Trader's Tier, Exodar [54, 92.1]; KTC
+  Train-a-Tron Deluxe, Bilgewater Harbor, Azshara [57, 50.5] (up to
+  Journeyman; second KTC bot at Town-In-A-Box/Sky Falls/Gallywix Docks,
+  Lost Isles, Goblin-only); Twizwick Sprocketgrind, The Venture Co. Mine,
+  Mulgore [61.9, 31.5]; Tinkerwiz, Ratchet, Northern Barrens [68.4, 69.2];
+  Vazario Linkgrease, Ratchet [68.4, 69.2] (Teaches Goblin Engineering
+  plans); Buzzek Bracketswing, Gadgetzan, Tanaris [52.3, 27.7]; Nixx
+  Sprocketspring, Gadgetzan [52.5, 27.3] (Goblin plans); Lalum Darkmane,
+  Bloodhoof Village, Mulgore [46.5, 57.5] (Apprentice); Runda, Razor Hill,
+  Durotar [53, 42] (Apprentice); Mukdrak, Razor Hill [52.2, 40.8];
+  Roxxik, Nogg's Machine Shop/The Drag, Orgrimmar [56.8, 56.4]; "Jack"
+  Pisarek Slamfix, Goblin Slums, Orgrimmar [36.6, 86.8]; Engineer
+  Palehoof, Palehoof Engineering/Lower rise, Thunder Bluff [37.0, 59.4];
+  Wandering Isle: Whittler Dewei (Singing Pools) and Elder Oakpaw
+  (Mandori Village), Pandaren-only, Apprentice.
+  Outland: Lebowski, Honor Hold, Hellfire [55.7, 65.5]; K. Lee Smallfry,
+  Telredor, Zangarmarsh [68.6, 50.2]; Zebig, Thrallmar, Hellfire
+  [54.8, 38.5]; Mack Diver, Zabra'jin, Zangarmarsh [33, 50]; Xyrol, Area
+  52, Netherstorm [32.5, 66.7]; Engineer Sinbei, Scryer's Tier, Shattrath
+  [44.1, 65.0] ("Not available to members of the Aldor"); Technician
+  Mihila, Aldor Rise, Shattrath [38.1, 32.0] ("Not available to members
+  of the Scryers").
+  Northrend: Sock Brightbolt, Valiance Keep, Borean [57.7, 72.2]; Tisha
+  Longbridge, Valgarde, Howling Fjord [59.7, 64.0]; Chief Engineer
+  Leveny, Warsong Hold, Borean [42.6, 53.7]; Jamesina Watterly,
+  Vengeance Landing, Howling Fjord [78.5, 30.0]; Timofey Oshenko,
+  Like Clockwork/Magus Commerce Exchange, Dalaran [39, 27]; Findle
+  Whistlesteam, same building [39.5, 25.2]
+  (Teaches Gnomish Engineering plans); Didi the Wrench, same building
+  [39.5, 25.5] (Teaches Goblin Engineering plans); Binkie Brightgear,
+  Argent Tournament Grounds, Icecrown [72.1, 20.9].
+  Pandaria: Guyo Crystalgear, Hall of the Crescent Moon, Shrine of Two
+  Moons [60.6, 44.8]; Sally Fizzlefury, Nesingwary's Safari, Valley of
+  the Four Winds [16.0, 83.0].
+  No Draenor/Broken Isles/Kul Tiras-Zandalar rows exist on this page.
+Wiki patch notes: 4.0.3a (2010-11-23) "all trainer ranks equalized,
+leaving only gnome and goblin specializations as uniquely different types
+of trainers"; 2.3.0 (2007-11-13) trainers now train to Artisan 300.
+Wowhead "Taught by" lists read this week (entries):
+  - 264464-style capitals for Cataclysm line 264483, Taught by (13):
+    "Jack" Pisarek Slamfix 45545 (Orgrimmar), Artificer Farud 133326
+    (Stormwind), Bronk Guzzlegear 1702 (Dun Morogh), Buzzek Bracketswing
+    8736 (Tanaris), Deek Fizzlebizz 3290 (Loch Modan), Finbus Geargrind
+    1676 (Duskwood), Franklin Lloyd 11031 (Undercity), Jenna Lemkenilli
+    11037 (Darkshore), Lilliam Sparkspindle 5518 (Stormwind), Roxxik
+    11017 (Orgrimmar), Springspindle Fizzlegear 5174 (Ironforge), Tana
+    Lentner 52636 (Darnassus), Tinkerwiz 3494 (Northern Barrens).
+  - Outland main 264479, Taught by (7): Engineer Sinbei 33634
+    (Shattrath), "Engineering" 33611 (Shattrath, uncategorized row), K.
+    Lee Smallfry 17634 (Zangarmarsh), Niobe Whizzlespark 24868
+    (Shadowmoon Valley), Technician Mihila 33677 (Shattrath), Xyrol
+    19576 (Netherstorm), Zebig 18752 (Hellfire).
+  - Northrend main 264481, Taught by (3): Chief Engineer Leveny 25277
+    (Borean Tundra), Timofey Oshenko 28697 (Dalaran), Tisha Longbridge
+    26907 (Howling Fjord).
+  - Pandaria main 264485, Taught by (2): Guyo Crystalgear 64924, Sally
+    Fizzlefury 55143.
+  - Kul Tiran main 264492, Taught by (3): Flip Quickcharge 150630
+    (Mechagon), Instructor Alikana 153817 (Nazjatar), Layla Evenkeel
+    136059 (Boralus).
+  - Zandalari main 265807, Taught by (4): Flip Quickcharge 150630
+    (Mechagon), Jada 154321 (Nazjatar), Pristy Quickcharge 150631
+    (Mechagon), Shuga Blastcaps 131840 (Dazar'alor).
+Guide-specific teacher text: Classic/Cataclysm guides - ask a guard in
+the capital cities of old Azeroth; Outland guide - Engineer Sinbei
+npc=33634 in Shattrath, or Technician Mihila npc=33677 if Aldor (or
+Draenei); Northrend guide - Timofey Oshenko npc=28697 at Dalaran
+(Northrend), "the same NPC exists in Legion Dalaran but he won't teach
+you Northrend recipes"; Legion guide - quest 40545 from Hobart
+Grapplehammer npc=93539 in Dalaran (Broken Isles, "not Northrend!"),
+turn-in Filgo Scrapbottom npc=102193 (Underbelly); Draenor - scroll
+vendors below; BfA guide - Shuga Blastcaps (Dazar'alor, Terrace of
+Crafters) and Layla Evenkeel (Boralus, Tradewinds Market); Nazjatar
+trainers Jada 154321 (H) / Instructor Alikana 153817 (A) (Nazjatar
+intro quests first).
+Recipe vendors and route NPCs: Bryan Landers 28722 (Tinker's Kit,
+Mining Pick, Blacksmith Hammer near the Northrend trainer), Ranid
+Glowergold 28718 (Skinning Knife), Didi the Wrench 29513 (Global Thermal
+Sapper Charge schematic, Northrend guide), Madame-style limited-supply
+schematics: Wind Trader Lathrai 18484 (White Smoke Flare formula,
+Shattrath, limited supply), Viggz Shinesparked 19661 (Adamantite Rifle
+schematic, Shattrath, limited supply); Field Repair Bot schematic 34114
+drops from Gan'arg Analyzer 23385 (Blade's Edge); Hobart Grapplehammer
+93539 sells Oversized Blasting Cap 136637 and (per wowhead vendor boxes
+on the scroll) the Draenor Engineering scroll costs 100 from Zaren
+Hoffle (Lunarfall) and Sean Catchpole (Ashran); Draenor scroll vendors
+Sean Catchpole 87065 (Stormshield) / Nik Steelrings 87552 (Warspear);
+garrison Engineering Works NPC (after "Your First Engineering Work
+Order"); BfA rank vendors: Natal'hakata 131287 (H, Zuldazar) / Sister
+Lilyana 135800 (A) for grenade rank 3; Hoarder Jena 135804 (H) /
+Quartermaster Alcorn 135815 (A) Revered for Frost-Laced Ammunition rank
+3; Ransa Greyfeather 135447 (H) / Vindicator Jaelaana 135446 (A)
+Revered for Monelite Scope rank 3; Ozgrom Ragefang 142552 (H) / Leedan
+Gustaf 142564 (A) for the Sinister Discombobulator ranks (6 Mark of
+Honor); Provisioner Fray 135808 (A, Tiragarde) sells Time Shifter rank 2
+at Exalted (Natal'hakata for H); High Tinker Mekkatorque 144796 drops
+schematic 166276 (Battle of Dazar'alor, any difficulty); Dazzerian 154652
+(H) / Crafticus Mindbender 154653 (A) at Nazjatar sell the Notorious
+Discombobulator ranks 2/3 (2 and 4 Mark of Honor); Ore Trader Alexi
+Hackercam 90894 (A) / Trixxy Volt 91030 (H) sell Schematic: Primal
+Welding 122712 for 60 Blackrock Ore (garrison rotation - section 3.6);
+Pet Battle Challenge: Gnomeregan vendor takes Pristine Gizmo 165835 for
+schematic 165844; The Widow 97366 (Dalaran Sewers) sells Gunpowder Charge
+ranks 2/3 for 250/500 Sightless Eye (currency 1149).
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+Source for every step: the wow-professions guide named per line (full
+URLs in section 10). Counts are the guide's own cast counts; yellow/
+green warnings mean more materials than the printed exact math - the
+shopping list is the authority.
+
+3.1 Classic 1-300 (retail "Classic" skill bar; learn per section 1):
+Guide "Vanilla Engineering Leveling Guide 1-300 (Midnight)" - the 1-300
+bar inside retail, not the WoW Classic client. Tools note: buy Blacksmith
+Hammer 5956 from an engineering/blacksmith supply vendor at step 30; craft
+Arclight Spanner spell 7430 (item 6219, "Requires 50 skill in Vanilla
+Engineering to craft") between 50-70; craft Gyromatic Micro-Adjustor spell
+12590 (item 10498, requires 175 skill) at 175-176; a Gnomish Army Knife
+replaces all of these tools (section 4). Blood Elf note is absent here -
+the racial in play is Gnome (section 6).
+  - 1-30: 60x Rough Blasting Powder spell 3918 = 60 Rough Stone 2835
+    (keep the powder; you may reach 40 with this recipe).
+  - 30-50: 30x Handful of Copper Bolts spell 3922 = 30 Copper Bar 2840
+    (keep the bolts).
+  - 50-75: 30x Rough Copper Bomb spell 3923 = 60 Rough Blasting Powder +
+    30 Handful of Copper Bolts (make the Arclight Spanner in this band).
+  - 75-90: 20x Coarse Blasting Powder spell 3929 = 20 Coarse Stone 2836.
+  - 90-100: 20x Coarse Dynamite spell 3931 = 20 Coarse Blasting Powder +
+    20 Linen Cloth 2589.
+  - 100-113: 13x Clockwork Box spell 8334 = 39 Bronze Bar 2841.
+  - 113-125: Use the Clockwork Box item 6712 you made (the guide's
+    step gives the next 12 points; the mechanism was not read -
+    unverified, section 9 item 12).
+  - 125-130: 1x Flying Tiger Goggles spell 3934 = 8 Bronze Bar +
+    2 Tigerseye 818.
+  - 130-150: 30x Heavy Blasting Powder item 4377 = 30 Heavy Stone 2838
+    (craft spell 3945 per classic/forever spell pages - section 9 item
+    11) plus 15x Whirring Bronze Gizmo item 4375 (craft spell 3942) =
+    30 Bronze Bar + 15 Wool Cloth 2592 (keep both).
+  - 150-160: 15x Bronze Framework spell 3953 = 30 Bronze Bar + 15 Medium
+    Leather 2319 + 15 Wool Cloth (keep; you will gain more than 10 here).
+  - 160-175: 15x Explosive Sheep spell 3955 = 30 Heavy Blasting Powder +
+    15 Whirring Bronze Gizmo + 15 Bronze Framework + 30 Wool Cloth (keep
+    5 if you choose Goblin Engineering).
+  - 175-176: 1x Gyromatic Micro-Adjustor spell 12590 = 4 Steel Bar 3859.
+  - 176-195: 60x Solid Blasting Powder spell 12585 = 120 Solid Stone 7912
+    (keep).
+  - 195-200: 7x Mithril Tube spell 12589 = 21 Mithril Bar 3860 (stop at
+    200; keep 6 for Gnomish Engineering).
+  - Specialization note (guide): at skill 200 you can specialize in
+    Gnomish or Goblin Engineering; quests come from your engineering
+    trainer (wiki section 4 lists both branches).
+  - 200-216: 20x Unstable Trigger spell 12591 = 20 Mithril Bar + 20
+    Mageweave Cloth 4338 + 20 Solid Blasting Powder (keep).
+  - 216-238: 40x Mithril Casing spell 12599 = 120 Mithril Bar (keep).
+  - 238-250: 20x Hi-Explosive Bomb spell 12619 = 40 Mithril Casings +
+    20 Unstable Trigger + 40 Solid Blasting Powder (you will probably
+    reach 255).
+  - 250-260: 20x Dense Blasting Powder spell 19788 = 40 Dense Stone
+    12365 (may need more).
+  - 260-285: 25x Thorium Widget spell 19791 = 75 Thorium Bar 12359 +
+    25 Runecloth 14047 (yellow at the end - go on early).
+  - 285-300: 20x Thorium Tube spell 19795 = 120 Thorium Bar (green for
+    the last 3 - make more).
+Shopping list (guide): 60x 2835, 36x 2840, 20x 2836, 20x 2589, 107x
+2841 (54 Copper + 54 Tin if you mine), 2x 818, 30x 2838, 60x 2592,
+15x 2319, 4x 3859, 120x 7912, 161x 3860, 20x 4338, 40x 12365, 195x
+12359, 25x 14047. Reconciles exactly: Bronze 39+8+30+30 = 107; Mithril
+21+20+120 = 161; Thorium 75+120 = 195; Wool 15+15+30 = 60; Copper
+30 bolts + spanner's 6 = 36. Total planned crafts = 447 numbered steps
++ the Arclight Spanner = 448.
+
+3.2 Outland 1-75 (learn main 264479 from Sinbei/Mihila, section 2):
+Guide warns the route is yellow/green-heavy, hence ranged shopping.
+  - 1-20: 126x Handful of Fel Iron Bolts craft spell 30305 (item 23783)
+    = 126 Fel Iron Bar 23445; 20x Elemental Blasting Powder craft spell
+    30303 (item 23781) = 40 Mote of Earth 22573 + 20 Mote of Fire 22574;
+    56x Fel Iron Casing craft spell 30304 (item 23782) = 168 Fel Iron
+    Bar. Keep everything (free skill points).
+  - 20-25: 5x Fel Iron Bomb craft spell 30310 (item 23736) = 5 Fel Iron
+    Casing + 10 Handful of Fel Iron Bolts + 5 Elemental Blasting Powder
+    (may need more).
+  - 25-35: 34x Adamantite Frame craft spell 30306 (item 23784) = 136
+    Adamantite Bar 23446 + 34 Primal Earth 22452 (keep).
+  - 35-55: 70x White Smoke Flare craft spell 30341 (item 23768) = 70
+    Netherweave Cloth 21877 + 70 Elemental Blasting Powder (green for
+    most of it; approximate). Recipe = Schematic item 23811 from limited-
+    supply vendors; Wind Trader Lathrai 18484 is the closest in Shattrath
+    (5-10 minute respawn style wait per guide).
+  - 55-60: 6x Khorium Power Core spell 30308 = 6 Khorium Bar 23449 +
+    6 Primal Fire 21884 (not required for 60; every 70-75 recipe needs
+    cores, and 7-13 may be needed later - make them now).
+  - 60-70: 17x Adamantite Rifle craft spell 30313 (item 23746) = 51 Fel
+    Iron Casing + 34 Adamantite Frame + 68 Handful of Fel Iron Bolts
+    (expect 17-23). Recipe = Schematic item 23799, limited supply;
+    Viggz Shinesparked 19661 in Shattrath is closest.
+  - 70-75: 6x Field Repair Bot 110G spell 44391 = 6 Khorium Power Core
+    + 48 Handful of Fel Iron Bolts + 48 Adamantite Bar (green last 3 -
+    make more). Schematic item 34114 drops from Gan'arg Analyzer 23385 in
+    Blade's Edge (4 groups, 4-5 minute respawns, no double drop;
+    wowhead names the NPC "Simon Unit" per the guide's note).
+  - Alternate note: the guide's only other called-out alternate for
+    70-75 is having Khorium Power Cores ready (section 55-60 note); its
+    25-60 aside allows Global Thermal Sapper Charge spell 56514 from
+    Didi the Wrench 29513 if Goblin Engineering
+    quests were done).
+Shopping (ranges as printed): 300-450x Fel Iron 23445, 40x Mote of Earth
+22573, 20x Mote of Fire 22574, 35-45x Primal Earth 22452, 70x Netherweave
+21877, 200-350x Adamantite 23446, 6-15x Primal Fire 21884, 6-15x Khorium
+23449. Exact needs: Fel Iron 126+168 = 294 (within floor 300 slack);
+Adamantite 136+34+48 = 218 (within 200-350); both Motes exact; Netherweave
+exact; Primal Earth exact 34 (range 35-45 covers); Primal Fire exact 6;
+Khorium exact 6. Total planned crafts = 340.
+
+3.3 Northrend 1-75 (learn main 264481 from Oshenko, section 2):
+Shopping list (guide): 260 Cobalt Bar 36916, 6 Frostweave Cloth 33470,
+10 Crystallized Earth 37701 (1 Eternal Earth 35624 = 10), 40 Crystallized
+Water 37705 (1 Eternal Water 35622 = 10), 14 Borean Leather 33568, 390
+Saronite Bar 36913, 9 Eternal Shadow 35627, 2 Eternal Water 35622, 2
+Eternal Fire 36860, 2 Eternal Air 35623, 8 Titanium Bar 41163. NOT on the
+shopping list: 45x Tinker's Kit item 90146 (buy from Bryan Landers 28722)
+plus 30 Skinning Knife 7005, 30 Mining Pick 2901, 30 Blacksmith Hammer
+5956 for the Gnomish Army Knife step (section 9 item 4).
+  - 1-10: 35x Handful of Cobalt Bolts spell 56349 = 70 Cobalt Bar
+    (yields 1 or 3 bolts per craft); 10x Volatile Blasting Trigger spell
+    53281 = 30 Cobalt Bar + 10 Crystallized Water (yields 2 per craft);
+    10x Overcharged Capacitor spell 56464 = 40 Cobalt Bar + 10
+    Crystallized Earth. Keep all (Cobalt sum 70+30+40 = 140 of 260).
+  - 10-15: 6x Explosive Decoy spell 56463 = 6 Frostweave + 18 Volatile
+    Blasting Triggers (may need more).
+  - 15-26: 15x Froststeel Tube spell 56471 = 120 Cobalt Bar + 15
+    Crystallized Water (keep; Cobalt subtotal 260 exact).
+  - 26-30: 5x Diamond-cut Refractor Scope spell 61471 = 5 Froststeel
+    Tube + 10 Handful of Cobalt Bolts (stop at 30; Goblin-quest alternate:
+    Global Thermal Sapper Charge 56514 from Didi 29513 for 25-60).
+  - 30-35: 15x Nitro Boosts spell 55016 = 15 Tinker's Kit (buy from
+    Bryan Landers; the spell page: "Training cost: 115", "Profession
+    Trainer: Northrend Engineering (30)", Tools: Arclight Spanner,
+    "Requires Belt", Effect Enchant Item: Nitro Boosts (4223), flag "Can
+    only be used during nighttime" - printed as-is, section 9 item 16).
+  - 35-45: 30x Mind Amplification Dish spell 67839 = 30 Tinker's Kit
+    (same vendor; this page was not read - effect family as printed by
+    the guide, unverified detail).
+  - 45-50: 5x Mana Injector Kit craft spell 56477 (item 42546) = 60
+    Saronite Bar + 10 Crystallized Water (may need more).
+  - 50-55: 5x Mechanized Snow Goggles spell 61482 = 40 Saronite Bar +
+    10 Borean Leather + 5 Eternal Shadow (may need more; MOLL-E spell
+    56472 is the 54-skill alternative for one point).
+  - 55-60: 5x Noise Machine spell 56467 = 10 Froststeel Tube + 10
+    Overcharged Capacitor + 40 Handful of Cobalt Bolts.
+  - 60-74: 30x Gnomish Army Knife spell 56462 = 300 Saronite Bar +
+    30 Skinning Knife + 30 Mining Pick + 30 Blacksmith Hammer (green
+    last 5 - more than 30 expected; vendors: Bryan Landers for pick and
+    hammer, Ranid Glowergold 28718 for skinning knife).
+  - 74-75: 1x Wormhole Generator: Northrend spell 67920 = 8 Titanium
+    Bar + 2 Eternal Shadow + 2 Eternal Water + 2 Eternal Fire + 2
+    Eternal Air.
+Saronite check: 60+40+300 = 400 against the 390 shopping line - the
+shopping list is 10 short of the exact route (section 9 item 3).
+Total planned crafts = 172.
+
+3.4 Cataclysm 1-75 (learn main 264483 from any old-city trainer):
+Shopping list (guide): 60 Obsidium Bar 54849, 30 Volatile Air 52328, 360
+Elementium Bar 52186, 15 Volatile Fire 52325. Tools: same trio as
+Classic, plus High-Powered Bolt Gun item 60223 ("Requires 15 skill points
+in Catacylsm Engineering to craft" - guide's spelling).
+  - 1-45 (order matters): 30x Handful of Obsidium Bolts spell 84403 =
+    60 Obsidium Bar (keep); 15x Electrified Ether spell 94748 = 30
+    Volatile Air; then as many Volatile Seaforium Blastpack spell 84409
+    as the Ether allows (15 with 1:1 math; guide prints no fixed count);
+    Safety Catch Removal Kit spell 84410 is the filler if 45 not
+    reached.
+  - 45-60: 15x Lure Master Tackle Box spell 84415 = 300 Elementium Bar +
+    60 Handful of Obsidium Bolts (alternative Elementium Toolbox 84416
+    with Volatile Earth; Big Daddy spell 95707 between 50-60 or to 75
+    with Goblin Engineering).
+  - 60-75: 15x Heat-Treated Spinning Lure spell 84430 = 60 Elementium
+    Bar + 15 Volatile Fire + 15 Handful of Obsidium Bolts.
+Reconciliation: Obsidium 30x2 = 60 exact; Volatile Air 15x2 = 30 exact;
+Elementium 300+60 = 360 exact; Volatile Fire 15 exact. Total planned
+crafts = 90 (60-75 branch) + up to 15 optional filler = 90 on the main
+count.
+
+3.5 Pandaria 1-75 (learn main 264485 from Sally Fizzlefury 55143):
+Shopping list (guide, "approximate"): 406 Ghost Iron Bar 72096, 60
+Windwool Cloth 72988, 26 Spirit of Harmony 76061 (combine 10 Mote of
+Harmony 89112; motes drop from every MoP mob, ~10 minutes per 10, or buy).
+  - 1-25: 112x Ghost Iron Bolts spell 127113 = 336 Ghost Iron Bar (the
+    guide prints "112 x 2 x Ghost Iron Bolts" - 2 bolts per craft; wiki
+    table confirms 3 bars per craft); 70x High-Explosive Gunpowder spell
+    127114 = 70 Ghost Iron Bar.
+  - 25-55: 30x Tinker's Kit spell 131563 = 60 High-Explosive Gunpowder +
+    60 Ghost Iron Bolts + 60 Windwool Cloth (yellow - more expected;
+    reagents 2/2/2 per craft per the spell page).
+  - 55-62: 10x Thermal Anvil spell 127131 = 80 High-Explosive Gunpowder
+    + 60 Ghost Iron Bolts (Mirror Scope 127116 alt with Lapis Lazuli
+    76133 until green).
+  - 62-75: 13x Mist-Piercing Goggles spell 127130 = 104 Ghost Iron Bolts
+    + 26 Spirit of Harmony (fallback: more Thermal Anvils when green;
+    guide: "sometimes I just didn't get a single skill point for 8
+    crafts").
+Bar check: 336+70 = 406 exact shopping. Gunpowder consumption 60+80 =
+140 against only 70 produced by the shopping list (section 9 item 5).
+Total planned crafts = 112+70+30+10+13 = 235.
+
+3.6 Draenor 1-100 (scroll item 111921 "Draenor Engineering" first):
+Learn sources (guide): (a) vendors near the Ashran trainers - Sean
+Catchpole 87065 (Stormshield, A) / Nik Steelrings 87552 (Warspear, H)
+("Learn Engineering first from the NPC near the vendor"); the Stealthman
+54 spell page's vendor boxes also list Zaren Hoffle (Lunarfall) selling
+the scroll item for Cost:100 (unit not printed); (b) garrison
+Engineering Works NPC after "Your First Engineering Work Order"; (c)
+quest chain starters: Alliance loot Gnomish Location Transponder 115278
+from Draenor mobs or Karnoth 75043 during Shadows Awaken 34019; Horde
+loot Burned-Out Hand Cannon 116438 from mobs or Dorogg the Ruthless 74254
+during The Butcher
+of Bladespire 33410; the chain rewards the scroll. The scroll's Learning
+spell 161787 sits between the item and wrapper 264488 (wowhead
+"Triggered by"), and also teaches Stealthman 54 (its Taught-by row).
+Guide tip: craft Gearspring Parts spell 169080 (15 True Iron Ore 109119
++ 15 Blackrock Ore 109118 = 8 parts) then Ultimate Gnomish Army Knife
+spell 169140 if you lack the tools; a blacksmith anvil stands behind the
+trainer building (near the blacksmithing trainer - station note,
+section 9 item 10).
+  - 1-30 (make only ONE of these three): 12x Stealthman 54 spell 162207
+    = 24 Blackrock Ore + 24 True Iron Ore + 24 Nagrand Arrowbloom 109128
+    (per-spell reagents 2/2/2; Tools: Gyromatic Micro-Adjustor; quick
+    facts "Learned via discovery", Mechanic: Discovery, vendors Zaren
+    Hoffle/Sean Catchpole sell the scroll item for Cost:100 - page
+    printout) OR 23x Mecha-Blast Rocket spell 173308 = 138 Blackrock Ore
+    OR 23x Shieldtronic Shield spell 173309 = 138 True Iron Ore
+    (Stealthman is the guide's usual pick unless Arrowbloom is
+    overpriced).
+  - 30-100 main: 1x Secrets of Draenor Engineering spell 177054 (= 5
+    True Iron Ore per wiki table; recipe taught by the scroll), buy
+    Schematic: Didi's Delicate Assembly item 118493 from Sean/Nik (or the
+    garrison building), then 70x Didi's Delicate Assembly spell 169078 =
+    1050 True Iron Ore + 1050 Blackrock Ore.
+  - 30-100 cheaper alternative (1110 ore total): 70x Primal Welding
+    spell 182120 = 70 Primal Spirit 120945 + 350 True Iron + 350
+    Blackrock; schematic 122712 from the garrison Ore Trader (Alexi
+    Hackercam 90894 A / Trixxy Volt 91030 H) for 60 Blackrock Ore;
+    Primal Spirit sold by the trader for 5 True Iron each (350 needed
+    for the spirits on top of the 350 in the recipe). Trader rotation is
+    Ore->Dust->Fur->Leather->Herb daily at a level 3 town hall, 1-of-4
+    spawn (guide warns EU/NA quick-facts dates are swapped on wowhead).
+Total planned crafts (main branch) = 12 + 1 + 70 = 83 (94 on the
+rocket/shield branches).
+
+3.7 Legion 1-100 (learn quest 40545, wrapper 264491 - section 1):
+Learn: quest 40545 "Aww Scrap!" (level 10, Profession: Engineering quick
+fact, added 7.0.1) from Hobart Grapplehammer 93539, turn in Filgo
+Scrapbottom 102193 with provided Crate of Guns 133750; reward learn spell
+264491. The full wowhead storyline lists 31 quests (40545, 40854, 40855,
+40856, 40858, 40859, 40860, 40861, 40862, 40863, 40864, 40865, 40866,
+40867, 40868, 40869, 40870, 40871, 40872, 40873, 40874, 40875, 40876,
+40877 Halls of Valor, 40878 Violet Hold, 40879, 40880, 40881, 40882 Court
+of Stars, 46119, 46128); the guide says "29 Engineering quest in total"
+(section 9 item 7). You do not need every quest to reach 100 but MUST do
+All Charged Up 40862 (about the 10th), which rewards Rank 1 Gunpowder
+Charge.
+  - 1-100 single-recipe route: about 140x Rank 3 - Gunpowder Charge spell
+    199014 = 140 Leystone Ore 123918 + 2800 Oversized Blasting Cap
+    136637 (sold by Hobart near the trainer, about 3200 gold for 2800;
+    shift-buy advice; green between 90 and 100 - more expected). Rank 1
+    comes from quest 40862; Ranks 2/3 sold by The Widow 97366 in the
+    Dalaran Sewers for 250/500 Sightless Eye (currency 1149; ~750 farmed
+    in ~30 minutes per guide). R1/R2 cannot reach 100 (guide) - get R3
+    first.
+Total planned crafts = about 140 (+ the green-zone overage).
+
+3.8 Battle for Azeroth 1-175 (learn 264493/265808 wrappers from the
+faction trainers, section 1):
+Learn-side notes (guide): Kul Tiran (A) / Zandalari (H) differ only by
+name; most recipes have 3 ranks; R3 "Work Order" world quests are random.
+Shopping list "1-110 only" (110-145 has four methods): 700 Monelite Ore
+152512, 350 Storm Silver Ore 152579, 250 Chemical Blasting Cap 160502,
+900 Insulated Wiring 163569, 405 Osmenite Ore 168185, 55 Expulsom 152668
+(Osmenite/Expulsom serve 110+). Wiring and Caps are sold by the
+engineering trainer - "Don't buy them from the Auction House!"
+  - 1-30: 30x F.R.I.E.D. spell 255392 = 180 Monelite + 150 Chemical
+    Blasting Cap + 240 Insulated Wiring (reagents per cast 6/5/8 verified
+    on the spell page; Effect Create Item; "Profession: Engineering (1)";
+    2 sec cast; other bombs allowed).
+  - 30-35: 5x Deployable Attire Rearranger spell 256154 = 50 Monelite +
+    30 Storm Silver + 50 Insulated Wiring.
+  - 35-60: learn R2 bombs from the trainer, then 30x Rank 2 - F.R.I.E.D.
+    spell 255393 = 150 Monelite + 90 Chemical Blasting Cap + 150
+    Insulated Wiring (R2 reagents 5/3/5 per the R1 page's rank table);
+    alternative to 85: R3 Organic Discombobulation Grenade spell 255409
+    x60 = 240 Monelite + 120 Caps + 240 Wiring from Natal'hakata 131287
+    (H) / Sister Lilyana 135800 (A) at Revered Zandalari Empire/Storm's
+    Wake (R3 stays orange 25 more).
+  - 60-85: learn R2 from the trainer, then 25x Rank 2 - Deployable
+    Attire Rearranger spell 256155 = 200 Monelite + 125 Storm Silver +
+    200 Insulated Wiring.
+  - 85-110: learn R3 from the trainer, then 15x Rank 3 - Magical
+    Intrusion Dampener spell 280734 = 120 Monelite + 80 Storm Silver +
+    90 Insulated Wiring. Guide NOTE: this recipe is bugged and gives 2-4
+    skill points per orange craft (sometimes 2 at yellow/green) - make
+    more than 15 if fixed (section 9 item 13).
+  - 110-145, four methods (table): Method 1 (best, needs Exalted
+    Zandalari Empire/Proudmoore): 35x Rank 3 - Unstable Temporal Time
+    Shifter spell 283916 = 280 Monelite + 210 Storm Silver + 525
+    Insulated Wiring, "make all the way up to 150 until it turns grey"
+    (R2 spell 283915 bought from Natal'hakata (Zuldazar) / Provisioner
+    Fray 135808 (Tiragarde) at Exalted; R3 schematic 166276 drops from
+    High Tinker Mekkatorque 144796 in Battle of Dazar'alor, any
+    difficulty including Raid Finder). Method 2 (battle pets): 110-125
+    25x Time Shifter R1 spell 283914 = 300 Monelite + 200 Storm Silver +
+    400 Insulated Wiring (yellow), then 125-145 35x Mechantula spell
+    286478 = 350 Monelite + 175 Platinum Ore 152513 + 350 Insulated
+    Wiring (schematic 165844 from Pet Battle Challenge: Gnomeregan for
+    Pristine Gizmo 165835). Method 3 (6 Mark of Honor): 125-145 20x
+    Rank 3 - Sinister Combatant's Discombobulator spell 282808 = 500
+    Storm Silver + 300 Platinum + 80 Expulsom (rank 2/3 recipes from
+    Ozgrom Ragefang 142552 (H) / Leedan Gustaf 142564 (A)). Method 4
+    (15 Tidalcore 165948 - guaranteed last boss in Mythic and end-chest
+    in Mythic Plus): 110-130 35x Time Shifter R1 spell 283914 = 420
+    Monelite + 280 Storm Silver + 700 Insulated Wiring (green last 5),
+    or 35x either Revered alternative (Frost-Laced Ammunition 265102
+    = 420 Monelite + 175 Wiring + 175 Caps; Monelite Scope of Alacrity
+    264967 = 350 Monelite + 175 Storm Silver). 110-125 sub-branch of
+    method 2 also offers 25x either Revered alternative (Frost-Laced
+    265102 = 300 Monelite + 125 Wiring + 125 Caps; Scope 264967 = 250
+    Monelite + 125 Storm Silver).
+  - 130-145: trainer sells epic goggles (pick armor type); scrap-loop:
+    craft one pair, scrap it in the Scrapper to recover Expulsom and
+    Tidalcore, repeat - only ONE pair's worth of those two reagents is
+    ever consumed. 15x Surging Synthetic Specs spell 286873 = 450 Storm
+    Silver + 150 Platinum + 225 Insulated Wiring + 15 Expulsom + 15
+    Tidalcore (other goggles cost the same).
+  - 145-175 (Nazjatar): learn from Jada 154321 (H) / Instructor Alikana
+    153817 (A) after the Nazjatar intro. 145-150: 5x Rank 1 - Notorious
+    Combatant's Discombobulator spell 294784 = 75 Osmenite + 25 Storm
+    Silver + 50 Insulated Wiring + 15 Expulsom (skippable if method 1
+    carried you). 150-165: 15x Rank 2 spell 294785 = 210 Osmenite + 60
+    Storm Silver + 120 Insulated Wiring + 30 Expulsom (R2 recipe from
+    Dazzerian 154652 (H) / Crafticus Mindbender 154653 (A) for 2 Mark of
+    Honor). 165-175: 10x Rank 3 spell 294786 = 120 Osmenite + 30 Storm
+    Silver + 60 Insulated Wiring + 10 Expulsom (R3 recipe 4 Mark of
+    Honor from the same NPCs; stop at 170 if you want the three epic
+    goggles' 6 points instead).
+Shopping reconciliation (1-110 only): Monelite 180+50+150+200+120 = 700
+exact; Caps 150+90 = 240 vs 250 floor; Storm Silver 30+125+80 = 235 vs
+350 floor; Wiring 240+50+150+200+90 = 730 vs 900 floor (floors cover
+yellow/green overage). Total planned crafts (main path: 30+5+30+25+15+
+35+15+10) = 165.
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Primary source: mining (the guides all pair Engineering with Mining);
+wiki companion-skills: Mining = main source, Skinning = some leather,
+Jewelcrafting = early gears; anything else comes from the auction house
+or vendors. There is NO Engineering disenchanting - the profession
+creates and uses, it does not deconstruct (unlike Enchanting).
+  - Classic: Rough Stone 2835, Copper Bar 2840, Coarse Stone 2836, Linen
+    Cloth 2589, Bronze Bar 2841, Tigerseye 818, Heavy Stone 2838, Wool
+    Cloth 2592, Medium Leather 2319, Steel Bar 3859, Solid Stone 7912,
+    Mithril Bar 3860, Mageweave Cloth 4338, Dense Stone 12365, Thorium
+    Bar 12359, Runecloth 14047 (all linked on the guide); intermediates:
+    Rough Blasting Powder item 4357, Heavy Blasting Powder 4377,
+    Whirring Bronze Gizmo 4375, Clockwork Box 6712.
+  - Outland: Fel Iron Bar 23445, Mote of Earth 22573, Mote of Fire
+    22574, Primal Earth 22452, Netherweave Cloth 21877, Adamantite Bar
+    23446, Primal Fire 21884, Khorium Bar 23449, Khorium Ore 23426;
+    intermediates (crafted spell ids in section 3.2): bolts 23783,
+    powder 23781, casing 23782, frames 23784; Crystal Vial not used.
+  - Northrend: Cobalt Bar 36916, Frostweave Cloth 33470, Crystallized
+    Earth 37701, Crystallized Water 37705, Borean Leather 33568,
+    Saronite Bar 36913, Eternal Shadow 35627, Eternal Water 35622,
+    Eternal Fire 36860, Eternal Air 35623, Titanium Bar 41163;
+    Tinker's Kit item 90146 (vendor Bryan Landers, or craft spell
+    131563 from 2 Ghost Iron Bolts + 2 Windwool + 2 High-Explosive
+    Gunpowder at Engineering 550 per wiki/wowdb).
+  - Cataclysm: Obsidium Bar 54849, Volatile Air 52328, Elementium Bar
+    52186, Volatile Fire 52325; High-Powered Bolt Gun item 60223 (cata
+    tool, craft requires 15 cata skill).
+  - Pandaria: Ghost Iron Bar 72096, Windwool Cloth 72988, Spirit of
+    Harmony 76061, Mote of Harmony 89112, Lapis Lazuli 76133 (alt);
+    Ghost Iron Bolts item 77467 (3 bars per craft), High-Explosive
+    Gunpowder item 77468 (1 bar per craft).
+  - Draenor: Blackrock Ore 109118, True Iron Ore 109119, Nagrand
+    Arrowbloom 109128, Primal Spirit 120945, Gearspring Parts 111366;
+    alt-reagent rows on Stealthman 54 accept WoD fragments/nuggets/petals:
+    Blackrock Fragment item 109992 (spell 157516), True Iron Nugget
+    109991 (spell 157517), Nagrand Arrowbloom Petal 109628 (spell
+    157027).
+  - Legion: Leystone Ore 123918, Oversized Blasting Cap 136637 (Hobart).
+  - Battle for Azeroth: Monelite Ore 152512, Storm Silver Ore 152579,
+    Platinum Ore 152513, Osmenite Ore 168185, Chemical Blasting Cap
+    160502 (trainer vendor), Insulated Wiring 163569 (trainer vendor),
+    Expulsom 152668 (Scrapper), Tidalcore 165948 (Mythic+), Mark of
+    Honor 137642.
+  - Tools (carry in inventory): Blacksmith Hammer 5956 (vendor),
+    Arclight Spanner 6219 (crafted spell 7430 at 50 Classic skill, and
+    per the Northrend guide "Sold by Engineering supply vendors"), Gyromatic
+    Micro-Adjustor 10498 (crafted spell 12590 at 175 Classic skill),
+    High-Powered Bolt Gun 60223 (crafted at 15 Cataclysm skill);
+    Ultimate Gnomish Army Knife item 114943 (craft spell 169140 for 5
+    Gearspring Parts, or buy spell 162208; Gnomish Army Knife spell
+    56462 at Northrend Engineering; a later variant is craft spell
+    56462 per the guides' shared tools section). wiki Requirements:
+    schematics often need one of these carried tools; wiki also states
+    "Anvils are also required to craft" (station, section 9 item 10) and
+    Thermal Anvils can be crafted at high skill.
+  - Legion route consumption: 140 Leystone + 2800 caps are guide
+    numbers; BfA route mats as printed in section 3.8.
+Companion sourcing: buying everything from the auction house is the
+fastest path per the guides; without an AH, the companion must mine,
+vendor-buy (wiring, caps, Tinker's Kits, tools), run the quest chains
+above, or use the Scrapper loop for Expulsom.
+
+5. TRAINER COSTS
+----------------
+Learn-spell quick-fact "Training cost" (raw value; wowhead prints no
+unit): 4036 = 10, 264479 = 10, 264481 = 10, 264483 = 10, 264485 = 10,
+264492 = 10, 265807 = 10. Same conflict pattern as Alchemy/Blacksmithing/
+Enchanting: raw field vs guide gold text - none of the engineering guide
+pages quoted a gold learn price, so only the raw fields are recorded.
+Recipe-side costs read on pages: Nitro Boosts 55016 "Training cost: 115"
+with detail line "Profession Trainer: Northrend Engineering (30) - Cost:
+115"; Draenor Engineering scroll vendors show "Cost:100" (Zaren Hoffle/
+Sean Catchpole boxes on spell pages, unit not printed). Currency costs
+from guides: Sightless Eye 250 (R2 Gunpowder Charge) and 500 (R3) at The
+Widow; Mark of Honor prices: 6 for the Sinister Discombobulator rank 2+3
+pair, 2 for the Nazjatar Notorious rank 2, 4 for rank 3 (same NPC pair);
+Schematic: Primal Welding 122712 = 60 Blackrock Ore from the Ore Trader;
+Primal Spirit = 5 True Iron Ore each from that trader; classic-era
+gold prices for old schematics were not printed on these guides -
+unverified where needed (limited-supply schematics: Lathrai, Viggz,
+Didi - prices not printed).
+TC server side: price = trainer-spell MoneyCost x
+GetReputationPriceDiscount(npc) (Trainer.cpp 98), charged at 100-106;
+SendSpells puts ReqSkillRank/ReqAbility in the list packet (67-68).
+
+6. LEVEL NEEDED
+---------------
+Character levels, per line (all read this week):
+  - Classic: warcraft.wiki Classic engineering schematics - "can be
+    trained as early as level 5" (300 cap).
+  - Outland: wowpedia Outland engineering schematics - "as early as
+    level 50" (75 cap).
+  - Northrend: wowpedia Northrend engineering schematics - "as early as
+    level 65" (75 cap).
+  - Cataclysm: warcraft.wiki Cataclysm schematics - "as early as level
+    75" (75 cap).
+  - Pandaria: warcraft.wiki Pandaria schematics - "as early as level
+    80" (75 cap).
+  - Draenor: warcraft.wiki Draenor schematics - "as early as level 90"
+    (100 cap).
+  - Legion: warcraft.wiki Legion schematics - "as early as level 98"
+    (100 cap); current quest 40545 requires level 10 (wowhead quest
+    quick facts and wrapper 264491 Reward-from row); the guide suggests
+    finishing the chain "at 50" because later quests had level
+    requirements in the original design.
+  - Battle for Azeroth: no character-level line printed on the learn
+    spells ("Requires Engineering (1)" only) - character level
+    unverified; wowpedia BfA page header prints "trained as early as
+    level TBC" (broken template, section 9 item 14).
+Proficiency table (warcraft.wiki Engineering training table): Classic
+Apprentice/Journeyman/Expert/Artisan ladder 1-75 / 75-150 / 150-225 /
+225-300 (row also prints 1-300); TBC Master 1-75; WotLK Grand Master
+1-75; Cataclysm Illustrious Grand Master 1-75; MoP Zen Master 1-75; WoD
+Draenor Master 1-100; Legion Legion Master 1-100; BfA Kul Tiran/
+Zandalari Master 1-175 (this page agrees with the learn spells - no cap
+conflict on Engineering); Shadowlands 1-150; later rows out of scope.
+Wowhead recipe gates read: "Profession: Engineering (1)" on 3918 and
+255392; "Profession Trainer: Northrend Engineering (30)" on 55016;
+"Skill: Classic Engineering" / "Skill: Draenor Engineering" / "Skill:
+Kul Tiran Engineering" quick-fact fields on 3918 / 162207 / 255392;
+specialization at skill 200 (wiki + guide). TC side: trainer learn gate
+= GetSpellState ReqSkillLine/ReqSkillRank (Trainer.cpp 181-183) and
+level check 189; profession-slot gate = IsPrimaryProfessionFirstRank +
+GetFreePrimaryProfessionPoints (149-165). There is no server-side
+craft-time skill check for engineering recipes: grep of game/Spells finds
+reqSkillValue only for lock-opening, gathering and prospecting paths;
+craft-time skill display lives client-side with SkillLineAbility data
+(no enchant-style "Profession: ..." enforcement found in Spell.cpp).
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+-----------------------------------------------
+Verified against TrinityCore master fetched this week (blobless sparse
+clone; paths under src/server/game/). Line numbers are from this fetch;
+upstream moves - section 9 item 15 records the drift against the
+Enchanting file.
+a) Learn press: NPCHandler.cpp 97 HandleTrainerListOpcode -> 112
+   SendTrainerList -> 130 HandleTrainerBuySpellOpcode -> 145
+   interaction guard -> 155 trainer->TeachSpell; Trainer.cpp 76
+   TeachSpell -> 79 CanTeachSpell -> 149 CanTeachSpell body: state must
+   be Available (172 GetSpellState: known check, race/class, skill gate
+   181-183, prerequisite spells 185-187, level 189-191, rank-chain
+   logic), free primary profession point (156/165), money at 100-106
+   with reputation discount 98; then IsCastable -> CastSpell or
+   LearnSpell. This is how 4036, the apprentices wrapper 4039, the eight
+   expansion wrappers (264478, 264480, 264482, 264484, 264486, 264488,
+   264491, 264493, 265808), the BfA mains and every trainer-taught
+   schematic enter the character; quest rewards (264491) go through the
+   quest-reward learn path instead.
+b) Crafting a product (the common case): recipes are Effect Create Item
+   (wowhead samples 3918 and 255392 both print Effect: Create Item;
+   Stealthman 54 prints Create Item x5). TC path: Spell::cast takes
+   reagents at Spell.cpp 3872/3877 TakeReagents() (definition 5600);
+   DoCreateItem SpellEffects.cpp 1383 handles the item grant, reports
+   inventory full at 1440 (EQUIP_ERR_INV_FULL || EQUIP_ERR_ITEM_MAX_COUNT
+   -> SendEquipError), and grants skill at 1469 (`if (!m_CastItem)
+   player->UpdateCraftSkill(m_spellInfo);`).
+c) Variable-yield crafts: Handful of Cobalt Bolts yields 1 or 3, Volatile
+   Blasting Trigger yields 2, Ghost Iron Bolts yield 2 (guide prints),
+   Gearspring Parts yields 8 (guide prints), Stealthman yields 5
+   (spell effect amount). TC's SPELL_EFFECT_CREATE_ITEM_2 (effect 157,
+   table line 249) with IsLootCrafting rolls from LootTemplates_Spell
+   (EffectCreateItem2 SpellEffects.cpp 1482, 1495-1497 AutoStoreLoot,
+   second AutoStoreLoot at 1522) - that is the server mechanism for
+   random amounts; item-cast crafts also grant skill through Spell.cpp
+   3864 (SPELL_ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN).
+d) Tinker recipes are ENCHANT-ITEM crafts, not Create Item: sample
+   Nitro Boosts 55016 prints "Requires Belt", Tools: Arclight Spanner,
+   reagent Tinker's Kit 90146, "Permanently attaches nitro boosts to
+   your belt", Effect Enchant Item: Nitro Boosts (4223), flag "Target
+   must be own item". TC path: SpellEffects.cpp 2463
+   EffectEnchantItemPerm (effect 53 SPELL_EFFECT_ENCHANT_ITEM, table
+   line 145) applies enchant entry MiscValue; CheckCast guards in
+   Spell.cpp: target item required (7687 SPELL_FAILED_ITEM_NOT_FOUND),
+   level floor via BaseLevel (7691-7697 SPELL_FAILED_LOWLEVEL), MaxLevel
+   cap when casting from an item or prismatic (7699-7701
+   SPELL_FAILED_HIGHLEVEL), on-use conflict (7716-7723
+   SPELL_FAILED_ON_USE_ENCHANT), socket cap (7728-7736), foreign-item
+   soulbound check (7741-7746 SPELL_FAILED_NOT_TRADEABLE) which matches
+   the recipe's "Target must be own item" flag. Skill for gear/tinker
+   enchants: SpellEffects.cpp 2490-2492 (comment "do not increase skill
+   if vellum used" sits above `if (!m_CastItem) player->
+   UpdateCraftSkill(m_spellInfo);` - direct casts grant skill, item-cast
+   does not). Engineering has NO vellum branch equivalent in these routes
+   (no engineering vellum in the guide).
+e) Skill-up math: Player::UpdateCraftSkill Player.cpp 5410, early-out
+   SPELL_ATTR1_NO_SKILL_INCREASE 5412, SkillLineAbility lookup
+   5419-5424, discovery branch MECHANIC_DISCOVERY 5427-5431 (Stealthman
+   54's quick facts print "Learned via discovery" and Mechanic:
+   Discovery - the same branch the core uses to award discovery spells),
+   gain = NumSkillUps x CONFIG_SKILL_GAIN_CRAFTING 5433, chance via
+   SkillGainChance over TrivialSkillLineRankHigh/Low -> UpdateSkillPro
+   5435-5437. Other call sites: DoCreateItem success 1469,
+   EffectCreateItem2 1499 (enchant/DE sites 2492/3533 exist but belong
+   to the enchanting-style paths above). Wiki colour rules: orange
+   always, yellow probably, green probably not, grey never; red = not
+   high enough skill to learn.
+f) Learning schematics: trainer Taught-by paths in section 2; quest
+   rewards (Legion 40545 -> 264491); the Draenor scroll path: item
+   111922-analog item 111921 -> Learning spell 161787 -> wrapper 264488
+   and early recipes (Stealthman 54's Taught-by row is Learning
+   161787); limited-supply and reputation vendors for formulas as
+   printed in sections 2-3.
+g) Stations and tools: wiki says carried tools (spanner/hammer/
+   adjustor/bolt gun) and anvils are required for craft; the recipe
+   pages sampled print Tools fields (Nitro Boosts: Arclight Spanner;
+   Stealthman: Gyromatic Micro-Adjustor). TC has the generic
+   RequiresSpellFocus machinery (Spell.cpp 1120/1133, GameObjectFocus
+   check 2322-2323, aura-provided focus 6064-6066, fail packet 4473) -
+   whether any engineering recipe carries a focus DBC entry was not
+   verified (section 9 item 10). Guide advice (WoD anvil behind the
+   trainer, Thermal Anvil item) is recorded as printed.
+h) Learn-spell effects: 8.0.1 mains use Learn Skill (line id) value 1
+   with the cap in the text; 8.1.0 wrappers use Learn Spell(main) + Learn
+   Skill Step (line id); the Classic wrapper 264478 additionally learns
+   4036 (trade skill + skill 202) and 264475 (line 2506). The server
+   must implement Learn Spell / Learn Skill Step / Trade Skill effects
+   and the 202 skill line before any bar can move; expansion mains also
+   require base Engineering (1) as their quick facts state.
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+- Satisfy the racial bonuses without code: Gnome Engineering
+  Specialization 20593 is Apply Aura: Mod Skill (Engineering) value 5
+  ("Engineering skill increased by 5"); a non-Gnome companion never gets
+  the +5 orange extension (and two guides wrongly print +15 - section 9
+  item 1). Kul Tiran +2 Jack of All Trades 291442 comes from the guides'
+  text (page not read - treated as guide-verified only).
+- Cross time, reputation and random gates by clicking: Exalted
+  Zandalari/Proudmoore for Time Shifter R2, Revered reputation vendors
+  (Tortollan-style gates: Voldunai/Order of Embers, Honorbound/7th
+  Legion, Zandalari Empire/Storm's Wake), random "Work Order" World
+  Quests for R3 schematics, Uniting Kul Tiras/Zandalar war-campaign
+  pre-quests, Legion World Quests on 2-3 day rotations (R3 drops), the
+  Sightless Eye PvP-farm currency, Mark of Honor from battlegrounds (or
+  honor-bought Orboreal Distinguishment 185834 from Purveyor Zo'kuul
+  164095), Mythic/Mythic+ Tidalcore drops, Battle of Dazar'alor lockouts
+  (Mekkatorque schematic), the Pet Battle Challenge: Gnomeregan
+  prerequisite (level 25 pets), garrison Ore-Trader daily rotation with
+  1-of-4 spawn RNG (level 3 town hall; wait 5 days or visit another
+  player's garrison), and the WoD quest chain's loot drops - none of
+  these are craft actions.
+- Reach content the routes pass through: Legion quest chain dungeons
+  (Halls of Valor 40877, Violet Hold 40878, Court of Stars 40882, plus
+  earlier outdoor zones), Draenor quest mobs (Karnoth 75043 / Dorogg
+  74254), Outland's Gan'arg Analyzer farms, Annora-style dungeon
+  trainers do not apply here but Uldaman-equivalents (the Legion chain's
+  instances) do; Raid Finder queueing for Mekkatorque and the Legion
+  guide's raid notes are world actions needing scripting.
+- Use auction-house-only steps: all shopping lists assume an AH; the
+  companion must substitute mining, trainer-vendor stock (Insulated
+  Wiring, Chemical Blasting Cap, Tinker's Kits, Oversized Blasting Cap),
+  and DE-like loops it does not have (no disenchanting at all - unlike
+  Enchanting, Engineering cannot refeed drops).
+- Pass faction/side gates: Aldor cannot use Sinbei, Scryers cannot use
+  Mihila (Shattrath split), faction mains (264492/265807) are
+  Alliance/Horde Specific, faction trainers differ, and the dual-Dalaran
+  trap is real: Timofey in Legion Dalaran will not teach Northrend
+  recipes (guide warning) while Hobart must be the Broken Isles copy.
+- Specialization-dependent content: Global Thermal Sapper Charge 56514
+  and Big Daddy 95707 routes assume Goblin Engineering quests; Gnomish/
+  Goblin plans come from Overspark/Oglethorpe/Findle (Gnomish) or
+  Nixx/Vazario/Didi (Goblin) - completing the 200-skill quests and
+  staying in the right branch is quest work; most other recipes remain
+  available regardless (wiki).
+- Hold more than two primary professions: CanTeachSpell's free
+  profession point gate (Trainer.cpp 156).
+- Read the client UI: colour of each recipe in the profession window,
+  the rank-star hover sources, guard map markers, "shift+left click"
+  bulk buys, and discovery feedback are client features; the data behind
+  them (SkillLineAbility colours, ranks, sources, discovery spells via
+  UpdateCraftSkill 527-531) must come from server-side DBC/quest state.
+- Craft while the recipe says otherwise: Nitro Boosts carries "Can only
+  be used during nighttime" and shares potion cooldowns (printed flags;
+  whether the craft itself is night-gated was not read - unverified);
+  F.R.I.E.D.-family bombs have combat-use text irrelevant to leveling.
+- Trust the wiki's "Teaches only Apprentice" row notes as current: the
+  wiki trainers page is marked outdated and patch 4.0.3a equalized ranks
+  (use the patch note; keep the notes as historic).
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+1) Gnome bonus: vanilla guide and Legion guide say "+15 Engineering";
+   BfA/Northrend/Outland/Cataclysm/Pandaria/Draenor guides and the wiki
+   say "+5"; spell 20593 effect value is 5. Adopted: 5.
+2) Kul Tiran +2 (Jack of All Trades 291442) and the Priest-style trait
+   text come from guide pages only - the spell page was not fetched;
+   value marked guide-verified.
+3) Northrend shopping list: Saronite 390 vs exact route need 400
+   (60 injector + 40 goggles + 300 army knife) - list is 10 short.
+4) Northrend shopping list omits the 45 Tinker's Kits (vendor) and the
+   30 skinning knives + 30 mining picks + 30 hammers for the army knife
+   (vendor buys, section 3.3).
+5) Pandaria shopping list: High-Explosive Gunpowder produced = 70 but
+   route consumes 60 (Tinker's Kits) + 80 (Thermal Anvils) = 140 - list
+   is 70 short (476 Ghost Iron Bars would cover it).
+6) Legion reward link: the guide hyperlinks spell 201700 "Legion
+   Engineer" as the quest reward; live quest 40545 and wrapper 264491's
+   Reward-from row both teach 264491. Adopted: 264491 (201700 kept as
+   the stale/boost-era spell).
+7) Legion quest count: guide says 29; wowhead storyline lists 31 (46119
+   and 46128 are the last two). Both printed.
+8) Classic wrapper 264478 teacher: no Taught-by list rendered on the
+   page; guides say ask a guard in a capital city; patch 4.0.3a
+   equalized trainer ranks. Precise NPC for 264478 = unverified.
+9) Patch tags on the BfA Horde pair: wowhead quick facts say main
+   265807 "Added in patch 8.1.0" but wrapper 265808 "Added in patch
+   8.0.1" (inverted-looking); wowdb shows the Zandalari spell under
+   build #27101. Printed as-is; no reinterpretation.
+10) Anvil/station: wiki says "Anvils are also required to craft" and
+    the Draenor guide points at an anvil behind the trainer, but the
+    sampled recipe page (Stealthman 54) prints only Tools, no station
+    line; which engineering recipes carry RequiresSpellFocus/DBC focus
+    entries = unverified (TC machinery listed in section 7g).
+11) Heavy Blasting Powder: retail spell 3930 does not exist ("Crafted
+    Heavy Shot" alias); craft spell = 3945 confirmed on wowhead classic
+    and forever pages (retail live spell page not fetched this week).
+12) Clockwork Box step (113-125): the guide says to "Use the Clockwork
+    Box you made" for the next 12 points - how using it grants
+    engineering skill was not read (unverified mechanism).
+13) BfA Magical Intrusion Dampener: the guide reports a live bug giving
+    2-4 points per orange craft (sometimes at yellow/green) and asks
+    readers to report a fix; numbers beyond 15 crafts are unpredictable.
+14) Training-cost units: pages print "Training cost: 10"/"115" with no
+    currency unit (same raw-field pattern as the previous four
+    profession files); no guide quoted a gold price for the learn
+    spells.
+15) TC line drift: the Enchanting file (earlier today) cites
+    Spell.cpp TakeReagents at 3871/definition 5599; this fetch shows
+    3872/5600 - upstream master moved between fetches; all other cited
+    trainer/skill lines matched exactly (76/98/100/106/149/156/165/172/
+    181-183/189; NPCHandler 97/112/130/145/155; Player 5410-5437;
+    SpellEffects 1440/1469/1499).
+16) Nitro Boosts flag "Can only be used during nighttime" is printed on
+    the recipe page; whether it gates the craft or only the tinker's use
+    was not read (unverified).
+17) Gnomish/Goblin retention on retail 8.3.7's Classic bar rests on the
+    wiki Specializations section and the vanilla guide (quests at skill
+    200 from your trainer); the actual quest ids were not read -
+    unverified (the routes do not require the specs).
+18) Outland shopping is explicitly ranged ("300-450", "200-350",
+    "6-15") because the route runs yellow/green - the guide's own
+    statement, kept as printed rather than a single number.
+19) Wowpedia-host fetches for the schematic headers were chrome-heavy;
+    level lines were taken from warcraft.wiki.gg mirrors where possible
+    (5/75/80/90/98) and the wowpedia Outland/Northrend headers (50/65)
+    from their search-result snippets with URLs recorded in section 10.
+
+10. SOURCES
+-----------
+All fetched 2026-10-26 week; pages are not stored in the repository.
+wowhead spell pages: 4036 (base + other ranks), 4039, 264475 (+ See-also
+rank family), 264477 (miss - unrelated), 264478, 264479 (+Taught-by 7),
+264480 (beta), 264481 (+Taught-by 3), 264482, 264483 (+Taught-by 13),
+264484, 264485 (+Taught-by 2), 264486, 264487, 264488 (Triggered by
+161787), 264489 (miss - unrelated), 264490, 264491 (+Reward 40545),
+264492 (+Taught-by 3), 264493, 265807 (+Taught-by 4), 265808, 201700,
+20593 (Engineering Specialization value 5), 3918 (sample: Profession
+gate, Create Item, Classic Engineering), 255392/255393/255394 (F.R.I.E.D.
+ranks, 6/5/8 reagents, Create Item), 55016 (Nitro Boosts: Enchant Item
+4223, Requires Belt, Tools, cost 115), 162207 (Stealthman: Tools,
+discovery, Learning 161787, Create Item 5), 40545 (quest: level 10,
+reward 264491, 31-quest storyline, Filgo 102193, Crate 133750).
+wowhead item pages probed for craft spells and ids: 23783 (spell 30305),
+23781 (30303), 23782 (30304), 23736 (30310), 23784 (30306), 23768
+(30341), 23746 (30313), 42546 (56477), 4375 (3942), 4377 (craft row not
+rendered - spell via search), 3930 (missing - alias for Crafted Heavy
+Shot).
+Guide-hub search results (record id/url): [1] Kul Tiran Engineering
+spell https://www.wowhead.com/spell=264492/kul-tiran-engineering + [2]
+skill https://www.wowhead.com/skill=2499/kul-tiran-engineering; BfA
+engineering guide [1]
+https://www.wow-professions.com/guides/zandalari-kul-tiran-bfa-engineering-leveling-guide
+and overview [7]
+https://www.wow-professions.com/guides/bfa-engineering; Outland spell [1]
+https://www.wowhead.com/spell=264479/outland-engineering + [2]
+https://www.wowhead.com/skill=2505/outland-engineering + [7] wowpedia
+Outland schematics (level 50) https://wowpedia.fandom.com/wiki/Outland_engineering_schematics
++ [8] guide
+https://www.wow-professions.com/guides/outland-engineering-leveling;
+Northrend spell [1]
+https://www.wowhead.com/spell=264482/northrend-engineering + skill [2]
+https://www.wowhead.com/skill=2504/northrend-engineering + wowpedia NR
+header [6]
+https://wowpedia.fandom.com/wiki/Northrend_engineering_schematics
+(level 65); Legion spell [1]
+https://www.wowhead.com/spell=264491/legion-engineering + guide [5]
+https://www.wow-professions.com/guides/legion-engineering-leveling +
+quests wiki [9] https://warcraft.wiki.gg/wiki/Engineering_quests;
+Heavy Blasting Powder spell [1]
+https://www.wowhead.com/classic/spell=3945/heavy-blasting-powder and [8]
+https://www.wowhead.com/forever/spell=3945/heavy-blasting-powder;
+Leystone Ore [1]
+https://www.wowhead.com/item=123918/leystone-ore; Tinker's Kit [3]
+https://www.wowhead.com/item=90146/tinkers-kit + [6]
+https://www.wowdb.com/spells/131563-tinkers-kit.
+wow-professions guides (full slugs): vanilla-engineering-leveling,
+outland-engineering-leveling, northrend-engineering-leveling,
+cataclysm-engineering-leveling, pandaria-engineering-leveling,
+draenor-engineering-leveling, legion-engineering-leveling,
+zandalari-kul-tiran-bfa-engineering-leveling-guide,
+bfa-engineering (overview: devices table incl. Unstable Temporal Time
+Shifter/R3 Mekkatorque + max 175).
+warcraft.wiki.gg pages: Engineering (7 chunks: official overview,
+specialization-at-200 text, training table incl. BfA 1-175, colour
+rules, tools + "Anvils are also required", Gnome +5 perk, companion
+skills, Specializations tables, Tinker's Workbench); Engineering_trainers
+(6 chunks: all coordinates above + outdated banner + patches 4.0.3a/
+2.3.0); Classic_engineering_schematics (level 5, rank ladder, trainer
+sources); Cataclysm_engineering_schematics (level 75, destacking note);
+Pandaria_engineering_schematics (level 80, Ghost Iron Bolts 3 bars,
+gunpowder 1 bar); Draenor_engineering_schematics (level 90, scroll
+redirect, Gearspring 15+15); Legion_engineering_schematics (level 98,
+headgun quests).
+wowpedia.fandom.com: Outland_engineering_schematics (level 50),
+Northrend_engineering_schematics (level 65), BfA schematics snippet
+("level TBC" broken header, 175 from 150 in 8.2.0), Tinker's_Kit (550,
+reagents), Leystone_Ore.
+TrinityCore master, fetched this week with a blobless sparse clone
+(files under src/server/game/): Spells/Spell.cpp (3864, 3872/3877, 5600,
+7664-7763, 7784-7804 focus 1120/1133/2322-2323/4473/6064-6066),
+Spells/SpellEffects.cpp (145, 191, 249, 1383, 1440, 1469, 1482-1522,
+1495-1499, 2463-2492), Entities/Player/Player.cpp (5410-5437),
+Handlers/NPCHandler.cpp (97, 112, 130, 145, 155), Entities/Creature/
+Trainer.cpp (67-68, 76, 98-106, 149, 156, 165, 172, 181-191).

@@ -1,0 +1,148 @@
+AUDIT OF Craft_Alchemy.txt - COMPANION_PROFESSIONS STEP 126 (PART 14)
+=====================================================================
+Run 2026-10-25. Script: audit_craft_alchemy.py (static checks + mutation
+self-test). Deliverable under audit: Craft_Alchemy.txt (the one file the
+prompt and RESEARCH_MASTER STEP 126 ask for).
+
+RESULT: 203/203 static checks PASS, 0 FAIL; mutation probes 204/204
+detected on two consecutive runs; SELF-TEST PASS.
+
+WHAT WAS CHECKED (each claim is re-tested against the file text, not assumed
+from the writing session):
+  structure (20)  ten numbered sections; the prompt's deliverable name
+    Craft_Alchemy.txt in both 04_Alchemy.txt and RESEARCH_MASTER STEP 126
+    ("Deliver ONE text file named: Craft_Alchemy.txt"); "Do only this step";
+    the PART 14 header; no tabs; exactly seven "- Cannot" bullets; at least
+    20 explicit "unverified" markers; the eight 3.x route sub-blocks
+  learn map (23)  table rows for child lines 2485/2484/2483/2482/2481/
+    2480/2479/2478/171 with their alignment intact; learn spells 264212
+    (8.1.0), 264255 Alliance (8.0.1), 265787 Horde (8.1.0), 264248 wrapper
+    (8.1.0) with inner 264247 added 8.0.1, "Requires Alchemy (1)", caps
+    text "maximum potential skill of", "Learn Skill Step", the Draenor
+    treatise chain 109558 -> 156614 -> 264248 ("Triggered by"), Legion
+    quest 39325 -> 201697, flask unlock quest 39346, Mixology
+  trainers (23)  both BfA trainers with creature ids AND the /way
+    coordinates 42.2 38.0 / 74.2 6.6, the Terrace of Crafters and
+    Tradewinds Market landmarks, Nazjatar pair 154393/153811 with map id
+    1718 (regex across the wrap), zone ids 8670/8568/4395/7502/6138/5785,
+    the classic capital set (Yelmak, Camberon), vendor 92457, the
+    limited-supply note with its 18-20 min respawn, the twin-Linzy trap
+    ("does not teach Northrend"), and both "- Horde:"/"- Alliance:" pairs
+  routes (28)  all eight blocks 3.1-3.8 by exact heading; one named anchor
+    recipe per expansion (Purification17572, Major Dreamless28562, Flask
+    of Stoneblood53902, Amberjewel80247, Master Healing114752, Draenic
+    Mana156582, Whispered Pact flasks, Abyssal301310/301311); BfA Rank 2
+    and Rank 3 spell blocks (Coastal/Rejuv/Battle/Flask families) via the
+    id set; the Pandaria discovery sentence across its line wrap; the
+    Philosopher's Stone inventory condition; reputation-vendor Rank 3
+    framing; both Shopping list sections; the guides' colour warnings
+    ("Green for the last", "expect extras")
+  materials (15)  Crystal Vial 3371 with the seven-era evidence line
+    (vanilla 2330 / Outland 28555 / Northrend 53837 / Cata 80494 / Pandaria
+    114752 / Legion 188299 / BfA 252382) and the "never include vials"
+    guide warning; Alchemy Supplies vendor note; BfA zone groups (Stormsong
+    Valley, Drustvar; Vol'dun, Nazmir); Legion and MoP route notes;
+    Klaxxi'vess; Sand Shifter flagged "item id unverified" (regex across
+    the wrap); fish and sabreflesh ids; AH dependency; four citations of
+    Gather_Herbalism.txt; Blood of Sargeras; Volatile Life
+  costs (10)  "Training cost: 10" at least twice; recipe samples 7750 and
+    130 (both spells), Cost: 130 twice, Cost: 9, Cost: 5; "50 gold" at
+    least twice (the BfA conflict); MoneyCost and
+    GetReputationPriceDiscount quoted from Trainer.cpp; NotEnoughMoney
+  level needed (11)  ReqSkillLine, ReqLevel (>= 2), ReqAbility, the FREE
+    primary profession point rule (regex across the wrap), the two-
+    profession limit, CHARACTER LEVEL 115 flask gate, Legion "requires
+    level 10", level 45 unlock, the Journeyman/Expert absence with
+    "unverified-negative", and "level shown on the spell pages"
+  core rules (33)  TakeReagents + DestroyItemCount + "before
+    HandleEffects"; EQUIP_ERR_INV_FULL full-bag path; SPELL_EFFECT_
+    CREATE_ITEM + Trade_Skill context; UpdateCraftSkill with
+    SPELL_ATTR1_NO_SKILL_INCREASE, SkillupSkillLineID, NumSkillUps x
+    CONFIG_SKILL_GAIN_CRAFTING, SkillGainChance/TrivialSkillLineRankHigh,
+    UpdateSkillPro; MECHANIC_DISCOVERY + GetSkillDiscoverySpell + the
+    "Alchemy Discoveries here" comment; GameObjectFocusCheck +
+    SPELL_AURA_PROVIDE_SPELL_FOCUS; SPELL_FAILED_MIN_SKILL; the trainer
+    flow (CMSG_TRAINER_BUY_SPELL, PlayerInteractionType::Trainer,
+    TeachSpell, IsCastable, CanTeachSpell, LearnSpell directly); "2
+    seconds" cast; "Mechanic: Discovery" samples; the Dalaran Alchemy
+    Station removal note (regex); the wiki "created anywhere" line; the
+    daily midnight transmute reset; UNIT_NPC_FLAG_TRAINER
+  cannot do (10)  all seven "- Cannot" bullets by their opening words;
+    the full-bag silent loss; dungeon automation; vendor-purchase packets
+  conflicts (10)  1-175 (>= 2), 1-150 (>= 2), 150-vs-175, 5 vs 15, the
+    difficulty strings "NOT decoded" statement, the 188297 rank-label
+    inconsistency, the flask "middle id by id order" caveat, the cost
+    "currency unit is not" caveat, the one-spell cast-time unverified
+    note (regex), the second "unverified-negative"
+  sources (8)  the zandalari-kul-tiran-bfa guide slug, wow-professions,
+    warcraft.wiki.gg/wiki/Alchemy, SpellEffects, NPCHandler.cpp,
+    Trainer.cpp, the wowhead guide id 6139, spells=11.171
+  derived (12)  X01 all 12 learn-spell ids (word-boundary); X02 all nine
+    line ids; X03 all 44 creature ids; X04 the full route recipe id set
+    (175 ids across eight expansions); X05 all 78 herb/material ids incl.
+    Nazjatar map id 1718; X06 ASCII + no tabs + max line length 140; X07
+    the 2478 table row plus BOTH prose caps 1-175 and 1-150 and the
+    150-vs-175 caveat together; X08 at least 40 "N crafts" markers (63
+    present); X09 the vial rule held together by three separate facts;
+    X10 all eight guide slugs; X11 the eight core-code symbols; X12 the
+    six named BfA/Nazjatar/reputation vendor ids
+
+Mutation self-test (two consecutive runs, identical results): every "has"
+target was replaced at ALL of its occurrences with a blinded string; every
+regex target was rewritten in place; the tab-absence check had a tab
+appended; and 13 derived probes falsified the sets and the cross-file names
+(264212->998877, 2483->997766, 122703->996655, 301311->399311, 152509->
+159509, non-ASCII arrow, 150-vs-175->150-vs-999, every "N crafts" rewritten,
+"never include vials" flipped, the zandalari slug extended to
+"-kul-tiran-old", "Alchemy Discoveries here" reworded, and the deliverable
+name in the prompt file and in RESEARCH_MASTER each misspelled). All
+204 probes were detected both runs.
+
+Fix history for this audit (why the numbers above are trustworthy): before the
+first run, three payloads taken from the draft were corrected against the
+actual file (a literal "chance to learn\s+additional recipes" has-payload
+removed in favour of the regex form; a quote-mismatched level-gate payload
+replaced with "level shown on the spell pages"; a "2 seconds" count of 4
+lowered to the 1 occurrence that exists). The first static run then failed
+five wrapped payloads (zone 5785, "Battle Potion of Strength", "Flask of
+the Vast Horizon", the Dalaran Alchemy Station quote, and "unverified for
+this one spell") - all five were converted to \s+ regexes, after which the
+run and both self-tests were clean. No mutation probe ever went
+undetected, because every payload was grep-verified against the final file
+text first (the lesson from steps 1-3: prefix-extension and line-wrap are
+the recurring killers - here they were pre-empted).
+
+WHAT THIS AUDIT DID NOT DO
+  - It did not re-fetch wowhead/wiki/guide pages during the run; sources
+    were fetched and recorded in section 10 of the deliverable on
+    2026-10-25 (wowhead learn-spell pages 2259/264211-265787, recipe pages
+    2330/7181/28555/53837/80494/114752/188299/252382, the Legion flask
+    items 127847-127850, Yelmak's 92-entry trainer list, the na=Alchemy
+    and na=Northrend searches, wowhead guide 6139, the eight
+    wow-professions alchemy guides, warcraft.wiki.gg/wiki/Alchemy, and
+    TrinityCore master sources Spell.cpp/SpellEffects.cpp/Player.cpp/
+    NPCHandler.cpp/Trainer.cpp). The audit proves the file says exactly
+    what those reads said, not that the pages still serve them.
+  - It did not execute anything on a game server: trainer-list gating,
+    ReqLevel values in your fork's trainer data, reagent consumption,
+    full-bag failure behaviour, discovery rolls, skill-up chances,
+    transmute cooldowns and the BfA flask level-115 gate are server-side
+    tests; the deliverable marks the ones it could not source as
+    unverified.
+  - It did not decode wowhead's difficulty number strings into
+    orange/yellow/green thresholds (the file explicitly says they were
+    not decoded), and it did not resolve the documented conflicts
+    (Draenor75-vs-100, BfA 150-vs-175, learn cost 10-vs-50 gold, Goblin
+    +5-vs-+15,188297's rank label) - it checks that both sides of each
+    conflict are quoted instead.
+  - It did not enumerate every route recipe's training cost or every
+    trainer's world x/y/z coordinates; the deliverable marks those
+    unverified and the audit checks the markers.
+
+Console output of the audited run:
+  Craft_Alchemy audit: 203 PASS, 0 FAIL
+  Static checks      : 203/203 PASS
+  Mutation probes    : 204/204 detected
+  Static checks      : 203/203 PASS
+  Mutation probes    : 204/204 detected
+  SELF-TEST: PASS

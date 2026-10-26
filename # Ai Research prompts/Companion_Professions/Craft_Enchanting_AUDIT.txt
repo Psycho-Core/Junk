@@ -1,0 +1,131 @@
+=== Craft_Enchanting.txt - AUDIT REPORT (STEP 128, Companion_Professions) ===
+================================================================================
+
+Tool: audit_craft_enchanting.py (same directory). Run: python3
+audit_craft_enchanting.py  -> static + derived + hygiene.
+Run: python3 audit_craft_enchanting.py --self-test -> mutation testing.
+
+FINAL VERDICT
+-------------
+Static:            360 / 360 PASS, 0 FAIL  (exit code 0)
+Derived:            13 / 13 PASS            (exit code 0)
+Hygiene:            ASCII only (0 non-ASCII), longest line <= 100 chars
+Self-test run 1:    14 / 14 mutations caught, SELF-TEST PASS (exit 0)
+Self-test run 2:    14 / 14 mutations caught, SELF-TEST PASS (exit 0)
+Deliverable:        Craft_Enchanting.txt, 876 lines, ~7950 words
+Date of audit:      2026-10-26 (same week as every source fetch)
+
+STATIC CHECK BREAKDOWN (360 total, by check prefix)
+---------------------------------------------------
+  H01-H14    14  heading, scope promise, 10 section titles, subroute span
+  B01-B10    10  base spell 7411, skill 333, rank ladder, cost field
+  L01-L32    32  8.0.1/8.1.0 learn chains for all 9 lines, taught-by lists,
+                 shared skill 2486, cost text, boost spell 201698
+  T01-T14    14  TC learn path: NPCHandler 97/112/130/145/155, Trainer
+                 76/98/100/106/149/156/165/172/181-183/185-186/189, 67-68
+  C01-C36    36  trainers: 26 coordinate/name rows, rank patches 4.0.3a and
+                 2.3.0, guide-specific teachers, 11 vendor/NPC sources
+  R01-R18    18  3.1 Classic: 14 route steps + rod + vellum note + shopping
+  O01-O12    12  3.2 Outland: 8 steps + cooldown path + alt formulas + sum
+  N01-N12    12  3.3 Northrend: 8 steps + conversions + branch formulas + sum
+  K01-K14    14  3.4 Cataclysm: 13 steps + reconciliation marker
+  P01-P06     6  3.5 Pandaria: 3 steps + alt + reconciliation
+  D01-D07     7  3.6 Draenor: scroll sources, quest chain, dust step, sum
+  G01-G18    18  3.7 Legion: learn quest, 29-quest chain, DE route, shatters,
+                 rank sources, planned 85 + 19
+  A01-A23    23  3.8 BfA: shopping, 12 route steps, rank/wander sources,
+                 war-campaign gate, craft sum 261
+  M01-M28    28  materials: wiki DE rules, spell 13262, expansion id tables
+                 (all 8 lines), conversions, shatters, vellum, Star Wood
+  F01-F12    12  costs: raw Training cost fields, no-cost list, conflict
+                 pattern, MoneyCost, recipe 150, 4 Dream Shards, Mark
+                 prices, unverified-default rule
+  V01-V14    14  levels: per-line minimums, caps table, 8.2.0 note,
+                 Profession gates, no craft-time server gate, V12b
+  W01-W32    32  core mechanics: EffectEnchantItemPerm/vellum/CheckCast
+                 blocks, ilvl floor/cap, UpdateCraftSkill body, DE handler
+                 and gate, call sites, colour system, learn effects
+  X01-X14    14  cannot-do: racial bonus, reps/timegates, instances, AH,
+                 foreign-item fails, profession slots, UI, stale rows
+  Y01-Y19    19  conflicts and unverified index (every numbered entry)
+  Z01-Z25    25  sources: dates, spell/item probe lists, search result
+                 id/URL records, guide slugs, wiki/wowpedia pages, TC
+                 file+line manifests (Z13b added)
+TOTAL                360
+
+DERIVED CHECKS (13)
+-------------------
+D01  Classic planned crafts: 1+105+10+10+20+33+20+55+28+10+5+15+15+10 = 337
+D02  Outland planned crafts: 9+6+16+5+5+15+25+1 = 82
+D03  Northrend planned crafts: 14+20+10+5+10+5+5+10 = 79
+D04  Cataclysm step count math (13 steps) + D04b reconciliation marker
+D05  Cataclysm material sums: Hypnotic 591, Lesser Celestial 5, Greater
+     Celestial 106 - matches the guide shopping list printed in the file
+D06  Pandaria reconciliation marker + D07 sums: Spirit Dust 208, Mysterious
+     Essence 76
+D08  BfA planned crafts: 40+7+50+30+20+17+40+7+25+5+10+10 = 261
+D09  Legion planned: 55 shatters + 30 bindings = 85 (+19 DE points)
+D10  Key id coverage: 152 required spell/item/skill ids, 0 missing
+D11  TC line-family presence: 5410, 3525, 2463, 7664, 172, 130 all present
+D12  Conflict index has all 19 numbered entries
+Section heading order and "section 1 on line 8" also enforced.
+
+SELF-TEST (mutation testing, 14 mutations, each replace-ALL)
+------------------------------------------------------------
+  skill id (333->999)                 caught by 1 check
+  outland main id (264460)            caught by 5 checks
+  cata dust count (591->592)          caught by 1 check
+  classic total (337->338)            caught by 2 checks
+  tc skill gate line (181-183)        caught by 1 check
+  gloom dust id (152875)              caught by 2 checks
+  npc entry (136041)                  caught by 1 check
+  legion level (10->11)               caught by 1 check
+  bfa cap (175->150)                  caught by 1 check
+  crusher spell (60668)               caught by 2 checks
+  de fail line (7801)                 caught by 1 check
+  draenor scroll (111922)             caught by 2 checks
+  outland total (82->83)              caught by 2 checks
+  conflict count (19 entry broken)    caught by 2 checks
+Result: 14/14 caught, no survivors, in two consecutive runs.
+
+METHOD NOTES / FIXES MADE DURING THIS AUDIT
+-------------------------------------------
+1) Preflight (payload vs file before the first run) found 44 misses: 13
+   coordinate patterns had a closing paren typo instead of a bracket, ~20
+   regexes ignored line wrapping, 2 needed MULTILINE ^...$, and 1 was
+   built from a broken string concatenation. All were corrected in the
+   audit, not weakened into unchecked claims.
+2) Two wrapped URLs in section 10 were rejoined onto single lines (BfA
+   guide slug URL, cata conversion-spell URL, wowauctions URL) so the
+   source records stay copyable and checkable.
+3) One arithmetic error in the deliverable was caught by D02 before the
+   first green run: Outland planned crafts printed 87, the step list sums
+   to 82 - the deliverable was corrected to 82.
+4) First self-test round had 2 survivors (tc skill gate line, draenor
+   scroll): mutations used replace-first while a second occurrence kept
+   the pattern alive, and no check pinned "181-183". Fixed by switching
+   mutations to replace-ALL and adding check T14. Re-ran twice green.
+5) Hygiene gate failed once (a rejoined URL line of 103 chars); the line
+   was split so the URL stays intact under the 100-char limit. Final run
+   clean.
+
+WHAT THE AUDIT COVERS (acceptance)
+----------------------------------
+- Cheapest-route-per-line ask: sections 3.1-3.8, every step's spell/item
+  id, craft count, material ids, shopping reconciliation (derived).
+- Learn ask: section 1 chains for base/Classic/Outland/NR/Cata/MoP/
+  Draenor/Legion/BfA including wrapper effects and taught-by entries.
+- Trainer/source ask: section 2 (wiki coordinates + guide NPCs + vendors)
+  and per-route source notes.
+- Materials ask: section 4 ids per expansion + disenchant rules + where
+  each comes from.
+- Cost/level asks: sections 5-6 with raw fields and unverified marks.
+- Core-success and cannot-meet asks: sections 7-8 keyed to exact
+  TrinityCore file/line literals fetched this week.
+- Verifiability: section 9 (19 conflicts/unverified), section 10 (every
+  URL/slug/TC file recorded), zero invented numbers (360 payload checks).
+
+Replicate: cd "# Ai Research prompts/Companion_Professions" &&
+python3 audit_craft_enchanting.py && python3 audit_craft_enchanting.py
+--self-test && python3 audit_craft_enchanting.py --self-test
+Expected: RESULT 360 PASS, 0 FAIL / SELF-TEST PASS / SELF-TEST PASS.
