@@ -1,0 +1,952 @@
+BATTLE FOR AZEROTH 8.3.7 (BUILD 35662) - COOKING CRAFTING FOR A SERVER-SIDE COMPANION
+=========================================================================================
+Scope: how a computer-controlled character (no client, no human at the keyboard) levels
+Cooking on a TrinityCore-based 8.3.7 server. Everything below was read from a source
+fetched this week (2026-10-27); anything without a readable source says "unverified"
+instead of being guessed. Craft counts are exactly the counts the linked guides print
+(they warn that yellow/green recipes and lucky discoveries change the real number -
+those warnings are kept where printed).
+
+1. THE SKILL LINES AND HOW A COMPANION LEARNS THEM
+--------------------------------------------------
+Base spell: Cooking 2550 - Training cost: 10, Difficulty: 111, Skill: Cooking
+(skill=185), Effect #1 Trade Skill, Effect #2 Learn Skill (Cooking, skill=185)
+Value 1; description "Allows a cook to make basic recipes. Requires meat from
+beasts and fire to make food." Related lists Other ranks (9) and Taught by (66).
+The nine other ranks read:
+  - 158765 (skill 1), 3102 (50), 3413 (125), 18260 (200), 33359 (275), 51296
+    (350), 88053 (425), 104381 (500), 195128 (700).
+The 8.0.1 expansion learn block is contiguous: 264632-264647, starting exactly
+where the Tailoring block ended (264631 = Zandalari Tailoring wrapper) and ending
+before a verified non-Cooking spell (264648 = "Order Blast", an 8.0.1 server-side
+Dummy for the A.F.M.O.D.), plus the Horde pair 265817/265818. Every id inside was
+probed: there is NO internal gap. Eight main/wrapper pairs:
+  - main 264632 "Classic Cooking" (Learn Skill Classic Cooking skill=2548,
+    cap 300) added 8.0.1, no Training-cost line, no Taught-by table rendered
+    (Changelog (3) only) - section 9 item 7;
+    wrapper 264633 "Cooking" added 8.0.1 (the only wrapper not tagged 8.1.0 -
+    section 9 item 6): Learn Spell 2550 + Learn Spell 264632 + Learn Skill Step
+    (2548) Value 1; three effects, 100 yd range, See also (16).
+  - main 264634 "Outland Cooking" (skill=2547, cap 75, cost 10, 8.0.1, Taught
+    by 7), wrapper 264635 (8.1.0): Learn Spell 264634 + Step 2547.
+  - main 264636 "Northrend Cooking" (skill=2546, cap 75, cost 10, 8.0.1, Taught
+    by 5), wrapper 264637 (8.1.0): Learn 264636 + Step 2546.
+  - main 264638 "Cataclysm Cooking" (skill=2545, cap 75, cost 10, 8.0.1, Taught
+    by 27), wrapper 264639 (8.1.0): Learn 264638 + Step 2545.
+  - main 264640 "Pandaria Cooking" (skill=2544, cap 75, cost 10, 8.0.1, Taught
+    by 2), wrapper 264641 (8.1.0): Learn 264640 + Step 2544 (Related shows only
+    Sounds - no quest or vendor line).
+  - main 264642 "Draenor Cooking" (skill=2543, cap 100) added 8.0.1, no
+    Training-cost line, no Taught-by (learned from the book, see below);
+    wrapper 264643 (8.1.0): Learn 264642 + Step 2543 - Triggered by (1) spell
+    160360.
+  - main 264644 "Legion Cooking" (skill=2542, cap 100, cost 10, added 8.0.1,
+    Taught by 2), wrapper 264645 (8.1.0): Learn 264644 + Step 2542 (Related
+    shows only Sounds - the Legion learn is a plain trainer purchase, the
+    guide agrees: "Visit your trainer ... and learn Legion Cooking").
+  - main 264646 "Kul Tiran Cooking" (skill=2541, cap 175, cost 8, added 8.0.1,
+    "Alliance Specific Spell", Taught by 4), wrapper 264647 (8.1.0):
+    Learn 264646 + Step 2541.
+  - main 265817 "Zandalari Cooking" (cap 175, cost 8, added 8.1.0, "Horde
+    Specific Spell", Taught by 4): its Effect says Learn Skill (Kul Tiran
+    Cooking skill=2541) Value 1 - the Horde spell carries the Alliance label and
+    BOTH factions share sub-skill 2541 (section 9 item 4);
+    wrapper 265818 added 8.0.1 (section 9 item 5): Learn 265817 + Step 2541.
+Sub-skill ids and caps (main spells' own tooltips, each id also present in TC's
+SharedDefines.h 6123-6130): 2548 Classic 1-300, 2547 Outland 1-75, 2546
+Northrend 1-75, 2545 Cataclysm 1-75, 2544 Pandaria 1-75, 2543 Draenor 1-100,
+2542 Legion 1-100, 2541 BfA (Kul Tiran/Zandalari) 1-175. Every main except the
+Classic one prints "Requires Cooking (1)" in quick facts - the base skill 185
+must be learned first (section 6).
+WoD book path: item 111387 "The Joy of Draenor Cooking" (Book, iLvl 40,
+Requires Level 10, source printed "Drop") -> cast spell 160360 "Introduction to
+Cooking in Draenor" (added 6.0.1, Item Effect, 10 sec cast, "Tradeskill recipe"
+flag, text "Teaches you Draenor Cooking and a number of recipes") -> its one
+Effect is Trigger Spell -> wrapper 264643 ("Triggered by (1)" on wowhead) ->
+learns main 264642 + SetSkill 2543. Spell 160360's page shows Used by Item (1)
+= 111387 and Teaches (2) (the second taught spell's id was not rendered:
+unverified).
+BfA learn names (guide): "Kul Tiran Cooking" 264646 is the Alliance version and
+"Zandalari Cooking" 265817 the Horde version - "the name is the only
+difference". Trainers: T'sarah the Royal Chef (H) and "Cap'n" Byron Mehlsack (A).
+Classic learn note: the base spell 2550 is Taught by 66 creatures, but neither
+264632 nor 264633 has a Taught-by table, and the two trainer pages that were
+probed in full (Katherine Lee 93534, Byron Mehlsack 136052) list spell 2550 and
+their own expansion main - never 264632/264633. How skill 2548 reaches a fresh
+character is unverified (section 9 item 7).
+Pandaria learn chain (guide): learn from Sungshin Ironpaw 64231, then quest
+31281 "So You Want to Be a Chef..." (make 5 Sliced Peaches - spell id
+unverified), quest 31302 "Ready for Greatness" (make 5 Rice Pudding - spell id
+unverified), then one of six non-exclusive Way quests, all started from
+Sungshin: 31479 Way of the Brew (deliver 5 Ginseng to Bobo Ironpaw 58717),
+31311 Way of the Grill (Kol Ironpaw), 31478 Way of the Oven (Jian Ironpaw),
+31472 Way of the Pot (Mei Mei Ironpaw), 31475 Way of the Steamer (Yan
+Ironpaw), 31470 Way of the Wok (Anthea Ironpaw). "You gain cooking skill in
+each Way separately. Your cooking skill in general is equal to your highest
+skill in any Way" - one Way to 75 is enough (section 3.5 uses the cheapest).
+
+2. TRAINERS AND THEIR POSITIONS
+-------------------------------
+warcraft.wiki Cooking_trainers page (6 chunks; the table ENDS at Draenor - last
+row Guy Fireeye, Brokenspear Tavern, Warspear, NO coordinate - and the page sits
+in Category:Outdated articles; there are no Legion or BfA rows - section 9
+item 1). Coordinates are the wiki's own "[x, y]" strings:
+The Maelstrom (Cataclysm):
+  - KTC Train-a-Tron Deluxe, Town-In-A-Box/Sky Falls/Gallywix Docks, The Lost
+    Isles (three locations, no single coordinate), "Teaches only up to
+    Journeyman level", goblin-only.
+Eastern Kingdoms:
+  - Gremlock Pilsnor, Kharanos, Dun Morogh [54.6, 50.6]
+  - Cook Ghilm, Gol'Bolar Quarry, Dun Morogh [75.6, 52.6]
+  - Tomas, Goldshire, Elwynn Forest [44.2, 66.0]
+  - Fielding Chesterhill, Duskhaven, Gilneas [36.6, 65.6] (worgen-only)
+  - Crystal Boughman, Lakeshire, Redridge Mountains [22.8, 40.6]
+  - Stephen Ryback, Old Town, Stormwind [77.2, 53.2]
+  - Daryl Riknussun, The Great Forge, Ironforge [60.1, 36.4]
+  - Mrs. Gant, Booty Bay, Cape of Stranglethorn [42.7, 72.7]
+  - Quarelestra, Falconwing Square, Eversong Woods [49.0, 47.0] (BC)
+  - The Chef, Brill, Tirisfal Glades [61.2, 52.6]
+  - Master Chef Mouldier, Tranquillien, Ghostlands [48.0, 30.0] (BC)
+  - Slagg, Hammerfall, Arathi Highlands [69.2, 34.4]
+  - Mudduk, Grom'gol Base Camp, Northern Stranglethorn [37.2, 49.2]
+  - Eunice Burch, The Trade Quarter, Undercity [62.8, 44.2]
+  - Sylann, Wayfarer's Rest Inn, Silvermoon [69.5, 71.5] (BC)
+Kalimdor:
+  - "Cookie" McWeaksauce, Odesyus' Landing, Azuremyst Isle [46.8, 70.5] (BC)
+  - Zarrin, Dolanaar, Teldrassil [56.6, 53.6]
+  - Craig Nollward, Theramore, Dustwallow Marsh [66.8, 45.2]
+  - Alegorn, Craftsmen's Terrace, Darnassus [50.0, 36.6]
+  - Mumman, Seat of the Naaru, The Exodar [56.2, 27.6] (BC)
+  - Henry Stern, Razorfen Downs (NO coordinate) - "Teaches Goldthorn Tea to
+    players with high enough cooking skill"
+  - Dirge Quikcleave, Gadgetzan, Tanaris [52.6, 29.0] - "Teaches Clamlette
+    Magnifique after completing quest"
+  - Pyall Silentstride, Bloodhoof Village, Mulgore [45.6, 67.6]
+  - Duhng, Thorn Hill, Northern Barrens [55.4, 61.2]
+  - Aska Mistrunner, High Rise, Thunder Bluff [51.0, 53.0]
+  - Arugi, Borstan's Firepit/The Drag, Orgrimmar [56.2, 51.6]
+  - Marogg, The Drag, Orgrimmar [56.6, 62.6]
+  - Zarbo Porkpatty, Goblin Slums, Orgrimmar [39.0, 85.8]
+  - Zamja, Valley of Spirits, Orgrimmar [57.5, 53.6]
+Outland:
+  - Gaston, Honor Hold, Hellfire Peninsula [54.0, 63.6]
+  - Celie Steelwing, Wildhammer Stronghold, Shadowmoon Valley [37.2, 58.4]
+  - Allison, Thrallmar, Hellfire Peninsula [56.8, 37.4]
+  - Naka, Cenarion Refuge, Zangarmarsh [78.5, 63.0] (Cooking Trainer &
+    Supplies)
+  - Jack Trapper, Lower City, Shattrath City [63.5, 68.6]
+  - Kylene, Lower City, Shattrath City [75.5, 32.6] (Barmaid; wiki: "Teaches
+    3 recipes to players with high enough cooking skill")
+Northrend:
+  - Rollick MacKreel, Valiance Keep, Borean Tundra [57.8, 71.6]
+  - Brom Brewbaster, Valgarde, Howling Fjord [58.2, 62.1]
+  - Katherine Lee, A Hero's Welcome, Dalaran [41.5, 64.6]
+  - Orn Tenderhoof, Warsong Hold, Borean Tundra [42.0, 54.2]
+  - Thomas Kolichio, Vengeance Landing, Howling Fjord [78.5, 29.4]
+  - Awilo Lon'gomba, Sunreaver's Sanctuary, Dalaran [70.0, 39.0]
+  - Bethany Cromwell, Argent Tournament Grounds, Icecrown [72.5, 20.8]
+Pandaria:
+  - Chin, Dawn's Blossom, The Jade Forest [46.3, 45.2] ("Everyday Cooking")
+  - Sungshin Ironpaw, Halfhill Market, Valley of the Four Winds [53.6, 51.2]
+    ("Guide to the Ways" - teaches Pandaria Cooking per wowhead Taught-by (2))
+  - Anthea Ironpaw [52.8, 51.8] (Way of the Wok), Kol Ironpaw [53.0, 51.4]
+    (Grill), Jian Ironpaw [53.2, 51.6] (Oven), Mei Mei Ironpaw [52.6, 51.6]
+    (Pot), Yan Ironpaw [52.6, 51.6] (Steamer), Bobo Ironpaw [53.0, 52.0]
+    (Brew) - all Halfhill Market, Valley of the Four Winds
+  - Master Chang, Peak of Serenity, Kun-Lai Summit [50.6, 41.8]
+Draenor:
+  - Guy Fireeye, Brokenspear Tavern, Warspear (NO coordinate; last wiki row).
+Beyond the wiki (sources: the guides + fresh wowhead probes; numeric positions
+were NOT rendered on the probed pages - unverified unless a coordinate is given):
+  - Legion: Awilo Lon'gomba npc 93536 (Legion Dalaran, H, NPC level 45) and
+    Katherine Lee npc 93534 (Legion Dalaran, A, NPC level 10-45) - the guide
+    names both; Nomi npc 101846 runs the test kitchen next to them. Position:
+    guide says "at Dalaran" only - unverified numeric.
+  - BfA Alliance: "Cap'n" Byron Mehlsack npc 136052, Boralus, level 60, A
+    (guide: "in Boralus at the Tradewinds Market", guard-hint works); Instructor
+    Ulooaka npc 154257, Nazjatar, level 50, A (guide: visible only "after you
+    can see this NPC" = first Nazjatar intro quests done).
+  - BfA Horde: T'sarah the Royal Chef npc 141549, Dazar'alor, level 60 (guide:
+    "kitchen right behind your mission table near the Great Seal in the
+    Dazar'alor temple"); Howcha npc 141906, Dazar'alor, level 60; Rolm npc
+    154408, Nazjatar, level 50, H (intro quests gate visibility).
+  - Cross-faction extras on the BfA mains' Taught-by tables: Slagg npc 232031,
+    Arathi Highlands, level 80 (the wiki's Slagg row is Hammerfall [69.2,
+    34.4]); Stacks npc 150632, Mechagon, level 60-90, Mechanical.
+Recipe/currency vendors named by the guides (entries where a link printed):
+  - Northrend: Derek Odds npc 31032 (A) and Misensi npc 31031 (H), Dalaran -
+    3 Epicurean's Award per recipe; Dalaran Fruit Vendor npc 29547 (Kungaloosh
+    materials).
+  - Cataclysm: Shazdar npc 49737 (H, Orgrimmar) and Bario Matalli npc 49701
+    (A, Stormwind) - Epicurean's Award recipe vendors.
+  - Classic recipes: Andrew Hilbert npc 3556 (H, Silverpine/The Sepulcher) and
+    Drac Roughcut npc 1465 (A, Loch Modan/Thelsamar) for Smoked Bear Meat;
+    Kendor Kabonka npc 340 (Stormwind) for Recipe: Cooked Crab Claw 2698;
+    Pusillin npc 14354 drops Recipe: Runn Tum Tuber Surprise 18267 (Dire Maul
+    East, binds when picked up).
+  - Outland: Cookie One-Eye npc 16585 (H) / Sid Limbardi npc 16826 (A),
+    Hellfire Peninsula (Recipe: Ravager Dog 27688); Nula the Butcher npc 20097
+    (H) / Uriku npc 20096 (A), Nagrand (recipes 27693, 27691); Innkeeper Grilka
+    npc 18957 (H) / Supply Officer Mills npc 19038 (Terrokar, recipe 27692);
+    Xerintha Ravenoak npc 20916 (H, Blade's Edge, LIMITED supply - or quest
+    10860) / Sassa Weldwell npc 21113 (A, Blade's Edge, unlimited) for
+    recipes 38868/38867.
+  - Legion: Nomi npc 101846 (Dalaran test kitchen research); Marin Bladewing
+    npc 107379 (Azsuna, Wardens Revered - Recipe: Spiced Falcosaur Omelet
+    142331).
+  - BfA: Hanul Swiftgale npc 141936 (H) / Henrick Wyther npc 142095 (A) - the
+    six cooking reagents; Collector Kojo npc 135793 (Tortollan Seekers
+    Revered - Recipe: Seasoned Loins rank 3, item 162293).
+
+3. CHEAPEST ROUTE 1 TO THE CAP OF EACH LINE
+-------------------------------------------
+Format:  - A - B: N x Craft Name spell id (materials the guide prints). Counts are
+the guide's printed counts; notes are the guide's own color/luck warnings.
+
+3.1 Classic 1-300 (guide: vanilla-cooking-leveling; learn at any cooking trainer
+- the wiki rows above - guard-hint style; base spell 2550)
+  - 1 - 40: 60 x Spice Bread spell 37836 (60 Simple Flour 30817, 60 Mild
+    Spices 2678 - both "sold by the cooking supply vendor near your trainer";
+    recipe taught by the trainer, box says "Profession Trainer: Classic Cooking
+    (1), Cost: 10")
+  - 40 - 80: 40 x Smoked Bear Meat spell 8607 (40 Bear Meat - id unverified;
+    recipe sold by Andrew Hilbert 3556 (H) / Drac Roughcut 1465 (A);
+    alternate: Spiced Wolf Meat spell 2539 "up to around 70" if Stringy Wolf
+    Meat (id unverified) is cheap at the auction house)
+  - 80 - 130: about 30 x Boiled Clams spell 6499 (30 Clam Meat - id
+    unverified; 30 Refreshing Spring Water - id unverified; "the recipe turns
+    green at 110"; clam meat from Small Barnacled Clam 5523 at Twilight Shore
+    Darkshore or Zoram Strand Ashenvale) then Crab Cake spell 2544 (1 Crawler
+    Meat - id unverified; "make Crab Cake up to 130" - the guide prints no
+    cast count for this stretch: unverified; Alliance alternates: Recipe 2698
+    from Kendor Kabonka 340, uses Crawler Claw 2675)
+  - 130 - 175: 50 x Curiously Tasty Omelet spell 3376 (50 Raptor Egg - id
+    unverified; recipe item 3682 "sold by these vendors")
+  - 175 - 225: 50 x Roast Raptor spell 15855 (50 Raptor Flesh - id
+    unverified; recipe item 12228 "sold by these vendors")
+  - 225 - 250: 25 x Monster Omelet spell 15933 (25 Giant Egg - id
+    unverified; recipe item 16110 "sold by these vendors")
+  - 250 - 285: 40 x Juicy Bear Burger spell 46688 (40 Bear Flank - id
+    unverified; no recipe source printed on the guide page: unverified)
+  - 285 - 300: 15 x Smoked Desert Dumplings spell 24801 (15 Sandworm Meat
+    20424 from Dredge Strikers 11740 / Dredge Crushers 11741 in Silithus;
+    needs quests 8307 "Desert Recipe" then 8313 "Sharing the Knowledge";
+    IMPORTANT: Silithus is phased for high-level players - talk to Rhonormu
+    133263 or Zidormi 128607 to switch phase)
+Total exact-count casts printed by the guide = 310 (60 + 40 + 30 + 50 + 50 +
+25 + 40 + 15; the Crab Cake bridge 110-130 prints no count - unverified). The
+guide's standing warning: materials assume one point per craft.
+Alternates for 275-300: Runn Tum Tuber Surprise spell (id unverified; recipe
+item 18267, drops from Pusillin 14354 in Dire Maul East, binds when picked up;
+Runn Tum Tuber 18255 from Warpwood Pods object 179526 - "25 in one run, enough
+to level Cooking to 300 with this one recipe"); Pilgrim's Bounty event food
+("If it's November... you can level cooking to 300 in about an hour" - seasonal).
+
+3.2 Outland 1-75 (guide: outland-cooking-leveling; learn from Allison 49789
+(H) / Gaston 18987 (A) in Hellfire Peninsula or Jack Trapper 19185 in
+Shattrath - wowhead Taught-by (7) on 264634 also lists Celie Steelwing 19369,
+Naka 18993, Kylene 19186 and an "Uncategorized" creature named "Cooking"
+npc 33619)
+  - 1 - 25: 30 x Ravager Dog spell 33284 (30 Ravager Flesh 27674; recipe
+    27688 from Cookie One-Eye 16585 (H) / Sid Limbardi 16826 (A)) OR 30 x
+    Buzzard Bites (craft spell id unverified - the guide links food item 27651)
+    from 30 Buzzard Meat 27671, recipe from quest chain 9349 -> 9361 -> 9356
+    "Smooth as Butter"
+  - 25 - 55: 40 x Talbuk Steak spell 33289 (40 Talbuk Venison 27682; recipe
+    27693 from Nula the Butcher 20097 (H) / Uriku 20096 (A), Nagrand) OR 40 x
+    Roasted Clefthoof spell 33287 (40 Clefthoof Meat 27678; recipe 27691,
+    same vendors) OR 40 x Warp Burger spell 33288 (40 Warped Flesh 27681;
+    recipe 27692 from Innkeeper Grilka 18957 (H) / Supply Officer Mills 19038)
+  - 55 - 75: 60 x Crunchy Serpent spell 38868 (60 Serpent Flesh 31671) OR
+    60 x Mok'Nathal Shortribs spell 38867 (60 Raptor Ribs 31670); recipes from
+    Xerintha Ravenoak 20916 (H, limited supply - or quest 10860 "Mok'Nathal
+    Treats") / Sassa Weldwell 21113 (A, unlimited)
+Total exact-count casts printed by the guide = 130 (30 + 40 + 60).
+
+3.3 Northrend 1-75 (guide: northrend-cooking-leveling; learn from Awilo
+Lon'gomba 29631 (H) / Katherine Lee 28705 (A) in Dalaran (Northrend) - the
+wowhead Taught-by (5) also lists the starter-zone pair Brom Brewbaster 26905
+and Rollick MacKreel 26989 plus Orn Tenderhoof 26972)
+  - 1 - 25: around 30-35 meats/fish cooked with the recipes the trainer
+    teaches (the guide prints no spell ids for this stretch - unverified;
+    named examples: Sauteed Goby, Grilled Bonescale, Smoked Rockfin turn grey
+    at 5); inputs: Worm Meat 43010, Shoveltusk Flank 43009, Worg Haunch
+    43011, Rhino Meat 43012, Chunk o' Mammoth 34736, Glacial Salmon 41809,
+    Nettlefish 41813, Fangtooth Herring 41810, Mussel Sculpin 41806;
+    alternates: Kungaloosh spell 53056 (quest 13571 via Washed-Up Mage 32516
+    in the Dalaran Underbelly - "only if you already completed the Sholazar
+    chain"; materials from Dalaran Fruit Vendor 29547)
+  - 25 - 75: around 60 crafts of ONE of these recipes (each also costs 1
+    Northern Spices 43007 per craft) bought for 3 Epicurean's Award (currency
+    81) from Derek Odds 31032 (A) / Misensi 31031 (H) at Dalaran:
+    Spiced Mammoth Treats 57440, Tracker Snacks 57443, Blackened Worg Steak
+    57438, Critter Bites 57435 (2 Chilled Meat 43013 per craft), Hearty Rhino
+    57436, Cuttlesteak 57439, Firecracker Salmon 45568, Imperial Manta Steak
+    45570, Poached Northern Sculpin 45567, Blackened Dragonfin 57441, Spicy
+    Blue Nettlefish 45571, Spicy Fried Herring 57433 - "check the auction
+    house which meat/fish is the cheapest"; Awards come from cooking dailies
+    (Katherine/Awilo in Dalaran, Marogg 42506 in Orgrimmar, Robby Flay 42288
+    in Stormwind; minimum 3, up to 5 per day)
+Total crafts printed by the guide = around 90-95 ("around 30-35" + "make
+around 60" - the guide prints approximations, not exact counts; recipes turn
+green at 20 and grey at 40 for the early stretch).
+
+3.4 Cataclysm 1-75 (guide: cataclysm-cooking-leveling; learn from Arugi 46709
+(H, Orgrimmar) / Robby Flay 42288 (A, Stormwind) - wowhead's Taught-by (27)
+on 264638 is the full classic-era trainer list)
+  - 1 - 10: 15 x Darkbrew Lager (craft spell id unverified - the guide links
+    the OUTPUT item 62790) - 30 Skin of Dwarven Stout 2596, 15 Jug of Bourbon
+    (id unverified); "The reagents are sold by these vendors (guide link:
+    item 2596), don't buy them at the auction house"
+  - from 10 on: recipes bought with Epicurean's Award (3 per recipe) from
+    Shazdar 49737 (H) / Bario Matalli 49701 (A); Awards from the dailies
+    (Katherine 28705 / Awilo 29631 in Northrend Dalaran, Marogg 42506 /
+    Robby Flay 42288 in the capitals)
+  - 10 - 25: about 20-25 crafts of one of (craft spell ids unverified;
+    recipe item ids printed): Lightly Fried Lurker 65412 (Striped Lurker
+    53067) / Lavascale Fillet 65407 (Lavascale Catfish 53068) / Whitecrest
+    Gumbo 65406 (Blood Shrimp 62791) / Seasoned Crab 65413 (Monstrous Claw
+    62779) / Salted Eye 65410 (Snake Eye 62780)
+  - 25 - 50: about 30-35 crafts of one of: Pickled Guppy 65417 (Highland
+    Guppy 53064) / Hearty Seafood Soup 65418 (Blood Shrimp 62791) / Tender
+    Baked Turtle 65419 (Giant Turtle Tongue 62781)
+  - 50 - 75: about 30-35 crafts of one of: Baked Rockfish 65426 (Algaefin
+    Rockfish 53071) / Basilisk Liverdog 65427 (Basilisk "Liver" 62783) /
+    Beer-Basted Crocolisk 65429 (Crocolisk Tail 62784) / Blackbelly Sushi
+    65424 (Blackbelly Mudfish 53066) / Delicious Sagefish Tail 65422
+    (Deepsea Sagefish 53072) / Grilled Dragon 65428 (Dragon Flank 62782) /
+    Lavascale Minestrone 65409 (Lavascale Catfish 53068) / Skewered Eel
+    65425 (Fathom Eel 53070)
+Total crafts printed by the guide = around 95-110 (15 + about 20-25 + about
+30-35 + about 30-35; the guide prints ranges, not exact counts). Easiest farm
+note: Blood Shrimp 62791 from Abyssal Clam 52340 dropped by most Vashj'ir mobs.
+
+3.5 Pandaria 1-75 (guide: pandaria-cooking-leveling; learn from Sungshin
+Ironpaw 64231, Halfhill Market [53.6, 51.2]; quests 31281 + 31302 then ONE Way
+- the guide: "there is no other way to level Pandaria cooking to 75" besides a
+Way; cheapest = Way of the Brew because every ingredient is buyable from
+Sungshin, no fish or meat required)
+  - Way of the Brew learn: quest 31479 - deliver 5 Ginseng 74845 to Bobo
+    Ironpaw 58717 (Ginseng bought from Sungshin)
+  - 1 - 30: 40 x Ginseng Tea spell 124052 (40 Ginseng 74845)
+  - 30 - 50: 20 x Jade Witch Brew spell 124053 (100 Jade Squash 74847,
+    100 Witchberries 74846)
+  - 50 - 75: 5 x Banquet of the Brew spell 125602 (5 100 Year Soy Sauce
+    74853, 250 Green Cabbage 74840, 250 Witchberries 74846)
+Total exact-count casts printed by the guide = 65 (40 + 20 + 5). The other
+five Ways (all with printed 1-75 ingredient totals, quests 31311/31478/31472/
+31475/31470): Grill spells 104298/104299/125141, Oven 104310/104311/125600,
+Pot 104304/104305/125596, Steamer 104307/104308/125598, Wok 104301/104302/
+125594 - each ends with its own 5-craft Banquet; ingredient ids per Way are in
+section 4.
+
+3.6 Draenor 1-100 (guide: draenor-cooking-leveling; learn the item 111387
+"the book can drop from any humanoid mob at Draenor... after 20-30 kills" -
+fastest spot: outside the Hellfire Citadel raid entrance via Warspear ->
+Lion's Watch/Vol'mar portals; use the book -> spell 160360 -> wrapper 264643)
+  - 1 - 20: 30 x Grilled Saberfish spell 161002 (150 Crescent Saberfish
+    Flesh 109137 - probe: 5 per craft; output "Recipe for 4 servings...
+    You may get a new recipe idea while cooking" = the discovery source for
+    the next step)
+  - 20 - 75: pick two recipes from the SAME secondary-stat group, craft 15 of
+    each, then 18 of each after skill 50 (yield rises from 4 to 9-10 dishes
+    per craft at skill 50): pairs are Fat Sleeper Cakes 160981 + Braised
+    Riverbeast 160968 (Mastery; 330 Fat Sleeper Flesh - id unverified - or
+    165 Raw Riverbeast Meat - id unverified), Skulker Chowder 160983 +
+    Clefthoof Sausages 160971 (Versatility; 330/165), Grilled Gulper 160978 +
+    Blackrock Ham 160962 (Crit; 330/165), Fiery Calamari 160982 + Rylak
+    Crepes 160969 (Crit 2; 330/165), Steamed Scorpion 160973 + Hearty Elekk
+    Steak 160958 (Stamina; 330/165), Sturgeon Stew 160979 + Pan-Seared Talbuk
+    160966 (Haste; 330/165) - "You don't need to hit exactly 75"
+  - 75 - 95: around 45 crafts of the discovered upgrade (Blackrock Barbecue
+    160986, Calamari Crepes 160999, Frosty Stew 160987, Gorgrond Chowder
+    161000, Sleeper Surprise 160989, Talador Surf and Turf 160984) + 45 of one
+    herb (Fireweed / Nagrand Arrowbloom / Frostweed / Gorgrond Flytrap /
+    Starflower / Talador Orchid - ids unverified) - "It's not important to
+    reach exactly 95"
+  - 95 - 100: "5 or more" x Feast of the Waters spell 173979 (50 each of six
+    fish fleshes: Sea Scorpion Segment, Abyssal Gulper Eel Flesh, Blind Lake
+    Sturgeon Flesh, Fat Sleeper Flesh, Fire Ammonite Tentacle, Jawless Skulker
+    Flesh - ids unverified) OR Feast of Blood spell 173978 (50 each of Raw
+    Elekk Meat, Raw Boar Meat, Raw Talbuk Meat, Raw Riverbeast Meat, Rylak Egg,
+    Raw Clefthoof Meat - ids unverified) - "you should have discovered both of
+    these by now"
+Total crafts printed by the guide = 146 step counts (30 + 66 + 45 + 5) with
+the guide's own "not important to hit exactly" warnings on three steps.
+
+3.7 Legion 1-100 (guide: legion-cooking-leveling; learn from Awilo 93536 (H)
+/ Katherine Lee 93534 (A) in Legion Dalaran - wowhead Taught-by (2) on 264644;
+"Cooking skill does not limit which Legion recipes are available")
+  - research first: find one world recipe, then Nomi 101846 offers quest 40988
+    (H) / 40989 (A) "Too Many Cooks", then 40990 "A Good Recipe List" (learn 6
+    Legion recipes) to unlock work orders; each work order takes 5 ingredients
+    and 4 HOURS, may teach a recipe, often yields Badly Burnt Food 133913;
+    use Lean Shank 124117 as research until Rank 2 - Salt and Pepper Shank
+    spell 201524 drops (probe: reagents 5 Lean Shank 124117, 2 Flaked Sea Salt
+    133588, 2 Dalapeno Pepper 133589; yield 7; Discovery: Nomi's Test Kitchen)
+  - 1 - 50: 55 x Rank 2 Salt and Pepper Shank spell 201524 (275 Lean Shank
+    124117, 110 Flaked Sea Salt 133588, 110 Dalapeno Pepper 133589 - guide's
+    exact totals, cross-check 5/2/2 per craft exact); Rank 1 (spell 201413,
+    yield 5, requires skill 20) turns grey at 80; Rank 3 (spell 201544, yield
+    10, requires skill 60) can carry you to 70-80
+  - 50 - 100: "cook around 70-90" of ONE rank 2 recipe (rank 1 greys at 80,
+    rank 3 needs only 50 crafts): Azshari Salad 201555, Crispy Bacon 201685,
+    Fishbrul Special 201558, Lavish Suramar Feast 201563, Nightborne
+    Delicacy Platter 201556, Seed-Battered Fish Plate 201557, The Hungry
+    Magister 201554 (7 of the 8 come from cooking discovery; reagents for
+    research listed per recipe: Lean Shank 124117, Runescale Koi 124111,
+    Slice of Bacon 133680, Cursed Queenfish 124107, Mossgill Perch 124108,
+    Black Barracuda 124112, Highmountain Salmon 124109, Stormray 124110,
+    Silver Mackerel 133607, Wildfowl Egg 124121, Leyblood 124120, Fatty
+    Bearsteak 124118, Big Gamy Ribs 124119) - "green between 90-100 (at rank
+    2), so you won't gain skill points for every craft"; Rank 3 option:
+    Spiced Falcosaur Omelet item 142331 from Marin Bladewing 107379 at Azsuna
+    (Wardens Revered) + around 120-150 Falcosaur Eggs 142336, "only to craft
+    50" because rank 3 gives guaranteed points to 100
+Total crafts printed by the guide = 55 + around 70-90 (plus the unquantified
+research crafts spent fishing for rank 2 - guide prints no count: unverified).
+
+3.8 BfA 1-175 (guide: zandalari-kul-tiran-bfa-cooking-leveling-guide; learn
+Kul Tiran Cooking 264646 from Byron Mehlsack 136052 (Boralus) or Zandalari
+Cooking 265817 from T'sarah 141549 (Dazar'alor); reagents from Hanul Swiftgale
+141936 (H) / Henrick Wyther 142095 (A))
+  - 1 - 35: 34 x Mon'Dazi spell 259442 (340 Wild Flour 160399, 170 Foosaka
+    160400, 68 Aromatic Fish Oil 160711, 136 Powdered Sugar 160712; oil made
+    by right-clicking any BfA fish; probe: output 5 per craft, quick facts
+    "Requires Cooking Fire", Skill: Kul Tiran Cooking)
+  - 35 - 50: 15 x Rank 2 - Kul Tiramisu spell 259412 (150 Wild Flour, 75
+    Foosaka, 30 Aromatic Fish Oil, 75 Major's Frothy Coffee - id unverified;
+    rank 2 learned from the trainer)
+  - 50 - 75: 25 x ONE of: Seasoned Loins spell 259433 (250 Stringy Loins
+    154897, 125 Foosaka) / Honey-Glazed Haunches 259414 (250 Meaty Haunch
+    154898, 125 Choral Honey 160398) / Sailor's Pie 259439 (250 Briny Flesh
+    152631, 125 Wild Flour, 100 Foosaka, 100 Fresh Potato 160709); guide
+    prefers the meats, falls back to Kul Tiramisu if meats cost the same as
+    fish oil
+  - 75 - 140: 80 x ONE of the rank 2 versions ("Learn the Rank 2 recipes from
+    your trainer"): Seasoned Loins rank 2 spell 259434 (800 Stringy Loins,
+    400 Foosaka) / Honey-Glazed Haunches rank 2 spell 259415 (800 Meaty
+    Haunch, 400 Choral Honey) / Sailor's Pie rank 2 spell 259440 (800 Briny
+    Flesh, 400 Wild Flour, 320 Foosaka, 320 Fresh Potato) - "green for the
+    last 10 points, so you might have to make more"; the guide headline says
+    "make around 120" while the lists print 80 - both as printed (section 9
+    item 10); rank 3 recipe items (optional): 162286 and 162295 from World
+    Quests "Work Order: ...", 162293 from Collector Kojo 135793 at Tortollan
+    Seekers Revered
+  - 140 - 155: 15 x Rank 1 - Abyssal-Fried Rissole spell 297084 (120 Moist
+    Fillet 168645, 45 Foosaka, 75 Wild Flour; Alliance learns it from
+    Instructor Ulooaka 154257 at Nazjatar - "finish the first few intro quest
+    at Nazjatar before you can see this NPC"; Horde counterpart Rolm 154408)
+  - 155 - 175: 25 x Rank 2 - Abyssal-Fried Rissole spell 297085 (200 Moist
+    Fillet, 75 Foosaka, 125 Wild Flour; rank 2 from the trainer)
+Total exact-count casts printed by the guide = 194 (34 + 15 + 25 + 80 + 15 +
+25), with the green-tail caveats on steps 75-140 and the printed-vs-headline
+tension of item 10 kept. Rank 3 recipes are NOT required to reach 175 (guide).
+
+4. MATERIALS AND WHERE EACH COMES FROM
+--------------------------------------
+Origins below are the guide's own words or a probe result; ids in "(probe)"
+form came from a fresh wowhead spell/item page, ids in "(link)" from a guide
+hyperlink, everything else says unverified.
+Classic (origins: vendor = the cooking supply vendor by the trainer; AH =
+auction house; farm = killed/looted in the world):
+  - Simple Flour 30817 (link, vendor), Mild Spices 2678 (link, vendor) -
+    60 + 60 for Spice Bread.
+  - Bear Meat (unverified id; Smoked Bear Meat step), Stringy Wolf Meat
+    (unverified id; Spiced Wolf Meat alternate), Clam Meat (unverified id;
+    from Small Barnacled Clam 5523 (link) - farm at Darkshore/Ashenvale
+    shores), Refreshing Spring Water (unverified id, vendor), Crawler Meat
+    (unverified id; Crawler Claw 2675 (link) also drops from the same
+    creatures), Raptor Egg (unverified id; omelet), Raptor Flesh (unverified
+    id; roast raptor), Giant Egg (unverified id), Bear Flank (unverified id;
+    Juicy Bear Burger), Sandworm Meat 20424 (link, farm Silithus Dredge
+    Strikers 11740 / Crushers 11741), Runn Tum Tuber 18255 (link, farm
+    Warpwood Pods 179526 in Dire Maul East).
+  - Recipe items (origins = vendor/quest/drop): 2698 Kendor Kabonka 340,
+    3682 (vendors, guide link), 12228 (vendors), 16110 (vendors), 18267
+    (Pusillin 14354 drop, BoP), 8607's recipe 3556/1465 vendors.
+Outland (vendor = named NPC above; quest = quest chain):
+  - Ravager Flesh 27674 (link, farm), Buzzard Meat 27671 (link, farm), Talbuk
+    Venison 27682 (link, farm), Clefthoof Meat 27678 (link, farm), Warped
+    Flesh 27681 (link, farm), Serpent Flesh 31671 (link, farm), Raptor Ribs
+    31670 (link, farm); recipes 27688/27684/27693/27691/27692 (vendor/quest
+    as printed in 3.2).
+Northrend (AH = guide's advice; dailies = Epicurean's Award loop):
+  - Meats/fish 43010, 43009, 43011, 43012, 34736, 41809, 41813, 41810, 41806,
+    41801, 41802, 41807 (all links; AH or fishing), Chilled Meat 43013 (link),
+    Northern Spices 43007 (link; 10 bought per Epicurean's Award 81 (link)
+    near the trainers), Epicurean's Award 81 (link; cooking dailies, min 3 up
+    to 5 per day - "wait a day" if short).
+Cataclysm (AH = pick the cheapest; vendors = the item's sold-by list):
+  - Skin of Dwarven Stout 2596 (probe: cost 96-120 each, sold by 50 vendors),
+    Jug of Bourbon (unverified id; the guide links only the vendor list),
+    fish 53067, 53068, 53064, 53071, 53072, 53066, 53070 (links; fishing or
+    AH - striped lurker also fished at Twilight Highlands), foods/meats 62791,
+    62779, 62780, 62781, 62783, 62784, 62782 (links; AH or farm - Blood
+    Shrimp from Abyssal Clam 52340 in Vashj'ir), output Darkbrew Lager
+    62790 (link).
+Pandaria - Way of the Brew totals as printed: Ginseng 74845 x40, Jade Squash
+74847 x100, Green Cabbage 74840 x250, Witchberries 74846 x350, 100 Year Soy
+Sauce 74853 x5 (all links; "You can buy Ginseng from Sungshin Ironpaw" -
+vendor). Other Ways' ingredient ids (all links): Raw Tiger Steak 74833,
+Striped Melon 74848, Jade Lungfish 74856, Redbelly Mandarin 74860, Raw Crab
+Meat 74838, White Turnip 74850, Wildfowl Breast 74839, Krasarang Paddlefish
+74865, Mogu Pumpkin 74842, Raw Turtle Meat 74837, Juicycrunch Carrot 74841,
+Mushan Ribs 74834, Reef Octopus 74864, Giant Mantis Shrimp 74857, Emperor
+Salmon 74859, Scallions 74843, Jade Squash 74847, Wildfowl Breast 74839,
+Raw Crocolisk Belly 75014, Red Blossom Leek 74844.
+Draenor (farm = killed mobs in Draenor; probe = reagent id from the spell
+page; book = the learn item):
+  - Crescent Saberfish Flesh 109137 (probe on 161002; fished fish -> flesh),
+    book The Joy of Draenor Cooking 111387 (link; humanoid drops). Every
+    other Draenor meat/fish id above (Fat Sleeper Flesh, Raw Riverbeast Meat,
+    Jawless Skulker Flesh, Raw Clefthoof Meat, Abyssal Gulper Eel Flesh, Raw
+    Boar Meat, Fire Ammonite Tentacle, Rylak Egg, Sea Scorpion Segment, Raw
+    Elekk Meat, Blind Lake Sturgeon Flesh, Raw Talbuk Meat) = unverified ids
+    (the guide prints spell links only); the six upgrade herbs = unverified
+    ids (names only); feasts consume 50 x six meats each (guide totals).
+Legion (vendor = cooking supply/AH; discovery = Nomi work orders; farm =
+world drops):
+  - Lean Shank 124117, Wildfowl Egg 124121, Runescale Koi 124111, Cursed
+    Queenfish 124107, Mossgill Perch 124108, Black Barracuda 124112,
+    Highmountain Salmon 124109, Stormray 124110, Silver Mackerel 133607,
+    Slice of Bacon 133680, Fatty Bearsteak 124118, Big Gamy Ribs 124119,
+    Leyblood 124120 (all links; AH/fished/farmed), Flaked Sea Salt 133588
+    (probe), Dalapeno Pepper 133589 (probe) - both vendor reagents, Falcosaur
+    Egg 142336 (link; farmed), research ingredients consumed 5 at a time per
+    work order (guide).
+BfA (vendor = Hanul/Henrick's six reagents; fish = right-click any BfA fish
+into oil; shopping list = the guide's own):
+  - Vendor six: Wild Flour 160399, Choral Honey 160398, Powdered Sugar 160712,
+    Foosaka 160400, Wild Berries 160710, Fresh Potato 160709 (links).
+  - Aromatic Fish Oil 160711 (link; made from fish - the probe of 259442
+    shows a second oil row linking spell 273293, page not probed:
+    unverified detail); fish: Frenzied Fangtooth 152545, Lane Snapper 152546,
+    Tiragarde Perch 152548, Slimy Mackerel 152544, Sand Shifter 152543,
+    Redtail Loach 152549, Great Sea Catfish 152547, Midnight Salmon 162515
+    (all links; seas vs rivers as the guide lists), Nazjatar Viper Fish
+    168302 + Mauve Stinger 168646 (links), Moist Fillet 168645 (link).
+  - meats: Stringy Loins 154897, Meaty Haunch 154898, Briny Flesh 152631
+    (links; "1050 ... you don't have to buy all 1050 from the same meat"),
+    Major's Frothy Coffee (unverified id; rank-2 Tiramisu step).
+  - Guide shopping list for 1->175 (printed): 100 Aromatic Fish Oil, 1050
+    meats (Stringy Loins or Meaty Haunch or Briny Flesh), 320 Moist Fillet.
+Cross-checks (re-derived from the printed steps):
+  - BfA meats: 250 + 800 = 1050 exact (Seasoned Loins path through both
+    segments); Moist Fillet: 120 + 200 = 320 exact; Aromatic Fish Oil steps:
+    68 + 30 = 98 <= shopping 100 (2 spare); Wild Flour steps: 340 + 150 + 75
+    + 125 = 690 and Foosaka 170 + 75 + 125 + 400 + 45 + 75 = 890 - both are
+    vendor reagents and are NOT part of the shopping list (farmables only).
+  - Legion S&P: 55 crafts x 5/2/2 = 275 / 110 / 110 exact (guide totals).
+  - Draenor: 30 crafts x 5 = 150 Crescent Saberfish Flesh exact.
+  - Pandaria Brew: 40 + 100 + 250 + 350 + 5 ingredient totals match the three
+    steps' per-craft math (40 x1, 20 x5/5, 5 x50/50/1).
+  - Classic: 60 + 60 exact for Spice Bread; Cata Darkbrew 30 + 15 exact for
+    15 crafts.
+
+5. TRAINER COSTS
+----------------
+- Base spell 2550: "Training cost: 10"; mains with the same line: 264634,
+  264636, 264638, 264640, 264644. BfA mains 264646 and 265817 print
+  "Training cost: 8". Mains WITHOUT a training-cost line on their wowhead
+  page: 264632 (Classic) and 264642 (Draenor, learned from the book); no
+  wrapper shows a cost. Currency unit is not rendered on the pages -
+  unverified (section 9 item 8).
+- TC enforcement (section 7): trainer money = MoneyCost x reputation
+  discount, FailReason::NotEnoughMoney, ModifyMoney deduction.
+- Recipe prices as printed: Spice Bread 37836 quick facts "Training cost:
+  10" and its box "Profession Trainer: Classic Cooking (1) / Cost: 10" (two
+  prints, same number - agree). Northrend 25-75 recipes: 3 Epicurean's Award
+  each from Derek Odds/Misensi; Cataclysm recipes: "One recipe usually costs
+  3 Epicurean's Awards" from Shazdar/Bario Matalli; Northern Spices: 10 for
+  1 Epicurean's Award. Guide prices: no gold prices are printed anywhere in
+  the eight guides (all reagent gold prices, the Outland recipe vendor
+  prices and the BfA vendor reagent prices: unverified). Pandaria Way
+  quests cost ingredient deliveries, not gold (5 of the Way's first
+  ingredient). Legion/BfA rank 2 recipes: free from trainers; rank 3 sources:
+  World Quests / Tortollan Revered (free, gated by reputation instead).
+
+6. LEVEL NEEDED
+---------------
+- Profession learn itself: no character level printed on spell 2550 or on
+  any of the eight mains (wowhead quick facts show none: unverified whether
+  8.3.7 adds one). Every main except Classic prints "Requires Cooking (1)" -
+  a skill requirement on the BASE skill, not a character level.
+- Draenor book 111387: "Req. 10" printed in spell 160360's Used-by-Item row -
+  character level 10 to use the book.
+- Food USE levels (they sit on the created items, they do NOT gate crafting):
+  Mon'Dazi item "Requires Level 45", Rank 2 Salt and Pepper Shank item
+  "Requires Level 40", Grilled Saberfish item "Requires Level 35".
+- Trainer NPC levels (wowhead tables): Outland/Northrend-era trainers level
+  30 (zone trainers), BfA: Byron 60, T'sarah 60, Howcha 60, Ulooaka 50,
+  Rolm 50, Slagg 80, Stacks 60-90; Legion: Awilo 45, Katherine 10-45; MoP:
+  Chin/Sungshin 35. NPC level is not a player requirement (section 9
+  item 12 keeps the display-vs-gate distinction).
+- Quest gates: Legion needs quests 40988/40989 + 40990 (learn 6 recipes)
+  before work orders; BfA rank 3 recipes need Uniting Kul Tiras 51918 /
+  Uniting Zandalar 51916 (first War Campaign steps) for World Quests, and
+  the 140-175 segment needs the first Nazjatar intro quests before Ulooaka /
+  Rolm appear (guide); Pandaria needs quests 31281, 31302 and one Way quest.
+  Character levels for these were not printed: unverified (except where the
+  quest row says otherwise).
+- Cooking dailies (needed for the Northrend/Cata recipe loop): the guide
+  prints no levels; a Cata-classic daily guide (warcrafttavern, search
+  snippet) says Outland dailies need level 70 and Northrend dailies level 71
+  + Cooking 350 in pre-split numbering - how those gates read on split 8.3.7
+  skill bars: unverified (section 9 item 21).
+- Per-craft skill minimums shown on recipe rank tables (e.g. Salt and
+  Pepper Shank rank 1 "Cooking (20)", Mon'Dazi rank 2 "(50)", BfA trainer
+  recipes "(35)".."(160)") are printed by wowhead against the parent
+  Cooking link; TC has no located gameplay check that blocks a cast below
+  such a value (section 7b) - treat them as data labels, not verified gates.
+
+7. WHAT THE CORE MUST DO FOR A CRAFT TO SUCCEED
+-----------------------------------------------
+Fresh TrinityCore master, blobless sparse clone (src/server/game +
+src/server/shared), HEAD 209d6d51d1 - the same HEAD the Tailoring and
+Leatherworking files' section 7 were re-read from, so every shared anchor
+below is byte-identical to those audited manifests:
+a) Trainer flow: opcode in -> SendTrainerList -> SendSpells, buy -> money
+   check -> teach. NPCHandler.cpp 97 HandleTrainerListOpcode -> 112
+   SendTrainerList (talks to trainer->SendSpells at 127); NPCHandler.cpp 130
+   HandleTrainerBuySpellOpcode (GUID check at 137, TeachSpell call at 155);
+   Trainer.cpp 41 SendSpells (reputation discount 43, MoneyCost x discount
+   at 65, usable state 69), 76 TeachSpell -> 79 CanTeachSpell (definition
+   149), 98 reputationDiscount x MoneyCost (99), 100 HasEnoughMoney -> 102
+   SendTeachFailure NotEnoughMoney, 106 ModifyMoney(-moneyCost); 172
+   GetSpellState, 212 SendTeachFailure. Nothing cooking-specific: any
+   trainer creature with the right trainer id teaches the mains (264634,
+   264636, 264638, 264640, 264644, 264646/265817) and, on the probed NPCs,
+   also spell 2550 (Katherine 93534 and Byron 136052 Teaches tables both
+   list 2550 + their expansion main + recipes).
+b) Casting the craft: Spell.cpp 3869 TakePower() then 3872 TakeReagents()
+   before HandleEffects (definition TakeReagents at Spell.cpp 5600);
+   ITEM_FLAG_NO_REAGENT_COST 0x10000000 (ItemTemplate.h 218) makes a spell
+   ignore reagents. There is NO server-side skill gate on recipe casts: a
+   broad grep for RequiredSkill only finds the DB2 load info
+   (DB2LoadInfo.h 3301), the auction-bot price filters, and quest turn-in
+   requirements (Player.cpp 15405, Player::SatisfyQuestSkill:
+   GetSkillValue(skill) < qInfo->GetRequiredSkillValue()) - cooking recipe
+   casts never go through any of them; wowhead's printed per-recipe skill
+   minimums are therefore client/data labels (section 6).
+c) Skill-ups on craft: Player.cpp 5410 UpdateCraftSkill -> blocked by
+   SPELL_ATTR1_NO_SKILL_INCREASE (5412-5413); reads the spell's skill line
+   at 5422 (SkillupSkillLineID), multiplies NumSkillUps x
+   CONFIG_SKILL_GAIN_CRAFTING (5433) and returns UpdateSkillPro against
+   TrivialSkillLineRankHigh/Low via SkillGainChance (definition 5399, call
+   5435). Discovery: inside the same loop, Mechanic == MECHANIC_DISCOVERY
+   (5427) calls GetSkillDiscoverySpell + LearnSpell (5429-5430) - one of
+   the two server paths that can hand out extra recipes while crafting
+   (Draenor's "you may get a new recipe idea while cooking" - which of the
+   two paths 8.3.7 data uses is unverified). Weights: World.cpp 784-787
+   SkillChance.Orange 100 / Yellow 75 / Green 25 / Grey 0, World.cpp 790
+   SkillGain.Crafting default 1.
+d) Learn and skill-step effects: dispatch SpellEffects.cpp 128 (LEARN_SPELL
+   36), 136 (SKILL_STEP 44 -> EffectLearnSkill 2405, SetSkill at 2433),
+   139 (TRADE_SKILL 47 -> EffectTradeSkill 2451) and 210 (effect 118 SKILL
+   -> EffectSkill 4668); EffectLearnSpell 2129 (TriggerSpell learn at 2170).
+   EffectTradeSkill's body is a NO-OP (player-type check, then only
+   commented-out code) - the mains' Effect #1 "Trade Skill" does nothing
+   server-side; the skill comes from Effect #2 Learn Skill -> SetSkill.
+   Wrappers work through Learn main + Learn Skill Step (2548 -> 2541) on
+   264633 and 264635-264647/265818. EffectCreateItem dispatch 116 ->
+   EffectCreateItem 1473 with SPELL_ATTR0_IS_TRADESKILL -> ItemContext::
+   Trade_Skill at 1478 (further ATTR0_IS_TRADESKILL selections at 1492,
+   1522, 2484), DoCreateItem 1383; EffectCreateItem2 dispatch 249
+   (SPELL_EFFECT_CREATE_ITEM_2 = 157) -> definition 1482 (Trade_Skill
+   context at 1492) - Draenor's Grilled Saberfish 161002 renders "Create
+   Tradeskill Item" on wowhead, so some cooking recipes use effect 157.
+e) Cooking's focus requirement (the "Requires Cooking Fire" quick fact on
+   every probed recipe - 37836, 259442, 201524, 161002): spell flag
+   RequiresSpellFocus is checked in Spell.cpp - GameObjectFocusCheck call
+   at 2322 (definition GridNotifiers.h 940-956: GO's GetSpellFocusType()
+   equals the required focus id, GO spawned, inside GetSpellFocusRadius()),
+   the aura fallback SPELL_AURA_PROVIDE_SPELL_FOCUS at 6066 -> failure
+   SPELL_FAILED_REQUIRES_SPELL_FOCUS 6072, and the failure packet carrying
+   the SpellFocusObject id at 4469-4473. GameObjectData.h exposes
+   spellFocusType fields (225, 236-238, 731) referencing SpellFocusObject -
+   a server-side cook must stand within the focus radius of a spawned fire
+   GO (or have the focus aura); WHICH gameobject entries provide the
+   "Cooking Fire" focus id is data-side, not visible from source alone -
+   unverified. Classic tooltips say it too: "Requires meat from beasts and
+   fire to make food."
+f) Identifiers: SKILL_COOKING = 185 (SharedDefines.h 5907); the eight
+   sub-skills SKILL_KUL_TIRAN_COOKING 2541 .. SKILL_CLASSIC_COOKING 2548
+   (SharedDefines.h 6123-6130); QUEST_SORT_COOKING = 304 (5669) -> case
+   returns SKILL_COOKING (6369); QUEST_TRSKILL_COOKING = 3 (QuestDef.h
+   127); QUEST_INFO_COOKING_WORLD_QUEST = 131 (SharedDefines.h 5591);
+   TRADESKILL_COOKING = 3 (ScriptedGossip.h 38) - beside it the same header
+   carries TRADESKILL_FIRSTAID = 6 (41), TRADESKILL_FISHING = 12 (47) and
+   TRADESKILL_ARCHAEOLOGY = 16 (51) for the later steps; IsProfessionSkill
+   includes SKILL_COOKING (SpellMgr.h 605-607); legacy
+   SKILL_APPRENTICE_COOKING = 981 (6027); SPELL_ATTR9 item-cast skill gain
+   gate Spell.cpp 3863-3865 (ATTR9_ITEM_CAST_GRANTS_SKILL_GAIN - matters
+   when the book 111387 casts 160360). Cooking-only core bits:
+   Object.cpp 1811 - IsPartOfSkillLine(SKILL_COOKING, spell) && aura 67556
+   (Chef's Hat - cosmetic cast appearance; definition IsPartOfSkillLine
+   SpellMgr.cpp 119); profession tool/gear slots: Player.h 745-746
+   PROFESSION_SLOT_COOKING_TOOL = 25 / COOKING_GEAR1 = 26, Player.cpp
+   9301-9302, ItemTemplate.h 759 ITEM_SUBCLASS_PROFESSION_COOKING = 4;
+   recipe items ItemTemplate.h 656 ITEM_SUBCLASS_COOKING_RECIPE = 5;
+   cooking-supply bags ItemTemplate.h 355 BAG_FAMILY_MASK_COOKING_SUPP +
+   Item.cpp 298-299.
+g) Book/quest chain: item-cast 111387 -> EffectLearnSpell 2129 learns
+   TriggerSpell 160360 -> 160360 (10 sec, "Tradeskill recipe") triggers
+   wrapper 264643 ("Triggered by (1)") -> wrapper learns main 264642 +
+   SetSkill 2543. Quest-granted recipes (Buzzard Bites chain 9349/9361/9356,
+   Silithus 8307/8313, Mok'Nathal 10860, all six Pandaria Ways, the Legion
+   6-recipe quests and Nomi's 40988/40989/40990) are ordinary reward-spell
+   casts landing in EffectLearnSpell 2129, gated for acceptance by the
+   quest system (Player.cpp 15405 skill gate where a quest sets one). The
+   Legion work-order timer and the Draenor discovery roll are data/config
+   driven (4-hour work orders and RNG per the guide) - the C++ above only
+   provides the learn/craft primitives.
+h) There is no cooking-specific craft effect in the core: cooking recipes
+   are plain CREATE_ITEM / CREATE_ITEM_2 + skill-up + trainer data + the
+   generic focus check. The two probe-verified effect shapes are Create Item
+   (259442, 37836, 201524) and Create Tradeskill Item (161002).
+
+8. WHAT A SERVER-SIDE CHARACTER (NO CLIENT) CANNOT DO
+-----------------------------------------------------
+  1. Click profession-window buttons: crafts must be cast by spell id with
+     the recipe already in the spellbook (gained via trainers/quests/items/
+     discovery - a, d, g); a server-side character has no profession UI.
+  2. Talk to trainers, vendors and NPCs at all: trainer lists/buys are
+     opcodes (NPCHandler 97/130), and every named source in section 2 needs
+     NPC interaction packets - the wiki's ~40 trainers, the recipe vendors
+     (Hilbert 3556, Roughcut 1465, Kabonka 340, One-Eye 16585, Limbardi
+     16826, Nula 20097, Uriku 20096, Grilka 18957, Mills 19038, Ravenoak
+     20916, Weldwell 21113, Odds 31032, Misensi 31031, Shazdar 49737,
+     Matalli 49701, Swiftgale 141936, Wyther 142095, Kojo 135793, Bladewing
+     107379), the dailies givers (Katherine 28705, Awilo 29631, Marogg
+     42506, Flay 42288), and the "walk up to a guard and ask" hint the BfA
+     guide prints for finding trainers.
+  3. Stand near a fire: every probed recipe requires the Cooking Fire focus
+     (e); without a spawned fire GameObject (or focus aura) inside the focus
+     radius every cook spell fails SPELL_FAILED_REQUIRES_SPELL_FOCUS - the
+     character must path to world campfires/instances of cooking fires, and
+     WHICH GO entries qualify is unverified data.
+  4. Complete quests: the Pandaria intro (31281 Sliced Peaches, 31302 Rice
+     Pudding) + any one Way quest (31479/31311/31478/31472/31475/31470 with
+     ingredient deliveries to the Ironpaws), the Outland chains 9349 ->
+     9361 -> 9356 and 10860, Silithus 8307 -> 8313, the Legion chain 40988/
+     40989 -> 40990 plus the six first-recipe chains (Slime Time 40049,
+     I'll Huff 40047, Nature vs Nurture 40045 -> Murlocs 40102; Amateur Hour
+     40170 + Lion Stalkin' 39123 -> I'm Not Lion 39867; A Village in Peril
+     38643 -> Shriek No More 39117; Bottled Up 38407 -> Infiltrating
+     Shipwreck Arena 37496 -> Morale Booster 37536; plus drop-gated Bear
+     Tartare and Leybeque Ribs), the Kungaloosh chain 13571 (needs prior
+     Sholazar Basin quests), and the BfA war-campaign openers Uniting Kul
+     Tiras 51918 / Uniting Zandalar 51916 - each objective is world
+     interaction a headless routine must simulate.
+  5. Wait on real-time gates: Legion work orders take 4 hours each and often
+     burn to Badly Burnt Food 133913; cooking dailies (the Epicurean's Award
+     engine behind ALL Northrend 25-75 and Cataclysm 10-75 recipes) reset
+     daily with a minimum 3 / maximum 5 award payout; Pilgrim's Bounty is a
+     seasonal event (the vanilla guide's "If it's November" route).
+  6. Get lucky: Draenor discovery (12 recipes popped from cooking, book drop
+     from humanoids after 20-30 kills, feast discovery at 95+), Legion
+     research RNG (rank 2/3 recipes from work orders, duplicate ranks
+     possible), recipe world drops (Bear Tartare from Mordvigbjorn 93371,
+     Leybeque Ribs from Myonix 110340), limited-supply vendor stock
+     (Xerintha's recipes "sell in limited supply... wait if someone bought
+     them"), and Outland's Smooth-as-Butter quest alternative.
+  7. Hold reputation: Tortollan Seekers Revered for Recipe: Seasoned Loins
+     rank 3 (Kojo 135793) and Wardens Revered for Recipe: Spiced Falcosaur
+     Omelet (Bladewing 107379) - reputation the core does not gain from
+     crafts.
+  8. Run world content for inputs: Falcosaur Eggs 142336 farming, Dire Maul
+     East for recipe 18267 (instance + BoP recipe, "solo around level 40"),
+     Abyssal Clam 52340 in Vashj'ir, campfire/fire proximity in the world
+     (item 3), fishing itself (every fish line in 3.3-3.8 - Fishing is a
+     separate skill this server must also implement), the auction house for
+     every "check the auction house which meat is cheapest" step.
+  9. Progress the BfA world: World Quest rank 3 recipes rotate randomly
+     ("show up randomly sometimes on your map"), Nazjatar's intro quests
+     gate Ulooaka/Rolm before the 140-175 trainer exists visually, and the
+     Mechagon/Arathi/Slagg extra trainers sit behind their own zone unlocks
+     (guide: Stacks and Slagg locations are level 80/60-90 zones).
+ 10. See the wiki-only era trainers' modern rows: Legion and BfA trainers
+     are absent from the wiki table entirely (section 9 item 1) - a routine
+     built from wiki data alone would miss both Dalaran trainers and both
+     BfA capitals.
+
+9. CONFLICTS AND UNVERIFIED INDEX
+---------------------------------
+Numbered conflicts (all resolved by adoption below):
+1) The wiki Cooking_trainers table ends at Draenor (last row Guy Fireeye,
+   Warspear, no coordinate) and the page carries the outdated-article icon;
+   there are no Legion or BfA rows at all. Adopted: Legion/BfA/recipe-vendor
+   positions come from the guides and fresh wowhead Taught-by tables only.
+2) Northrend trainer sets disagree: the wiki lists 7 (adds Thomas Kolichio
+   [78.5, 29.4] and Bethany Cromwell [72.5, 20.8] beyond the five) while
+   wowhead's 264636 Taught-by shows exactly 5 (Awilo, Brom, Katherine, Orn,
+   Rollick). Adopted: the Taught-by 5 own the learn map; the wiki extras are
+   cooking trainers whose link to 264636 is unverified.
+3) Outland taught-by three ways: wowhead's 264634 table lists 7 (adds Celie
+   Steelwing 19369, Naka 18993, Kylene 19186, an "Uncategorized" creature
+   literally named "Cooking" npc 33619) versus the guide's 3 (Allison,
+   Gaston, Jack Trapper) versus the wiki's 6 rows. Adopted: the union with
+   per-source counts kept (Taught-by 7), Kylene's "barmaid" role note kept.
+4) Skill label bug: spell 265817 is named "Zandalari Cooking" (Horde,
+   "Horde Specific Spell") but its Effect reads Learn Skill (Kul Tiran
+   Cooking) skill=2541 - both factions genuinely share 2541 (wrappers 264647
+   and 265818 both Step 2541). Adopted: one sub-skill 2541; the label is
+   wrong on the Horde spell (same class as Tailoring's item 5).
+5) Patch tags cross over between factions: A main 264646 = 8.0.1 but H main
+   265817 = 8.1.0, while A wrapper 264647 = 8.1.0 but H wrapper 265818 =
+   8.0.1 - the Horde pair is tag-swapped versus the A-side pattern (main
+   8.0.1 / wrapper 8.1.0) every other block shows. Adopted: as printed on
+   each page (verified individually).
+6) Wrapper patch tags: every wrapper 264635-264647 is tagged 8.1.0 except
+   the Classic wrapper 264633 (8.0.1) - the same first-wrapper exception the
+   Tailoring (264617) and earlier blocks show; 264633 also carries THREE
+   effects (Learn 2550 + Learn 264632 + Step 2548) vs two everywhere else.
+   Adopted: as printed.
+7) Classic main has no trainer table: 264632 and 264633 render no "Taught
+   by" section, and the two fully probed trainer Teaches lists (Katherine
+   93534, Byron 136052) show 2550 + their expansion main + recipes, never
+   264632/264633 - yet the guide trains Classic by walking up to any cooking
+   trainer. Adopted: base 2550's Taught-by 66 handles the "learn Cooking"
+   step; the exact grant of Classic Cooking (2548/264632) on a fresh
+   character stays unverified (no table, no quest, no trigger seen).
+8) Cost lines: mains 264632 and 264642 show NO "Training cost" while the
+   other six mains do (10 for the middle four, 8 for the BfA pair). Adopted:
+   cost only where printed; the two silent mains record "no training-cost
+   line" (currency unit unverified anyway - same adoption as Tailoring's
+   item 8).
+9) Guide copy-paste: the Cataclysm guide's intro says "you will have to buy
+   a few extra materials while you are leveling your Northrend Cooking" on
+   the CATA page (identical sentence pattern on other pages). Adopted: the
+   sentence belongs to the Cata route (section title wins).
+10) BfA guide internal tension: step 75-140 headlines "Make around 120 from
+    one of these three" while each option line prints "80 x", plus "green
+    for the last 10 points, so you might have to make more". Adopted: the
+    printed 80 per option and the printed total 194 both stand; the 120
+    headline is kept as the guide's luck warning.
+11) Rank-table skill display: recipe rank tables print "[Cooking] (NN)"
+    links to parent skill 185 while the same page's quick facts say
+    "Skill: Classic/Legion/Kul Tiran Cooking" (2548/2542/2541). Adopted:
+    the quick-fact sub-skill (matches TC's SharedDefines enums 6123-6130);
+    the 185 links are parent-profession navigation.
+12) Food "Requires Level" lines: Mon'Dazi (45), Rank 2 S&P Shank (40),
+    Grilled Saberfish (35) sit on the CREATED ITEMS, not the craft spells.
+    Adopted: they are eat/use levels only; no craft level gate was found
+    (section 7b, section 6).
+13) Draenor recipe provenance: Grilled Saberfish 161002's quick facts say
+    "Learned via discovery" while its Related tables say Taught by (1) =
+    160360 and Drop/Item = The Joy of Draenor Cooking; the guide says the
+    book drop teaches cooking AND discovery finds the other 12. Adopted:
+    book/spell 160360 teaches the first recipe + the skill; further recipes
+    arrive by discovery while crafting (both mechanisms exist in core -
+    section 7c).
+14) Two Dalaran eras, same trainer names: Katherine Lee 28705 and Awilo
+    29631 are Northrend Dalaran (zone 4395; wiki coords [41.5, 64.6] and
+    [70.0, 39.0]); Katherine Lee 93534 and Awilo 93536 are Legion Dalaran
+    (zone 7502). Adopted: era-split by entry (same class as Tailoring's
+    item 12); the wiki's single rows describe the Northrend NPCs.
+15) Vintage/anachronism labels: the vanilla guide page is branded
+    "(Midnight)" and says it is "NOT a WoW Classic guide" but targets the
+    Classic 1-300 bar; adopted: route as printed (caps come from the mains:
+    264632 says 300). Also the wiki's outdated banner (item 1) and its
+    coord-less final Draenor row.
+16) NPC name collision "Slagg": the wiki's Slagg row is Hammerfall
+    [69.2, 34.4] (entry 2818 appears in 264638's table) while the BfA mains
+    list Slagg 232031 (Arathi, level 80) - two entries, one name. Adopted:
+    keep both entries; the Hammerfall coordinate describes the location.
+17) Kylene's double role: she appears in 264634's Taught-by (teaches the
+    Outland skill line) while the wiki flags her as a Barmaid who "Teaches
+    3 recipes to players with high enough cooking skill". Adopted: both
+    facts (skill line from wowhead, recipe role from wiki).
+18) Block boundaries: the Tailoring file ends at 264631; the next id
+    264632 is "Classic Cooking" (start of this block) and 264648 is
+    "Order Blast" (an unrelated 8.0.1 server-side Dummy) - end verified.
+    Adopted: cooking block = 264632-264647, eight pairs, no internal gap,
+    plus Horde 265817/265818 (this block needs NO gap exception).
+19) "Requires meat from beasts and fire" (mains/base tooltips) vs the
+    recipes' own "Requires Cooking Fire" quick fact vs core source: the
+    first is flavour text, the second is a SpellFocusObject requirement the
+    core enforces generically (section 7e). Adopted: fire = focus check;
+    no separate cooking C++ branch exists.
+20) TC drift statement: this file's section 7 anchors were re-read from
+    master HEAD 209d6d51d1 - the same HEAD as the Tailoring and
+    Leatherworking clones, so shared anchors are unchanged (UpdateCraftSkill
+    5410, SkillGainChance 5399/5435, NPCHandler 97/130, Trainer 41/76/106,
+    World 784-790, TakeReagents 5600, EffectLearnSpell 2129/2170). New
+    cooking-specific lines: SKILL_COOKING 5907, sub-skill block 6123-6130,
+    QUEST_SORT_COOKING 5669/6369, QUEST_TRSKILL_COOKING QuestDef 127,
+    TRADESKILL_COOKING ScriptedGossip 38, EffectTradeSkill 2451 (no-op),
+    focus checks 2322/4469/6066/6072, Object 1811, Player 9301.
+21) Daily-quest level gates: a Cata-classic guide (warcrafttavern, search
+    snippet) prints Outland dailies level 70 and Northrend dailies level 71
+    + Cooking 350 in PRE-SPLIT numbering; 8.3.7 splits cooking into eight
+    bars, and the fetched wow-professions pages print no levels for the
+    dailies. Adopted: record both as printed; how the gate reads on split
+    bars is unverified.
+Also unverified (not guessed): Jug of Bourbon's item id; Bear Meat, Clam
+Meat, Refreshing Spring Water, Stringy Wolf Meat, Crawler Meat, Raptor Egg,
+Raptor Flesh, Giant Egg and Bear Flank ids; the Buzzard Bites craft spell;
+ALL Cataclysm craft spell ids (the guide links recipe items and outputs,
+not spells); Sliced Peaches and Rice Pudding spell ids; the Craft spell for
+Darkbrew Lager; Draenor meat/fish/herb ids other than 109137; Major's
+Frothy Coffee id; the numeric coordinates of every Legion/BfA trainer (only
+guide text was rendered); spell 160360's second taught spell; the currency
+unit of every trainer cost; all recipe/reagent gold prices; which
+gameobject entries provide the Cooking Fire focus; which discovery path
+(MECHANIC_DISCOVERY vs skill_discovery_template data) serves Draenor
+recipes; how per-recipe skill minimums would be enforced if at all; the
+exact grant path of Classic Cooking 2548 on a fresh character; the guide's
+"around" counts for Northrend/Cataclysm (printed as approximations);
+work-order/Nomi state machine details beyond the guide's text; BfA World
+Quest rotation logic.
+
+10. SOURCES
+-----------
+All pages fetched 2026-10-27; nothing fetched is stored in the repository.
+Wowhead spell/item/npc probes (per-id pages):
+  - 2550 (base Cooking: cost 10, difficulty 111, skill 185, 9 other ranks
+    158765/3102/3413/18260/33359/51296/88053/104381/195128, Taught by 66)
+  - 264632, 264633, 264634, 264635, 264636, 264637, 264638, 264639, 264640,
+    264641, 264642, 264643, 264644, 264645, 264646, 264647 (all sixteen ids
+    of the block - no internal gap), 265817 (Horde main), 265818 (Horde
+    wrapper), 264648 ("Order Blast" - verified non-Cooking end boundary)
+  - 160360 (Introduction to Cooking in Draenor: Item Effect, 10 sec, Trigger
+    Spell 264643, Used by item 111387, Teaches (2)); recipe crafts 37836
+    (Spice Bread: skill Classic Cooking, cost 10, Create Item, Taught by 30,
+    Requires Cooking Fire), 259442 (Mon'Dazi rank 1: skill Kul Tiran
+    Cooking, Create Item x5, Requires Level 45 on output, reagents probe),
+    201524 (Salt and Pepper Shank rank 2: skill Legion Cooking, Discovery:
+    Nomi's Test Kitchen, reagents 124117/133588/133589, yield 7), 161002
+    (Grilled Saberfish: skill Draenor Cooking, "Learned via discovery",
+    Create Tradeskill Item, reagent 109137, Taught by 160360)
+  - items: 2596 (Skin of Dwarven Stout: cost 96-120, 50 vendors); npcs:
+    93534 (Katherine Lee Legion: Teaches 10 = 2550 + 264644 + 8 recipes),
+    136052 ("Cap'n" Byron Mehlsack: Teaches 31 = 2550 + 264646 + recipes,
+    starts/ends 1 quest)
+warcraft.wiki pages (chunk counts in parentheses):
+  - Cooking_trainers (6 chunks; full table read - The Maelstrom through
+    Draenor, ends at Guy Fireeye with no coordinate; outdated-article
+    category; rows recorded in section 2)
+wow-professions guides (route data copied into sections 3-6; shopping lists
+into 4; note: slugs live under /guides/):
+  - profession-leveling-guides (index, 3 chunks - used only to confirm the
+    eight slugs), vanilla-cooking-leveling (2, "(Midnight)" branded),
+    outland-cooking-leveling (1), northrend-cooking-leveling (2),
+    cataclysm-cooking-leveling (1), pandaria-cooking-leveling (2),
+    draenor-cooking-leveling (1), legion-cooking-leveling (2),
+    zandalari-kul-tiran-bfa-cooking-leveling-guide (2)
+Other (search-result snippets, not full pages): warcrafttavern Cata-classic
+cooking dailies (level 70 / 71 + 350 claims - section 9 item 21).
+TrinityCore: blobless sparse clone of master (src/server/game +
+src/server/shared), HEAD 209d6d51d1; anchors re-read: SpellEffects.cpp
+116/128/136/139/249/1383/1473/1478/1482/1492/1522/2129/2170/2405/2433/
+2451-2461 (EffectTradeSkill no-op)/2484/4668, Spell.cpp 2322-2323/3863-3865/
+3869/3872/4469-4473/5600/6064-6072, Player.cpp 5399/5410/5412/5422/5424/
+5427/5429/5433/5435/15405/9301-9302, World.cpp 784-790, NPCHandler.cpp
+97/112/127/130/137/155, Trainer.cpp 41/43/65/69/76/79/98-100/102/106/149/
+151/172/212, SharedDefines.h 5591/5669/5907/6027/6123-6130/6369, QuestDef.h
+127, ItemTemplate.h 218/355/656/759, Item.cpp 298-299, ScriptedGossip.h
+38/41/47/51, SpellMgr.h 605-607, SpellMgr.cpp 119, Object.cpp 1811,
+GridNotifiers.h 940-956, GameObjectData.h 225/236-238/731, Player.h 745-746;
+grep SKILL_COOKING = 9 hits (incl. SharedDefines 5907); no RequiredSkill
+gameplay gate found (only DB2LoadInfo.h 3301 + auction bot + Quest 15405).

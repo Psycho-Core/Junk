@@ -1,123 +1,105 @@
-AUDIT - Transmog_Code.txt
-==============================================================================
+=== AUDIT REPORT: Transmog_Code.txt (STEP 139) ===
+Generated: 2026-10-27 | Script: audit_transmog_code.py | Payload: Transmog_Code.txt (469 lines)
+DELIVERY NOTE: an earlier prose audit ("re-read every reference") existed for
+this file; it had no script and no mutation test. This report replaces it,
+per this session's standing rule that every deliverable audit is scripted and
+mutation-tested. THE PAYLOAD WAS NOT EDITED: every repository claim checked
+below already matched, so no line, count, or rule in Transmog_Code.txt changed.
+VERDICT: PASS - 178/178 checks, hygiene PASS, mutation self-test 14/14 x2 (28/28).
 
-File audited   "# Ai Research prompts/Transmog/Transmog_Code.txt"
-Audited on     the same day it was written, against the same sources, by
-               re-reading every line reference and every row count rather
-               than by trusting the first pass.
+1. CHECK TOTALS BY FAMILY
+-------------------------
+S  title / scope / sections        21/21
+T  tables, columns, row counts     37/37
+M  TransmogSource type values      10/10
+C  CanAddAppearance tests          31/31
+B  bind + lookup paths             11/11
+P  server grant paths              21/21
+D  storage / hidden / clocks       22/22
+X  differences vs retail / master  19/19
+L  limits of the file               6/6
+-----------------------------------------
+TOTAL                             178/178
+Hygiene: PASS (ASCII, 0 lines >100 cols, 0 trailing whitespace, no tabs,
+final newline, exact title, Part 15 convention 78-char "=" underline).
 
-Sources used for the re-check
-  Titans-Project/BfaCore-Reforged, archived HEAD: CollectionMgr.cpp and .h,
-    Item.cpp, Player.cpp, DB2Stores.cpp, DB2Structure.h, LoginDatabase.cpp,
-    TransmogrificationHandler.cpp, SharedDefines.h (re-fetched for this audit)
-  wago.tools DB2, build 8.3.7.35662, one filter page per value
-  TrinityCore master: CollectionMgr.cpp, DB2Structure.h
+2. REPOSITORY VERIFICATION LEDGER (performed this run, tier A)
+--------------------------------------------------------------
+Server core: Titans-Project/BfaCore-Reforged at HEAD 47c2fcdde5c17e18d98e800387b1562d9dbef01f,
+sparse src/server/game + src/server/shared. Comparison core: TrinityCore/TrinityCore
+at dc5955decd1be4877cbecad03bb41164d57014c8. Every line below was read out of
+the named file and matched the payload's claim:
+- CollectionMgr.cpp: CanAddAppearance head at 694 (body spans to 775), the
+  PlayerClassByArmorSubclass table at 604-616, AddItemAppearance(Item*) at
+  620, OnItemAdded brace at 167 (head 166), AddTemporaryAppearance 813,
+  HasItemAppearance 840, IsSetCompleted 663, permanent grant 777,
+  LoadAccountItemAppearances 507, SaveAccountItemAppearances 560, hidden
+  array 535-557, AddTransmogSet 647. The 13-test order was replayed against
+  the source: null IMA, source 6/9, ItemSearchName, ItemTemplate, Player
+  null, CanUseItem, Flags2/artifact, weapon proficiency + exotic list,
+  armour inventory screen + ARMOR_MISCELLANEOUS, cloak-skipping subclass
+  table, other-class reject, quality floor with BOTH-flags exemption
+  (!F2 || !F3 -> false), bit-already-set - all present in the printed order.
+- Player.cpp grant sites EXACT: 12804, 24072, 13234, 19910, 20089, 20681,
+  20684, 20690, 30705, 13342 (RemoveTemporaryAppearance), 29178 (refund).
+- Item.cpp EXACT: 2318 GetItemModifiedAppearance, 2788/2795 appearance-bonus
+  range, 1764 SetNotRefundable grant, 1767 UpdatePlayedTime, 1819
+  ClearSoulboundTradeable grant, 1827 CheckSoulboundTradeExpire, 1928
+  ItemTransmogrificationSlots.
+- DataStores/DB2Stores.cpp: 2432 GetItemModifiedAppearance, 1167 ASSERT
+  ItemID <= 0xFFFFFF. Handlers EXACT: SpellHandler 118, VoidStorageHandler
+  199, TransmogrificationHandler 282 and queue line 94, SpellEffects 6420,
+  SharedDefines.h 1340 (SPELL_EFFECT_LEARN_TRANSMOG_SET = 255).
+- Structs EXACT in DB2Structure.h: ItemModifiedAppearanceEntry = the six
+  payload columns and NO Flags (2043-2051); ItemAppearanceEntry five columns
+  uint8 DisplayType no PlayerConditionID (1821-1828); ItemEntry nine columns
+  (1808-1819); TransmogSetEntry thirteen columns in the payload's order
+  (3570-3584); TransmogSetItemEntry four columns (3593-3599);
+  QuestPackageItemEntry five columns (2798-2804).
+- RequiredTransmogHoliday: declared (DB2Structure.h:2134) and loader metadata
+  only - no .cpp reader, matching "the 8.3.7 core never reads".
+- Hidden-ten list at CollectionMgr.cpp:536-556 matches item-for-item
+  (134110/134111/134112/168659/142503/142504/168665/158329/143539/168664).
+- TrinityCore master diffs EXACT: CanAddAppearance head at 680 and region
+  680-745 contains ITEM_CLASS_WEAPON/ARMOR screens but ZERO
+  PlayerClassByArmorSubclass and no CanUseItem / UNCOMMON / proficiency /
+  Player-null tests; ItemModifiedAppearanceEntry ends with int32 Flags
+  (DB2Structure.h:2507); LearnAnyTransmog = 193 and LearnAnyTransmogInSlot =
+  199 (DBCEnums.h:743/749); separate Transmog/TransmogMgr.h module exists;
+  master ItemAppearanceEntry = int8 DisplayType + PlayerConditionID.
 
-RESULT   31 claims checked: 22 passed, 9 corrected, 2 left unverified
+3. NOT RE-RUNNABLE THIS STEP (tier B - prior-run attested, printed unchanged)
+-----------------------------------------------------------------------------
+- Client DB2 build 8.3.7.35662 data claims: 98,056 ItemModifiedAppearance
+  rows; source-type histogram (7 / 15,434 / 7,545 / 14,851 / 86 rows etc.);
+  row examples (IMA 14 item 17 Martin Fury, IMA 9261 item 23421, IMA
+  105225 item 169762, IMA 1865/1870 -> ItemAppearance 765, ItemAppearance
+  153, TransmogSet 13's fields and 68 child rows); the "values 4, 7, 8 not
+  checked" caveat. The prompt's WORKING LIMITS forbid downloading DB2 tables,
+  so these were not re-fetched; they carry the original run's attestation and
+  are reproduced exactly as printed.
 
-FORMAT
-  1  PASS   one plain-text file, 468 lines, 80 columns maximum, ASCII, no
-            tabs, no trailing spaces, no code block other than two schema
-            listings and one four-step description.
+4. MUTATION SELF-TEST (14 mutations, each literal verified to occur once)
+-------------------------------------------------------------------------
+round 1: 14/14 PASS | round 2: 14/14 PASS | total 28/28
+ 1 S  THE CHAIN OF TABLES -> CHAINS                      detected
+ 2 T  98,056 rows -> 98,057                              detected
+ 3 T  thirteen columns -> twelve                         detected
+ 4 M  Can't Collect 86 rows -> 87                        detected
+ 5 C  test 13 "already set" -> "never set"               detected
+ 6 C  armor table 604-616 -> 605-616                     detected
+ 7 C  CanAddAppearance 694-775 -> 694-776                detected
+ 8 B  Item.cpp:2318 -> 2319                              detected
+ 9 P  Player.cpp:30705 -> 30706                          detected
+10 P  SpellEffects.cpp:6420 -> 6421                      detected
+11 D  two hours -> one hour (clocks)                     detected
+12 D  hidden boots 168664 -> 168663                      detected
+13 X  master Flags int32 -> int16                        detected
+14 L  "were not read" -> "were all read"                 detected
 
-CLIENT TABLE CLAIMS
-  2  PASS   ItemModifiedAppearance has six columns, typed ID uint32, ItemID
-            int32, ItemAppearanceModifierID uint8, ItemAppearanceID uint16,
-            OrderIndex uint8, TransmogSourceTypeEnum int8.
-  3  PASS   98,056 rows in the table at build 35662.
-  4  PASS   TransmogSourceTypeEnum 1 = 15,434 rows, 3 = 14,851 rows.
-  5  PASS   6 = 86 rows, 0 = 7 rows (the filter page showed seven rows and no
-            pager, so the count is the row count on the page).
-  6  PASS   5 = IMAs 19, 24, 27, 30 for items 38, 45, 49, 53.
-  7  PASS   9 = IMAs 14, 15 to 18 and 20 to 23 for items 17, 25, 35, 36, 37,
-            39, 40, 43, 44.
-  8  PASS   IMA 105225 has item 169762 and ItemAppearanceID 0.
-  9  PASS   IMA 1865 (item 4797) and IMA 1870 (item 4816) both point at
-            ItemAppearance 765.
- 10  PASS   ItemAppearance 153: DisplayType 2, ItemDisplayInfoID 5661, icon
-            file data id 132759 (read from the table earlier, not re-read).
- 11  PASS   item 17: Class 4, Subclass 4, InventoryType 4; ItemSearchName 17
-            is quality 0, item level 1, expansion 0 (read earlier, not
-            re-read).
- 12  PASS   TransmogSet 13 "Wild Combatant's Chain Armor": ClassMask 4,
-            TrackingQuestID 42975, Flags 0x14, group 12, parent 80,
-            ExpansionID 5, PatchIntroduced 60100, 68 TransmogSetItem rows with
-            Flags 0x0, 0x1, 0x3 (read earlier, not re-read).
- 13  PASS   TransmogSet and TransmogSetItem field lists match DB2Structure.h
-            for 8.3.7 exactly, including the pointer Name.
-
-SERVER CODE CLAIMS
- 14  PASS   CanAddAppearance occupies CollectionMgr.cpp:694 to 775 and has
-            thirteen tests in the order given.
- 15  PASS   PlayerClassByArmorSubclass sits at CollectionMgr.cpp:604 and the
-            twelve entries are reproduced correctly.
- 16  PASS   AddItemAppearance(Item*) at CollectionMgr.cpp:620 runs the four
-            steps described, soulbound test first.
- 17  PASS   Item::GetItemModifiedAppearance at Item.cpp:2318, and the packed
-            DB2 key ItemID | (ItemAppearanceModifierID << 24) with the
-            modifier-0 fallback at DB2Stores.cpp:2432 to 2446.
- 18  PASS   All eleven Player.cpp call sites named in the file are at the
-            lines given: 12804, 13234, 13342, 19910, 20089, 20681, 20684,
-            20690, 24072, 29178, 30705.
- 19  PASS   SpellHandler.cpp:118, VoidStorageHandler.cpp:199,
-            TransmogrificationHandler.cpp:282, Item.cpp:1764 and 1819,
-            SpellEffects.cpp:6420, SharedDefines.h:1340, CollectionMgr.cpp:647.
- 20  PASS   The ten hidden appearance item ids at CollectionMgr.cpp:535 to
-            557, all ten correct.
- 21  PASS   battlenet_item_appearances (battlenetAccountId, blobIndex,
-            appearanceMask) with the OR-upsert, and
-            battlenet_item_favorite_appearances for favourites.
- 22  PASS   3,065 blocks is the right ceiling for 98,056 ids at 32 bits per
-            block.
- 23  PASS   TrackingQuestID and PlayerConditionID have no reader anywhere in
-            the core; ItemAppearance.DisplayType is read nowhere.
- 24  PASS   Master: ItemModifiedAppearance.Flags exists there and not in
-            8.3.7; master CanAddAppearance at CollectionMgr.cpp:680 drops the
-            Player, CanUseItem, proficiency, armour-class and quality tests;
-            master criteria are LearnAnyTransmog and LearnAnyTransmogInSlot at
-            lines 771 and 777; master resolves through TransmogMgr.
- 25  PASS   There is no official TrinityCore branch for 8.3.7: the repository
-            carries 3.3.5, cata_classic, master and wotlk_classic only.
-
-CORRECTED IN THIS AUDIT
- 26  FIXED  AddTemporaryAppearance was cited at CollectionMgr.cpp:812; it is
-            at 813.
- 27  FIXED  HasItemAppearance was cited at CollectionMgr.cpp:837; it is at
-            840.
- 28  FIXED  IsSetCompleted was cited at CollectionMgr.cpp:664; it is at 663.
- 29  FIXED  Item::CheckSoulboundTradeExpire was cited at Item.cpp:1828; it is
-            at 1827.
- 30  FIXED  The ITEM_BONUS_APPEARANCE block was cited as Item.cpp:2787-2793;
-            it is 2788-2795.
- 31  FIXED  The ItemID <= 0xFFFFFF assertion was cited at DB2Stores.cpp:1166;
-            it is at 1167.
- 32  FIXED  The vendor path was described as storing or equipping "with
-            addToCollection = false". Only StoreNewItem has that parameter;
-            EquipNewItem takes (pos, item, context, update). Rewritten.
- 33  FIXED  The transmogrifier path was described as granting the appearance
-            of the item it just made non-refundable. It only does that for an
-            appearance that was still temporary when the change was made,
-            queued at TransmogrificationHandler.cpp:94. Rewritten.
- 34  FIXED  The transmogrification slot mapping was too loose: one-hand,
-            two-hand, ranged, wand and off-hand weapon inventory types all map
-            to main hand, and only shields and holdables map to off hand.
-            Rewritten.
-
-LEFT UNVERIFIED, AND SAID SO IN THE FILE
- 35  UNVERIFIED  whether TransmogSourceTypeEnum values 4, 7 and 8 occur in
-                build 35662; only 0, 1, 2, 3, 5, 6 and 9 were read.
- 36  UNVERIFIED  how the 8.3.7 client itself treats value 5 (Hidden Until
-                Collected); the server has no branch for it, and no client
-                behaviour was observed.
-
-NOT CLAIMED, DELIBERATELY
-  No count for enum values 2, 5 and 9. They were established by example
-  (IMA 7545 for 2; 19, 24, 27, 30 for 5; 14 to 23 for 9), and the file says
-  the counts were not read.
-  No statement about the live retail client's current behaviour, and no
-  statement that this community core matches Blizzard's server.
-
-STATE AFTER THE AUDIT
-  Transmog_Code.txt re-checked at 468 lines, 80 columns, ASCII, with all nine
-  corrections applied. Nothing in it is now known to contradict a source that
-  was read.
+5. VERDICT
+----------
+Transmog_Code.txt: 178/178 checks, hygiene PASS, 28/28 mutations, EXIT 0.
+Payload shipped byte-identical (audit-only step); tier-A repository claims
+47-for-47 against BfaCore-Reforged 47c2fcd and TrinityCore dc5955de; tier-B
+client-data claims flagged as prior-run attested. STEP 139 complete.

@@ -1,0 +1,133 @@
+=== AUDIT REPORT: Craft_Fishing.txt (STEP 136) ===
+Generated: 2026-10-27 | Script: audit_craft_fishing.py | Payload: Craft_Fishing.txt (628 lines)
+VERDICT: PASS - 304/304 checks, hygiene PASS, mutation self-test 30/30 x2 (60/60).
+
+1. CHECK TOTALS BY FAMILY
+-------------------------
+S  section/title/scope verdict       14/14
+1  skill lines + learn map           31/31
+T  trainers (wiki table + taught-by) 64/64
+R  route steps + rate model          27/27
+C  materials / ids cross-checks      44/44
+M  trainer costs                      9/9
+6  level needed                       9/9
+7  TC core lines                     47/47
+8  cannot-do list                    20/20
+9  conflicts/unverified              16/16
+10 sources                           23/23
+-----------------------------------------
+TOTAL                               304/304
+Hygiene: PASS (ASCII only, 0 lines >100 cols, 0 trailing whitespace,
+10 numbered sections, title line correct, "unverified" markers present).
+
+2. WHAT THE FILE CLAIMS (derived values re-checked against the payload)
+-----------------------------------------------------------------------
+- Nine regional learn lines exist on 8.3.7 (plus tier-2 300068): Classic
+  2592 via spell 271616 (cap 300, no cost line, no Taught-by), Outland 2591
+  / 271656, Northrend 2590 / 271658, Cataclysm 2589 / 271660, Pandaria 2588 /
+  271662 (each cap 75, cost 10, added 8.0.1 or 8.1.0), Draenor 2587 / 271664
+  and Legion 2586 / 271672 (cap 100, cost 10), Kul Tiran 2585 / 271675
+  (cap 175, cost 10, A) and Zandalari 2585 / 271677 (cap 175, cost 10, H,
+  Horde flag), Abyssal 2585 / 300068 (Value 2, 8.2.0, cost not captured).
+  Taught-by counts: 45 x6 neutral-region mains, 29 (A), 23 (H), none (Classic,
+  Abyssal). Caps cross-checked against the wiki caps table: BfA 1-175.
+- Trainer table: 53 in-era wiki rows with coordinates recorded (3 more rows -
+  Oribos + 2 Waking Shores - excluded as post-8.3.7), KTC/Whilsey annotations
+  kept as printed, era row Distributor Ba'nacl (K'aresh lvl80) excluded from
+  the taught-by discussion and named in section 9 item 9.
+- TC hook-count model recomputed from GetFishingStepsNeededToLevelUp exactly
+  as the code defines it: 1->75 = 74, ->100 = 111, ->175 = 304, ->300 = 919
+  hooks (formula labeled "guessed" in-code; marked TC-model, retail-actual
+  unverified).
+- Printed counts kept only where a page printed them: wow-professions Legion
+  ~180 fish / ~45 min (or ~5 min with bought baits), 17-22 catches per 5-min
+  school window; wiki's El's-table 100/160/190/540/825, ~1800 total (flagged
+  pre-rework history). Every other per-region count: unverified.
+- Material ids: poles 6256/6365/6366/6367/19970/19971/19022/45858/45991/168804
+  (+ addon-list ids 12225/25978/84660/120163/46337), lures
+  67404/6529/6811/6530/7307/6532/6533/34861/46006/62673/124674/68049/118391,
+  lines 19971, Legion chain 139175/133704/133715/201807/201818/133727/133734/
+  133607/124107-124112/133732 + token currencies 146848/146959/146960/146961/
+  146962/146963; id provenance and the unverified set are declared in
+  section 9 item 11.
+- TC anchors at clone #6 HEAD dc5955decd1be4877cbecad03bb41164d57014c8: cast
+  window SpellEffects.cpp 4548-4567 + GameObject.h 170, hook/roll/loot
+  GameObject.cpp 2960-3048 + 1860/1883, steps Player.cpp 5491-5531 + 5574,
+  skill table ObjectMgr.cpp 7971/8948, enums SharedDefines.h 1940/4920/5654/
+  2999/82, Loot.h 114, LootHandler.cpp 292-300.
+
+3. MUTATION SELF-TEST (each mutation altered one literal; run twice)
+--------------------------------------------------------------------
+m1  date 2026-10-27 -> 2026-10-26                    caught by 1 check [S]
+m2  section 9 heading INDEY                          caught by 1 check [S]
+m3  SKILL_FISHING = 356 -> 357                       caught by 1 check [1]
+m4  CLASSIC 2592 -> 2593                             caught by 1 check [1]
+m5  Draenor row cap 100 -> 101                       caught by 1 check [1]
+m6  Lee Brown coord [47.5 -> 47.6]                   caught by 1 check [T]
+m7  Lumak coord [66.6 -> 66.7]                       caught by 1 check [T]
+m8  taught-by 271675 shows 29 -> 28                  caught by 1 check [T]
+m9  model 1->175 = 304 -> 305 hooks                  caught by 1 check [R]
+m10 Legion guide ~180 -> ~181 fish                   caught by 1 check [R]
+m11 17-22 [Oodelfjisk] -> 17-23                      caught by 1 check [R]
+m12 Strong pole id 6365 +5 -> +6                     caught by 1 check [C]
+m13 Shiny Bauble 6529 +3 -> +4                       caught by 1 check [C]
+m14 Worm Supreme 118391 +10 -> +11                   caught by 1 check [C]
+m15 Coldriver Carp 133732 -> 133733                  caught by 1 check [C]
+m16 Training cost: 10 -> 11 (quick facts)            caught by 1 check [M]
+m17 artisan 2g50s -> 2g60s                           caught by 1 check [M]
+m18 pole min level 3 -> 4                            caught by 1 check [6]
+m19 Alan Goyle NPC level 60 -> 61                    caught by 1 check [6]
+m20 SetChannelObject line 4553 -> 4554               caught by 1 check [7]
+m21 GameObject.h line 170 -> 171                     caught by 1 check [7]
+m22 irand line 3001 -> 3002                          caught by 1 check [7]
+m23 bonusSkillLevels line 5535 -> 5536               caught by 1 check [7]
+m24 SPELL_FAILED_FISHING_TOO_LOW 227 -> 228          caught by 1 check [7]
+m25 splash 17,13,7,3 -> 18,13,7,3 seconds            caught by 1 check [8]
+m26 pool radius 20yd -> 21yd                         caught by 1 check [8]
+m27 conflict 3: 271616 -> 271617                     caught by 1 check [9]
+m28 conflict 6: 304/919 -> 304/920                   caught by 1 check [9]
+m29 Fishing trainer chunks 6 -> 7                    caught by 1 check [10]
+m30 oldid 6784755 -> 6784756                         caught by 1 check [10]
+Result: round 1 = 30/30 PASS, round 2 = 30/30 PASS, total 60/60.
+Every mutation is caught by exactly one check; all 11 check families have
+at least one dedicated mutation; every "old" literal verified present exactly
+once before replacement (count=1 enforced in the script, no no-ops).
+
+4. METHOD NOTES
+---------------
+- Preflight: 295/304 on first run; 9 needles crossed payload line wraps or
+  drifted in wording/quotes; all 9 fixed in the SCRIPT (payload never edited
+  in response to an audit failure); second run 304/304.
+- Payload hygiene pre-step: two section-1 table cells shortened to
+  "(A-side)"/"(H-side)" BEFORE the script's first run to satisfy the
+  100-column rule (measured manually); no later payload edits.
+- Hygiene enforced by the script on every run; report text is ASCII-only.
+- Count discipline: only guide-printed counts and the exact TC-formula sums
+  shown above appear; every other count says "unverified" in the payload.
+- All external pages fetched 2026-10-27, not stored in the repository; TC
+  anchors from a fresh blobless sparse clone at HEAD dc5955de (master moved
+  from the 209d6d51d1 HEAD named by the First Aid/Cooking manifests; all
+  fishing lines re-read at dc5955de).
+
+5. ACCEPTANCE MAPPING (prompt requirements -> where checked)
+-----------------------------------------------------------
+- One text file Craft_Fishing.txt              -> S title + file exists (run)
+- Cheapest route 1 to cap of each skill line    -> R (6 route steps + rate
+                                                   model + printed counts)
+- Learn spells / skill lines                    -> 1 (nine-row table + ids)
+- Trainer/source with position                  -> T (53 wiki rows + coords)
+- Materials with item ids + origins             -> C (poles/lures/lines/ bait
+                                                   chain + provenance item)
+- Number of catches / counts                    -> R (TC model + printed,
+                                                   history flagged)
+- Trainer costs                                 -> M
+- Level needed                                  -> 6
+- What the core must do / cannot meet           -> 7 / 8
+- "unverified" where no source                  -> 9 + R/C/M/6 markers
+- Plain text, no code, stop after file          -> hygiene + workflow
+
+6. REPLICATE
+-----------
+  cd "<repo>/# Ai Research prompts/Companion_Professions"
+  python3 audit_craft_fishing.py                # expect 304/304, hygiene PASS
+  python3 audit_craft_fishing.py --self-test    # expect 60/60 PASS
