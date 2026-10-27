@@ -186,39 +186,39 @@ enemies), 4 (workshop, 55 clones, 16 enemies)
 No pull positions with z in readable sources. All z = unverified.
 
 Key trash by force (force = count per clone):
-Blastatron X-80                     151476  f= 8  hp= 1,921,238  lv=121  n=1 
+Blastatron X-80                     151476  f= 8  hp= 1,921,238  lv=121  n=1
 subs=[4]
-Waste Processing Unit               144293  f= 6  hp= 1,229,592  lv=121  n=4 
+Waste Processing Unit               144293  f= 6  hp= 1,229,592  lv=121  n=4
 subs=[3]
-Defense Bot Mk III                  144298  f= 6  hp= 1,229,592  lv=121  n=5 
+Defense Bot Mk III                  144298  f= 6  hp= 1,229,592  lv=121  n=5
 subs=[4]
-Spider Tank                         144296  f= 5  hp= 1,229,592  lv=121  n=3 
+Spider Tank                         144296  f= 5  hp= 1,229,592  lv=121  n=3
 subs=[4]
-Samh'rek, Beckoner of Chaos         161243  f= 4  hp= 2,151,786  lv=122  n=1 
+Samh'rek, Beckoner of Chaos         161243  f= 4  hp= 2,151,786  lv=122  n=1
 subs=[3]
-Urg'roth, Breaker of Heroes         161124  f= 4  hp= 2,305,485  lv=122  n=2 
+Urg'roth, Breaker of Heroes         161124  f= 4  hp= 2,305,485  lv=122  n=2
 subs=[4]
-Blood of the Corruptor              161244  f= 4  hp= 2,151,786  lv=122  n=1 
+Blood of the Corruptor              161244  f= 4  hp= 2,151,786  lv=122  n=1
 subs=[4]
-Mechagon Tinkerer                   144294  f= 4  hp=   768,495  lv=120  n=6 
+Mechagon Tinkerer                   144294  f= 4  hp=   768,495  lv=120  n=6
 subs=[4]
-Workshop Defender                   144299  f= 4  hp=   768,495  lv=120  n=5 
+Workshop Defender                   144299  f= 4  hp=   768,495  lv=120  n=5
 subs=[4]
-Mechagon Mechanic                   144295  f= 4  hp=   768,495  lv=120  n=3 
+Mechagon Mechanic                   144295  f= 4  hp=   768,495  lv=120  n=3
 subs=[4]
-Rocket Tonk                         151659  f= 4  hp=   503,570  lv=120  n=2 
+Rocket Tonk                         151659  f= 4  hp=   503,570  lv=120  n=2
 subs=[1]
-Strider Tonk                        151658  f= 4  hp=   503,570  lv=120  n=2 
+Strider Tonk                        151658  f= 4  hp=   503,570  lv=120  n=2
 subs=[1]
-Voidweaver Mal'thir                 161241  f= 4  hp= 1,998,087  lv=122  n=2 
+Voidweaver Mal'thir                 161241  f= 4  hp= 1,998,087  lv=122  n=2
 subs=[4]
-G.U.A.R.D.                          144303  f= 4  hp=   768,495  lv=120  n=2 
+G.U.A.R.D.                          144303  f= 4  hp=   768,495  lv=120  n=2
 subs=[4]
-Defense Bot Mk I                    151649  f= 4  hp=   806,920  lv=120  n=4 
+Defense Bot Mk I                    151649  f= 4  hp=   806,920  lv=120  n=4
 subs=[4]
-Bomb Tonk                           151657  f= 4  hp=   302,142  lv=120  n=2 
+Bomb Tonk                           151657  f= 4  hp=   302,142  lv=120  n=2
 subs=[1]
-Junkyard D.0.G.                     151773  f= 4  hp=   768,495  lv=120  n=3 
+Junkyard D.0.G.                     151773  f= 4  hp=   768,495  lv=120  n=3
 subs=[3]
 
 Route (sublevel progression):

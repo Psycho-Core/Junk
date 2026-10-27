@@ -230,59 +230,59 @@ Sublevels: 1 (entrance, 179 clones, 33 enemies), 2 (28, 14), 3 (23, 12), 4
 No pull positions with z in readable sources. All z = unverified.
 
 Key trash by force (force = count per clone):
-Matron Alma                    135365  f=16  hp= 1,844,386  lv=121  n=1 
+Matron Alma                    135365  f=16  hp= 1,844,386  lv=121  n=1
 subs=[3]
-Matron Bryndle                 135329  f=10  hp= 1,844,388  lv=120  n=1 
+Matron Bryndle                 135329  f=10  hp= 1,844,388  lv=120  n=1
 subs=[1]
-Heartsbane Runeweaver          131677  f= 6  hp= 1,229,590  lv=120  n=5 
+Heartsbane Runeweaver          131677  f= 6  hp= 1,229,590  lv=120  n=5
 subs=[1, 2]
-Heartsbane Vinetwister         131670  f= 6  hp= 1,229,590  lv=120  n=2 
+Heartsbane Vinetwister         131670  f= 6  hp= 1,229,590  lv=120  n=2
 subs=[2]
-Heartsbane Soulcharmer         131812  f= 6  hp= 1,229,592  lv=121  n=3 
+Heartsbane Soulcharmer         131812  f= 6  hp= 1,229,592  lv=121  n=3
 subs=[1, 2, 4]
-Bewitched Captain              131587  f= 5  hp= 1,229,592  lv=120  n=5 
+Bewitched Captain              131587  f= 5  hp= 1,229,592  lv=120  n=5
 subs=[1, 2, 3]
-Coven Thornshaper              131666  f= 4  hp=   768,495  lv=120  n=7 
+Coven Thornshaper              131666  f= 4  hp=   768,495  lv=120  n=7
 subs=[1, 3]
-Maddened Survivalist           131850  f= 4  hp=   768,495  lv=120  n=3 
+Maddened Survivalist           131850  f= 4  hp=   768,495  lv=120  n=3
 subs=[1, 2]
-Void-Touched Emissary          155433  f= 4  hp=   999,042  lv=122  n=14 
+Void-Touched Emissary          155433  f= 4  hp=   999,042  lv=122  n=14
 subs=[1, 2, 3, 4]
-Crazed Marksman                131849  f= 4  hp=   768,495  lv=120  n=3 
+Crazed Marksman                131849  f= 4  hp=   768,495  lv=120  n=3
 subs=[1]
-Gorestained Piglet             135048  f= 4  hp=   384,248  lv=120  n=8 
+Gorestained Piglet             135048  f= 4  hp=   384,248  lv=120  n=8
 subs=[1]
-Infected Peasant               134041  f= 4  hp=   768,495  lv=120  n=7 
+Infected Peasant               134041  f= 4  hp=   768,495  lv=120  n=7
 subs=[1]
-Pallid Gorger                  137830  f= 4  hp=   768,495  lv=120  n=5 
+Pallid Gorger                  137830  f= 4  hp=   768,495  lv=120  n=5
 subs=[1]
-Banquet Steward                131586  f= 4  hp=   768,495  lv=120  n=3 
+Banquet Steward                131586  f= 4  hp=   768,495  lv=120  n=3
 subs=[1]
-Runic Disciple                 131685  f= 4  hp=   768,495  lv=120  n=5 
+Runic Disciple                 131685  f= 4  hp=   768,495  lv=120  n=5
 subs=[1, 2]
-Thornguard                     131858  f= 4  hp=   768,495  lv=120  n=3 
+Thornguard                     131858  f= 4  hp=   768,495  lv=120  n=3
 subs=[1]
-Coven Diviner                  131819  f= 4  hp=   768,494  lv=120  n=4 
+Coven Diviner                  131819  f= 4  hp=   768,494  lv=120  n=4
 subs=[3, 4]
-Samh'rek, Beckoner of Chaos    161243  f= 4  hp= 2,151,786  lv=122  n=2 
+Samh'rek, Beckoner of Chaos    161243  f= 4  hp= 2,151,786  lv=122  n=2
 subs=[1]
-Urg'roth, Breaker of Heroes    161124  f= 4  hp= 2,151,786  lv=122  n=1 
+Urg'roth, Breaker of Heroes    161124  f= 4  hp= 2,151,786  lv=122  n=1
 subs=[1]
-Voidweaver Mal'thir            161241  f= 4  hp= 2,151,786  lv=122  n=1 
+Voidweaver Mal'thir            161241  f= 4  hp= 2,151,786  lv=122  n=1
 subs=[3]
-Waycrest Reveler               131847  f= 4  hp=   461,097  lv=120  n=5 
+Waycrest Reveler               131847  f= 4  hp=   461,097  lv=120  n=5
 subs=[1]
-Enthralled Guard               131585  f= 4  hp=   768,495  lv=120  n=7 
+Enthralled Guard               131585  f= 4  hp=   768,495  lv=120  n=7
 subs=[1, 2, 3]
-Thistle Acolyte                135474  f= 4  hp=   768,495  lv=120  n=2 
+Thistle Acolyte                135474  f= 4  hp=   768,495  lv=120  n=2
 subs=[1]
-Blood of the Corruptor         161244  f= 4  hp= 2,151,786  lv=122  n=2 
+Blood of the Corruptor         161244  f= 4  hp= 2,151,786  lv=122  n=2
 subs=[1]
-Emissary of the Tides          155434  f= 4  hp=   614,795  lv=120  n=17 
+Emissary of the Tides          155434  f= 4  hp=   614,795  lv=120  n=17
 subs=[1, 2, 3, 4]
-Gloom Horror                   139269  f= 4  hp=   768,494  lv=120  n=7 
+Gloom Horror                   139269  f= 4  hp=   768,494  lv=120  n=7
 subs=[4]
-Marked Sister                  131818  f= 4  hp=   768,495  lv=120  n=6 
+Marked Sister                  131818  f= 4  hp=   768,495  lv=120  n=6
 subs=[1, 2, 3, 4]
 
 Route (sublevel progression):
@@ -320,19 +320,19 @@ Sub 3 mapLinks: (143,-332) <-> sub1, (635,-75) <-> sub1, (266,-480) <-> sub4,
 === 8. NY'LOTHA SPIRES (9 pins) ===
 
   Sub 3: (281.13, -238.65)  npcId=161241  Cursed Spire of Ny'alotha
-  Sub 3: (300.00, -200.00)  npcId=0  
-  Sub 1: (300.00, -200.00)  npcId=0  
+  Sub 3: (300.00, -200.00)  npcId=0
+  Sub 1: (300.00, -200.00)  npcId=0
   Sub 1: (525.49, -163.86)  npcId=161244  Defiled Spire of Ny'alotha
   Sub 1: (438.40, -373.90)  npcId=161244  Defiled Spire of Ny'alotha
   Sub 1: (430.07, -229.58)  npcId=161124  Brutal Spire of Ny'alotha
-  Sub 1: (300.00, -200.00)  npcId=0  
+  Sub 1: (300.00, -200.00)  npcId=0
   Sub 1: (437.87, -375.26)  npcId=161243  Entropic Spire of Ny'alotha
   Sub 1: (522.35, -163.12)  npcId=161243  Entropic Spire of Ny'alotha
 
 === 9. NOTABLE MAP POIS ===
 
-  Sub 1: (562.55, -244.85)  type=wmMaggotNote  
-  Sub 4: (442.00, -339.00)  type=generalNote  
+  Sub 1: (562.55, -244.85)  type=wmMaggotNote
+  Sub 4: (442.00, -339.00)  type=generalNote
 
 === 10. SMART_AI (vSLDB Waycrest Manor.sql) ===
 
