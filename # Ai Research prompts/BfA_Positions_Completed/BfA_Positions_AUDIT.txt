@@ -1,0 +1,93 @@
+=== AUDIT REPORT: Positions_*.txt (BfA_Positions_Completed, 17 deliverables) ===
+Generated: 2026-10-27 | Script: audit_bfa_positions.py | Payload: all 17
+Positions_*.txt files (14,371 lines total), audited as a set.
+Context: these 17 were the largest of the 20 delivered-but-never-audited
+prompts found in the repo-wide sweep; this is their first audit.
+VERDICT: PASS - 106/106 checks, hygiene PASS (17 files),
+mutation self-test 14/14 x2 (28/28).
+
+1. CHECK TOTALS BY FAMILY (each file contributes its own needles)
+------------------------------------------------------------------
+T  titles                     17/17   one title line per deliverable
+M  map / instance identity    17/17   map id per file (raids "Map : NNNN",
+                                      dungeons "Map id NNNN", Mechagon and
+                                      Waycrest RegisterInstanceScript lines)
+B  boss / encounter evidence  17/17   first boss section (14 files) or the
+                                      encounter block the dungeon files use
+C  coordinate evidence        17/17   a verbatim coordinate line per file
+                                      (Tol Dagor: its z-carrying statement)
+S  file structure             16/16   HOW TO READ / READ THIS FIRST +
+                                      SOURCES sections + Mechagon gap-lists
+G  unverified contract        17/17   each file's own unverified/NOT-IN
+                                      section or z = unverified line
+X  source citations            5/5    Uldir SQL export, Psycho-Core script
+                                      paths, MDT lua paths, tol_dagor.h
+H  hygiene (programmatic)     17/17   ASCII, no tabs, no trailing ws, final
+                                      newline, no line >100 columns
+------------------------------------------
+TOTAL                       106/106 + hygiene PASS
+
+2. WHAT WAS VERIFIED (and what was not)
+---------------------------------------
+- Every file was walked individually: title, instance/map identity, boss
+  evidence, one verbatim coordinate line, structure sections, its own
+  unverified section, and its named sources - all needles are exact strings
+  harvested from the files themselves (nothing typed from memory).
+- Prompt contract coverage: all 17 files carry an unverified treatment (the
+  prompt's "if a value is not in a source, write unverified" rule); raid
+  files carry boss sections with spawn/safe-spot coordinates, dungeon files
+  carry landmark/route coordinates or explicit z = unverified statements.
+- Whitespace normalization applied to 3 files before the hygiene gate:
+  Positions_Operation_Mechagon_Junkyard / _Workshop / _Waycrest_Manor had
+  trailing whitespace (17/15/32 lines) and no final newline; stripped and
+  terminated - whitespace only, no character of content changed.
+- NOT re-derived this run: the coordinate and timer values themselves were
+  not recomputed from their sources. The cited source repositories
+  (Psycho-Core/Psycho-Core-8.3.7_Scripts, LetsTimeIt/DungeonTools,
+  local SQL exports) could not be fetched: git clone of the Psycho-Core
+  repo fails from this sandbox and gh api returns 403 "Resource not
+  accessible by integration" for other repositories. Source citations are
+  therefore recorded as printed (tier B), consistent with each file's own
+  [SRV]/[DBM]/[MDT]/[SQL]/[GUIDE] tag discipline.
+
+3. PER-FILE COVERAGE (title / map / boss / coordinate / unverified)
+--------------------------------------------------------------------
+Atal'Dazar            OK  1763   OK  OK  OK        Battle of Dazar'alor  OK 2070
+Crucible of Storms    OK  2096   OK  OK  OK        Freehold              OK 1754
+Kings' Rest           OK  1762   OK  OK  OK        Ny'alotha             OK 2217
+Mechagon Junkyard     OK  2097   OK  OK  OK        Mechagon Workshop     OK 2097
+Shrine of the Storm   OK  1864   OK  OK  OK        Siege of Boralus      OK 1822
+Temple of Sethraliss  OK  1877   OK  OK  OK        The Eternal Palace    OK 2164
+The MOTHERLODE!!      OK  1594   OK  OK  OK        The Underrot          OK 1841
+Tol Dagor             OK  1771   OK  OK  OK        Uldir                 OK 1861
+Waycrest Manor        OK  1862   OK  OK  OK
+
+4. MUTATION SELF-TEST (14 mutations; 2 fixed after round 1)
+-----------------------------------------------------------
+round 1: 12/14 - two mutations appended a suffix that KEPT the needle as a
+substring of the mutated line (Uldir title, Uldir BOSS 1 - TALOC); both
+mutation literals were rewritten to break the needle instead of extending
+it, exactly the replace-first containment trap. Payload files untouched.
+round 1 (after fix): 14/14 PASS | round 2: 14/14 PASS | total 28/28
+ 1 T  Uldir title altered                         detected (after fix)
+ 2 T  Waycrest map 1862 -> 1863                   detected
+ 3 M  Freehold map id 1754 -> 1755                detected
+ 4 M  Atal'Dazar map 1763 -> 1764                 detected
+ 5 B  Uldir BOSS 1 - TALOC altered                detected (after fix)
+ 6 B  Tol Dagor boss entry 127479 -> 127478        detected
+ 7 C  BoD coordinate 320.289 -> 320.290            detected
+ 8 C  Uldir coordinate 1120.836 -> 1120.837        detected
+ 9 S  Tol Dagor READ THIS FIRST wording           detected
+10 S  Uldir section 1 -> 2 (SOURCES)              detected
+11 G  Junkyard z = unverified -> verified         detected
+12 G  Waycrest safe-spot unverified -> verified   detected
+13 X  Uldir SQL date 08_13 -> 08_14               detected
+14 X  Waycrest MDT lua file renamed               detected
+
+5. VERDICT
+----------
+All 17 BfA_Positions deliverables now have a scripted, mutation-tested
+audit: 106/106, hygiene PASS, 28/28 mutations, EXIT 0. This closes 17 of the
+20 never-audited prompts found in the sweep; 3 remain (MythicPlus_Rules,
+Tactics_Legion_B, Twink29_Prof_Jewelcrafting) plus task 18 (Transmog_Check
+scripted audit).
