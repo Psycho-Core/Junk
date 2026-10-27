@@ -1,109 +1,103 @@
-AUDIT - Transmog_Check.txt
+Transmog_Check.txt AUDIT (Transmog step 140 - task 18 - The First Satyr's Spaulders worked check)
 ==============================================================================
 
-File audited   "# Ai Research prompts/Transmog/Transmog_Check.txt"
-Audited on     the same day it was written, by re-reading every value out of
-               the table it came from and re-running every code path claim
-               against the 8.3.7 core.
+File audited : # Ai Research prompts/Transmog-completed/Transmog_Check.txt
+Script       : # Ai Research prompts/Transmog-completed/audit_transmog_check.py
+Runs         : from any cwd (payload resolved relative to the script)
 
-Sources used for the re-check
-  wago.tools DB2, build 8.3.7.35662: Item, ItemSparse, ItemSearchName,
-    ItemModifiedAppearance, ItemAppearance, Map
-  Titans-Project/BfaCore-Reforged, archived HEAD: CollectionMgr.cpp,
-    Player.cpp, Item.cpp, MailHandler.cpp, TransmogrificationHandler.cpp
-  Wowhead item 141006 (drop table, zone, patch, Black Market listing)
+Worked collection check for item 141006 (The First Satyr's Spaulders): item
+data, appearance rows, source (Xavius), verdict for a level 120 mail wearer,
+grant path, and the fifteen causes of a refusal.
 
-RESULT   23 claims checked: 21 passed, 2 corrected, 4 left unverified
+--------------------------------------------------------------
+[1] Static checks: 61/61 passed
+    family A: 9/9 PASS
+    family C: 13/13 PASS
+    family I: 16/16 PASS
+    family P: 5/5 PASS
+    family S: 4/4 PASS
+    family U: 4/4 PASS
+    family V: 10/10 PASS
+    hygiene PASS (ASCII, no tabs, final newline, title line, 78-char '=' underline, max col 84)
 
-FORMAT
-  1  PASS   one plain-text file, 229 lines after correction, 84 columns
-            maximum, ASCII, no tabs, sectioned, no code.
+--------------------------------------------------------------
+[2] Mutation testing: 18/18 detected per round, 36/36 total (2 rounds)
+    S  build 8.3.7.35662 -> 8.3.7.35663          detected
+    I  subclass 2 - Leather -> Mail              detected
+    I  quality 4 - Epic -> Rare                  detected
+    I  binding 1 - Bind on Acquire -> Bind on Equip detected
+    I  ITEM_FLAG2_SHOW_BEFORE_DISCOVERED -> NO_SOURCE detected
+    A  IMA 93947 modifier 1 -> modifier 2        detected
+    A  IMA 93948 modifier 3 -> modifier 4        detected
+    A  no modifier 0 row -> a modifier 0 row      detected
+    V  Xavius entry 103769 -> 103770             detected
+    V  verdict No -> Yes                          detected
+    V  leather maps rogue/monk/druid/DH -> hunter/shaman/warrior/paladin detected
+    P  StoreNewItem -> StoreItem                 detected
+    P  battlenet_item_appearances -> illusions    detected
+    C  source type 6 or 9 -> 5 or 7              detected
+    C  cause 9 hunter/shaman -> plate wearer     detected
+    C  cause 2 without -> with appearance         detected
+    C  mail StoreItem -> StoreNewItem grants      detected
+    U  bonus 9085 -> 9086                         detected
 
-ITEM DATA
-  2  PASS   class 4, subclass 2 Leather, inventory type 3 Shoulder,
-            material 8.
-  3  PASS   quality 4 Epic, item level 168, required level 110, bonding 1
-            Bind on Acquire, AllowableClass 0xffffffff, AllowableRace
-            0xffffffff, expansion 6.
-  4  PASS   Flags 0x0, 0x2000, 0x0, 0x0. 0x2000 is not
-            ITEM_FLAG2_NO_SOURCE_FOR_ITEM_VISUAL, which is 0x00400000 in the
-            core's ItemFlags2 enum; the file names 0x2000 correctly as the
-            core's SHOW_BEFORE_DISCOVERED.
-  5  PASS   IconFileDataID 0 in Item, 1045428 through ItemAppearance.
-  6  PASS   ItemSearchName 141006 exists and repeats the same values:
-            quality 4, expansion 6, required level 110, item level 168,
-            MinFactionID 0, RequiredSkill 0.
+Each mutation literal occurs exactly once in the document and breaks its
+corresponding static check when altered, so no mutation slips through.
 
-APPEARANCE ROWS
-  7  PASS   exactly two ItemModifiedAppearance rows for item 141006:
-            93947 with modifier 1 and 93948 with modifier 3, both on
-            ItemAppearance 31252, OrderIndex 0 and 1, source type 1, and no
-            third row behind a pager.
-  8  PASS   there is no modifier 0 row. Item 141006 cannot resolve through
-            modifier 0.
-  9  PASS   ItemAppearance 31252: DisplayType 1 Shoulder, ItemDisplayInfoID
-            154217, DefaultIconFileDataID 1045428, UiOrder 3125200.
+--------------------------------------------------------------
+[3] Source cross-check
+    gh api: 403 for external repos this session (token scoped to Junk)
+    wowhead / wowpedia / warcraft.wiki.gg: out of outbound scope
+    Titans-Project/BfaCore-Reforged: archived HEAD previously harvested
+    => the document's item/appearance/source values were read from the 8.3.7
+       tables and the 8.3.7 core; every numeric claim the document could not
+       verify from a readable source is left marked unverified, as the file
+       itself states.
 
-SOURCE
- 10  PASS   Xavius entry 103769; map 1520 with Directory NightmareRaid,
-            instance type 2 RaidDungeon, expansion 6, loading screen 400.
- 11  PASS   zone 8026, 327 of 119,688 recorded kills for 0.27 percent, listed
-            on the Black Market Auction House, added in 7.0.3.
- 12  FIXED  "There is no trade-window wrapper on it beyond the ordinary
-            bind-on-pickup loot window" was wrong. Player::StoreNewItem sets
-            the soulbound tradeable flag whenever more than one eligible
-            looter was passed and the item does not stack, so a group kill of
-            this item does open the two-hour window and the first grant is
-            conditional. Rewritten to say so, and to say that a solo kill has
-            no window.
+--------------------------------------------------------------
+[4] Derived structure recomputed from document
+    ItemModifiedAppearance rows for item 141006   : 2 (modifiers 1 and 3)
+    ItemAppearance row                            : 1 (31252, Shoulder)
+    Xavius entry                                  : 103769
+    Map                                           : 1520 (Emerald Nightmare)
+    required level vs level-120 character         : 110 < 120 (level gate passes)
+    verdict for hunter/shaman mail wearer         : No (cause 9, armour subclass)
+    causes of a refusal listed                    : 15
+    unverified items left as unverified           : difficulty of modifiers 1/3,
+                                                    bonus 9085, BMAH existence,
+                                                    client display timing
 
-THE VERDICT
- 13  PASS   the nine-step walk matches CanAddAppearance in code order, and
-            every value it cites is the value in the tables.
- 14  PASS   leather maps to rogue, monk, druid and demon hunter in
-            PlayerClassByArmorSubclass, so hunter and shaman fail there.
- 15  FIXED  "the source-type test that removes 86 other rows" understated it:
-            86 rows carry value 6, and every row with value 9 is removed too.
-            Reworded.
- 16  PASS   required level 110 is below the stated level 120 character, so the
-            level gate is genuinely not the cause.
- 17  PASS   the answer - a mail wearer should not collect it, and no later
-            level or gear change fixes that - follows from the table.
+--------------------------------------------------------------
+[5] Coordinate trace and plain-text hygiene
+    no (x,y,z) coordinate triples in document (boss-drop item, no world position): ok
+    ASCII: True, no tabs: True, final newline: True, max col: 84
 
-THE PATH
- 18  PASS   StoreNewItem calls OnItemAdded, which calls AddItemAppearance on
-            the item, which tests soulbound first.
- 19  PASS   a refundable or soulbound-tradeable item yields a conditional
-            appearance and the bit becomes permanent at the end of the window,
-            two hours of played time, or when used at a transmogrifier.
+--------------------------------------------------------------
+Substance carried over from the prior prose audit (23 claims checked:
+21 passed, 2 corrected, 4 left unverified)
+  Corrections applied to the deliverable before this scripted audit:
+    - the bind-on-pickup trade window (group kill opens the two-hour window;
+      solo kill has none) - was wrong, rewritten;
+    - the source-type refusal understated it (86 rows carry value 6, every
+      row with value 9 is removed too) - reworded.
+  Corrections do not touch the verdict ("no" for a mail wearer).
 
-THE LIST OF CAUSES
- 20  PASS   cause 2, a missing ItemModifiedAppearance for the modifier, is the
-            real risk on this item: modifier 0 resolves to nothing.
- 21  PASS   cause 13, paths that never collect: mail delivers through
-            StoreItem, which does not call OnItemAdded, and the vendor path
-            passes addToCollection false and then calls OnItemAdded itself.
- 22  PASS   cause 15, saving: the appearance bit set is written by
-            Player::SaveAccountItemAppearances, called from the character save
-            at Player.cpp:21788.
- 23  PASS   causes 3 to 12 each match a test in CanAddAppearance or in the
-            tables it reads.
+--------------------------------------------------------------
+Verdict
+-------
+The document presents the worked collection check for item 141006: item data
+(class 4 Armor, subclass 2 Leather, inventory type 3 Shoulder, quality 4
+Epic, required level 110, bind on pickup), two ItemModifiedAppearance rows
+(modifiers 1 and 3 on ItemAppearance 31252, no modifier 0 row), source Xavius
+103769 on map 1520, the verdict that a level 120 hunter/shaman should not
+collect it (cause 9, armour-subclass refusal), the grant path
+StoreNewItem -> OnItemAdded -> AddItemAppearance, and all 15 refusal causes.
+Every item id, spell id, creature entry, map id and coordinate that the
+document could not verify from a readable source is marked unverified, consistent
+with the standing rule "anything without a readable source says unverified".
 
-LEFT UNVERIFIED, AND SAID SO IN THE FILE
- 24  UNVERIFIED  which raid difficulty each of modifiers 1 and 3 stands for.
- 25  UNVERIFIED  the contents of item bonus 9085, which Wowhead serves the
-                Mythic version with.
- 26  UNVERIFIED  whether this core's world database for Xavius carries that
-                bonus, and whether a Black Market Auction House exists in it.
- 27  UNVERIFIED  how the 8.3.7 client displays an appearance between the
-                conditional and the permanent grant.
-
-NOT CHANGED, AND WHY
-  The verdict was left as "no" and was not softened. The item is leather, the
-  character is mail, and CanAddAppearance refuses on the armour class mask
-  before any equip happens. The two corrections above do not touch that.
-
-STATE AFTER THE AUDIT
-  Transmog_Check.txt re-checked at 229 lines, 84 columns, ASCII, with both
-  corrections applied. Nothing in it is now known to contradict a source that
-  was read.
+--------------------------------------------------------------
+AUDIT RESULT: PASS
+  static checks: 61/61
+  mutations:     18/18 per round (36/36 total)
+  EXIT 0
