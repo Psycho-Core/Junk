@@ -1,0 +1,20 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters and content for it.
+
+Research task (one step of a larger set): Purveyor Thaumaturge Vashreen and the Titan Residuum economy of 8.3.7: the vendor, the items it sells and the scrapping.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time and delete anything you download once you have copied the numbers you need.
+
+WHERE THE COORDINATES ARE (the last research failed because it only looked at guide pages, which have map percentages and no world coordinates)
+World coordinates (map id, x, y, z, orientation) exist in three kinds of source. Use them, in this order:
+1. Open-source world database dumps on GitHub: the `creature` and `gameobject` tables of any TrinityCore-based Battle for Azeroth 8.x world database (search GitHub code search for the entry id together with the word creature or gameobject in .sql files, and for repositories named like BFA, 8.3, TDB 83x). Open the file at the line of the matching row and copy that single row. Give the repository URL, the file path and the line.
+2. Parsed sniff output (WowPacketParser text or SQL files) that is published on GitHub or pastebin-like sites: copy the creature or object block for the entry.
+3. Wowhead, WoWDB or Wowpedia pages that print game coordinates (not map percentages) in a table or in the comments.
+A map-panel percentage, a UiMap position or a Mythic Dungeon Tools pin is NOT a world coordinate: do not convert it, do not estimate. If no source of the three kinds has the row, write NOT FOUND for that item and name which sources you checked.
+
+The numbers the owner supplied are in Titan_Residuum_Economy_supplied.txt (vendor costs, scrapping, Horrific Visions caches, MOTHER's vendor). Everything the server needs besides those numbers is the data below.
+
+WHAT TO DELIVER
+ONE TEXT FILE, Titan_Residuum_Vendor.txt. The creature entry of Purveyor Thaumaturge Vashreen for both factions, her map and position (world coordinates), her npcflags, gossip and the `npc_vendor` rows: every item entry she sells (the random-token items at 445, 460 and 475 and the specific pieces) with item id, name, ItemExtendedCost id, the cost in currency id 1718 (Titan Residuum) and any other currency or condition, and the item level. The Azerite armor scrapping: the NPC or object that scraps (entry, position), the spell id and how many Titan Residuum each item level gives (check against 445: 40, 460: 200, 475: 1000), and the item ids of the three Azerite armor pieces that can be scrapped. The currency record of Titan Residuum (1718): flags, weekly cap, total cap.
+
+Use only facts you can verify. Give spell ids, creature entries, gameobject entries, map ids, coordinates and item ids wherever they exist, each with the source URL. If something cannot be verified write "NOT FOUND" (not "unverified" with a guess). Do not invent numbers. Plain text only, no code, no long explanations. When the file is done, say so and stop: I will send the next step in a new message.

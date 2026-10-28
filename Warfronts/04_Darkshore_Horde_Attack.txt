@@ -1,0 +1,21 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters and content for it.
+
+Research task (one step of a larger set): the Battle for Darkshore as the Horde attacker (map 2111, scenario 1701) in 8.3.7: the spawn positions and the path points of every creature and object of the battle.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time and delete anything you download once you have copied the numbers you need.
+
+WHERE THE COORDINATES ARE (the last research failed because it only looked at guide pages, which have map percentages and no world coordinates)
+World coordinates (map id, x, y, z, orientation) exist in three kinds of source. Use them, in this order:
+1. Open-source world database dumps on GitHub: the `creature` and `gameobject` tables of any TrinityCore-based Battle for Azeroth 8.x world database (search GitHub code search for the entry id together with the word creature or gameobject in .sql files, and for repositories named like BFA, 8.3, TDB 83x). Open the file at the line of the matching row and copy that single row. Give the repository URL, the file path and the line.
+2. Parsed sniff output (WowPacketParser text or SQL files) that is published on GitHub or pastebin-like sites: copy the creature or object block for the entry.
+3. Wowhead, WoWDB or Wowpedia pages that print game coordinates (not map percentages) in a table or in the comments.
+A map-panel percentage, a UiMap position or a Mythic Dungeon Tools pin is NOT a world coordinate: do not convert it, do not estimate. If no source of the three kinds has the row, write NOT FOUND for that item and name which sources you checked.
+
+ADDITIONAL SOURCES FOR THE WARFRONTS
+The `scenario`, `scenario_poi` and `scenario_step` style tables, the `smart_scripts` rows of the battle creatures (source type 0 with the entry, and source type 9 action lists) and the instance script of the map in any published BfA 8.x core are the best source of stage logic: copy the rows, not a description of them.
+
+WHAT TO DELIVER
+ONE TEXT FILE, Warfront_Darkshore_Horde_Positions.txt. For every stage of the battle: each creature spawn (entry, name, side, level, count) and each gameobject spawn (buildings, resource nodes, capture points, gates, banners, chests: entry, name, start state) with world position (map id, x, y, z, orientation), the path of every wave or patrol as waypoints, the spells and auras the units use (spell ids), the scenario criteria of the stage (criteria tree id, asset and what completes it: kill, spell, event id), and the order the objects appear in.
+
+Use only facts you can verify. Give spell ids, creature entries, gameobject entries, map ids, coordinates and item ids wherever they exist, each with the source URL. If something cannot be verified write "NOT FOUND" (not "unverified" with a guess). Do not invent numbers. Plain text only, no code, no long explanations. When the file is done, say so and stop: I will send the next step in a new message.

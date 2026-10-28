@@ -1,0 +1,18 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters and content for it.
+
+Research task (one step of a larger set): the dungeon routes of Shrine of the Storm (map 1864), Siege of Boralus (map 1822), Temple of Sethraliss (map 1877) and Tol Dagor (map 1771) for a bot that must walk from boss to boss.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time and delete anything you download once you have copied the numbers you need.
+
+WHERE THE COORDINATES ARE (the last research failed because it only looked at guide pages, which have map percentages and no world coordinates)
+World coordinates (map id, x, y, z, orientation) exist in three kinds of source. Use them, in this order:
+1. Open-source world database dumps on GitHub: the `creature` and `gameobject` tables of any TrinityCore-based Battle for Azeroth 8.x world database (search GitHub code search for the entry id together with the word creature or gameobject in .sql files, and for repositories named like BFA, 8.3, TDB 83x). Open the file at the line of the matching row and copy that single row. Give the repository URL, the file path and the line.
+2. Parsed sniff output (WowPacketParser text or SQL files) that is published on GitHub or pastebin-like sites: copy the creature or object block for the entry.
+3. Wowhead, WoWDB or Wowpedia pages that print game coordinates (not map percentages) in a table or in the comments.
+A map-panel percentage, a UiMap position or a Mythic Dungeon Tools pin is NOT a world coordinate: do not convert it, do not estimate. If no source of the three kinds has the row, write NOT FOUND for that item and name which sources you checked.
+
+WHAT TO DELIVER
+ONE TEXT FILE, Dungeon_Routes_B.txt. For each dungeon: (a) the bosses in the order a speed run kills them, with creature entry, difficulty entries (normal / heroic / mythic) and the boss position (map id, x, y, z) from the creature table, (b) every door, gate, lift, portal, levers, event trigger and key item that blocks the way between two bosses: gameobject entry, name, position, start state, and the event, spell or kill that opens it, (c) the stretch of the path that is not obvious (stairs, jumps, shortcuts, invisible walls, skip packs), as waypoints with world coordinates (map id, x, y, z) read from creature or gameobject rows along the way (for example the rows of the trash packs that stand on the path), and (d) the trash packs that MUST be cleared to open a door or finish a boss event, with their creature entries and positions. Give the floor (z) of every point; do not collapse floors.
+
+Use only facts you can verify. Give spell ids, creature entries, gameobject entries, map ids, coordinates and item ids wherever they exist, each with the source URL. If something cannot be verified write "NOT FOUND" (not "unverified" with a guess). Do not invent numbers. Plain text only, no code, no long explanations. When the file is done, say so and stop: I will send the next step in a new message.

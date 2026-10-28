@@ -1,0 +1,25 @@
+Purveyor Thaumaturge Vashreen (Vendor Costs)
+* Random iLvl 445 Token: 175 Titan Residuum
+* Random iLvl 460 Token: 900 Titan Residuum
+* Random iLvl 475 Token: 4,750 Titan Residuum
+* Specific iLvl 475 Piece: 20,000 Titan Residuum
+
+Scrapping & Disenchanting Yields
+* iLvl 445 Azerite Armor: 40 Titan Residuum
+* iLvl 460 Azerite Armor: 200 Titan Residuum
+* iLvl 475 Azerite Armor: 1,000 Titan Residuum
+
+Horrific Visions Weekly Cache Rewards
+* 5-Mask Full Clear (iLvl 470 Tier): 415 Titan Residuum
+* 4-Mask Full Clear (iLvl 465 Tier): 310 Titan Residuum
+* 3-Mask Full Clear (iLvl 460 Tier): 200 Titan Residuum
+* 2-Mask Full Clear (iLvl 455 Tier): 115 Titan Residuum
+* 1-Mask Full Clear (iLvl 450 Tier): 65 Titan Residuum
+* 0-Mask Full Clear (iLvl 445 Tier): 40 Titan Residuum
+
+MOTHER's Corruption Preserves (Echoes of Ny'alotha)
+* Rank 3 Essences: 2,500 Echoes of Ny'alotha
+* Tier 1 Corruption (e.g., Avoidant I, Expedient I): 3,000 Echoes of Ny'alotha
+* Tier 2 Corruption (e.g., Glimpse of Clarity, Ineffable Truth I): 3,300 to 5,000 Echoes of Ny'alotha
+* Tier 3 Corruption (e.g., Infinite Stars III, Twilight Devastation III): 10,000 to 15,000 Echoes of Ny'alotha
+* Vessel of Horrific Visions: 1,750 Echoes of Ny'alotha

@@ -1,0 +1,18 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters and content for it.
+
+Research task (one step of a larger set): the world positions of the Beguiling emissaries (Tides 155434, Void-Touched 155433, Enchanted 155432) in the season 3 Mythic+ dungeons Atal'Dazar (1763), Freehold (1754), King's Rest (1762), The MOTHERLODE!! (1594), Shrine of the Storm (1864), Siege of Boralus (1822), Temple of Sethraliss (1877), Tol Dagor (1771), The Underrot (1841) and Waycrest Manor (1862).
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time and delete anything you download once you have copied the numbers you need.
+
+WHERE THE COORDINATES ARE (the last research failed because it only looked at guide pages, which have map percentages and no world coordinates)
+World coordinates (map id, x, y, z, orientation) exist in three kinds of source. Use them, in this order:
+1. Open-source world database dumps on GitHub: the `creature` and `gameobject` tables of any TrinityCore-based Battle for Azeroth 8.x world database (search GitHub code search for the entry id together with the word creature or gameobject in .sql files, and for repositories named like BFA, 8.3, TDB 83x). Open the file at the line of the matching row and copy that single row. Give the repository URL, the file path and the line.
+2. Parsed sniff output (WowPacketParser text or SQL files) that is published on GitHub or pastebin-like sites: copy the creature or object block for the entry.
+3. Wowhead, WoWDB or Wowpedia pages that print game coordinates (not map percentages) in a table or in the comments.
+A map-panel percentage, a UiMap position or a Mythic Dungeon Tools pin is NOT a world coordinate: do not convert it, do not estimate. If no source of the three kinds has the row, write NOT FOUND for that item and name which sources you checked.
+
+WHAT TO DELIVER
+ONE TEXT FILE, Beguiling_Positions.txt. For each dungeon: every spawn of the three emissary entries with map id, x, y, z, orientation, the week pattern it belongs to (the three weekly patterns of season 3 if the source names them), the creature or pack standing next to it, and the entries of the adds that each emissary empowers (the Tides, Void and Enchanted add lists with their creature entries, spell ids and enemy forces values). Also the spell and aura ids of the Beguiling buffs on the dungeon trash (Beguiling: Tides of Zuldazar, Void, Enchanted) and what the emissaries do when killed.
+
+Use only facts you can verify. Give spell ids, creature entries, gameobject entries, map ids, coordinates and item ids wherever they exist, each with the source URL. If something cannot be verified write "NOT FOUND" (not "unverified" with a guess). Do not invent numbers. Plain text only, no code, no long explanations. When the file is done, say so and stop: I will send the next step in a new message.

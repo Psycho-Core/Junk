@@ -1,0 +1,18 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters and content for it.
+
+Research task (one step of a larger set): the world positions of the four Awakened spires (obelisks) in the Mythic+ dungeons Siege of Boralus (map 1822), Temple of Sethraliss (map 1877), Tol Dagor (map 1771), The Underrot (map 1841), Waycrest Manor (map 1862), Operation: Mechagon Junkyard and Workshop (map 2097) in season 4 (patch 8.3.7).
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time and delete anything you download once you have copied the numbers you need.
+
+WHERE THE COORDINATES ARE (the last research failed because it only looked at guide pages, which have map percentages and no world coordinates)
+World coordinates (map id, x, y, z, orientation) exist in three kinds of source. Use them, in this order:
+1. Open-source world database dumps on GitHub: the `creature` and `gameobject` tables of any TrinityCore-based Battle for Azeroth 8.x world database (search GitHub code search for the entry id together with the word creature or gameobject in .sql files, and for repositories named like BFA, 8.3, TDB 83x). Open the file at the line of the matching row and copy that single row. Give the repository URL, the file path and the line.
+2. Parsed sniff output (WowPacketParser text or SQL files) that is published on GitHub or pastebin-like sites: copy the creature or object block for the entry.
+3. Wowhead, WoWDB or Wowpedia pages that print game coordinates (not map percentages) in a table or in the comments.
+A map-panel percentage, a UiMap position or a Mythic Dungeon Tools pin is NOT a world coordinate: do not convert it, do not estimate. If no source of the three kinds has the row, write NOT FOUND for that item and name which sources you checked.
+
+WHAT TO DELIVER
+ONE TEXT FILE, Awakened_Positions_B.txt. Same content as the first set: for each dungeon and floor, the world position (map id, x, y, z, orientation) of every spire entry that was placed (Brutal 160984 / 161143, Cursed 161163 / 161164, Defiled 161166 / 161167, Entropic 161168 / 161169), the clickable entry of each pair with its npcflag, gossip or spell click data and phase id from the database row, the week group (A or B), and the nearest named boss or landmark that you can verify from the coordinates. Tol Dagor and Waycrest Manor have several floors: give the floor of each row.
+
+Use only facts you can verify. Give spell ids, creature entries, gameobject entries, map ids, coordinates and item ids wherever they exist, each with the source URL. If something cannot be verified write "NOT FOUND" (not "unverified" with a guess). Do not invent numbers. Plain text only, no code, no long explanations. When the file is done, say so and stop: I will send the next step in a new message.
