@@ -1,0 +1,35 @@
+AWAKENED POSITIONS A — BFA 8.3.7 / BUILD 35662
+STATUS: PARTIAL RESEARCH. No attributable world-coordinate spawn rows were found. NOT suitable for inserting creature spawns.
+
+Dungeon scope (map IDs as supplied in Positions/01_Awakened_Obelisks_A.txt on Master):
+Atal'Dazar                 1763
+Freehold                   1754
+King's Rest                1762
+The MOTHERLODE!!           1594
+Shrine of the Storm        1864
+Prompt: https://github.com/Psycho-Core/Junk/blob/Master/Positions/01_Awakened_Obelisks_A.txt . These are dungeon map IDs provided by the owner, NOT verified spawn map values.
+
+Creature entries named in the prompt (do not confuse entry existence with a spawn):
+Brutal Spire of Ny'alotha   160984 / 161143
+Cursed Spire of Ny'alotha   161163 / 161164
+Defiled Spire of Ny'alotha  161166 / 161167
+Entropic Spire of Ny'alotha 161168 / 161169
+Example independent entry confirmation: https://www.wowhead.com/npc=160984/brutal-spire-of-nyalotha . Exact names/relationships and complete spawn assignments for the remaining seven entries: NOT FOUND in a verifiable creature row.
+
+WORLD SPAWN INVENTORY (each listed dungeon, EACH of the eight candidate spire entries):
+                          160984 161143 161163 161164 161166 161167 161168 161169
+Atal'Dazar 1763             NF     NF     NF     NF     NF     NF     NF     NF
+Freehold 1754               NF     NF     NF     NF     NF     NF     NF     NF
+King's Rest 1762            NF     NF     NF     NF     NF     NF     NF     NF
+The MOTHERLODE!! 1594       NF     NF     NF     NF     NF     NF     NF     NF
+Shrine of the Storm 1864    NF     NF     NF     NF     NF     NF     NF     NF
+NF = NOT FOUND: map-specific creature spawn row and world x/y/z/orientation NOT FOUND. NF does not assert absence of a spawn or that all eight should be present in every week. Placement count, A/B rotation and week grouping per dungeon: NOT FOUND. Nearest named boss or landmark from coordinates: NOT FOUND; no world coordinates to measure. Clickable member of each spire pair, gossip/spell-click flags, phase ID, npcflag, spawn condition: NOT FOUND; creature entry alone does not settle these fields.
+
+ALTERNATE-PHASE SERVANTS (each of the five maps above):
+Urg'roth, Breaker of Heroes entry 161124; Voidweaver Mal'thir 161241; Blood of the Corruptor 161244; Samh'rek 161243. Map-specific creature spawn row and x/y/z/orientation for each: NOT FOUND. Phase ID, phase aura on servant and instance spawn condition: NOT FOUND. Urg'roth is independently listed in these dungeons: https://www.wowhead.com/npc=161124/urgroth-breaker-of-heroes . Spire-to-servant TYPE associations (not spawn positions) are independently confirmed by Blizzard: Brutal -> Urg'roth; Cursed -> Voidweaver Mal'thir; Defiled -> Blood of the Corruptor; Entropic -> Samh'rek. https://news.blizzard.com/en-us/world-of-warcraft/23277657/visions-of-n-zoth-season-4-content-update-notes . This does not establish which numeric member of an entry pair is clickable.
+
+PHASE SPELL: Ny'alotha Incursion spell 313445 has an Apply Aura: Phase effect and screen effects in its tooltip: https://www.wowhead.com/spell=313445/nyalotha-incursion . Underlying phase ID and any distinct phase aura ID for build 35662: NOT FOUND. Spell existence does not prove an NPC click handler or phase_mask value.
+
+SEARCH LIMITS / SOURCE ORDER: Queried GitHub code search for the spire entries in BfA 8.3.7 source repositories including https://github.com/MttAI-dev/MTT-WoW-BfA and https://github.com/Lasko73/BFA_8.3.7-35662 . Search hits in MttAI-dev included old faction and DB-errors SQL files, NOT an attributable map-specific creature spawn row. Inspected faction SQL near line 9261 and 19093: it lists entry numbers only, without map or XYZ (https://github.com/MttAI-dev/MTT-WoW-BfA/blob/cf8ee8effa4f99519ab95c2f5758f91a53e0407a/sql/old/world/2020_05_19_06_faction.sql#L9261 ; https://github.com/MttAI-dev/MTT-WoW-BfA/blob/cf8ee8effa4f99519ab95c2f5758f91a53e0407a/sql/old/world/2020_05_19_06_faction.sql#L19093). The DB-errors file's matching rows were not inspected; do not infer its contents. Some authenticated searches returned HTTP 403 rate limit. Checked Wowhead entry pages and published Awakened guides (https://www.wowhead.com/affix=120/awakened ; https://blizzardwatch.com/2020/01/23/handle-season-4-mythic-affix-awakened/ ), which establish the four-obelisk mechanic but do not provide world x/y/z/orientation. No parsed sniff block was verified. The new DB2-DATA on Master is client data, not an instance creature-spawn table. Map pin coordinates, map percentages, MDT route points and textual boss proximity were not converted into world coordinates.
+
+REQUIRED TO COMPLETE: attributable BfA world creature rows or parsed sniff blocks with entries, map, world x/y/z/orientation, phase and NPC flags; then check applicable season-4 A/B spawn conditions. Nothing here establishes that a NOT FOUND entry should be inserted at a guessed coordinate.
