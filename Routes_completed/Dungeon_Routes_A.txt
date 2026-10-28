@@ -1,0 +1,60 @@
+DUNGEON ROUTES A — BFA 8.3.7 / BUILD 35662
+PARTIAL: source-backed world coordinates for three dungeons; no validated walkable waypoint graph or complete gate/event/mandatory-trash inventory. DO NOT use as an autonomous bot route without navmesh and the server's actual world DB. Coordinates are raw spawn positions, NOT guaranteed traversable path nodes. All x/y/z are world units, orientation is radians. NOT FOUND means not established, not that the object does not exist.
+
+PRIMARY SOURCE LEGEND
+AD = https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2018_12_09_01_ataldazar.sql
+FH = https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2018_12_09_01_freehold.sql
+KR = https://github.com/MttAI-dev/MTT-WoW-BfA/blob/master/sql/LatincoreBfa/world/2020_07_20_00_kings_rest.sql
+These published BfA updates are NOT proof that this private server loaded them. AD and FH define spawnDifficulties "1,2,23,8" and PhaseId 0 near their headers; KR boss rows also say '1,2,23,8', PhaseId 0, VerifiedBuild 0. The rows share a spawn across these difficulty masks: distinct normal/heroic/mythic boss CREATURE entries, if any, NOT FOUND. A difficulty-mask value is not proof that a retail Normal mode exists: King's Rest had no Normal difficulty in BfA (https://www.wowhead.com/npc=135472/zanazal-the-wise). No claim of build-35662 retail accuracy beyond what those source files actually contain. Position links below point to the precise SQL row. Start state 1 denotes the literal SQL gameobject.state field, not proof of an unlocked passage.
+
+ATAL'DAZAR — MAP 1763
+Plausible documented order: Priestess Alun'za -> Vol'kaal -> Rezan -> Yazma; first three can be done in another order, but all three are needed for Yazma approach. The Alun'za-first route uses the central switch and descends to Rezan, then returns to the upper Yazma stairs. https://www.mistyteahouse.com/battle-for-azeroth/dungeons/ataldazar/
+Boss spawn rows (entry; x,y,z; orientation; evidence):
+122967 Priestess Alun'za; -1119.707,2292.363,745.1975; 3.100947; AD#L231
+122965 Vol'kaal; -616.3542,2292.719,709.8065; 3.221104; AD#L221
+122963 Rezan; -894.9155,2288.354,642.6039; 1.515335; AD#L151
+122968 Yazma; -847.5695,2467.101,734.3118; 4.684122; AD#L233
+Example SQL link: https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2018_12_09_01_ataldazar.sql#L231 (replace line number with row's L above).
+Entrance game_tele 1873: -848.182129,2073.235596,725.144592; o 1.517881; AD#L5. Exit areatrigger 100004 on map 1763: -848.246582,2043.836914,726.121765; AD#L9. These are entry/exit, not between-boss waypoints.
+Gate/switch objects, all on map 1763 and literal start state 1, from AD#L439-L454:
+288478 ancient switch 1: -965.9672,2279.492,681.5456; AD#L445.
+288477 ancient switch 2: -729.3082,2279.52,681.5456; AD#L446.
+288204/288205 west gate leaves: -955.9855,2288.606,681.2731 / -955.9855,2296.698,681.2731; AD#L441,#L443.
+288202/288203 east gate leaves: -739.5535,2288.606,681.2731 / -739.5535,2296.698,681.2731; AD#L442,#L444.
+292402/292399/292400/292401 Vol'kaal doorway leaves: x=-649.2153; y=2280.241/2288.389/2296.546/2304.633; z=711.6238; AD#L447-L450.
+278422 waterfall stairs: -847.7704,2415.89,678.2501; AD#L451.
+292398/292397 Yazma gate leaves: -880.5806,2469.369,732.9503 / -815.1183,2469.369,732.9503; AD#L452-L453.
+278820 collision-wall has TWO rows: -911.5799,2147.01,704.9904 / -847.6996,2389.783,678.3637; AD#L440,#L454. Whether BOTH open on this core: NOT FOUND from SQL alone.
+Documented sequence: central switch raises the two central gates; after three prerequisite bosses the waterfall gives way to stairs to Yazma (guide above). Exact mapping of every GO to script event, start locked/open state as opposed to raw state=1, and server-specific kill-event code: NOT FOUND from the spawn SQL; verify instance script before implementing. A guide suggests a jump from upper bridge to Rezan's lower area, but its landing point and safety on this server: NOT FOUND; do not script a jump from the boss coordinates.
+Sample path-adjacent creature row at entrance: 127352 at -833.3004,2070.316,725.2075 (AD#L24); named role, whether mandatory to clear and a collision-safe waypoint: NOT FOUND. No complete z-preserving route through the intervening stairs or full mandatory pack roster was verified.
+
+FREEHOLD — MAP 1754
+Usual boss sequence: Skycap'n Kragg -> Council o' Captains -> Ring of Booty -> Harlan Sweete. The Council includes captains Jolly, Raoul and Eudora (one may be allied depending on the event); Ring of Booty includes the pig-catching event, Ludwig and Trothak. https://quickdungeon.com/freehold/
+Boss/encounter creature rows, map 1754, source FH:
+126832 Kragg -1778.222,-994.8559,88.48002 o 5.694685 FH#L185;
+126845 Jolly -1778.616,-689.4705,40.13412 o 2.786823 FH#L137;
+126847 Raoul -1778.885,-685.4254,40.76125 o 3.427528 FH#L232;
+126848 Eudora -1779.318,-681.9531,40.13803 o 3.733881 FH#L241;
+129699 Ludwig -1778.222,-486.0347,41.39257 o 3.269298 FH#L385;
+126969 Trothak -1847.726,-428.3611,40.40708 o 1.965872 FH#L441;
+126983 Harlan Sweete -1587.22,-562.0972,70.28239 o 5.392085 FH#L294.
+Example direct row: https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2018_12_09_01_freehold.sql#L185 .
+Event/route landmarks (NOT automatically safe player waypoints): Davey Fight Promoter entry 130086 at -1814.92,-493.2049,35.05544 FH#L374; pig Lightning 130099 at -1791.63,-468.0191,39.41153 FH#L403. Council Tribute chest GO 288636 at -1784.443,-684.4028,38.51701 state 1 FH#L473; chest is NOT a gate. Whether its duplicate script summon/loot condition occurs on this private core: NOT FOUND. Server-side event gossip/spells, keys, required trash to trigger friendly captain, detailed path legs and jump/skip pack coordinates: NOT FOUND. No source-backed blocking DOOR was established from this world file; do not infer none exist. The z values show a descent from Kragg's upper deck (~88.48) to the Council (~40), then a later ascent to Harlan (~70); linking bosses in a straight line across those elevations is unsafe.
+
+KING'S REST — MAP 1762
+Linear sequence: Golden Serpent -> Mchimba -> Council of Tribes -> Dazar. https://www.mistyteahouse.com/battle-for-azeroth/dungeons/kings-rest/
+World SQL boss rows (entry; x,y,z; orientation):
+135322 Golden Serpent -1061.86,2628.5,827.161 o 1.8558 KR#L51;
+134993 Mchimba -814.878,2817.16,774.594 o 2.30411 KR#L75;
+135475 Kula (Council) -1122.46,2891.3,775.562 o 1.05984 KR#L96;
+136160 Dazar -945.063,3144.06,779.051 o 4.75927 KR#L98.
+Direct row: https://github.com/MttAI-dev/MTT-WoW-BfA/blob/master/sql/LatincoreBfa/world/2020_07_20_00_kings_rest.sql#L51 . Council's Aka'ali 135470 and Zanazal 135472 individual spawn rows: NOT FOUND in this SQL; do not assign Kula's coordinates to them. Precise script summon positions and normal/heroic/mythic entry substitutions: NOT FOUND in the verified SQL rows.
+Objects on map 1762 from KR#L100-L104: entrance pair 290682 at -1016.96,2699.47,809.916 and -1023.16,2707.17,809.917; corridor object 290701 at -821.216,2891.82,776.529 state 1; Council's Cache 288637 at -1079.62,2910.41,775.505 state 1; Boon of the First King 288638 at -945.327,3116.19,779.347 state 1. A chest object is not evidence of a traversable door. Script-specific unlock/kill conditions of these GOs: NOT FOUND from SQL alone.
+Path-adjacent creature examples (not safe navmesh nodes): entrance creature 133935 at -1020.1,2707.37,809.916 KR#L43; King's-room creature 138489 at -1120.36,2761.2,813.308 KR#L52; pre-Dazar creature 138489 at -943.899,3037.57,795.639 KR#L97. Named NPC identity, mandatory clear status and full pack composition for these exact rows: NOT FOUND. Guide describes four encounters between Golden Serpent and Mchimba and a bridge to Dazar after previous bosses; exact go IDs, event triggers, waypoint path on different floors and pack kill conditions: NOT FOUND without a matching instance script and verified navigation geometry. https://www.mistyteahouse.com/battle-for-azeroth/dungeons/kings-rest/
+
+THE MOTHERLODE!! — MAP 1594
+Linear order/creature IDs: Coin-Operated Crowd Pummeler 129214 -> Azerokk 129227 -> Rixxa Fluxflame 129231 -> Mogul Razdunk 129232. Names/order: https://www.mistyteahouse.com/battle-for-azeroth/dungeons/the-motherlode/ ; creature IDs recorded in older research https://github.com/Psycho-Core/Junk/pull/1 (Positions_The_MOTHERLODE.txt); independent matching world spawn rows for these IDs: NOT FOUND. Map-specific boss x/y/z, orientation, normal/heroic/mythic entries, all door/lift/portal/lever/event GO positions and start states, mandatory trash rows, staircase/jump/skip waypoints and their z: NOT FOUND. Checked BfA world updates above for maps 1763/1754/1762 and the cited source notes; none supply a verified map-1594 creature spawn. Do not use MDT pins or percentages as world coordinates. No route can be certified for a pathing bot from boss order alone.
+
+OPEN WORK: query YOUR server's creature/gameobject world tables for maps 1763,1754,1762,1594, plus instance scripts and navmesh; enumerate EVERY prerequisite GO and trash row, all difficulty/phase variants, and validate path legs in-game. The samples above are real source rows, not a complete speedrun script or exhaustive world inventory.
+
+RE-AUDIT BEFORE ROUTES 2: Rechecked the cited raw SQL rows for all four Atal'Dazar bosses, seven Freehold encounter creatures, four King's Rest bosses and selected objects; the printed coordinates and cited line numbers match those rows. Corrected the Atal'Dazar switch/gate line ranges during that check. Found no world-row evidence for MOTHERLODE coordinates. This audit is of the printed rows, NOT a validation of server installation, pathing, all doors, or mandatory trash. The later BfA King's Rest difficulty caveat remains: a SQL difficulty mask is not proof of a retail Normal mode.
