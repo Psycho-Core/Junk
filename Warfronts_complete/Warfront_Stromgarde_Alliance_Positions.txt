@@ -1,0 +1,25 @@
+BATTLE FOR STROMGARDE — ALLIANCE ATTACK (prompt 02)
+Research status: INCOMPLETE. A complete stage-by-stage creature/gameobject spawn and movement dataset for build 8.3.7 (35662) was NOT FOUND. Do not load the locations below as creature or gameobject spawns.
+
+Verified limited map-location evidence:
+AshamaneCore world_safe_locs schema: ID, MapID, LocX, LocY, LocZ, Facing, Comment, lines 2-12:
+https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L2-L12
+The following are SAFE LOCATION rows, not creature or gameobject rows. Format: safe location ID, map ID, x, y, z, Facing, comment; source URL and exact line:
+6607, 1943, -1818.52, -1829.09, 191.453, 18.9586, Warfront Arathi - Alliance, Ship GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3669
+6613, 1943, -1807.86, -1827.41, 191.64, 19.7097, 8.0 Warfronts - Alliance - Start — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3674
+6786, 1943, -1652.99, -1910.97, 85.4443, 88.0344, Warfront Arathi - Alliance, Base GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3715
+6891, 1943, -1122.87, -2056.85, 60.793, 35.169, Warfront Arathi - Alliance, Ar'gorok GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3720
+Source does not establish these rows specifically for client build 35662. Facing is a safe-location field, NOT a creature orientation. The IDs above are not creature IDs, gameobject IDs, criteria IDs, or waypoint IDs.
+
+For EACH Alliance-attack battle stage:
+Stage-by-stage ordered list and exact stage logic: NOT FOUND.
+Creature spawns (entry, name, side, level, count, map 1943 world x/y/z/orientation): NOT FOUND.
+Gameobject spawns (entry, name, starting state, map 1943 world x/y/z/orientation; buildings, resources, capture points, gates, banners, chests): NOT FOUND.
+Wave/patrol waypoint rows and ordered paths: NOT FOUND.
+Unit spells/auras and spell IDs attributable to those spawns: NOT FOUND.
+Scenario criteria tree IDs, assets, kill/spell/event completion rows: NOT FOUND.
+Order in which objects appear: NOT FOUND.
+
+Sources checked for missing facts: the local DB2-DATA inventory (client binary DB2 files, not creature/gameobject world spawn rows); AshamaneCore world_safe_locs SQL and its published scripts tree (https://github.com/AshamaneProject/AshamaneCore/tree/master/src/server/scripts); targeted GitHub code searches for 1943 together with 'creature' and 'Warfront' in SQL, and for a Warfront Arathi Alliance starting row. Search results did not yield an attributable BfA 8.x map-1943 creature/gameobject spawn or ordered stage/path dataset. Graveyard and start safe locations cannot substitute for spawn coordinates. The scenario ID 1568 stated in the prompt was not independently checked against a scenario row: NOT FOUND.
+
+Audit: four rows checked against their exact SQL lines and map 1943; none provides the requested unit/object spawn and path data. No coordinates were estimated or converted from map percentages.

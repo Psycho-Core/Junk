@@ -1,0 +1,26 @@
+BATTLE FOR DARKSHORE — HORDE ATTACK (prompt 04)
+Status: INCOMPLETE. Exact build-35662 stage-by-stage NPC/object spawns and paths: NOT FOUND. The rows below must not be used as NPC or gameobject spawn coordinates.
+
+Source: AshamaneCore SQL world_safe_locs schema (ID, MapID, LocX, LocY, LocZ, Facing, Comment): https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L2-L12
+Verified safe-location rows only; format: safe-location ID, map, x, y, z, Facing, comment, URL and line:
+6970, 2111, -3, -6, 9, 180.821, Warfront Darkshore - Horde Start — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3796
+7017, 2111, 6236.88, 565.038, 3.45653, 346.727, Warfront Darkshore - Horde Intro GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3829
+7018, 2111, 6440.39, 417.77, 7.0039, 270.002, Warfront Darkshore - Horde Ruins of Auberdine GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3830
+7019, 2111, 6593.25, -25.5329, 34.9911, 355.149, Warfront Darkshore - Horde Bashal'Aran GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3831
+7020, 2111, 7362.56, -59.2728, 13.4677, 332.325, Warfront Darkshore - Horde Lor'danel GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3832
+
+All five IDs are world_safe_locs IDs, NOT creature entries, gameobject entries, waypoint IDs or criteria IDs. The source does not establish applicability specifically to client build 35662. Facing here is not verified as NPC orientation.
+
+For EACH Horde-attack battle stage:
+Stage order and stage logic: NOT FOUND.
+Creature spawn entries, names, side, level, counts and world positions (2111, x, y, z, orientation): NOT FOUND.
+Gameobject entries, names, start states and world positions (2111, x, y, z, orientation), including buildings, resource nodes, capture points, gates, banners and chests: NOT FOUND.
+Wave and patrol waypoint rows and paths: NOT FOUND.
+Unit spells/auras with spell IDs assigned to spawns: NOT FOUND.
+Criteria tree IDs, assets, kill/spell/event conditions: NOT FOUND.
+Object appearance order: NOT FOUND.
+Prompt-supplied scenario 1701, independent scenario-table confirmation: NOT FOUND.
+
+Sources checked for missing facts: local DB2-DATA directory (client binary tables rather than world creature/gameobject spawn tables); AshamaneCore world_safe_locs SQL above and published scripts tree https://github.com/AshamaneProject/AshamaneCore/tree/master/src/server/scripts ; targeted GitHub SQL code search for map 2111 with creature and warfront. Search hits did not provide a verified BfA 8.x map-2111 creature/gameobject spawn, waypoint, scenario-criteria or stage-order dataset. A safe-location row cannot substitute for one.
+
+Audit: all five map-2111 safe-location rows checked against their exact SQL line. No converted map percentages or inferred spawns.
