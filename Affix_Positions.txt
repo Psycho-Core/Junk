@@ -1,0 +1,81 @@
+AFFIX POSITIONS — 8.3.7 / BfA season 4 (Awakened); historical Beguiling clarification
+
+SEASON WARNING: Beguiling was the SEASON-3 affix and was replaced by Awakened in retail season 4. Therefore no Tides (155434), Void-Touched (155433), or Enchanted (155432) emissary had a season-4 retail placement in ANY dungeon listed below. For each: Beguiling world map/x/y/z and nearest landmark = NOT APPLICABLE, not merely missing data. Historical season-3 positions cannot be represented as simultaneous season-4 spawns. Operation: Mechagon's Junkyard and Workshop were not season-3 keystones. A private core may custom-enable both, but such custom placements are unverified.
+
+METHOD: Each Awakened record below is a season-4 map POI in a preserved MDT-derived source file (repository snapshot, not a verified build-35662 retail spawn capture); the source file was last edited after season 4. Its POI data is not a verified retail creature spawn. Percent pair is (x/840*100, absolute(y)/555*100), rounded to 0.1%, of MDT's 840-by-555 map PANEL, from its TOP LEFT, using MDT's stored map-pin x/y. These are approximate UI-map percentages, NOT world x/y/z, zone-map percentages, or coordinates usable for creature spawning. MDT floor is its local sublevel index, not a separate map ID. The corresponding world (map ID, x, y, z) is (instance map ID below, unverified, unverified, unverified) for EACH listed pin; exact world elevation, facing and instance spawn GUID are unverified. The nearest named in-world landmark for EACH pin is unverified: a map pin without verified POI-to-world matching cannot prove a nearest landmark. For each location verify on a season-4 instance before using it as a spawn. Affix 120, +10; these are the four spire TYPES, not the clickable creature entry; spire creature pairs (user-supplied): Brutal 160984/161143, Cursed 161163/161164, Defiled 161166/161167, Entropic 161168/161169. Which pair member is clickable: unverified.
+
+ROTATIONS: MDT's twelve indexed weeks fall into A={1,2,5,6,9,10} and B={3,4,7,8,11,12}. These are MDT rotation INDICES, not calendar dates or proof the 8.3.7 private core uses this order. Each A/B group should yield exactly four map pins per dungeon. A pin marked both appears in either. Empty-week placeholder POIs are excluded. Each dungeon section cites its individual MDT file; the conversion denominator is from DungeonTools.lua (sizex=840, sizey=555).
+
+Atal'Dazar — instance map ID 1763; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/AtalDazar.lua
+A (4 pins): Entropic [MDT floor 1, map-panel 69.9% x 37.4%]; Brutal [MDT floor 1, map-panel 55.1% x 46.3%]; Cursed [MDT floor 1, map-panel 69.2% x 63.0%]; Defiled [MDT floor 1, map-panel 49.7% x 25.2%]
+B (4 pins): Entropic [MDT floor 1, map-panel 69.9% x 37.4%]; Brutal [MDT floor 1, map-panel 55.1% x 46.3%]; Cursed [MDT floor 1, map-panel 49.8% x 24.8%]; Defiled [MDT floor 1, map-panel 69.2% x 63.0%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Freehold — instance map ID 1754; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/Freehold.lua
+A (4 pins): Defiled [MDT floor 1, map-panel 64.6% x 39.0%]; Entropic [MDT floor 1, map-panel 50.8% x 72.1%]; Brutal [MDT floor 1, map-panel 31.4% x 58.0%]; Cursed [MDT floor 1, map-panel 43.2% x 34.6%]
+B (4 pins): Entropic [MDT floor 1, map-panel 50.8% x 72.1%]; Cursed [MDT floor 1, map-panel 43.2% x 34.6%]; Brutal [MDT floor 1, map-panel 64.6% x 39.3%]; Defiled [MDT floor 1, map-panel 31.4% x 58.2%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+King's Rest — instance map ID 1762; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/KingsRest.lua
+A (4 pins): Brutal [MDT floor 1, map-panel 67.6% x 56.0%]; Entropic [MDT floor 1, map-panel 54.7% x 79.1%]; Cursed [MDT floor 1, map-panel 46.5% x 29.2%]; Defiled [MDT floor 1, map-panel 41.2% x 29.4%]
+B (4 pins): Entropic [MDT floor 1, map-panel 54.7% x 79.1%]; Defiled [MDT floor 1, map-panel 41.2% x 29.4%]; Brutal [MDT floor 1, map-panel 46.5% x 29.2%]; Cursed [MDT floor 1, map-panel 67.3% x 56.4%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Shrine of the Storm — instance map ID 1864; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/ShrineoftheStorm.lua
+A (4 pins): Defiled [MDT floor 1, map-panel 44.3% x 73.2%]; Cursed [MDT floor 1, map-panel 52.0% x 18.6%]; Brutal [MDT floor 1, map-panel 43.5% x 42.3%]; Entropic [MDT floor 1, map-panel 30.7% x 42.1%]
+B (4 pins): Defiled [MDT floor 1, map-panel 52.0% x 18.3%]; Cursed [MDT floor 1, map-panel 44.2% x 73.3%]; Brutal [MDT floor 1, map-panel 43.5% x 42.3%]; Entropic [MDT floor 1, map-panel 30.7% x 42.1%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Siege of Boralus — instance map ID 1822; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/SiegeofBoralus.lua
+A (4 pins): Brutal [MDT floor 1, map-panel 65.6% x 22.0%]; Cursed [MDT floor 1, map-panel 58.8% x 39.1%]; Defiled [MDT floor 1, map-panel 63.2% x 59.2%]; Entropic [MDT floor 1, map-panel 50.6% x 71.5%]
+B (4 pins): Cursed [MDT floor 1, map-panel 58.8% x 39.1%]; Defiled [MDT floor 1, map-panel 63.2% x 59.2%]; Entropic [MDT floor 1, map-panel 65.5% x 22.0%]; Brutal [MDT floor 1, map-panel 50.6% x 71.6%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Temple of Sethraliss — instance map ID 1877; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/TempleofSethraliss.lua
+A (4 pins): Brutal [MDT floor 1, map-panel 52.3% x 72.6%]; Entropic [MDT floor 1, map-panel 51.0% x 31.8%]; Defiled [MDT floor 1, map-panel 67.8% x 93.3%]; Cursed [MDT floor 2, map-panel 59.1% x 72.9%]
+B (4 pins): Entropic [MDT floor 1, map-panel 52.1% x 73.2%]; Defiled [MDT floor 1, map-panel 67.8% x 93.3%]; Brutal [MDT floor 1, map-panel 51.0% x 32.1%]; Cursed [MDT floor 2, map-panel 59.1% x 72.9%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+The MOTHERLODE!! — instance map ID 1594; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/TheMotherlode.lua
+A (4 pins): Brutal [MDT floor 1, map-panel 53.8% x 73.0%]; Cursed [MDT floor 1, map-panel 35.3% x 49.6%]; Defiled [MDT floor 1, map-panel 40.6% x 19.2%]; Entropic [MDT floor 1, map-panel 63.2% x 21.4%]
+B (4 pins): Brutal [MDT floor 1, map-panel 53.8% x 73.0%]; Entropic [MDT floor 1, map-panel 63.2% x 21.4%]; Defiled [MDT floor 1, map-panel 35.2% x 49.7%]; Cursed [MDT floor 1, map-panel 40.4% x 19.5%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+The Underrot — instance map ID 1841; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/TheUnderrot.lua
+A (4 pins): Entropic [MDT floor 1, map-panel 46.2% x 40.4%]; Brutal [MDT floor 1, map-panel 75.4% x 46.7%]; Cursed [MDT floor 1, map-panel 56.7% x 15.7%]; Defiled [MDT floor 1, map-panel 50.1% x 76.5%]
+B (4 pins): Brutal [MDT floor 1, map-panel 75.4% x 46.7%]; Cursed [MDT floor 1, map-panel 56.7% x 15.7%]; Entropic [MDT floor 1, map-panel 50.1% x 76.5%]; Defiled [MDT floor 1, map-panel 46.2% x 40.4%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Tol Dagor — instance map ID 1771; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/TolDagor.lua
+A (4 pins): Cursed [MDT floor 1, map-panel 54.7% x 45.5%]; Defiled [MDT floor 3, map-panel 43.4% x 36.1%]; Entropic [MDT floor 5, map-panel 57.2% x 53.1%]; Brutal [MDT floor 6, map-panel 28.0% x 67.2%]
+B (4 pins): Brutal [MDT floor 1, map-panel 54.0% x 46.1%]; Defiled [MDT floor 3, map-panel 43.4% x 36.1%]; Entropic [MDT floor 5, map-panel 57.2% x 53.1%]; Cursed [MDT floor 6, map-panel 28.3% x 66.2%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Waycrest Manor — instance map ID 1862; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/WaycrestManor.lua
+A (4 pins): Cursed [MDT floor 3, map-panel 33.5% x 43.0%]; Defiled [MDT floor 1, map-panel 52.2% x 67.4%]; Brutal [MDT floor 1, map-panel 51.2% x 41.4%]; Entropic [MDT floor 1, map-panel 62.2% x 29.4%]
+B (4 pins): Cursed [MDT floor 3, map-panel 33.5% x 43.0%]; Defiled [MDT floor 1, map-panel 62.6% x 29.5%]; Brutal [MDT floor 1, map-panel 51.2% x 41.4%]; Entropic [MDT floor 1, map-panel 52.1% x 67.6%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Operation: Mechagon - Junkyard — instance map ID 2097; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/MechagonIsland.lua
+A (4 pins): Brutal [MDT floor 1, map-panel 63.7% x 31.1%]; Defiled [MDT floor 1, map-panel 68.6% x 48.4%]; Cursed [MDT floor 1, map-panel 62.8% x 58.9%]; Entropic [MDT floor 1, map-panel 57.6% x 52.1%]
+B (4 pins): Entropic [MDT floor 1, map-panel 68.8% x 48.8%]; Brutal [MDT floor 1, map-panel 63.7% x 31.1%]; Defiled [MDT floor 1, map-panel 57.5% x 52.2%]; Cursed [MDT floor 1, map-panel 62.8% x 58.9%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+Operation: Mechagon - Workshop — instance map ID 2097; world x/y/z: unverified for every Awakened pin; named nearest landmark: unverified.
+Source: https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/BattleForAzeroth/MechagonCity.lua
+A (4 pins): Defiled [MDT floor 4, map-panel 69.5% x 35.5%]; Cursed [MDT floor 4, map-panel 61.8% x 56.9%]; Brutal [MDT floor 4, map-panel 31.1% x 87.0%]; Entropic [MDT floor 3, map-panel 50.9% x 69.7%]
+B (4 pins): Defiled [MDT floor 4, map-panel 69.5% x 35.5%]; Brutal [MDT floor 4, map-panel 62.0% x 56.7%]; Cursed [MDT floor 4, map-panel 31.3% x 87.0%]; Entropic [MDT floor 3, map-panel 50.9% x 69.7%]
+Beguiling Tides/Void/Enchanted: none in retail season 4 (map/x/y/z and landmark not applicable).
+
+SOURCES: MDT source repository https://github.com/LetsTimeIt/DungeonTools ; MDT panel dimensions https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/DungeonTools.lua ; its map POI placement/render formula https://github.com/LetsTimeIt/DungeonTools/blob/8ffb57b2bc40028a6a086ada36d2327cdfe640d5/Pointsofinterest.lua ; official season-4 Awakened replacement https://worldofwarcraft.blizzard.com/en-gb/news/23277657/visions-of-nzoth-season-4-content-update-notes ; historical season-3 Beguiling https://wowpedia.fandom.com/wiki/Beguiling . These sources provide map-drawing POIs, not server-side world spawn records.
