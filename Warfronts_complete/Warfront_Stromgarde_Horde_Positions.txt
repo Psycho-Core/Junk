@@ -1,0 +1,28 @@
+BATTLE FOR STROMGARDE — HORDE ATTACK (prompt 01)
+Research status: INCOMPLETE. A complete stage-by-stage creature/gameobject spawn and movement dataset for build 8.3.7 (35662) was NOT FOUND. Do not load the locations below as creature or gameobject spawns.
+
+Verified limited map-location evidence:
+AshamaneCore SQL world_safe_locs schema labels columns ID, MapID, LocX, LocY, LocZ, Facing, Comment (lines 2-12). These are SAFE LOCATIONS, not creature/gameobject records. The SQL row's Facing is not verified as a creature orientation.
+https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L2-L12
+
+Rows in that source (ID, map, x, y, z, Facing, comment):
+6178, 1876, -808.257, -2079.53, 69.2594, 126.34, Warfront Arathi - Horde, Base GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3307
+6180, 1876, -672.746, -2159.99, 127.391, 67.9401, Warfront - Arathi - Horde Start — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3309
+6296, 1876, -1227.06, -1842.62, 92.9355, 318.374, Warfront Arathi - Horde, High Perch GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3422
+6297, 1876, -672.25, -2158.7, 127.266, 68.095, Warfront Arathi - Horde, Ship GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3423
+6784, 1876, -1252.68, -1648, 48.092, 270.085, Warfront Arathi - Horde, Valorcall Pass GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3713
+7039, 1876, -672.25, -2158.7, 127.266, 68.095, Warfront Arathi - Horde, General GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3850
+These IDs are safe-location IDs, NOT creature entries, gameobject entries, scenario criteria, or waypoint IDs. Source does not establish that these locations are specific to build 35662.
+
+For EACH Horde-attack battle stage:
+Stage-by-stage ordered list and exact stage logic: NOT FOUND.
+Creature spawn rows (entry, name, side, level, count, map 1876 world x/y/z/orientation): NOT FOUND.
+Gameobject spawn rows (entry, name, initial state, map 1876 world x/y/z/orientation; buildings, nodes, capture points, gates, banners, chests): NOT FOUND.
+Wave/patrol waypoint rows and ordered paths: NOT FOUND.
+Unit spell/auras and spell IDs attributable to those spawns: NOT FOUND.
+Scenario criteria tree IDs, asset IDs, kill/spell/event completion rows: NOT FOUND.
+Order in which objects appear: NOT FOUND.
+
+Sources checked for these missing facts: the local repository's DB2-DATA inventory (binary client tables, not a world creature/gameobject spawn dump); AshamaneCore's published world_safe_locs SQL above; AshamaneCore repository tree (no Stromgarde/warfront instance script identified; tree https://github.com/AshamaneProject/AshamaneCore/tree/master/src/server/scripts); targeted GitHub code searches for map 1876 together with 'creature' and 'warfront', and for 'Stromgarde' with 'scenario_step'. Search hits were not sufficient to verify an 8.x map-1876 spawn row, stage criteria, or path. A graveyard or starting safe location is not evidence of where any NPC or object spawns.
+
+Audit: rechecked all six copied rows against the cited SQL columns and map 1876; none answers the requested spawn/path dataset. No estimated map percentages, fabricated entries, or inferred scripts have been included.

@@ -1,0 +1,28 @@
+BATTLE FOR DARKSHORE — ALLIANCE ATTACK (prompt 03)
+Research status: INCOMPLETE. A full stage-by-stage creature/gameobject spawn and movement dataset for build 8.3.7 (35662) was NOT FOUND. Do not treat the locations below as unit or object spawns.
+
+Verified limited location evidence: AshamaneCore SQL world_safe_locs schema defines ID, MapID, LocX, LocY, LocZ, Facing and Comment: https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L2-L12
+The following are SAFE LOCATIONS, not creature/gameobject table rows. Format: safe-location ID, map ID, x, y, z, Facing, source comment, exact SQL citation:
+6957, 2105, 2.39286, 1.69455, 5.20573, 180.821, Warfront Darkshore - Alliance Start — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3786
+6958, 2105, 6440.39, 417.77, 7.0039, 270.002, Warfront Darkshore - Alliance Ruins of Auberdine GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3787
+6960, 2105, 6593.25, -25.5329, 34.9911, 355.149, Warfront Darkshore - Alliance Bashal'Aran GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3789
+6962, 2105, 6239.49, 565.585, 3.38278, 333.515, Warfront Darkshore - Alliance Intro GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3791
+6983, 2105, 7362.56, -59.2728, 13.4677, 332.325, Warfront Darkshore - Alliance Lor'danel GY — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3808
+7058, 2105, 7427.29, -120.54, 1.83406, 180.225, Warfront Darkshore - Alliance Bat Safe Loc — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3869
+7060, 2105, 6239.49, 565.585, 3.38278, 333.515, Warfront Darkshore - Alliance Bashal'Aran Safe Loc — https://github.com/AshamaneProject/AshamaneCore/blob/master/sql/ashamane/world/2019_10_26_01_world.sql#L3871
+
+The first row is explicitly labeled Alliance Start in world_safe_locs, not a creature spawn. Safe-location ID is not an NPC/object entry; Facing is not verified as creature orientation. The source does not demonstrate that any row is specific to client build 35662.
+
+For EACH Alliance-attack battle stage:
+Ordered stage list and scenario-step/instance-script logic: NOT FOUND.
+Creature spawns (entry, name, side, level, count, map 2105 x/y/z/orientation): NOT FOUND.
+Gameobject spawns (buildings, nodes, capture points, gates, banners, chests: entry, name, initial state, map 2105 x/y/z/orientation): NOT FOUND.
+Wave/patrol waypoints and ordered paths: NOT FOUND.
+Unit spells and auras (spell IDs attributed to spawns): NOT FOUND.
+Criteria tree IDs, assets and kill/spell/event completion conditions: NOT FOUND.
+Object appearance sequence: NOT FOUND.
+Scenario ID 1697 asserted by the prompt, independently verified scenario row: NOT FOUND.
+
+Sources checked: local DB2-DATA directory (client binary DB2 files, not a world spawn dump); AshamaneCore world_safe_locs SQL above and its scripts tree (https://github.com/AshamaneProject/AshamaneCore/tree/master/src/server/scripts); targeted GitHub SQL code search for map 2105 with creature and warfront. Returned hits did not establish BfA 8.x map-2105 spawn rows, waypoint sequences or scenario criteria. None of the safe-location rows supplies these requested facts.
+
+Audit: all seven safe-location rows transcribed with map 2105 and individual SQL line citations. No map percentages converted and no spawn positions inferred from graveyards.
