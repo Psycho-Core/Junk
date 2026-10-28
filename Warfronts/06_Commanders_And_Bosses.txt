@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the commanders and bosses of the warfronts of Battle for Azeroth 8.3.7: abilities and timings.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, wago.tools, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Warfront_Commanders_And_Bosses.txt
+For each: creature entry, health at normal and heroic, every ability with spell id, cast time, cooldown or first cast timer, what it does, and what a group must do. Commanders: Muradin Bronzebeard, High Exarch Turalyon, Danath Trollbane, Lady Liadrin, Rokhan, Eitrigg, Sira Moonwarden, Maiev Shadowsong. Bosses: Veteran Sergeant Slayde, Veteran Reaver Kromshok, Deathguard Captain Vandel, Blightguard Captain Thedric, Nevara Nightshade, Archdruid Andrenius, Magmaster Blastcrank, Myara Nightsong, AzerMEK Mk. II, the Ancient Protectors. Which of them are chosen at random per battle and how the choice is made.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

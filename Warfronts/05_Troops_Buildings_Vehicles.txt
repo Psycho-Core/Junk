@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the buildings, troops, heroes and vehicles of the warfronts of Battle for Azeroth 8.3.7.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, wago.tools, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Warfront_Troops_Buildings_Vehicles.txt
+Both warfronts, both sides. Every building (Barracks, War Mill, Altar of Storms, Workshop, Stronghold / Keep, Armory, Plagueworks, Glaiveworks, Altar of Elders, Hunter's Hall and the others): the Iron and Wood cost, what it unlocks, the creature or game object entry and the spell or interaction that builds it. Every troop type (Footman, Rifleman, Priest, Knight, Siege Engine, Grunt, Axe Thrower, Shaman, Raider, Demolisher and the Darkshore troops): entry, recruit cost, summon spell, spells with ids, health and damage at level 120 if known. Every vehicle: entry, seats, spells (Demolisher, Siege Engine, Glaive Thrower, Forsaken Blight Thrower, hippogryphs). The Darkshore heroes that a player can embody and their spells. The Altar of Storms buffs (Bristling Power, Essence of Storms, Call of the Storm) with ids and numbers.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

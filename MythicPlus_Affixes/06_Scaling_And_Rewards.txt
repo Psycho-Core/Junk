@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the numbers of Mythic+ in 8.3.7: key level scaling, affix numbers and rewards.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, wago.tools, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, MythicPlus_Numbers.txt
+The health and damage multiplier of a creature for every key level from 2 to 20 (the client data tables, the game tables), the exact effects of Fortified, Tyrannical, Bolstering, Raging, Bursting, Sanguine, Necrotic, Grievous, Quaking, Explosive, Volcanic, Skittish, Teeming, Overflowing and Relentless with spell ids and numbers, the timer tiers and what they give (+1, +2, +3), the item level of the end-of-key chest and of the weekly chest for every key level, the bonus ids / item context that produce them, what the weekly chest contains and when it can be opened.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

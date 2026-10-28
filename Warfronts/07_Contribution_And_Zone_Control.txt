@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the contribution system and the zone control phase of the warfronts of Battle for Azeroth 8.3.7.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, wago.tools, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Warfront_Contribution_And_Zone_Control.txt
+How the cycle works: the Contribution ids (11, 116, 117, 118), the states and how long each lasts, what moves it forward, who controls the zone after a win, the resets. The client packets (CMSG_CONTRIBUTION_CONTRIBUTE, CMSG_CONTRIBUTION_LAST_UPDATE_REQUEST, SMSG_CONTRIBUTION_LAST_UPDATE_RESPONSE, SMSG_WARFRONT_COMPLETE): field order and types. What the zone looks like when a faction controls it: phase ids, the world bosses (Doom's Howl 138122, The Lion's Roar 137374, Ivus the Forest Lord 144946, Ivus the Decayed 148295) with abilities, spawn positions and respawn rules, the rares, the goliaths, the world quests and the control quests with their rewards. The quests that open the queue and the reward quests (51342, 52212, 53800, 53801, 53414, 53416, 53992, 53955, 56136, 56137, 57959, 57960).
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

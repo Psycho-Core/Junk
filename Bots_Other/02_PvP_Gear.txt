@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the PvP gear of Battle for Azeroth 8.3.7 (season 4) for a computer-controlled character.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, wago.tools, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, PvP_Gear.txt
+The honor and conquest gear sets per class (set ids, item ids per slot, vendors, costs in honor or conquest, item levels), the elite sets, how the PvP item level template works in battlegrounds and in arenas (does the gear scale, what does a level 120 with normal gear get), the PvP trinkets and how a character switches between PvE and PvP gear.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.

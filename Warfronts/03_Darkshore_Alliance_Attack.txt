@@ -1,0 +1,13 @@
+I run a private World of Warcraft Battle for Azeroth 8.3.7 (build 35662) server on a TrinityCore-based core and I am writing computer-controlled companion characters for it.
+
+Research task (one step of a larger set): the Battle for Darkshore as the Alliance attacker (map 2105, scenario 1697) in 8.3.7: every creature and object of the battle.
+
+WORKING LIMITS
+Your storage for this whole chat is 128 MB. Do not download whole data tables, exports or databases. Look things up one page or one small query at a time (Wowhead, Wowpedia, warcraft.wiki.gg, WoWDB, wago.tools, DBM and BigWigs lua files, Method Dungeon Tools), and delete anything you download once you have copied the numbers you need.
+
+WHAT TO DELIVER - ONE TEXT FILE, Warfront_Darkshore_Alliance.txt
+For each stage of the battle: every creature entry with name, side, level, how many, and the positions (map id, x, y, z) you can verify; every game object (buildings, resource nodes, capture points, gates, banners, chests) with entry, name, start state and position; the order things appear in; and for every scenario criterion below exactly what completes it (scenario event id, spell id or creature kill) and what the player must do. The eleven steps: Battle Preparations, For Auberdine!, Applying Pressure, Protecting the Ancients, Maintaining Momentum, A Presence No More, Reclaiming Bashal'Aran, Sinking Our Roots, Advancing the Effort, The Northern Shore, The Fallen Moon. Criteria include the Auberdine threat bar (95 percent), Deathguard Captain Vandel, the Ancients, the path to Bashal'Aran, Blightguard Captain Thedric, the buildings, the Dredge siege (AzerMEK Mk. II x2, Magmaster Blastcrank, Dredge Defenses) and the Horde commander.
+
+Do only this step. When the file is done, say so and stop: I will send the next step in a new message.
+
+Use only facts you can verify. Give spell ids, creature entries, map ids, coordinates (map id, x, y, z) and item ids wherever they exist. If something cannot be verified write "unverified". Do not invent numbers. Plain text only, no code, no long explanations.
