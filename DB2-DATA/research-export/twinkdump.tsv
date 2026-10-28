@@ -1,0 +1,335 @@
+character	race	class	spec	level	place	item_id	item_name	count	perm_enchant	temp_enchant	gem1	gem2	gem3	bonus_ids
+Standrick	4	4	259	29	Head	122248	Stained Shadowcraft Cap	1	0	0	0	0	0	
+Standrick	4	4	259	29	Neck	153130	Man'ari Training Amulet	1	5439	0	0	0	0	
+Standrick	4	4	259	29	Shoulders	122376	Exceptional Stormshroud Shoulders	1	4804	0	0	0	0	
+Standrick	4	4	259	29	Chest	122383	Stained Shadowcraft Tunic	1	4419	0	0	0	0	
+Standrick	4	4	259	29	Waist	6911	Moss Cinch	1	0	0	0	0	0	3524 3998 
+Standrick	4	4	259	29	Legs	122254	Stained Shadowcraft Pants	1	4822	0	0	0	0	
+Standrick	4	4	259	29	Feet	151068	Boots of the Predator	1	4428	0	0	0	0	3524 4049 
+Standrick	4	4	259	29	Wrists	6902	Bands of Serra'kis	1	4416	0	0	0	0	3524 3998 
+Standrick	4	4	259	29	Hands	888	Naga Battle Gloves	1	4431	0	0	0	0	3524 3998 
+Standrick	4	4	259	29	Finger1	128173	Admiral Taylor's Loyalty Ring	1	5943	0	0	0	0	
+Standrick	4	4	259	29	Finger2	122529	Dread Pirate Ring	1	5943	0	0	0	0	
+Standrick	4	4	259	29	Trinket1	88294	Flashing Steel Talisman	1	0	0	0	0	0	3524 4043 
+Standrick	4	4	259	29	Trinket2	126948	Defending Champion	1	0	0	0	0	0	0 
+Standrick	4	4	259	29	Back	122261	Inherited Cape of the Black Baron	1	5311	0	0	0	0	
+Standrick	4	4	259	29	Mainhand	6904	Bite of Serra'kis	1	4443	0	0	0	0	3524 3998 
+Standrick	4	4	259	29	Offhand	9453	Toxic Revenger	1	4443	0	0	0	0	3524 4017 
+Standrick	4	4	259	29	bag slot 19	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 20	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 21	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 22	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 23	122350	Balanced Heartseeker	1	4443	0	0	0	0	
+Standrick	4	4	259	29	bag slot 24	122350	Balanced Heartseeker	1	4443	0	0	0	0	
+Standrick	4	4	259	29	bag slot 25	6948	Hearthstone	1	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 26	8949	Elixir of Agility	10	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 27	1710	Greater Healing Potion	10	0	0	0	0	0	
+Standrick	4	4	259	29	bag slot 28	122361	Swift Hand of Justice	1	0	0	0	0	0	0 
+Standrick	4	4	259	29	bag slot 29	6220	Meteor Shard	1	4443	0	0	0	0	3524 4049 
+Ladora	3	3	253	29	Head	122246	Tarnished Raging Berserker's Helm	1	0	0	0	0	0	
+Ladora	3	3	253	29	Neck	153130	Man'ari Training Amulet	1	5439	0	0	0	0	
+Ladora	3	3	253	29	Shoulders	122356	Champion Herod's Shoulder	1	4804	0	0	0	0	
+Ladora	3	3	253	29	Chest	122379	Champion's Deathdealer Breastplate	1	4419	0	0	0	0	
+Ladora	3	3	253	29	Waist	132553	Algae-Twined Waistcord	1	0	0	0	0	0	3524 3998 
+Ladora	3	3	253	29	Legs	122252	Tarnished Leggings of Destruction	1	4822	0	0	0	0	
+Ladora	3	3	253	29	Feet	132741	Slither-Scale Boots	1	4428	0	0	0	0	3524 4068 
+Ladora	3	3	253	29	Wrists	132566	Dark Lupine Wraps	1	4416	0	0	0	0	3524 4049 
+Ladora	3	3	253	29	Hands	151065	Old Friend's Gloves	1	4431	0	0	0	0	3524 4005 
+Ladora	3	3	253	29	Finger1	122529	Dread Pirate Ring	1	5943	0	0	0	0	
+Ladora	3	3	253	29	Finger2	128173	Admiral Taylor's Loyalty Ring	1	5943	0	0	0	0	
+Ladora	3	3	253	29	Trinket1	126949	Returning Champion	1	0	0	0	0	0	0 
+Ladora	3	3	253	29	Trinket2	126948	Defending Champion	1	0	0	0	0	0	0 
+Ladora	3	3	253	29	Back	122261	Inherited Cape of the Black Baron	1	5314	0	0	0	0	
+Ladora	3	3	253	29	Mainhand	6469	Venomstrike	1	0	0	0	0	0	3524 4068 
+Ladora	3	3	253	29	bag slot 23	6948	Hearthstone	1	0	0	0	0	0	
+Ladora	3	3	253	29	bag slot 24	8949	Elixir of Agility	10	0	0	0	0	0	
+Ladora	3	3	253	29	bag slot 25	1710	Greater Healing Potion	10	0	0	0	0	0	
+Ladora	3	3	253	29	bag slot 26	122352	Charmed Ancient Bone Bow	1	4699	0	0	0	0	
+Ladora	3	3	253	29	bag slot 27	77529	Lord Blastington's Scope of Doom	1	0	0	0	0	0	
+Magidke	1	2	65	29	Head	151085	Glitchbot Helm	1	0	0	0	0	0	3524 4017 
+Magidke	1	2	65	29	Neck	122663	Eternal Amulet of the Redeemed	1	5437	0	0	0	0	
+Magidke	1	2	65	29	Shoulders	122373	Pristine Lightforge Spaulders	1	4806	0	0	0	0	
+Magidke	1	2	65	29	Chest	6642	Phantom Armor	1	0	0	0	0	0	3524 4049 
+Magidke	1	2	65	29	Waist	6460	Cobrahn's Grasp	1	0	0	0	0	0	3524 4068 
+Magidke	1	2	65	29	Legs	127011	Pristine Lightforge Legplates	1	4826	0	0	0	0	
+Magidke	1	2	65	29	Feet	6459	Savage Trodders	1	4062	0	0	0	0	3524 4068 
+Magidke	1	2	65	29	Wrists	88267	Commanding Bracers	1	4414	0	0	0	0	3524 4054 
+Magidke	1	2	65	29	Hands	151063	Gear-Marked Gauntlets	1	4431	0	0	0	0	3524 4005 
+Magidke	1	2	65	29	Finger1	122529	Dread Pirate Ring	1	5943	0	0	0	0	
+Magidke	1	2	65	29	Finger2	128169	Signet of the Third Fleet	1	5943	0	0	0	0	
+Magidke	1	2	65	29	Back	122262	Ancient Bloodmoon Cloak	1	5314	0	0	0	0	
+Magidke	1	2	65	29	Mainhand	122367	The Blessed Hammer of Grace	1	4442	0	0	0	0	
+Magidke	1	2	65	29	Offhand	9458	Thermaplugg's Central Core	1	4434	0	0	0	0	3524 4017 
+Magidke	1	2	65	29	bag slot 19	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 20	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 21	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 22	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 23	127012	Pristine Lightforge Helm	1	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 24	151427	Snake-Charmer's Casque	1	0	0	0	0	0	3524 4068 
+Magidke	1	2	65	29	bag slot 25	127010	Pristine Lightforge Breastplate	1	4419	0	0	0	0	
+Magidke	1	2	65	29	bag slot 26	122392	Weathered Observer's Shield	1	4434	0	0	0	0	
+Magidke	1	2	65	29	bag slot 27	6630	Seedcloud Buckler	1	4434	0	0	0	0	3524 4068 
+Magidke	1	2	65	29	bag slot 28	3827	Mana Potion	10	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 29	3383	Elixir of Wisdom	11	0	0	0	0	0	
+Magidke	1	2	65	29	bag slot 30	6948	Hearthstone	1	0	0	0	0	0	
+Ronic	2	1	71	29	Head	88292	Helm of Rising Flame	1	0	0	0	0	0	3524 4043 
+Ronic	2	1	71	29	Neck	153130	Man'ari Training Amulet	1	0	0	0	0	0	0 
+Ronic	2	1	71	29	Shoulders	122355	Polished Spaulders of Valor	1	4803	0	0	0	0	
+Ronic	2	1	71	29	Chest	88268	Canine Commander's Breastplate	1	0	0	0	0	0	3524 4054 
+Ronic	2	1	71	29	Waist	88296	Waistplate of Imminent Resurrection	1	0	0	0	0	0	3524 4043 
+Ronic	2	1	71	29	Legs	122251	Polished Legplates of Valor	1	4823	0	0	0	0	
+Ronic	2	1	71	29	Feet	6459	Savage Trodders	1	4062	0	0	0	0	3524 4068 
+Ronic	2	1	71	29	Wrists	82879	Collarspike Bracers	1	4415	0	0	0	0	3524 4032 
+Ronic	2	1	71	29	Hands	151070	Gloves of the Greymane Wall	1	4431	0	0	0	0	3524 4049 
+Ronic	2	1	71	29	Finger1	122529	Dread Pirate Ring	1	5945	0	0	0	0	
+Ronic	2	1	71	29	Finger2	128172	Captain Sander's Returned Band	1	5945	0	0	0	0	
+Ronic	2	1	71	29	Trinket1	126948	Defending Champion	1	0	0	0	0	0	0 
+Ronic	2	1	71	29	Trinket2	126949	Returning Champion	1	0	0	0	0	0	0 
+Ronic	2	1	71	29	Back	122260	Worn Stoneskin Gargoyle Cape	1	5314	0	0	0	0	
+Ronic	2	1	71	29	Mainhand	6909	Strike of the Hydra	1	4443	0	0	0	0	3524 3998 
+Ronic	2	1	71	29	bag slot 23	9449	Manual Crowd Pummeler	1	4443	0	0	0	0	3524 4017 
+Ronic	2	1	71	29	bag slot 24	122365	Reforged Truesilver Champion	1	4443	0	0	0	0	
+Ronic	2	1	71	29	bag slot 25	122245	Polished Helm of Valor	1	0	0	0	0	0	
+Ronic	2	1	71	29	bag slot 26	122381	Polished Breastplate of Valor	1	4419	0	0	0	0	
+Ronic	2	1	71	29	bag slot 27	6627	Mutant Breastplate	1	0	0	0	0	0	3524 4068 
+Ronic	2	1	71	29	bag slot 28	5943	Rift Bracers	1	0	0	0	0	0	3524 4049 
+Ronic	2	1	71	29	bag slot 29	1710	Greater Healing Potion	20	0	0	0	0	0	
+Ronic	2	1	71	29	bag slot 30	6662	Elixir of Giant Growth	10	0	0	0	0	0	
+Ronic	2	1	71	29	bag slot 31	6948	Hearthstone	1	0	0	0	0	0	
+Ronic	2	1	71	29	bag slot 32	74725	Enchant Weapon - Elemental Force	1	0	0	0	0	0	
+Zeha	6	11	102	29	Head	122249	Preened Tribal War Feathers	1	0	0	0	0	0	
+Zeha	6	11	102	29	Neck	122663	Eternal Amulet of the Redeemed	1	5437	0	0	0	0	
+Zeha	6	11	102	29	Shoulders	122377	Lasting Feralheart Spaulders	1	4806	0	0	0	0	
+Zeha	6	11	102	29	Chest	6473	Armor of the Fang	1	0	0	0	0	0	3524 4068 
+Zeha	6	11	102	29	Waist	10412	Belt of the Fang	1	0	0	0	0	0	3524 4068 
+Zeha	6	11	102	29	Legs	122255	Preened Wildfeather Leggings	1	4826	0	0	0	0	
+Zeha	6	11	102	29	Feet	10411	Footpads of the Fang	1	4062	0	0	0	0	3524 4068 
+Zeha	6	11	102	29	Wrists	6902	Bands of Serra'kis	1	0	0	0	0	0	3524 3998 
+Zeha	6	11	102	29	Hands	10413	Gloves of the Fang	1	4431	0	0	0	0	3524 4068 
+Zeha	6	11	102	29	Finger1	88300	Triune Signet	1	5943	0	0	0	0	3524 4043 
+Zeha	6	11	102	29	Finger2	128169	Signet of the Third Fleet	1	5943	0	0	0	0	
+Zeha	6	11	102	29	Trinket1	122361	Swift Hand of Justice	1	0	0	0	0	0	0 
+Zeha	6	11	102	29	Trinket2	166754	Tome of Thalassian Hymns	1	0	0	0	0	0	0 
+Zeha	6	11	102	29	Back	122262	Ancient Bloodmoon Cloak	1	5314	0	0	0	0	
+Zeha	6	11	102	29	Mainhand	120165	Thruk's Fillet Knife	1	4442	0	0	0	0	3524 3998 
+Zeha	6	11	102	29	Offhand	122390	Musty Tome of the Lost	1	4434	0	0	0	0	
+Zeha	6	11	102	29	bag slot 19	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Zeha	6	11	102	29	bag slot 20	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Zeha	6	11	102	29	bag slot 21	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Zeha	6	11	102	29	bag slot 22	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Zeha	6	11	102	29	bag slot 23	122529	Dread Pirate Ring	1	5943	0	0	0	0	
+Zeha	6	11	102	29	bag slot 24	122382	Preened Ironfeather Breastplate	1	4419	0	0	0	0	
+Zeha	6	11	102	29	bag slot 25	6911	Moss Cinch	1	0	0	0	0	0	3524 3998 
+Zeha	6	11	102	29	bag slot 26	10410	Leggings of the Fang	1	0	0	0	0	0	3524 4068 
+Zeha	6	11	102	29	bag slot 27	151438	Hungering Deepwater Treads	1	0	0	0	0	0	3524 3998 
+Zeha	6	11	102	29	bag slot 28	888	Naga Battle Gloves	1	0	0	0	0	0	3524 3998 
+Zeha	6	11	102	29	bag slot 29	6948	Hearthstone	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	Head	88299	Whitemane's Embroidered Chapeau	1	0	0	0	0	0	3524 4043 
+Velanlatha	10	8	64	29	Neck	122663	Eternal Amulet of the Redeemed	1	5437	0	0	0	0	
+Velanlatha	10	8	64	29	Shoulders	122360	Tattered Dreadmist Mantle	1	4806	0	0	0	0	
+Velanlatha	10	8	64	29	Chest	88279	Robes of Koegler	1	4419	0	0	0	0	3524 4054 
+Velanlatha	10	8	64	29	Waist	5967	Girdle of Nobility	1	0	0	0	0	0	3524 4059 
+Velanlatha	10	8	64	29	Legs	122256	Tattered Dreadmist Leggings	1	4826	0	0	0	0	
+Velanlatha	10	8	64	29	Feet	88269	Scarlet Sandals	1	4062	0	0	0	0	3524 4054 
+Velanlatha	10	8	64	29	Wrists	151426	Lady Anacondra's Satin Cuffs	1	4414	0	0	0	0	3524 4068 
+Velanlatha	10	8	64	29	Hands	5195	Gold-Flecked Gloves	1	4431	0	0	0	0	3524 4005 
+Velanlatha	10	8	64	29	Finger1	88300	Triune Signet	1	5945	0	0	0	0	3524 4043 
+Velanlatha	10	8	64	29	Finger2	128169	Signet of the Third Fleet	1	5945	0	0	0	0	
+Velanlatha	10	8	64	29	Trinket1	166756	Loa-Touched Warscroll	1	0	0	0	0	0	0 
+Velanlatha	10	8	64	29	Trinket2	126949	Returning Champion	1	0	0	0	0	0	0 
+Velanlatha	10	8	64	29	Back	88290	Scorched Earth Cloak	1	5314	0	0	0	0	3524 4043 
+Velanlatha	10	8	64	29	Mainhand	5198	Cookie's Stirring Rod	1	4442	0	0	0	0	3524 4005 
+Velanlatha	10	8	64	29	Offhand	6341	Eerie Stable Lantern	1	4434	0	0	0	0	3524 4049 
+Velanlatha	10	8	64	29	bag slot 19	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 20	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 21	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 22	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 23	122353	Dignified Headmaster's Charge	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 24	122529	Dread Pirate Ring	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 25	88285	Signet of the Hidden Door	1	0	0	0	0	0	3524 4043 
+Velanlatha	10	8	64	29	bag slot 26	122250	Tattered Dreadmist Mask	1	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 27	9492	Electromagnetic Gigaflux Reactivator	1	0	0	0	0	0	3524 4017 
+Velanlatha	10	8	64	29	bag slot 28	151062	Armbands of Exiled Architects	1	0	0	0	0	0	3524 4005 
+Velanlatha	10	8	64	29	bag slot 29	122262	Ancient Bloodmoon Cloak	1	5314	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 30	122384	Tattered Dreadmist Robe	1	4419	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 31	82878	Fireworm Robes	1	0	0	0	0	0	3524 4032 
+Velanlatha	10	8	64	29	bag slot 32	3827	Mana Potion	10	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 33	17708	Elixir of Frost Power	20	0	0	0	0	0	
+Velanlatha	10	8	64	29	bag slot 34	6948	Hearthstone	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	Chest	58233	Squire's Vest	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	Feet	43	Squire's Boots	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	Mainhand	52557	Battleworn Hammer	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 19	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 20	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 21	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 22	154696	Embroidered Deep Sea Bag	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 23	2299	Burning War Axe	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 24	7753	Bloodspiller	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 25	122389	Bloodsoaked Skullforge Reaver	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 26	122364	Sharpened Scarlet Kris	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 27	2912	Claw of the Shadowmancer	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 28	122663	Eternal Amulet of the Redeemed	1	5437	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 29	122664	Eternal Horizon Choker	1	5437	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 30	153130	Man'ari Training Amulet	1	5439	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 31	122529	Dread Pirate Ring	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 32	128169	Signet of the Third Fleet	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 33	126948	Defending Champion	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 34	126949	Returning Champion	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 35	128318	Touch of the Void	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 36	122361	Swift Hand of Justice	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 37	122362	Discerning Eye of the Beast	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 38	166753	Orcish War Horn	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 39	166754	Tome of Thalassian Hymns	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 40	166755	Deathstalkers' Gloaming Powder	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 41	122378	Exquisite Sunderseer Mantle	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 42	122358	Stained Shadowcraft Spaulders	1	4804	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 51	122349	Bloodied Arcanite Reaper	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 53	122366	Upgraded Dwarven Hand Cannon	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 54	122354	Devout Aurastone Hammer	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 56	122385	Venerable Mass of McGowan	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 57	122386	Repurposed Lava Dredger	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 58	131733	Spear of Rethu	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 59	140773	Eagletalon Spear	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 60	122351	Venerable Dal'Rend's Sacred Charge	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 61	122369	Battleworn Thrash Blade	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 62	122363	Burnished Warden Staff	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 65	122368	Grand Staff of Jordan	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 66	122396	Brawler's Razor Claws	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 67	122662	Eternal Talisman of Evasion	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 68	122666	Eternal Woven Ivy Necklace	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 69	122667	Eternal Emberfury Talisman	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 70	122668	Eternal Will of the Martyr	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 71	166756	Loa-Touched Warscroll	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 72	166766	Tidesages' Warscroll	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 73	166767	Kaldorei Powder of Twilight	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 74	166768	Hymnal of the 7th Legion	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 75	166769	Dwarven War Horn	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 76	122530	Inherited Mark of Tyranny	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 77	122370	Inherited Insignia of the Horde	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	bag slot 78	122371	Inherited Insignia of the Alliance	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 0	122359	Preened Ironfeather Shoulders	1	4806	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 1	122374	Prized Beastmaster's Mantle	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 2	122375	Aged Pauldrons of The Five Thunders	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 3	122372	Strengthened Stockade Pauldrons	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 4	6373	Elixir of Firepower	20	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 5	41426	Magically Wrapped Gift	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 6	6948	Hearthstone	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 7	128551	Enchant Neck - Mark of the Claw	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 8	128553	Enchant Neck - Mark of the Hidden Satyr	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 9	83006	Greater Tiger Fang Inscription	4	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 10	83007	Greater Tiger Claw Inscription	2	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 11	87560	Greater Ox Horn Inscription	4	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 12	110656	Enchant Cloak - Gift of Versatility	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 13	74703	Enchant Bracer - Super Intellect	2	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 14	74704	Enchant Bracer - Exceptional Strength	3	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 15	74705	Enchant Bracer - Greater Agility	5	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 16	82444	Greater Pearlescent Spellthread	2	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 17	82445	Greater Cerulean Spellthread	6	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 18	83763	Ironscale Leg Armor	4	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 19	83764	Shadowleather Leg Armor	3	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 20	83765	Angerhide Leg Armor	4	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 21	74717	Enchant Boots - Blurred Speed	5	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 22	74725	Enchant Weapon - Elemental Force	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 23	52754	Enchant Shield - Protection	3	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 24	44455	Shield Enchant - Greater Intellect	5	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 25	44455	Shield Enchant - Greater Intellect	1	0	0	0	0	0	
+DONOTUSE	1	2	70	85	in a bag, slot 26	38860	Enchant Shield - Vitality	4	0	0	0	0	0	
+Tanked	36	1	73	29	Head	88292	Helm of Rising Flame	1	0	0	0	0	0	3524 4043 
+Tanked	36	1	73	29	Neck	153130	Man'ari Training Amulet	1	5439	0	0	0	0	
+Tanked	36	1	73	29	Shoulders	122388	Burnished Pauldrons of Might	1	4805	0	0	0	0	
+Tanked	36	1	73	29	Chest	88268	Canine Commander's Breastplate	1	4419	0	0	0	0	3524 4054 
+Tanked	36	1	73	29	Waist	6460	Cobrahn's Grasp	1	0	0	0	0	0	3524 4068 
+Tanked	36	1	73	29	Legs	122264	Burnished Legplates of Might	1	4824	0	0	0	0	
+Tanked	36	1	73	29	Feet	151441	Aku'mai Worshipper's Greatboots	1	4062	0	0	0	0	3524 3998 
+Tanked	36	1	73	29	Wrists	82879	Collarspike Bracers	1	4415	0	0	0	0	3524 4032 
+Tanked	36	1	73	29	Hands	6906	Algae Fists	1	4431	0	0	0	0	3524 3998 
+Tanked	36	1	73	29	Finger1	88300	Triune Signet	1	0	0	0	0	0	3524 4043 
+Tanked	36	1	73	29	Finger2	88285	Signet of the Hidden Door	1	0	0	0	0	0	3524 4043 
+Tanked	36	1	73	29	Trinket1	122530	Inherited Mark of Tyranny	1	0	0	0	0	0	0 
+Tanked	36	1	73	29	Trinket2	126949	Returning Champion	1	0	0	0	0	0	0 
+Tanked	36	1	73	29	Back	122266	Ripped Sandstorm Cloak	1	5314	0	0	0	0	
+Tanked	36	1	73	29	Mainhand	11121	Darkwater Talwar	1	4443	0	0	0	0	3524 3998 
+Tanked	36	1	73	29	Offhand	9458	Thermaplugg's Central Core	1	1890	0	0	0	0	3524 4017 
+Tanked	36	1	73	29	Tabard	161328	Tabard of the Mag'har Clans	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 19	157787	Large Red Sack	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 20	157787	Large Red Sack	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 21	157787	Large Red Sack	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 22	157787	Large Red Sack	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 23	122369	Battleworn Thrash Blade	1	4443	0	0	0	0	0 
+Tanked	36	1	73	29	bag slot 24	122389	Bloodsoaked Skullforge Reaver	1	4443	0	0	0	0	0 
+Tanked	36	1	73	29	bag slot 25	9446	Electrocutioner Leg	1	4443	0	0	0	0	3524 4017 
+Tanked	36	1	73	29	bag slot 26	122529	Dread Pirate Ring	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 27	128172	Captain Sander's Returned Band	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 28	122263	Burnished Helm of Might	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 29	151440	Blackfathom Ascendant's Helm	1	0	0	0	0	0	3524 3998 
+Tanked	36	1	73	29	bag slot 30	122387	Burnished Breastplate of Might	1	4419	0	0	0	0	
+Tanked	36	1	73	29	bag slot 31	6627	Mutant Breastplate	1	0	0	0	0	0	3524 4068 
+Tanked	36	1	73	29	bag slot 32	82885	Flameseared Carapace	1	0	0	0	0	0	3524 4032 
+Tanked	36	1	73	29	bag slot 33	6459	Savage Trodders	1	0	0	0	0	0	3524 4068 
+Tanked	36	1	73	29	bag slot 34	82886	Gorewalker Treads	1	0	0	0	0	0	3524 4032 
+Tanked	36	1	73	29	bag slot 35	5943	Rift Bracers	1	0	0	0	0	0	3524 4049 
+Tanked	36	1	73	29	bag slot 36	88267	Commanding Bracers	1	0	0	0	0	0	3524 4054 
+Tanked	36	1	73	29	bag slot 37	4676	Skeletal Gauntlets	1	0	0	0	0	0	3524 4059 
+Tanked	36	1	73	29	bag slot 38	151070	Gloves of the Greymane Wall	1	0	0	0	0	0	3524 4049 
+Tanked	36	1	73	29	bag slot 39	122391	Flamescarred Draconian Deflector	1	4073	0	0	0	0	
+Tanked	36	1	73	29	bag slot 40	6662	Elixir of Giant Growth	10	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 41	6948	Hearthstone	1	0	0	0	0	0	
+Tanked	36	1	73	29	bag slot 42	74708	Enchant Chest - Glorious Stats	1	0	0	0	0	0	
+Tanked	36	1	73	29	in a bag, slot 0	74704	Enchant Bracer - Exceptional Strength	1	0	0	0	0	0	
+Tanked	36	1	73	29	in a bag, slot 1	52743	Enchant Boots - Earthen Vitality	1	0	0	0	0	0	
+Tanked	36	1	73	29	in a bag, slot 2	74725	Enchant Weapon - Elemental Force	2	0	0	0	0	0	
+Tanked	36	1	73	29	in a bag, slot 3	52754	Enchant Shield - Protection	2	0	0	0	0	0	
+Tanked	36	1	73	29	in a bag, slot 4	38860	Enchant Shield - Vitality	1	0	0	0	0	0	
+Bor	34	7	262	29	Head	122247	Mystical Coif of Elements	1	0	0	0	0	0	
+Bor	34	7	262	29	Neck	122664	Eternal Horizon Choker	1	5439	0	0	0	0	0 
+Bor	34	7	262	29	Shoulders	122357	Mystical Pauldrons of Elements	1	4806	0	0	0	0	
+Bor	34	7	262	29	Chest	132739	Slither-Scale Hauberk	1	4419	0	0	0	0	3524 4068 
+Bor	34	7	262	29	Waist	132740	Slither-Scale Cord	1	0	0	0	0	0	3524 4068 
+Bor	34	7	262	29	Legs	132742	Slither-Scale Britches	1	0	0	0	0	0	3524 4068 
+Bor	34	7	262	29	Feet	132741	Slither-Scale Boots	1	4062	0	0	0	0	3524 4068 
+Bor	34	7	262	29	Wrists	132555	Serra'kis Scale Wraps	1	4414	0	0	0	0	3524 3998 
+Bor	34	7	262	29	Hands	132743	Slither-Scale Gauntlets	1	4431	0	0	0	0	3524 4068 
+Bor	34	7	262	29	Finger1	122529	Dread Pirate Ring	1	5945	0	0	0	0	
+Bor	34	7	262	29	Finger2	128169	Signet of the Third Fleet	1	5945	0	0	0	0	
+Bor	34	7	262	29	Trinket1	166768	Hymnal of the 7th Legion	1	0	0	0	0	0	0 
+Bor	34	7	262	29	Trinket2	166766	Tidesages' Warscroll	1	0	0	0	0	0	0 
+Bor	34	7	262	29	Back	122262	Ancient Bloodmoon Cloak	1	5314	0	0	0	0	
+Bor	34	7	262	29	Mainhand	2912	Claw of the Shadowmancer	1	4442	0	0	0	0	
+Bor	34	7	262	29	Offhand	6630	Seedcloud Buckler	1	4434	0	0	0	0	3524 4068 
+Bor	34	7	262	29	Tabard	161329	Tabard of the Dark Iron	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 19	157787	Large Red Sack	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 20	157787	Large Red Sack	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 21	157787	Large Red Sack	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 22	157787	Large Red Sack	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 23	6948	Hearthstone	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 24	157022	Letter from King Anduin Wrynn	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 25	161329	Tabard of the Dark Iron	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 26	74703	Enchant Bracer - Super Intellect	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 28	122380	Mystical Vest of Elements	1	4419	0	0	0	0	
+Bor	34	7	262	29	bag slot 29	110656	Enchant Cloak - Gift of Versatility	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 31	122253	Mystical Kilt of Elements	1	4826	0	0	0	0	
+Bor	34	7	262	29	bag slot 36	74724	Enchant Weapon - Jade Spirit	1	0	0	0	0	0	
+Bor	34	7	262	29	bag slot 41	151065	Old Friend's Gloves	1	0	0	0	0	0	3524 4005 
+jado	32	10	269	29	Head	122248	Stained Shadowcraft Cap	1	0	0	0	0	0	0 
+jado	32	10	269	29	Neck	151437	Hook Charm Necklace	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Shoulders	88302	Incarnadine Scarlet Spaulders	1	0	0	0	0	0	3524 4043 
+jado	32	10	269	29	Chest	88291	Korloff's Raiment	1	0	0	0	0	0	3524 4043 
+jado	32	10	269	29	Waist	6911	Moss Cinch	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Legs	151432	Twilight Turtleskin Leggings	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Feet	151438	Hungering Deepwater Treads	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Wrists	6902	Bands of Serra'kis	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Hands	888	Naga Battle Gloves	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Finger1	88300	Triune Signet	1	0	0	0	0	0	3524 4043 
+jado	32	10	269	29	Finger2	88285	Signet of the Hidden Door	1	0	0	0	0	0	3524 4043 
+jado	32	10	269	29	Trinket1	128318	Touch of the Void	1	0	0	0	0	0	0 
+jado	32	10	269	29	Trinket2	88294	Flashing Steel Talisman	1	0	0	0	0	0	3524 4043 
+jado	32	10	269	29	Back	6901	Glowing Thresher Cape	1	0	0	0	0	0	3524 3998 
+jado	32	10	269	29	Mainhand	12974	The Black Knight	1	0	0	0	0	0	
+jado	32	10	269	29	Offhand	12974	The Black Knight	1	0	0	0	0	0	
+jado	32	10	269	29	Tabard	165010	Tabard of Kul Tiras	1	0	0	0	0	0	
+jado	32	10	269	29	bag slot 19	157787	Large Red Sack	1	0	0	0	0	0	
+jado	32	10	269	29	bag slot 20	157787	Large Red Sack	1	0	0	0	0	0	
+jado	32	10	269	29	bag slot 21	157787	Large Red Sack	1	0	0	0	0	0	
+jado	32	10	269	29	bag slot 22	157787	Large Red Sack	1	0	0	0	0	0	
+jado	32	10	269	29	bag slot 24	6948	Hearthstone	1	0	0	0	0	0	
+jado	32	10	269	29	bag slot 28	88293	Firefinger Ring	1	0	0	0	0	0	3524 4043 

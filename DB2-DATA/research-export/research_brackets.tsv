@@ -1,0 +1,95 @@
+battlemaster_id	name	instance_type	min_level	max_level	rated_players	min_players	max_players	group_max	flags	map_ids	bracket_for_29	bracket_for_19	bracket_for_39
+1	Alterac Valley	3	20	120	25	10	40	5	24	30	20-29	none	30-39
+2	Classic Warsong Gulch	3	10	120	10	5	10	5	0	489	20-29	10-19	30-39
+3	Classic Arathi Basin	3	10	120	10	8	15	5	0	529	20-29	10-19	30-39
+4	Nagrand Arena (old)	4	0	0	5	0	5	5	5	559	20-29	10-19	30-39
+5	zzOldBlade's Edge Arena	4	0	0	5	0	5	5	5	562	20-29	10-19	30-39
+6	All Arenas	4	15	120	5	0	5	3	8	1672,1911,1504,1505,572,617,980,1134,1552,1170,1825,2167	20-29	10-19	30-39
+7	Eye of the Storm	3	15	120	15	8	15	5	24	566	20-29	15-19	30-39
+8	Ruins of Lordaeron	4	10	120	5	0	5	5	8	572	20-29	10-19	30-39
+9	Strand of the Ancients	3	50	120	15	8	15	5	1	607	none	none	none
+10	Dalaran Sewers	4	10	120	5	0	5	5	8	617	20-29	10-19	30-39
+11	The Ring of Valor	4	10	100	5	0	5	5	0	618	20-29	10-19	30-39
+30	Isle of Conquest	3	20	120	25	10	40	5	24	628	20-29	none	30-39
+32	Random Battleground	3	10	120	25	5	40	5	0	2107,2106,566,1803,761,726,727,998,2245	20-29	10-19	30-39
+100	Rated Battleground	3	120	120	10	5	10	10	2	2107,1803,968,727,998,761,726,2106,2245	20-29	10-19	30-39
+101	Rated Battleground	3	20	90	15	8	15	15	2	2107,566,607	20-29	10-19	30-39
+102	Rated Battleground	3	100	100	6	4	6	6	2	727,998,726,2106,1803	none	none	35-39
+108	Twin Peaks	3	30	120	10	5	10	5	24	726	none	none	30-39
+120	The Battle for Gilneas	3	25	120	10	3	10	5	24	761	25-29	none	30-39
+656	Rated Eye of the Storm	3	100	120	10	5	10	5	10	968	none	none	none
+699	Temple of Kotmogu	3	40	120	10	2	10	5	24	998	none	none	none
+706	CTF3	3	0	0	10	5	10	5	1	1010	none	none	none
+708	Silvershard Mines	3	35	120	10	5	10	5	24	727	none	none	35-39
+719	Tol'Viron Arena	4	90	120	5	0	5	5	8	980	none	none	none
+754	Deepwind Gorge (Legacy)	3	45	120	10	8	15	5	8	1105	none	none	none
+757	The Tiger's Peak	4	90	120	5	0	5	5	8	1134	none	none	none
+789	Southshore vs. Tarren Mill	3	110	120	0	10	40	5	36	1280	20-29	10-19	30-39
+803	Small Battleground D	3	110	120	5	0	5	5	5	1171	none	none	none
+808	Black Rook Hold Arena	4	90	120	5	0	5	5	8	1504	none	none	none
+809	Nagrand Arena	4	10	120	5	0	5	5	8	1505	20-29	10-19	30-39
+816	Ashamane's Fall	4	90	120	5	0	5	5	8	1552	none	none	none
+844	Blade's Edge Arena	4	10	120	5	0	5	5	8	1672	20-29	10-19	30-39
+846	The Battle for Gilneas (Old City Map)	3	0	0	10	5	10	5	37	728	none	none	none
+847	Arathi Basin Winter	3	0	0	10	8	15	5	36	1681	none	none	none
+848	AI Test - Arathi Basin	3	10	120	10	8	15	15	1	1686	20-29	10-19	30-39
+849	Deepwind Dunk	3	45	120	10	8	15	5	36	1105	none	none	none
+853	Shado-Pan Showdown	3	1	120	5	0	5	5	100	1170	none	none	none
+856	[TEMP] RaceTrackBG	3	0	0	10	5	10	5	1	1726	none	none	none
+857	Blackrock	4	110	120	0	2	2	2	37	1715	none	none	none
+858	Temple of Hotmogu	3	40	120	10	1	10	5	36	998	none	none	none
+859	Gravity Lapse	3	110	120	15	8	15	5	36	566	20-29	15-19	30-39
+860	Deepwind Dunk	3	45	120	10	8	15	5	36	1105	none	none	none
+861	Warsong Scramble	3	10	120	10	5	10	5	36	2106	20-29	10-19	30-39
+862	Eye of the Horn	3	15	120	15	8	15	5	36	566	20-29	15-19	30-39
+866	All Arenas	3	120	120	5	8	15	5	100	1672,617,1505,572,1134,980,1552,1504,1911,1825,2167	20-29	10-19	30-39
+868	Ruins of Lordaeron	3	110	120	5	0	15	5	100	572	20-29	10-19	30-39
+869	Dalaran Sewers	3	110	120	5	0	15	5	100	617	20-29	10-19	30-39
+870	Tol'Viron Arena	3	110	120	5	0	15	5	100	980	none	none	none
+871	The Tiger's Peak	3	110	120	5	0	15	5	100	1134	none	none	none
+872	Black Rook Hold Arena	3	110	120	5	0	15	5	100	1504	none	none	none
+873	Nagrand Arena	3	110	120	5	0	15	5	100	1505	20-29	10-19	30-39
+874	Ashamane's Fall	3	110	120	5	0	15	5	100	1552	none	none	none
+875	Blade's Edge Arena	3	110	120	5	0	15	5	100	1672	20-29	10-19	30-39
+878	AI Test - Warsong Gulch	3	0	0	10	5	10	10	1	1740	20-29	10-19	30-39
+879	Deep Six	3	110	120	6	6	6	6	32	2106,998,727,1803	20-29	10-19	30-39
+880	Arathi Basin	3	110	120	6	6	6	6	32	529	20-29	10-19	30-39
+881	Deepwind Gorge	3	110	120	6	6	6	6	32	1105	none	none	none
+882	Eye of the Storm	3	110	120	6	6	6	6	32	968	none	none	none
+883	Silvershard Mines	3	110	120	6	6	6	6	32	727	none	none	35-39
+884	Temple of Kotmogu	3	110	120	6	6	6	6	32	998	none	none	none
+885	The Battle for Gilneas	3	110	120	6	6	6	6	32	1803	none	none	none
+886	Warsong Gulch	3	110	120	6	6	6	6	32	2106	20-29	10-19	30-39
+887	Cooking: Impossible	3	110	120	10	5	10	5	32	1691	none	none	none
+890	Seething Strand	3	45	120	10	8	15	5	1	1782	none	none	none
+893	8.0 BG Temp	3	45	110	10	8	15	5	1	1802	none	none	none
+894	Seething Shore	3	110	120	10	5	10	5	24	1803	none	none	none
+897	Hook Point	4	90	120	5	0	5	5	8	1825	none	none	none
+901	Random Epic Battleground	3	20	120	0	5	40	5	0	30,1191,2118,628	20-29	none	30-39
+902	The Tiger's Peak	3	110	120	3	1	3	3	96	1134	none	none	none
+903	Mugambala	4	110	120	5	0	5	5	8	1911	none	none	none
+904	Brawl - All Arenas	4	110	120	3	3	3	3	32	1672,617,1505,572,1134,980,1552,1504	20-29	10-19	30-39
+905	All Arenas - Stocked House	3	110	120	3	1	3	3	100	1672,617,1505,572,1134,980,1552,1504	20-29	10-19	30-39
+906	Ashamane's Fall	3	110	120	3	1	3	3	100	1552	none	none	none
+907	Blade's Edge Arena	3	110	120	3	1	3	3	100	1672	20-29	10-19	30-39
+908	Blade's Edge	3	110	120	3	1	3	3	96	1672	20-29	10-19	30-39
+909	Dalaran Sewers	3	110	120	3	1	3	3	96	617	20-29	10-19	30-39
+910	Nagrand Arena	3	110	120	3	1	3	3	96	1505	20-29	10-19	30-39
+911	Ruins of Lordaeron	3	110	120	3	1	3	3	96	572	20-29	10-19	30-39
+912	Tol'Viron Arena	3	110	120	3	1	3	3	96	980	none	none	none
+913	Black Rook Hold Arena	3	110	120	3	1	3	3	96	1504	none	none	none
+1014	Warsong Gulch	3	10	120	10	5	10	5	24	2106	20-29	10-19	30-39
+1017	Battle for Wintergrasp	3	80	120	25	10	40	5	24	2118	none	none	none
+1018	Arathi Basin	3	10	120	10	8	15	5	24	2107	20-29	10-19	30-39
+1019	Arathi Basin Comp Stomp	3	0	0	15	1	15	15	0	2177	none	none	none
+1020	Ashran	3	100	120	25	10	25	5	24	1191	none	none	none
+1021	Classic Ashran	3	20	120	25	10	25	5	40	1191	none	none	none
+1022	Arathi Basin	3	120	120	10	8	15	5	36	2177	none	none	none
+1025	The Robodrome	4	90	120	5	0	5	5	8	2167	none	none	none
+1029	Random Battleground	3	10	120	25	5	40	5	1	2107,2106,566,1803,761,726,727,998,2245	20-29	10-19	30-39
+1030	Battle for Wintergrasp	3	80	120	25	10	40	5	32	2118	none	none	none
+1031	Programmer Map - Battlefield	3	0	0	0	1	20	0	0	2226	none	none	none
+1033	Korrak's Revenge	3	0	0	25	10	40	40	0	2197	10-120	10-120	10-120
+1036	Epic Battleground - Warfront Arathi (PvP)	3	0	0	40	10	40	5	1	2292	none	none	none
+1037	Deepwind Gorge	3	0	0	10	8	15	5	24	2245	none	none	none
+1039	Deepwind Gorge	3	0	0	10	8	15	5	32	2245	none	none	none

@@ -1,0 +1,347 @@
+item_id	name	inventory_type	item_class	item_subclass	item_level_at_29	base_item_level	required_level	allowable_class	stat_allocations	flags	flags2	bonding	duration
+167851	Island Expedition Gloves	0	0	8	111	111	111	-1		134255680	155712	1	0
+105685	Hellscream's Cleaver	13	2	0	124	133	90	-1	Agility:5259,Stamina:7889,Crit:3506,Mastery:3506	134250496	139264	1	0
+69887	Burnished Helm of Might	1	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Other:3610,Crit:3332	134217728	155648	1	0
+93844	Refinished Warden Staff	17	2	10	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+42949	Polished Spaulders of Valor	3	4	4	33	1	0	-1	StrInt:6666,Stamina:6666,Crit:4445	134217728	155648	1	0
+93892	Brushed Breastplate of Might	5	4	4	33	1	1	-1	StrInt:5259,Stamina:7889,Other:5259	134217728	155648	1	0
+105683	Hellscream's Warbow	15	2	2	124	133	90	-1	Agility:5259,Stamina:7889,Mastery:3997,Haste:2664	134250496	139264	1	0
+105675	Hellscream's Warmace	13	2	4	122	130	90	-1	Intellect:5259,Stamina:7889,Crit:2745,Mastery:3951,Intellect:25370	134250496	139776	1	0
+92522	Grand Commendation of the Klaxxi	0	0	8	1	1	1	-1		0	24576	1	0
+93902	Flamescarred Draconian Deflector	14	4	6	33	1	1	-1	Strength:5259,Stamina:7889,Other:5259,Intellect:16132	134217728	155648	1	0
+42943	Bloodied Arcanite Reaper	17	2	1	33	1	0	-1	Strength:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+133585	Judgment of the Naaru	12	4	0	145	1	0	-1	Versatility:6666	134742080	143424	1	0
+168197	Time Trial Keystone	0	5	1	1	1	1	-1		134283296	139328	1	0
+42992	Discerning Eye of the Beast	12	4	0	33	1	0	-1	Intellect:6666	134217728	155648	1	0
+133596	Orb of Voidsight	12	4	0	145	1	0	-1	Intellect:6666	134742080	143424	1	0
+122355	Polished Spaulders of Valor	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+42984	Preened Ironfeather Shoulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+105693	Hellscream's Shield Wall	14	4	6	124	133	90	-1	Strength:5259,Stamina:7889,Mastery:3506,Crit:3506,Intellect:16132	134250496	139264	1	0
+42948	Devout Aurastone Hammer	13	2	4	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:2700,Intellect:25370	134217728	156160	1	0
+122385	Venerable Mass of McGowan	13	2	4	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+44099	Strengthened Stockade Pauldrons	3	4	4	33	1	0	-1	StrInt:5259,Stamina:5259,Versatility:5259	134217728	139264	1	0
+93224	Grand Commendation of the August Celestials	0	0	8	1	1	1	-1		0	24576	1	0
+48691	Tattered Dreadmist Robe	20	4	1	33	1	1	-1	Intellect:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+88563	Nat's Fishing Journal	0	12	0	1	1	1	-1		134219840	139264	1	0
+143935	Commendation of The Klaxxi	0	0	8	90	90	0	-1		134217792	139264	1	0
+48677	Champion's Deathdealer Breastplate	5	4	3	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+69888	Burnished Legplates of Might	7	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Other:3761,Crit:3076	134217728	155648	1	0
+133160	Commendation of Therazane	0	0	8	1	1	0	-1		134217792	139264	1	0
+166754	Tome of Thalassian Hymns	12	4	0	33	1	0	-1	Intellect:6666	134742080	139265	1	0
+104408	Hellscream's Tome of Destruction	23	4	0	122	130	90	-1	Stamina:7889,Crit:3506,Haste:3056,Intellect:16132	134250496	155648	1	0
+44135	Greater Inscription of the Storm	0	0	8	80	80	80	-1		134217792	139264	1	0
+42951	Mystical Pauldrons of Elements	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+44136	Greater Inscription of the Pinnacle	0	0	8	80	80	80	-1		134217792	139264	1	0
+104402	Hellscream's Warmace	13	2	4	122	130	90	-1	Intellect:5259,Stamina:7889,Crit:2745,Mastery:3951,Intellect:25370	134250496	139776	1	0
+86550	Apprentice Cookbook	0	9	5	80	80	1	-1		134217792	139264	1	0
+150746	To Modernize the Provisioning of Azeroth	0	15	0	1	1	1	-1		134217792	139266	1	0
+44091	Sharpened Scarlet Kris	13	2	15	33	1	0	-1	Agility:5259,Stamina:7889,Versatility:5259	134217728	139264	1	0
+167853	Island Expedition Legwear	0	0	8	111	111	111	-1		134255680	155712	1	0
+143943	Commendation of the Dominance Offensive	0	0	8	90	90	0	-1		134217792	139265	1	0
+42950	Champion Herod's Shoulder	3	4	3	33	1	0	-1	AgiStr:5259,Crit:5259,Stamina:7889	134217728	155648	1	0
+44101	Prized Beastmaster's Mantle	3	4	3	33	1	0	-1	AgiStr:6666,Stamina:6666,Versatility:4444	134217728	139264	1	0
+44100	Pristine Lightforge Spaulders	3	4	4	33	1	0	-1	StrInt:4444,Stamina:6666,Crit:4444,Versatility:4444	134217728	139264	1	0
+150743	Surviving Kalimdor	0	15	0	1	1	1	-1		134217792	139266	1	0
+44098	Inherited Insignia of the Alliance	12	4	0	33	1	0	-1	Versatility:6666	134217728	155650	1	0
+44095	Grand Staff of Jordan	17	2	10	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:5259,Intellect:18121	134217728	139776	1	0
+42947	Dignified Headmaster's Charge	17	2	10	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:4766,Intellect:18121	134217728	156160	1	0
+122368	Grand Staff of Jordan	17	2	10	33	1	0	-1	Intellect:5259,Stamina:7889,Haste:7012,Intellect:18121	134217728	139776	1	0
+93860	Bloodstained Dreadmist Robe	20	4	1	33	1	1	-1	Intellect:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93876	Awakened Pauldrons of Elements	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+122364	Sharpened Scarlet Kris	13	2	15	33	1	0	-1	Agility:5259,Stamina:7889,Crit:7012	134217728	139264	1	0
+127010	Pristine Lightforge Breastplate	5	4	4	33	1	1	-1	StrInt:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122362	Discerning Eye of the Beast	12	4	0	33	1	0	-1	Intellect:6666,Stamina:0	134217728	155648	1	0
+93215	Grand Commendation of the Golden Lotus	0	0	8	1	1	1	-1		0	24576	1	0
+93858	Brawler's Bladed Claws	13	2	13	33	1	1	-1	Agility:5259,Stamina:7889,Haste:3506,Crit:3506	134217728	155648	1	0
+93886	Adorned Beastmaster's Mantle	3	4	3	33	1	0	-1	AgiStr:6666,Stamina:6666,Versatility:4444	134217728	139264	1	0
+93867	Superior Stormshroud Shoulders	3	4	2	33	1	0	-1	AgiStr:6666,Stamina:6666,Versatility:4767	134217728	139264	1	0
+105677	Hellscream's War Staff	17	2	10	122	130	90	-1	Intellect:5259,Stamina:7889,Mastery:3559,Crit:3418,Intellect:18121	134250496	139776	1	0
+93848	Battle-Hardened Thrash Blade	13	2	7	33	1	0	-1	Versatility:5259	134742016	139264	1	0
+166770	Banded Gilnean Cloak	16	4	1	33	1	0	-1	AgiStrInt:5259,Stamina:7889,Versatility:3500,Haste:3500	134217728	139266	1	0
+167927	Commendation of the Saberstalkers	0	0	8	100	100	0	-1		134217792	139264	1	0
+44092	Reforged Truesilver Champion	17	2	8	33	1	0	-1	Strength:7266,Stamina:4789,Versatility:4106	134217728	139264	1	0
+86553	Master Cookbook	0	9	5	80	80	1	-1		134217792	139264	1	0
+44093	Upgraded Dwarven Hand Cannon	26	2	3	33	1	0	-1	Agility:4106,Crit:7266,Versatility:3193	134217728	139264	1	0
+140773	Eagletalon Spear	17	2	6	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+44102	Aged Pauldrons of The Five Thunders	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Versatility:5259	134217728	139264	1	0
+105684	Hellscream's Razor	13	2	15	124	133	90	-1	Agility:5259,Stamina:7889,Haste:3246,Crit:3661	134250496	139264	1	0
+105688	Hellscream's Warmace	13	2	4	124	133	90	-1	Intellect:5259,Stamina:7889,Crit:2745,Mastery:3951,Intellect:25370	134250496	139776	1	0
+122380	Mystical Vest of Elements	5	4	3	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+93856	Noble Dal'Rend's Sacred Charge	13	2	7	33	1	0	-1	Agility:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93888	Furious Deathdealer Breastplate	5	4	3	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+86551	Expert Cookbook	0	9	5	80	80	1	-1		134217792	139264	1	0
+93904	Musty Tome of the Lost	23	4	0	33	1	1	-1	Stamina:7889,Haste:5259,Intellect:16132	134217728	155648	1	0
+93861	Prestigious Sunderseer Mantle	3	4	1	33	1	0	-1	Intellect:5259,Stamina:5259,Crit:3506,Versatility:5259	134217728	139264	1	0
+105687	Hellscream's Barrier	14	4	6	124	133	90	-1	Strength:5259,Stamina:7889,Mastery:3506,Haste:3506,Intellect:16132	134250496	139264	1	0
+93843	Hardened Arcanite Reaper	17	2	1	33	1	0	-1	Strength:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+122354	Devout Aurastone Hammer	13	2	4	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:7012,Intellect:25370	134217728	156160	1	0
+93885	Awakened Vest of Elements	5	4	3	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93862	Supple Shadowcraft Spaulders	3	4	2	33	1	0	-1	AgiStr:7266,Crit:4106,Stamina:4789	134217728	155648	1	0
+93866	Wild Feralheart Spaulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:5259,Crit:3506,Versatility:5259	134217728	139264	1	0
+93846	Re-Engineered Lava Dredger	17	2	5	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+166756	Loa-Touched Warscroll	12	4	0	33	1	0	-1	Crit:6666	134742080	139265	1	0
+93859	Bloodstained Dreadmist Mantle	3	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93863	Supple Shadowcraft Tunic	5	4	2	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93225	Grand Commendation of the Anglers	0	0	8	1	1	1	-1		0	24576	1	0
+93864	Majestic Ironfeather Shoulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93896	Forceful Hand of Justice	12	4	0	33	1	0	-1	Haste:6666	134217728	155648	1	0
+122370	Inherited Insignia of the Horde	12	4	0	33	1	0	-1	Stamina:7889	134217728	155648	1	0
+122372	Strengthened Stockade Pauldrons	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+131733	Spear of Rethu	17	2	6	33	1	1	-1	Agility:5259,Stamina:7889,Crit:7012	134250496	139264	1	0
+93231	Grand Commendation of Operation: Shieldwall	0	0	8	1	1	1	-1		0	24576	1	0
+69903	Satchel of Exotic Mysteries	0	15	0	85	85	0	-1		134217732	139264	1	0
+167928	Commendation of the Frostwolf Orcs	0	0	8	100	100	0	-1		134217792	139265	1	0
+42944	Balanced Heartseeker	13	2	15	33	1	0	-1	Agility:6554,Crit:5236,Haste:3193	134217728	155648	1	0
+42952	Stained Shadowcraft Spaulders	3	4	2	33	1	0	-1	AgiStr:7266,Crit:4106,Stamina:4789	134217728	155648	1	0
+93857	Vengeful Heartseeker	13	2	15	33	1	0	-1	Agility:6554,Crit:5632,Haste:3193	134217728	155648	1	0
+150745	The Azeroth Campaign	0	15	0	1	1	1	-1		134217792	139265	1	0
+42945	Venerable Dal'Rend's Sacred Charge	13	2	7	33	1	0	-1	Agility:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+42946	Charmed Ancient Bone Bow	15	2	2	33	1	0	-1	Agility:5259,Crit:5259,Haste:5259	134217728	155648	1	0
+42985	Tattered Dreadmist Mantle	3	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+42991	Swift Hand of Justice	12	4	0	33	1	0	-1	Haste:6666	134217728	155648	1	0
+44094	The Blessed Hammer of Grace	13	2	4	33	1	0	-1	Intellect:5259,Stamina:7889,Versatility:3554,Intellect:25370	134217728	139776	1	0
+44096	Battleworn Thrash Blade	13	2	7	33	1	0	-1	Versatility:5259	134742016	139264	1	0
+44097	Inherited Insignia of the Horde	12	4	0	33	1	0	-1	Versatility:6666	134217728	155649	1	0
+44103	Exceptional Stormshroud Shoulders	3	4	2	33	1	0	-1	AgiStr:6666,Stamina:6666,Versatility:4767	134217728	139264	1	0
+44105	Lasting Feralheart Spaulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:5259,Crit:5259	134217728	139264	1	0
+44107	Exquisite Sunderseer Mantle	3	4	1	33	1	0	-1	Intellect:5259,Stamina:5259,Crit:3506,Versatility:5259	134217728	139264	1	0
+44133	Greater Inscription of the Axe	0	0	8	80	80	80	-1		134217792	139264	1	0
+44134	Greater Inscription of the Crag	0	0	8	80	80	80	-1		134217792	139264	1	0
+153130	Man'ari Training Amulet	2	4	0	33	1	0	-1	Stamina:7889,Crit:7012,Haste:7012	134217728	139264	1	0
+167930	Commendation of the Laughing Skull Orcs	0	0	8	100	100	0	-1		134217792	139265	1	0
+143936	Commendation of the Shado-Pan	0	0	8	90	90	0	-1		134217792	139264	1	0
+143944	Commendation of Operation: Shieldwall	0	0	8	90	90	0	-1		134217792	139266	1	0
+69893	Bloodsoaked Skullforge Reaver	13	2	7	33	1	0	-1	Strength:5259,Stamina:7889,Other:5259	134217728	155648	1	0
+133154	Commendation of the Ramkahen	0	0	8	1	1	0	-1		134217792	139264	1	0
+143937	Commendation of the Golden Lotus	0	0	8	90	90	0	-1		134217792	139264	1	0
+143946	Commendation of The Anglers	0	0	8	90	90	0	-1		134217792	139264	1	0
+48683	Mystical Vest of Elements	5	4	3	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+48685	Polished Breastplate of Valor	5	4	4	33	1	1	-1	StrInt:5996,Stamina:5996,Crit:7012	134217728	155648	1	0
+48687	Preened Ironfeather Breastplate	5	4	2	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+48689	Stained Shadowcraft Tunic	5	4	2	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+48716	Venerable Mass of McGowan	13	2	4	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+48718	Repurposed Lava Dredger	17	2	5	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+49177	Tome of Cold Weather Flight	0	9	0	80	80	68	-1		134217792	139264	1	0
+50255	Dread Pirate Ring	11	4	0	33	1	0	-1	Crit:7266,Haste:4106,Stamina:4789	134742016	155648	1	0
+50335	Greater Inscription of the Axe	0	0	8	80	80	80	-1		134217792	139264	1	0
+50336	Greater Inscription of the Crag	0	0	8	80	80	80	-1		134217792	139264	1	0
+50337	Greater Inscription of the Pinnacle	0	0	8	80	80	80	-1		134217792	139264	1	0
+50338	Greater Inscription of the Storm	0	0	8	80	80	80	-1		134217792	139264	1	0
+69889	Burnished Breastplate of Might	5	4	4	33	1	1	-1	StrInt:5259,Stamina:7889,Other:5259	134217728	155648	1	0
+93855	War-Torn Ancient Bone Bow	15	2	2	33	1	0	-1	Agility:5259,Crit:5259,Haste:5259	134217728	155648	1	0
+93229	Grand Commendation of the Order of the Cloud Serpent	0	0	8	1	1	1	-1		0	24576	1	0
+93230	Grand Commendation of the Lorewalkers	0	0	8	1	1	1	-1		0	24576	1	0
+69892	Ripped Sandstorm Cloak	16	4	1	33	1	0	-1	Strength:5259,Stamina:7889,Other:3997,Crit:2664	134217728	155648	1	0
+61931	Polished Helm of Valor	1	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+61935	Tarnished Raging Berserker's Helm	1	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:3506,Crit:3506	134217728	155648	1	0
+61936	Mystical Coif of Elements	1	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Versatility:3506,Crit:3506	134217728	155648	1	0
+61937	Stained Shadowcraft Cap	1	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+61942	Preened Tribal War Feathers	1	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Versatility:3506,Crit:3506	134217728	155648	1	0
+61958	Tattered Dreadmist Mask	1	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+62023	Polished Legplates of Valor	7	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+62024	Tarnished Leggings of Destruction	7	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+62025	Mystical Kilt of Elements	7	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Versatility:3506,Crit:3506	134217728	155648	1	0
+62026	Stained Shadowcraft Pants	7	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+62027	Preened Wildfeather Leggings	7	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:3506,Versatility:3506	134217728	155648	1	0
+62029	Tattered Dreadmist Leggings	7	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+62035	Antique Myrmidon's Signet	11	4	0	33	1	0	-1	Strength:5259,Stamina:7889,Crit:3506,Haste:3506	134742016	155648	1	0
+62036	Ornate Band of Accuria	11	4	0	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134742016	155648	1	0
+62037	Gleaming Seal of the Archmagus	11	4	0	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134742016	155648	1	0
+62038	Worn Stoneskin Gargoyle Cape	16	4	1	33	1	0	-1	Strength:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+62039	Inherited Cape of the Black Baron	16	4	1	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+93849	Elder Staff of Jordan	17	2	10	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:5259,Intellect:18121	134217728	139776	1	0
+62040	Ancient Bloodmoon Cloak	16	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+93850	The Sanctified Hammer of Grace	13	2	4	33	1	0	-1	Intellect:5259,Stamina:7889,Versatility:3554,Intellect:25370	134217728	139776	1	0
+93232	Grand Commendation of the Dominance Offensive	0	0	8	1	1	1	-1		0	24576	1	0
+93898	Bequeathed Insignia of the Horde	12	4	0	33	1	0	-1	Versatility:6666	134217728	155649	1	0
+93893	Brushed Pauldrons of Might	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Other:5259	134217728	155648	1	0
+166445	7th Legion Scouting Map	0	15	0	1	1	1	-1		134217792	139266	1	0
+69890	Burnished Pauldrons of Might	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Other:5259	134217728	155648	1	0
+69891	Burnished Dark Iron Ring	11	4	0	33	1	0	-1	Strength:5259,Stamina:7889,Other:3661,Other:3246	134742016	155648	1	0
+79131	Burnished Warden Staff	17	2	10	33	1	0	-1	Stamina:7889,Agility:5259,Crit:3506,Haste:3506	134217728	155648	1	0
+143938	Commendation of The August Celestials	0	0	8	90	90	0	-1		134217792	139264	1	0
+166752	Stone Guard's Bladed Cloak	16	4	1	33	1	0	-1	AgiStrInt:5259,Stamina:7889,Versatility:3500,Haste:3500	134217728	139265	1	0
+86512	Journeyman Cookbook	0	9	5	80	80	1	-1		134217792	139264	1	0
+86552	Artisan Cookbook	0	9	5	80	80	1	-1		134217792	139264	1	0
+86554	Grand Master Cookbook	0	9	5	80	80	1	-1		134217792	139264	1	0
+90818	Misty Satchel of Exotic Mysteries	0	15	4	90	90	0	-1		134217732	139264	1	0
+92948	Brawler's Razor Claws	13	2	13	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+93220	Grand Commendation of the Shado-Pan	0	0	8	1	1	1	-1		0	24576	1	0
+93226	Grand Commendation of the Tillers	0	0	8	1	1	1	-1		0	24576	1	0
+93841	Smoothbore Dwarven Hand Cannon	26	2	3	33	1	0	-1	Agility:4106,Crit:7266,Versatility:3193	134217728	139264	1	0
+93845	Gore-Steeped Skullforge Reaver	13	2	7	33	1	0	-1	Strength:5259,Stamina:7889,Other:5259	134217728	155648	1	0
+93847	Crushing Mass of McGowan	13	2	4	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+93851	Battle-Forged Truesilver Champion	17	2	8	33	1	0	-1	Strength:7266,Stamina:4789,Versatility:4106	134217728	139264	1	0
+93852	Deadly Scarlet Kris	13	2	15	33	1	0	-1	Agility:5259,Stamina:7889,Versatility:5259	134217728	139264	1	0
+93853	Pious Aurastone Hammer	13	2	4	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:2700,Intellect:25370	134217728	156160	1	0
+93854	Scholarly Headmaster's Charge	17	2	10	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:4766,Intellect:18121	134217728	156160	1	0
+93865	Majestic Ironfeather Breastplate	5	4	2	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93887	Grand Champion Herod's Shoulder	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:5259	134217728	155648	1	0
+93889	Venerated Pauldrons of The Five Thunders	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Versatility:5259	134217728	139264	1	0
+93890	Gleaming Spaulders of Valor	3	4	4	33	1	0	-1	StrInt:6666,Stamina:6666,Crit:4444	134217728	155648	1	0
+93891	Gleaming Breastplate of Valor	5	4	4	33	1	1	-1	StrInt:5996,Stamina:5996,Crit:5258	134217728	155648	1	0
+93894	Immaculate Lightforge Spaulders	3	4	4	33	1	0	-1	StrInt:4444,Stamina:6666,Crit:4444,Versatility:4444	134217728	139264	1	0
+93895	Reinforced Stockade Pauldrons	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Versatility:5259	134217728	139264	1	0
+93897	Piercing Eye of the Beast	12	4	0	33	1	0	-1	Intellect:6666	134217728	155648	1	0
+93899	Bequeathed Insignia of the Alliance	12	4	0	33	1	0	-1	Versatility:6666	134217728	155650	1	0
+93900	Inherited Mark of Tyranny	12	4	0	33	1	0	-1	Versatility:6666	134217728	155648	1	0
+93903	Weathered Observer's Shield	14	4	6	33	1	1	-1	Strength:5259,Stamina:7889,Versatility:5259,Intellect:16132	134217728	155648	1	0
+95545	Grand Commendation of the Kirin Tor Offensive	0	0	8	1	1	1	-1		0	24576	1	0
+95548	Grand Commendation of the Sunreaver Onslaught	0	0	8	1	1	1	-1		0	24576	1	0
+95559	Grand Commendation of the Shado-Pan Assault	0	0	8	1	1	1	-1		0	24576	1	0
+104260	Satchel of Savage Mysteries	0	15	4	100	100	0	-1		134217732	139264	1	0
+104399	Hellscream's Warbow	15	2	2	122	130	90	-1	Agility:5259,Stamina:7889,Mastery:3997,Haste:2664	134250496	139264	1	0
+104400	Hellscream's Razor	13	2	15	122	130	90	-1	Agility:5259,Stamina:7889,Haste:3246,Crit:3661	134250496	139264	1	0
+104401	Hellscream's Doomblade	13	2	7	122	130	90	-1	Strength:5259,Stamina:7889,Crit:3761,Mastery:3076	134250496	139264	1	0
+104403	Hellscream's Pig Sticker	17	2	6	122	130	90	-1	Agility:5259,Stamina:7889,Mastery:3506,Haste:3506	134250496	139264	1	0
+104404	Hellscream's Cleaver	13	2	0	122	130	90	-1	Agility:5259,Stamina:7889,Crit:3506,Mastery:3506	134250496	139264	1	0
+104405	Hellscream's Decapitator	17	2	1	122	130	90	-1	Strength:5259,Stamina:7889,Crit:3076,Haste:3761	134250496	139264	1	0
+104406	Hellscream's War Staff	17	2	10	122	130	90	-1	Intellect:5259,Stamina:7889,Mastery:3559,Crit:3418,Intellect:18121	134250496	139776	1	0
+104407	Hellscream's Shield Wall	14	4	6	122	130	90	-1	Strength:5259,Stamina:7889,Mastery:3506,Crit:3506,Intellect:16132	134250496	139264	1	0
+104409	Hellscream's Barrier	14	4	6	122	130	90	-1	Strength:5259,Stamina:7889,Mastery:3506,Haste:3506,Intellect:16132	134250496	139264	1	0
+105670	Hellscream's Warbow	15	2	2	122	130	90	-1	Agility:5259,Stamina:7889,Mastery:3997,Haste:2664	134250496	139264	1	0
+105671	Hellscream's Razor	13	2	15	122	130	90	-1	Agility:5259,Stamina:7889,Haste:3246,Crit:3661	134250496	139264	1	0
+105672	Hellscream's Cleaver	13	2	0	122	130	90	-1	Agility:5259,Stamina:7889,Crit:3506,Mastery:3506	134250496	139264	1	0
+105673	Hellscream's Pig Sticker	17	2	6	122	130	90	-1	Agility:5259,Stamina:7889,Mastery:3506,Haste:3506	134250496	139264	1	0
+105674	Hellscream's Barrier	14	4	6	122	130	90	-1	Strength:5259,Stamina:7889,Mastery:3506,Haste:3506,Intellect:16132	134250496	139264	1	0
+105676	Hellscream's Tome of Destruction	23	4	0	122	130	90	-1	Stamina:7889,Crit:3506,Haste:3056,Intellect:16132	134250496	155648	1	0
+105678	Hellscream's Doomblade	13	2	7	122	130	90	-1	Strength:5259,Stamina:7889,Crit:3761,Mastery:3076	134250496	139264	1	0
+105679	Hellscream's Decapitator	17	2	1	122	130	90	-1	Strength:5259,Stamina:7889,Crit:3076,Haste:3761	134250496	139264	1	0
+105680	Hellscream's Shield Wall	14	4	6	122	130	90	-1	Strength:5259,Stamina:7889,Mastery:3506,Crit:3506,Intellect:16132	134250496	139264	1	0
+105686	Hellscream's Pig Sticker	17	2	6	124	133	90	-1	Agility:5259,Stamina:7889,Mastery:3506,Haste:3506	134250496	139264	1	0
+105689	Hellscream's Tome of Destruction	23	4	0	124	133	90	-1	Stamina:7889,Crit:3506,Haste:3056,Intellect:16132	134250496	155648	1	0
+105690	Hellscream's War Staff	17	2	10	124	133	90	-1	Intellect:5259,Stamina:7889,Mastery:3559,Crit:3418,Intellect:18121	134250496	139776	1	0
+105691	Hellscream's Doomblade	13	2	7	124	133	90	-1	Strength:5259,Stamina:7889,Crit:3761,Mastery:3076	134250496	139264	1	0
+105692	Hellscream's Decapitator	17	2	1	124	133	90	-1	Strength:5259,Stamina:7889,Crit:3076,Haste:3761	134250496	139264	1	0
+110672	Grimoire of the Four Winds	0	9	0	90	90	85	-1		134217792	139264	1	0
+166768	Hymnal of the 7th Legion	12	4	0	33	1	0	-1	Intellect:6666	134742080	139266	1	0
+117401	Nat's Draenic Fishing Journal	0	0	8	1	1	1	-1		134217792	155648	1	0
+120334	Satchel of Cosmic Mysteries	0	15	4	90	90	0	-1		134217732	139264	1	0
+120968	Chauffeured Chopper	0	0	8	100	100	0	-1		134217728	139264	1	0
+122245	Polished Helm of Valor	1	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122246	Tarnished Raging Berserker's Helm	1	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122247	Mystical Coif of Elements	1	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122248	Stained Shadowcraft Cap	1	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122249	Preened Tribal War Feathers	1	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122250	Tattered Dreadmist Mask	1	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Haste:7012,Haste:0	134217728	155648	1	0
+122251	Polished Legplates of Valor	7	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122252	Tarnished Leggings of Destruction	7	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122253	Mystical Kilt of Elements	7	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:3506,Crit:3506	134217728	155648	1	0
+122254	Stained Shadowcraft Pants	7	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122255	Preened Wildfeather Leggings	7	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:3506,Crit:3506	134217728	155648	1	0
+122256	Tattered Dreadmist Leggings	7	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122257	Antique Myrmidon's Signet	11	4	0	33	1	0	-1	Strength:5259,Stamina:7889,Crit:3506,Haste:3506	134742016	155648	1	0
+122258	Ornate Band of Accuria	11	4	0	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134742016	155648	1	0
+122259	Gleaming Seal of the Archmagus	11	4	0	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134742016	155648	1	0
+122260	Worn Stoneskin Gargoyle Cape	16	4	1	33	1	0	-1	Strength:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122261	Inherited Cape of the Black Baron	16	4	1	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122262	Ancient Bloodmoon Cloak	16	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122263	Burnished Helm of Might	1	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122264	Burnished Legplates of Might	7	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Haste:3506,Crit:3506	134217728	155648	1	0
+122265	Burnished Dark Iron Ring	11	4	0	33	1	0	-1	Strength:5259,Stamina:7889,Versatility:3506,Haste:3506	134742016	155648	1	0
+122266	Ripped Sandstorm Cloak	16	4	1	33	1	0	-1	Strength:5259,Stamina:7889,Versatility:3506,Crit:3506	134217728	155648	1	0
+122349	Bloodied Arcanite Reaper	17	2	1	33	1	0	-1	Strength:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122350	Balanced Heartseeker	13	2	15	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122351	Venerable Dal'Rend's Sacred Charge	13	2	7	33	1	0	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122352	Charmed Ancient Bone Bow	15	2	2	33	1	0	-1	Agility:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122353	Dignified Headmaster's Charge	17	2	10	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:7012,Intellect:18121	134217728	156160	1	0
+122356	Champion Herod's Shoulder	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122357	Mystical Pauldrons of Elements	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122358	Stained Shadowcraft Spaulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122359	Preened Ironfeather Shoulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122360	Tattered Dreadmist Mantle	3	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122361	Swift Hand of Justice	12	4	0	33	1	0	-1	Haste:6666	134217728	155648	1	0
+122363	Burnished Warden Staff	17	2	10	33	1	0	-1	Agility:5259,Stamina:7889,Haste:7012,Haste:0	134217728	155648	1	0
+122365	Reforged Truesilver Champion	17	2	8	33	1	0	-1	Strength:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+122366	Upgraded Dwarven Hand Cannon	26	2	3	33	1	0	-1	Agility:5259,Stamina:7889,Crit:7012	134217728	139264	1	0
+122367	The Blessed Hammer of Grace	13	2	4	33	1	0	-1	Intellect:5259,Stamina:7889,Haste:7012,Intellect:25370	134217728	139776	1	0
+122369	Battleworn Thrash Blade	13	2	7	33	1	0	-1	Stamina:7889	134742016	139264	1	0
+122371	Inherited Insignia of the Alliance	12	4	0	33	1	0	-1	Stamina:7889	134217728	155648	1	0
+122373	Pristine Lightforge Spaulders	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	139264	1	0
+122374	Prized Beastmaster's Mantle	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+122375	Aged Pauldrons of The Five Thunders	3	4	3	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+122376	Exceptional Stormshroud Shoulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+122377	Lasting Feralheart Spaulders	3	4	2	33	1	0	-1	AgiStr:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+122378	Exquisite Sunderseer Mantle	3	4	1	33	1	0	-1	Intellect:5259,Stamina:7889,Haste:7012	134217728	139264	1	0
+122379	Champion's Deathdealer Breastplate	5	4	3	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+150744	Walking Kalimdor with the Earthmother	0	15	0	1	1	1	-1		134217792	139265	1	0
+122381	Polished Breastplate of Valor	5	4	4	33	1	1	-1	StrInt:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122382	Preened Ironfeather Breastplate	5	4	2	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122383	Stained Shadowcraft Tunic	5	4	2	33	1	1	-1	AgiStr:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122384	Tattered Dreadmist Robe	20	4	1	33	1	1	-1	Intellect:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122386	Repurposed Lava Dredger	17	2	5	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122387	Burnished Breastplate of Might	5	4	4	33	1	1	-1	StrInt:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122388	Burnished Pauldrons of Might	3	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Haste:3506,Crit:3506	134217728	155648	1	0
+122389	Bloodsoaked Skullforge Reaver	13	2	7	33	1	0	-1	Strength:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122390	Musty Tome of the Lost	23	4	0	33	1	1	-1	Stamina:7889,Haste:7012,Intellect:16132	134217728	155648	1	0
+122391	Flamescarred Draconian Deflector	14	4	6	33	1	1	-1	Strength:5259,Stamina:7889,Haste:7012,Intellect:16132	134217728	155648	1	0
+122392	Weathered Observer's Shield	14	4	6	33	1	1	-1	Strength:5259,Stamina:7889,Haste:7012,Intellect:16132	134217728	155648	1	0
+122396	Brawler's Razor Claws	13	2	13	33	1	1	-1	Agility:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+122529	Dread Pirate Ring	11	4	0	33	1	0	-1	Haste:4106,Stamina:7266,Crit:4789	134742016	155648	1	0
+122530	Inherited Mark of Tyranny	12	4	0	33	1	0	-1	Stamina:7889	134217728	155648	1	0
+122662	Eternal Talisman of Evasion	2	4	0	33	1	0	-1	Strength:5259,Stamina:7889,Versatility:7012	134217728	155648	1	0
+122663	Eternal Amulet of the Redeemed	2	4	0	33	1	0	-1	Intellect:5259,Stamina:7889,Versatility:7012	134217728	155648	1	0
+122664	Eternal Horizon Choker	2	4	0	33	1	0	-1	Intellect:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122666	Eternal Woven Ivy Necklace	2	4	0	33	1	0	-1	Agility:5259,Stamina:7889,Versatility:7012	134217728	155648	1	0
+122667	Eternal Emberfury Talisman	2	4	0	33	1	0	-1	Strength:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+122668	Eternal Will of the Martyr	2	4	0	33	1	0	-1	Agility:5259,Stamina:7889,Haste:7012	134217728	155648	1	0
+122703	Chauffeured Chopper	0	0	8	100	100	0	-1		134217728	139264	1	0
+122718	Clinking Present	0	15	0	100	100	0	-1		4	8192	1	0
+167929	Commendation of the Council of Exarchs	0	0	8	100	100	0	-1		134217792	139266	1	0
+126948	Defending Champion	12	4	0	33	1	0	-1	Stamina:7889,Versatility:5259	134742080	143360	1	0
+126949	Returning Champion	12	4	0	33	1	0	-1	Stamina:7889,Versatility:5259	134742080	143360	1	0
+127011	Pristine Lightforge Legplates	7	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:3506,Haste:3506	134217728	155648	1	0
+127012	Pristine Lightforge Helm	1	4	4	33	1	0	-1	StrInt:5259,Stamina:7889,Crit:7012	134217728	155648	1	0
+168018	Commendation of the Hand of the Prophet	0	0	8	100	100	0	-1		134217792	139266	1	0
+128169	Signet of the Third Fleet	11	4	0	33	1	0	-1	Stamina:7889,Intellect:5259,Crit:7012	134742016	155648	1	0
+128172	Captain Sander's Returned Band	11	4	0	33	1	0	-1	Stamina:7889,Strength:5259,Crit:7012	134742016	155648	1	0
+128173	Admiral Taylor's Loyalty Ring	11	4	0	33	1	0	-1	Stamina:7889,Agility:5259,Crit:7012	134742016	155648	1	0
+128318	Touch of the Void	12	4	0	33	1	0	-1	Versatility:6666	134742080	139264	1	0
+133150	Commendation of the Dragonmaw Clan	0	0	8	1	1	0	-1		134217792	139265	1	0
+129940	Commendation of the Kirin Tor	0	0	8	1	1	0	-1		134217792	139264	1	0
+129941	Commendation of the Ebon Blade	0	0	8	1	1	0	-1		134217792	139264	1	0
+129942	Commendation of the Argent Crusade	0	0	8	1	1	0	-1		134217792	139264	1	0
+129943	Commendation of the Sons of Hodir	0	0	8	1	1	0	-1		134217792	139264	1	0
+129944	Commendation of the Wyrmrest Accord	0	0	8	1	1	0	-1		134217792	139264	1	0
+129945	Commendation of The Consortium	0	0	8	1	1	0	-1		134217792	139264	1	0
+129946	Commendation of The Sha'tar	0	0	8	1	1	0	-1		134217792	139264	1	0
+129947	Commendation of Thrallmar	0	0	8	1	1	0	-1		134217792	139265	1	0
+129948	Commendation of Honor Hold	0	0	8	1	1	0	-1		134217792	139266	1	0
+129949	Commendation of the Cenarion Expedition	0	0	8	1	1	0	-1		134217792	139264	1	0
+129950	Commendation of the Keepers of Time	0	0	8	1	1	0	-1		134217792	139264	1	0
+129951	Commendation of Lower City	0	0	8	1	1	0	-1		134217792	139264	1	0
+129954	Commendation of the Horde Expedition	0	0	8	1	1	0	-1		134217792	139265	1	0
+129955	Commendation of the Alliance Vanguard	0	0	8	1	1	0	-1		134217792	139266	1	0
+150737	Abundant Order Resources Cache	0	0	8	110	110	100	-1		134283264	139264	1	0
+133151	Commendation of the Wildhammer Clan	0	0	8	1	1	0	-1		134217792	139266	1	0
+133152	Commendation of the Guardians of Hyjal	0	0	8	1	1	0	-1		134217792	139264	1	0
+133159	Commendation of The Earthen Ring	0	0	8	1	1	0	-1		134217792	139264	1	0
+133595	Gronntooth War Horn	12	4	0	145	1	0	-1	Mastery:2666,Crit:2666,Haste:2666	134742080	143424	1	0
+133597	Infallible Tracking Charm	12	4	0	145	1	0	-1	Agility:6666	134742080	143424	1	0
+133598	Purified Shard of the Third Moon	12	4	0	145	1	0	-1	Versatility:6666	134742080	143424	1	0
+142156	Order Resources Cache	0	0	8	110	110	100	-1		134283264	139264	1	0
+143939	Commendation of the Sunreaver Onslaught	0	0	8	90	90	0	-1		134217792	139265	1	0
+143940	Commendation of the Kirin Tor Offensive	0	0	8	90	90	0	-1		134217792	139266	1	0
+143941	Commendation of The Tillers	0	0	8	90	90	0	-1		134217792	139264	1	0
+143942	Commendation of the Order of the Cloud Serpent	0	0	8	90	90	0	-1		134217792	139264	1	0
+143945	Commendation of the Shado-Pan Assault	0	0	8	90	90	0	-1		134217792	139264	1	0
+143947	Commendation of Emperor Shaohao	0	0	8	90	90	0	-1		134217792	139264	1	0
+166444	Honorbound Scouting Map	0	15	0	1	1	1	-1		134217792	139265	1	0
+166753	Orcish War Horn	12	4	0	33	1	0	-1	Stamina:9999	134742080	139265	1	0
+166755	Deathstalkers' Gloaming Powder	12	4	0	33	1	0	-1	AgiStrInt:6666	134742080	139265	1	0
+166766	Tidesages' Warscroll	12	4	0	33	1	0	-1	Crit:6666	134742080	139266	1	0
+166767	Kaldorei Powder of Twilight	12	4	0	33	1	0	-1	AgiStrInt:6666	134742080	139266	1	0
+166769	Dwarven War Horn	12	4	0	33	1	0	-1	Stamina:9999	134742080	139266	1	0
+167848	Island Expedition Bracers	0	0	8	111	111	111	-1		134255680	155712	1	0
+167850	Island Expedition Boots	0	0	8	111	111	111	-1		134255680	155712	1	0
+167855	Island Expedition Belt	0	0	8	111	111	111	-1		134255680	155712	1	0
+167858	Island Expedition Cloak	0	0	8	111	111	111	-1		134255680	155712	1	0
+167924	Commendation of the Arakkoa Outcasts	0	0	8	100	100	0	-1		134217792	139264	1	0
+167925	Commendation of the Order of the Awakened	0	0	8	100	100	0	-1		134217792	139264	1	0
+167926	Commendation of the Steamwheedle Preservation Society	0	0	8	100	100	0	-1		134217792	139264	1	0
+167932	Commendation of the Sha'tari Defense	0	0	8	100	100	0	-1		134217792	139266	1	0
+168017	Commendation of Vol'jin's Headhunters	0	0	8	100	100	0	-1		134217792	139265	1	0
+168124	Cache of War Resources	0	0	8	1	1	1	-1		134221828	139264	1	0
+168195	Time Trial Keystone	0	5	1	1	1	1	-1		134283296	139328	1	0
+168196	Time Trial Keystone	0	5	1	1	1	1	-1		134283296	139328	1	0
+168416	Anglers' Water Striders	0	15	6	1	1	20	-1		134283264	139264	1	0

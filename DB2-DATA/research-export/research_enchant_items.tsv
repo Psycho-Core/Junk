@@ -1,0 +1,1106 @@
+item_id	name	item_class	item_subclass	item_level	required_level	quality	spell_id	enchant_id	enchant_name	enchant_item_level	enchant_min_level	enchant_max_level	enchant_effects	enchant_skill	enchant_skill_rank
+68134	Enchant 2H Weapon - Mighty Agility	8	12	80	0	1	95471	4227	+$k1 Agility	1	0	85	t5/arg3/pts130;t0/arg0/pts0;t0/arg0/pts0	0	0
+38863	Enchant Boots - Greater Agility	8	9	1	0	1	20023	1887	+$k1 Agility	1	0	60	t5/arg3/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38844	Enchant Boots - Agility	8	9	1	0	1	13935	904	+$k1 Agility	1	0	60	t5/arg3/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38788	Enchant 2H Weapon - Lesser Versatility	8	12	1	0	3	13380	255	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+44469	Enchant Boots - Greater Assault	8	9	60	0	1	60763	1597	+$k1 Attack Power	55	0	80	t5/arg38/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+144313	Formula: Enchant Neck - Mark of the Versatile	9	8	105	100	1	235704	5896	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38998	Enchant Weapon - Deathfrost	8	11	60	0	3	46578	3273	Deathfrost	30	0	0	t1/arg46579/pts0;t3/arg46662/pts0;t0/arg0/pts0	0	0
+44815	Enchant Bracer - Greater Assault	8	5	60	0	1	44575	3845	+$k1 Attack Power	55	0	80	t5/arg38/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+136857	Songs of the Legion	0	8	100	90	2	210628	5845	Songs of the Legion	1	0	60	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38855	Enchant Bracer - Superior Stamina	8	5	1	0	1	20011	1886	+$k1 Stamina	1	0	60	t5/arg7/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+2863	Coarse Sharpening Stone	0	8	15	5	1	2829	13	Sharpened (+$k1 Damage)	5	0	1	t2/arg0/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38864	Enchant Boots - Versatility	8	9	1	0	1	20024	851	+$k1 Versatility	1	0	60	t5/arg40/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38882	Enchant Bracer - Healing Power	8	5	1	0	1	23802	2650	+$k1 Spell Power	1	0	60	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38911	Enchant Chest - Exceptional Health	8	4	35	0	1	27957	2659	+$k1 Health	30	0	70	t5/arg1/pts150;t0/arg0/pts0;t0/arg0/pts0	0	0
+159469	Enchant Bracers - Swift Hearthing	8	5	120	0	3	267495	5936	Swift Hearthing	1	0	120	t3/arg255067/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+110632	Enchant Cloak - Breath of Haste	8	3	100	0	1	158878	5298	+$k1 Haste	1	0	90	t5/arg36/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+159464	Enchant Gloves - Zandalari Herbalism	8	6	118	0	3	267458	5932	Kul Tiran Herbalism	1	0	120	t3/arg255034/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38909	Enchant Boots - Fortitude	8	9	35	0	1	27950	2649	+$k1 Stamina	30	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38859	Enchant Cloak - Superior Defense	8	3	1	0	1	20015	1889	+$k1 Armor	1	0	60	t4/arg0/pts70;t0/arg0/pts0;t0/arg0/pts0	0	0
+2871	Heavy Sharpening Stone	0	8	25	15	1	2830	14	Sharpened (+$k1 Damage)	15	0	15	t2/arg0/pts4;t0/arg0/pts0;t0/arg0/pts0	0	0
+2304	Light Armor Kit	8	14	5	1	1	2831	15	Reinforced (+$k1 Armor)	1	0	60	t4/arg0/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+68789	Formula: Enchant Bracer - Mighty Intellect	9	8	85	0	3	96262	4257	+$k1 Intellect	1	0	85	t5/arg5/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38819	Enchant Boots - Lesser Versatility	8	9	1	0	1	13687	4726	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38953	Enchant Gloves - Precision	8	6	60	0	1	44488	3234	+$k1 Critical Strike	55	0	80	t5/arg32/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38818	Enchant Chest - Greater Mana	8	4	1	0	1	13663	857	+$k1 Mana	1	0	60	t5/arg0/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38908	Enchant Boots - Vitality	8	9	35	0	1	27948	2656	+$k1 Versatility and +$k2 Stamina	30	0	70	t5/arg7/pts10;t5/arg40/pts10;t0/arg0/pts0	0	0
+38951	Enchant Gloves - Haste	8	6	60	0	1	44484	3231	+$k1 Haste	55	0	80	t5/arg36/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38884	Enchant Weapon - Mighty Intellect	8	11	1	0	3	23804	2568	+$k1 Intellect	1	0	60	t5/arg5/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+38796	Enchant 2H Weapon - Lesser Impact	8	12	1	0	3	13529	943	+$k1 Weapon Damage	1	0	60	t2/arg0/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38989	Enchant Chest - Super Stats	8	4	60	0	1	44623	3252	+$44624s1 All Stats	55	50	0	t3/arg44624/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38806	Enchant Cloak - Defense	8	3	1	0	1	13635	848	+$k1 Armor	1	0	60	t4/arg0/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+38679	Enchant Bracer - Minor Health	8	5	1	0	1	7418	4720	+$k1 Health	1	0	60	t5/arg1/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38767	Enchant Chest - Minor Absorption	8	4	1	0	1	7426	44	Absorption ($7423s1)	1	0	0	t3/arg7445/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38910	Enchant Boots - Surefooted	8	9	35	0	1	27954	2658	+$k1 Haste and +$k2 Critical Strike	30	0	70	t5/arg36/pts10;t5/arg32/pts10;t0/arg0/pts0	0	0
+38769	Enchant Chest - Minor Mana	8	4	1	0	1	7443	24	+$k1 Mana	1	0	60	t5/arg0/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38773	Enchant Chest - Lesser Health	8	4	1	0	1	7748	242	+$k1 Health	1	0	60	t5/arg1/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+158203	Incendiary Ammunition	0	8	120	110	3	264762	5957	Incendiary Ammunition	1	0	120	t3/arg265090/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38799	Enchant Chest - Mana	8	4	1	0	1	13607	843	+$k1 Mana	1	0	60	t5/arg0/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110654	Enchant Cloak - Gift of Mastery	8	3	100	0	3	158886	5312	+$k1 Mastery & +$182495s1% Speed	1	0	90	t5/arg49/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+38801	Enchant Gloves - Herbalism	8	6	1	0	1	13617	845	+$13614s1 Herbalism	1	0	0	t3/arg13614/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38837	Enchant Boots - Minor Speed	8	9	1	0	1	13890	911	Minor Speed Increase	1	0	0	t3/arg13889/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+110642	Enchant Ring - Gift of Versatility	8	10	100	0	3	158918	5328	+$k1 Versatility	1	0	90	t5/arg40/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38373	Frosthide Leg Armor	8	8	80	80	4	60581	3822	+$k1 Stamina and +$k2 Agility	182	0	80	t5/arg7/pts55;t5/arg3/pts22;t0/arg0/pts0	0	0
+38978	Enchant Cloak - Superior Dodge	8	3	60	0	1	44591	1951	+$k1 Dodge	30	0	80	t5/arg13/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+37329	Formula: Enchant Weapon - Exceptional Versatility	9	8	80	0	2	44510	3844	+$k1 Versatility	55	0	80	t5/arg40/pts45;t0/arg0/pts0;t0/arg0/pts0	0	0
+3241	Heavy Weightstone	0	8	25	15	1	3114	21	Weighted (+$k1 Damage)	15	0	15	t2/arg0/pts4;t0/arg0/pts0;t0/arg0/pts0	0	0
+38875	Enchant 2H Weapon - Major Intellect	8	12	1	0	3	20036	1904	+$k1 Intellect	1	0	60	t5/arg5/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+38845	Enchant 2H Weapon - Greater Impact	8	12	1	0	3	13937	963	+$k1 Weapon Damage	1	0	60	t2/arg0/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+2313	Medium Armor Kit	8	14	15	5	1	2832	16	Reinforced (+$k1 Armor)	5	0	60	t4/arg0/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+39006	Enchant Boots - Tuskarr's Vitality	8	9	60	0	1	47901	3232	+$k2 Stamina and Minor Speed Increase	55	0	80	t3/arg24090/pts0;t5/arg7/pts15;t0/arg0/pts0	0	0
+39000	Enchant Cloak - Greater Dodge	8	3	35	0	1	47051	2648	+$k1 Dodge	30	0	70	t5/arg13/pts14;t0/arg0/pts0;t0/arg0/pts0	0	0
+38971	Enchant Bracer - Assault	8	5	60	0	1	60616	1600	+$k1 Attack Power	55	0	80	t5/arg38/pts19;t0/arg0/pts0;t0/arg0/pts0	0	0
+38925	Enchant Weapon - Mongoose	8	11	35	0	3	27984	2673	Mongoose	30	0	0	t1/arg28093/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38935	Enchant Gloves - Major Spellpower	8	6	35	0	1	33997	2937	+$k1 Spell Power	30	0	70	t5/arg45/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38790	Enchant Cloak - Lesser Protection	8	3	1	0	1	13421	744	+$k1 Armor	1	0	60	t4/arg0/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38933	Enchant Gloves - Major Strength	8	6	35	0	1	33995	5250	+$k1 Strength	30	0	70	t5/arg4/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38967	Enchant Gloves - Major Agility	8	6	60	0	1	44529	5259	+$k1 Agility	30	0	80	t5/arg3/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38961	Enchant Boots - Greater Versatility	8	9	60	0	1	44508	1147	+$k1 Versatility	55	0	80	t5/arg40/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+38999	Enchant Chest - Dodge	8	4	35	0	1	46594	5260	+$k1 Dodge	30	0	70	t5/arg13/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+38854	Enchant Bracer - Superior Strength	8	5	1	0	1	20010	1885	+$k1 Strength	1	0	60	t5/arg4/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+38937	Enchant Bracer - Major Intellect	8	5	35	0	1	34001	369	+$k1 Intellect	30	0	70	t5/arg5/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38776	Enchant Chest - Lesser Mana	8	4	1	0	1	7776	246	+$k1 Mana	1	0	60	t5/arg0/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+39001	Enchant Cloak - Mighty Stamina	8	3	60	0	1	47672	3294	+$k1 Stamina	55	0	80	t5/arg7/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+38949	Enchant Shield - Armor	8	13	35	0	1	44383	3229	+$k1 Armor	30	0	70	t4/arg0/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38976	Enchant Boots - Superior Agility	8	9	60	0	1	44589	4748	+$k1 Agility	55	0	80	t5/arg3/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+38980	Enchant Bracer - Major Versatility	8	5	60	0	1	44593	1147	+$k1 Versatility	55	0	80	t5/arg40/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+38940	Enchant Cloak - Greater Agility	8	3	35	0	1	34004	5258	+$k1 Agility	30	0	70	t5/arg3/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38938	Enchant Bracer - Lesser Assault	8	5	35	0	1	34002	5257	+$k1 Attack Power	30	0	70	t5/arg38/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38917	Enchant Weapon - Major Striking	8	11	35	0	3	27967	4746	+$k1 Weapon Damage	1	0	70	t2/arg0/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+39004	Enchant Cloak - Wisdom	8	3	60	0	1	47899	3296	+$k2 Versatility and 2% Reduced Threat	55	0	80	t3/arg25070/pts0;t5/arg40/pts10;t0/arg0/pts0	0	0
+38981	Enchant 2H Weapon - Scourgebane	8	12	60	0	3	44595	3247	+$44594s1 Attack Power versus Undead	55	0	0	t3/arg44594/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+68774	Greater Inscription of Vicious Agility	0	8	85	85	4	96251	4250	+$k1 Agility and +$k2 Armor	1	0	85	t5/arg3/pts50;t4/arg0/pts25;t0/arg0/pts0	0	0
+68049	Heat-Treated Spinning Lure	0	8	81	0	1	95244	4225	Fishing Lure (+$95243s1 Fishing Skill)	1	0	0	t3/arg95243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+2862	Rough Sharpening Stone	0	8	5	1	1	2828	40	Sharpened (+$k1 Damage)	1	0	1	t2/arg0/pts2;t0/arg0/pts0;t0/arg0/pts0	0	0
+110626	Enchant Neck - Breath of Mastery	8	1	100	0	1	158894	5293	+$k1 Mastery	1	0	90	t5/arg49/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+38922	Enchant 2H Weapon - Major Agility	8	12	35	0	3	27977	2670	+$k1 Agility	30	0	70	t5/arg3/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+38990	Enchant Gloves - Armsman	8	6	60	0	1	44625	3253	+$25063s1% Threat and +$k2 Parry	55	0	80	t3/arg25063/pts0;t5/arg14/pts10;t0/arg0/pts0	0	0
+45060	Enchant Staff - Spellpower	8	12	60	0	3	62959	3855	+$k1 Spell Power	55	0	80	t5/arg45/pts69;t0/arg0/pts0;t0/arg0/pts0	0	0
+38986	Enchant Boots - Icewalker	8	9	60	0	1	60623	3826	+$k1 Critical Strike	55	0	80	t5/arg32/pts24;t0/arg32/pts12;t0/arg0/pts0	0	0
+38865	Enchant Chest - Greater Stats	8	4	1	0	1	20025	1891	+$144768s1 All Stats	1	0	0	t3/arg144768/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38948	Enchant Weapon - Executioner	8	11	60	0	3	42974	3225	Executioner	30	0	0	t1/arg42976/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+3239	Rough Weightstone	0	8	5	1	1	3112	19	Weighted (+$k1 Damage)	1	0	1	t2/arg0/pts2;t0/arg0/pts0;t0/arg0/pts0	0	0
+3240	Coarse Weightstone	0	8	15	5	1	3113	20	Weighted (+$k1 Damage)	1	0	1	t2/arg0/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+37341	Formula: Enchant Boots - Superior Agility	9	8	82	0	2	44589	4748	+$k1 Agility	55	0	80	t5/arg3/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+38963	Enchant Weapon - Exceptional Versatility	8	11	60	0	3	44510	3844	+$k1 Versatility	55	0	80	t5/arg40/pts45;t0/arg0/pts0;t0/arg0/pts0	0	0
+38923	Enchant Weapon - Sunfire	8	11	35	0	3	27981	2671	+$27979s1 Arcane and Fire Spell Power	30	0	0	t3/arg27979/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+68715	Greater Inscription of Charged Lodestone	0	8	85	85	4	86899	4200	+$k1 Intellect and +$k2 Haste	1	0	85	t5/arg5/pts50;t5/arg36/pts25;t0/arg0/pts0	0	0
+37339	Formula: Enchant Weapon - Giant Slayer	9	8	82	0	3	44621	3251	Giantslaying	55	0	0	t1/arg44622/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+68786	Enchant Bracer - Mighty Intellect	8	5	80	0	3	96262	4257	+$k1 Intellect	1	0	85	t5/arg5/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+3824	Shadow Oil	0	8	34	24	1	3594	25	Shadow Oil	24	0	24	t1/arg14122/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+3829	Frost Oil	0	8	40	30	1	3595	26	Frost Oil	30	0	0	t1/arg96089/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+68784	Enchant Bracer - Agility	8	5	80	0	3	96264	4258	+$k1 Agility	1	0	85	t5/arg3/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+68796	Reinforced Fishing Line	8	11	1	0	1	96286	4259	+$96285s1 Fishing	1	0	0	t3/arg96285/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38966	Enchant Boots - Greater Fortitude	8	9	60	0	1	44528	1075	+$k1 Stamina	55	0	80	t5/arg7/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+68773	Greater Inscription of Vicious Strength	0	8	85	85	4	96250	4249	+$k1 Strength and +$k2 Armor	1	0	85	t5/arg4/pts50;t4/arg0/pts25;t0/arg0/pts0	0	0
+34538	Blessed Weapon Coating	0	8	70	70	1	45395	3265	Blessed Weapon Coating	142	0	0	t3/arg45396/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+4265	Heavy Armor Kit	8	14	30	20	1	2833	17	Reinforced (+$k1 Armor)	20	0	60	t4/arg0/pts24;t0/arg0/pts0;t0/arg0/pts0	0	0
+33820	Weather-Beaten Fishing Hat	4	1	10	0	3	43699	265	Fishing Lure (+$8084s1 Fishing Skill)	1	0	0	t3/arg8084/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+34539	Righteous Weapon Coating	0	8	70	70	1	45397	3266	Righteous Weapon Coating	142	0	0	t3/arg45398/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+7307	Flesh Eating Worm	0	8	30	0	1	9092	265	Fishing Lure (+$8084s1 Fishing Skill)	1	0	0	t3/arg8084/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+4405	Crude Scope	0	0	12	5	1	3974	30	Scope (+$k1 Damage)	5	0	60	t2/arg0/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+4406	Standard Scope	0	0	22	10	1	3975	32	Scope (+$k1 Damage)	10	0	60	t2/arg0/pts2;t0/arg0/pts0;t0/arg0/pts0	0	0
+4407	Accurate Scope	0	0	36	20	2	3976	33	Scope (+$k1 Damage)	20	0	60	t2/arg0/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+140568	Songs of the Alliance	0	8	100	90	2	223938	5885	Songs of the Alliance	1	0	60	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+41603	Azure Spellthread	8	8	80	70	3	55632	3720	+$k1 Spell Power and +$k2 Stamina	142	0	70	t5/arg45/pts35;t5/arg7/pts20;t0/arg0/pts0	0	0
+168448	Enchant Ring - Accord of Mastery	8	10	120	0	3	297995	6110	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44957	Greater Inscription of the Gladiator	0	8	80	70	4	62384	3852	+$k1 Stamina and +$k2 Armor	142	0	80	t5/arg7/pts30;t4/arg0/pts15;t0/arg0/pts0	0	0
+153440	Enchant Ring - Seal of Mastery	8	10	118	0	2	255073	5940	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35448	Enchant Shield - Intellect	0	8	70	0	1	27945	2654	+$k1 Intellect	30	0	70	t5/arg5/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+6349	Formula: Enchant 2H Weapon - Lesser Intellect	9	8	20	0	1	7793	723	+$k1 Intellect	1	0	60	t5/arg5/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+6342	Formula: Enchant Chest - Minor Mana	9	8	12	0	2	7443	24	+$k1 Mana	1	0	60	t5/arg0/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+6346	Formula: Enchant Chest - Lesser Mana	9	8	19	0	2	7776	246	+$k1 Mana	1	0	60	t5/arg0/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+6041	Steel Weapon Chain	8	11	38	0	1	7220	37	Steel Weapon Chain	1	0	0	t3/arg43588/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+8173	Thick Armor Kit	8	14	40	30	1	10344	18	Reinforced (+$k1 Armor)	30	0	60	t4/arg0/pts32;t0/arg0/pts0;t0/arg0/pts0	0	0
+128566	Formula: Enchant Ring - Binding of Critical Strike	9	8	110	100	1	190870	5427	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+43304	Inscription of Kings	0	8	80	80	3	58129	3777	+$k2 Dodge and +$k1 Stamina	182	0	80	t5/arg7/pts22;t5/arg13/pts20;t0/arg0/pts0	0	0
+141917	Formula: Enchant Neck - Mark of the Heavy Hide	9	8	110	100	1	228404	5889	Mark of the Heavy Hide	1	0	110	t3/arg228398/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+41601	Shining Spellthread	8	8	80	70	3	55630	3718	+$k1 Spell Power and +$k2 Versatility	142	0	70	t5/arg45/pts35;t5/arg40/pts12;t0/arg0/pts0	0	0
+5421	Fiery Blaze Enchantment	0	8	45	0	1	6296	36	Enchant: Fiery Blaze	1	0	0	t1/arg6297/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+34836	Spun Truesilver Fishing Line	8	11	70	0	2	45697	3269	+$45698s1 Fishing	1	0	0	t3/arg45698/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74708	Enchant Chest - Glorious Stats	8	4	85	0	1	104395	4419	+$k1 All Stats	1	0	90	t3/arg104335/pts80;t0/arg0/pts0;t0/arg0/pts0	0	0
+34330	Heavy Knothide Armor Kit	8	14	70	60	1	44968	2841	+$k1 Stamina	60	0	60	t5/arg7/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+35431	Enchant Chest - Major Spirit	0	8	70	0	1	33990	5237	+$k1 Versatility	30	0	70	t5/arg40/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+74727	Enchant Weapon - Colossus	8	11	85	0	3	104440	4445	Colossus	1	0	0	t0/arg116631/pts0;t3/arg118314/pts0;t0/arg0/pts0	0	0
+35462	Enchant Weapon - Sunfire	0	8	70	0	1	27981	2671	+$27979s1 Arcane and Fire Spell Power	30	0	0	t3/arg27979/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38912	Enchant Chest - Exceptional Mana	8	4	60	0	1	27958	3233	+$k1 Mana	55	0	70	t5/arg0/pts250;t0/arg0/pts0;t0/arg0/pts0	0	0
+67404	Glass Fishing Bobber	0	8	1	0	1	98849	4264	Fishing Lure (+$7825s1 Fishing Skill)	1	0	0	t3/arg13615/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38960	Enchant Gloves - Gatherer	8	6	1	0	1	44506	3238	Gatherer	55	0	0	t3/arg44507/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+68785	Enchant Bracer - Major Strength	8	5	80	0	3	96261	4256	+$k1 Strength	1	0	85	t5/arg4/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+6347	Formula: Enchant Bracer - Minor Strength	9	8	19	0	2	7782	248	+$k1 Strength	1	0	60	t5/arg4/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+35432	Enchant Cloak - Greater Agility	0	8	70	0	1	34004	5258	+$k1 Agility	30	0	70	t5/arg3/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+169536	Formula: Oceanic Restoration	9	8	120	111	3	298515	6149	Oceanic Restoration	1	0	60	t3/arg300786/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+64414	Formula: Enchant Gloves - Greater Mastery	9	8	85	0	2	74255	4107	+$k1 Mastery	290	0	85	t5/arg49/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+6042	Iron Shield Spike	8	13	30	0	1	7216	43	Iron Spike (8-12)	1	0	0	t3/arg9784/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+6043	Iron Counterweight	8	12	33	0	1	7218	34	Counterweight (+$k1 Haste)	1	0	60	t5/arg36/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38992	Enchant 2H Weapon - Greater Savagery	8	12	60	0	3	44630	3828	+$k1 Attack Power	55	0	80	t5/arg38/pts42;t0/arg0/pts0;t0/arg0/pts0	0	0
+35439	Enchant Gloves - Blasting	0	8	70	0	1	33993	2934	+$k1 Critical Strike	30	0	70	t5/arg32/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+35427	Enchant Bracer - Superior Healing	0	8	70	0	1	27911	5183	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+35451	Enchant Shield - Parry	0	8	70	0	1	27946	2655	+$k1 Parry	1	0	70	t5/arg14/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+35396	Enchant 2H Weapon - Major Agility	0	8	70	0	1	27977	2670	+$k1 Agility	30	0	70	t5/arg3/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+168595	REUSE ME [MTMM]	8	10	120	0	3	298439	6148	Force Multiplier	1	0	60	t3/arg300795/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38901	Enchant Bracer - Versatility Prime	8	5	35	0	1	27913	2679	+$k1 Versatility	30	0	70	t5/arg40/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+35397	Enchant 2H Weapon - Savagery	0	8	70	0	1	27971	2667	+$k1 Attack Power	30	0	70	t5/arg38/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+6344	Formula: Enchant Bracer - Minor Versatility	9	8	17	0	2	7766	243	+$k1 Versatility	1	0	60	t5/arg40/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+6348	Formula: Enchant Weapon - Minor Beastslayer	9	8	20	0	2	7786	249	+$7784s1 Beastslaying	1	0	0	t3/arg7784/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+69907	Corpse Worm	12	0	1	1	1	99315	263	Fishing Lure (+$8082s1 Fishing Skill)	1	0	0	t3/arg8082/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+6375	Formula: Enchant Bracer - Lesser Versatility	9	8	24	0	2	7859	4727	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+6377	Formula: Enchant Boots - Minor Agility	9	8	25	0	2	7867	247	+$k1 Agility	1	0	60	t5/arg3/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38816	Enchant Shield - Versatility	8	13	1	0	1	13659	4736	+$k1 Versatility	1	0	60	t5/arg40/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+169607	Formula: Accord of Versatility	9	8	120	111	3	297999	6111	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35423	Enchant Bracer - Major Intellect	0	8	70	0	1	34001	369	+$k1 Intellect	30	0	70	t5/arg5/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+44490	Formula: Enchant Boots - Greater Assault	9	8	85	0	2	60763	1597	+$k1 Attack Power	55	0	80	t5/arg38/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+169530	Formula: Accord of Critical Strike	9	8	120	111	3	298011	6108	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35443	Enchant Gloves - Spell Strike	0	8	70	0	1	33994	2935	+$k1 Critical Strike	30	0	70	t5/arg32/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+34861	Sharpened Fish Hook	0	8	30	0	1	45731	266	Fishing Lure (+$8085s1 Fishing Skill)	1	0	0	t3/arg8085/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+6529	Shiny Bauble	0	8	10	0	1	8087	263	Fishing Lure (+$8082s1 Fishing Skill)	1	0	0	t3/arg8082/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+6530	Nightcrawlers	0	8	20	0	1	8088	264	Fishing Lure (+$8083s1 Fishing Skill)	1	0	0	t3/arg8083/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+6532	Bright Baubles	0	8	30	0	1	8090	265	Fishing Lure (+$8084s1 Fishing Skill)	1	0	0	t3/arg8084/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+6533	Aquadynamic Fish Attractor	0	8	30	0	1	8089	266	Fishing Lure (+$8085s1 Fishing Skill)	1	0	0	t3/arg8085/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35442	Enchant Gloves - Major Strength	0	8	70	0	1	33995	5250	+$k1 Strength	30	0	70	t5/arg4/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+35430	Enchant Chest - Major Resilience	0	8	70	0	1	33992	2933	+$k1 Armor	30	0	70	t4/arg0/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+168597	REUSE ME [MTMM]	8	10	120	0	3	298441	6150	Naga Hide	1	0	60	t3/arg300797/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35498	Formula: Enchant Weapon - Deathfrost	9	8	75	0	3	46578	3273	Deathfrost	30	0	0	t1/arg46579/pts0;t3/arg46662/pts0;t0/arg0/pts0	0	0
+44130	Lesser Inscription of the Crag	0	8	80	80	3	59928	3807	+$k1 Intellect and +$k2 Versatility	182	0	80	t5/arg5/pts15;t5/arg40/pts10;t0/arg0/pts0	0	0
+7964	Solid Sharpening Stone	0	8	35	25	1	9900	483	Sharpened (+$k1 Damage)	25	0	25	t2/arg0/pts6;t0/arg0/pts0;t0/arg0/pts0	0	0
+6811	Aquadynamic Fish Lens	0	8	20	0	1	8532	264	Fishing Lure (+$8083s1 Fishing Skill)	1	0	0	t3/arg8083/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38852	Enchant Bracer - Greater Intellect	8	5	1	0	1	20008	1883	+$k1 Intellect	1	0	60	t5/arg5/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+44457	Enchant Cloak - Major Agility	8	3	60	0	1	60663	1099	+$k1 Agility	55	0	80	t5/arg3/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+110638	Enchant Ring - Gift of Critical Strike	8	10	100	0	3	158914	5324	+$k1 Critical Strike	1	0	90	t5/arg32/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+35441	Enchant Gloves - Major Spellpower	0	8	70	0	1	33997	2937	+$k1 Spell Power	30	0	70	t5/arg45/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+168446	Enchant Ring - Accord of Critical Strike	8	10	120	0	3	298009	6108	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+7965	Solid Weightstone	0	8	35	25	1	9903	484	Weighted (+$k1 Damage)	25	0	25	t2/arg0/pts6;t0/arg0/pts0;t0/arg0/pts0	0	0
+44467	Enchant Weapon - Mighty Spellpower	8	11	60	0	3	60714	3834	+$k1 Spell Power	55	0	80	t5/arg45/pts63;t0/arg0/pts0;t0/arg0/pts0	0	0
+37349	Formula: Enchant Cloak - Shadow Armor	9	8	85	0	2	44631	3256	+$k2 Agility and +$k1 Armor	55	0	80	t4/arg0/pts40;t5/arg3/pts10;t0/arg0/pts0	0	0
+35730	Greater Inscription of the Oracle	0	8	70	70	3	35435	2993	+$k1 Intellect and +$k2 Versatility	142	0	70	t5/arg5/pts10;t5/arg40/pts16;t0/arg0/pts0	0	0
+43302	Inscription of High Discipline	0	8	80	80	3	58126	3775	+$k1 Spell Power and +$k2 Critical Strike	182	0	80	t5/arg45/pts30;t5/arg32/pts15;t0/arg0/pts0	0	0
+7967	Mithril Shield Spike	8	13	43	0	2	9781	463	Mithril Spike (16-20)	1	0	0	t3/arg9782/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+7969	Mithril Spurs	8	9	43	0	2	9783	464	+$7215s1% Mount Speed	1	0	0	t3/arg7215/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38887	Enchant Gloves - Frost Power	8	6	1	0	1	25074	2615	+$25066s1 Frost Spell Power	1	0	0	t3/arg25066/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38777	Enchant Bracer - Minor Agility	8	5	1	0	1	7779	4725	+$k1 Agility	1	0	60	t5/arg3/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38841	Enchant Chest - Superior Mana	8	4	1	0	1	13917	913	+$k1 Mana	1	0	60	t5/arg0/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+37312	Carrot on a Stick	15	0	50	0	2	48401	3315	+3% Mount Speed	1	0	0	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+37311	Skybreaker Whip	4	0	58	0	3	47103	3289	+10% Mount Speed	1	0	0	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16223	Formula: Enchant Weapon - Icy Chill	9	8	57	0	2	20029	1894	Icy Chill	1	0	0	t1/arg20005/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16255	Formula: Enchant 2H Weapon - Major Versatility	9	8	62	0	2	20035	1903	+$k1 Versatility	1	0	60	t5/arg40/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+35461	Enchant Weapon - Spellsurge	0	8	70	0	1	28003	2674	Spellsurge	30	0	0	t3/arg27997/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38376	Heavy Borean Armor Kit	8	14	80	70	2	50909	3330	+$k1 Stamina	142	0	70	t5/arg7/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+164380	Binding Stone	12	0	1	1	1	281423	0		0	0	0		0	0
+35436	Enchant Cloak - PvP Power	0	8	70	0	1	34003	2938	+$k1 Primary Stat	30	0	70	t5/arg71/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+16250	Formula: Enchant Weapon - Superior Striking	9	8	60	0	2	20031	1897	+$k1 Weapon Damage	1	0	60	t2/arg0/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38775	Enchant Cloak - Minor Protection	8	3	1	0	1	7771	783	+$k1 Armor	1	0	60	t4/arg0/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+37336	Formula: Enchant Chest - Greater Dodge	9	8	80	0	2	47766	1953	+$k1 Dodge	55	0	80	t5/arg13/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+38374	Icescale Leg Armor	8	8	80	80	4	60582	3823	+$k2 Attack Power and +$k1 Critical Strike	182	0	80	t5/arg32/pts22;t5/arg38/pts37;t0/arg0/pts0	0	0
+38839	Enchant Shield - Greater Versatility	8	13	1	0	1	13905	4741	+$k1 Versatility	1	0	60	t5/arg40/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+10546	Deadly Scope	0	0	42	30	1	12459	663	Scope (+$k1 Damage)	30	0	60	t2/arg0/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38936	Enchant Gloves - Major Healing	8	6	35	0	1	33999	2322	+$k1 Spell Power	30	0	70	t5/arg45/pts19;t0/arg0/pts0;t0/arg0/pts0	0	0
+38946	Enchant Weapon - Major Healing	8	11	35	0	3	34010	3846	+$k1 Spell Power	30	0	70	t5/arg45/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+35456	Enchant Weapon - Major Spellpower	0	8	70	0	1	27975	2669	+$k1 Spell Power	30	0	70	t5/arg45/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+38783	Enchant Bracer - Lesser Versatility	8	5	1	0	1	7859	4727	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38847	Enchant Chest - Stats	8	4	1	0	1	13941	928	+$13824s1 All Stats	1	0	0	t3/arg13824/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38835	Enchant Cloak - Lesser Agility	8	3	1	0	1	13882	4734	+$k1 Agility	1	0	60	t5/arg3/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38823	Enchant Gloves - Skinning	8	6	1	0	1	13698	865	+$13697s1 Skinning	1	0	0	t3/arg13697/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74722	Enchant Gloves - Superior Mastery	8	6	85	0	1	104420	4433	+$k1 Mastery	1	0	90	t5/arg49/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+11101	Formula: Enchant Bracer - Lesser Strength	9	8	28	0	2	13536	823	+$k1 Strength	1	0	60	t5/arg4/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38794	Enchant Weapon - Lesser Striking	8	11	1	0	3	13503	241	+$k1 Weapon Damage	1	0	60	t2/arg0/pts2;t0/arg0/pts0;t0/arg0/pts0	0	0
+38812	Enchant Bracer - Stamina	8	5	1	0	1	13648	4737	+$k1 Stamina	1	0	60	t5/arg7/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38886	Enchant Gloves - Shadow Power	8	6	1	0	1	25073	2614	+$25064s1 Shadow Spell Power	1	0	0	t3/arg25064/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11165	Formula: Enchant Weapon - Lesser Elemental Slayer	9	8	35	0	2	13655	854	+$13651s1 Elemental Slayer	1	0	0	t3/arg13651/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11163	Formula: Enchant Bracer - Lesser Dodge	9	8	34	0	2	13646	925	+$k1 Dodge	1	0	60	t5/arg13/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+39005	Enchant Chest - Super Health	8	4	60	0	1	47900	3297	+$k1 Health	1	0	80	t5/arg1/pts275;t0/arg0/pts0;t0/arg0/pts0	0	0
+38862	Enchant Boots - Greater Stamina	8	9	1	0	1	20020	929	+$k1 Stamina	1	0	60	t5/arg7/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38876	Enchant Weapon - Winter's Might	8	11	1	0	3	21931	2443	+$21930s1 Frost Spell Damage	1	0	0	t3/arg21930/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38888	Enchant Gloves - Fire Power	8	6	1	0	1	25078	2616	+$25065s1 Fire Spell Power	1	0	0	t3/arg25065/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38898	Enchant Bracer - Stats	8	5	35	0	1	27905	1891	+$144768s1 All Stats	1	0	0	t3/arg144768/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38848	Enchant Weapon - Greater Striking	8	11	1	0	3	13943	805	+$k1 Weapon Damage	1	0	60	t2/arg0/pts4;t0/arg0/pts0;t0/arg0/pts0	0	0
+136856	Songs of Peace	0	8	100	90	2	210626	5844	Songs of Peace	1	0	60	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38785	Enchant Boots - Minor Stamina	8	9	1	0	1	7863	66	+$k1 Stamina	1	0	60	t5/arg7/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38789	Enchant Cloak - Minor Agility	8	3	1	0	1	13419	4724	+$k1 Agility	1	0	60	t5/arg3/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38825	Enchant Cloak - Greater Defense	8	3	1	0	1	13746	884	+$k1 Armor	1	0	60	t4/arg0/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+115975	Enchant Weapon - Glory of the Shadowmoon	8	11	100	0	3	170628	5353	Glory of the Shadowmoon	1	0	0	t3/arg159684/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+38962	Enchant Chest - Greater Versatility	8	4	60	0	1	44509	2381	+$k1 Versatility	55	0	80	t5/arg40/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+110646	Enchant Neck - Gift of Haste	8	1	100	0	3	158900	5318	+$k1 Haste	1	0	90	t5/arg36/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+11649	Lesser Arcanum of Voracity	12	0	60	50	2	15406	1510	+$k1 Versatility	50	0	60	t5/arg40/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+38829	Enchant Bracer - Intellect	8	5	1	0	1	13822	905	+$k1 Intellect	1	0	60	t5/arg5/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+11168	Formula: Enchant Shield - Lesser Parry	9	8	39	0	2	13689	863	+$k1 Parry	1	0	60	t5/arg14/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+11204	Formula: Enchant Bracer - Greater Versatility	9	8	44	0	2	13846	907	+$k1 Versatility	1	0	60	t5/arg40/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+11208	Formula: Enchant Weapon - Demonslaying	9	8	46	0	2	13915	912	Demonslaying	1	0	0	t1/arg13907/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+110648	Enchant Neck - Gift of Haste	8	1	100	0	3	158902	5320	+$k1 Haste	1	0	90	t5/arg36/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+11622	Lesser Arcanum of Rumination	12	0	60	50	2	15340	1483	+$k1 Mana	50	0	60	t5/arg0/pts150;t0/arg0/pts0;t0/arg0/pts0	0	0
+10548	Sniper Scope	0	0	48	40	1	12460	664	Scope (+$k1 Damage)	40	0	60	t2/arg0/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38987	Enchant Bracer - Greater Stats	8	5	60	0	1	44616	2661	+$144845s1 All Stats	30	25	0	t3/arg144845/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38813	Enchant Weapon - Lesser Beastslayer	8	11	1	0	3	13653	853	+$13650s1 Beastslaying	1	0	0	t3/arg13650/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+118433	Formula: Enchant Cloak - Gift of Critical Strike	9	8	100	0	1	158884	5310	+$k1 Critical Strike & +$182495s1% Speed	1	0	90	t5/arg32/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+38924	Enchant Weapon - Soulfrost	8	11	35	0	3	27982	2672	+$27980s1 Shadow and Frost Spell Power	30	0	0	t3/arg27980/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11038	Formula: Enchant 2H Weapon - Lesser Versatility	9	8	22	0	2	13380	255	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+11039	Formula: Enchant Cloak - Minor Agility	9	8	22	0	2	13419	4724	+$k1 Agility	1	0	60	t5/arg3/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+11081	Formula: Enchant Shield - Lesser Protection	9	8	22	0	2	13464	4733	+$k1 Armor	1	0	60	t4/arg0/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+11150	Formula: Enchant Gloves - Mining	9	8	29	0	2	13612	844	+$13611s1 Mining	1	0	0	t3/arg13611/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11152	Formula: Enchant Gloves - Fishing	9	8	29	0	2	13620	2603	+$24303s1 Fishing	1	0	0	t3/arg24303/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11164	Formula: Enchant Weapon - Lesser Beastslayer	9	8	35	0	2	13653	853	+$13650s1 Beastslaying	1	0	0	t3/arg13650/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11166	Formula: Enchant Gloves - Skinning	9	8	40	0	2	13698	865	+$13697s1 Skinning	1	0	0	t3/arg13697/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11167	Formula: Enchant Boots - Lesser Versatility	9	8	38	0	2	13687	4726	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+11202	Formula: Enchant Shield - Stamina	9	8	42	0	2	13817	4738	+$k1 Stamina	1	0	60	t5/arg7/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+11203	Formula: Enchant Gloves - Advanced Mining	9	8	43	0	2	13841	906	+$13838s1 Mining	1	0	0	t3/arg13838/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11205	Formula: Enchant Gloves - Advanced Herbalism	9	8	45	0	2	13868	909	+$13839s1 Herbalism	1	0	0	t3/arg13839/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11207	Formula: Enchant Weapon - Fiery Weapon	9	8	53	0	2	13898	803	Fiery Weapon	1	0	0	t1/arg13897/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+11223	Formula: Enchant Bracer - Dodge	9	8	47	0	2	13931	923	+$k1 Dodge	1	0	60	t5/arg13/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+11225	Formula: Enchant Bracer - Greater Stamina	9	8	49	0	2	13945	4743	+$k1 Stamina	1	0	60	t5/arg7/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+11226	Formula: Enchant Gloves - Riding Skill	9	8	50	0	2	13947	930	+$13927s1% Mount Speed	1	0	0	t3/arg13927/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+118008	Hemet's Heartseeker	0	0	100	91	3	173287	5383	Hemet's Heartseeker	1	0	0	t3/arg173286/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74715	Enchant Boots - Greater Haste	8	9	85	0	1	104407	4426	+$k1 Haste	1	0	90	t5/arg36/pts175;t0/arg0/pts0;t0/arg0/pts0	0	0
+11642	Lesser Arcanum of Constitution	12	0	60	50	2	15389	1503	+$k1 Health	50	0	60	t5/arg1/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+11643	Lesser Arcanum of Tenacity	12	0	60	50	2	15391	1504	+$k1 Armor	50	0	60	t4/arg0/pts125;t0/arg0/pts0;t0/arg0/pts0	0	0
+11645	Lesser Arcanum of Voracity	12	0	60	50	2	15397	1506	+$k1 Strength	50	0	60	t5/arg4/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+11646	Lesser Arcanum of Voracity	12	0	60	50	2	15400	1507	+$k1 Stamina	50	0	60	t5/arg7/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+11647	Lesser Arcanum of Voracity	12	0	60	50	2	15402	1508	+$k1 Agility	50	0	60	t5/arg3/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+11648	Lesser Arcanum of Voracity	12	0	60	50	2	15404	1509	+$k1 Intellect	50	0	60	t5/arg5/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+38979	Enchant Gloves - Exceptional Spellpower	8	6	60	0	1	44592	3246	+$k1 Spell Power	55	0	80	t5/arg45/pts28;t0/arg0/pts0;t0/arg0/pts0	0	0
+84557	Formula: Enchant Bracer - Greater Agility	9	8	90	1	3	104391	4416	+$k1 Agility	1	0	90	t5/arg3/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+38993	Enchant Cloak - Shadow Armor	8	3	60	0	1	44631	3256	+$k2 Agility and +$k1 Armor	55	0	80	t4/arg0/pts40;t5/arg3/pts10;t0/arg0/pts0	0	0
+68788	Formula: Enchant Bracer - Major Strength	9	8	85	0	3	96261	4256	+$k1 Strength	1	0	85	t5/arg4/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38926	Enchant Weapon - Spellsurge	8	11	35	0	3	28003	2674	Spellsurge	30	0	0	t3/arg27997/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16214	Formula: Enchant Bracer - Greater Intellect	9	8	51	0	2	20008	1883	+$k1 Intellect	1	0	60	t5/arg5/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+74721	Enchant Gloves - Super Strength	8	6	85	0	1	104419	4432	+$k1 Strength	1	0	90	t5/arg4/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+12404	Dense Sharpening Stone	0	8	45	35	1	16138	1643	Sharpened (+$k1 Damage)	35	0	35	t2/arg0/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+33152	Formula: Enchant Gloves - Superior Agility	9	8	70	0	3	25080	2564	+$k1 Agility	1	0	60	t5/arg3/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+33151	Formula: Enchant Cloak - Subtlety	9	8	70	0	3	25084	2621	2% Reduced Threat	1	0	0	t3/arg25070/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74713	Enchant Cloak - Superior Critical Strike	8	3	85	0	1	104404	4424	+$k1 Critical Strike	1	0	90	t5/arg32/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+74711	Enchant Cloak - Greater Protection	8	3	85	0	1	104401	4422	+$k1 Stamina	1	0	90	t5/arg7/pts200;t0/arg0/pts0;t0/arg0/pts0	0	0
+74719	Enchant Gloves - Greater Haste	8	6	85	0	1	104416	4430	+$k1 Haste	1	0	90	t5/arg36/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+44491	Formula: Enchant Boots - Tuskarr's Vitality	9	8	85	0	2	47901	3232	+$k2 Stamina and Minor Speed Increase	55	0	80	t3/arg24090/pts0;t5/arg7/pts15;t0/arg0/pts0	0	0
+35457	Enchant Weapon - Major Striking	0	8	70	0	1	27967	4746	+$k1 Weapon Damage	1	0	70	t2/arg0/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+12643	Dense Weightstone	0	8	45	35	1	16622	1703	Weighted (+$k1 Damage)	35	0	35	t2/arg0/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+12645	Thorium Shield Spike	8	13	55	0	2	16623	1704	Thorium Spike (20-30)	1	0	0	t3/arg16624/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44135	Greater Inscription of the Storm	0	8	80	80	7	59937	3810	+$k1 Spell Power and +$k2 Critical Strike	182	0	80	t5/arg45/pts24;t5/arg32/pts15;t0/arg0/pts0	0	0
+16221	Formula: Enchant Chest - Major Health	9	8	55	0	1	20026	1892	+$19990s1 Health	1	0	0	t3/arg19990/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+15564	Rugged Armor Kit	8	14	50	40	1	19057	1843	Reinforced (+$k1 Armor)	40	0	60	t4/arg0/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+16219	Formula: Enchant Gloves - Greater Agility	9	8	54	0	2	20012	1887	+$k1 Agility	1	0	60	t5/arg3/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+41167	Heartseeker Scope	0	0	80	70	3	55135	3608	+$k1 Critical Strike	142	0	70	t5/arg32/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+16248	Formula: Enchant Weapon - Unholy	9	8	59	0	2	20033	1899	Unholy Weapon	1	0	0	t1/arg20006/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16242	Formula: Enchant Chest - Major Mana	9	8	58	0	2	20028	1893	+$k1 Mana	1	0	60	t5/arg0/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+44456	Enchant Cloak - Speed	8	3	60	0	1	60609	3825	+$k1 Haste	55	0	80	t5/arg36/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+77531	Mirror Scope	0	0	90	85	3	109093	4700	Mirror Scope	1	0	0	t3/arg177708/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44136	Greater Inscription of the Pinnacle	0	8	80	80	7	59941	3811	+$k1 Dodge and +$k2 Stamina	182	0	80	t5/arg13/pts20;t5/arg7/pts22;t0/arg0/pts0	0	0
+38928	Enchant Chest - Major Versatility	8	4	35	0	1	33990	5237	+$k1 Versatility	30	0	70	t5/arg40/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+33307	Formula: Enchant Weapon - Executioner	9	8	75	0	3	42974	3225	Executioner	30	0	0	t1/arg42976/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+43303	Inscription of the Frostblade	0	8	80	80	3	58128	3776	+$k1 Attack Power and +$k2 Critical Strike	182	0	80	t5/arg38/pts22;t5/arg32/pts15;t0/arg0/pts0	0	0
+74728	Enchant Weapon - River's Song	8	11	85	0	3	104442	4446	River's Song	1	0	0	t0/arg116660/pts0;t3/arg104441/pts0;t0/arg0/pts0	0	0
+44497	Enchant Weapon - Accuracy	8	11	60	0	3	59619	3788	+$k1 Critical Strike	55	0	80	t5/arg32/pts50;t0/arg32/pts25;t0/arg0/pts0	0	0
+35449	Enchant Shield - Major Stamina	0	8	70	0	1	34009	1071	+$k1 Stamina	30	0	70	t5/arg7/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+44466	Enchant Weapon - Superior Potency	8	11	60	0	3	60707	3833	+$k1 Attack Power	55	0	80	t5/arg38/pts32;t0/arg0/pts0;t0/arg0/pts0	0	0
+16218	Formula: Enchant Bracer - Superior Versatility	9	8	54	0	2	20009	1884	+$k1 Versatility	1	0	60	t5/arg40/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+44498	Formula: Enchant Bracer - Superior Spellpower	9	8	85	0	2	60767	2332	+$k1 Spell Power	55	0	80	t5/arg45/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+35437	Enchant Cloak - Major Armor	0	8	70	0	1	27961	2662	+$k1 Armor	30	0	70	t4/arg0/pts120;t0/arg0/pts0;t0/arg0/pts0	0	0
+44488	Formula: Enchant Cloak - Wisdom	9	8	85	0	2	47899	3296	+$k2 Versatility and 2% Reduced Threat	55	0	80	t3/arg25070/pts0;t5/arg40/pts10;t0/arg0/pts0	0	0
+43987	Enchant Weapon - Black Magic	8	11	60	0	3	59625	3790	Black Magic	55	0	0	t3/arg59630/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44068	Inscription of Dominance	12	0	80	80	3	59773	3794	+$k1 Spell Power	182	0	80	t5/arg45/pts23;t0/arg0/pts15;t0/arg0/pts0	0	0
+16251	Formula: Enchant Bracer - Superior Stamina	9	8	60	0	2	20011	1886	+$k1 Stamina	1	0	60	t5/arg7/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+44487	Formula: Enchant Weapon - Mighty Spellpower	9	8	82	0	3	60714	3834	+$k1 Spell Power	55	0	80	t5/arg45/pts63;t0/arg0/pts0;t0/arg0/pts0	0	0
+44489	Formula: Enchant Chest - Powerful Stats	9	8	85	0	2	60692	3832	+$60694s1 All Stats	55	50	0	t3/arg60694/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35419	Enchant Boots - Vitality	0	8	70	0	1	27948	2656	+$k1 Versatility and +$k2 Stamina	30	0	70	t5/arg7/pts10;t5/arg40/pts10;t0/arg0/pts0	0	0
+44496	Formula: Enchant Weapon - Accuracy	9	8	82	0	3	59619	3788	+$k1 Critical Strike	55	0	80	t5/arg32/pts50;t0/arg32/pts25;t0/arg0/pts0	0	0
+35454	Enchant Weapon - Major Healing	0	8	70	0	1	34010	3846	+$k1 Spell Power	30	0	70	t5/arg45/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+38853	Enchant Bracer - Superior Versatility	8	5	1	0	1	20009	1884	+$k1 Versatility	1	0	60	t5/arg40/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+44946	Enchant Weapon - Titanguard	8	11	60	0	3	62257	3851	+$k1 Stamina	55	0	80	t5/arg7/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+35426	Enchant Bracer - Stats	0	8	70	0	1	27905	1891	+$144768s1 All Stats	1	0	0	t3/arg144768/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44947	Enchant Bracer - Major Stamina	8	5	60	0	1	62256	3850	+$k1 Stamina	55	0	80	t5/arg7/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+38894	Enchant Cloak - Subtlety	8	3	1	0	1	25084	2621	2% Reduced Threat	1	0	0	t3/arg25070/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16217	Formula: Enchant Shield - Greater Stamina	9	8	53	0	1	20017	4744	+$k1 Stamina	1	0	60	t5/arg7/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+44936	Titanium Plating	8	13	80	70	3	62201	3849	Titanium Plating	142	0	70	t5/arg14/pts26;t3/arg43588/pts0;t0/arg0/pts0	0	0
+44495	Formula: Enchant Weapon - Black Magic	9	8	82	0	3	59625	3790	Black Magic	55	0	0	t3/arg59630/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16222	Formula: Enchant Shield - Superior Versatility	9	8	56	0	2	20016	1890	+$k1 Versatility and +$k2 Stamina	1	0	60	t5/arg40/pts10;t5/arg7/pts10;t0/arg0/pts0	0	0
+16220	Formula: Enchant Boots - Versatility	9	8	55	0	2	20024	851	+$k1 Versatility	1	0	60	t5/arg40/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+110640	Enchant Ring - Gift of Mastery	8	10	100	0	3	158916	5326	+$k1 Mastery	1	0	90	t5/arg49/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+16246	Formula: Enchant Bracer - Superior Strength	9	8	59	0	2	20010	1885	+$k1 Strength	1	0	60	t5/arg4/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+16244	Formula: Enchant Gloves - Greater Strength	9	8	59	0	2	20013	4742	+$k1 Strength	1	0	60	t5/arg4/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+16254	Formula: Enchant Weapon - Lifestealing	9	8	62	0	3	20032	1898	Lifestealing	1	0	0	t1/arg20004/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+16252	Formula: Enchant Weapon - Crusader	9	8	61	0	2	20034	1900	Crusader	1	0	0	t1/arg20007/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35455	Enchant Weapon - Major Intellect	0	8	70	0	1	27968	2666	+$k1 Intellect	30	0	70	t5/arg5/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+52771	Enchant Boots - Mastery	8	9	80	0	1	74238	4094	+$k1 Mastery	290	0	85	t5/arg49/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+35421	Enchant Bracer - Fortitude	0	8	70	0	1	27914	2649	+$k1 Stamina	30	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+74723	Enchant Weapon - Windsong	8	11	85	0	3	104425	4441	Windsong	1	0	0	t0/arg0/pts0;t3/arg104561/pts0;t0/arg0/pts0	0	0
+37348	Formula: Enchant Cloak - Haste	9	8	85	0	1	47898	3831	+$k1 Haste	55	0	80	t5/arg36/pts23;t0/arg0/pts0;t0/arg0/pts0	0	0
+38889	Enchant Gloves - Healing Power	8	6	1	0	1	25079	2617	+$k1 Spell Power	1	0	60	t5/arg45/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+44874	Greater Inscription of the Storm	0	8	80	80	4	59937	3810	+$k1 Spell Power and +$k2 Critical Strike	182	0	80	t5/arg45/pts24;t5/arg32/pts15;t0/arg0/pts0	0	0
+16245	Formula: Enchant Boots - Greater Agility	9	8	59	0	2	20023	1887	+$k1 Agility	1	0	60	t5/arg3/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+44739	Diamond-Cut Refractor Scope	0	0	75	70	1	61468	3843	Scope (+$k1 Damage)	142	0	70	t2/arg0/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+16249	Formula: Enchant 2H Weapon - Major Intellect	9	8	60	0	2	20036	1904	+$k1 Intellect	1	0	60	t5/arg5/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+16253	Formula: Enchant Chest - Greater Stats	9	8	62	0	2	20025	1891	+$144768s1 All Stats	1	0	0	t3/arg144768/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44131	Lesser Inscription of the Axe	0	8	80	80	3	59929	3875	+$k1 Attack Power and +$k2 Critical Strike	182	0	80	t5/arg38/pts15;t5/arg32/pts10;t0/arg0/pts0	0	0
+16215	Formula: Enchant Boots - Greater Stamina	9	8	52	0	2	20020	929	+$k1 Stamina	1	0	60	t5/arg7/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+16224	Formula: Enchant Cloak - Superior Defense	9	8	57	0	1	20015	1889	+$k1 Armor	1	0	60	t4/arg0/pts70;t0/arg0/pts0;t0/arg0/pts0	0	0
+16247	Formula: Enchant 2H Weapon - Superior Impact	9	8	59	0	2	20030	1896	+$k1 Weapon Damage	1	0	60	t2/arg0/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+44483	Formula: Enchant 2H Weapon - Massacre	9	8	82	0	3	60691	3827	+$k1 Attack Power	55	0	80	t5/arg38/pts55;t0/arg0/pts0;t0/arg0/pts0	0	0
+64413	Formula: Enchant Bracer - Greater Speed	9	8	85	0	2	74256	4108	+$k1 Haste	290	0	85	t5/arg36/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+87559	Greater Crane Wing Inscription	8	2	90	85	4	121195	4806	+$k1 Intellect and +$k2 Critical Strike	1	0	90	t5/arg5/pts200;t5/arg32/pts100;t0/arg0/pts0	0	0
+153445	Enchant Ring - Pact of Versatility	8	10	120	0	3	255078	5945	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+18330	Arcanum of Focus	12	0	60	50	2	22844	2544	+$k1 Spell Power	50	0	60	t5/arg45/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+18259	Formula: Enchant Weapon - Spellpower	9	8	60	0	3	22749	2504	+$k1 Spell Power	1	0	60	t5/arg45/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+54450	Powerful Ghostly Spellthread	8	8	85	85	4	75150	4110	+$k1 Intellect and +$k2 Versatility	142	0	85	t5/arg5/pts95;t5/arg40/pts55;t0/arg0/pts0	0	0
+85568	Brutal Leg Armor	8	8	88	85	2	124119	4872	+$k1 Strength and +$k2 Critical Strike	1	0	90	t5/arg4/pts170;t5/arg32/pts100;t0/arg0/pts0	0	0
+18170	Frost Mantle of the Dawn	0	8	60	50	2	22594	2484	+$k1 Frost Resistance	50	0	60	t4/arg4/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+23765	Khorium Scope	0	0	72	55	3	30252	2723	Scope (+$k1 Damage)	55	0	60	t2/arg0/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+86599	Ghost Iron Shield Spike	8	13	90	85	1	131464	5001	Ghost Iron Spike	1	85	0	t3/arg131465/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+62347	Lesser Inscription of Shattered Crystal	0	8	85	85	3	86909	4205	+$k1 Agility and +$k2 Mastery	1	0	85	t5/arg3/pts30;t5/arg49/pts20;t0/arg0/pts0	0	0
+128552	Enchant Neck - Mark of the Distant Army	8	1	110	0	3	190893	5438	Mark of the Distant Army	1	0	110	t3/arg190889/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+18329	Arcanum of Rapidity	12	0	60	50	2	22840	2543	+$k1 Haste	50	0	60	t5/arg36/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+18182	Chromatic Mantle of the Dawn	0	8	60	50	2	22599	2488	+$18676s1 All Resistances	50	50	0	t3/arg144757/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153591	Belt Enchant: Holographic Horror Projector	8	7	1	1	1	255936	5952	Holographic Horror Projector	1	0	120	t7/arg269186/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+19783	Syncretist's Sigil	15	0	60	60	3	24160	2584	+$k1 Dodge +$k2 Stamina and +$k3 Intellect	60	0	60	t5/arg5/pts10;t5/arg13/pts10;t5/arg7/pts10	0	0
+24003	Formula: Enchant Chest - Exceptional Stats	9	8	69	0	1	27960	2661	+$144845s1 All Stats	30	25	0	t3/arg144845/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+17725	Formula: Enchant Weapon - Winter's Might	9	8	38	0	2	21931	2443	+$21930s1 Frost Spell Damage	1	0	0	t3/arg21930/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+18172	Nature Mantle of the Dawn	0	8	60	50	2	22597	2486	+$k1 Nature Resistance	50	0	60	t4/arg3/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+18169	Flame Mantle of the Dawn	0	8	60	50	2	22593	2483	+$k1 Fire Resistance	50	0	60	t4/arg2/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+18171	Arcane Mantle of the Dawn	0	8	60	50	2	22598	2485	+$k1 Arcane Resistance	50	0	60	t4/arg6/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+18173	Shadow Mantle of the Dawn	0	8	60	50	2	22596	2487	+$k1 Shadow Resistance	50	0	60	t4/arg5/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+153441	Enchant Ring - Seal of Versatility	8	10	118	0	2	255074	5941	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+18251	Core Armor Kit	8	14	60	50	3	22725	2503	+$k1 Dodge	50	50	60	t5/arg13/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+18260	Formula: Enchant Weapon - Healing Power	9	8	60	0	3	22750	2505	+$k1 Spell Power	1	0	60	t5/arg45/pts29;t0/arg0/pts0;t0/arg0/pts0	0	0
+18262	Elemental Sharpening Stone	0	8	60	50	2	22756	2506	+$k1 Melee Critical Strike	50	0	50	t5/arg19/pts28;t0/arg0/pts0;t0/arg0/pts0	0	0
+18283	Biznicks 247x128 Accurascope	0	0	60	50	3	22779	2523	+$k1 Ranged Critical Strike	50	0	60	t5/arg32/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110627	Enchant Neck - Breath of Haste	8	1	100	0	1	158895	5294	+$k1 Haste	1	0	90	t5/arg36/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+22559	Formula: Enchant Weapon - Mongoose	9	8	75	0	3	27984	2673	Mongoose	30	0	0	t1/arg28093/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+18331	Arcanum of Protection	12	0	60	50	2	22846	2545	+$k1 Dodge	50	0	60	t5/arg13/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+169533	Formula: Accord of Versatility	9	8	120	111	3	297999	6111	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+19444	Formula: Enchant Weapon - Strength	9	8	58	0	1	23799	2563	+$k1 Strength	1	0	60	t5/arg4/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+19448	Formula: Enchant Weapon - Mighty Versatility	9	8	66	0	1	23803	2567	+$k1 Versatility	1	0	60	t5/arg40/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+19782	Presence of Might	15	0	60	60	3	24149	2583	+$k1 Dodge +$k2 Stamina +$k3 Parry	60	0	60	t5/arg13/pts10;t5/arg7/pts10;t5/arg14/pts10	0	0
+19790	Animist's Caress	15	0	60	60	3	24168	2591	+$k2 Intellect +$k3 Stamina +$k1 Spell Power	60	0	60	t5/arg45/pts12;t5/arg7/pts10;t5/arg5/pts10	0	0
+19788	Hoodoo Hex	15	0	60	60	3	24165	2589	+$k1 Spell Power and +$k2 Stamina	60	0	60	t5/arg45/pts18;t5/arg7/pts10;t0/arg0/pts0	0	0
+128546	Enchant Cloak - Word of Agility	8	3	105	0	2	190875	5432	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+19971	High Test Eternium Fishing Line	8	11	45	0	2	24302	846	+$71691s1 Fishing	1	0	0	t3/arg71691/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+87581	Secret Ox Horn Inscription	8	2	90	85	4	113048	4912	+$k1 Stamina and +$k2 Dodge	1	0	90	t5/arg7/pts300;t5/arg13/pts100;t0/arg0/pts0	2510	50
+84583	Formula: Enchant Weapon - Jade Spirit	9	8	90	1	3	104427	4442	Jade Spirit	1	0	0	t3/arg120033/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128562	Formula: Enchant Ring - Word of Critical Strike	9	8	110	100	1	190866	5423	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20078	Zandalar Signet of Serenity	12	0	60	55	3	24420	2604	+$k1 Spell Power	55	0	60	t5/arg45/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+19445	Formula: Enchant Weapon - Agility	9	8	58	0	1	23800	2564	+$k1 Agility	1	0	60	t5/arg3/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+19446	Formula: Enchant Bracer - Argent Versatility	9	8	58	0	1	23801	2565	+$k1 Versatility	1	0	60	t5/arg40/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+19447	Formula: Enchant Bracer - Healing Power	9	8	64	0	1	23802	2650	+$k1 Spell Power	1	0	60	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+19449	Formula: Enchant Weapon - Mighty Intellect	9	8	70	0	1	23804	2568	+$k1 Intellect	1	0	60	t5/arg5/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+19784	Death's Embrace	15	0	60	60	3	24161	3755	+$k1 Attack Power +$k2 Dodge	60	0	60	t5/arg38/pts14;t5/arg13/pts12;t0/arg0/pts0	0	0
+19785	Falcon's Call	15	0	60	60	3	24162	3754	+$k1 Attack Power +$k3 Stamina +$k2 Critical Strike	60	0	60	t5/arg38/pts12;t5/arg32/pts10;t5/arg7/pts10	0	0
+19786	Vodouisant's Vigilant Embrace	15	0	60	60	3	24163	2587	+$k1 Spell Power and +$k2 Intellect	60	0	60	t5/arg45/pts13;t5/arg5/pts15;t0/arg0/pts0	0	0
+19787	Presence of Sight	15	0	60	60	3	24164	2588	+$k1 Spell Power and +$k2 Critical Strike	60	0	60	t5/arg45/pts18;t5/arg32/pts8;t0/arg0/pts0	0	0
+19789	Prophetic Aura	15	0	60	60	3	24167	2590	+$k1 Intellect +$k2 Stamina and +$k3 Versatility	60	0	60	t5/arg5/pts10;t5/arg7/pts10;t5/arg40/pts10	0	0
+20076	Zandalar Signet of Mojo	12	0	60	55	3	24421	2605	+$k1 Spell Power	55	0	60	t5/arg45/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+20077	Zandalar Signet of Might	12	0	60	55	3	24422	2606	+$k1 Attack Power	55	0	60	t5/arg38/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+52775	Enchant Weapon - Windwalk	8	11	80	0	1	74244	4098	Windwalk	290	0	0	t1/arg74243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+22522	Superior Wizard Oil	0	8	68	58	1	28017	2678	Superior Wizard Oil	58	0	50	t5/arg5/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+74725	Enchant Weapon - Elemental Force	8	11	85	0	3	104430	4443	Elemental Force	1	0	0	t0/arg0/pts0;t3/arg104428/pts0;t0/arg0/pts0	0	0
+85570	Toughened Leg Armor	8	8	88	85	2	124116	4870	+$k1 Stamina and +$k2 Dodge	1	0	90	t5/arg7/pts250;t5/arg13/pts100;t0/arg0/pts0	0	0
+74705	Enchant Bracer - Greater Agility	8	5	85	0	1	104391	4416	+$k1 Agility	1	0	90	t5/arg3/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+20726	Formula: Enchant Gloves - Threat	9	8	70	0	3	25072	2613	+$25063s1% Threat	1	0	0	t3/arg25063/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20727	Formula: Enchant Gloves - Shadow Power	9	8	70	0	3	25073	2614	+$25064s1 Shadow Spell Power	1	0	0	t3/arg25064/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20728	Formula: Enchant Gloves - Frost Power	9	8	70	0	3	25074	2615	+$25066s1 Frost Spell Power	1	0	0	t3/arg25066/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20729	Formula: Enchant Gloves - Fire Power	9	8	70	0	3	25078	2616	+$25065s1 Fire Spell Power	1	0	0	t3/arg25065/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20730	Formula: Enchant Gloves - Healing Power	9	8	70	0	3	25079	2617	+$k1 Spell Power	1	0	60	t5/arg45/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+20731	Formula: Enchant Gloves - Superior Agility	9	8	70	0	3	25080	2564	+$k1 Agility	1	0	60	t5/arg3/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+20734	Formula: Enchant Cloak - Stealth	9	8	70	0	3	25083	910	+$k1 Agility and +$k2 Dodge	1	0	60	t5/arg3/pts8;t5/arg13/pts8;t0/arg0/pts0	0	0
+20735	Formula: Enchant Cloak - Subtlety	9	8	70	0	3	25084	2621	2% Reduced Threat	1	0	0	t3/arg25070/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20736	Formula: Enchant Cloak - Dodge	9	8	70	0	3	25086	2622	+$k1 Dodge	1	0	60	t5/arg13/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+20744	Minor Wizard Oil	0	8	15	5	1	25117	2623	Minor Wizard Oil	5	0	50	t5/arg5/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+44493	Enchant Weapon - Berserking	8	11	60	0	3	59621	3789	Berserking	55	0	0	t1/arg59620/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+20745	Minor Mana Oil	0	8	30	20	1	25118	2624	Minor Mana Oil	20	0	50	t5/arg40/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+20746	Lesser Wizard Oil	0	8	40	30	1	25119	2626	Lesser Wizard Oil	30	0	50	t5/arg5/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+20747	Lesser Mana Oil	0	8	50	40	1	25120	2625	Lesser Mana Oil	40	0	50	t5/arg40/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+20748	Brilliant Mana Oil	0	8	55	45	1	25123	2629	Brilliant Mana Oil	45	0	50	t5/arg5/pts12;t5/arg40/pts12;t0/arg0/pts0	0	0
+20749	Brilliant Wizard Oil	0	8	55	45	1	25122	2628	Brilliant Wizard Oil	45	0	50	t5/arg5/pts30;t5/arg32/pts15;t0/arg0/pts0	0	0
+20750	Wizard Oil	0	8	50	40	1	25121	2627	Wizard Oil	40	0	60	t5/arg5/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+52738	Formula: Enchant Bracer - Greater Critical Strike	9	8	85	0	2	74248	4101	+$k1 Critical Strike	290	0	85	t5/arg32/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+82443	Cerulean Spellthread	8	8	90	85	2	131862	5003	+$k1 Intellect and +$k2 Critical Strike	1	0	90	t5/arg5/pts170;t5/arg32/pts100;t0/arg0/pts0	0	0
+41602	Brilliant Spellthread	8	8	80	70	4	55631	3719	+$k1 Spell Power and +$k2 Versatility	142	0	70	t5/arg45/pts50;t5/arg40/pts20;t0/arg0/pts0	0	0
+44472	Formula: Enchant Cloak - Greater Speed	9	8	70	0	2	47898	3831	+$k1 Haste	55	0	80	t5/arg36/pts23;t0/arg0/pts0;t0/arg0/pts0	0	0
+89737	Enchant Shield - Greater Parry	8	13	85	0	1	130758	4993	+$k1 Parry	1	0	90	t5/arg14/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+44470	Enchant Bracer - Superior Spellpower	8	5	60	0	1	60767	2332	+$k1 Spell Power	55	0	80	t5/arg45/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+83007	Greater Tiger Claw Inscription	8	2	90	85	4	121193	4804	+$k1 Agility and +$k2 Critical Strike	1	0	90	t5/arg3/pts200;t5/arg32/pts100;t0/arg0/pts0	0	0
+52777	Enchant Cloak - Greater Critical Strike	8	3	80	0	1	74247	4100	+$k1 Critical Strike	290	0	85	t5/arg32/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+23766	Stabilized Eternium Scope	0	0	75	60	3	30260	2724	Scope (+$k1 Critical Strike)	60	0	60	t5/arg20/pts28;t0/arg0/pts0;t0/arg0/pts0	0	0
+24273	Mystic Spellthread	8	8	67	50	3	31371	2747	+$k1 Spell Power and +$k2 Stamina	50	0	70	t5/arg45/pts25;t5/arg7/pts15;t0/arg0/pts0	0	0
+74703	Enchant Bracer - Super Intellect	8	5	85	0	1	104389	4414	+$k1 Intellect	1	0	90	t5/arg5/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+22552	Formula: Enchant Weapon - Major Striking	9	8	68	0	1	27967	4746	+$k1 Weapon Damage	1	0	70	t2/arg0/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+22530	Formula: Enchant Bracer - Greater Dodge	9	8	64	0	2	27906	2648	+$k1 Dodge	30	0	70	t5/arg13/pts14;t0/arg0/pts0;t0/arg0/pts0	0	0
+52756	Enchant Gloves - Exceptional Strength	8	6	80	0	1	74212	4075	+$k1 Strength	290	0	85	t5/arg4/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+23549	Fortitude of the Scourge	12	0	60	60	4	29480	2716	+$k1 Stamina and +$k2 Armor	60	0	60	t5/arg7/pts16;t4/arg0/pts100;t0/arg0/pts0	0	0
+23547	Resilience of the Scourge	12	0	60	60	4	29475	2715	+$k1 Spell Power and +$k2 Versatility	60	0	60	t5/arg45/pts16;t5/arg40/pts6;t0/arg0/pts0	0	0
+22392	Formula: Enchant 2H Weapon - Agility	9	8	58	0	1	27837	2646	+$k1 Agility	1	0	60	t5/arg3/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+22551	Formula: Enchant Weapon - Major Intellect	9	8	68	0	2	27968	2666	+$k1 Intellect	30	0	70	t5/arg5/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+23122	Consecrated Sharpening Stone	0	8	55	50	2	28891	3593	+$54289s1 Attack Power vs Undead	50	0	0	t3/arg54289/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+22521	Superior Mana Oil	0	8	62	52	1	28013	2677	Superior Mana Oil	52	0	50	t5/arg40/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+22531	Formula: Enchant Bracer - Superior Healing	9	8	65	0	1	27911	5183	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+22532	Formula: Enchant Bracer - Versatility Prime	9	8	67	0	2	27913	2679	+$k1 Versatility	30	0	70	t5/arg40/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+22533	Formula: Enchant Bracer - Fortitude	9	8	70	0	2	27914	2649	+$k1 Stamina	30	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+22534	Formula: Enchant Bracer - Spellpower	9	8	72	0	2	27917	5184	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+22539	Formula: Enchant Shield - Intellect	9	8	65	0	1	27945	2654	+$k1 Intellect	30	0	70	t5/arg5/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+22540	Formula: Enchant Shield - Parry	9	8	68	0	2	27946	2655	+$k1 Parry	1	0	70	t5/arg14/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+22542	Formula: Enchant Boots - Vitality	9	8	61	0	2	27948	2656	+$k1 Versatility and +$k2 Stamina	30	0	70	t5/arg7/pts10;t5/arg40/pts10;t0/arg0/pts0	0	0
+22543	Formula: Enchant Boots - Fortitude	9	8	64	0	2	27950	2649	+$k1 Stamina	30	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+22544	Formula: Enchant Boots - Dexterity	9	8	68	0	2	27951	2657	+$k1 Agility	30	0	70	t5/arg3/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+22545	Formula: Enchant Boots - Surefooted	9	8	74	0	2	27954	2658	+$k1 Haste and +$k2 Critical Strike	30	0	70	t5/arg36/pts10;t5/arg32/pts10;t0/arg0/pts0	0	0
+22547	Formula: Enchant Chest - Exceptional Stats	9	8	69	0	1	27960	2661	+$144845s1 All Stats	30	25	0	t3/arg144845/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+22553	Formula: Enchant Weapon - Potency	9	8	70	0	2	27972	2668	+$k1 Strength	30	0	70	t5/arg4/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+22554	Formula: Enchant 2H Weapon - Savagery	9	8	70	0	2	27971	2667	+$k1 Attack Power	30	0	70	t5/arg38/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+22555	Formula: Enchant Weapon - Major Spellpower	9	8	70	0	2	27975	2669	+$k1 Spell Power	30	0	70	t5/arg45/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+22556	Formula: Enchant 2H Weapon - Major Agility	9	8	72	0	2	27977	2670	+$k1 Agility	30	0	70	t5/arg3/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+22557	Formula: Enchant Weapon - Battlemaster	9	8	72	0	2	28004	2675	Battlemaster	30	0	0	t1/arg28005/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+22558	Formula: Enchant Weapon - Spellsurge	9	8	72	0	2	28003	2674	Spellsurge	30	0	0	t3/arg27997/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168592	Enchant Weapon - Oceanic Restoration	8	11	120	0	3	298438	6149	Oceanic Restoration	1	0	60	t3/arg300786/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+22560	Formula: Enchant Weapon - Sunfire	9	8	75	0	3	27981	2671	+$27979s1 Arcane and Fire Spell Power	30	0	0	t3/arg27979/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+22561	Formula: Enchant Weapon - Soulfrost	9	8	75	0	3	27982	2672	+$27980s1 Shadow and Frost Spell Power	30	0	0	t3/arg27980/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+23548	Might of the Scourge	12	0	60	60	4	29483	2717	+$k1 Attack Power and +$k2 Critical Strike	60	0	60	t5/arg38/pts13;t5/arg32/pts14;t0/arg0/pts0	0	0
+22635	Savage Guard	15	0	60	55	3	28161	2681	+$k1 Nature Resistance	55	0	60	t4/arg3/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+22636	Ice Guard	15	0	60	55	3	28163	2682	+$k1 Frost Resistance	55	0	60	t4/arg4/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+22638	Shadow Guard	15	0	60	55	3	28165	2683	+$k1 Shadow Resistance	55	0	60	t4/arg5/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+52747	Enchant Weapon - Mending	8	11	80	0	3	74195	4066	Mending	290	0	0	t1/arg74194/pts0;t3/arg95709/pts0;t0/arg0/pts0	0	0
+23528	Fel Sharpening Stone	0	8	60	50	1	29452	2712	Sharpened (+$k1 Damage)	50	0	60	t2/arg0/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+88710	Nat's Hat	4	5	10	0	4	128587	4919	Fishing Lure (+$128586s1 Fishing Skill)	1	0	0	t3/arg128586/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+24274	Runic Spellthread	8	8	75	60	4	31372	2748	+$k1 Spell Power and +$k2 Stamina	60	0	70	t5/arg45/pts35;t5/arg7/pts20;t0/arg0/pts0	0	0
+44067	Inscription of Triumph	0	8	80	80	3	59771	3793	+$k1 Attack Power	182	0	80	t5/arg38/pts20;t0/arg0/pts15;t0/arg0/pts0	0	0
+52766	Enchant Bracer - Precision	8	5	80	0	1	74232	4089	+$k1 Critical Strike	290	0	85	t5/arg32/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+23123	Blessed Wizard Oil	0	8	55	50	2	28898	3592	+$54288s1 Spell Power vs Undead	50	0	0	t3/arg54288/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+24000	Formula: Enchant Bracer - Superior Healing	9	8	65	0	1	27911	5183	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+52773	Enchant Cloak - Greater Intellect	8	3	80	0	1	74240	4096	+$k1 Intellect	290	0	85	t5/arg5/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+23529	Adamantite Sharpening Stone	0	8	70	60	2	29453	2713	Sharpened (+$k1 Critical Strike and +$k2 Damage)	60	0	60	t5/arg32/pts14;t2/arg0/pts12;t0/arg0/pts0	0	0
+52765	Enchant Chest - Exceptional Versatility	8	4	80	0	1	74231	4088	+$k1 Versatility	290	0	85	t5/arg40/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+23530	Felsteel Shield Spike	8	13	70	0	2	29454	2714	Felsteel Spike (26-38)	1	0	0	t3/arg29455/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+23545	Power of the Scourge	12	0	60	60	4	29467	2721	+$k1 Spell Power and +$k2 Critical Strike	60	0	60	t5/arg45/pts15;t5/arg32/pts14;t0/arg0/pts0	0	0
+23559	Lesser Rune of Warding	0	8	65	55	1	32274	2718	Lesser Rune of Warding	55	0	0	t3/arg42135/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+23764	Adamantite Scope	0	0	67	55	2	30250	2722	Scope (+$k1 Damage)	55	0	60	t2/arg0/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+24275	Silver Spellthread	8	8	67	50	3	31369	2745	+$k1 Spell Power and +$k2 Stamina	50	0	70	t5/arg45/pts25;t5/arg7/pts15;t0/arg0/pts0	0	0
+24276	Golden Spellthread	8	8	75	60	4	31370	2746	+$k1 Spell Power and +$k2 Stamina	60	0	70	t5/arg45/pts35;t5/arg7/pts20;t0/arg0/pts0	0	0
+38879	Enchant Weapon - Strength	8	11	1	0	3	23799	2563	+$k1 Strength	1	0	60	t5/arg4/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38873	Enchant Weapon - Crusader	8	11	1	0	3	20034	1900	Crusader	1	0	0	t1/arg20007/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38897	Enchant Bracer - Brawn	8	5	35	0	1	27899	2647	+$k1 Strength	30	0	70	t5/arg4/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38804	Enchant Chest - Minor Stats	8	4	1	0	1	13626	847	+$13624s1 All Stats	1	0	0	t3/arg13624/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38828	Enchant Shield - Stamina	8	13	1	0	1	13817	4738	+$k1 Stamina	1	0	60	t5/arg7/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+87577	Ox Horn Inscription	8	2	90	85	3	127012	4910	+$k1 Stamina and +$k2 Dodge	1	0	90	t5/arg7/pts180;t5/arg13/pts80;t0/arg0/pts0	0	0
+35452	Enchant Weapon - Battlemaster	0	8	70	0	1	28004	2675	Battlemaster	30	0	0	t1/arg28005/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52762	Enchant Shield - Mastery	8	13	80	0	1	74226	4085	+$k1 Mastery	290	0	85	t5/arg49/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+35424	Enchant Bracer - Restore Mana Prime	0	8	70	0	1	27913	2679	+$k1 Versatility	30	0	70	t5/arg40/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+118015	Enchant Weapon - Mark of Bleeding Hollow	8	11	100	0	3	173323	5384	Mark of Bleeding Hollow	1	0	0	t3/arg173321/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+38840	Enchant Weapon - Demonslaying	8	11	1	0	3	13915	912	Demonslaying	1	0	0	t1/arg13907/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38786	Enchant Boots - Minor Agility	8	9	1	0	1	7867	247	+$k1 Agility	1	0	60	t5/arg3/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+128568	Formula: Enchant Ring - Binding of Mastery	9	8	110	100	1	190872	5429	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+37335	Formula: Enchant Cloak - Superior Agility	9	8	80	0	2	44500	4747	+$k1 Agility	55	0	80	t5/arg3/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+38944	Enchant Boots - Boar's Speed	8	9	35	0	1	34008	2940	Minor Speed and +$k2 Stamina	30	0	70	t3/arg24090/pts0;t5/arg7/pts9;t0/arg0/pts0	0	0
+38972	Enchant Weapon - Lifeward	8	11	60	0	3	44576	3241	Lifeward	55	0	0	t1/arg44578/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+25521	Greater Rune of Warding	0	8	70	60	1	32282	2791	Greater Rune of Warding	60	0	0	t3/arg42136/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+64411	Formula: Enchant Boots - Assassin's Step	9	8	85	0	2	74252	4105	+$k1 Agility and Minor Movement Speed	290	0	85	t5/arg3/pts25;t3/arg24090/pts0;t0/arg0/pts0	0	0
+25650	Knothide Armor Kit	8	14	60	50	1	32397	2792	+$k1 Stamina	50	0	70	t5/arg7/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+25651	Vindicator's Armor Kit	8	14	65	55	1	32398	2793	+$k1 Dodge	55	0	70	t5/arg13/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+25652	Magister's Armor Kit	8	14	65	55	1	32399	2794	+$k1 Versatility	55	0	70	t5/arg40/pts8;t0/arg0/pts0;t0/arg0/pts0	0	0
+25679	Comfortable Insoles	0	8	60	0	1	32426	2795	Comfortable Insoles	1	0	0	t3/arg32427/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38895	Enchant Cloak - Dodge	8	3	35	0	1	25086	2622	+$k1 Dodge	1	0	60	t5/arg13/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38871	Enchant Weapon - Lifestealing	8	11	1	0	3	20032	1898	Lifestealing	1	0	0	t1/arg20004/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168593	Enchant Weapon - Machinist's Brilliance	8	11	120	0	3	298433	6112	Machinist's Brilliance	1	0	60	t3/arg300718/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52780	Enchant Chest - Greater Stamina	8	4	80	0	1	74251	4103	+$k1 Stamina	290	0	85	t5/arg7/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+87579	Tiger Claw Inscription	8	2	90	85	3	127014	4908	+$k1 Agility and +$k2 Critical Strike	1	0	90	t5/arg3/pts120;t5/arg32/pts80;t0/arg0/pts0	0	0
+36899	Exceptional Mana Oil	0	8	80	72	1	47904	3298	Exceptional Mana Oil	150	0	70	t5/arg40/pts38;t0/arg0/pts0;t0/arg0/pts0	0	0
+37342	Formula: Enchant Gloves - Greater Blasting	9	8	82	0	2	44612	3249	+$k1 Critical Strike	55	0	80	t5/arg32/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+39002	Enchant Chest - Greater Dodge	8	4	60	0	1	47766	1953	+$k1 Dodge	55	0	80	t5/arg13/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+136852	Songs of Battle	0	8	100	90	2	210608	5843	Songs of Battle	1	0	60	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128558	Enchant Gloves - Legion Herbalism	8	6	110	0	3	190988	5444	Legion Herbalism	1	0	100	t3/arg190970/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38850	Enchant Gloves - Riding Skill	8	6	1	0	1	13947	930	+$13927s1% Mount Speed	1	0	0	t3/arg13927/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38965	Enchant Weapon - Icebreaker	8	11	60	0	3	44524	3239	Icebreaker Weapon	55	0	0	t1/arg44525/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+40776	Personal Electromagnetic Pulse Generator	8	7	75	58	1	54736	3599	Electromagnetic Pulse Generator	1	0	0	t7/arg54735/pts0;t0/arg0/pts0;t0/arg0/pts0	2504	1
+28270	Formula: Enchant Chest - Major Resilience	9	8	69	0	2	33992	2933	+$k1 Armor	30	0	70	t4/arg0/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+28271	Formula: Enchant Gloves - Precise Strikes	9	8	72	0	2	33994	2935	+$k1 Critical Strike	30	0	70	t5/arg32/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+28272	Formula: Enchant Gloves - Major Spellpower	9	8	72	0	2	33997	2937	+$k1 Spell Power	30	0	70	t5/arg45/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+28273	Formula: Enchant Gloves - Major Healing	9	8	70	0	2	33999	2322	+$k1 Spell Power	30	0	70	t5/arg45/pts19;t0/arg0/pts0;t0/arg0/pts0	0	0
+28274	Formula: Enchant Cloak - PvP Power	9	8	65	0	2	34003	2938	+$k1 Primary Stat	30	0	70	t5/arg71/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+28279	Formula: Enchant Boots - Cat's Swiftness	9	8	72	0	3	34007	2939	Minor Speed and +$k2 Agility	30	0	70	t3/arg24090/pts0;t5/arg3/pts6;t0/arg0/pts0	0	0
+28280	Formula: Enchant Boots - Boar's Speed	9	8	72	0	3	34008	2940	Minor Speed and +$k2 Stamina	30	0	70	t3/arg24090/pts0;t5/arg7/pts9;t0/arg0/pts0	0	0
+28281	Formula: Enchant Weapon - Major Healing	9	8	70	0	2	34010	3846	+$k1 Spell Power	30	0	70	t5/arg45/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+28282	Formula: Enchant Shield - Major Stamina	9	8	65	0	1	34009	1071	+$k1 Stamina	30	0	70	t5/arg7/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+28420	Fel Weightstone	0	8	60	50	1	34339	2954	Weighted (+$k1 Damage)	50	0	60	t2/arg0/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+28421	Adamantite Weightstone	0	8	70	60	2	34340	2955	Weighted (+$k1 Critical Strike and +$k2 Damage)	60	0	60	t5/arg32/pts14;t2/arg0/pts12;t0/arg0/pts0	0	0
+68772	Greater Inscription of Vicious Intellect	0	8	85	85	4	96249	4248	+$k1 Intellect and +$k2 Armor	1	0	85	t5/arg5/pts50;t4/arg0/pts25;t0/arg0/pts0	0	0
+62673	Feathered Lure	0	8	80	0	1	87646	266	Fishing Lure (+$8085s1 Fishing Skill)	1	0	0	t3/arg8085/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+33148	Formula: Enchant Cloak - Dodge	9	8	70	0	3	25086	2622	+$k1 Dodge	1	0	60	t5/arg13/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+71714	Formula: Enchant Cloak - Lesser Agility	9	8	45	0	2	13882	4734	+$k1 Agility	1	0	60	t5/arg3/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+28878	Inscription of Faith	0	8	64	64	2	35403	2979	+$k1 Spell Power	102	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+28881	Inscription of Discipline	0	8	64	64	2	35405	2981	+$k1 Spell Power	102	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+28882	Inscription of Warding	0	8	64	64	2	35355	2977	+$k1 Dodge	102	64	0	t5/arg13/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+28885	Inscription of Vengeance	0	8	64	64	2	35407	2983	+$k1 Attack Power	102	0	70	t5/arg38/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+28886	Greater Inscription of Discipline	0	8	70	70	3	35406	2982	+$k1 Spell Power and +$k2 Critical Strike	142	0	70	t5/arg45/pts18;t5/arg32/pts10;t0/arg0/pts0	0	0
+28887	Greater Inscription of Faith	0	8	70	70	3	35404	2980	+$k1 Intellect and +$k2 Versatility	142	0	70	t5/arg5/pts15;t5/arg40/pts10;t0/arg0/pts0	0	0
+28888	Greater Inscription of Vengeance	0	8	70	70	3	35417	2986	+$k1 Attack Power and +$k2 Critical Strike	142	0	70	t5/arg38/pts15;t5/arg32/pts10;t0/arg0/pts0	0	0
+28889	Greater Inscription of Warding	0	8	70	70	3	35402	2978	+$k1 Dodge and +$k2 Stamina	142	0	70	t5/arg13/pts15;t5/arg7/pts15;t0/arg0/pts0	0	0
+28903	Inscription of the Orb	0	8	64	64	2	35436	2994	+$k1 Critical Strike	102	0	70	t5/arg32/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+28904	Inscription of the Oracle	0	8	64	64	2	35434	2992	+$k1 Versatility	102	0	70	t5/arg40/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+28907	Inscription of the Blade	0	8	64	64	2	35438	2996	+$k1 Critical Strike	102	0	70	t5/arg32/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+28908	Inscription of the Knight	0	8	64	64	2	35432	2990	+$k1 Dodge	102	0	70	t5/arg13/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+28909	Greater Inscription of the Orb	0	8	70	70	3	35437	2995	+$k2 Critical Strike and +$k1 Spell Power	142	0	70	t5/arg45/pts12;t5/arg32/pts15;t0/arg0/pts0	0	0
+28910	Greater Inscription of the Blade	0	8	70	70	3	35439	2997	+$k2 Critical Strike and +$k1 Attack Power	142	0	70	t5/arg38/pts10;t5/arg32/pts15;t0/arg0/pts0	0	0
+28911	Greater Inscription of the Knight	0	8	70	70	3	35433	2991	+$k2 Parry and +$k1 Dodge	142	0	70	t5/arg13/pts10;t5/arg14/pts15;t0/arg0/pts0	0	0
+28912	Greater Inscription of the Oracle	0	8	70	70	3	35435	2993	+$k1 Intellect and +$k2 Versatility	142	0	70	t5/arg5/pts10;t5/arg40/pts16;t0/arg0/pts0	0	0
+162314	Formula: Enchant Weapon - Quick Navigation	9	8	120	100	1	268897	5963	Quick Navigation	1	0	120	t3/arg268888/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+29187	Inscription of Endurance	0	8	70	70	2	35441	2998	+$35442s1 All Resistances	142	0	70	t3/arg35442/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168598	Enchant Weapon - Naga Hide	8	11	120	0	3	298442	6150	Naga Hide	1	0	60	t3/arg300797/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+29533	Cobrahide Leg Armor	8	8	67	50	3	35488	3010	+$k2 Attack Power and +$k1 Critical Strike	50	0	80	t5/arg32/pts10;t5/arg38/pts20;t0/arg0/pts0	0	0
+29534	Clefthide Leg Armor	8	8	67	50	3	35489	3011	+$k1 Stamina and +$k2 Agility	50	0	80	t5/arg7/pts30;t5/arg3/pts10;t0/arg0/pts0	0	0
+29535	Nethercobra Leg Armor	8	8	73	60	4	35490	3012	+$k2 Attack Power and +$k1 Critical Strike	60	0	80	t5/arg32/pts12;t5/arg38/pts25;t0/arg0/pts0	0	0
+29536	Nethercleft Leg Armor	8	8	73	60	4	35495	3013	+$k1 Stamina and +$k2 Agility	60	0	80	t5/arg7/pts40;t5/arg3/pts12;t0/arg0/pts0	0	0
+83764	Shadowleather Leg Armor	8	8	90	85	3	122387	4822	+$k1 Agility and +$k2 Critical Strike	1	0	90	t5/arg3/pts285;t5/arg32/pts165;t0/arg0/pts0	0	0
+162319	Formula: Enchant Weapon - Torrent of Elements	9	8	120	100	1	255131	5949	Torrent of Elements	1	0	120	t3/arg255150/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162718	Formula: Enchant Ring - Pact of Mastery	9	8	120	100	1	255100	5944	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52776	Enchant Weapon - Landslide	8	11	80	0	1	74246	4099	Landslide	290	0	0	t1/arg74245/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38975	Enchant Chest - Exceptional Armor	8	4	60	0	1	44588	3245	+$k1 Armor	55	0	80	t4/arg0/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+52740	Formula: Enchant Chest - Greater Stamina	9	8	85	0	2	74251	4103	+$k1 Stamina	290	0	85	t5/arg7/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+38913	Enchant Chest - Exceptional Stats	8	4	35	0	1	27960	2661	+$144845s1 All Stats	30	25	0	t3/arg144845/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+84561	Formula: Enchant Bracer - Exceptional Strength	9	8	90	1	3	104390	4415	+$k1 Strength	1	0	90	t5/arg4/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+128570	Formula: Enchant Cloak - Word of Strength	9	8	110	100	1	190874	5431	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+159789	Enchant Weapon - Stalwart Navigation	8	11	120	0	2	268913	5966	Stalwart Navigation	1	0	120	t3/arg268912/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+56517	Heavy Savage Armor Kit	8	14	83	81	2	78166	4121	+$k1 Stamina	1	0	85	t5/arg7/pts44;t0/arg0/pts0;t0/arg0/pts0	0	0
+30696	Scourgebane	4	0	52	0	3	37360	3093	+$37362s1 Attack Power vs Undead and Demons	50	0	52	t3/arg37362/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38851	Enchant Gloves - Minor Haste	8	6	1	0	1	13948	931	+$k1 Haste	1	0	60	t5/arg36/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+52774	Enchant Weapon - Power Torrent	8	11	80	0	1	74242	4097	Power Torrent	290	0	0	t3/arg94746/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35458	Enchant Weapon - Mongoose	0	8	70	0	1	27984	2673	Mongoose	30	0	0	t1/arg28093/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35418	Enchant Boots - Surefooted	0	8	70	0	1	27954	2658	+$k1 Haste and +$k2 Critical Strike	30	0	70	t5/arg36/pts10;t5/arg32/pts10;t0/arg0/pts0	0	0
+38814	Enchant Weapon - Lesser Elemental Slayer	8	11	1	0	3	13655	854	+$13651s1 Elemental Slayer	1	0	0	t3/arg13651/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+55055	Elementium Shield Spike	8	13	80	80	2	92433	4215	Elementium Spike	1	70	0	t3/arg92432/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+55057	Pyrium Weapon Chain	8	11	85	81	2	93448	4217	Pyrium Weapon Chain	1	0	85	t3/arg43588/pts0;t5/arg36/pts40;t0/arg0/pts0	0	0
+35400	Enchant Boots - Dexterity	0	8	70	0	1	27951	2657	+$k1 Agility	30	0	70	t5/arg3/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+31535	Bloodboil Poison	0	8	105	0	1	38615	3102	Poison	1	0	0	t1/arg38616/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+35398	Enchant Boots - Boar's Speed	0	8	70	0	1	34008	2940	Minor Speed and +$k2 Stamina	30	0	70	t3/arg24090/pts0;t5/arg7/pts9;t0/arg0/pts0	0	0
+35429	Enchant Chest - Exceptional Stats	0	8	70	0	1	27960	2661	+$144845s1 All Stats	30	25	0	t3/arg144845/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52763	Enchant Bracer - Superior Dodge	8	5	80	0	1	74229	4086	+$k1 Dodge	290	0	85	t5/arg13/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38905	Enchant Shield - Intellect	8	13	35	0	1	27945	2654	+$k1 Intellect	30	0	70	t5/arg5/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38869	Enchant 2H Weapon - Superior Impact	8	12	1	0	3	20030	1896	+$k1 Weapon Damage	1	0	60	t2/arg0/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+98164	Enchant Weapon - Spirit of Conquest	8	11	85	0	3	142469	5124	Spirit of Conquest	1	0	0	t3/arg142536/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38780	Enchant Weapon - Minor Striking	8	11	1	0	3	7788	250	+$k1  Weapon Damage	1	0	60	t2/arg0/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+55056	Pyrium Shield Spike	8	13	85	85	3	92437	4216	Pyrium Spike	1	70	0	t3/arg92436/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35756	Formula: Enchant Cloak - Greater Dodge	9	8	70	0	3	47051	2648	+$k1 Dodge	30	0	70	t5/arg13/pts14;t0/arg0/pts0;t0/arg0/pts0	0	0
+162315	Formula: Enchant Weapon - Coastal Surge	9	8	120	100	1	255105	5946	Coastal Surge	1	0	120	t3/arg255148/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35500	Formula: Enchant Chest - Dodge	9	8	70	0	1	46594	5260	+$k1 Dodge	30	0	70	t5/arg13/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+159785	Enchant Weapon - Deadly Navigation	8	11	120	0	2	268907	5965	Deadly Navigation	1	0	120	t3/arg268906/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+33149	Formula: Enchant Cloak - Stealth	9	8	70	0	3	25083	910	+$k1 Agility and +$k2 Dodge	1	0	60	t5/arg3/pts8;t5/arg13/pts8;t0/arg0/pts0	0	0
+33150	Formula: Enchant Cloak - Subtlety	9	8	70	0	3	25084	2621	2% Reduced Threat	1	0	0	t3/arg25070/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+33153	Formula: Enchant Gloves - Threat	9	8	70	0	3	25072	2613	+$25063s1% Threat	1	0	0	t3/arg25063/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+33165	Formula: Enchant Weapon - Greater Agility	9	8	70	0	1	42620	3222	+$k1 Agility	30	0	70	t5/arg3/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+33185	Adamantite Weapon Chain	8	11	63	50	2	42687	3223	Adamantite Weapon Chain	50	0	60	t3/arg43588/pts0;t5/arg14/pts15;t0/arg0/pts0	0	0
+74717	Enchant Boots - Blurred Speed	8	9	85	0	1	104409	4428	+$k1 Agility & Minor Speed Increase	1	0	90	t5/arg3/pts140;t3/arg24090/pts0;t0/arg0/pts0	0	0
+38955	Enchant Chest - Mighty Health	8	4	60	0	1	44492	3236	+$k1 Health	55	0	80	t5/arg1/pts200;t0/arg0/pts0;t0/arg0/pts0	0	0
+68717	Greater Inscription of Unbreakable Quartz	0	8	85	85	4	86854	4198	+$k1 Stamina and +$k2 Dodge	1	0	85	t5/arg7/pts75;t5/arg13/pts25;t0/arg0/pts0	0	0
+34207	Glove Reinforcements	8	6	70	60	2	44769	3260	+$k1 Stamina	60	0	60	t5/arg7/pts24;t0/arg0/pts0;t0/arg0/pts0	0	0
+38945	Enchant Shield - Major Stamina	8	13	35	0	1	34009	1071	+$k1 Stamina	30	0	70	t5/arg7/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+35297	Formula: Enchant Boots - Boar's Speed	9	8	72	0	3	34008	2940	Minor Speed and +$k2 Stamina	30	0	70	t3/arg24090/pts0;t5/arg7/pts9;t0/arg0/pts0	0	0
+35298	Formula: Enchant Boots - Vitality	9	8	61	0	2	27948	2656	+$k1 Versatility and +$k2 Stamina	30	0	70	t5/arg7/pts10;t5/arg40/pts10;t0/arg0/pts0	0	0
+35299	Formula: Enchant Boots - Cat's Swiftness	9	8	72	0	3	34007	2939	Minor Speed and +$k2 Agility	30	0	70	t3/arg24090/pts0;t5/arg3/pts6;t0/arg0/pts0	0	0
+153434	Enchant Gloves - Kul Tiran Skinning	8	6	118	0	3	255065	5934	Kul Tiran Skinning	1	0	120	t3/arg255038/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35399	Enchant Boots - Cat's Swiftness	0	8	70	0	1	34007	2939	Minor Speed and +$k2 Agility	30	0	70	t3/arg24090/pts0;t5/arg3/pts6;t0/arg0/pts0	0	0
+35417	Enchant Boots - Fortitude	0	8	70	0	1	27950	2649	+$k1 Stamina	30	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+35420	Enchant Bracer - Brawn	0	8	70	0	1	27899	2647	+$k1 Strength	30	0	70	t5/arg4/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+35422	Enchant Bracer - Greater Dodge	0	8	70	0	1	27906	2648	+$k1 Dodge	30	0	70	t5/arg13/pts14;t0/arg0/pts0;t0/arg0/pts0	0	0
+35425	Enchant Bracer - Spellpower	0	8	70	0	1	27917	5184	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+35428	Enchant Chest - Exceptional Health	0	8	70	0	1	27957	2659	+$k1 Health	30	0	70	t5/arg1/pts150;t0/arg0/pts0;t0/arg0/pts0	0	0
+35438	Enchant Gloves - Assault	0	8	70	0	1	33996	5255	+$k1 Attack Power	30	0	70	t5/arg38/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+35440	Enchant Gloves - Major Healing	0	8	70	0	1	33999	2322	+$k1 Spell Power	30	0	70	t5/arg45/pts19;t0/arg0/pts0;t0/arg0/pts0	0	0
+35453	Enchant Weapon - Greater Agility	0	8	70	0	1	42620	3222	+$k1 Agility	30	0	70	t5/arg3/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+35459	Enchant Weapon - Potency	0	8	70	0	1	27972	2668	+$k1 Strength	30	0	70	t5/arg4/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+35460	Enchant Weapon - Soulfrost	0	8	70	0	1	27982	2672	+$27980s1 Shadow and Frost Spell Power	30	0	0	t3/arg27980/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+37326	Formula: Enchant Bracer - Major Versatility	9	8	80	0	2	44593	1147	+$k1 Versatility	55	0	80	t5/arg40/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+37337	Formula: Enchant Bracer - Greater Stats	9	8	80	0	2	44616	2661	+$144845s1 All Stats	30	25	0	t3/arg144845/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+35728	Greater Inscription of the Blade	0	8	70	70	3	35439	2997	+$k2 Critical Strike and +$k1 Attack Power	142	0	70	t5/arg38/pts10;t5/arg32/pts15;t0/arg0/pts0	0	0
+35729	Greater Inscription of the Knight	0	8	70	70	3	35433	2991	+$k2 Parry and +$k1 Dodge	142	0	70	t5/arg13/pts10;t5/arg14/pts15;t0/arg0/pts0	0	0
+35731	Greater Inscription of the Orb	0	8	70	70	3	35437	2995	+$k2 Critical Strike and +$k1 Spell Power	142	0	70	t5/arg45/pts12;t5/arg32/pts15;t0/arg0/pts0	0	0
+38866	Enchant Chest - Major Health	8	4	1	0	1	20026	1892	+$19990s1 Health	1	0	0	t3/arg19990/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74718	Enchant Boots - Pandaren's Step	8	9	85	0	1	104414	4429	+$k1 Mastery & Minor Speed Increase	1	0	90	t5/arg49/pts140;t3/arg24090/pts0;t0/arg0/pts0	0	0
+144317	Formula: Enchant Neck - Mark of the Deadly	9	8	105	100	1	235698	5898	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38856	Enchant Gloves - Greater Agility	8	6	1	0	1	20012	1887	+$k1 Agility	1	0	60	t5/arg3/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38872	Enchant Weapon - Unholy Weapon	8	11	1	0	3	20033	1899	Unholy Weapon	1	0	0	t1/arg20006/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+159471	Enchant Gloves - Zandalari Crafting	8	6	118	0	3	267498	5937	Kul Tiran Crafting	1	0	120	t3/arg255069/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+37313	Riding Crop	4	0	58	69	3	47103	3289	+10% Mount Speed	1	0	0	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+37340	Formula: Enchant Chest - Exceptional Resilience	9	8	82	0	2	44588	3245	+$k1 Armor	55	0	80	t4/arg0/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+37343	Formula: Enchant Weapon - Exceptional Agility	9	8	84	0	2	44633	1103	+$k1 Agility	55	0	80	t5/arg3/pts26;t0/arg0/pts0;t0/arg0/pts0	0	0
+37344	Formula: Enchant Weapon - Icebreaker	9	8	84	0	3	44524	3239	Icebreaker Weapon	55	0	0	t1/arg44525/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+37346	Formula: Enchant Bracer - Expertise	9	8	84	0	2	44598	3231	+$k1 Haste	55	0	80	t5/arg36/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+37347	Formula: Enchant Cloak - Superior Dodge	9	8	85	0	2	44591	1951	+$k1 Dodge	30	0	80	t5/arg13/pts18;t0/arg0/pts0;t0/arg0/pts0	0	0
+71720	Drakehide Leg Armor	8	8	85	85	4	101598	4270	+$k1 Stamina and +$k2 Dodge	1	0	85	t5/arg7/pts145;t5/arg13/pts55;t0/arg0/pts0	0	0
+38947	Enchant Weapon - Greater Agility	8	11	35	0	3	42620	3222	+$k1 Agility	30	0	70	t5/arg3/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38964	Enchant Gloves - Greater Assault	8	6	60	0	1	44513	3829	+$k1 Attack Power	55	0	80	t5/arg38/pts17;t0/arg0/pts0;t0/arg0/pts0	0	0
+38968	Enchant Bracer - Exceptional Intellect	8	5	60	0	1	44555	1119	+$k1 Intellect	55	0	80	t5/arg5/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+37603	Enchant Boots - Dexterity	8	9	35	0	1	27951	2657	+$k1 Agility	30	0	70	t5/arg3/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+159468	Enchant Gloves - Zandalari Surveying	8	6	118	0	3	267490	5935	Kul Tiran Surveying	1	0	120	t3/arg255039/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38371	Jormungar Leg Armor	8	8	77	70	3	50901	3325	+$k1 Stamina and +$k2 Agility	142	0	80	t5/arg7/pts45;t5/arg3/pts15;t0/arg0/pts0	0	0
+38372	Nerubian Leg Armor	8	8	77	70	3	50902	3326	+$k2 Attack Power and +$k1 Critical Strike	142	0	80	t5/arg32/pts15;t5/arg38/pts27;t0/arg0/pts0	0	0
+38375	Borean Armor Kit	8	14	80	70	1	50906	3329	+$k1 Stamina	142	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38378	Wyrmscale Leg Armor	8	8	80	70	4	50913	3332	+$k2 Attack Power and +$k1 Critical Strike	142	0	80	t5/arg32/pts36;t5/arg38/pts50;t0/arg0/pts0	0	0
+38766	Enchant Chest - Minor Health	8	4	1	0	1	7420	41	+$k1 Health	1	0	60	t5/arg1/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38768	Enchant Bracer - Minor Dodge	8	5	1	0	1	7428	924	+$k1 Dodge	1	0	60	t5/arg13/pts2;t0/arg0/pts0;t0/arg0/pts0	0	0
+38771	Enchant Bracer - Minor Stamina	8	5	1	0	1	7457	4721	+$k1 Stamina	1	0	60	t5/arg7/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38772	Enchant 2H Weapon - Minor Impact	8	12	1	0	3	7745	4723	+$k1 Weapon Damage	1	0	60	t2/arg0/pts2;t0/arg0/pts0;t0/arg0/pts0	0	0
+38774	Enchant Bracer - Minor Versatility	8	5	1	0	1	7766	243	+$k1 Versatility	1	0	60	t5/arg40/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+38778	Enchant Bracer - Minor Strength	8	5	1	0	1	7782	248	+$k1 Strength	1	0	60	t5/arg4/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38779	Enchant Weapon - Minor Beastslayer	8	11	1	0	3	7786	249	+$7784s1 Beastslaying	1	0	0	t3/arg7784/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38781	Enchant 2H Weapon - Lesser Intellect	8	12	1	0	3	7793	723	+$k1 Intellect	1	0	60	t5/arg5/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38782	Enchant Chest - Health	8	4	1	0	1	7857	254	+$k1 Health	1	0	60	t5/arg1/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+38787	Enchant Shield - Minor Stamina	8	13	1	0	1	13378	4722	+$k1 Stamina	1	0	60	t5/arg7/pts1;t0/arg0/pts0;t0/arg0/pts0	0	0
+38791	Enchant Shield - Lesser Protection	8	13	1	0	1	13464	4733	+$k1 Armor	1	0	60	t4/arg0/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+38792	Enchant Shield - Lesser Versatility	8	13	1	0	1	13485	4728	+$k1 Versatility	1	0	60	t5/arg40/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38793	Enchant Bracer - Lesser Stamina	8	5	1	0	1	13501	4730	+$k1 Stamina	1	0	60	t5/arg7/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38797	Enchant Bracer - Lesser Strength	8	5	1	0	1	13536	823	+$k1 Strength	1	0	60	t5/arg4/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38798	Enchant Chest - Lesser Absorption	8	4	1	0	1	13538	63	Absorption ($7447s1)	1	0	0	t3/arg7446/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38800	Enchant Gloves - Mining	8	6	1	0	1	13612	844	+$13611s1 Mining	1	0	0	t3/arg13611/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38802	Enchant Gloves - Fishing	8	6	1	0	1	13620	2603	+$24303s1 Fishing	1	0	0	t3/arg24303/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38803	Enchant Bracer - Lesser Intellect	8	5	1	0	1	13622	4729	+$k1 Intellect	1	0	60	t5/arg5/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38805	Enchant Shield - Lesser Stamina	8	13	1	0	1	13631	4731	+$k1 Stamina	1	0	60	t5/arg7/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38807	Enchant Boots - Lesser Agility	8	9	1	0	1	13637	849	+$k1 Agility	1	0	60	t5/arg3/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38808	Enchant Chest - Greater Health	8	4	1	0	1	13640	850	+$k1 Health	1	0	60	t5/arg1/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+38809	Enchant Bracer - Versatility	8	5	1	0	1	13642	4735	+$k1 Versatility	1	0	60	t5/arg40/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38810	Enchant Boots - Lesser Stamina	8	9	1	0	1	13644	724	+$k1 Stamina	1	0	60	t5/arg7/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38811	Enchant Bracer - Lesser Dodge	8	5	1	0	1	13646	925	+$k1 Dodge	1	0	60	t5/arg13/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38817	Enchant Bracer - Strength	8	5	1	0	1	13661	856	+$k1 Strength	1	0	60	t5/arg4/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38820	Enchant Shield - Lesser Parry	8	13	1	0	1	13689	863	+$k1 Parry	1	0	60	t5/arg14/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+38821	Enchant Weapon - Striking	8	11	1	0	3	13693	4745	+$k1 Weapon Damage	1	0	60	t2/arg0/pts3;t0/arg0/pts0;t0/arg0/pts0	0	0
+38822	Enchant 2H Weapon - Impact	8	12	1	0	3	13695	1897	+$k1 Weapon Damage	1	0	60	t2/arg0/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38824	Enchant Chest - Lesser Stats	8	4	1	0	1	13700	866	+$13625s1 All Stats	1	0	0	t3/arg13625/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38827	Enchant Gloves - Agility	8	6	1	0	1	13815	4740	+$k1 Agility	1	0	60	t5/arg3/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38830	Enchant Boots - Stamina	8	9	1	0	1	13836	852	+$k1 Stamina	1	0	60	t5/arg7/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38831	Enchant Gloves - Advanced Mining	8	6	1	0	1	13841	906	+$13838s1 Mining	1	0	0	t3/arg13838/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38832	Enchant Bracer - Greater Versatility	8	5	1	0	1	13846	907	+$k1 Versatility	1	0	60	t5/arg40/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38833	Enchant Chest - Superior Health	8	4	1	0	1	13858	908	+$k1 Health	1	0	60	t5/arg1/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38834	Enchant Gloves - Advanced Herbalism	8	6	1	0	1	13868	909	+$13839s1 Herbalism	1	0	0	t3/arg13839/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38836	Enchant Gloves - Strength	8	6	1	0	1	13887	4739	+$k1 Strength	1	0	60	t5/arg4/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38838	Enchant Weapon - Fiery Weapon	8	11	1	0	3	13898	803	Fiery Weapon	1	0	0	t1/arg13897/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38842	Enchant Bracer - Dodge	8	5	1	0	1	13931	923	+$k1 Dodge	1	0	60	t5/arg13/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38846	Enchant Bracer - Greater Strength	8	5	1	0	1	13939	927	+$k1 Strength	1	0	60	t5/arg4/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38849	Enchant Bracer - Greater Stamina	8	5	1	0	1	13945	4743	+$k1 Stamina	1	0	60	t5/arg7/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38857	Enchant Gloves - Greater Strength	8	6	1	0	1	20013	4742	+$k1 Strength	1	0	60	t5/arg4/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38860	Enchant Shield - Vitality	8	13	1	0	1	20016	1890	+$k1 Versatility and +$k2 Stamina	1	0	60	t5/arg40/pts10;t5/arg7/pts10;t0/arg0/pts0	0	0
+38861	Enchant Shield - Greater Stamina	8	13	1	0	1	20017	4744	+$k1 Stamina	1	0	60	t5/arg7/pts7;t0/arg0/pts0;t0/arg0/pts0	0	0
+38867	Enchant Chest - Major Mana	8	4	1	0	1	20028	1893	+$k1 Mana	1	0	60	t5/arg0/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+38868	Enchant Weapon - Icy Chill	8	11	1	0	3	20029	1894	Icy Chill	1	0	0	t1/arg20005/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38870	Enchant Weapon - Superior Striking	8	11	1	0	3	20031	1897	+$k1 Weapon Damage	1	0	60	t2/arg0/pts5;t0/arg0/pts0;t0/arg0/pts0	0	0
+38874	Enchant 2H Weapon - Major Versatility	8	12	1	0	3	20035	1903	+$k1 Versatility	1	0	60	t5/arg40/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+38877	Enchant Weapon - Spellpower	8	11	1	0	3	22749	2504	+$k1 Spell Power	1	0	60	t5/arg45/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+38878	Enchant Weapon - Healing Power	8	11	1	0	3	22750	2505	+$k1 Spell Power	1	0	60	t5/arg45/pts29;t0/arg0/pts0;t0/arg0/pts0	0	0
+38880	Enchant Weapon - Agility	8	11	1	0	3	23800	2564	+$k1 Agility	1	0	60	t5/arg3/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38881	Enchant Bracer - Argent Versatility	8	5	1	0	1	23801	2565	+$k1 Versatility	1	0	60	t5/arg40/pts9;t0/arg0/pts0;t0/arg0/pts0	0	0
+38883	Enchant Weapon - Mighty Versatility	8	11	1	0	3	23803	2567	+$k1 Versatility	1	0	60	t5/arg40/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38885	Enchant Gloves - Threat	8	6	1	0	1	25072	2613	+$25063s1% Threat	1	0	0	t3/arg25063/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38890	Enchant Gloves - Superior Agility	8	6	1	0	1	25080	2564	+$k1 Agility	1	0	60	t5/arg3/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38893	Enchant Cloak - Stealth	8	3	1	0	1	25083	910	+$k1 Agility and +$k2 Dodge	1	0	60	t5/arg3/pts8;t5/arg13/pts8;t0/arg0/pts0	0	0
+38896	Enchant 2H Weapon - Agility	8	12	1	0	3	27837	2646	+$k1 Agility	1	0	60	t5/arg3/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+38899	Enchant Bracer - Greater Dodge	8	5	35	0	1	27906	2648	+$k1 Dodge	30	0	70	t5/arg13/pts14;t0/arg0/pts0;t0/arg0/pts0	0	0
+38900	Enchant Bracer - Superior Healing	8	5	35	0	1	27911	5183	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38902	Enchant Bracer - Fortitude	8	5	35	0	1	27914	2649	+$k1 Stamina	30	0	70	t5/arg7/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38903	Enchant Bracer - Spellpower	8	5	35	0	1	27917	5184	+$k1 Spell Power	1	0	70	t5/arg45/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38904	Enchant Shield - Lesser Dodge	8	13	35	0	1	27944	2653	+$k1 Dodge	30	0	70	t5/arg13/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+38906	Enchant Shield - Parry	8	13	35	0	1	27946	2655	+$k1 Parry	1	0	70	t5/arg14/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38914	Enchant Cloak - Major Armor	8	3	35	0	1	27961	2662	+$k1 Armor	30	0	70	t4/arg0/pts120;t0/arg0/pts0;t0/arg0/pts0	0	0
+38918	Enchant Weapon - Major Intellect	8	11	35	0	3	27968	2666	+$k1 Intellect	30	0	70	t5/arg5/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+38919	Enchant 2H Weapon - Savagery	8	12	35	0	3	27971	2667	+$k1 Attack Power	30	0	70	t5/arg38/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+38920	Enchant Weapon - Potency	8	11	35	0	3	27972	2668	+$k1 Strength	30	0	70	t5/arg4/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38921	Enchant Weapon - Major Spellpower	8	11	35	0	3	27975	2669	+$k1 Spell Power	30	0	70	t5/arg45/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+38927	Enchant Weapon - Battlemaster	8	11	35	0	3	28004	2675	Battlemaster	30	0	0	t1/arg28005/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38929	Enchant Chest - Versatility Prime	8	4	35	0	1	33991	3150	+$k1 Versatility	30	0	70	t5/arg40/pts14;t0/arg0/pts0;t0/arg0/pts0	0	0
+38930	Enchant Chest - Major Armor	8	4	35	0	1	33992	2933	+$k1 Armor	30	0	70	t4/arg0/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38931	Enchant Gloves - Blasting	8	6	35	0	1	33993	2934	+$k1 Critical Strike	30	0	70	t5/arg32/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+38932	Enchant Gloves - Precise Strikes	8	6	35	0	1	33994	2935	+$k1 Critical Strike	30	0	70	t5/arg32/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38934	Enchant Gloves - Assault	8	6	35	0	1	33996	5255	+$k1 Attack Power	30	0	70	t5/arg38/pts13;t0/arg0/pts0;t0/arg0/pts0	0	0
+38939	Enchant Cloak - Empowerment	8	3	35	0	1	34003	2938	+$k1 Primary Stat	30	0	70	t5/arg71/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+38943	Enchant Boots - Cat's Swiftness	8	9	35	0	1	34007	2939	Minor Speed and +$k2 Agility	30	0	70	t3/arg24090/pts0;t5/arg3/pts6;t0/arg0/pts0	0	0
+38954	Enchant Shield - Dodge	8	13	60	0	1	44489	1952	+$k1 Dodge	55	0	80	t5/arg13/pts20;t0/arg0/pts0;t0/arg0/pts0	0	0
+38959	Enchant Cloak - Superior Agility	8	3	60	0	1	44500	4747	+$k1 Agility	55	0	80	t5/arg3/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+38973	Enchant Cloak - Minor Power	8	3	60	0	1	44582	3243	+$k1 Primary Stat	55	0	80	t5/arg71/pts28;t0/arg0/pts0;t0/arg0/pts0	0	0
+38974	Enchant Boots - Greater Vitality	8	9	60	0	1	44584	3244	+$k1 Versatility and +$k2 Stamina	55	0	80	t5/arg7/pts14;t5/arg40/pts14;t0/arg0/pts0	0	0
+38984	Enchant Bracer - Haste	8	5	60	0	1	44598	3231	+$k1 Haste	55	0	80	t5/arg36/pts15;t0/arg0/pts0;t0/arg0/pts0	0	0
+38985	Enchant Gloves - Greater Blasting	8	6	60	0	1	44612	3249	+$k1 Critical Strike	55	0	80	t5/arg32/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+38988	Enchant Weapon - Giant Slayer	8	11	60	0	3	44621	3251	Giantslaying	55	0	0	t1/arg44622/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+38991	Enchant Weapon - Exceptional Spellpower	8	11	60	0	3	44629	3830	+$k1 Spell Power	55	0	80	t5/arg45/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+38995	Enchant Weapon - Exceptional Agility	8	11	60	0	3	44633	1103	+$k1 Agility	55	0	80	t5/arg3/pts26;t0/arg0/pts0;t0/arg0/pts0	0	0
+38997	Enchant Bracer - Greater Spellpower	8	5	60	0	1	44635	2326	+$k1 Spell Power	55	0	80	t5/arg45/pts23;t0/arg0/pts0;t0/arg0/pts0	0	0
+39003	Enchant Cloak - Greater Speed	8	3	60	0	1	47898	3831	+$k1 Haste	55	0	80	t5/arg36/pts23;t0/arg0/pts0;t0/arg0/pts0	0	0
+168450	Formula: Enchant Ring - Accord of Critical Strike	9	8	120	100	1	298011	6108	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153444	Enchant Ring - Pact of Mastery	8	10	120	0	3	255077	5944	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169534	Formula: Machinist's Brilliance	9	8	120	111	3	300770	6112	Machinist's Brilliance	1	0	60	t3/arg300718/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+41111	Flexweave Underlay	8	3	75	58	1	55002	3605	Flexweave Underlay	1	0	0	t7/arg55001/pts0;t0/arg3/pts23;t0/arg0/pts0	2504	1
+41118	Nitro Boosts	8	7	75	58	1	55016	4223	Nitro Boosts	1	0	0	t7/arg55004/pts0;t0/arg32/pts24;t0/arg31/pts0	2504	1
+41146	Sun Scope	0	0	75	70	3	55076	3607	+$k1 Ranged Haste	142	0	70	t5/arg29/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+118467	Formula: Enchant Weapon - Mark of Bleeding Hollow	9	8	100	0	1	173323	5384	Mark of Bleeding Hollow	1	0	0	t3/arg173321/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+41604	Sapphire Spellthread	8	8	80	70	4	55634	3721	+$k1 Spell Power and +$k2 Stamina	142	0	70	t5/arg45/pts50;t5/arg7/pts30;t0/arg0/pts0	0	0
+44492	Formula: Enchant Weapon - Berserking	9	8	82	0	3	59621	3789	Berserking	55	0	0	t1/arg59620/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+41976	Titanium Weapon Chain	8	11	80	70	2	55836	3731	Titanium Weapon Chain	142	0	70	t3/arg43588/pts0;t5/arg36/pts28;t0/arg0/pts0	0	0
+42500	Titanium Shield Spike	8	13	80	70	2	56353	3748	Titanium Spike	142	70	0	t3/arg56355/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44486	Formula: Enchant Weapon - Superior Potency	9	8	82	0	3	60707	3833	+$k1 Attack Power	55	0	80	t5/arg38/pts32;t0/arg0/pts0;t0/arg0/pts0	0	0
+44129	Lesser Inscription of the Storm 	0	8	80	80	3	59927	3806	+$k1 Spell Power and +$k2 Critical Strike	182	0	80	t5/arg45/pts18;t5/arg32/pts10;t0/arg0/pts0	0	0
+44132	Lesser Inscription of the Pinnacle	0	8	80	80	3	59932	3876	+$k1 Dodge and +$k2 Parry	182	0	80	t5/arg13/pts15;t5/arg14/pts10;t0/arg0/pts0	0	0
+44133	Greater Inscription of the Axe	0	8	80	80	7	59934	3808	+$k1 Attack Power and +$k2 Critical Strike	182	0	80	t5/arg38/pts20;t5/arg32/pts15;t0/arg0/pts0	0	0
+44134	Greater Inscription of the Crag	0	8	80	80	7	59936	3809	+$k1 Intellect and +$k2 Versatility	182	0	80	t5/arg5/pts21;t5/arg40/pts16;t0/arg0/pts0	0	0
+144315	Formula: Enchant Neck - Mark of the Quick	9	8	105	100	1	235701	5897	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44449	Enchant Boots - Assault	8	9	60	0	1	60606	3824	+$k1 Attack Power	55	0	80	t5/arg38/pts12;t0/arg0/pts0;t0/arg0/pts0	0	0
+44453	Enchant Weapon - Greater Potency	8	11	60	0	3	60621	1606	+$k1 Attack Power	55	0	80	t5/arg38/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+44455	Shield Enchant - Greater Intellect	8	13	60	0	1	60653	1128	+$k1 Intellect	55	0	80	t5/arg5/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+44458	Enchant Gloves - Crusher	8	6	60	0	1	60668	1603	+$k1 Attack Power	55	0	80	t5/arg38/pts22;t0/arg0/pts0;t0/arg0/pts0	0	0
+44463	Enchant 2H Weapon - Massacre	8	11	60	0	3	60691	3827	+$k1 Attack Power	55	0	80	t5/arg38/pts55;t0/arg0/pts0;t0/arg0/pts0	0	0
+44465	Enchant Chest - Powerful Stats	8	4	60	0	1	60692	3832	+$60694s1 All Stats	55	50	0	t3/arg60694/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44471	Formula: Enchant Cloak - Mighty Stamina	9	8	70	0	2	47672	3294	+$k1 Stamina	55	0	80	t5/arg7/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+44473	Formula: Enchant Weapon - Scourgebane	9	8	70	0	3	44595	3247	+$44594s1 Attack Power versus Undead	55	0	0	t3/arg44594/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44484	Formula: Enchant Bracer - Greater Assault	9	8	82	0	2	44575	3845	+$k1 Attack Power	55	0	80	t5/arg38/pts25;t0/arg0/pts0;t0/arg0/pts0	0	0
+44485	Formula: Enchant Gloves - Armsman	9	8	85	0	2	44625	3253	+$25063s1% Threat and +$k2 Parry	55	0	80	t3/arg25063/pts0;t5/arg14/pts10;t0/arg0/pts0	0	0
+44494	Formula: Enchant Weapon - Lifeward	9	8	82	0	3	44576	3241	Lifeward	55	0	0	t1/arg44578/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+44871	Greater Inscription of the Axe	0	8	80	80	4	59934	3808	+$k1 Attack Power and +$k2 Critical Strike	182	0	80	t5/arg38/pts20;t5/arg32/pts15;t0/arg0/pts0	0	0
+44872	Greater Inscription of the Crag	0	8	80	80	4	59936	3809	+$k1 Intellect and +$k2 Versatility	182	0	80	t5/arg5/pts21;t5/arg40/pts16;t0/arg0/pts0	0	0
+44873	Greater Inscription of the Pinnacle	0	8	80	80	4	59941	3811	+$k1 Dodge and +$k2 Stamina	182	0	80	t5/arg13/pts20;t5/arg7/pts22;t0/arg0/pts0	0	0
+44944	Formula: Enchant Bracer - Major Stamina	9	8	85	0	3	62256	3850	+$k1 Stamina	55	0	80	t5/arg7/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+44963	Earthen Leg Armor	8	8	80	80	4	62447	3853	+$k1 Armor and +$k2 Stamina	182	0	80	t4/arg0/pts40;t5/arg7/pts28;t0/arg0/pts0	0	0
+45056	Enchant Staff - Greater Spellpower	8	12	60	0	3	62948	3854	+$k1 Spell Power	55	0	80	t5/arg45/pts81;t0/arg0/pts0;t0/arg0/pts0	0	0
+45059	Formula: Enchant Staff - Greater Spellpower	9	8	85	0	3	62948	3854	+$k1 Spell Power	55	0	80	t5/arg45/pts81;t0/arg0/pts0;t0/arg0/pts0	0	0
+45628	Enchant Boots - Lesser Accuracy	8	9	1	0	1	63746	3858	+$k1 Critical Strike	55	0	80	t5/arg32/pts10;t0/arg0/pts0;t0/arg0/pts0	0	0
+77529	Lord Blastington's Scope of Doom	0	0	90	85	3	109086	4699	Lord Blastington's Scope of Doom	1	0	0	t3/arg177707/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+46006	Glow Worm	0	8	30	0	1	64401	3868	Fishing Lure (+$8085s1 Fishing Skill)	1	0	0	t3/arg8085/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+46026	Enchant Weapon - Blade Ward	8	11	1	0	3	64441	3869	Blade Ward	162	0	0	t1/arg64440/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+46027	Formula: Enchant Weapon - Blade Ward	9	8	75	0	4	64441	3869	Blade Ward	162	0	0	t1/arg64440/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141913	Formula: Enchant Neck - Mark of the Ancient Priestess	9	8	110	100	1	228408	5891	Mark of the Ancient Priestess	1	0	110	t3/arg228400/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+46098	Enchant Weapon - Blood Draining	8	11	1	0	3	64579	3870	Blood Draining	162	0	0	t3/arg64571/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+46348	Formula: Enchant Weapon - Blood Draining	9	8	75	0	4	64579	3870	Blood Draining	162	0	0	t3/arg64571/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140567	Songs of the Horde	0	8	100	90	2	223937	5884	Songs of the Horde	1	0	60	t0/arg0/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74726	Enchant Weapon - Dancing Steel	8	11	85	0	3	104434	4444	Dancing Steel	1	0	0	t0/arg0/pts0;t3/arg118333/pts0;t0/arg0/pts0	0	0
+141916	Formula: Enchant Neck - Mark of the Ancient Priestess	9	8	110	100	1	228409	5891	Mark of the Ancient Priestess	1	0	110	t3/arg228400/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144308	Formula: Enchant Neck - Mark of the Master	9	8	105	100	1	235695	5895	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144318	Formula: Enchant Neck - Mark of the Deadly	9	8	105	100	1	235702	5898	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74716	Enchant Boots - Greater Precision	8	9	85	0	1	104408	4427	+$k1 Critical Strike	1	0	90	t5/arg32/pts175;t0/arg0/pts0;t0/arg0/pts0	0	0
+74710	Enchant Cloak - Accuracy	8	3	85	0	1	104398	4421	+$k1 Critical Strike	1	0	90	t5/arg32/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+87584	Secret Tiger Claw Inscription	8	2	90	85	4	113046	4914	+$k1 Agility and +$k2 Critical Strike	1	0	90	t5/arg3/pts200;t5/arg32/pts100;t0/arg0/pts0	2510	50
+83006	Greater Tiger Fang Inscription	8	2	90	85	4	121192	4803	+$k1 Strength and +$k2 Critical Strike	1	0	90	t5/arg4/pts200;t5/arg32/pts100;t0/arg0/pts0	0	0
+50335	Greater Inscription of the Axe	0	8	80	80	7	59934	3808	+$k1 Attack Power and +$k2 Critical Strike	182	0	80	t5/arg38/pts20;t5/arg32/pts15;t0/arg0/pts0	0	0
+50336	Greater Inscription of the Crag	0	8	80	80	7	59936	3809	+$k1 Intellect and +$k2 Versatility	182	0	80	t5/arg5/pts21;t5/arg40/pts16;t0/arg0/pts0	0	0
+50337	Greater Inscription of the Pinnacle	0	8	80	80	7	59941	3811	+$k1 Dodge and +$k2 Stamina	182	0	80	t5/arg13/pts20;t5/arg7/pts22;t0/arg0/pts0	0	0
+50338	Greater Inscription of the Storm	0	8	80	80	7	59937	3810	+$k1 Spell Power and +$k2 Critical Strike	182	0	80	t5/arg45/pts24;t5/arg32/pts15;t0/arg0/pts0	0	0
+50406	Formula: Enchant Gloves - Angler	9	8	80	0	2	71692	4732	+$71691s1 Fishing	1	0	0	t3/arg71691/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+50816	Enchant Gloves - Angler	8	6	1	0	1	71692	4732	+$71691s1 Fishing	1	0	0	t3/arg71691/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+84584	Formula: Enchant Weapon - Dancing Steel	9	8	90	1	3	104434	4444	Dancing Steel	1	0	0	t0/arg0/pts0;t3/arg118333/pts0;t0/arg0/pts0	0	0
+162721	Formula: Enchant Weapon - Stalwart Navigation	9	8	120	100	1	268915	5966	Stalwart Navigation	1	0	120	t3/arg268912/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52687	Enchant Gloves - Mastery	8	6	80	0	1	74132	4061	+$k1 Mastery	290	0	85	t5/arg49/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52733	Formula: Enchant Weapon - Power Torrent	9	8	85	0	3	74242	4097	Power Torrent	290	0	0	t3/arg94746/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52735	Formula: Enchant Weapon - Windwalk	9	8	85	0	3	74244	4098	Windwalk	290	0	0	t1/arg74243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52736	Formula: Enchant Weapon - Landslide	9	8	85	0	3	74246	4099	Landslide	290	0	0	t1/arg74245/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52737	Formula: Enchant Cloak - Greater Critical Strike	9	8	85	0	2	74247	4100	+$k1 Critical Strike	290	0	85	t5/arg32/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+52739	Formula: Enchant Chest - Peerless Stats	9	8	85	0	2	74250	4102	+$74249s1 All Stats	290	0	0	t3/arg74249/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52743	Enchant Boots - Earthen Vitality	8	9	80	0	1	74189	4062	+$k1 Stamina and Minor Movement Speed	290	0	85	t5/arg7/pts30;t3/arg24090/pts0;t0/arg0/pts0	0	0
+52744	Enchant Chest - Mighty Stats	8	4	80	0	1	74191	4063	+$74190s1 All Stats	290	0	0	t3/arg74190/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52745	Enchant Cloak - Lesser Power	8	3	80	0	1	74192	4064	+$k1 Primary Stat	290	0	85	t5/arg71/pts56;t0/arg0/pts0;t0/arg0/pts0	0	0
+52746	Enchant Bracer - Speed	8	5	80	0	1	74193	4065	+$k1 Haste	290	0	85	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52748	Enchant Weapon - Avalanche	8	11	80	0	1	74197	4067	Avalanche	290	0	0	t1/arg74196/pts0;t3/arg95472/pts0;t0/arg0/pts0	0	0
+52749	Enchant Gloves - Haste	8	6	80	0	1	74198	4068	+$k1 Haste	290	0	85	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52750	Enchant Boots - Haste	8	9	80	0	1	74199	4069	+$k1 Haste	290	0	85	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52751	Enchant Chest - Stamina	8	4	80	0	1	74200	4070	+$k1 Stamina	290	0	85	t5/arg7/pts55;t0/arg0/pts0;t0/arg0/pts0	0	0
+52752	Enchant Bracer - Critical Strike	8	5	80	0	1	74201	4071	+$k1 Critical Strike	290	0	85	t5/arg32/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52753	Enchant Cloak - Intellect	8	3	80	0	1	74202	4072	+$k1 Intellect	290	0	85	t5/arg5/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+52754	Enchant Shield - Protection	8	13	80	0	1	74207	4073	+$k1 Stamina	290	0	85	t5/arg7/pts16;t0/arg0/pts0;t0/arg0/pts0	0	0
+52755	Enchant Weapon - Elemental Slayer	8	11	80	0	1	74211	4074	Elemental Slayer	290	0	0	t1/arg74208/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52757	Enchant Boots - Major Agility	8	9	80	0	1	74213	4076	+$k1 Agility	290	0	85	t5/arg3/pts35;t0/arg0/pts0;t0/arg0/pts0	0	0
+52758	Enchant Chest - Mighty Armor	8	4	80	0	1	74214	4077	+$k1 Armor	290	0	85	t4/arg0/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+52759	Enchant Gloves - Greater Haste	8	6	80	0	1	74220	4082	+$k1 Haste	290	0	85	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52760	Enchant Weapon - Hurricane	8	11	80	0	1	74223	4083	Hurricane	290	0	0	t1/arg74221/pts0;t3/arg94747/pts0;t0/arg0/pts0	0	0
+52761	Enchant Weapon - Heartsong	8	11	80	0	1	74225	4084	Heartsong	290	0	0	t3/arg95653/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52764	Enchant Cloak - Critical Strike	8	3	80	0	1	74230	4087	+$k1 Critical Strike	290	0	85	t5/arg32/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52767	Enchant Cloak - Protection	8	3	80	0	1	74234	4090	+$k1 Stamina	290	0	85	t5/arg7/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+52768	Enchant Off-Hand - Superior Intellect	8	13	80	0	1	74235	4091	+$k1 Intellect	290	0	85	t5/arg5/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+52769	Enchant Boots - Precision	8	9	80	0	1	74236	4092	+$k1 Critical Strike	290	0	85	t5/arg32/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52770	Enchant Bracer - Exceptional Versatility	8	5	80	0	1	74237	4093	+$k1 Versatility	290	0	85	t5/arg40/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52772	Enchant Bracer - Greater Haste	8	5	80	0	1	74239	4095	+$k1 Haste	290	0	85	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52778	Enchant Bracer - Greater Critical Strike	8	5	80	0	1	74248	4101	+$k1 Critical Strike	290	0	85	t5/arg32/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+52779	Enchant Chest - Peerless Stats	8	4	80	0	1	74250	4102	+$74249s1 All Stats	290	0	0	t3/arg74249/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+52781	Enchant Boots - Assassin's Step	8	9	80	0	1	74252	4105	+$k1 Agility and Minor Movement Speed	290	0	85	t5/arg3/pts25;t3/arg24090/pts0;t0/arg0/pts0	0	0
+52782	Enchant Boots - Lavawalker	8	9	80	0	1	74253	4104	+$k1 Mastery and Minor Movement Speed	290	0	85	t5/arg49/pts35;t3/arg24090/pts0;t0/arg0/pts0	0	0
+52783	Enchant Gloves - Mighty Strength	8	6	80	0	1	74254	4106	+$k1 Strength	290	0	85	t5/arg4/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+52784	Enchant Gloves - Greater Mastery	8	6	80	0	1	74255	4107	+$k1 Mastery	290	0	85	t5/arg49/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+52785	Enchant Bracer - Greater Speed	8	5	80	0	1	74256	4108	+$k1 Haste	290	0	85	t5/arg36/pts65;t0/arg0/pts0;t0/arg0/pts0	0	0
+128550	Enchant Cloak - Binding of Intellect	8	3	110	0	3	190879	5436	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153479	Enchant Weapon - Torrent of Elements	8	11	120	0	2	255129	5949	Torrent of Elements	1	0	120	t3/arg255150/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+54447	Enchanted Spellthread	8	8	1	80	3	75151	4111	+$k1 Intellect and +$k2 Stamina	142	0	85	t5/arg5/pts55;t5/arg7/pts65;t0/arg0/pts0	0	0
+54448	Powerful Enchanted Spellthread	8	8	1	85	4	75152	4112	+$k1 Intellect and +$k2 Stamina	142	0	85	t5/arg5/pts95;t5/arg7/pts80;t0/arg0/pts0	0	0
+54449	Ghostly Spellthread	8	8	81	80	3	75149	4109	+$k1 Intellect and +$k2 Versatility	142	0	85	t5/arg5/pts55;t5/arg40/pts45;t0/arg0/pts0	0	0
+82444	Greater Pearlescent Spellthread	8	8	90	85	3	122393	4826	+$k1 Intellect and +$k2 Versatility	1	0	90	t5/arg5/pts285;t5/arg40/pts165;t0/arg0/pts0	0	0
+169537	REUSE ME [MTMM] (DNT)	9	8	120	111	3	300789	6150	Naga Hide	1	0	60	t3/arg300797/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144304	Enchant Neck - Mark of the Master	8	1	105	0	2	235695	5895	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+56477	Savage Armor Kit	8	14	81	78	1	78165	4120	+$k1 Stamina	1	0	85	t5/arg7/pts36;t0/arg0/pts0;t0/arg0/pts0	0	0
+56502	Scorched Leg Armor	8	8	81	80	3	78169	4122	+$k2 Attack Power and +$k1 Critical Strike	1	0	80	t5/arg32/pts45;t5/arg38/pts55;t0/arg0/pts0	0	0
+56503	Twilight Leg Armor	8	8	81	80	3	78170	4124	+$k1 Stamina and +$k2 Agility	1	0	85	t5/arg7/pts85;t5/arg3/pts45;t0/arg0/pts0	0	0
+56550	Dragonscale Leg Armor	8	8	85	85	4	78171	4126	+$k2 Attack Power and +$k1 Critical Strike	1	0	85	t5/arg32/pts55;t5/arg38/pts95;t0/arg0/pts0	0	0
+56551	Charscale Leg Armor	8	8	85	85	4	78172	4127	+$k1 Stamina and +$k2 Agility	1	0	85	t5/arg7/pts145;t5/arg3/pts55;t0/arg0/pts0	0	0
+84559	Formula: Enchant Bracer - Super Intellect	9	8	90	1	3	104389	4414	+$k1 Intellect	1	0	90	t5/arg5/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+162313	Formula: Enchant Weapon - Deadly Navigation	9	8	120	100	1	268909	5965	Deadly Navigation	1	0	120	t3/arg268906/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168596	Enchant Weapon - Force Multiplier	8	11	120	0	3	298440	6148	Force Multiplier	1	0	60	t3/arg300795/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+59594	Gnomish X-Ray Scope	0	0	85	80	3	81932	4175	Gnomish X-Ray Scope	1	0	0	t3/arg95713/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+59595	R19 Threatfinder	0	0	85	80	3	81933	4176	+$k1 Critical Strike	1	0	80	t5/arg32/pts88;t0/arg0/pts0;t0/arg0/pts0	0	0
+59596	Safety Catch Removal Kit	0	0	85	80	3	81934	4177	+$k1 Ranged Haste	1	0	80	t5/arg29/pts88;t0/arg0/pts0;t0/arg0/pts0	0	0
+153247	Boon of the Lightbearer	8	2	110	0	3	254706	5931	Lightbearer	1	0	100	t3/arg254707/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162304	Formula: Enchant Ring - Pact of Mastery	9	8	120	100	1	255100	5944	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153439	Enchant Ring - Seal of Haste	8	10	118	0	2	255072	5939	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162724	Formula: Enchant Weapon - Masterful Navigation	9	8	120	100	1	268903	5964	Masterful Navigation	1	0	120	t3/arg268900/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+62321	Lesser Inscription of Unbreakable Quartz	0	8	85	85	3	86847	4197	+$k1 Stamina and +$k2 Dodge	1	0	85	t5/arg7/pts45;t5/arg13/pts20;t0/arg0/pts0	0	0
+62333	Greater Inscription of Unbreakable Quartz	0	8	85	85	4	86854	4198	+$k1 Stamina and +$k2 Dodge	1	0	85	t5/arg7/pts75;t5/arg13/pts25;t0/arg0/pts0	0	0
+62342	Lesser Inscription of Charged Lodestone	0	8	85	85	3	86898	4199	+$k1 Intellect and +$k2 Haste	1	0	85	t5/arg5/pts30;t5/arg36/pts20;t0/arg0/pts0	0	0
+62343	Greater Inscription of Charged Lodestone	0	8	85	85	4	86899	4200	+$k1 Intellect and +$k2 Haste	1	0	85	t5/arg5/pts50;t5/arg36/pts25;t0/arg0/pts0	0	0
+62344	Lesser Inscription of Jagged Stone	0	8	85	85	3	86900	4201	+$k1 Strength and +$k2 Critical Strike	1	0	85	t5/arg4/pts30;t5/arg32/pts20;t0/arg0/pts0	0	0
+62345	Greater Inscription of Jagged Stone	0	8	85	85	4	86901	4202	+$k1 Strength and +$k2 Critical Strike	1	0	85	t5/arg4/pts50;t5/arg32/pts25;t0/arg0/pts0	0	0
+62346	Greater Inscription of Shattered Crystal	0	8	85	85	4	86907	4204	+$k1 Agility and +$k2 Mastery	1	0	85	t5/arg3/pts50;t5/arg49/pts25;t0/arg0/pts0	0	0
+162302	Formula: Enchant Ring - Pact of Critical Strike	9	8	120	100	1	255098	5942	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+159787	Enchant Weapon - Masterful Navigation	8	11	120	0	2	268901	5964	Masterful Navigation	1	0	120	t3/arg268900/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153431	Enchant Gloves - Kul Tiran Mining	8	6	118	0	3	255040	5933	Kul Tiran Mining	1	0	120	t3/arg255037/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153443	Enchant Ring - Pact of Haste	8	10	120	0	3	255076	5943	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+159467	Enchant Gloves - Zandalari Skinning	8	6	118	0	3	267486	5934	Kul Tiran Skinning	1	0	120	t3/arg255038/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+64412	Formula: Enchant Boots - Lavawalker	9	8	85	0	2	74253	4104	+$k1 Mastery and Minor Movement Speed	290	0	85	t5/arg49/pts35;t3/arg24090/pts0;t0/arg0/pts0	0	0
+64415	Formula: Enchant Gloves - Mighty Strength	9	8	85	0	2	74254	4106	+$k1 Strength	290	0	85	t5/arg4/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+83763	Ironscale Leg Armor	8	8	90	85	3	122386	4824	+$k1 Stamina and +$k2 Dodge	1	0	90	t5/arg7/pts430;t5/arg13/pts165;t0/arg0/pts0	0	0
+87585	Secret Tiger Fang Inscription	8	2	90	85	4	113047	4913	+$k1 Strength and +$k2 Critical Strike	1	0	90	t5/arg4/pts200;t5/arg32/pts100;t0/arg0/pts0	2510	50
+160330	Enchant Bracers - Cooled Hearthing	8	5	120	0	3	271433	5971	Cooled Hearthing	1	0	120	t3/arg271431/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+86597	Living Steel Weapon Chain	8	11	90	85	2	128286	4918	Living Steel Weapon Chain	1	0	90	t3/arg43588/pts0;t5/arg32/pts200;t0/arg0/pts0	0	0
+144314	Formula: Enchant Neck - Mark of the Quick	9	8	105	100	1	235697	5897	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+68714	Greater Inscription of Shattered Crystal	0	8	85	85	4	86907	4204	+$k1 Agility and +$k2 Mastery	1	0	85	t5/arg3/pts50;t5/arg49/pts25;t0/arg0/pts0	0	0
+68716	Greater Inscription of Jagged Stone	0	8	85	85	4	86901	4202	+$k1 Strength and +$k2 Critical Strike	1	0	85	t5/arg4/pts50;t5/arg32/pts25;t0/arg0/pts0	0	0
+68787	Formula: Enchant Bracer - Agility	9	8	85	0	3	96264	4258	+$k1 Agility	1	0	85	t5/arg3/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+70139	Flintlocke's Woodchucker	0	0	85	80	3	99623	4267	Flintlocke's Woodchucker	1	0	0	t3/arg99622/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74700	Enchant Bracer - Mastery	8	5	85	0	1	104338	4411	+$k1 Mastery	1	0	90	t5/arg49/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+74701	Enchant Bracer - Major Dodge	8	5	85	0	1	104385	4412	+$k1 Dodge	1	0	90	t5/arg13/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+74704	Enchant Bracer - Exceptional Strength	8	5	85	0	1	104390	4415	+$k1 Strength	1	0	90	t5/arg4/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+74706	Enchant Chest - Super Armor	8	4	85	0	1	104392	4417	+$k1 Armor	1	0	90	t4/arg0/pts200;t0/arg0/pts0;t0/arg0/pts0	0	0
+74707	Enchant Chest - Mighty Versatility	8	4	85	0	1	104393	4418	+$k1 Versatility	1	0	90	t5/arg40/pts200;t0/arg0/pts0;t0/arg0/pts0	0	0
+74709	Enchant Chest - Superior Stamina	8	4	85	0	1	104397	4420	+$k1 Stamina	1	0	90	t5/arg7/pts300;t0/arg0/pts0;t0/arg0/pts0	0	0
+74712	Enchant Cloak - Superior Intellect	8	3	85	0	1	104403	4423	+$k1 Intellect	1	0	90	t5/arg5/pts180;t0/arg0/pts0;t0/arg0/pts0	0	0
+74720	Enchant Gloves - Superior Haste	8	6	85	0	1	104417	4431	+$k1 Haste	1	0	90	t5/arg36/pts170;t0/arg0/pts0;t0/arg0/pts0	0	0
+74724	Enchant Weapon - Jade Spirit	8	11	85	0	3	104427	4442	Jade Spirit	1	0	0	t3/arg120033/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+74729	Enchant Off-Hand - Major Intellect	8	13	85	0	1	104445	4434	+$k1 Intellect	1	0	90	t5/arg5/pts165;t0/arg0/pts0;t0/arg0/pts0	0	0
+141918	Formula: Enchant Neck - Mark of the Trained Soldier	9	8	110	100	3	228407	5890	Mark of the Trained Soldier	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+78343	Formula: Enchant Gloves - Herbalism	9	8	29	0	2	13617	845	+$13614s1 Herbalism	1	0	0	t3/arg13614/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+78348	Formula: Enchant Weapon - Executioner	9	8	75	0	3	42974	3225	Executioner	30	0	0	t1/arg42976/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+82442	Pearlescent Spellthread	8	8	90	85	2	131863	5004	+$k1 Intellect and +$k2 Versatility	1	0	90	t5/arg5/pts170;t5/arg40/pts100;t0/arg0/pts0	0	0
+82445	Greater Cerulean Spellthread	8	8	90	85	3	122392	4825	+$k1 Intellect and +$k2 Critical Strike	1	0	90	t5/arg5/pts285;t5/arg32/pts165;t0/arg0/pts0	0	0
+153478	Enchant Weapon - Siphoning	8	11	120	0	2	255110	5948	Siphoning	1	0	120	t5/arg62/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+83765	Angerhide Leg Armor	8	8	90	85	3	122388	4823	+$k1 Strength and +$k2 Critical Strike	1	0	90	t5/arg4/pts285;t5/arg32/pts165;t0/arg0/pts0	0	0
+84580	Formula: Enchant Weapon - River's Song	9	8	90	1	3	104442	4446	River's Song	1	0	0	t0/arg116660/pts0;t3/arg104441/pts0;t0/arg0/pts0	0	0
+153437	Enchant Gloves - Kul Tiran Crafting	8	6	118	0	3	255070	5937	Kul Tiran Crafting	1	0	120	t3/arg255069/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+85559	Sha Armor Kit	8	14	87	85	1	124091	4869	+$k1 Stamina	1	0	90	t5/arg7/pts150;t0/arg0/pts0;t0/arg0/pts0	0	0
+85569	Sha-Touched Leg Armor	8	8	88	85	2	124118	4871	+$k1 Agility and +$k2 Critical Strike	1	0	90	t5/arg3/pts170;t5/arg32/pts100;t0/arg0/pts0	0	0
+158377	Frost-Laced Ammunition	0	8	120	110	3	265095	5958	Frost-Laced Ammunition	1	0	120	t3/arg265094/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141910	Enchant Neck - Mark of the Ancient Priestess	8	1	110	0	3	228408	5891	Mark of the Ancient Priestess	1	0	110	t3/arg228400/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+87560	Greater Ox Horn Inscription	8	2	90	85	4	121194	4805	+$k1 Stamina and +$k2 Dodge	1	0	90	t5/arg7/pts300;t5/arg13/pts100;t0/arg0/pts0	0	0
+87578	Crane Wing Inscription	8	2	90	85	3	127013	4909	+$k1 Intellect and +$k2 Critical Strike	1	0	90	t5/arg5/pts120;t5/arg32/pts80;t0/arg0/pts0	0	0
+87580	Tiger Fang Inscription	8	2	90	85	3	127015	4907	+$k1 Strength and +$k2 Critical Strike	1	0	90	t5/arg4/pts120;t5/arg32/pts80;t0/arg0/pts0	0	0
+87582	Secret Crane Wing Inscription	8	2	90	85	4	113045	4915	+$k1 Intellect and +$k2 Critical Strike	1	0	90	t5/arg5/pts200;t5/arg32/pts100;t0/arg0/pts0	2510	50
+87583	Secret Serpent Pearl Inscription	8	2	90	85	4	113044	4916	+$k1 Versatility and +$k2 Critical Strike	1	0	90	t5/arg40/pts520;t5/arg32/pts100;t0/arg0/pts0	2510	50
+159788	Enchant Weapon - Versatile Navigation	8	11	120	0	2	268852	5962	Versatile Navigation	1	0	120	t3/arg268855/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168451	Formula: Enchant Ring - Accord of Haste	9	8	120	100	1	298016	6109	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+95349	Enchant Weapon - Glorious Tyranny	8	11	90	0	3	139631	5035	+$k1 Primary Stat, Disarm Duration Reduction	1	0	90	t5/arg71/pts600;t0/arg0/pts200;t3/arg43588/pts0	0	0
+162300	Formula: Enchant Ring - Seal of Mastery	9	8	120	100	1	255096	5940	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162726	Formula: Enchant Weapon - Versatile Navigation	9	8	120	100	1	268879	5962	Versatile Navigation	1	0	120	t3/arg268855/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+98163	Enchant Weapon - Bloody Dancing Steel	8	11	90	0	3	142468	5125	Bloody Dancing Steel	1	0	0	t0/arg0/pts0;t3/arg142531/pts0;t0/arg0/pts0	0	0
+162318	Formula: Enchant Weapon - Gale-Force Striking	9	8	120	100	1	255143	5950	Gale-Force Striking	1	0	120	t3/arg255151/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168449	Enchant Ring - Accord of Versatility	8	10	120	0	3	297993	6111	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141912	Formula: Enchant Neck - Mark of the Trained Soldier	9	8	110	100	1	228405	5890	Mark of the Trained Soldier	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162301	Formula: Enchant Ring - Seal of Versatility	9	8	120	100	1	255097	5941	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+109120	Oglethorpe's Missile Splitter	0	0	100	91	3	156050	5275	Oglethorpe's Missile Splitter	1	0	0	t3/arg156052/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+109122	Megawatt Filament	0	0	100	91	3	156061	5276	Megawatt Filament	1	0	0	t3/arg156059/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+110617	Enchant Ring - Breath of Critical Strike	8	10	100	0	1	158907	5284	+$k1 Critical Strike	1	0	90	t5/arg32/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110618	Enchant Ring - Breath of Haste	8	10	100	0	1	158908	5297	+$k1 Haste	1	0	90	t5/arg36/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110619	Enchant Ring - Breath of Mastery	8	10	100	0	1	158909	5299	+$k1 Mastery	1	0	90	t5/arg49/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110620	Enchant Ring - Breath of Mastery	8	10	100	0	1	158910	5301	+$k1 Mastery	1	0	90	t5/arg49/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110621	Enchant Ring - Breath of Versatility	8	10	100	0	1	158911	5303	+$k1 Versatility	1	0	90	t5/arg40/pts30;t0/arg0/pts0;t0/arg0/pts0	0	0
+110624	Enchant Neck - Breath of Critical Strike	8	1	100	0	1	158892	5285	+$k1 Critical Strike	1	0	90	t5/arg32/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+110625	Enchant Neck - Breath of Haste	8	1	100	0	1	158893	5292	+$k1 Haste	1	0	90	t5/arg36/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+110628	Enchant Neck - Breath of Versatility	8	1	100	0	1	158896	5295	+$k1 Versatility	1	0	90	t5/arg40/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+110631	Enchant Cloak - Breath of Critical Strike	8	3	100	0	1	158877	5281	+$k1 Critical Strike	1	0	90	t5/arg32/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+110633	Enchant Cloak - Breath of Mastery	8	3	100	0	1	158879	5300	+$k1 Mastery	1	0	90	t5/arg49/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+110634	Enchant Cloak - Breath of Critical Strike	8	3	100	0	1	158880	5302	+$k1 Critical Strike	1	0	90	t5/arg32/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+110635	Enchant Cloak - Breath of Versatility	8	3	100	0	1	158881	5304	+$k1 Versatility	1	0	90	t5/arg40/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+110639	Enchant Ring - Gift of Haste	8	10	100	0	3	158915	5325	+$k1 Haste	1	0	90	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+110641	Enchant Ring - Gift of Mastery	8	10	100	0	3	158917	5327	+$k1 Mastery	1	0	90	t5/arg49/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+110645	Enchant Neck - Gift of Critical Strike	8	1	100	0	3	158899	5317	+$k1 Critical Strike	1	0	90	t5/arg32/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+110647	Enchant Neck - Gift of Mastery	8	1	100	0	3	158901	5319	+$k1 Mastery	1	0	90	t5/arg49/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+110649	Enchant Neck - Gift of Versatility	8	1	100	0	3	158903	5321	+$k1 Versatility	1	0	90	t5/arg40/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+110652	Enchant Cloak - Gift of Critical Strike	8	3	100	0	3	158884	5310	+$k1 Critical Strike & +$182495s1% Speed	1	0	90	t5/arg32/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+110653	Enchant Cloak - Gift of Haste	8	3	100	0	3	158885	5311	+$k1 Haste & +$182495s1% Speed	1	0	90	t5/arg36/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+110655	Enchant Cloak - Gift of Critical Strike	8	3	100	0	3	158887	5313	+$k1 Critical Strike & +$182495s1% Speed	1	0	90	t5/arg32/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+110656	Enchant Cloak - Gift of Versatility	8	3	100	0	3	158889	5314	+$k1 Versatility & +$182495s1% Speed	1	0	90	t5/arg40/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+110682	Enchant Weapon - Mark of the Thunderlord	8	11	100	0	3	159235	5330	Mark of the Thunderlord	1	0	0	t3/arg159243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140219	Boon of the Bloodhunter	8	2	110	0	3	222853	5883	Bloodhunter	1	0	100	t3/arg222856/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168452	Formula: Enchant Ring - Accord of Mastery	9	8	120	100	1	298002	6110	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+112093	Enchant Weapon - Mark of the Shattered Hand	8	11	100	0	3	159236	5331	Mark of the Shattered Hand	1	0	0	t3/arg159239/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+112115	Enchant Weapon - Mark of Shadowmoon	8	11	100	0	3	159673	5335	Mark of Shadowmoon	1	0	0	t3/arg159684/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+112160	Enchant Weapon - Mark of Blackrock	8	11	100	0	3	159674	5336	Mark of Blackrock	1	0	0	t3/arg159685/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+112164	Enchant Weapon - Mark of Warsong	8	11	100	0	3	159671	5337	Mark of Warsong	1	0	0	t3/arg159682/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+112165	Enchant Weapon - Mark of the Frostwolf	8	11	100	0	3	159672	5334	Mark of the Frostwolf	1	0	0	t3/arg159683/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+159786	Enchant Weapon - Quick Navigation	8	11	120	0	2	268894	5963	Quick Navigation	1	0	120	t3/arg268888/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162305	Formula: Enchant Ring - Pact of Versatility	9	8	120	100	1	255101	5945	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+160328	Enchant Bracers - Safe Hearthing	8	5	120	0	3	271366	5970	Safe Hearthing	1	0	120	t3/arg271365/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+115973	Enchant Weapon - Glory of the Thunderlord	8	11	100	0	3	170627	5352	Glory of the Thunderlord	1	0	0	t3/arg159243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+115976	Enchant Weapon - Glory of the Blackrock	8	11	100	0	3	170629	5354	Glory of the Blackrock	1	0	0	t3/arg159685/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+115977	Enchant Weapon - Glory of the Warsong	8	11	100	0	3	170630	5355	Glory of the Warsong	1	0	0	t3/arg159682/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+115978	Enchant Weapon - Glory of the Frostwolf	8	11	100	0	3	170631	5356	Glory of the Frostwolf	1	0	0	t3/arg159683/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+116117	Rook's Lucky Fishin' Line	8	11	94	94	3	170886	5357	+4 Fishing	1	0	0	t3/arg170885/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+116825	Savage Fishing Pole	2	20	1	0	3	175369	5386	Fishing Lure (+$174472s1 Fishing Skill)	1	0	0	t3/arg174472/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+116826	Draenic Fishing Pole	2	20	1	0	3	175369	5386	Fishing Lure (+$174472s1 Fishing Skill)	1	0	0	t3/arg174472/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162312	Formula: Enchant Weapon - Stalwart Navigation	9	8	120	100	1	268915	5966	Stalwart Navigation	1	0	120	t3/arg268912/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+117405	Nat's Drinking Hat	4	5	10	0	4	128587	4919	Fishing Lure (+$128586s1 Fishing Skill)	1	0	0	t3/arg128586/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+117477	Mark of the Thunderlord (Hidden)	8	11	100	0	3	159235	5330	Mark of the Thunderlord	1	0	0	t3/arg159243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+117478	Mark of the Shattered Hand (Hidden)	8	11	100	0	3	159236	5331	Mark of the Shattered Hand	1	0	0	t3/arg159239/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117479	Mark of Shadowmoon (Hidden)	8	11	100	0	3	159673	5335	Mark of Shadowmoon	1	0	0	t3/arg159684/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117480	Mark of Blackrock (Hidden)	8	11	100	0	3	159674	5336	Mark of Blackrock	1	0	0	t3/arg159685/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117481	Mark of Warsong (Hidden)	8	11	100	0	3	159671	5337	Mark of Warsong	1	0	0	t3/arg159682/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117482	Mark of the Frostwolf (Hidden)	8	11	100	0	3	159672	5334	Mark of the Frostwolf	1	0	0	t3/arg159683/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117485	Mark of the Thunderlord (Poisonous)	8	11	100	0	3	159235	5330	Mark of the Thunderlord	1	0	0	t3/arg159243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+117486	Mark of the Shattered Hand (Poisonous)	8	11	100	0	3	159236	5331	Mark of the Shattered Hand	1	0	0	t3/arg159239/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117487	Mark of Shadowmoon (Poisonous)	8	11	100	0	3	159673	5335	Mark of Shadowmoon	1	0	0	t3/arg159684/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117488	Mark of Blackrock (Poisonous)	8	11	100	0	3	159674	5336	Mark of Blackrock	1	0	0	t3/arg159685/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117489	Mark of Warsong (Poisonous)	8	11	100	0	3	159671	5337	Mark of Warsong	1	0	0	t3/arg159682/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+117490	Mark of the Frostwolf (Poisonous)	8	11	100	0	3	159672	5334	Mark of the Frostwolf	1	0	0	t3/arg159683/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+118391	Worm Supreme	0	8	100	0	1	174471	5386	Fishing Lure (+$174472s1 Fishing Skill)	1	0	0	t3/arg174472/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+118394	Formula: Enchant Cloak - Breath of Critical Strike	9	8	100	0	1	158877	5281	+$k1 Critical Strike	1	0	90	t5/arg32/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+118429	Formula: Enchant Cloak - Breath of Haste	9	8	100	0	1	158878	5298	+$k1 Haste	1	0	90	t5/arg36/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+118430	Formula: Enchant Cloak - Breath of Mastery	9	8	100	0	1	158879	5300	+$k1 Mastery	1	0	90	t5/arg49/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+118432	Formula: Enchant Cloak - Breath of Versatility	9	8	100	0	1	158881	5304	+$k1 Versatility	1	0	90	t5/arg40/pts100;t0/arg0/pts0;t0/arg0/pts0	0	0
+118434	Formula: Enchant Cloak - Gift of Haste	9	8	100	0	1	158885	5311	+$k1 Haste & +$182495s1% Speed	1	0	90	t5/arg36/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+118435	Formula: Enchant Cloak - Gift of Mastery	9	8	100	0	1	158886	5312	+$k1 Mastery & +$182495s1% Speed	1	0	90	t5/arg49/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+118437	Formula: Enchant Cloak - Gift of Versatility	9	8	100	0	1	158889	5314	+$k1 Versatility & +$182495s1% Speed	1	0	90	t5/arg40/pts100;t3/arg182495/pts0;t0/arg0/pts0	0	0
+118438	Formula: Enchant Neck - Breath of Critical Strike	9	8	100	0	1	158892	5285	+$k1 Critical Strike	1	0	90	t5/arg32/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+118439	Formula: Enchant Neck - Breath of Haste	9	8	100	0	1	158893	5292	+$k1 Haste	1	0	90	t5/arg36/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+118440	Formula: Enchant Neck - Breath of Mastery	9	8	100	0	1	158894	5293	+$k1 Mastery	1	0	90	t5/arg49/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+118441	Vintage Enchanting Recipe	15	0	100	0	0	158895	5294	+$k1 Haste	1	0	90	t5/arg36/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+118442	Formula: Enchant Neck - Breath of Versatility	9	8	100	0	1	158896	5295	+$k1 Versatility	1	0	90	t5/arg40/pts40;t0/arg0/pts0;t0/arg0/pts0	0	0
+118443	Formula: Enchant Neck - Gift of Critical Strike	9	8	100	0	1	158899	5317	+$k1 Critical Strike	1	0	90	t5/arg32/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+118444	Formula: Enchant Neck - Gift of Haste	9	8	100	0	1	158900	5318	+$k1 Haste	1	0	90	t5/arg36/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+118445	Formula: Enchant Neck - Gift of Mastery	9	8	100	0	1	158901	5319	+$k1 Mastery	1	0	90	t5/arg49/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+118447	Formula: Enchant Neck - Gift of Versatility	9	8	100	0	1	158903	5321	+$k1 Versatility	1	0	90	t5/arg40/pts75;t0/arg0/pts0;t0/arg0/pts0	0	0
+118453	Formula: Enchant Ring - Gift of Critical Strike	9	8	100	0	1	158914	5324	+$k1 Critical Strike	1	0	90	t5/arg32/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+118454	Formula: Enchant Ring - Gift of Haste	9	8	100	0	1	158915	5325	+$k1 Haste	1	0	90	t5/arg36/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+118455	Formula: Enchant Ring - Gift of Mastery	9	8	100	0	1	158916	5326	+$k1 Mastery	1	0	90	t5/arg49/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+118457	Formula: Enchant Ring - Gift of Versatility	9	8	100	0	1	158918	5328	+$k1 Versatility	1	0	90	t5/arg40/pts50;t0/arg0/pts0;t0/arg0/pts0	0	0
+118458	Formula: Enchant Weapon - Mark of the Thunderlord	9	8	100	0	1	159235	5330	Mark of the Thunderlord	1	0	0	t3/arg159243/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+118460	Formula: Enchant Weapon - Mark of Warsong	9	8	100	0	1	159671	5337	Mark of Warsong	1	0	0	t3/arg159682/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+118461	Formula: Enchant Weapon - Mark of the Frostwolf	9	8	100	0	1	159672	5334	Mark of the Frostwolf	1	0	0	t3/arg159683/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+118462	Formula: Enchant Weapon - Mark of Shadowmoon	9	8	100	0	1	159673	5335	Mark of Shadowmoon	1	0	0	t3/arg159684/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+118463	Formula: Enchant Weapon - Mark of Blackrock	9	8	100	0	1	159674	5336	Mark of Blackrock	1	0	0	t3/arg159685/pts0;t0/arg104428/pts0;t0/arg0/pts0	0	0
+144328	Boon of the Builder	8	2	110	0	3	235731	5899	Boon of the Builder	1	0	100	t3/arg237293/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+124674	Day-Old Darkmoon Doughnut	0	8	1	1	1	185587	5386	Fishing Lure (+$174472s1 Fishing Skill)	1	0	0	t3/arg174472/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153592	Belt Enchant: Personal Space Amplifier	8	7	1	1	1	255940	5953	Personal Space Amplifier	1	0	120	t7/arg255974/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128158	Wildswater	7	11	142	90	4	188675	0		0	0	0		0	0
+128159	Elemental Distillate	7	11	145	90	4	188677	0		0	0	0		0	0
+128537	Enchant Ring - Word of Critical Strike	8	10	105	0	2	190866	5423	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128538	Enchant Ring - Word of Haste	8	10	105	0	2	190867	5424	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128539	Enchant Ring - Word of Mastery	8	10	105	0	2	190868	5425	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128540	Enchant Ring - Word of Versatility	8	10	105	0	2	190869	5426	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128541	Enchant Ring - Binding of Critical Strike	8	10	110	0	3	190870	5427	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128542	Enchant Ring - Binding of Haste	8	10	110	0	3	190871	5428	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128543	Enchant Ring - Binding of Mastery	8	10	110	0	3	190872	5429	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128544	Enchant Ring - Binding of Versatility	8	10	110	0	3	190873	5430	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128545	Enchant Cloak - Word of Strength	8	3	105	0	2	190874	5431	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128547	Enchant Cloak - Word of Intellect	8	3	105	0	2	190876	5433	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128548	Enchant Cloak - Binding of Strength	8	3	110	0	3	190877	5434	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128549	Enchant Cloak - Binding of Agility	8	3	110	0	3	190878	5435	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128551	Enchant Neck - Mark of the Claw	8	1	110	0	3	190892	5437	Mark of the Claw	1	0	110	t3/arg190888/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128553	Enchant Neck - Mark of the Hidden Satyr	8	1	110	0	3	190894	5439	Mark of the Hidden Satyr	1	0	110	t3/arg190890/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128554	Enchant Shoulder - Boon of the Scavenger	8	2	110	0	3	190954	5440	Scavenging	1	0	100	t3/arg190949/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128559	Enchant Gloves - Legion Mining	8	6	110	0	3	190989	5445	Legion Mining	1	0	100	t3/arg190971/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128560	Enchant Gloves - Legion Skinning	8	6	110	0	3	190990	5446	Legion Skinning	1	0	100	t3/arg190973/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128561	Enchant Gloves - Legion Surveying	8	6	110	0	3	190991	5447	Legion Surveying	1	0	100	t3/arg190974/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128563	Formula: Enchant Ring - Word of Haste	9	8	110	100	1	190867	5424	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128564	Formula: Enchant Ring - Word of Mastery	9	8	110	100	1	190868	5425	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128565	Formula: Enchant Ring - Word of Versatility	9	8	110	100	1	190869	5426	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128567	Formula: Enchant Ring - Binding of Haste	9	8	110	100	1	190871	5428	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128569	Formula: Enchant Ring - Binding of Versatility	9	8	110	100	1	190873	5430	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128571	Formula: Enchant Cloak - Word of Agility	9	8	110	100	1	190875	5432	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128572	Formula: Enchant Cloak - Word of Intellect	9	8	110	100	1	190876	5433	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128573	Formula: Enchant Cloak - Binding of Strength	9	8	110	100	1	190877	5434	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128574	Formula: Enchant Cloak - Binding of Agility	9	8	110	100	1	190878	5435	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128575	Formula: Enchant Cloak - Binding of Intellect	9	8	110	100	1	190879	5436	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128576	Formula: Enchant Neck - Mark of the Claw	9	8	110	100	1	190892	5437	Mark of the Claw	1	0	110	t3/arg190888/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128577	Formula: Enchant Neck - Mark of the Distant Army	9	8	110	100	1	190893	5438	Mark of the Distant Army	1	0	110	t3/arg190889/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128578	Formula: Enchant Neck - Mark of the Hidden Satyr	9	8	110	100	1	190894	5439	Mark of the Hidden Satyr	1	0	110	t3/arg190890/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128579	Formula: Enchant Ring - Word of Critical Strike	9	8	110	100	1	190992	5423	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128580	Formula: Enchant Ring - Word of Haste	9	8	110	100	1	190993	5424	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128581	Formula: Enchant Ring - Word of Mastery	9	8	110	100	1	190994	5425	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128582	Formula: Enchant Ring - Word of Versatility	9	8	110	100	1	190995	5426	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128583	Formula: Enchant Ring - Binding of Critical Strike	9	8	110	100	1	190996	5427	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128584	Formula: Enchant Ring - Binding of Haste	9	8	110	100	1	190997	5428	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128585	Formula: Enchant Ring - Binding of Mastery	9	8	110	100	1	190998	5429	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128586	Formula: Enchant Ring - Binding of Versatility	9	8	110	100	1	190999	5430	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128587	Formula: Enchant Cloak - Word of Strength	9	8	110	100	1	191000	5431	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128588	Formula: Enchant Cloak - Word of Agility	9	8	110	100	1	191001	5432	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128589	Formula: Enchant Cloak - Word of Intellect	9	8	110	100	1	191002	5433	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128590	Formula: Enchant Cloak - Binding of Strength	9	8	110	100	1	191003	5434	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128591	Formula: Enchant Cloak - Binding of Agility	9	8	110	100	1	191004	5435	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128592	Formula: Enchant Cloak - Binding of Intellect	9	8	110	100	1	191005	5436	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128593	Formula: Enchant Neck - Mark of the Claw	9	8	110	100	1	191006	5437	Mark of the Claw	1	0	110	t3/arg190888/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128594	Formula: Enchant Neck - Mark of the Distant Army	9	8	110	100	1	191007	5438	Mark of the Distant Army	1	0	110	t3/arg190889/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128595	Formula: Enchant Neck - Mark of the Hidden Satyr	9	8	110	100	1	191008	5439	Mark of the Hidden Satyr	1	0	110	t3/arg190890/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128596	Formula: Enchant Ring - Word of Critical Strike	9	8	110	100	1	191009	5423	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128597	Formula: Enchant Ring - Word of Haste	9	8	110	100	1	191010	5424	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128598	Formula: Enchant Ring - Word of Mastery	9	8	110	100	1	191011	5425	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128599	Formula: Enchant Ring - Word of Versatility	9	8	110	100	1	191012	5426	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128600	Formula: Enchant Ring - Binding of Critical Strike	9	8	110	100	1	191013	5427	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128601	Formula: Enchant Ring - Binding of Haste	9	8	110	100	1	191014	5428	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128602	Formula: Enchant Ring - Binding of Mastery	9	8	110	100	1	191015	5429	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128603	Formula: Enchant Ring - Binding of Versatility	9	8	110	100	1	191016	5430	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128604	Formula: Enchant Cloak - Word of Strength	9	8	110	100	1	191017	5431	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128605	Formula: Enchant Cloak - Word of Agility	9	8	110	100	1	191018	5432	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128606	Formula: Enchant Cloak - Word of Intellect	9	8	110	100	1	191019	5433	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128607	Formula: Enchant Cloak - Binding of Strength	9	8	110	100	1	191020	5434	+$k1 Strength	1	0	110	t5/arg4/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128608	Formula: Enchant Cloak - Binding of Agility	9	8	110	100	1	191021	5435	+$k1 Agility	1	0	110	t5/arg3/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128609	Formula: Enchant Cloak - Binding of Intellect	9	8	110	100	1	191022	5436	+$k1 Intellect	1	0	110	t5/arg5/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128610	Formula: Enchant Neck - Mark of the Claw	9	8	110	100	3	191023	5437	Mark of the Claw	1	0	110	t3/arg190888/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128611	Formula: Enchant Neck - Mark of the Distant Army	9	8	110	100	1	191024	5438	Mark of the Distant Army	1	0	110	t3/arg190889/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128612	Formula: Enchant Neck - Mark of the Hidden Satyr	9	8	110	100	1	191025	5439	Mark of the Hidden Satyr	1	0	110	t3/arg190890/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128617	Formula: Enchant Gloves - Legion Herbalism	9	8	110	100	1	190988	5444	Legion Herbalism	1	0	100	t3/arg190970/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128618	Formula: Enchant Gloves - Legion Mining	9	8	110	100	1	190989	5445	Legion Mining	1	0	100	t3/arg190971/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128619	Formula: Enchant Gloves - Legion Skinning	9	8	110	100	1	190990	5446	Legion Skinning	1	0	100	t3/arg190973/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+128620	Formula: Enchant Gloves - Legion Surveying	9	8	110	100	1	190991	5447	Legion Surveying	1	0	100	t3/arg190974/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140213	Boon of the Gemfinder	8	2	110	0	3	190955	5441	Gemfinding	1	0	100	t3/arg190950/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140214	Boon of the Harvester	8	2	110	0	3	190956	5442	Harvester	1	0	100	t3/arg190951/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140215	Boon of the Butcher	8	2	110	0	3	190957	5443	Butchery	1	0	100	t3/arg190952/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140217	Boon of the Salvager	8	2	110	0	3	222851	5881	Salvager	1	0	100	t3/arg222854/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+140218	Boon of the Manaseeker	8	2	110	0	3	222852	5882	Manaseeker	1	0	100	t3/arg222855/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141861	Boon of the Nether	8	2	110	0	4	228139	5888	Netherdrift	1	0	100	t3/arg228138/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141908	Enchant Neck - Mark of the Heavy Hide	8	1	110	0	3	228402	5889	Mark of the Heavy Hide	1	0	110	t3/arg228398/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141909	Enchant Neck - Mark of the Trained Soldier	8	1	110	0	3	228405	5890	Mark of the Trained Soldier	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141911	Formula: Enchant Neck - Mark of the Heavy Hide	9	8	110	100	1	228402	5889	Mark of the Heavy Hide	1	0	110	t3/arg228398/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141914	Formula: Enchant Neck - Mark of the Heavy Hide	9	8	110	100	1	228403	5889	Mark of the Heavy Hide	1	0	110	t3/arg228398/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141915	Formula: Enchant Neck - Mark of the Trained Soldier	9	8	110	100	1	228406	5890	Mark of the Trained Soldier	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+141919	Formula: Enchant Neck - Mark of the Ancient Priestess	9	8	110	100	3	228410	5891	Mark of the Ancient Priestess	1	0	110	t3/arg228400/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144305	Enchant Neck - Mark of the Versatile	8	1	105	0	2	235696	5896	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144306	Enchant Neck - Mark of the Quick	8	1	105	0	2	235697	5897	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144307	Enchant Neck - Mark of the Deadly	8	1	105	0	2	235698	5898	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144309	Formula: Enchant Neck - Mark of the Master	9	8	105	100	1	235699	5895	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144310	Formula: Enchant Neck - Mark of the Master	9	8	105	100	1	235703	5895	+$k1 Mastery	1	0	110	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144311	Formula: Enchant Neck - Mark of the Versatile	9	8	105	100	1	235696	5896	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144312	Formula: Enchant Neck - Mark of the Versatile	9	8	105	100	1	235700	5896	+$k1 Versatility	1	0	110	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144316	Formula: Enchant Neck - Mark of the Quick	9	8	105	100	1	235705	5897	+$k1 Haste	1	0	110	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144319	Formula: Enchant Neck - Mark of the Deadly	9	8	105	100	1	235706	5898	+$k1 Critical Strike	1	0	110	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+144346	Boon of the Zookeeper	8	2	110	0	3	235794	5900	Zookeeper	1	0	100	t3/arg235795/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153197	Boon of the Steadfast	8	2	110	0	3	254584	5929	Steadfast	1	0	100	t3/arg254591/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153203	Ancient Fishing Line	8	11	110	110	3	254607	5930	+$254605s1 Fishing	1	0	0	t3/arg254605/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153430	Enchant Gloves - Kul Tiran Herbalism	8	6	118	0	3	255035	5932	Kul Tiran Herbalism	1	0	120	t3/arg255034/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153435	Enchant Gloves - Kul Tiran Surveying	8	6	118	0	3	255066	5935	Kul Tiran Surveying	1	0	120	t3/arg255039/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153436	Enchant Bracers - Swift Hearthing	8	5	120	0	3	255068	5936	Swift Hearthing	1	0	120	t3/arg255067/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153438	Enchant Ring - Seal of Critical Strike	8	10	118	0	2	255071	5938	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153442	Enchant Ring - Pact of Critical Strike	8	10	120	0	3	255075	5942	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153476	Enchant Weapon - Coastal Surge	8	11	120	0	2	255103	5946	Coastal Surge	1	0	120	t3/arg255148/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+153480	Enchant Weapon - Gale-Force Striking	8	11	120	0	2	255141	5950	Gale-Force Striking	1	0	120	t3/arg255151/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+158212	Crow's Nest Scope	0	0	120	110	3	264877	5955	Crow's Nest Scope	1	0	120	t3/arg264876/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+158327	Monelite Scope of Alacrity	0	0	120	110	3	264959	5956	Monelite Scope of Alacrity	1	0	120	t3/arg264958/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+159466	Enchant Gloves - Zandalari Mining	8	6	118	0	3	267482	5933	Kul Tiran Mining	1	0	120	t3/arg255037/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+159829	Belt Enchant: Miniaturized Plasma Shield	8	7	1	1	1	269123	5967	Miniaturized Plasma Shield	1	0	120	t7/arg269120/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162298	Formula: Enchant Ring - Seal of Critical Strike	9	8	120	100	1	255094	5938	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162299	Formula: Enchant Ring - Seal of Haste	9	8	120	100	1	255095	5939	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162303	Formula: Enchant Ring - Pact of Haste	9	8	120	100	1	255099	5943	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162316	Formula: Enchant Weapon - Siphoning	9	8	120	100	1	255112	5948	Siphoning	1	0	120	t5/arg62/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162317	Formula: Enchant Weapon - Masterful Navigation	9	8	120	100	1	268903	5964	Masterful Navigation	1	0	120	t3/arg268900/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162320	Formula: Enchant Weapon - Versatile Navigation	9	8	120	100	1	268879	5962	Versatile Navigation	1	0	120	t3/arg268855/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162716	Formula: Enchant Ring - Pact of Critical Strike	9	8	120	100	1	255098	5942	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162717	Formula: Enchant Ring - Pact of Haste	9	8	120	100	1	255099	5943	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162719	Formula: Enchant Ring - Pact of Versatility	9	8	120	100	1	255101	5945	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162722	Formula: Enchant Weapon - Deadly Navigation	9	8	120	100	1	268909	5965	Deadly Navigation	1	0	120	t3/arg268906/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162723	Formula: Enchant Weapon - Siphoning	9	8	120	100	1	255112	5948	Siphoning	1	0	120	t5/arg62/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+162725	Formula: Enchant Weapon - Gale-Force Striking	9	8	120	100	1	255143	5950	Gale-Force Striking	1	0	120	t3/arg255151/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168447	Enchant Ring - Accord of Haste	8	10	120	0	3	297989	6109	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+168453	Formula: Enchant Ring - Accord of Versatility	9	8	120	100	1	297999	6111	+$k1 Versatility	1	0	120	t5/arg40/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169531	Formula: Accord of Haste	9	8	120	111	3	298016	6109	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169532	Formula: Accord of Mastery	9	8	120	111	3	298002	6110	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169535	Formula: Force Multiplier	9	8	120	111	3	300788	6148	Force Multiplier	1	0	60	t3/arg300795/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169604	Formula: Accord of Critical Strike	9	8	120	111	3	298011	6108	+$k1 Critical Strike	1	0	120	t5/arg32/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169605	Formula: Accord of Haste	9	8	120	111	3	298016	6109	+$k1 Haste	1	0	120	t5/arg36/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+169606	Formula: Accord of Mastery	9	8	120	111	3	298002	6110	+$k1 Mastery	1	0	120	t5/arg49/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0
+170213	Formula: Naga Hide	9	8	120	111	3	300789	6150	Naga Hide	1	0	60	t3/arg300797/pts0;t0/arg0/pts0;t0/arg0/pts0	0	0

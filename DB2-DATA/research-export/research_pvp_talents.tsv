@@ -1,0 +1,509 @@
+pvp_talent_id	spec_id	spell_id	name	level_required	category	flags
+3	105	208683	Gladiator's Medallion	0	1	0
+4	105	214027	Adaptation	0	1	0
+5	105	196029	Relentless	0	1	0
+9	265	199890	Curse of Tongues	0	2	0
+10	265	199892	Curse of Weakness	0	2	0
+11	265	199954	Curse of Fragility	0	2	0
+12	265	305391	Endless Affliction	0	2	0
+13	265	212356	Soulshatter	48	2	0
+15	265	248855	Gateway Mastery	80	2	0
+16	265	212371	Rot and Decay	0	2	0
+17	265	234877	Curse of Shadows	0	2	0
+18	265	212295	Nether Ward	0	2	0
+19	265	221711	Essence Drain	0	2	0
+20	265	221703	Casting Circle	54	2	0
+24	73	236077	Disarm	0	2	0
+25	72	198500	Death Sentence	0	2	0
+28	71	235941	Master and Commander	80	2	0
+29	71	198807	Shadow of the Colossus	0	2	0
+31	71	236308	Storm of Destruction	65	2	0
+32	71	236320	War Banner	0	2	0
+33	71	198817	Sharpen Blade	0	2	0
+34	71	236273	Duel	0	2	0
+40	252	288855	Life and Death	0	2	0
+41	252	77606	Dark Simulacrum	0	2	0
+42	252	51052	Anti-Magic Zone	0	2	0
+43	251	199642	Necrotic Aura	0	2	0
+49	104	236144	Master Shapeshifter	45	2	0
+50	104	201259	Toughness	0	2	0
+51	104	236180	Den Mother	0	2	0
+52	104	201664	Demoralizing Roar	0	2	0
+53	63	198062	Netherwind Armor	0	2	0
+56	63	198111	Temporal Shield	0	2	0
+57	64	236788	Dampened Magic	0	2	0
+58	64	198100	Kleptomania	70	2	0
+59	105	233673	Disentanglement	70	2	0
+61	62	276741	Arcane Empowerment	0	2	0
+62	62	198151	Torment the Weak	0	2	0
+66	64	198126	Chilled to the Bone	0	2	0
+67	64	198120	Frostbite	0	2	0
+68	64	198123	Deep Shatter	0	2	0
+70	270	216255	Eminence	80	2	0
+73	269	201318	Fortifying Brew	0	2	0
+77	269	201372	Ride the Wind	48	2	0
+81	70	199428	Luminescence	0	2	0
+82	65	199441	Avenging Light	0	2	0
+85	65	199452	Ultimate Sacrifice	56	2	0
+86	65	210378	Darkest before the Dawn	0	2	0
+87	65	199456	Spreading the Word	0	2	0
+88	65	199454	Blessed Hands	0	2	0
+90	66	216868	Hallowed Ground	0	2	0
+91	66	199542	Steed of Glory	0	2	0
+92	66	216853	Sacred Duty	56	2	0
+93	66	216860	Judgments of the Pure	0	2	0
+94	66	228049	Guardian of the Forgotten Queen	70	2	0
+97	66	216855	Guarded by the Light	0	2	0
+98	256	196162	Purification	0	2	0
+100	256	196439	Purified Resolve	0	2	0
+101	257	213610	Holy Ward	0	2	0
+102	258	280749	Void Shield	0	2	0
+106	258	199259	Driven to Madness	0	2	0
+108	257	289657	Holy Word: Concentration	0	2	0
+109	256	214205	Trinity	0	2	0
+110	258	199408	Edge of Insanity	0	2	0
+111	256	197535	Strength of Soul	0	2	0
+112	257	289666	Greater Heal	0	2	0
+113	258	199445	Mind Trauma	0	2	0
+114	256	236499	Ultimate Radiance	52	2	0
+115	257	196559	Rapid Mending	50	2	0
+117	256	197590	Dome of Light	70	2	0
+118	257	235587	Miracle Worker	0	2	0
+119	258	199484	Psychic Link	0	2	0
+121	257	196602	Divine Attendant	44	2	0
+123	256	197862	Archangel	0	2	0
+124	257	215982	Spirit of the Redeemer	0	2	0
+126	256	197871	Dark Archangel	0	2	0
+127	257	197268	Ray of Hope	0	2	0
+128	258	108968	Void Shift	0	2	0
+129	260	197000	Maneuverability	0	2	0
+130	259	197007	Intent to Kill	56	2	0
+131	259	248744	Shiv	0	2	0
+132	259	198032	Honor Among Thieves	0	2	0
+135	260	198265	Take Your Cut	0	2	0
+136	261	198952	Veil of Midnight	0	2	0
+137	259	197050	Mind-Numbing Poison	0	2	0
+138	260	212217	Control is King	0	2	0
+139	260	212210	Drink Up Me Hearties	0	2	0
+140	261	213981	Cold Blood	0	2	0
+141	259	198092	Creeping Venom	0	2	0
+142	260	212035	Cheap Tricks	0	2	0
+144	259	198128	Flying Daggers	63	2	0
+145	260	207777	Dismantle	0	2	0
+146	261	212081	Thief's Bargain	48	2	0
+147	259	198145	System Shock	0	2	0
+149	252	223829	Necrotic Strike	0	2	0
+150	260	198529	Plunder Armor	0	2	0
+152	252	210128	Reanimation	0	2	0
+153	261	207736	Shadowy Duel	0	2	0
+154	266	212623	Singe Magic	0	2	0
+155	267	233577	Focused Chaos	0	2	0
+156	266	212619	Call Felhunter	0	2	0
+157	267	200586	Fel Fissure	0	2	0
+158	266	212618	Pleasure through Pain	0	2	0
+159	267	212282	Cremation	0	2	0
+161	267	233581	Entrenched in Flame	0	2	0
+162	266	212459	Call Fel Lord	0	2	0
+163	252	201995	Cadaverous Pallor	0	2	0
+164	267	200546	Bane of Havoc	0	2	0
+165	266	201996	Call Observer	0	2	0
+166	72	280745	Barbarian	0	2	0
+167	73	199127	Sword and Board	0	2	0
+168	73	213871	Bodyguard	0	2	0
+170	72	213857	Battle Trance	0	2	0
+171	73	199023	Morale Killer	48	2	0
+172	72	199202	Thirst for Battle	0	2	0
+173	73	198912	Shield Bash	0	2	0
+175	73	199045	Thunderstruck	0	2	0
+177	72	198877	Enduring Rage	0	2	0
+178	73	199086	Warpath	0	2	0
+179	72	199261	Death Wish	0	2	0
+180	102	233754	Celestial Guardian	0	2	0
+182	102	200567	Crescent Burn	0	2	0
+184	102	233750	Moon and Stars	48	2	0
+185	102	209740	Moonkin Aura	0	2	0
+192	104	236153	Raging Frenzy	0	2	0
+193	104	202110	Sharpened Claws	0	2	0
+194	104	228431	Charging Bash	70	2	0
+195	104	202226	Entangling Claws	0	2	0
+196	104	202246	Overrun	0	2	0
+197	104	202043	Protector of the Pack	0	2	0
+201	103	305497	Thorns	0	2	0
+202	103	33786	Cyclone	0	2	0
+203	103	213200	Freedom of the Herd	50	2	0
+204	250	202727	Unholy Command	0	2	0
+205	250	202731	Walking Dead	0	2	0
+206	250	47476	Strangulate	0	2	0
+601	103	236012	Malorne's Swiftness	0	2	0
+602	103	203052	King of the Jungle	0	2	0
+607	250	233411	Blood for Blood	0	2	0
+608	250	233412	Last Dance	0	2	0
+609	250	203173	Death Chain	0	2	0
+611	103	236020	Ferocious Wound	0	2	0
+612	103	203224	Fresh Wound	0	2	0
+620	103	203242	Rip and Tear	0	2	0
+632	64	198148	Concentrated Coolness	57	2	0
+633	64	206431	Burst of Cold	0	2	0
+634	64	198144	Ice Form	0	2	0
+635	62	210476	Master of Escape	65	2	0
+636	62	213220	Rewind Time	48	2	0
+637	62	198158	Mass Invisibility	0	2	0
+640	65	199324	Divine Vision	60	2	0
+641	70	305394	Unbound Freedom	0	2	0
+642	65	199330	Cleanse the Weak	60	2	0
+643	63	203275	Tinder	0	2	0
+644	63	203280	World in Flames	0	2	0
+645	63	280450	Controlled Burn	0	2	0
+646	63	203283	Firestarter	0	2	0
+647	63	203284	Flamecannon	0	2	0
+648	63	203286	Greater Pyroblast	0	2	0
+649	254	202589	Dragonscale Armor	0	2	0
+651	254	202746	Survival Tactics	0	2	0
+652	254	202797	Viper Sting	0	2	0
+653	254	202900	Scorpid Sting	0	2	0
+654	254	202914	Spider Sting	0	2	0
+656	254	213691	Scatter Shot	0	2	0
+657	254	236776	Hi-Explosive Trap	0	2	0
+658	254	203129	Trueshot Mastery	0	2	0
+659	254	248443	Ranger's Finesse	0	2	0
+660	254	203155	Sniper Shot	0	2	0
+661	255	203235	Hunting Pack	0	2	0
+662	255	212640	Mending Bandage	0	2	0
+663	255	53480	Roar of Sacrifice	0	2	0
+664	255	203264	Sticky Tar	0	2	0
+665	255	212638	Tracker's Net	0	2	0
+666	268	202107	Microbrew	55	2	0
+667	268	202126	Hot Trub	0	2	0
+668	268	202200	Guided Meditation	65	2	0
+669	268	202162	Avert Harm	0	2	0
+670	268	213658	Craft: Nimble Brew	0	2	0
+671	268	202272	Incendiary Breath	0	2	0
+672	268	202335	Double Barrel	0	2	0
+673	268	202370	Mighty Ox Kick	0	2	0
+675	269	247483	Tigereye Brew	0	2	0
+676	270	216113	Way of the Crane	0	2	0
+678	270	202424	Chrysalis	0	2	0
+679	270	202428	Counteract Magic	0	2	0
+680	270	202577	Dome of Mist	0	2	0
+681	270	227344	Surging Mist	0	2	0
+682	270	202523	Refreshing Breeze	0	2	0
+683	270	205234	Healing Sphere	0	2	0
+686	255	203340	Diamond Ice	0	2	0
+689	65	210294	Divine Favor	0	2	0
+690	105	289022	Nourish	40	2	0
+691	105	203399	Revitalize	0	2	0
+692	105	247543	Entangling Bark	54	2	0
+693	253	212668	The Beast Within	0	2	0
+697	105	305497	Thorns	0	2	0
+700	105	233755	Deep Roots	0	2	0
+701	251	204080	Deathchill	0	2	0
+702	251	233396	Delirium	0	2	0
+706	251	305392	Chill Streak	0	2	0
+707	264	204330	Skyfury Totem	0	2	0
+708	264	204331	Counterstrike Totem	0	2	0
+712	264	204264	Swelling Waves	0	2	0
+713	264	204268	Voodoo Mastery	42	2	0
+714	264	206642	Electrocute	63	2	0
+715	264	204336	Grounding Totem	0	2	0
+718	264	204293	Spirit Link	56	2	0
+721	263	289874	Ride the Lightning	0	2	0
+722	263	193876	Shamanism	50	2	0
+725	263	204366	Thundercharge	0	2	0
+727	262	204385	Elemental Attunement	0	2	0
+728	262	204393	Control of Lava	0	2	0
+730	262	204403	Traveling Storms	0	2	0
+731	262	305483	Lightning Lasso	0	2	0
+739	258	228630	Void Origins	0	2	0
+751	70	210323	Vengeance Aura	58	2	0
+752	70	210256	Blessing of Sanctuary	0	2	0
+753	70	287947	Ultimate Retribution	0	2	0
+754	70	246806	Lawbringer	0	2	0
+755	70	204914	Divine Punisher	0	2	0
+756	70	247675	Hammer of Reckoning	80	2	0
+757	70	204979	Jurisdiction	0	2	0
+763	258	211522	Psyfiend	0	2	0
+764	258	280750	Shadow Mania	0	2	0
+765	268	205147	Eerie Fermentation	0	2	0
+802	581	211509	Solitude	0	2	0
+805	577	211509	Solitude	0	2	0
+806	577	205604	Reverse Magic	0	2	0
+807	577	206649	Eye of Leotheras	0	2	0
+809	577	235903	Mana Rift	0	2	0
+810	577	235893	Demonic Origins	0	2	0
+811	577	206803	Rain from Above	0	2	0
+812	577	205596	Detainment	0	2	0
+813	577	203704	Mana Break	0	2	0
+814	581	205625	Cleansed by Flame	0	2	0
+815	581	205626	Everlasting Hunt	0	2	0
+816	581	205627	Jagged Spikes	0	2	0
+819	581	205630	Illidan's Grasp	0	2	0
+820	103	205673	Savage Momentum	70	2	0
+821	253	204190	Wild Protector	0	2	0
+822	102	232546	Dying Stars	0	2	0
+824	253	208652	Dire Beast: Hawk	0	2	0
+825	253	205691	Dire Beast: Basilisk	0	2	0
+828	63	198064	Prismatic Cloak	0	2	0
+830	259	206328	Neurotoxin	0	2	0
+831	73	206572	Dragon Charge	0	2	0
+833	73	213915	Mass Spell Reflection	70	2	0
+834	102	233755	Deep Roots	0	2	0
+835	105	203553	Focused Growth	0	2	0
+836	102	209749	Faerie Swarm	0	2	0
+838	105	200931	Encroaching Vines	0	2	0
+839	105	203651	Overgrowth	40	2	0
+841	250	207018	Murderous Intent	0	2	0
+842	104	207017	Alpha Challenge	0	2	0
+843	268	207025	Admonishment	0	2	0
+844	66	207028	Inquisition	0	2	0
+845	73	205800	Oppressor	0	2	0
+846	261	198675	Dagger in the Dark	0	2	0
+852	269	287771	Reverse Harm	0	2	0
+853	260	209752	Boarding Party	0	2	0
+855	256	305498	Premonition	0	2	0
+856	261	197899	Silhouette	0	2	0
+857	102	209753	Cyclone	0	2	0
+858	70	204934	Law and Order	0	2	0
+859	65	216327	Light's Grace	0	2	0
+860	66	210341	Warrior of Light	0	2	0
+861	66	215652	Shield of Virtue	0	2	0
+1204	577	203468	Glimpse	0	2	0
+1206	577	227635	Cover of Darkness	0	2	0
+1208	260	221622	Thick as Thieves	70	2	0
+1209	261	212182	Smoke Bomb	0	2	0
+1213	266	212628	Master Summoner	0	2	0
+1214	253	248518	Interlope	42	2	0
+1215	105	203624	Early Spring	40	2	0
+1216	102	233752	Ironfeather Armor	0	2	0
+1217	105	33786	Cyclone	51	2	0
+1218	577	213480	Unending Hatred	0	2	0
+1220	581	207029	Tormentor	0	2	0
+1237	104	236147	Malorne's Swiftness	0	2	0
+1242	257	213602	Greater Fade	44	2	0
+1244	256	215768	Searing Light	0	2	0
+1927	257	196611	Delivered from Evil	63	2	0
+1928	270	209584	Zen Focus Tea	0	2	0
+1929	72	216890	Spell Reflection	0	2	0
+1930	264	236501	Tidebringer	0	2	0
+1944	263	210918	Ethereal Form	70	2	0
+1948	581	211489	Sigil Mastery	0	2	0
+1958	268	232876	Niuzao's Essence	0	2	0
+3048	105	289237	Master Shapeshifter	0	2	0
+3050	269	201769	Disabling Reach	0	2	0
+3052	269	233759	Grapple Weapon	0	2	0
+3053	103	236019	Heart of the Wild	0	2	0
+3055	70	236186	Cleansing Light	0	2	0
+3058	102	200549	Prickling Thorns	0	2	0
+3062	262	204261	Spectral Recovery	0	2	0
+3421	260	198020	Turn the Tables	0	2	0
+3423	581	205629	Demonic Trample	0	2	0
+3426	577	208683	Gladiator's Medallion	0	1	0
+3427	577	196029	Relentless	0	1	0
+3428	577	214027	Adaptation	0	1	0
+3429	581	205604	Reverse Magic	0	2	0
+3430	581	205596	Detainment	0	2	0
+3431	103	208683	Gladiator's Medallion	0	1	0
+3432	103	214027	Adaptation	0	1	0
+3433	103	196029	Relentless	0	1	0
+3434	250	51052	Anti-Magic Zone	0	2	0
+3435	251	51052	Anti-Magic Zone	0	2	0
+3436	250	199642	Necrotic Aura	0	2	0
+3437	252	199642	Necrotic Aura	0	2	0
+3439	251	199719	Heartstop Aura	0	2	0
+3440	252	199720	Decomposing Aura	0	2	0
+3441	250	199720	Decomposing Aura	0	2	0
+3442	62	198062	Netherwind Armor	0	2	0
+3443	64	198062	Netherwind Armor	0	2	0
+3444	70	208683	Gladiator's Medallion	0	1	0
+3445	70	214027	Adaptation	0	1	0
+3446	70	196029	Relentless	0	1	0
+3447	261	197000	Maneuverability	0	2	0
+3448	259	197000	Maneuverability	0	2	0
+3449	260	248744	Shiv	0	2	0
+3450	261	248744	Shiv	0	2	0
+3451	260	198032	Honor Among Thieves	0	2	0
+3452	261	198032	Honor Among Thieves	0	2	0
+3453	259	214027	Adaptation	0	1	0
+3454	261	214027	Adaptation	0	1	0
+3455	260	214027	Adaptation	0	1	0
+3456	259	208683	Gladiator's Medallion	0	1	0
+3457	261	208683	Gladiator's Medallion	0	1	0
+3458	260	208683	Gladiator's Medallion	0	1	0
+3459	260	196029	Relentless	0	1	0
+3460	261	196029	Relentless	0	1	0
+3461	259	196029	Relentless	0	1	0
+3462	261	269513	Death from Above	0	2	0
+3463	104	214027	Adaptation	0	1	0
+3464	104	208683	Gladiator's Medallion	0	1	0
+3465	104	196029	Relentless	0	1	0
+3466	250	196029	Relentless	0	1	0
+3467	250	208683	Gladiator's Medallion	0	1	0
+3468	250	214027	Adaptation	0	1	0
+3469	66	208683	Gladiator's Medallion	0	1	0
+3470	66	214027	Adaptation	0	1	0
+3471	66	196029	Relentless	0	1	0
+3472	66	236186	Cleansing Light	0	2	0
+3474	66	199428	Luminescence	0	2	0
+3475	66	305394	Unbound Freedom	0	2	0
+3476	258	208683	Gladiator's Medallion	0	1	0
+3477	258	214027	Adaptation	0	1	0
+3478	258	196029	Relentless	0	1	0
+3479	259	269513	Death from Above	0	2	0
+3480	259	212182	Smoke Bomb	0	2	0
+3483	260	212182	Smoke Bomb	0	2	0
+3484	264	208683	Gladiator's Medallion	0	1	0
+3485	264	214027	Adaptation	0	1	0
+3486	264	196029	Relentless	0	1	0
+3487	263	204330	Skyfury Totem	0	2	0
+3488	262	204330	Skyfury Totem	0	2	0
+3489	263	204331	Counterstrike Totem	0	2	0
+3490	262	204331	Counterstrike Totem	0	2	0
+3491	262	204247	Purifying Waters	0	2	0
+3492	263	204247	Purifying Waters	0	2	0
+3493	267	196029	Relentless	0	1	0
+3494	267	214027	Adaptation	0	1	0
+3495	267	208683	Gladiator's Medallion	0	1	0
+3496	265	208683	Gladiator's Medallion	0	1	0
+3497	265	214027	Adaptation	0	1	0
+3498	265	196029	Relentless	0	1	0
+3499	266	208683	Gladiator's Medallion	0	1	0
+3500	266	214027	Adaptation	0	1	0
+3501	266	196029	Relentless	0	1	0
+3502	267	199954	Curse of Fragility	0	2	0
+3503	267	199890	Curse of Tongues	0	2	0
+3504	267	199892	Curse of Weakness	0	2	0
+3505	266	199954	Curse of Fragility	0	2	0
+3506	266	199890	Curse of Tongues	0	2	0
+3507	266	199892	Curse of Weakness	0	2	0
+3508	267	212295	Nether Ward	0	2	0
+3509	267	221711	Essence Drain	0	2	0
+3510	267	221703	Casting Circle	54	2	0
+3511	250	77606	Dark Simulacrum	0	2	0
+3512	251	77606	Dark Simulacrum	0	2	0
+3515	251	201995	Cadaverous Pallor	0	2	0
+3516	64	198111	Temporal Shield	0	2	0
+3517	62	198111	Temporal Shield	0	2	0
+3519	263	204261	Spectral Recovery	0	2	0
+3520	264	204261	Spectral Recovery	0	2	0
+3521	71	216890	Spell Reflection	0	2	0
+3522	71	198500	Death Sentence	0	2	0
+3523	62	236788	Dampened Magic	0	2	0
+3524	63	236788	Dampened Magic	0	2	0
+3528	72	235941	Master and Commander	80	2	0
+3529	62	198100	Kleptomania	70	2	0
+3530	63	198100	Kleptomania	70	2	0
+3531	62	198064	Prismatic Cloak	0	2	0
+3532	64	198064	Prismatic Cloak	0	2	0
+3533	72	236077	Disarm	0	2	0
+3534	71	236077	Disarm	0	2	0
+3535	252	208683	Gladiator's Medallion	0	1	0
+3536	252	196029	Relentless	0	1	0
+3537	252	214027	Adaptation	0	1	0
+3538	251	208683	Gladiator's Medallion	0	1	0
+3539	251	196029	Relentless	0	1	0
+3540	251	214027	Adaptation	0	1	0
+3541	102	208683	Gladiator's Medallion	0	1	0
+3542	102	196029	Relentless	0	1	0
+3543	102	214027	Adaptation	0	1	0
+3544	581	208683	Gladiator's Medallion	0	1	0
+3545	581	196029	Relentless	0	1	0
+3546	581	214027	Adaptation	0	1	0
+3547	65	208683	Gladiator's Medallion	0	1	0
+3548	65	214027	Adaptation	0	1	0
+3549	65	196029	Relentless	0	1	0
+3551	263	208683	Gladiator's Medallion	0	1	0
+3552	263	214027	Adaptation	0	1	0
+3553	263	196029	Relentless	0	1	0
+3554	256	196029	Relentless	0	1	0
+3555	256	208683	Gladiator's Medallion	0	1	0
+3556	256	214027	Adaptation	0	1	0
+3557	257	196029	Relentless	0	1	0
+3558	257	208683	Gladiator's Medallion	0	1	0
+3559	257	214027	Adaptation	0	1	0
+3560	253	214027	Adaptation	0	1	0
+3561	253	196029	Relentless	0	1	0
+3562	253	208683	Gladiator's Medallion	0	1	0
+3563	254	214027	Adaptation	0	1	0
+3564	254	196029	Relentless	0	1	0
+3565	254	208683	Gladiator's Medallion	0	1	0
+3566	255	214027	Adaptation	0	1	0
+3567	255	196029	Relentless	0	1	0
+3568	255	208683	Gladiator's Medallion	0	1	0
+3569	268	214027	Adaptation	0	1	0
+3570	268	196029	Relentless	0	1	0
+3571	268	208683	Gladiator's Medallion	0	1	0
+3572	269	214027	Adaptation	0	1	0
+3573	269	196029	Relentless	0	1	0
+3574	269	208683	Gladiator's Medallion	0	1	0
+3575	270	214027	Adaptation	0	1	0
+3576	270	196029	Relentless	0	1	0
+3577	270	208683	Gladiator's Medallion	0	1	0
+3578	62	214027	Adaptation	0	1	0
+3579	62	196029	Relentless	0	1	0
+3580	62	208683	Gladiator's Medallion	0	1	0
+3581	63	214027	Adaptation	0	1	0
+3582	63	196029	Relentless	0	1	0
+3583	63	208683	Gladiator's Medallion	0	1	0
+3584	64	214027	Adaptation	0	1	0
+3585	64	196029	Relentless	0	1	0
+3586	64	208683	Gladiator's Medallion	0	1	0
+3587	71	214027	Adaptation	0	1	0
+3588	71	196029	Relentless	0	1	0
+3589	71	208683	Gladiator's Medallion	0	1	0
+3590	72	214027	Adaptation	0	1	0
+3591	72	196029	Relentless	0	1	0
+3592	72	208683	Gladiator's Medallion	0	1	0
+3593	73	214027	Adaptation	0	1	0
+3594	73	196029	Relentless	0	1	0
+3595	73	208683	Gladiator's Medallion	0	1	0
+3596	262	196029	Relentless	0	1	0
+3597	262	214027	Adaptation	0	1	0
+3598	262	208683	Gladiator's Medallion	0	1	0
+3599	253	202746	Survival Tactics	0	2	0
+3600	253	202589	Dragonscale Armor	0	2	0
+3602	253	202797	Viper Sting	0	2	0
+3603	253	202914	Spider Sting	0	2	0
+3604	253	202900	Scorpid Sting	0	2	0
+3605	253	236776	Hi-Explosive Trap	0	2	0
+3606	255	236776	Hi-Explosive Trap	0	2	0
+3607	255	202746	Survival Tactics	0	2	0
+3608	255	202914	Spider Sting	0	2	0
+3609	255	202900	Scorpid Sting	0	2	0
+3610	255	202589	Dragonscale Armor	0	2	0
+3612	253	53480	Roar of Sacrifice	0	2	0
+3614	254	53480	Roar of Sacrifice	0	2	0
+3615	255	202797	Viper Sting	0	2	0
+3618	65	216868	Hallowed Ground	0	2	0
+3619	260	269513	Death from Above	0	2	0
+3620	262	204336	Grounding Totem	0	2	0
+3621	262	204264	Swelling Waves	0	2	0
+3622	263	204336	Grounding Totem	0	2	0
+3623	263	204264	Swelling Waves	0	2	0
+3624	266	212295	Nether Ward	0	2	0
+3625	266	221711	Essence Drain	0	2	0
+3626	266	221703	Casting Circle	54	2	0
+3727	581	213480	Unending Hatred	0	2	0
+3728	102	209730	Protector of the Grove	0	2	0
+3729	254	203235	Hunting Pack	0	2	0
+3730	253	203235	Hunting Pack	0	2	0
+3731	102	305497	Thorns	0	2	0
+3732	270	233759	Grapple Weapon	0	2	0
+3734	269	287503	Alpha Tiger	0	2	0
+3735	72	280747	Slaughterhouse	0	2	0
+3737	269	287506	Wind Waker	52	2	0
+3740	265	285933	Demon Armor	80	2	0
+3741	267	285933	Demon Armor	80	2	0
+3742	251	287081	Lichborne	0	2	0
+3743	251	287250	Dead of Winter	0	2	0
+3744	269	287599	Pressure Points	0	2	0
+3745	269	287681	Turbo Fists	0	2	0
+3746	252	288848	Necromancer's Bargain	75	2	0
+3747	252	288853	Raise Abomination	82	2	0
+3748	252	288977	Transfusion	0	2	0
+3749	251	288977	Transfusion	0	2	0
+3750	104	213200	Freedom of the Herd	0	2	0
+3751	103	202626	Leader of the Pack	0	2	0
+3752	105	289318	Mark of the Wild	0	2	0
+3753	258	213602	Greater Fade	44	2	0
+3754	252	287081	Lichborne	0	2	0
+3755	264	290250	Cleansing Waters	63	2	0
+3756	264	290254	Ancestral Gift	0	2	0

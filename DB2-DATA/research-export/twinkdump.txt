@@ -1,0 +1,374 @@
+== Standrick: race 4, class 4, specialization 259, level 29
+ Equipped
+  Head: Stained Shadowcraft Cap [122248]
+  Neck: Man'ari Training Amulet [153130] enchant 5439
+  Shoulders: Exceptional Stormshroud Shoulders [122376] enchant 4804
+  Chest: Stained Shadowcraft Tunic [122383] enchant 4419
+  Waist: Moss Cinch [6911]
+  Legs: Stained Shadowcraft Pants [122254] enchant 4822
+  Feet: Boots of the Predator [151068] enchant 4428
+  Wrists: Bands of Serra'kis [6902] enchant 4416
+  Hands: Naga Battle Gloves [888] enchant 4431
+  Finger1: Admiral Taylor's Loyalty Ring [128173] enchant 5943
+  Finger2: Dread Pirate Ring [122529] enchant 5943
+  Trinket1: Flashing Steel Talisman [88294]
+  Trinket2: Defending Champion [126948]
+  Back: Inherited Cape of the Black Baron [122261] enchant 5311
+  Mainhand: Bite of Serra'kis [6904] enchant 4443
+  Offhand: Toxic Revenger [9453] enchant 4443
+ Carried
+  bag slot 19: Embroidered Deep Sea Bag [154696]
+  bag slot 20: Embroidered Deep Sea Bag [154696]
+  bag slot 21: Embroidered Deep Sea Bag [154696]
+  bag slot 22: Embroidered Deep Sea Bag [154696]
+  bag slot 23: Balanced Heartseeker [122350] enchant 4443
+  bag slot 24: Balanced Heartseeker [122350] enchant 4443
+  bag slot 25: Hearthstone [6948]
+  bag slot 26: Elixir of Agility [8949] x10
+  bag slot 27: Greater Healing Potion [1710] x10
+  bag slot 28: Swift Hand of Justice [122361]
+  bag slot 29: Meteor Shard [6220] enchant 4443
+
+== Ladora: race 3, class 3, specialization 253, level 29
+ Equipped
+  Head: Tarnished Raging Berserker's Helm [122246]
+  Neck: Man'ari Training Amulet [153130] enchant 5439
+  Shoulders: Champion Herod's Shoulder [122356] enchant 4804
+  Chest: Champion's Deathdealer Breastplate [122379] enchant 4419
+  Waist: Algae-Twined Waistcord [132553]
+  Legs: Tarnished Leggings of Destruction [122252] enchant 4822
+  Feet: Slither-Scale Boots [132741] enchant 4428
+  Wrists: Dark Lupine Wraps [132566] enchant 4416
+  Hands: Old Friend's Gloves [151065] enchant 4431
+  Finger1: Dread Pirate Ring [122529] enchant 5943
+  Finger2: Admiral Taylor's Loyalty Ring [128173] enchant 5943
+  Trinket1: Returning Champion [126949]
+  Trinket2: Defending Champion [126948]
+  Back: Inherited Cape of the Black Baron [122261] enchant 5314
+  Mainhand: Venomstrike [6469]
+ Carried
+  bag slot 23: Hearthstone [6948]
+  bag slot 24: Elixir of Agility [8949] x10
+  bag slot 25: Greater Healing Potion [1710] x10
+  bag slot 26: Charmed Ancient Bone Bow [122352] enchant 4699
+  bag slot 27: Lord Blastington's Scope of Doom [77529]
+
+== Magidke: race 1, class 2, specialization 65, level 29
+ Equipped
+  Head: Glitchbot Helm [151085]
+  Neck: Eternal Amulet of the Redeemed [122663] enchant 5437
+  Shoulders: Pristine Lightforge Spaulders [122373] enchant 4806
+  Chest: Phantom Armor [6642]
+  Waist: Cobrahn's Grasp [6460]
+  Legs: Pristine Lightforge Legplates [127011] enchant 4826
+  Feet: Savage Trodders [6459] enchant 4062
+  Wrists: Commanding Bracers [88267] enchant 4414
+  Hands: Gear-Marked Gauntlets [151063] enchant 4431
+  Finger1: Dread Pirate Ring [122529] enchant 5943
+  Finger2: Signet of the Third Fleet [128169] enchant 5943
+  Back: Ancient Bloodmoon Cloak [122262] enchant 5314
+  Mainhand: The Blessed Hammer of Grace [122367] enchant 4442
+  Offhand: Thermaplugg's Central Core [9458] enchant 4434
+ Carried
+  bag slot 19: Embroidered Deep Sea Bag [154696]
+  bag slot 20: Embroidered Deep Sea Bag [154696]
+  bag slot 21: Embroidered Deep Sea Bag [154696]
+  bag slot 22: Embroidered Deep Sea Bag [154696]
+  bag slot 23: Pristine Lightforge Helm [127012]
+  bag slot 24: Snake-Charmer's Casque [151427]
+  bag slot 25: Pristine Lightforge Breastplate [127010] enchant 4419
+  bag slot 26: Weathered Observer's Shield [122392] enchant 4434
+  bag slot 27: Seedcloud Buckler [6630] enchant 4434
+  bag slot 28: Mana Potion [3827] x10
+  bag slot 29: Elixir of Wisdom [3383] x11
+  bag slot 30: Hearthstone [6948]
+
+== Ronic: race 2, class 1, specialization 71, level 29
+ Equipped
+  Head: Helm of Rising Flame [88292]
+  Neck: Man'ari Training Amulet [153130]
+  Shoulders: Polished Spaulders of Valor [122355] enchant 4803
+  Chest: Canine Commander's Breastplate [88268]
+  Waist: Waistplate of Imminent Resurrection [88296]
+  Legs: Polished Legplates of Valor [122251] enchant 4823
+  Feet: Savage Trodders [6459] enchant 4062
+  Wrists: Collarspike Bracers [82879] enchant 4415
+  Hands: Gloves of the Greymane Wall [151070] enchant 4431
+  Finger1: Dread Pirate Ring [122529] enchant 5945
+  Finger2: Captain Sander's Returned Band [128172] enchant 5945
+  Trinket1: Defending Champion [126948]
+  Trinket2: Returning Champion [126949]
+  Back: Worn Stoneskin Gargoyle Cape [122260] enchant 5314
+  Mainhand: Strike of the Hydra [6909] enchant 4443
+ Carried
+  bag slot 23: Manual Crowd Pummeler [9449] enchant 4443
+  bag slot 24: Reforged Truesilver Champion [122365] enchant 4443
+  bag slot 25: Polished Helm of Valor [122245]
+  bag slot 26: Polished Breastplate of Valor [122381] enchant 4419
+  bag slot 27: Mutant Breastplate [6627]
+  bag slot 28: Rift Bracers [5943]
+  bag slot 29: Greater Healing Potion [1710] x20
+  bag slot 30: Elixir of Giant Growth [6662] x10
+  bag slot 31: Hearthstone [6948]
+  bag slot 32: Enchant Weapon - Elemental Force [74725]
+
+== Zeha: race 6, class 11, specialization 102, level 29
+ Equipped
+  Head: Preened Tribal War Feathers [122249]
+  Neck: Eternal Amulet of the Redeemed [122663] enchant 5437
+  Shoulders: Lasting Feralheart Spaulders [122377] enchant 4806
+  Chest: Armor of the Fang [6473]
+  Waist: Belt of the Fang [10412]
+  Legs: Preened Wildfeather Leggings [122255] enchant 4826
+  Feet: Footpads of the Fang [10411] enchant 4062
+  Wrists: Bands of Serra'kis [6902]
+  Hands: Gloves of the Fang [10413] enchant 4431
+  Finger1: Triune Signet [88300] enchant 5943
+  Finger2: Signet of the Third Fleet [128169] enchant 5943
+  Trinket1: Swift Hand of Justice [122361]
+  Trinket2: Tome of Thalassian Hymns [166754]
+  Back: Ancient Bloodmoon Cloak [122262] enchant 5314
+  Mainhand: Thruk's Fillet Knife [120165] enchant 4442
+  Offhand: Musty Tome of the Lost [122390] enchant 4434
+ Carried
+  bag slot 19: Embroidered Deep Sea Bag [154696]
+  bag slot 20: Embroidered Deep Sea Bag [154696]
+  bag slot 21: Embroidered Deep Sea Bag [154696]
+  bag slot 22: Embroidered Deep Sea Bag [154696]
+  bag slot 23: Dread Pirate Ring [122529] enchant 5943
+  bag slot 24: Preened Ironfeather Breastplate [122382] enchant 4419
+  bag slot 25: Moss Cinch [6911]
+  bag slot 26: Leggings of the Fang [10410]
+  bag slot 27: Hungering Deepwater Treads [151438]
+  bag slot 28: Naga Battle Gloves [888]
+  bag slot 29: Hearthstone [6948]
+
+== Velanlatha: race 10, class 8, specialization 64, level 29
+ Equipped
+  Head: Whitemane's Embroidered Chapeau [88299]
+  Neck: Eternal Amulet of the Redeemed [122663] enchant 5437
+  Shoulders: Tattered Dreadmist Mantle [122360] enchant 4806
+  Chest: Robes of Koegler [88279] enchant 4419
+  Waist: Girdle of Nobility [5967]
+  Legs: Tattered Dreadmist Leggings [122256] enchant 4826
+  Feet: Scarlet Sandals [88269] enchant 4062
+  Wrists: Lady Anacondra's Satin Cuffs [151426] enchant 4414
+  Hands: Gold-Flecked Gloves [5195] enchant 4431
+  Finger1: Triune Signet [88300] enchant 5945
+  Finger2: Signet of the Third Fleet [128169] enchant 5945
+  Trinket1: Loa-Touched Warscroll [166756]
+  Trinket2: Returning Champion [126949]
+  Back: Scorched Earth Cloak [88290] enchant 5314
+  Mainhand: Cookie's Stirring Rod [5198] enchant 4442
+  Offhand: Eerie Stable Lantern [6341] enchant 4434
+ Carried
+  bag slot 19: Embroidered Deep Sea Bag [154696]
+  bag slot 20: Embroidered Deep Sea Bag [154696]
+  bag slot 21: Embroidered Deep Sea Bag [154696]
+  bag slot 22: Embroidered Deep Sea Bag [154696]
+  bag slot 23: Dignified Headmaster's Charge [122353]
+  bag slot 24: Dread Pirate Ring [122529]
+  bag slot 25: Signet of the Hidden Door [88285]
+  bag slot 26: Tattered Dreadmist Mask [122250]
+  bag slot 27: Electromagnetic Gigaflux Reactivator [9492]
+  bag slot 28: Armbands of Exiled Architects [151062]
+  bag slot 29: Ancient Bloodmoon Cloak [122262] enchant 5314
+  bag slot 30: Tattered Dreadmist Robe [122384] enchant 4419
+  bag slot 31: Fireworm Robes [82878]
+  bag slot 32: Mana Potion [3827] x10
+  bag slot 33: Elixir of Frost Power [17708] x20
+  bag slot 34: Hearthstone [6948]
+
+== DONOTUSE: race 1, class 2, specialization 70, level 85
+ Equipped
+  Chest: Squire's Vest [58233]
+  Feet: Squire's Boots [43]
+  Mainhand: Battleworn Hammer [52557]
+ Carried
+  bag slot 19: Embroidered Deep Sea Bag [154696]
+  bag slot 20: Embroidered Deep Sea Bag [154696]
+  bag slot 21: Embroidered Deep Sea Bag [154696]
+  bag slot 22: Embroidered Deep Sea Bag [154696]
+  bag slot 23: Burning War Axe [2299]
+  bag slot 24: Bloodspiller [7753]
+  bag slot 25: Bloodsoaked Skullforge Reaver [122389]
+  bag slot 26: Sharpened Scarlet Kris [122364]
+  bag slot 27: Claw of the Shadowmancer [2912]
+  bag slot 28: Eternal Amulet of the Redeemed [122663] enchant 5437
+  bag slot 29: Eternal Horizon Choker [122664] enchant 5437
+  bag slot 30: Man'ari Training Amulet [153130] enchant 5439
+  bag slot 31: Dread Pirate Ring [122529]
+  bag slot 32: Signet of the Third Fleet [128169]
+  bag slot 33: Defending Champion [126948]
+  bag slot 34: Returning Champion [126949]
+  bag slot 35: Touch of the Void [128318]
+  bag slot 36: Swift Hand of Justice [122361]
+  bag slot 37: Discerning Eye of the Beast [122362]
+  bag slot 38: Orcish War Horn [166753]
+  bag slot 39: Tome of Thalassian Hymns [166754]
+  bag slot 40: Deathstalkers' Gloaming Powder [166755]
+  bag slot 41: Exquisite Sunderseer Mantle [122378]
+  bag slot 42: Stained Shadowcraft Spaulders [122358] enchant 4804
+  bag slot 51: Bloodied Arcanite Reaper [122349]
+  bag slot 53: Upgraded Dwarven Hand Cannon [122366]
+  bag slot 54: Devout Aurastone Hammer [122354]
+  bag slot 56: Venerable Mass of McGowan [122385]
+  bag slot 57: Repurposed Lava Dredger [122386]
+  bag slot 58: Spear of Rethu [131733]
+  bag slot 59: Eagletalon Spear [140773]
+  bag slot 60: Venerable Dal'Rend's Sacred Charge [122351]
+  bag slot 61: Battleworn Thrash Blade [122369]
+  bag slot 62: Burnished Warden Staff [122363]
+  bag slot 65: Grand Staff of Jordan [122368]
+  bag slot 66: Brawler's Razor Claws [122396]
+  bag slot 67: Eternal Talisman of Evasion [122662]
+  bag slot 68: Eternal Woven Ivy Necklace [122666]
+  bag slot 69: Eternal Emberfury Talisman [122667]
+  bag slot 70: Eternal Will of the Martyr [122668]
+  bag slot 71: Loa-Touched Warscroll [166756]
+  bag slot 72: Tidesages' Warscroll [166766]
+  bag slot 73: Kaldorei Powder of Twilight [166767]
+  bag slot 74: Hymnal of the 7th Legion [166768]
+  bag slot 75: Dwarven War Horn [166769]
+  bag slot 76: Inherited Mark of Tyranny [122530]
+  bag slot 77: Inherited Insignia of the Horde [122370]
+  bag slot 78: Inherited Insignia of the Alliance [122371]
+  in a bag, slot 0: Preened Ironfeather Shoulders [122359] enchant 4806
+  in a bag, slot 1: Prized Beastmaster's Mantle [122374]
+  in a bag, slot 2: Aged Pauldrons of The Five Thunders [122375]
+  in a bag, slot 3: Strengthened Stockade Pauldrons [122372]
+  in a bag, slot 4: Elixir of Firepower [6373] x20
+  in a bag, slot 5: Magically Wrapped Gift [41426]
+  in a bag, slot 6: Hearthstone [6948]
+  in a bag, slot 7: Enchant Neck - Mark of the Claw [128551]
+  in a bag, slot 8: Enchant Neck - Mark of the Hidden Satyr [128553]
+  in a bag, slot 9: Greater Tiger Fang Inscription [83006] x4
+  in a bag, slot 10: Greater Tiger Claw Inscription [83007] x2
+  in a bag, slot 11: Greater Ox Horn Inscription [87560] x4
+  in a bag, slot 12: Enchant Cloak - Gift of Versatility [110656]
+  in a bag, slot 13: Enchant Bracer - Super Intellect [74703] x2
+  in a bag, slot 14: Enchant Bracer - Exceptional Strength [74704] x3
+  in a bag, slot 15: Enchant Bracer - Greater Agility [74705] x5
+  in a bag, slot 16: Greater Pearlescent Spellthread [82444] x2
+  in a bag, slot 17: Greater Cerulean Spellthread [82445] x6
+  in a bag, slot 18: Ironscale Leg Armor [83763] x4
+  in a bag, slot 19: Shadowleather Leg Armor [83764] x3
+  in a bag, slot 20: Angerhide Leg Armor [83765] x4
+  in a bag, slot 21: Enchant Boots - Blurred Speed [74717] x5
+  in a bag, slot 22: Enchant Weapon - Elemental Force [74725]
+  in a bag, slot 23: Enchant Shield - Protection [52754] x3
+  in a bag, slot 24: Shield Enchant - Greater Intellect [44455] x5
+  in a bag, slot 25: Shield Enchant - Greater Intellect [44455]
+  in a bag, slot 26: Enchant Shield - Vitality [38860] x4
+
+== Tanked: race 36, class 1, specialization 73, level 29
+ Equipped
+  Head: Helm of Rising Flame [88292]
+  Neck: Man'ari Training Amulet [153130] enchant 5439
+  Shoulders: Burnished Pauldrons of Might [122388] enchant 4805
+  Chest: Canine Commander's Breastplate [88268] enchant 4419
+  Waist: Cobrahn's Grasp [6460]
+  Legs: Burnished Legplates of Might [122264] enchant 4824
+  Feet: Aku'mai Worshipper's Greatboots [151441] enchant 4062
+  Wrists: Collarspike Bracers [82879] enchant 4415
+  Hands: Algae Fists [6906] enchant 4431
+  Finger1: Triune Signet [88300]
+  Finger2: Signet of the Hidden Door [88285]
+  Trinket1: Inherited Mark of Tyranny [122530]
+  Trinket2: Returning Champion [126949]
+  Back: Ripped Sandstorm Cloak [122266] enchant 5314
+  Mainhand: Darkwater Talwar [11121] enchant 4443
+  Offhand: Thermaplugg's Central Core [9458] enchant 1890
+  Tabard: Tabard of the Mag'har Clans [161328]
+ Carried
+  bag slot 19: Large Red Sack [157787]
+  bag slot 20: Large Red Sack [157787]
+  bag slot 21: Large Red Sack [157787]
+  bag slot 22: Large Red Sack [157787]
+  bag slot 23: Battleworn Thrash Blade [122369] enchant 4443
+  bag slot 24: Bloodsoaked Skullforge Reaver [122389] enchant 4443
+  bag slot 25: Electrocutioner Leg [9446] enchant 4443
+  bag slot 26: Dread Pirate Ring [122529]
+  bag slot 27: Captain Sander's Returned Band [128172]
+  bag slot 28: Burnished Helm of Might [122263]
+  bag slot 29: Blackfathom Ascendant's Helm [151440]
+  bag slot 30: Burnished Breastplate of Might [122387] enchant 4419
+  bag slot 31: Mutant Breastplate [6627]
+  bag slot 32: Flameseared Carapace [82885]
+  bag slot 33: Savage Trodders [6459]
+  bag slot 34: Gorewalker Treads [82886]
+  bag slot 35: Rift Bracers [5943]
+  bag slot 36: Commanding Bracers [88267]
+  bag slot 37: Skeletal Gauntlets [4676]
+  bag slot 38: Gloves of the Greymane Wall [151070]
+  bag slot 39: Flamescarred Draconian Deflector [122391] enchant 4073
+  bag slot 40: Elixir of Giant Growth [6662] x10
+  bag slot 41: Hearthstone [6948]
+  bag slot 42: Enchant Chest - Glorious Stats [74708]
+  in a bag, slot 0: Enchant Bracer - Exceptional Strength [74704]
+  in a bag, slot 1: Enchant Boots - Earthen Vitality [52743]
+  in a bag, slot 2: Enchant Weapon - Elemental Force [74725] x2
+  in a bag, slot 3: Enchant Shield - Protection [52754] x2
+  in a bag, slot 4: Enchant Shield - Vitality [38860]
+
+== Bor: race 34, class 7, specialization 262, level 29
+ Equipped
+  Head: Mystical Coif of Elements [122247]
+  Neck: Eternal Horizon Choker [122664] enchant 5439
+  Shoulders: Mystical Pauldrons of Elements [122357] enchant 4806
+  Chest: Slither-Scale Hauberk [132739] enchant 4419
+  Waist: Slither-Scale Cord [132740]
+  Legs: Slither-Scale Britches [132742]
+  Feet: Slither-Scale Boots [132741] enchant 4062
+  Wrists: Serra'kis Scale Wraps [132555] enchant 4414
+  Hands: Slither-Scale Gauntlets [132743] enchant 4431
+  Finger1: Dread Pirate Ring [122529] enchant 5945
+  Finger2: Signet of the Third Fleet [128169] enchant 5945
+  Trinket1: Hymnal of the 7th Legion [166768]
+  Trinket2: Tidesages' Warscroll [166766]
+  Back: Ancient Bloodmoon Cloak [122262] enchant 5314
+  Mainhand: Claw of the Shadowmancer [2912] enchant 4442
+  Offhand: Seedcloud Buckler [6630] enchant 4434
+  Tabard: Tabard of the Dark Iron [161329]
+ Carried
+  bag slot 19: Large Red Sack [157787]
+  bag slot 20: Large Red Sack [157787]
+  bag slot 21: Large Red Sack [157787]
+  bag slot 22: Large Red Sack [157787]
+  bag slot 23: Hearthstone [6948]
+  bag slot 24: Letter from King Anduin Wrynn [157022]
+  bag slot 25: Tabard of the Dark Iron [161329]
+  bag slot 26: Enchant Bracer - Super Intellect [74703]
+  bag slot 28: Mystical Vest of Elements [122380] enchant 4419
+  bag slot 29: Enchant Cloak - Gift of Versatility [110656]
+  bag slot 31: Mystical Kilt of Elements [122253] enchant 4826
+  bag slot 36: Enchant Weapon - Jade Spirit [74724]
+  bag slot 41: Old Friend's Gloves [151065]
+
+== jado: race 32, class 10, specialization 269, level 29
+ Equipped
+  Head: Stained Shadowcraft Cap [122248]
+  Neck: Hook Charm Necklace [151437]
+  Shoulders: Incarnadine Scarlet Spaulders [88302]
+  Chest: Korloff's Raiment [88291]
+  Waist: Moss Cinch [6911]
+  Legs: Twilight Turtleskin Leggings [151432]
+  Feet: Hungering Deepwater Treads [151438]
+  Wrists: Bands of Serra'kis [6902]
+  Hands: Naga Battle Gloves [888]
+  Finger1: Triune Signet [88300]
+  Finger2: Signet of the Hidden Door [88285]
+  Trinket1: Touch of the Void [128318]
+  Trinket2: Flashing Steel Talisman [88294]
+  Back: Glowing Thresher Cape [6901]
+  Mainhand: The Black Knight [12974]
+  Offhand: The Black Knight [12974]
+  Tabard: Tabard of Kul Tiras [165010]
+ Carried
+  bag slot 19: Large Red Sack [157787]
+  bag slot 20: Large Red Sack [157787]
+  bag slot 21: Large Red Sack [157787]
+  bag slot 22: Large Red Sack [157787]
+  bag slot 24: Hearthstone [6948]
+  bag slot 28: Firefinger Ring [88293]
+

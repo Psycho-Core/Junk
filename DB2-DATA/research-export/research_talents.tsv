@@ -1,0 +1,649 @@
+talent_id	class	spec_id	tier	column	spell_id	name
+15757	1	0	3	0	29838	Second Wind
+15759	1	73	0	1	275334	Punish
+15760	1	73	0	0	202603	Into the Fray
+15774	1	73	0	2	202168	Impending Victory
+16025	8	62	1	2	236457	Slipstream
+16037	1	72	6	2	280772	Siegebreaker
+17565	2	65	0	0	196926	Crusader's Might
+17567	2	65	0	1	223306	Bestow Faith
+17569	2	65	0	2	114158	Light's Hammer
+17575	2	65	1	1	230332	Cavalier
+17577	2	65	1	2	214202	Rule of Law
+17591	2	65	3	1	183416	Aura of Sacrifice
+17593	2	65	3	2	183415	Aura of Mercy
+17597	2	65	4	0	183778	Judgment of Light
+17599	2	65	4	1	114165	Holy Prism
+17601	2	66	4	2	213652	Hand of the Protector
+18569	11	105	0	0	207383	Abundance
+18570	11	0	1	1	108238	Renewal
+18571	11	0	1	2	102401	Wild Charge
+18572	11	105	0	2	102351	Cenarion Ward
+18574	11	105	0	1	200383	Prosperity
+18576	11	0	3	1	102359	Mass Entanglement
+18577	11	0	3	2	132469	Typhoon
+18579	11	103	4	1	52610	Savage Roar
+18580	11	102	4	0	114107	Soul of the Forest
+18585	11	105	5	1	197061	Stonebark
+19138	1	71	2	2	772	Rend
+19140	1	72	4	2	215571	Frothing Berserker
+19165	6	250	0	0	221536	Heartbreaker
+19166	6	250	0	1	206931	Blooddrinker
+19217	6	250	0	2	210764	Rune Strike
+19218	6	250	1	0	194662	Rapid Decomposition
+19219	6	250	1	1	273946	Hemostasis
+19220	6	250	1	2	274156	Consumption
+19221	6	250	2	0	206974	Foul Bulwark
+19226	6	250	4	1	206970	Tightening Grasp
+19227	6	250	4	0	273952	Grip of the Dead
+19228	6	250	4	2	212552	Wraith Walk
+19230	6	250	5	0	273953	Voracious
+19231	6	250	5	1	195679	Bloodworms
+19232	6	250	5	2	206940	Mark of Blood
+19233	4	261	0	0	193537	Weaponmaster
+19234	4	261	0	1	91023	Find Weakness
+19235	4	261	0	2	200758	Gloomblade
+19236	4	260	1	0	196924	Acrobatic Strikes
+19237	4	260	1	1	256188	Retractable Hook
+19238	4	260	1	2	196922	Hit and Run
+19239	4	0	2	0	14983	Vigor
+19240	4	0	2	1	193531	Deeper Stratagem
+19241	4	0	2	2	137619	Marked for Death
+19245	4	259	4	0	154904	Internal Bleeding
+19249	4	261	5	1	193539	Alacrity
+19250	4	260	5	2	5171	Slice and Dice
+19259	7	0	1	0	108283	Echo of the Elements
+19260	7	263	2	1	974	Earth Shield
+19262	7	264	0	0	200072	Torrent
+19263	7	264	0	1	200071	Undulation
+19264	7	264	0	2	73685	Unleash Life
+19265	7	264	5	0	280614	Flash Flood
+19266	7	262	5	1	117013	Primal Elementalist
+19269	7	264	4	1	192088	Graceful Spirit
+19271	7	262	3	0	16166	Master of the Elements
+19272	7	262	3	1	192249	Storm Elemental
+19273	7	262	3	2	192222	Liquid Magma Totem
+19275	7	0	2	0	260878	Spirit Wolf
+19279	9	265	3	0	196226	Sow the Seeds
+19280	9	0	2	0	219272	Demon Skin
+19281	9	265	6	1	264000	Creeping Death
+19283	11	0	1	0	252216	Tiger Dash
+19284	9	0	6	0	215941	Soul Conduit
+19285	9	0	2	1	111400	Burning Rush
+19286	9	0	2	2	108416	Dark Pact
+19288	9	0	4	2	268358	Demonic Circle
+19290	9	266	0	0	264078	Dreadlash
+19291	9	0	4	1	6789	Mortal Coil
+19292	9	0	3	1	205179	Phantom Singularity
+19293	9	265	6	2	113860	Dark Soul: Misery
+19295	9	0	5	2	108503	Grimoire of Sacrifice
+19302	10	0	1	2	116841	Tiger's Lust
+19304	10	0	1	0	115173	Celerity
+19347	3	0	2	0	199921	Trailblazer
+19348	3	0	2	1	270581	Natural Mending
+19357	3	253	5	0	199530	Stomp
+19361	3	255	3	1	162488	Steel Trap
+19676	1	0	1	0	103827	Double Time
+19752	5	0	0	0	193134	Castigation
+19753	5	257	0	1	200128	Trail of Light
+19754	5	257	0	2	200153	Enduring Renewal
+19755	5	0	2	2	129250	Power Word: Solace
+19758	5	0	1	2	121536	Angelic Feather
+19759	5	256	3	0	196704	Psychic Voice
+19760	5	0	5	1	110744	Divine Star
+19761	5	0	3	2	204263	Shining Force
+19763	5	0	5	2	120517	Halo
+19764	5	257	4	0	109186	Surge of Light
+19765	5	0	4	1	197419	Contrition
+19766	5	0	4	2	204065	Shadow Covenant
+19767	5	0	5	0	193157	Benediction
+19769	5	256	3	1	205367	Dominant Mind
+19771	10	269	2	1	261947	Fist of the White Tiger
+19818	10	0	1	1	115008	Chi Torpedo
+19819	10	268	5	0	196730	Special Delivery
+19820	10	0	0	1	115098	Chi Wave
+19823	10	270	0	0	197900	Mist Wrap
+19992	10	268	2	2	115399	Black Ox Brew
+19993	10	0	3	0	264348	Tiger Tail Sweep
+19994	10	0	3	1	115315	Summon Black Ox Statue
+19995	10	0	3	2	116844	Ring of Peace
+20173	10	0	4	1	122783	Diffuse Magic
+20174	10	268	4	0	280515	Bob and Weave
+20175	10	0	4	2	122278	Dampen Harm
+20184	10	268	5	1	116847	Rushing Jade Wind
+20185	10	0	0	2	123986	Chi Burst
+21144	8	62	6	1	210805	Time Anomaly
+21145	8	62	6	2	153626	Arcane Orb
+21180	9	265	1	1	196103	Absolute Corruption
+21183	5	256	6	0	238063	Lenience
+21184	5	0	6	1	271466	Luminous Barrier
+21186	4	259	6	0	255544	Poison Bomb
+21188	4	261	6	2	277925	Shuriken Tornado
+21191	10	269	6	2	152173	Serenity
+21193	11	102	6	1	202770	Fury of Elune
+21198	7	262	6	0	260895	Unlimited Power
+21199	7	264	6	1	197995	Wellspring
+21201	2	66	6	0	203791	Last Defender
+21202	2	66	6	1	204074	Righteous Protector
+21203	2	65	6	2	200025	Beacon of Virtue
+21204	1	0	6	0	152278	Anger Management
+21207	6	250	6	0	114556	Purgatory
+21208	6	250	6	1	205723	Red Thirst
+21209	6	250	6	2	194844	Bonestorm
+21630	8	0	6	0	155147	Overpowered
+21631	8	63	6	0	155148	Kindling
+21632	8	64	6	0	155149	Thermal Void
+21633	8	63	6	2	153561	Meteor
+21634	8	64	6	2	199786	Glacial Spike
+21636	5	257	6	0	196985	Light of the Naaru
+21637	5	258	6	0	193225	Legacy of the Void
+21644	5	257	6	1	200183	Apotheosis
+21646	11	103	6	0	236068	Moment of Clarity
+21648	11	102	6	0	202342	Shooting Stars
+21649	11	103	6	1	155672	Bloodtalons
+21651	11	105	6	1	155675	Germination
+21653	11	103	6	2	274837	Feral Frenzy
+21655	11	102	6	2	274281	New Moon
+21667	1	71	6	2	152277	Ravager
+21668	2	65	6	0	197646	Divine Purpose
+21671	2	65	6	1	156910	Beacon of Faith
+21675	7	262	6	2	114050	Ascendance
+21694	9	266	1	1	264130	Power Siphon
+21695	9	267	1	1	266134	Internal Combustion
+21702	11	0	4	2	102560	Incarnation: Chosen of Elune
+21704	11	103	4	2	102543	Incarnation: King of the Jungle
+21705	11	105	4	1	200390	Cultivation
+21706	11	102	4	1	202345	Starlord
+21707	11	104	4	1	203964	Galactic Guardian
+21708	11	103	4	0	158476	Soul of the Forest
+21709	11	104	4	0	158477	Soul of the Forest
+21710	11	105	4	0	158478	Soul of the Forest
+21711	11	103	5	1	202028	Brutal Slash
+21712	11	102	5	1	279620	Twin Moons
+21713	11	104	5	1	203965	Survival of the Fittest
+21714	11	103	5	0	285564	Scent of Blood
+21716	11	105	5	0	197073	Inner Peace
+21717	9	266	5	2	111898	Grimoire: Felguard
+21718	5	258	5	0	199849	Lingering Insanity
+21719	5	258	5	1	200174	Mindbender
+21720	5	258	5	2	263165	Void Torrent
+21750	5	257	3	0	196704	Psychic Voice
+21752	5	258	3	2	64044	Psychic Horror
+21754	5	257	4	2	204883	Circle of Healing
+21755	5	258	4	2	205385	Shadow Crash
+21778	11	0	3	0	5211	Mighty Bash
+21795	2	66	4	1	204077	Final Stand
+21811	2	0	2	2	115750	Blinding Light
+21854	12	577	0	0	203550	Blind Fury
+21857	12	577	1	0	258876	Insatiable Hunger
+21862	12	577	2	2	258925	Fel Barrage
+21863	12	577	3	0	204909	Soul Rending
+21864	12	577	3	1	205411	Desperate Instincts
+21865	12	577	3	2	196555	Netherwalk
+21866	12	577	4	0	258887	Cycle of Hatred
+21867	12	577	4	1	206416	First Blood
+21868	12	577	4	2	258860	Dark Slash
+21869	12	577	5	0	206477	Unleashed Power
+21870	12	577	5	1	203556	Master of the Glaive
+21900	12	577	6	0	213410	Demonic
+21901	12	577	6	1	206476	Momentum
+21902	12	581	6	2	263648	Soul Barrier
+21963	7	264	1	2	974	Earth Shield
+21966	7	0	4	2	192077	Wind Rush Totem
+21968	7	0	5	2	157153	Cloudburst Totem
+21969	7	264	6	0	157154	High Tide
+21970	7	263	6	0	262624	Elemental Spirits
+21971	7	264	5	1	207778	Downpour
+21972	7	263	6	2	114051	Ascendance
+21973	7	263	5	0	192246	Crashing Storm
+21976	5	258	1	2	288733	Intangibility
+21977	5	257	3	1	200199	Censure
+21978	5	258	6	1	280711	Dark Ascension
+21979	5	258	6	2	193223	Surrender to Madness
+21986	3	253	6	1	199532	Killer Cobra
+21990	4	260	5	0	256170	Loaded Dice
+21997	3	255	1	0	264332	Guerrilla Tactics
+21998	3	254	3	2	257284	Hunter's Mark
+22002	3	253	5	1	120360	Barrage
+22013	6	250	3	0	206967	Will of the Necropolis
+22014	6	250	3	1	205727	Anti-Magic Barrier
+22015	6	250	3	2	194679	Rune Tap
+22016	6	251	0	0	253593	Inexorable Assault
+22017	6	251	0	1	194878	Icy Talons
+22018	6	251	0	2	281208	Cold Heart
+22019	6	251	1	0	207104	Runic Attenuation
+22020	6	251	1	1	207061	Murderous Efficiency
+22021	6	251	1	2	57330	Horn of Winter
+22023	6	251	6	0	207126	Icecap
+22024	6	252	0	0	207272	Infected Claws
+22025	6	252	0	1	194916	All Will Serve
+22026	6	252	0	2	207311	Clawing Shadows
+22027	6	252	1	0	207264	Bursting Sores
+22028	6	252	1	1	207269	Ebon Fever
+22029	6	252	1	2	115989	Unholy Blight
+22030	6	252	6	0	276837	Army of the Damned
+22038	9	267	0	0	267115	Flashover
+22039	9	265	0	0	108558	Nightfall
+22040	9	267	0	2	6353	Soul Fire
+22042	9	266	3	1	264057	Soul Strike
+22043	9	267	3	1	196408	Fire and Brimstone
+22044	9	265	1	0	196102	Writhe in Agony
+22045	9	266	1	0	205145	Demonic Calling
+22046	9	265	3	2	278350	Vile Taint
+22047	9	0	4	0	264874	Darkfury
+22048	9	266	0	1	267171	Demonic Strength
+22089	9	265	1	2	63106	Siphon Life
+22090	9	267	0	1	196412	Eradication
+22093	10	269	5	0	196740	Hit Combo
+22094	5	0	2	1	123040	Mindbender
+22095	5	257	2	1	200209	Guardian Angel
+22096	10	269	2	2	115288	Energizing Elixir
+22097	10	268	2	1	242580	Spitfire
+22098	10	269	2	0	115396	Ascension
+22099	10	268	2	0	196721	Light Brewing
+22101	10	270	5	1	196725	Refreshing Jade Wind
+22102	10	269	5	2	123904	Invoke Xuen, the White Tiger
+22103	10	268	5	2	132578	Invoke Niuzao, the Black Ox
+22104	10	268	6	1	115295	Guard
+22105	10	269	6	1	152175	Whirling Dragon Punch
+22106	10	268	6	0	196737	High Tolerance
+22107	10	269	6	0	280197	Spiritual Focus
+22108	10	268	6	2	196736	Blackout Combo
+22109	6	251	6	1	281238	Obliteration
+22110	6	252	6	1	207289	Unholy Frenzy
+22114	4	260	4	1	256165	Blinding Powder
+22115	4	0	4	2	131511	Prey on the Weak
+22118	4	260	0	0	200733	Weaponmaster
+22119	4	260	0	1	196938	Quick Draw
+22120	4	260	0	2	196937	Ghostly Strike
+22121	4	260	3	0	193546	Iron Stomach
+22122	4	0	3	1	31230	Cheat Death
+22123	4	0	3	2	79008	Elusiveness
+22125	4	260	6	0	272026	Dancing Steel
+22127	7	0	2	2	265046	Static Charge
+22128	4	261	3	0	200759	Soothing Darkness
+22132	4	261	6	0	196976	Master of Shadows
+22133	4	259	6	1	270061	Hidden Blades
+22134	6	250	2	1	219786	Ossuary
+22135	6	250	2	2	219809	Tombstone
+22136	5	258	0	1	162452	Shadowy Insight
+22139	7	262	1	1	260897	Call the Thunder
+22144	7	0	4	0	30884	Nature's Guardian
+22145	7	262	5	0	262303	Surge of Power
+22149	7	263	4	1	196884	Feral Lunge
+22150	7	263	1	1	262647	Forceful Winds
+22152	7	264	3	0	207401	Ancestral Vigor
+22153	7	262	6	1	191634	Stormkeeper
+22155	11	102	2	0	202157	Feral Affinity
+22156	11	104	2	1	202155	Feral Affinity
+22157	11	102	2	1	197491	Guardian Affinity
+22158	11	103	2	1	217615	Guardian Affinity
+22159	11	0	2	2	197492	Restoration Affinity
+22160	11	105	2	2	197491	Guardian Affinity
+22161	5	256	5	0	204197	Purge the Wicked
+22163	11	0	2	0	197488	Balance Affinity
+22164	2	65	4	2	105809	Holy Avenger
+22165	11	102	5	2	202347	Stellar Flare
+22166	10	270	2	2	197908	Mana Tea
+22167	10	270	2	1	210802	Spirit of the Crane
+22168	10	270	2	0	197915	Lifecycles
+22169	10	270	6	1	274963	Upwelling
+22170	10	270	6	2	274909	Rising Mist
+22171	7	263	3	2	210727	Overcharge
+22172	7	262	4	1	108281	Ancestral Guidance
+22175	2	70	0	2	267798	Execution Sentence
+22176	2	65	1	0	114154	Unbreakable Spirit
+22179	2	0	2	0	198054	Fist of Justice
+22180	2	0	2	1	20066	Repentance
+22181	2	65	3	0	183425	Devotion Aura
+22182	2	70	3	1	205228	Consecration
+22183	2	70	3	2	255937	Wake of Ashes
+22185	2	70	4	1	230332	Cavalier
+22186	2	70	4	2	205191	Eye for an Eye
+22189	2	0	5	0	183778	Judgment of Light
+22190	2	65	5	1	216331	Avenging Crusader
+22214	10	270	5	2	198664	Invoke Chi-Ji, the Red Crane
+22215	2	70	6	1	231895	Crusade
+22218	10	270	6	0	197895	Focused Thunder
+22219	10	270	3	1	198898	Song of Chi-Ji
+22220	8	63	6	1	269650	Pyroclasm
+22266	3	253	1	1	199528	One with the Pack
+22267	3	254	3	0	193533	Steady Focus
+22268	3	0	4	0	266921	Born To Be Wild
+22269	3	253	3	2	131894	A Murder of Crows
+22271	3	255	5	2	269751	Flanking Strike
+22272	3	255	6	0	260331	Birds of Prey
+22273	3	253	6	0	191384	Aspect of the Beast
+22274	3	254	6	0	260404	Calling the Shots
+22275	3	255	0	0	268501	Viper's Venom
+22276	3	0	4	1	109215	Posthaste
+22277	3	255	3	0	260248	Bloodseeker
+22278	3	255	5	1	259387	Mongoose Bite
+22279	3	254	0	0	260309	Master Marksman
+22280	3	253	0	1	267116	Animal Companion
+22282	3	253	0	2	120679	Dire Beast
+22283	3	255	0	1	265895	Terms of Engagement
+22286	3	254	3	1	260367	Streamline
+22287	3	254	5	2	260402	Double Tap
+22288	3	254	6	2	198670	Piercing Shot
+22289	3	254	0	2	131894	A Murder of Crows
+22290	3	253	1	2	53209	Chimaera Shot
+22291	3	253	0	0	273887	Killer Instinct
+22295	3	253	6	2	194407	Spitting Cobra
+22296	3	255	0	2	269737	Alpha Predator
+22297	3	255	1	2	212436	Butchery
+22299	3	255	3	2	131894	A Murder of Crows
+22300	3	255	5	0	260285	Tip of the Spear
+22301	3	255	6	1	271014	Wildfire Infusion
+22308	3	254	6	1	194595	Lock and Load
+22309	8	64	6	1	205021	Ray of Frost
+22310	5	258	4	0	155271	Auspicious Spirits
+22311	5	258	4	1	32379	Shadow Word: Death
+22312	5	257	0	0	193155	Enlightenment
+22313	5	256	0	1	265259	Twist of Fate
+22314	5	258	0	2	205351	Shadow Word: Void
+22315	5	0	1	0	64129	Body and Soul
+22316	5	256	1	1	193063	Masochism
+22319	2	70	1	0	203316	Fires of Justice
+22322	7	264	3	1	198838	Earthen Wall Totem
+22323	7	264	3	2	207399	Ancestral Protection Totem
+22324	12	581	2	0	227322	Flame Crash
+22325	5	257	1	0	238100	Angel's Mercy
+22326	5	257	1	1	235189	Perseverance
+22327	5	257	4	1	32546	Binding Heal
+22328	5	258	0	0	193195	Fortress of the Mind
+22329	5	256	0	2	214621	Schism
+22330	5	256	4	0	280391	Sins of the Many
+22331	4	0	1	0	14062	Nightstalker
+22332	4	0	1	1	108208	Subterfuge
+22333	4	261	1	2	108209	Shadow Focus
+22335	4	261	5	0	245687	Dark Shadow
+22336	4	261	5	2	238104	Enveloping Shadows
+22337	4	259	0	0	196864	Master Poisoner
+22338	4	0	0	1	193640	Elaborate Planning
+22339	4	259	0	2	111240	Blindside
+22340	4	259	3	0	280716	Leeching Poison
+22343	4	259	5	0	152152	Venom Rush
+22344	4	259	5	2	200806	Exsanguinate
+22347	3	253	3	1	257944	Thrill of the Hunt
+22351	7	263	5	2	197214	Sundering
+22352	7	263	5	1	197211	Fury of Air
+22353	7	263	0	2	192106	Lightning Shield
+22354	7	263	0	0	246035	Boulderfist
+22355	7	263	0	1	201900	Hot Hand
+22356	7	262	0	0	170374	Earthen Rage
+22357	7	262	0	1	108283	Echo of the Elements
+22358	7	262	0	2	117014	Elemental Blast
+22359	7	264	6	2	114052	Ascendance
+22360	1	71	0	1	29725	Sudden Death
+22362	1	71	4	2	845	Cleave
+22363	11	103	0	0	202021	Predator
+22364	11	103	0	1	202031	Sabertooth
+22365	11	103	0	2	155580	Lunar Inspiration
+22366	11	105	2	0	197632	Balance Affinity
+22367	11	105	2	1	197490	Feral Affinity
+22370	11	103	5	2	285381	Primal Wrath
+22371	1	71	0	2	260643	Skullsplitter
+22372	1	71	1	1	202168	Impending Victory
+22373	1	73	1	0	203201	Crackling Thunder
+22375	2	70	3	0	271580	Divine Judgment
+22378	1	73	2	0	202560	Best Served Cold
+22379	1	72	2	0	215573	Inner Rage
+22380	1	71	2	0	281001	Massacre
+22381	1	72	2	1	280721	Sudden Death
+22382	1	72	3	2	208154	Warpaint
+22383	1	72	4	0	202922	Carnage
+22384	1	73	4	0	275338	Menace
+22385	11	102	0	0	202430	Nature's Balance
+22386	11	102	0	1	202425	Warrior of Elune
+22387	11	102	0	2	205636	Force of Nature
+22388	11	104	4	2	102558	Incarnation: Guardian of Ursoc
+22389	11	102	5	0	202354	Stellar Drift
+22390	11	104	5	2	155578	Guardian of Elune
+22391	1	71	4	1	262161	Warbreaker
+22392	1	71	4	0	268243	Collateral Damage
+22393	1	72	4	1	206315	Massacre
+22394	1	71	5	0	248621	In For The Kill
+22395	1	73	5	0	202743	Booming Voice
+22396	1	72	5	0	280392	Meat Cleaver
+22397	1	71	5	1	107574	Avatar
+22398	1	72	5	1	118000	Dragon Roar
+22399	1	71	5	2	262228	Deadly Calm
+22400	1	72	5	2	46924	Bladestorm
+22401	1	73	5	2	236279	Devastator
+22402	1	72	6	1	152278	Anger Management
+22403	11	105	6	0	274902	Photosynthesis
+22404	11	105	6	2	197721	Flourish
+22405	1	72	6	0	202751	Reckless Abandon
+22406	1	73	6	1	203177	Heavy Repercussions
+22407	1	71	6	1	262150	Dreadnaught
+22409	1	73	1	2	223657	Safeguard
+22416	12	577	0	2	232893	Felblade
+22418	11	104	0	1	203962	Blood Frenzy
+22419	11	104	0	0	203953	Brambles
+22420	11	104	0	2	155835	Bristling Fur
+22421	11	105	4	2	33891	Incarnation: Tree of Life
+22422	11	105	5	2	207385	Spring Blossoms
+22423	11	104	5	0	203974	Earthwarden
+22425	11	104	6	2	80313	Pulverize
+22426	11	104	6	0	204053	Rend and Tear
+22427	11	104	6	1	204066	Lunar Beam
+22428	2	66	0	0	152261	Holy Shield
+22430	2	66	0	2	204019	Blessed Hammer
+22431	2	66	1	0	203776	First Avenger
+22433	2	66	3	0	203797	Retribution Aura
+22434	2	66	3	1	230332	Cavalier
+22435	2	66	3	2	204018	Blessing of Spellwarding
+22438	2	66	5	1	204054	Consecrated Ground
+22440	5	0	2	0	197045	Shield Discipline
+22441	3	253	3	0	257891	Venomous Bite
+22442	8	64	1	0	235297	Glacial Insulation
+22443	8	0	1	1	212653	Shimmer
+22444	8	0	2	0	1463	Incanter's Flow
+22445	8	0	2	1	55342	Mirror Image
+22446	8	64	4	0	235224	Frigid Winds
+22447	8	0	2	2	116011	Rune of Power
+22448	8	0	4	1	205036	Ice Ward
+22449	8	62	5	1	210725	Touch of the Magi
+22450	8	63	3	0	205029	Flame On
+22451	8	63	5	0	205037	Flame Patch
+22452	8	64	3	0	205030	Frozen Touch
+22453	8	62	3	0	205028	Resonance
+22454	8	64	5	0	270233	Freezing Rain
+22455	8	62	5	0	281482	Reverberate
+22456	8	63	0	0	205026	Firestarter
+22457	8	64	0	0	205027	Bone Chilling
+22458	8	62	0	0	236628	Amplification
+22459	8	63	0	1	205020	Pyromaniac
+22460	8	64	0	1	205024	Lonely Winter
+22461	8	62	0	1	264354	Rule of Threes
+22462	8	63	0	2	269644	Searing Touch
+22463	8	64	0	2	157997	Ice Nova
+22464	8	62	0	2	205022	Arcane Familiar
+22465	8	63	3	1	235870	Alexstrasza's Fury
+22466	8	64	3	1	278309	Chain Reaction
+22467	8	62	3	1	205032	Charged Up
+22468	8	63	3	2	257541	Phoenix Flames
+22469	8	64	3	2	257537	Ebonbolt
+22470	8	62	3	2	157980	Supernova
+22471	8	0	4	2	113724	Ring of Frost
+22472	8	63	5	2	44457	Living Bomb
+22473	8	64	5	2	153595	Comet Storm
+22474	8	62	5	2	114923	Nether Tempest
+22477	9	266	3	0	267170	From the Shadows
+22479	9	266	6	1	267215	Demonic Consumption
+22480	9	267	3	0	270545	Inferno
+22483	2	70	5	1	215661	Justicar's Vengeance
+22484	2	65	5	2	248033	Awakening
+22487	5	257	2	0	238136	Cosmic Ripple
+22488	1	73	3	2	280001	Bolster
+22489	1	71	2	1	202316	Fervor of Battle
+22491	1	72	0	2	215568	Fresh Meat
+22492	7	264	1	1	200076	Deluge
+22493	12	577	0	1	206478	Demonic Appetite
+22494	12	577	2	1	192939	Fel Mastery
+22495	3	254	1	0	260228	Careful Aim
+22497	3	254	1	1	260243	Volley
+22498	3	254	1	2	212431	Explosive Shot
+22499	3	0	4	2	109248	Binding Shot
+22500	3	253	1	0	193532	Scent of Blood
+22501	3	254	0	1	271788	Serpent Sting
+22502	12	581	0	0	207550	Abyssal Strike
+22503	12	581	0	1	207548	Agonizing Flames
+22504	12	581	0	2	209400	Razor Spikes
+22505	12	581	1	0	207697	Feast of Souls
+22507	12	581	1	2	207739	Burning Alive
+22508	12	581	3	0	217996	Soul Rending
+22509	12	581	3	1	218612	Feed the Demon
+22510	12	581	4	1	209281	Quickened Sigils
+22511	12	581	4	2	202138	Sigil of Chains
+22512	12	581	5	0	264004	Gluttony
+22513	12	581	5	1	247454	Spirit Bomb
+22515	6	251	2	0	276079	Death's Reach
+22516	6	252	2	0	273952	Grip of the Dead
+22517	6	251	2	1	108194	Asphyxiate
+22518	6	252	2	1	276079	Death's Reach
+22519	6	251	2	2	207167	Blinding Sleet
+22520	6	252	2	2	108194	Asphyxiate
+22521	6	251	3	0	207142	Avalanche
+22522	6	252	3	0	194917	Pestilent Pustules
+22523	6	251	3	1	194909	Frozen Pulse
+22524	6	252	3	1	276023	Harbinger of Doom
+22525	6	251	3	2	207230	Frostscythe
+22526	6	252	3	2	130736	Soul Reaper
+22527	6	251	4	0	207200	Permafrost
+22528	6	252	4	0	207321	Spell Eater
+22529	6	252	4	1	212552	Wraith Walk
+22530	6	251	4	1	212552	Wraith Walk
+22531	6	251	5	0	194912	Gathering Storm
+22532	6	252	5	0	277234	Pestilence
+22533	6	251	5	1	194913	Glacial Advance
+22534	6	252	5	1	152280	Defile
+22535	6	251	5	2	279302	Frostwyrm's Fury
+22536	6	252	5	2	207317	Epidemic
+22537	6	251	6	2	152279	Breath of Sindragosa
+22538	6	252	6	2	49206	Summon Gargoyle
+22540	12	581	2	2	232893	Felblade
+22541	12	581	2	1	264002	Charred Flesh
+22543	12	581	6	0	209258	Last Resort
+22544	1	73	5	1	202572	Vengeance
+22546	12	581	4	0	207666	Concentrated Sigils
+22547	12	577	6	2	206491	Nemesis
+22548	12	581	6	1	268175	Void Reaver
+22557	2	70	0	1	267610	Righteous Verdict
+22558	2	66	0	1	280373	Redoubt
+22562	5	257	2	2	196707	Afterlife
+22590	2	70	0	0	269569	Zeal
+22591	2	70	6	0	223817	Divine Purpose
+22592	2	70	1	1	231832	Blade of Wrath
+22593	2	70	1	2	24275	Hammer of Wrath
+22594	2	66	1	2	204035	Bastion of Light
+22595	2	70	4	0	114154	Unbreakable Spirit
+22604	2	66	1	1	204023	Crusader's Judgment
+22624	1	71	0	0	262231	War Machine
+22625	1	72	1	1	202168	Impending Victory
+22626	1	73	2	1	275336	Unstoppable Force
+22627	1	0	3	1	202163	Bounding Stride
+22628	1	71	3	2	197690	Defensive Stance
+22629	1	73	1	1	202163	Bounding Stride
+22631	1	73	4	1	275339	Rumbling Earth
+22632	1	72	0	0	262231	War Machine
+22633	1	72	0	1	202296	Endless Rage
+22634	2	70	6	2	84963	Inquisition
+22636	7	263	1	0	197992	Landslide
+22645	2	66	6	2	152262	Seraphim
+22705	2	66	4	0	114154	Unbreakable Spirit
+22765	12	577	1	1	203555	Demon Blades
+22766	12	581	1	1	227174	Fallout
+22767	12	577	5	2	211881	Fel Eruption
+22768	12	581	5	2	212084	Fel Devastation
+22769	3	255	1	1	260241	Hydra's Bite
+22770	12	581	3	2	263642	Fracture
+22789	1	71	1	2	107570	Storm Bolt
+22799	12	577	1	2	258920	Immolation Aura
+22800	1	73	4	2	107570	Storm Bolt
+22896	2	70	2	0	234299	Fist of Justice
+22904	8	63	4	0	236058	Frenetic Speed
+22907	8	62	4	0	235711	Chrono Shift
+22909	12	577	2	0	258881	Trail of Ruin
+22916	11	104	1	1	102793	Ursol's Vortex
+22976	5	256	6	2	246287	Evangelism
+22977	7	263	6	1	188089	Earthen Spike
+23015	4	259	5	1	245388	Toxic Blade
+23022	4	259	1	2	255989	Master Assassin
+23036	4	261	4	1	277953	Night Terrors
+23037	4	259	4	1	196861	Iron Wire
+23044	3	253	5	2	201430	Stampede
+23063	3	254	5	0	260393	Lethal Shots
+23071	8	63	1	0	235365	Blazing Soul
+23072	8	62	1	0	235463	Mana Shield
+23073	8	64	1	2	108839	Ice Floes
+23074	8	63	1	2	157981	Blast Wave
+23075	4	260	6	1	271877	Blade Rush
+23077	4	260	4	0	108216	Dirty Tricks
+23078	4	261	4	0	257505	Shot in the Dark
+23086	2	70	5	2	210191	Word of Glory
+23087	2	66	5	2	204150	Aegis of Light
+23089	7	263	3	0	192087	Searing Assault
+23090	7	263	3	1	210853	Hailstorm
+23091	9	266	6	2	267217	Nether Portal
+23092	9	267	6	2	113858	Dark Soul: Instability
+23093	1	72	1	2	107570	Storm Bolt
+23096	1	73	3	0	202095	Indomitable
+23097	1	72	3	0	202224	Furious Charge
+23099	1	73	6	2	228920	Ravager
+23100	3	0	2	2	199483	Camouflage
+23104	3	254	5	1	120360	Barrage
+23105	3	255	6	2	259391	Chakrams
+23106	10	0	0	0	196607	Eye of the Tiger
+23107	10	270	5	0	115313	Summon Jade Serpent Statue
+23108	7	262	1	0	273221	Aftershock
+23109	7	263	1	2	262395	Totem Mastery
+23110	7	264	2	1	51485	Earthgrab Totem
+23111	7	262	5	2	210714	Icefury
+23122	10	269	5	1	116847	Rushing Jade Wind
+23125	5	258	2	0	109142	Twist of Fate
+23126	5	258	2	1	238558	Misery
+23127	5	258	2	2	263346	Dark Void
+23128	4	260	5	1	193539	Alacrity
+23137	5	258	3	0	263716	Last Word
+23138	9	266	0	2	267211	Bilescourge Bombers
+23139	9	265	5	0	32388	Shadow Embrace
+23140	9	265	0	1	198590	Drain Soul
+23141	9	265	0	2	264106	Deathbolt
+23143	9	267	3	2	152108	Cataclysm
+23144	9	267	6	1	196447	Channel Demonfire
+23145	5	257	6	2	265202	Holy Word: Salvation
+23146	9	266	5	1	267216	Inner Demons
+23147	9	266	5	0	215941	Soul Conduit
+23148	9	267	1	0	205148	Reverse Entropy
+23155	9	267	5	0	205184	Roaring Blaze
+23156	9	267	5	1	266086	Grimoire of Supremacy
+23157	9	267	1	2	17877	Shadowburn
+23158	9	266	1	2	265412	Doom
+23159	9	265	5	1	48181	Haunt
+23160	9	266	3	2	264119	Summon Vilefiend
+23161	9	266	6	0	267214	Sacrificed Souls
+23162	7	262	2	0	260878	Spirit Wolf
+23163	7	262	2	1	974	Earth Shield
+23164	7	262	2	2	265046	Static Charge
+23165	7	263	2	0	260878	Spirit Wolf
+23166	7	263	2	2	265046	Static Charge
+23167	2	70	5	0	85804	Selfless Healer
+23174	4	259	6	2	121411	Crimson Tempest
+23175	4	260	6	2	51690	Killing Spree
+23176	8	64	5	1	56377	Splitting Ice
+23183	4	261	6	1	280719	Secret Technique
+23190	7	262	1	2	210643	Totem Mastery
+23191	2	65	5	0	53376	Sanctified Wrath
+23258	10	269	4	0	261767	Inner Strength
+23260	1	73	2	2	118000	Dragon Roar
+23261	1	73	3	1	202561	Never Surrender
+23362	8	63	5	1	205023	Conflagration
+23363	10	268	4	1	122281	Healing Elixir
+23364	10	269	3	1	280195	Good Karma
+23371	10	270	4	0	122281	Healing Elixir
+23372	1	72	2	2	100130	Furious Slash
+23373	6	0	4	2	48743	Death Pact
+23374	5	258	1	1	199855	San'layn
+23375	5	258	3	1	205369	Mind Bomb
