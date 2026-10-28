@@ -1,0 +1,46 @@
+MOTHER VENDOR AND CORRUPTION — HISTORICAL BFA 8.3 (BUILD 35662 TARGET)
+
+STATUS: PARTIAL RESEARCH, NOT IMPLEMENTATION-READY. Historical live-server guides and a September 2020 community addon are not build-35662 DB2 or TrinityCore world-SQL evidence. No missing row below is safe to invent.
+
+VENDOR
+MOTHER creature entry 152194; Chamber of Heart, Silithus. Source: https://www.wowhead.com/npc=152194/mother ; https://www.icy-veins.com/wow/corrupted-items-guide-in-patch-8-3-vision-of-n-zoth . Exact map ID, world x/y/z/orientation, creature spawn GUID, phase, npcflags, npc_vendor rows, vendor slot/stock, ItemExtendedCost IDs: NOT FOUND. No attributable BfA creature SQL row or parsed sniff was established; checked Wowhead NPC page and GitHub BfA core/code search (code-search access was rate-limited). UI map percentages are not world coordinates. Do not fabricate a row or infer the vendor flag from guide text.
+Currency: Echoes of Ny'alotha, ID 1803: https://www.wowhead.com/currency=1803/echoes-of-nyalotha . May 2020 hotfix increased costs fivefold; whether build 35662's world database includes all subsequent hotfixes: NOT FOUND. https://www.mmo-champion.com/content/9144-Patch-8-3-Hotfixes-May-18-2020
+
+OTHER VENDOR GOODS (historical post-May-2020 prices in currency 1803)
+Rank 3 Essence containers: 2,500 each, conditional on account unlock; 28 named containers in the contemporary list: Regenerating Barrier of the Depths; Fetish of the Hidden Labyrinths; Azerite-Fueled Timequartz; Tempered Azerite Formation; Churning Blood of the Conquered; Token of Death's Glee; Rib-Bone Choker of Dominance; Resonating Elemental Heart; Stabilizing Lens of the Focusing Iris; Lingering Seed of Renewal; Pearl of Perspicuous Intentions; Null Force Nullifier; Enhanced Purification Protocols; Stalwart Battlefield Memento; Quickening Azerite Geode; Sphere of Leeched Mobility; Gleaming Star Shard; Manual of Unbalanced Tactics; Tempered Scale of the Scarlet Broodmother; Tome of the Quickening Tides; Volatile Void Droplet; Polarized Azerite Slivershards; Calibrated Existence Gauge; Branch of Rejuvenating Rings; Ward of Mutual Aid; Perfection-Enhancing Gearbox; Grid of Bursting Vitality; Fluctuating Worldvein. Individual container item IDs, ItemExtendedCost IDs and npc_vendor rows: NOT FOUND. Source/list and unlock rule: https://www.icy-veins.com/wow/echoes-of-ny-alotha .
+Malefic Core: item 175062; 2,000 Echoes; for post-rank-15 cloak catch-up. ItemExtendedCost ID/npc_vendor row NOT FOUND. https://www.wowhead.com/item=175062/malefic-core ; https://blizzardwatch.com/2020/06/30/patch-8-3-legendary-cloak-ashjrakamas/
+Vessel of Horrific Visions: item 173363; 1,750 Echoes at MOTHER after May hotfix. ItemExtendedCost ID/npc_vendor row NOT FOUND. https://www.wowhead.com/item=173363/vessel-of-horrific-visions ; https://www.mmo-champion.com/content/9144-Patch-8-3-Hotfixes-May-18-2020
+
+PRESERVED CONTAMINANTS
+Twice-weekly rotating inventory, NOT all sold at once. In the table, columns are rank: corruption rating / post-May price in Echoes (currency 1803) / community-addon item bonus ID / community-addon effect spell ID. The rating and price are from the July 2020 historical guide; bonus and spell mapping are from a September 2020 WeakAura, NOT independently verified ItemBonus.db2 rows. CAUTION: the WeakAura's ratings disagree with the guide for several rows (including Siphoner and Twisted Appendage I); do not treat this combined table as an authoritative DB2 mapping. Source guide: https://www.icy-veins.com/wow/corrupted-items-guide-in-patch-8-3-vision-of-n-zoth ; addon: https://wago.io/8l_rRSoOW . Container item IDs for EVERY row except Expedient: NOT FOUND. All rows' ItemExtendedCost IDs, npc_vendor rows, ItemBonus.db2 type and value: NOT FOUND. A bonus ID in a community addon is not proof of its DB2 type/value or of a vendor row.
+Name                    I: rating/price/bonus/spell       II: rating/price/bonus/spell      III: rating/price/bonus/spell
+Avoidant                8/2400/6483/315607              12/3300/6484/315608             16/4250/6485/315609
+Expedient               10/3000/6474/315544             15/4125/6475/315545             20/5000/6476/315546
+Masterful               10/3000/6471/315529             15/4125/6472/315530             20/5000/6473/315531
+Severe                  10/3000/6480/315554             15/4125/6481/315557             20/5000/6482/315558
+Versatile               10/3000/6477/315549             15/4125/6478/315552             20/5000/6479/315553
+Strikethrough           10/3000/6437/315277             15/4125/6438/315281             20/5000/6439/315282
+Siphoner                17/4250/6493/315590             28/6300/6494/315591             45/9000/6495/315592
+Racing Pulse            15/4125/6555/318266             20/5000/6559/318492             35/7875/6560/318496
+Deadly Momentum         15/4125/6556/318268             20/5000/6561/318493             35/7875/6562/318497
+Surging Vitality        15/4125/6558/318270             20/5000/6565/318495             35/7875/6566/318499
+Honed Mind              15/4125/6557/318269             20/5000/6563/318494             35/7875/6564/318498
+Echoing Void            25/6250/6549/318280             35/7875/6550/318485             60/NOT FOUND/6551/318486
+Infinite Stars          20/5000/6552/318274             50/10000/6553/318487            75/15000/6554/318488
+Ineffable Truth         12/3300/6547/318303             30/6750/6548/318484             —
+Twilight Devastation    25/6250/6537/318276             50/10000/6538/318477            75/15000/6539/318478
+Twisted Appendage       10/3000/6543/318481             35/7875/6544/318482             66/13200/6545/318483
+Void Ritual             15/4125/6540/318286             35/7875/6541/318479             66/13200/6542/318480
+Gushing Wound           15/4125/6573/318272             —                                 —
+Glimpse of Clarity      15/4125/6546/318239             —                                 —
+
+Expedient contaminant item IDs: rank I 177973; rank II 177974; rank III 177975. https://wowpedia.fandom.com/wiki/Preserved_Contaminant:_Expedient . Current Wowhead tooltips may say 'Spoiled Contaminant' after the prepatch; do not treat those as 8.3 vendor records. Echoing Void III guide gives 12,000 while another historical report gives 13,200: original exact vendor price NOT FOUND pending reconciliation; do not pick either silently. https://www.icy-veins.com/wow/corrupted-items-guide-in-patch-8-3-vision-of-n-zoth
+
+NEGATIVE EFFECTS / RESISTANCE
+Effective corruption = sum of equipped item corruption minus total corruption resistance; thresholds use effective, not gross, corruption. At effective 1+: Grasping Tendrils, spell 315175, intermittent movement slow; 20+: Eye of Corruption, spell 315169, damaging area; 40+: Grand Delusions, spell 315184, Thing from Beyond; 60+: Cascading Disaster, spell 315857, Thing hit also triggers Tendrils and Eye; 80+: Inevitable Doom, spell 315179, increased damage taken and reduced healing received. Exact per-point penalty coefficient/scaling formula and build-35662 DB2 stat modifier rows: NOT FOUND. These are effects, not a proven fixed percentage penalty per step. https://www.icy-veins.com/wow/corrupted-items-guide-in-patch-8-3-vision-of-n-zoth ; https://www.wowhead.com/spell=315175/grasping-tendrils ; https://www.wowhead.com/spell=315169/eye-of-corruption ; https://shadowlands.wowhead.com/spell=315184/grand-delusions ; https://www.wowhead.com/spell=315857/cascading-disaster ; https://www.wowhead.com/spell=315179/inevitable-doom . Other 'Corruption stat penalty' spell IDs beyond these five: NOT FOUND.
+
+CLOAK / QUESTS
+Ashjra'kamas, Shroud of Resolve item 169223; rank 1–15 (470–500 item level); resistance ranges: rank 1=5, ranks 2–3=12, ranks 4–6=20, ranks 7–8=27, ranks 9–10=35, ranks 11–13=42, ranks 14–15=50. Rank 6 gains Steadfast Resolve; rank 12 gains Draconic Empowerment. After rank 15 Malefic Cores add 3 resistance each up to total 125. Source: https://worldofwarcraft.judgehype.com/article/cape-legendaire-ashjra-kamas-voile-de-determination/ ; https://blizzardwatch.com/2020/06/30/patch-8-3-legendary-cloak-ashjrakamas/ ; https://www.wowhead.com/item=169223/ashjrakamas-shroud-of-resolve .
+Verified chain nodes: Alliance introduction 'An Unwelcome Advisor' 58496; Horde 'Return of the Black Prince' 58582; 'Beginning the Descent' 57290 (cloak reward); upgrade 'Walking in the Darkness' 57398 (The Final Truth). Full ordered faction-specific intro and rank-up quest-ID chains: NOT FOUND. https://www.wowhead.com/quest=58496/an-unwelcome-advisor ; https://www.wowhead.com/quest=58582/return-of-the-black-prince ; https://www.wowhead.com/quest=57290/beginning-the-descent ; https://www.wowhead.com/quest=57398/walking-in-the-darkness .
+
+MISSING FOR DEPLOYMENT: vendor world spawn/world coordinates, npcflags, every npc_vendor and ItemExtendedCost record, most contaminant item IDs, every essence container item ID, authoritative ItemBonus.db2 type/value and exact 35662 hotfix state. No SQL implementation should be generated from this partial research.
