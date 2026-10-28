@@ -1,0 +1,122 @@
+SCOREBOARD OPCODES — build 35662 verification audit
+
+A = WowPacketParser explicitly labeled 8.3.7 build 35249: https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs
+B = HavenWoW header; project README claims 8.3.7 build 35662 (https://github.com/HavenWoW/BFA-HavenCore/blob/master/README.md), but header has no independently demonstrated build-35662 extraction: https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h
+C = Lasko73 header; project README claims build 35662 (https://github.com/Lasko73/BFA_8.3.7-35662/blob/main/README.md), but header provenance is not independently demonstrated: https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h
+A and B are separate repositories, NOT proven independent opcode derivations; 16 matching entries suggest shared older table. C differs on 16/17 shared entries. Neither README establishes wire-capture verification. Exact-build 35662 opcode values: NOT FOUND.
+
+Each citation points to the source line; B is a claimed-35662 project, NOT a verified exact-build opcode table. C is supplied for the requested other-fork comparison.
+
+CMSG_PVP_LOG_DATA
+A (35249): 0x317B https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L533
+B (claimed 35662; actual header build unverified): 0x317B https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L572
+C (claimed 35662; actual header build unverified): 0x317C https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L582
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x317B: matches A and B; differs from C.
+
+SMSG_PVP_MATCH_STATISTICS
+A (35249): 0x25B4 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1550
+B (claimed 35662; actual header build unverified): 0x25B4 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1582
+C (claimed 35662; actual header build unverified): 0x2931 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1653
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x25B4: matches A and B; differs from C.
+
+SMSG_PVP_MATCH_INITIALIZE
+A (35249): 0x28AC https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1548
+B (claimed 35662; actual header build unverified): 0x28AC https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1580
+C (claimed 35662; actual header build unverified): 0x294F https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1651
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x28AC: matches A and B; differs from C.
+
+SMSG_PVP_MATCH_START
+A (35249): 0x28A6 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1549
+B (claimed 35662; actual header build unverified): 0x28A6 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1581
+C (claimed 35662; actual header build unverified): 0x294D https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1652
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x28A6: matches A and B; differs from C.
+
+SMSG_PVP_MATCH_COMPLETE
+A (35249): 0x28A7 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1547
+B (claimed 35662; actual header build unverified): 0x28A7 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1579
+C (claimed 35662; actual header build unverified): 0x294E https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1650
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x28A7: matches A and B; differs from C.
+
+CMSG_BATTLEFIELD_PORT
+A (35249): 0x352F https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L76
+B (claimed 35662; actual header build unverified): 0x352F https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L102
+C (claimed 35662; actual header build unverified): 0x3537 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L108
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x352F: matches A and B; differs from C.
+
+SMSG_UPDATE_OBJECT
+A (35249): 0x2811 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1799
+B (claimed 35662; actual header build unverified): 0x2811 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1828
+C (claimed 35662; actual header build unverified): 0x27B7 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1910
+A/B agree: yes; A/C agree: no; B/C agree: no. User core 0x2811: matches A and B; differs from C.
+
+SMSG_BATTLEFIELD_STATUS_ACTIVE
+A (35249): 0x2592 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L848
+B (claimed 35662; actual header build unverified): 0x2592 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L889
+C (claimed 35662; actual header build unverified): 0x2923 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L918
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+SMSG_BATTLEFIELD_STATUS_QUEUED
+A (35249): 0x2593 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L852
+B (claimed 35662; actual header build unverified): 0x2593 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L893
+C (claimed 35662; actual header build unverified): 0x2924 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L922
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+SMSG_BATTLEFIELD_STATUS_NEED_CONFIRMATION
+A (35249): 0x2591 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L850
+B (claimed 35662; actual header build unverified): 0x2591 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L891
+C (claimed 35662; actual header build unverified): 0x2922 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L920
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+SMSG_BATTLEFIELD_LIST
+A (35249): 0x2596 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L846
+B (claimed 35662; actual header build unverified): 0x2596 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L887
+C (claimed 35662; actual header build unverified): 0x2927 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L916
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+SMSG_PVP_CREDIT
+A (35249): 0x271F https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1546
+B (claimed 35662; actual header build unverified): 0x271F https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1578
+C (claimed 35662; actual header build unverified): 0x2944 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1649
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+SMSG_ARENA_TEAM_STATS
+A (35249): NOT FOUND (no entry in table)
+B (claimed 35662; actual header build unverified): 0xBADD https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1878
+C (claimed 35662; actual header build unverified): 0xBADD https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1964
+A/B agree: no (A missing); A/C agree: no; B/C agree: yes. User core value: not supplied.
+
+CMSG_BATTLEFIELD_LIST
+A (35249): 0x317E https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L75
+B (claimed 35662; actual header build unverified): 0x317E https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L101
+C (claimed 35662; actual header build unverified): 0x317F https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L107
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+CMSG_BATTLEMASTER_JOIN
+A (35249): 0x3528 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L78
+B (claimed 35662; actual header build unverified): 0x3528 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L104
+C (claimed 35662; actual header build unverified): 0x3530 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L110
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+CMSG_BATTLEFIELD_LEAVE
+A (35249): 0x3173 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L74
+B (claimed 35662; actual header build unverified): 0x3173 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L100
+C (claimed 35662; actual header build unverified): 0x3173 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L106
+A/B agree: yes; A/C agree: yes; B/C agree: yes. User core value: not supplied.
+
+SMSG_PVP_OPTIONS_ENABLED
+A (35249): 0x25B7 https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V8_3_7_35249/Opcodes.cs#L1551
+B (claimed 35662; actual header build unverified): 0x25B7 https://github.com/HavenWoW/BFA-HavenCore/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1583
+C (claimed 35662; actual header build unverified): 0x2933 https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Protocol/Opcodes.h#L1654
+A/B agree: yes; A/C agree: no; B/C agree: no. User core value: not supplied.
+
+SMSG_ARENA_TEAM_STATS: 0xBADD in B/C is a placeholder-like value, NOT verified as a usable wire opcode. A has no entry.
+
+Cross-build warning: the four C PvP server values 0x2931, 0x294F, 0x294D and 0x294E occur in the explicitly 9.0.1 build 36216 WowPacketParser table at lines 1611, 1609, 1610, 1608 respectively: https://github.com/TrinityCore/WowPacketParser/blob/master/WowPacketParser/Enums/Version/V9_0_1_36216/Opcodes.cs#L1608-L1611 . Coincidence/copying cannot establish that C is 35662.
+
+Build-35662 packet layouts (field order and bit packing):
+SMSG_PVP_MATCH_INITIALIZE: NOT FOUND (no independently attributable build-35662 parser layout).
+SMSG_PVP_MATCH_START: NOT FOUND (no independently attributable build-35662 parser layout).
+SMSG_PVP_MATCH_COMPLETE: NOT FOUND (no independently attributable build-35662 parser layout).
+Lasko73 has candidate Initialize/Complete writers at https://github.com/Lasko73/BFA_8.3.7-35662/blob/master/src/server/game/Server/Packets/BattlegroundPackets.cpp#L345-L370 but their exact-build applicability is unverified; do not substitute them for 35662 packet captures.
+
+Audit: 17 requested names checked against A/B/C; seven supplied core values match A/B, five supplied other-fork values match C. Of 16 names present in A and C, only CMSG_BATTLEFIELD_LEAVE agrees. Exact 35662 opcodes/layouts remain NOT FOUND; this is a comparison, not a confirmed client opcode patch.
